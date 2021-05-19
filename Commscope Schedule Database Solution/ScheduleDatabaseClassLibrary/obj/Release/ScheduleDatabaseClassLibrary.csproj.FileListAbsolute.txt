@@ -1,0 +1,17 @@
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\bin\Release\ScheduleDatabaseClassLibrary.dll
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\bin\Release\ScheduleDatabaseClassLibrary.pdb
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\bin\Release\Dapper.dll
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\bin\Release\System.Configuration.ConfigurationManager.dll
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\bin\Release\System.Security.AccessControl.dll
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\bin\Release\System.Security.Permissions.dll
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\bin\Release\System.Security.Principal.Windows.dll
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\bin\Release\Dapper.xml
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\bin\Release\System.Configuration.ConfigurationManager.xml
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\bin\Release\System.Security.AccessControl.xml
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\bin\Release\System.Security.Permissions.xml
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\bin\Release\System.Security.Principal.Windows.xml
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Release\ScheduleDatabaseClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Release\ScheduleDatabaseClassLibrary.csproj.CopyComplete
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Release\ScheduleDatabaseClassLibrary.dll
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Release\ScheduleDatabaseClassLibrary.pdb
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\Schedule Database\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Release\ScheduleDatabaseClassLibrary.csproj.ResolveComReference.cache
