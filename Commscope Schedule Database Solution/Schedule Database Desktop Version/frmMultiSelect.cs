@@ -15,7 +15,7 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmMultiSelect : Form
     {
-        private List<AssignmentModel> dataSource;
+        private List<AssignmentDisplayModel> dataSource;
         private List<CustomerModel> customerData;
         private List<LocationModel> locationData;
 
@@ -53,7 +53,7 @@ namespace Schedule_Database_Desktop_Version
                 txtCount.Text = customerData.Count.ToString();
             }
         }
-        public List<AssignmentModel> AssignmentData 
+        public List<AssignmentDisplayModel> AssignmentData 
         {
             get 
             {
@@ -96,7 +96,7 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.New:
                     break;
                 case Mode.Edit:
-                    AssignmentModel assignment = dataSource[selectedRow];
+                    AssignmentDisplayModel assignment = dataSource[selectedRow];
                     GV.ASSIGNMENTFORM.Assignment = assignment;
                     break;
                 case Mode.Undo:
@@ -155,8 +155,8 @@ namespace Schedule_Database_Desktop_Version
         private void btnExport_Click(object sender, EventArgs e)
         {
 
-                ListLooper.ExcelExporter<AssignmentModel> exporter = new ListLooper.ExcelExporter<AssignmentModel>();
-                exporter.List = (List<AssignmentModel>)dgvResults.DataSource;
+                ListLooper.ExcelExporter<AssignmentDisplayModel> exporter = new ListLooper.ExcelExporter<AssignmentDisplayModel>();
+                exporter.List = (List<AssignmentDisplayModel>)dgvResults.DataSource;
                 ReportOps.FormatMultiResultExport(exporter.Wksheet);
 
         }

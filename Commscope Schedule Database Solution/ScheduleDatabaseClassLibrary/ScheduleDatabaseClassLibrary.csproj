@@ -74,6 +74,7 @@
     <Compile Include="Enum.cs" />
     <Compile Include="GeneralOps\AttachmentOps.cs" />
     <Compile Include="GeneralOps\ExcelOps.cs" />
+    <Compile Include="GeneralOps\FE_XMLtoFE_List.cs" />
     <Compile Include="GeneralOps\FileOps.cs" />
     <Compile Include="GeneralOps\ProductIDToProduct.cs" />
     <Compile Include="GeneralOps\ReportOps.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="GeneralOps\ListLooper.cs" />
     <Compile Include="Models\ActivityModel.cs" />
+    <Compile Include="Models\AssignmentDisplayModel.cs" />
     <Compile Include="Models\AssignmentModel.cs" />
     <Compile Include="Models\AssignmentSaveModel.cs" />
     <Compile Include="Models\AttachmentModel.cs" />

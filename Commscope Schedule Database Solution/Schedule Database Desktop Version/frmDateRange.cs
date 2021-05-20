@@ -17,7 +17,7 @@ namespace Schedule_Database_Desktop_Version
     {
         List<FE_Model> GetFEs;
         List<ProductModel> GetProducts;
-        string OrderBy = "";
+        string OrderBy = "StartDate";
        
 
         public frmDateRange()
@@ -52,17 +52,10 @@ namespace Schedule_Database_Desktop_Version
         }
         private void btnSearchDateRange_Click(object sender, EventArgs e)
         {
-            List<AssignmentModel> Assignmnents = GlobalConfig.Connection.DateRangeSearch_SortBy(dtpStartDateRange.Value, dtpEndDateRange.Value, OrderBy);
-            //string pl = Assignmnents[0].ProductList;
-            foreach (var assignment in Assignmnents)
-            {
-
-                if (assignment.ProductListXML != "")
-                {
-                    List<string> products = deserializedProducts(assignment.ProductListXML);
-                }
-            }
-
+            List<AssignmentDisplayModel> Assignmnents = GlobalConfig.Connection.DateRangeSearch_SortBy(dtpStartDateRange.Value, dtpEndDateRange.Value, OrderBy);
+            frmMultiSelect DisplayForm = new frmMultiSelect();
+            DisplayForm.AssignmentData = Assignmnents;
+            DisplayForm.Show();
         }
         private void RadioClick(RadioButton radioButton)
         {
@@ -114,6 +107,11 @@ namespace Schedule_Database_Desktop_Version
         private void rdbOrderByProduct_CheckedChanged(object sender, EventArgs e)
         {
             RadioClick(sender as RadioButton);
+        }
+
+        private void frmDateRange_Load(object sender, EventArgs e)
+        {
+
         }
         //   private List<ProductModel> GetProducts = new List<ProductModel>();
     }

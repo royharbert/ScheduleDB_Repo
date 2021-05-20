@@ -63,7 +63,7 @@ namespace Schedule_Database_Desktop_Version
 
 
             //FEListConverterToXML.ConvertFEListToXML();
-            AssignmentModel assignment = GlobalConfig.Connection.Assignment_GetByID(4885)[0];
+            AssignmentDisplayModel assignment = GlobalConfig.Connection.Assignment_GetByID(4885)[0];
             string feList = assignment.FE_ListXML;
             
             List<FE_Model> result = Serialization.DeserializeToList<List<FE_Model>>(feList);

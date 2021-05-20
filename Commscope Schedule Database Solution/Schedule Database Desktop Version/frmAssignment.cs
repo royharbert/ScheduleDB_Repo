@@ -20,14 +20,14 @@ namespace Schedule_Database_Desktop_Version
     {
 
         //class scope variables
-        AssignmentModel assignment = new AssignmentModel();
+        AssignmentDisplayModel assignment = new AssignmentDisplayModel();
         //List<FE_Model> fe_List = new List<FE_Model>();
         List<ProductModel> productList = new List<ProductModel>();
         private bool dataLoading = false;
         private bool formDirty = false;
         private bool dtpResetting = false;
 
-        public AssignmentModel Assignment
+        public AssignmentDisplayModel Assignment
         {
             get
             {
@@ -36,7 +36,7 @@ namespace Schedule_Database_Desktop_Version
             set
             {
                 assignment = null;
-                assignment = new AssignmentModel();
+                assignment = new AssignmentDisplayModel();
                 assignment = value;
                 fillData(Assignment);
             }
@@ -86,7 +86,7 @@ namespace Schedule_Database_Desktop_Version
             switch (GV.MODE)
             {
                 case Mode.New:
-                    assignment = new AssignmentModel();
+                    assignment = new AssignmentDisplayModel();
                     break;
 
                 default:
@@ -681,7 +681,7 @@ namespace Schedule_Database_Desktop_Version
         /// Populates all boxes on page from data in AssignmentModel input parameter
         /// </summary>
         /// <param name="assignment"></param>
-        private void fillData(AssignmentModel assignment)
+        private void fillData(AssignmentDisplayModel assignment)
         {
             dataLoading = true;
             loadProductsInListbox(assignment.ProductListXML);
@@ -747,7 +747,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void FrmInput_InputDataReady(object sender, InputDataReadyEventArgs e)
         {
-            List<AssignmentModel> requests;
+            List<AssignmentDisplayModel> requests;
             switch (GV.MODE)
             {
                 case Mode.New:
