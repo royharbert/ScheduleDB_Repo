@@ -36,10 +36,6 @@ namespace ScheduleDatabaseClassLibrary.Models
                 {
                     _productList = productList[0] + "\n";
                 }
-                //if (_productList.Length > 0)
-                //{
-                //    _productList = productList[0].Substring(0, productList[0].Length - 1);
-                //}
                 return _productList;
             }
         }

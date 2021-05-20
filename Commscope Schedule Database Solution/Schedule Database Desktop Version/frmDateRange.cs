@@ -33,23 +33,27 @@ namespace Schedule_Database_Desktop_Version
         }
         private List<string> deserializedProducts(string xmlProducts)
         {
-            List<string> productList = null;
-            List<int> products = ScheduleDatabaseClassLibrary.GeneralOps.Serialization.DeserializeToList<List<int>>(xmlProducts);
-            foreach (var item in products)
+            List<string> productList = new List<string>();
+            List<int> products = Serialization.DeserializeToList<List<int>>(xmlProducts);
+            if(products != null) 
             {
-                foreach (var product in GetProducts)
+                foreach(var item in products)
                 {
-                    if (item == product.ID)
+                    foreach (var product in GetProducts)
                     {
-                        productList.Add(product.Product);
+                        if (item == product.ID)
+                        {
+                            productList.Add(product.Product);
+                        }
                     }
-                }
+                } 
             }
             return productList;
         }
         private void btnSearchDateRange_Click(object sender, EventArgs e)
         {
             List<AssignmentModel> Assignmnents = GlobalConfig.Connection.DateRangeSearch_SortBy(dtpStartDateRange.Value, dtpEndDateRange.Value, OrderBy);
+            //string pl = Assignmnents[0].ProductList;
             foreach (var assignment in Assignmnents)
             {
 
