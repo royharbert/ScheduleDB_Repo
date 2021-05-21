@@ -11,7 +11,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
     public interface IDataConnection
     {
         List<T> GetItemByColumn<T>(string tableName,string ColumnName,string StringValue,
-            int IntValue);
+            int IntValue = -1);
         List<AssignmentDisplayModel> DateRangeSearch_SortBy(DateTime StartDate, DateTime EndDate, String Orderby);
         /// <summary>
         /// Returns list of FE_Model containing all active FE's

@@ -15,18 +15,19 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
     public class SqlConnector : IDataConnection
     {
         public List<T> GetItemByColumn<T>(string tableName, string ColumnName, string StringValue,
-            int IntValue)
+            int IntValue = -1)
         {
             string iVal = IntValue.ToString();
 
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
+                List<T> output = new List<T>();
                 var p = new DynamicParameters();
                 p.Add("@TableName", tableName, DbType.String, ParameterDirection.Input);
                 p.Add("@ColumnName", ColumnName, DbType.String, ParameterDirection.Input);
                 p.Add("@IntVal", iVal, DbType.String, ParameterDirection.Input);
                 p.Add("@StringVal", StringValue, DbType.String, ParameterDirection.Input);
-                List<T> output = connection.Query<T>("dbo.spAssignments_GetDateRange", p,
+                output = connection.Query<T>("dbo.spGetItemByColumn", p,
                     commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
