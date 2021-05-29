@@ -20,14 +20,14 @@ namespace Schedule_Database_Desktop_Version
     {
 
         //class scope variables
-        AssignmentDisplayModel assignment = new AssignmentDisplayModel();
+        AssignmentRetrieveModel assignment = new AssignmentRetrieveModel();
         //List<FE_Model> fe_List = new List<FE_Model>();
         List<ProductModel> productList = new List<ProductModel>();
         private bool dataLoading = false;
         private bool formDirty = false;
         private bool dtpResetting = false;
 
-        public AssignmentDisplayModel Assignment
+        public AssignmentRetrieveModel Assignment
         {
             get
             {
@@ -36,7 +36,7 @@ namespace Schedule_Database_Desktop_Version
             set
             {
                 assignment = null;
-                assignment = new AssignmentDisplayModel();
+                assignment = new AssignmentRetrieveModel();
                 assignment = value;
                 fillData(Assignment);
             }
@@ -86,7 +86,7 @@ namespace Schedule_Database_Desktop_Version
             switch (GV.MODE)
             {
                 case Mode.New:
-                    assignment = new AssignmentDisplayModel();
+                    assignment = new AssignmentRetrieveModel();
                     break;
 
                 default:
@@ -253,7 +253,7 @@ namespace Schedule_Database_Desktop_Version
             if (!dataLoading)
             {
                 MSO_Model model = ((MSO_Model)cboMSO.SelectedItem);
-                assignment.MSO_ID = model.Id;
+                assignment.MSO_ID = model.ID;
                 formDirty = true;
                 string PID = PID_Generator.GeneratePID(model);
                 txtPID.Text = PID;
@@ -270,7 +270,7 @@ namespace Schedule_Database_Desktop_Version
             saveInfo.LocationID = LID;
             saveInfo.CRMNumber = txtCRM.Text;
             MSO_Model mso = cboMSO.SelectedItem as MSO_Model;
-            saveInfo.MSO_ID = mso.Id;
+            saveInfo.MSO_ID = mso.ID;
             saveInfo.StartDate = dtpStartDate.Value;
             saveInfo.EndDate = dtpEndDate.Value;
             saveInfo.Activity = cboActivity.Text;
@@ -681,7 +681,7 @@ namespace Schedule_Database_Desktop_Version
         /// Populates all boxes on page from data in AssignmentModel input parameter
         /// </summary>
         /// <param name="assignment"></param>
-        private void fillData(AssignmentDisplayModel assignment)
+        private void fillData(AssignmentRetrieveModel assignment)
         {
             dataLoading = true;
             loadProductsInListbox(assignment.ProductListXML);
@@ -747,7 +747,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void FrmInput_InputDataReady(object sender, InputDataReadyEventArgs e)
         {
-            List<AssignmentDisplayModel> requests;
+            List<AssignmentRetrieveModel> requests;
             switch (GV.MODE)
             {
                 case Mode.New:

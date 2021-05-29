@@ -10,9 +10,10 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
+        List<T> GenericGetAll<T>(string tableName);
         List<T> GetItemByColumn<T>(string tableName,string ColumnName,string StringValue,
             int IntValue = -1);
-        List<AssignmentDisplayModel> DateRangeSearch_SortBy(DateTime StartDate, DateTime EndDate, String Orderby);
+        List<AssignmentRetrieveModel> DateRangeSearch_SortBy(DateTime StartDate, DateTime EndDate, String Orderby);
         /// <summary>
         /// Returns list of FE_Model containing all active FE's
         /// </summary>
@@ -39,20 +40,20 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             string address, string city, string state, string country, string postalCode, string region, int custID);
         void Activity_Update_ID(string activity, int ID);
         List<ActivityModel> Activities_GetAll();
-        List<AssignmentDisplayModel> Assignments_GetByActivity(string activity);
+        List<AssignmentRetrieveModel> Assignments_GetByActivity(string activity);
         void Assignment_CRUD(char action, string ID, DataTable dt);
         void Customer_CRUD(CustomerModel customer, string action);
         List<T> SearchMultipleFields<T>(string TableName, string whereClause);
         List<ProductModel> Products_GetByColumn(string column, string val);
         void Assignment_ProductsTOXML(int ID, string productXML);
-        List<AssignmentDisplayModel> Assignment_GetByID(int ID);
+        List<AssignmentRetrieveModel> Assignment_GetByID(int ID);
 
         /// <summary>
         /// Returns AssignmentModel of request using all or part of RequestID as locator
         /// </summary>
         /// <param name="TID"></param>
         /// <returns></returns>
-        List<AssignmentDisplayModel> Assignment_GetByTripID(string TID);
+        List<AssignmentRetrieveModel> Assignment_GetByTripID(string TID);
         List<RequestorModel> Requestors_GetAll();
         List<CityModel> Cities_GetAll();
         List<ProductModel> Products_GetAll();
@@ -88,7 +89,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         void UpdateCountry(int idx, string designer);        
         List<MSO_Model> MSO_GetAll();
         List<CityModel> GetAllCities();
-        List<AssignmentDisplayModel> Assignments_GetAll();
+        List<AssignmentRetrieveModel> Assignments_GetAll();
         void UpdateTable(string spName, DataTable dataTable);
     }
 }

@@ -227,6 +227,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void dateRangeReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            GV.MODE = Mode.DateRangeReport;
             frmDateRange DateRangeForm = new frmDateRange();
             DateRangeForm.MdiParent = this;
             DateRangeForm.Show();

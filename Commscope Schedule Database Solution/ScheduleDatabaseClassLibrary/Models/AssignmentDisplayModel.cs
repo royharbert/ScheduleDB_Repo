@@ -11,8 +11,7 @@ namespace ScheduleDatabaseClassLibrary.Models
     public class AssignmentDisplayModel
     {
         private string _CustomerFullName;
-        private string _ProductListXML;
-        private string _FE_ListXML;
+        private string _productList = "";
 
         [ExcelExportProperty]
         public string RequestID { get; set; }
@@ -21,6 +20,8 @@ namespace ScheduleDatabaseClassLibrary.Models
         [ExcelExportProperty]
         public string Activity { get; set; }
         [ExcelExportProperty]
+        public string FE_List  { get; set; }
+        [ExcelExportProperty]
         public DateTime StartDate { get; set; }
         [ExcelExportProperty]
         public DateTime EndDate { get; set; }        
@@ -28,9 +29,7 @@ namespace ScheduleDatabaseClassLibrary.Models
         [ExcelExportProperty]
         public string SalesPerson { get; set; }
         [ExcelExportProperty]
-        public string ProductList { get; internal set; }        
-        [ExcelExportProperty]
-        public List<String> FE_List { get; internal set; }
+        public string ProductList { get; set; }        
         [ExcelExportProperty]
         public int NumTechs { get; set; }
         [ExcelExportProperty]
@@ -40,67 +39,20 @@ namespace ScheduleDatabaseClassLibrary.Models
         [ExcelExportProperty]
         public string Comments { get; set; }
         [ExcelExportProperty]
-        public string CRMNumber { get; set; }        
-        public int FE1ID { get; set; }
-        public int FE2ID { get; set; }
-        public int FE3ID { get; set; }
-        public int ContactID { get; set; }
+        public string CRMNumber { get; set; } 
         public bool DocCovid { get; set; }
         public bool DocCrm { get; set; }
         public bool DocTripRpt { get; set; }
         public bool DocWRE { get; set; }
         public bool DocRoster { get; set; }
-        public int MSO_ID { get; set; }
-        public int LocationID { get; set; }
-        public string ProductListXML
-        {
-            get
-            {
-                return _ProductListXML;
-            }
-            
-            set
-            {
-                _ProductListXML = value;
-                List<string> productList = ProductIDToProduct.ProductIdToProduct(ProductListXML);
-                foreach (var item in productList)
-                {
-                   this.ProductList = productList[0] + "\n";
-                }
-            }
-        }
-        public string FE_ListXML 
-        { 
-            get
-            {
-                return _FE_ListXML;
-            }
-            set 
-            {
-                _FE_ListXML = value;
-                this.FE_List = FE_XMLtoFE_List.FE_XMLtoList(this.FE_ListXML);
-            }
-        }
-        public int Requestor { get; set; }
+        public string Requestor { get; set; }
         [ExcelExportProperty]
-        public int ID { get; set; }
-        public string CustFirstName { get; set; }
-        public string CustLastName { get; set; }
-        [ExcelExportProperty]
-        public string CustomerFullName
-        {
-            get
-            {
-                _CustomerFullName = CustFirstName + " " + CustLastName;
-                return _CustomerFullName;
-            }
-        }
+        public string CustomerFullName { get; set; }        
         public string ContactMSO { get; set; }
         [ExcelExportProperty]
         public string CustEMail { get; set; }
         [ExcelExportProperty]
-        public string CustPhone { get; set; }        
-        public int ID_CustomerTable { get; set; }
+        public string CustPhone { get; set; } 
         [ExcelExportProperty]
         public string SiteName { get; set; }        
         public string LocMSO { get; set; }
@@ -116,6 +68,6 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string LocPostalCode { get; set; }
         [ExcelExportProperty]
         public string LocRegion { get; set; }
-        public int Activity_ID { get; set; }
+        public string ActivityD { get; set; }
     }
 }

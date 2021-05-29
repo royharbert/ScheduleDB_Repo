@@ -8,10 +8,14 @@ using ScheduleDatabaseClassLibrary.GeneralOps;
 
 namespace ScheduleDatabaseClassLibrary.Models
 {
-    public class AssignmentModel
+    /// <summary>
+    /// Model to fetch data from assignment table. Conversions from XML lists and indexes will happen in RetrieveToDisplayModel
+    /// </summary>
+    public class AssignmentRetrieveModel : IHaveID
     {
         private string _CustomerFullName;
-        private string _productList = "";
+        private string _ProductListXML;
+        private string _FE_ListXML;
 
         [ExcelExportProperty]
         public string RequestID { get; set; }
@@ -27,18 +31,9 @@ namespace ScheduleDatabaseClassLibrary.Models
         [ExcelExportProperty]
         public string SalesPerson { get; set; }
         [ExcelExportProperty]
-        public string ProductList 
-        { 
-            get
-            {
-                List<string> productList = ProductIDToProduct.ProductIdToProduct(FE_ListXML);
-                foreach (var item in productList)
-                {
-                    _productList = productList[0] + "\n";
-                }
-                return _productList;
-            }
-        }
+        public string ProductList { get; internal set; }        
+        [ExcelExportProperty]
+        public List<String> FE_List { get; internal set; }
         [ExcelExportProperty]
         public int NumTechs { get; set; }
         [ExcelExportProperty]
@@ -48,7 +43,7 @@ namespace ScheduleDatabaseClassLibrary.Models
         [ExcelExportProperty]
         public string Comments { get; set; }
         [ExcelExportProperty]
-        public string CRMNumber { get; set; }        
+        public string CRMNumber { get; set; }
         public int FE1ID { get; set; }
         public int FE2ID { get; set; }
         public int FE3ID { get; set; }
@@ -60,8 +55,35 @@ namespace ScheduleDatabaseClassLibrary.Models
         public bool DocRoster { get; set; }
         public int MSO_ID { get; set; }
         public int LocationID { get; set; }
-        public string ProductListXML { get; set; }
-        public string FE_ListXML { get; set; }
+        public string ProductListXML
+        {
+            get
+            {
+                return _ProductListXML;
+            }
+            
+            set
+            {
+                //_ProductListXML = value;
+                //List<string> productList = ProductIDToProduct.ProductIdToProduct(ProductListXML);
+                //foreach (var item in productList)
+                //{
+                //   this.ProductList = productList[0] + "\n";
+                //}
+            }
+        }
+        public string FE_ListXML 
+        { 
+            get
+            {
+                return _FE_ListXML;
+            }
+            set 
+            {
+                //_FE_ListXML = value;
+                //this.FE_List = FE_XMLtoFE_List.FE_XMLtoList(this.FE_ListXML);
+            }
+        }
         public int Requestor { get; set; }
         [ExcelExportProperty]
         public int ID { get; set; }

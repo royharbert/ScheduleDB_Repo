@@ -16,18 +16,18 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
     {
         private static Excel.Worksheet wks = null;
 
-        public static void excelRequestExport(List<AssignmentModel> list)
+        public static void excelRequestExport(List<AssignmentDisplayModel> list)
         {
             Excel.Application xlApp = makeRequestSheet();
             loadData(list);
             ExcelOps.releaseObject(xlApp);
         }
 
-        private static void loadData(List<AssignmentModel> list)
+        private static void loadData(List<AssignmentDisplayModel> list)
         {
             int row = 2;
 
-            foreach (AssignmentModel item in list)
+            foreach (AssignmentDisplayModel item in list)
             {
                 wks.Cells[row, 1].Value = item.RequestID;
                 wks.Cells[row, 2].Value = item.MSO;
@@ -42,33 +42,33 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                 wks.Cells[row, 11].Value = item.HrsOnSite;
                 wks.Cells[row, 12].Value = item.Comments;
                 wks.Cells[row, 13].Value = item.CRMNumber;
-                wks.Cells[row, 14].Value = item.FE1ID;
-                wks.Cells[row, 15].Value = item.FE2ID;
-                wks.Cells[row, 16].Value = item.FE3ID;
-                wks.Cells[row, 17].Value = item.ContactID;
+                //wks.Cells[row, 14].Value = item.FE1ID;
+                //wks.Cells[row, 15].Value = item.FE2ID;
+                //wks.Cells[row, 16].Value = item.FE3ID;
+                //wks.Cells[row, 17].Value = item.ContactID;
                 wks.Cells[row, 18].Value = item.DocCovid;
                 wks.Cells[row, 19].Value = item.DocCrm;
                 wks.Cells[row, 20].Value = item.DocTripRpt;
                 wks.Cells[row, 21].Value = item.DocWRE;
                 wks.Cells[row, 22].Value = item.DocRoster;
-                wks.Cells[row, 23].Value = item.MSO_ID;
-                wks.Cells[row, 24].Value = item.LocationID;
-                wks.Cells[row, 25].Value = item.ProductListXML;
-                wks.Cells[row, 26].Value = item.Requestor;
-                wks.Cells[row, 27].Value = item.ID;
+                //wks.Cells[row, 23].Value = item.MSO_ID;
+                //wks.Cells[row, 24].Value = item.LocationID;
+                //wks.Cells[row, 25].Value = item.ProductListXML;
+                //wks.Cells[row, 26].Value = item.Requestor;
+                //wks.Cells[row, 27].Value = item.ID;
 
-                wks.Cells[row, 17].Value = item.CustFirstName;
-                wks.Cells[row, 18].Value = item.CustLastName;
+                //ks.Cells[row, 17].Value = item.CustFirstName;
+                //wks.Cells[row, 18].Value = item.CustLastName;
                 wks.Cells[row, 19].Value = item.ContactMSO;
                 wks.Cells[row, 20].Value = item.CustEMail;
                 wks.Cells[row, 21].Value = item.CustPhone;
-                wks.Cells[row, 22].Value = item.ID_CustomerTable;
+                //wks.Cells[row, 22].Value = item.ID_CustomerTable;
                 wks.Cells[row, 23].Value = item.SiteName;
                 wks.Cells[row, 24].Value = item.LocMSO;
                 wks.Cells[row, 25].Value = item.LocAddress;
                 wks.Cells[row, 26].Value = item.LocPostalCode;
                 wks.Cells[row, 27].Value = item.LocRegion;
-                wks.Cells[row, 27].Value = item.Activity_ID;
+                //wks.Cells[row, 27].Value = item.Activity_ID;
                 row++;
             }
         }

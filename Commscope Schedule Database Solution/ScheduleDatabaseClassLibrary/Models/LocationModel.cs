@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScheduleDatabaseClassLibrary.GeneralOps;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ScheduleDatabaseClassLibrary.Models
 {
-    public class LocationModel
+    public class LocationModel : IHaveID
     {
         public int ID { get; set; }
         public string SiteName { get; set; }

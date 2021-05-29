@@ -14,25 +14,36 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 
     public class SqlConnector : IDataConnection
     {
-        public List<T> GetItemByColumn<T>(string tableName, string ColumnName, string StringValue,
-            int IntValue = -1)
+        public List<T> GenericGetAll<T>(string tableName)
         {
-            string iVal = IntValue.ToString();
-
+            var p = new DynamicParameters();
+            p.Add("@TableName", tableName, DbType.String);
+            List<T> list = new List<T>();
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
-                List<T> output = new List<T>();
-                var p = new DynamicParameters();
-                p.Add("@TableName", tableName, DbType.String, ParameterDirection.Input);
-                p.Add("@ColumnName", ColumnName, DbType.String, ParameterDirection.Input);
-                p.Add("@IntVal", iVal, DbType.String, ParameterDirection.Input);
-                p.Add("@StringVal", StringValue, DbType.String, ParameterDirection.Input);
-                output = connection.Query<T>("dbo.spGetItemByColumn", p,
+                list = connection.Query<T>("dbo.spGenericGetAll", p,
                     commandType: CommandType.StoredProcedure).ToList();
-                return output;
+                return list;
             }
         }
-        public List<AssignmentDisplayModel> DateRangeSearch_SortBy(DateTime StartDate, DateTime EndDate, string OrderBy)
+        public List<T> GetItemByColumn<T>(string tableName, string columnName, string stringValue, int intValue = -1)
+        {
+            List<T> list = new List<T>();
+            string iVal = intValue.ToString();
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@TableName", tableName, DbType.String, ParameterDirection.Input);
+                p.Add("@ColumnName", columnName, DbType.String, ParameterDirection.Input);
+                p.Add("@IntValue", iVal, DbType.String, ParameterDirection.Input);
+                p.Add("@StringValue", stringValue, DbType.String, ParameterDirection.Input);
+
+                list = connection.Query<T>("dbo.spGetItemByColumn", p,
+                    commandType: CommandType.StoredProcedure).ToList();
+                return list;
+            }
+        }
+        public List<AssignmentRetrieveModel> DateRangeSearch_SortBy(DateTime StartDate, DateTime EndDate, string OrderBy)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
@@ -41,7 +52,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@end", EndDate, DbType.DateTime, ParameterDirection.Input);
                 p.Add("@order", OrderBy, DbType.String, ParameterDirection.Input);
 
-                List<AssignmentDisplayModel> output = connection.Query<AssignmentDisplayModel>("dbo.spAssignments_GetDateRange", p,
+                List<AssignmentRetrieveModel> output = connection.Query<AssignmentRetrieveModel>("dbo.spAssignments_GetDateRange", p,
                     commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
@@ -191,13 +202,13 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 return output;
             }
         }
-        public List<AssignmentDisplayModel> Assignments_GetByActivity(string activity)
+        public List<AssignmentRetrieveModel> Assignments_GetByActivity(string activity)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(db)))
             {
                 DynamicParameters p = new DynamicParameters();
                 p.Add("@Activity", activity, DbType.String);
-                List<AssignmentDisplayModel> output = connection.Query<AssignmentDisplayModel>("dbo.spAssignments_GetAllOfType", p,
+                List<AssignmentRetrieveModel> output = connection.Query<AssignmentRetrieveModel>("dbo.spAssignments_GetAllOfType", p,
                     commandType: CommandType.StoredProcedure).ToList();
 
                 return output;
@@ -301,26 +312,26 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
 
-        public List<AssignmentDisplayModel> Assignment_GetByID(int ID)
+        public List<AssignmentRetrieveModel> Assignment_GetByID(int ID)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(db)))
             {
                 DynamicParameters p = new DynamicParameters();
                 p.Add("@ID", ID, DbType.Int32);
-                List<AssignmentDisplayModel> output = connection.Query<AssignmentDisplayModel>("dbo.spAssignments_GetByID", p,
+                List<AssignmentRetrieveModel> output = connection.Query<AssignmentRetrieveModel>("dbo.spAssignments_GetByID", p,
                     commandType: CommandType.StoredProcedure).ToList();
 
                 return output;
             }
         }
 
-        public List<AssignmentDisplayModel> Assignment_GetByTripID(string TID)
+        public List<AssignmentRetrieveModel> Assignment_GetByTripID(string TID)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(db)))
             {
                 DynamicParameters p = new DynamicParameters();
                 p.Add("@TID", TID, DbType.String);
-                List<AssignmentDisplayModel> output = connection.Query<AssignmentDisplayModel>("dbo.spAssignments_GetByTripID", p,
+                List<AssignmentRetrieveModel> output = connection.Query<AssignmentRetrieveModel>("dbo.spAssignments_GetByTripID", p,
                     commandType: CommandType.StoredProcedure).ToList();
 
                 return output;
@@ -589,7 +600,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         }
 
 
-        public List<AssignmentDisplayModel> DateRangeSearch_Unfiltered(DateTime StartDate, DateTime EndDate, string SearchTerm)
+        public List<AssignmentRetrieveModel> DateRangeSearch_Unfiltered(DateTime StartDate, DateTime EndDate, string SearchTerm)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
@@ -597,22 +608,22 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 
                 p.Add("@StartDate", StartDate, DbType.DateTime, ParameterDirection.Input);
                 p.Add("@EndDate", EndDate, DbType.DateTime, ParameterDirection.Input);
-                List<AssignmentDisplayModel> output = null;
+                List<AssignmentRetrieveModel> output = null;
 
                 switch (SearchTerm)
                 {
                     case "DateAssigned":
-                        output = connection.Query<AssignmentDisplayModel>("spDateRangeSearch_Unfiltered_DateAssigned",
+                        output = connection.Query<AssignmentRetrieveModel>("spDateRangeSearch_Unfiltered_DateAssigned",
                             p, commandType: CommandType.StoredProcedure).ToList();
                         break;
 
                     case "DateDue":
-                        output = connection.Query<AssignmentDisplayModel>("spDateRangeSearch_Unfiltered_DateDue",
+                        output = connection.Query<AssignmentRetrieveModel>("spDateRangeSearch_Unfiltered_DateDue",
                             p, commandType: CommandType.StoredProcedure).ToList();
                         break;
 
                     case "DateCompleted":
-                        output = connection.Query<AssignmentDisplayModel>("spDateRangeSearch_Unfiltered_DateCompleted",
+                        output = connection.Query<AssignmentRetrieveModel>("spDateRangeSearch_Unfiltered_DateCompleted",
                             p, commandType: CommandType.StoredProcedure).ToList();
                         break;
 
@@ -623,7 +634,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
 
-        public List<AssignmentDisplayModel> DateRangeSearch_MSOFiltered(DateTime StartDate, DateTime EndDate, string SearchTerm, string mso)
+        public List<AssignmentRetrieveModel> DateRangeSearch_MSOFiltered(DateTime StartDate, DateTime EndDate, string SearchTerm, string mso)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
@@ -632,22 +643,22 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@StartDate", StartDate, DbType.DateTime, ParameterDirection.Input);
                 p.Add("@EndDate", EndDate, DbType.DateTime, ParameterDirection.Input);
                 p.Add("@MSO", mso, DbType.String, ParameterDirection.Input);
-                List<AssignmentDisplayModel> output = null;
+                List<AssignmentRetrieveModel> output = null;
 
                 switch (SearchTerm)
                 {
                     case "DateAssigned":
-                        output = connection.Query<AssignmentDisplayModel>("spDateRangeSearch_MSOFiltered_DateAssigned",
+                        output = connection.Query<AssignmentRetrieveModel>("spDateRangeSearch_MSOFiltered_DateAssigned",
                             p, commandType: CommandType.StoredProcedure).ToList();
                         break;
 
                     case "DateDue":
-                        output = connection.Query<AssignmentDisplayModel>("spDateRangeSearch_MSOFiltered_DateDue",
+                        output = connection.Query<AssignmentRetrieveModel>("spDateRangeSearch_MSOFiltered_DateDue",
                             p, commandType: CommandType.StoredProcedure).ToList();
                         break;
 
                     case "DateCompleted":
-                        output = connection.Query<AssignmentDisplayModel>("spDateRangeSearch_MSOFiltered_DateCompleted",
+                        output = connection.Query<AssignmentRetrieveModel>("spDateRangeSearch_MSOFiltered_DateCompleted",
                             p, commandType: CommandType.StoredProcedure).ToList();
                         break;
 
@@ -658,7 +669,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
 
-        public List<AssignmentDisplayModel> GetSnapshotData(string MSO, DateTime start, DateTime end)
+        public List<AssignmentRetrieveModel> GetSnapshotData(string MSO, DateTime start, DateTime end)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
@@ -668,7 +679,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@MSO", MSO, DbType.String, ParameterDirection.Input);
                 p.Add("@StartDate", start, DbType.DateTime, ParameterDirection.Input);
                 p.Add("@EndDate", end, DbType.DateTime, ParameterDirection.Input);
-                List<AssignmentDisplayModel> output = connection.Query<AssignmentDisplayModel>("spDateRangeSearch_MSOFiltered_DateAssigned",
+                List<AssignmentRetrieveModel> output = connection.Query<AssignmentRetrieveModel>("spDateRangeSearch_MSOFiltered_DateAssigned",
                     p, commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
@@ -708,45 +719,45 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
 
-        public List<AssignmentDisplayModel> GetDeletedRecordByPID(string PID)
+        public List<AssignmentRetrieveModel> GetDeletedRecordByPID(string PID)
         {
-            AssignmentDisplayModel request = new AssignmentDisplayModel();
+            AssignmentRetrieveModel request = new AssignmentRetrieveModel();
 
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
 
                 p.Add("@PID", PID, DbType.String, ParameterDirection.Input);
-                List<AssignmentDisplayModel> output = connection.Query<AssignmentDisplayModel>("dbo.spDeletedRequest_GetByPID", p, commandType: CommandType.StoredProcedure).ToList();
+                List<AssignmentRetrieveModel> output = connection.Query<AssignmentRetrieveModel>("dbo.spDeletedRequest_GetByPID", p, commandType: CommandType.StoredProcedure).ToList();
 
                 return output;
             }
         }
 
-        public List<AssignmentDisplayModel> GetOpenRequests()
+        public List<AssignmentRetrieveModel> GetOpenRequests()
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
-                List<AssignmentDisplayModel> output = connection.Query<AssignmentDisplayModel>("dbo.spRequestsGetOpen", commandType: CommandType.StoredProcedure).ToList();
+                List<AssignmentRetrieveModel> output = connection.Query<AssignmentRetrieveModel>("dbo.spRequestsGetOpen", commandType: CommandType.StoredProcedure).ToList();
 
                 return output;
             }
         }
 
-        public List<AssignmentDisplayModel> GetOverdueRequests(DateTime dueDate)
+        public List<AssignmentRetrieveModel> GetOverdueRequests(DateTime dueDate)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
 
                 p.Add("@DueDate", dueDate, DbType.DateTime, ParameterDirection.Input);
-                List<AssignmentDisplayModel> output = connection.Query<AssignmentDisplayModel>("dbo.spRequestsOverdue", p, commandType: CommandType.StoredProcedure).ToList();
+                List<AssignmentRetrieveModel> output = connection.Query<AssignmentRetrieveModel>("dbo.spRequestsOverdue", p, commandType: CommandType.StoredProcedure).ToList();
 
                 return output;
             }
         }
 
-        public List<AssignmentDisplayModel> SearchMultipleFields(string whereClause)
+        public List<AssignmentRetrieveModel> SearchMultipleFields(string whereClause)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
@@ -754,16 +765,16 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 
                 //Project ID
                 p.Add("@WhereClause", whereClause, DbType.String);
-                List<AssignmentDisplayModel> output = connection.Query<AssignmentDisplayModel>("dbo.dspSearch_VariableFields", p, commandType: CommandType.StoredProcedure).ToList();
+                List<AssignmentRetrieveModel> output = connection.Query<AssignmentRetrieveModel>("dbo.dspSearch_VariableFields", p, commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
         }
 
-        public List<AssignmentDisplayModel> Assignments_GetAll()
+        public List<AssignmentRetrieveModel> Assignments_GetAll()
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
-                List<AssignmentDisplayModel> output = connection.Query<AssignmentDisplayModel>("dbo.spAssignments_GetAll", commandType: CommandType.StoredProcedure).ToList();
+                List<AssignmentRetrieveModel> output = connection.Query<AssignmentRetrieveModel>("dbo.spAssignments_GetAll", commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
         }

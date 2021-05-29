@@ -15,11 +15,12 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmMultiSelect : Form
     {
-        private List<AssignmentDisplayModel> dataSource;
+        private List<AssignmentRetrieveModel> dataSource;
         private List<CustomerModel> customerData;
         private List<LocationModel> locationData;
 
         public frmCustomerContact CallingForm { get; set; }
+
         public List<LocationModel> LocationData  
         {
             get
@@ -53,7 +54,7 @@ namespace Schedule_Database_Desktop_Version
                 txtCount.Text = customerData.Count.ToString();
             }
         }
-        public List<AssignmentDisplayModel> AssignmentData 
+        public List<AssignmentRetrieveModel> AssignmentData 
         {
             get 
             {
@@ -76,11 +77,10 @@ namespace Schedule_Database_Desktop_Version
             for (int i = 0; i < dgv.Columns.Count; i++)
             {                
                 DataGridViewCellStyle style = dgv.ColumnHeadersDefaultCellStyle;
-                style.Font = new System.Drawing.Font(dgv.Font, System.Drawing.FontStyle.Bold);
+                style.Font = new Font(dgv.Font, FontStyle.Bold);
                 dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgv.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
-
         }
         public frmMultiSelect()
         {
@@ -96,7 +96,7 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.New:
                     break;
                 case Mode.Edit:
-                    AssignmentDisplayModel assignment = dataSource[selectedRow];
+                    AssignmentRetrieveModel assignment = dataSource[selectedRow];
                     GV.ASSIGNMENTFORM.Assignment = assignment;
                     break;
                 case Mode.Undo:
@@ -120,6 +120,9 @@ namespace Schedule_Database_Desktop_Version
                     LocationModel location = locationData[selectedRow];
                     GV.ASSIGNMENTFORM.FillLocationData(location);
                     GV.MODE = GV.PreviousMode;
+                    break;
+                case Mode.DateRangeReport:
+
                     break;
                 case Mode.None:
                     break;
@@ -155,8 +158,8 @@ namespace Schedule_Database_Desktop_Version
         private void btnExport_Click(object sender, EventArgs e)
         {
 
-                ListLooper.ExcelExporter<AssignmentDisplayModel> exporter = new ListLooper.ExcelExporter<AssignmentDisplayModel>();
-                exporter.List = (List<AssignmentDisplayModel>)dgvResults.DataSource;
+                ListLooper.ExcelExporter<AssignmentRetrieveModel> exporter = new ListLooper.ExcelExporter<AssignmentRetrieveModel>();
+                exporter.List = (List<AssignmentRetrieveModel>)dgvResults.DataSource;
                 ReportOps.FormatMultiResultExport(exporter.Wksheet);
 
         }

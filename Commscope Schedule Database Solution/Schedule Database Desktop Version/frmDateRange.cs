@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace Schedule_Database_Desktop_Version
 {
@@ -52,10 +53,17 @@ namespace Schedule_Database_Desktop_Version
         }
         private void btnSearchDateRange_Click(object sender, EventArgs e)
         {
-            List<AssignmentDisplayModel> Assignmnents = GlobalConfig.Connection.DateRangeSearch_SortBy(dtpStartDateRange.Value, dtpEndDateRange.Value, OrderBy);
+            DateTime startDate = dtpStartDateRange.Value;
+            DateTime endDate = dtpEndDateRange.Value;
+            //Get all assignments in date range
+            List<AssignmentRetrieveModel> Assignments = GlobalConfig.Connection.DateRangeSearch_SortBy(startDate, endDate, OrderBy);
+            //Hashtable table = DB_TableToHashTable.dbTableToHashTable<AssignmentRetrieveModel>(Assignments);
+            List<AssignmentDisplayModel> displayModel = RetrieveToDisplayModel.ConvertRetrieveToDisplay(Assignments);
             frmMultiSelect DisplayForm = new frmMultiSelect();
-            DisplayForm.AssignmentData = Assignmnents;
+            DisplayForm.AssignmentData = Assignments;
             DisplayForm.Show();
+            DisplayForm.BringToFront();
+            this.Close();
         }
         private void RadioClick(RadioButton radioButton)
         {
