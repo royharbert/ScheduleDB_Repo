@@ -59,12 +59,12 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
 
                 //ks.Cells[row, 17].Value = item.CustFirstName;
                 //wks.Cells[row, 18].Value = item.CustLastName;
-                wks.Cells[row, 19].Value = item.ContactMSO;
+                //wks.Cells[row, 19].Value = item.ContactMSO;
                 wks.Cells[row, 20].Value = item.CustEMail;
                 wks.Cells[row, 21].Value = item.CustPhone;
                 //wks.Cells[row, 22].Value = item.ID_CustomerTable;
                 wks.Cells[row, 23].Value = item.SiteName;
-                wks.Cells[row, 24].Value = item.LocMSO;
+                //wks.Cells[row, 24].Value = item.LocMSO;
                 wks.Cells[row, 25].Value = item.LocAddress;
                 wks.Cells[row, 26].Value = item.LocPostalCode;
                 wks.Cells[row, 27].Value = item.LocRegion;

@@ -14,13 +14,11 @@ namespace ScheduleDatabaseClassLibrary.Models
     public class AssignmentRetrieveModel : IHaveID
     {
         private string _CustomerFullName;
-        private string _ProductListXML;
-        private string _FE_ListXML;
 
         [ExcelExportProperty]
         public string RequestID { get; set; }
         [ExcelExportProperty]
-        public string MSO { get; set; }
+        public string MSO { get; set; }        
         [ExcelExportProperty]
         public string Activity { get; set; }
         [ExcelExportProperty]
@@ -29,11 +27,9 @@ namespace ScheduleDatabaseClassLibrary.Models
         public DateTime EndDate { get; set; }        
         public DateTime CustReqDate { get; set; }
         [ExcelExportProperty]
-        public string SalesPerson { get; set; }
+        public string ProductList { get; set; }        
         [ExcelExportProperty]
-        public string ProductList { get; internal set; }        
-        [ExcelExportProperty]
-        public List<String> FE_List { get; internal set; }
+        public List<String> FE_List { get; set; }
         [ExcelExportProperty]
         public int NumTechs { get; set; }
         [ExcelExportProperty]
@@ -55,37 +51,9 @@ namespace ScheduleDatabaseClassLibrary.Models
         public bool DocRoster { get; set; }
         public int MSO_ID { get; set; }
         public int LocationID { get; set; }
-        public string ProductListXML
-        {
-            get
-            {
-                return _ProductListXML;
-            }
-            
-            set
-            {
-                //_ProductListXML = value;
-                //List<string> productList = ProductIDToProduct.ProductIdToProduct(ProductListXML);
-                //foreach (var item in productList)
-                //{
-                //   this.ProductList = productList[0] + "\n";
-                //}
-            }
-        }
-        public string FE_ListXML 
-        { 
-            get
-            {
-                return _FE_ListXML;
-            }
-            set 
-            {
-                //_FE_ListXML = value;
-                //this.FE_List = FE_XMLtoFE_List.FE_XMLtoList(this.FE_ListXML);
-            }
-        }
+        public string ProductListXML { get; set; }        
+        public string FE_ListXML { get; set; }        
         public int Requestor { get; set; }
-        [ExcelExportProperty]
         public int ID { get; set; }
         public string CustFirstName { get; set; }
         public string CustLastName { get; set; }

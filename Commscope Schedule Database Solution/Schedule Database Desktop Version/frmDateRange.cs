@@ -56,9 +56,7 @@ namespace Schedule_Database_Desktop_Version
             DateTime startDate = dtpStartDateRange.Value;
             DateTime endDate = dtpEndDateRange.Value;
             //Get all assignments in date range
-            List<AssignmentRetrieveModel> Assignments = GlobalConfig.Connection.DateRangeSearch_SortBy(startDate, endDate, OrderBy);
-            //Hashtable table = DB_TableToHashTable.dbTableToHashTable<AssignmentRetrieveModel>(Assignments);
-            List<AssignmentDisplayModel> displayModel = RetrieveToDisplayModel.ConvertRetrieveToDisplay(Assignments);
+            List<AssignmentTableModel> Assignments = GlobalConfig.Connection.DateRangeSearch_SortBy(startDate, endDate);
             frmMultiSelect DisplayForm = new frmMultiSelect();
             DisplayForm.AssignmentData = Assignments;
             DisplayForm.Show();

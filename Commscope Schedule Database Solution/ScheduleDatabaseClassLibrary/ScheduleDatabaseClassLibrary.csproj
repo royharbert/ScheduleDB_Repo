@@ -85,6 +85,7 @@
     <Compile Include="GeneralOps\Screens.cs" />
     <Compile Include="GeneralOps\SearchOps.cs" />
     <Compile Include="GeneralOps\Serialization.cs" />
+    <Compile Include="GeneralOps\TableToDisplayConverter.cs" />
     <Compile Include="GeneralOps\WhereClauseGenerator.cs" />
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="GeneralOps\ListLooper.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Models\AssignmentRetrieveModel.cs" />
     <Compile Include="Models\AssignmentDisplayModel.cs" />
     <Compile Include="Models\AssignmentSaveModel.cs" />
+    <Compile Include="Models\AssignmentTableModel.cs" />
     <Compile Include="Models\AttachmentModel.cs" />
     <Compile Include="Models\CityModel.cs" />
     <Compile Include="Models\CompanyHolidaysModel.cs" />

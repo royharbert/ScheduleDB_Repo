@@ -595,8 +595,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboRequestor.Location = new System.Drawing.Point(160, 189);
             this.cboRequestor.Name = "cboRequestor";
             this.cboRequestor.Size = new System.Drawing.Size(201, 24);
-            this.cboRequestor.TabIndex = 52;
-            this.cboRequestor.SelectedIndexChanged += new System.EventHandler(this.cboRequestor_SelectedIndexChanged);
+            this.cboRequestor.TabIndex = 52;            
             // 
             // dtpStartDate
             // 

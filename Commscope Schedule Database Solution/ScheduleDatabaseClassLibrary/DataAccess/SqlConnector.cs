@@ -43,16 +43,15 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 return list;
             }
         }
-        public List<AssignmentRetrieveModel> DateRangeSearch_SortBy(DateTime StartDate, DateTime EndDate, string OrderBy)
+        public List<AssignmentTableModel> DateRangeSearch_SortBy(DateTime StartDate, DateTime EndDate)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@start", StartDate, DbType.DateTime, ParameterDirection.Input);
                 p.Add("@end", EndDate, DbType.DateTime, ParameterDirection.Input);
-                p.Add("@order", OrderBy, DbType.String, ParameterDirection.Input);
 
-                List<AssignmentRetrieveModel> output = connection.Query<AssignmentRetrieveModel>("dbo.spAssignments_GetDateRange", p,
+                List<AssignmentTableModel> output = connection.Query<AssignmentTableModel>("dbo.spAssignments_GetDateRange", p,
                     commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
@@ -325,13 +324,14 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
 
-        public List<AssignmentRetrieveModel> Assignment_GetByTripID(string TID)
+        public List<AssignmentTableModel> Assignment_GetByTripID(string TID)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(db)))
             {
                 DynamicParameters p = new DynamicParameters();
                 p.Add("@TID", TID, DbType.String);
-                List<AssignmentRetrieveModel> output = connection.Query<AssignmentRetrieveModel>("dbo.spAssignments_GetByTripID", p,
+                List<AssignmentTableModel> output = connection.Query<AssignmentTableModel>
+                    ("dbo.spAssignments_AssignmentRequestModel", p,
                     commandType: CommandType.StoredProcedure).ToList();
 
                 return output;

@@ -13,7 +13,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         List<T> GenericGetAll<T>(string tableName);
         List<T> GetItemByColumn<T>(string tableName,string ColumnName,string StringValue,
             int IntValue = -1);
-        List<AssignmentRetrieveModel> DateRangeSearch_SortBy(DateTime StartDate, DateTime EndDate, String Orderby);
+        List<AssignmentTableModel> DateRangeSearch_SortBy(DateTime StartDate, DateTime EndDate);
         /// <summary>
         /// Returns list of FE_Model containing all active FE's
         /// </summary>
@@ -53,7 +53,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         /// </summary>
         /// <param name="TID"></param>
         /// <returns></returns>
-        List<AssignmentRetrieveModel> Assignment_GetByTripID(string TID);
+        List<AssignmentTableModel> Assignment_GetByTripID(string TID);
         List<RequestorModel> Requestors_GetAll();
         List<CityModel> Cities_GetAll();
         List<ProductModel> Products_GetAll();

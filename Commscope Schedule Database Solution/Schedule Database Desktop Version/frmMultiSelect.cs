@@ -15,7 +15,8 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmMultiSelect : Form
     {
-        private List<AssignmentRetrieveModel> dataSource;
+        private List<AssignmentTableModel> retrieveList;
+        private List<AssignmentDisplayModel> displayList;
         private List<CustomerModel> customerData;
         private List<LocationModel> locationData;
 
@@ -31,7 +32,8 @@ namespace Schedule_Database_Desktop_Version
             set
             {
                 locationData = value;
-                dataSource = null;
+                displayList = null;
+                retrieveList = null;
                 customerData = null;
                 dgvResults.DataSource = locationData;
                 txtCount.Text = locationData.Count.ToString();
@@ -48,26 +50,27 @@ namespace Schedule_Database_Desktop_Version
             set 
             {
                 customerData = value;
-                dataSource = null;
+                retrieveList = null;
                 locationData = null;
                 dgvResults.DataSource = customerData;
                 txtCount.Text = customerData.Count.ToString();
             }
         }
-        public List<AssignmentRetrieveModel> AssignmentData 
+        public List<AssignmentTableModel> AssignmentData 
         {
             get 
             {
-                return dataSource;
+                return retrieveList;
             } 
             set 
             {
-                dataSource = value;
+                retrieveList = value;
+                displayList = TableToDisplayConverter.ConvertTableToDisplayModel(retrieveList);
                 customerData = null;
                 locationData = null;
-                dgvResults.DataSource = dataSource;
-                txtCount.Text = dataSource.Count.ToString();
-                formatDGV_Assignment();
+                dgvResults.DataSource = displayList;
+                txtCount.Text = displayList.Count.ToString();
+                //formatDGV_Assignment();
                 setDGV_HeaderText(dgvResults);
             } 
         }
@@ -96,8 +99,9 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.New:
                     break;
                 case Mode.Edit:
-                    AssignmentRetrieveModel assignment = dataSource[selectedRow];
-                    GV.ASSIGNMENTFORM.Assignment = assignment;
+                case Mode.DateRangeReport:
+                    AssignmentDisplayModel assignment = displayList[selectedRow];
+                    GV.ASSIGNMENTFORM.Assignment = retrieveList[selectedRow];
                     break;
                 case Mode.Undo:
                     break;
@@ -121,16 +125,14 @@ namespace Schedule_Database_Desktop_Version
                     GV.ASSIGNMENTFORM.FillLocationData(location);
                     GV.MODE = GV.PreviousMode;
                     break;
-                case Mode.DateRangeReport:
-
-                    break;
+                
                 case Mode.None:
                     break;
                 default:
                     break;
             }
             GV.MAINMENU.BringToFront();
-            this.Close();
+            //this.Close();
         }
 
         private void formatDGV_Assignment()

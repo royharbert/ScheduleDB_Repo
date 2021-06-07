@@ -20,14 +20,14 @@ namespace Schedule_Database_Desktop_Version
     {
 
         //class scope variables
-        AssignmentRetrieveModel assignment = new AssignmentRetrieveModel();
+        AssignmentTableModel assignment = new AssignmentTableModel();
         //List<FE_Model> fe_List = new List<FE_Model>();
         List<ProductModel> productList = new List<ProductModel>();
         private bool dataLoading = false;
         private bool formDirty = false;
         private bool dtpResetting = false;
 
-        public AssignmentRetrieveModel Assignment
+        public AssignmentTableModel Assignment
         {
             get
             {
@@ -35,10 +35,14 @@ namespace Schedule_Database_Desktop_Version
             }
             set
             {
+                List<AssignmentTableModel> retrieveList = new List<AssignmentTableModel>();
                 assignment = null;
-                assignment = new AssignmentRetrieveModel();
+                assignment = new AssignmentTableModel();
+                retrieveList.Add(assignment);
                 assignment = value;
+                this.Show();
                 fillData(Assignment);
+                dataLoading = false;
             }
         }
 
@@ -86,7 +90,7 @@ namespace Schedule_Database_Desktop_Version
             switch (GV.MODE)
             {
                 case Mode.New:
-                    assignment = new AssignmentRetrieveModel();
+                    assignment = new AssignmentTableModel();
                     break;
 
                 default:
@@ -96,6 +100,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmAssignment_Load(object sender, EventArgs e)
         {
+            dataLoading = true;
             ComboBoxListMaker listMaker = new ComboBoxListMaker();
             List<object> fullList = listMaker.FullList;
 
@@ -253,7 +258,8 @@ namespace Schedule_Database_Desktop_Version
             if (!dataLoading)
             {
                 MSO_Model model = ((MSO_Model)cboMSO.SelectedItem);
-                assignment.MSO_ID = model.ID;
+                //TODO use assignment save
+                //assignment.MSO_ID = model.ID;
                 formDirty = true;
                 string PID = PID_Generator.GeneratePID(model);
                 txtPID.Text = PID;
@@ -274,7 +280,8 @@ namespace Schedule_Database_Desktop_Version
             saveInfo.StartDate = dtpStartDate.Value;
             saveInfo.EndDate = dtpEndDate.Value;
             saveInfo.Activity = cboActivity.Text;
-            saveInfo.ProductList = assignment.ProductList;
+            //UserControl AssignmentSaveModel;
+            //saveInfo.ProductList = assignment.ProductList;
             saveInfo.FE1ID = 0;
             saveInfo.FE2ID = 0;
             saveInfo.FE3ID = 0;
@@ -432,15 +439,16 @@ namespace Schedule_Database_Desktop_Version
             formDirty = true;
         }
 
-        private void cboRequestor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!dataLoading)
-            {
-                RequestorModel requestor = (RequestorModel)cboRequestor.SelectedItem;
-                assignment.Requestor = requestor.ID;
-                formDirty = true;
-            }
-        }
+        //TODO  -- Use assignmentSaveModel
+        //private void cboRequestor_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (!dataLoading)
+        //    {
+        //        RequestorModel requestor = (RequestorModel)cboRequestor.SelectedItem;
+        //        assignment.sa = requestor.ID;
+        //        formDirty = true;
+        //    }
+        //}
 
         private void dtpStartDate_ValueChanged(object sender, EventArgs e)
         {
@@ -681,59 +689,63 @@ namespace Schedule_Database_Desktop_Version
         /// Populates all boxes on page from data in AssignmentModel input parameter
         /// </summary>
         /// <param name="assignment"></param>
-        private void fillData(AssignmentRetrieveModel assignment)
+        private void fillData(AssignmentTableModel assignment)
         {
+            List<AssignmentTableModel> assignmentList = new List<AssignmentTableModel>();
+            assignmentList.Add(assignment);
+            List<AssignmentDisplayModel> displayModel = TableToDisplayConverter.ConvertTableToDisplayModel(assignmentList);
+            AssignmentDisplayModel D = displayModel[0];
             dataLoading = true;
-            loadProductsInListbox(assignment.ProductListXML);
-            txtPID.Text = assignment.RequestID;
-            cboMSO.Text = assignment.MSO;
-            setActivityCombo(assignment.Activity_ID);
-            txtCRM.Text = assignment.CRMNumber;
-            cboRequestor.Text = assignment.SalesPerson;
+            //loadProductsInListbox(assignment.ProductListXML);
+            txtPID.Text = D.RequestID;
+            cboMSO.Text = D.MSO;
+            setActivityCombo(D.Activity);
+            txtCRM.Text = D.CRMNumber;
+            cboRequestor.Text = D.SalesPerson;
             dtpEndDate.Format = DateTimePickerFormat.Short;
-            dtpEndDate.Value = assignment.EndDate;
+            dtpEndDate.Value = D.EndDate;
             dtpStartDate.Format = DateTimePickerFormat.Short;
-            dtpStartDate.Value = assignment.StartDate;
+            dtpStartDate.Value = D.StartDate;
             dtpCompleted.Format = DateTimePickerFormat.Short;
             try
             {
-                dtpCompleted.Value = assignment.DateCompleted;
+                dtpCompleted.Value = D.DateCompleted;
                 Application.DoEvents();
             }
             catch (Exception)
             {
 
             }
-            txtHrsOnSite.Text = assignment.HrsOnSite.ToString();
-            txtNumTechs.Text = assignment.NumTechs.ToString();
-            rtbComments.Text = assignment.Comments;
-            txtSiteName.Text = assignment.SiteName;
-            txtAddress.Text = assignment.LocAddress;
-            cboCity.Text = assignment.LocCity;
-            cboState.Text = assignment.LocState;
-            cboCountry.Text = assignment.LocCountry;
-            txtPostalCode.Text = assignment.LocPostalCode;
-            cboRegion.Text = assignment.LocRegion;
-            txtFirstName.Text = assignment.CustFirstName;
-            txtLastName.Text = assignment.CustLastName;
-            txtEMail.Text = assignment.CustEMail;
-            txtPhone.Text = assignment.CustPhone;
-            txtLocID.Text = assignment.LocationID.ToString();
-            txtCustID.Text = assignment.ID_CustomerTable.ToString();
+            txtHrsOnSite.Text = D.HrsOnSite.ToString();
+            txtNumTechs.Text = D.NumTechs.ToString();
+            rtbComments.Text = D.Comments;
+            txtSiteName.Text =  D.SiteName;
+            txtAddress.Text = D.LocAddress;
+            cboCity.Text = D.LocCity;
+            cboState.Text = D.LocState;
+            cboCountry.Text = D.LocCountry;
+            txtPostalCode.Text = D.LocPostalCode;
+            cboRegion.Text = D.LocRegion;
+            //txtFirstName.Text = D.CustFirstName;
+            //txtLastName.Text = D.CustLastName;
+            txtEMail.Text = D.CustEMail;
+            txtPhone.Text = D.CustPhone;
+            //txtLocID.Text = assignment.LocationID.ToString();
+            //txtCustID.Text = assignment.ID_CustomerTable.ToString();
             dgvAttachments.DataSource = getAttachments(txtPID.Text);
             populate_lstFE_WithAvailableAndAssigned();
 
             dataLoading = false;
         }
 
-        private void setActivityCombo(int activityID)
+        private void setActivityCombo(string purpose)
         {
             bool match = false;
             int idx = 0;            
             while(!match & idx < cboActivity.Items.Count)
             {
                 ActivityModel activity = (ActivityModel)cboActivity.Items[idx];
-                if (activity.ID == activityID)
+                if (activity.Purpose == purpose)
                 {
                     cboActivity.SelectedIndex = idx;
                     match = true;
@@ -747,7 +759,8 @@ namespace Schedule_Database_Desktop_Version
 
         private void FrmInput_InputDataReady(object sender, InputDataReadyEventArgs e)
         {
-            List<AssignmentRetrieveModel> requests;
+            List<AssignmentTableModel> requests = new List<AssignmentTableModel>();
+            //List<AssignmentDisplayModel> displayModels = RetrieveToDisplayModel.ConvertRetrieveToDisplay(requests);
             switch (GV.MODE)
             {
                 case Mode.New:
