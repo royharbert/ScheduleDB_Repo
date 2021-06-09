@@ -80,7 +80,6 @@
     <Compile Include="GeneralOps\IHaveID.cs" />
     <Compile Include="GeneralOps\ProductIDToProduct.cs" />
     <Compile Include="GeneralOps\ReportOps.cs" />
-    <Compile Include="GeneralOps\RetrieveToDisplayModel.cs" />
     <Compile Include="GeneralOps\ScheduleOps.cs" />
     <Compile Include="GeneralOps\Screens.cs" />
     <Compile Include="GeneralOps\SearchOps.cs" />
@@ -90,8 +89,8 @@
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="GeneralOps\ListLooper.cs" />
     <Compile Include="Models\ActivityModel.cs" />
-    <Compile Include="Models\AssignmentRetrieveModel.cs" />
     <Compile Include="Models\AssignmentDisplayModel.cs" />
+    <Compile Include="Models\AssignmentRetrieveModel.cs" />
     <Compile Include="Models\AssignmentSaveModel.cs" />
     <Compile Include="Models\AssignmentTableModel.cs" />
     <Compile Include="Models\AttachmentModel.cs" />

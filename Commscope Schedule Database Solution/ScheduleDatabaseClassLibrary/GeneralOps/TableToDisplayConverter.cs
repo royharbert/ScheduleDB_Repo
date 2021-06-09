@@ -20,7 +20,8 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                 D.Comments = T.Comments;
                 D.CRMNumber = T.CRMNumber;
                 D.CustEMail = T.CustEMail;
-                D.CustomerFullName = T.CustFirstName + " " + T.CustLastName;
+                D.CustomerFirstName = T.CustFirstName;
+                D.CustomerLastName = T.CustLastName;
                 D.CustPhone = T.CustPhone;
                 D.CustReqDate = T.CustReqDate;
                 D.DateCompleted = T.DateCompleted;
@@ -45,6 +46,8 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                 D.SalesPerson = T.SalesPerson;
                 D.SiteName = T.SiteName;
                 D.StartDate = T.StartDate;
+                D.CustomerID = T.ContactID;
+                D.LocationID = T.LocationID;
 
                 displayList.Add(D);
             }

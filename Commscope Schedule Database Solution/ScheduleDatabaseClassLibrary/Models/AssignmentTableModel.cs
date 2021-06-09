@@ -46,12 +46,14 @@ namespace ScheduleDatabaseClassLibrary.Models
         public int NumTechs { get; set; }
         public string ProductListXML { get; set; }
         public string FE_ListXML { get; set; }
+        public int ContactID { get; set; }
         public string CustFirstName { get; set; }
         public string CustLastName { get; set; }
         [ExcelExportProperty]
         public string CustEMail { get; set; }
         [ExcelExportProperty]
         public string CustPhone { get; set; }
+        public int LocationID { get; set; }
         [ExcelExportProperty]
         public string SiteName { get; set; }
         [ExcelExportProperty]

@@ -14,39 +14,39 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         List<T> GetItemByColumn<T>(string tableName,string ColumnName,string StringValue,
             int IntValue = -1);
         List<AssignmentTableModel> DateRangeSearch_SortBy(DateTime StartDate, DateTime EndDate);
-        /// <summary>
-        /// Returns list of FE_Model containing all active FE's
-        /// </summary>
-        /// <returns></returns>
-        List<FE_Model> FE_GetAllActive();
+        // <summary>
+        // Returns list of FE_Model containing all active FE's
+        // </summary>
+        // <returns></returns>
+        //List<FE_Model> FE_GetAllActive();
 
         /// <summary>
         /// Returns XML list of FE's assigned to request
         /// </summary>
         /// <param name="RID"></param>
         /// <returns></returns>
-        string FEListXML_GetByRID(string RID);
+        //string FEListXML_GetByRID(string RID);
         List<FE_CalendarModel> GetFEAssignments(DateTime StartDate, DateTime EndDate);
         void UnMakeAssignment(string RID, int FE_ID, DateTime StartDate, DateTime EndDate);
         void MakeAssignment(string RID, int FE_ID, DateTime StartDate, DateTime EndDate);
 
-        /// <summary>
-        /// Uses RequestID to return a list of assigned FE ID's
-        /// </summary>
-        /// <param name="RID"></param>
-        /// <returns></returns>
-        List<int> AssignedFEs_Get(string RID);
+        // <summary>
+        // Uses RequestID to return a list of assigned FE ID's
+        // </summary>
+        // <param name="RID"></param>
+        // <returns></returns>
+        //List<int> AssignedFEs_Get(string RID);
         List<LocationModel> CustomerLocations_Get(string WhereClause, string action, int ID, string siteName, string mso,
             string address, string city, string state, string country, string postalCode, string region, int custID);
         void Activity_Update_ID(string activity, int ID);
-        List<ActivityModel> Activities_GetAll();
-        List<AssignmentRetrieveModel> Assignments_GetByActivity(string activity);
+        //List<ActivityModel> Activities_GetAll();
+        //List<AssignmentTableModel> Assignments_GetByActivity(string activity);
         void Assignment_CRUD(char action, string ID, DataTable dt);
         void Customer_CRUD(CustomerModel customer, string action);
         List<T> SearchMultipleFields<T>(string TableName, string whereClause);
         List<ProductModel> Products_GetByColumn(string column, string val);
         void Assignment_ProductsTOXML(int ID, string productXML);
-        List<AssignmentRetrieveModel> Assignment_GetByID(int ID);
+        List<AssignmentTableModel> Assignment_GetByID(int ID);
 
         /// <summary>
         /// Returns AssignmentModel of request using all or part of RequestID as locator

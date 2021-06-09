@@ -43,11 +43,15 @@ namespace ScheduleDatabaseClassLibrary.Models
         public bool DocWRE { get; set; }
         public bool DocRoster { get; set; }
         [ExcelExportProperty]
-        public string CustomerFullName { get; set; } 
+        public string CustomerFirstName { get; set; }
+        [ExcelExportProperty]
+        public string CustomerLastName { get; set; }
+        public int CustomerID { get; set; }
         [ExcelExportProperty]
         public string CustEMail { get; set; }
         [ExcelExportProperty]
-        public string CustPhone { get; set; } 
+        public string CustPhone { get; set; }
+        public int LocationID { get; set; }
         [ExcelExportProperty]
         public string SiteName { get; set; } 
         [ExcelExportProperty]

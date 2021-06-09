@@ -35,7 +35,6 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                 D.Activity = assignment.Activity;
                 D.Comments = assignment.Comments;
                 D.CustEMail = assignment.CustEMail;
-                D.CustomerFullName = assignment.CustFirstName + " " + assignment.CustLastName;
                 D.CustPhone = assignment.CustPhone; ;
                 D.CRMNumber = assignment.CRMNumber;
                 D.CustReqDate = assignment.CustReqDate;

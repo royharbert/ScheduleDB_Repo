@@ -109,10 +109,12 @@ namespace Schedule_Database_Desktop_Version
                     customer = customerData[selectedRow];
                     GV.ASSIGNMENTFORM.FillCustomerData(customer);
                     GV.MODE = GV.PreviousMode;
+                    this.Close();
                     break;
                 case Mode.CustomerSearchMDI:
                     customer = customerData[selectedRow];
                     CallingForm.FillBoxes(customer);
+                    this.Close();
                     break;
                 // added this LD not sure....
                 case Mode.DeleteCustomer:
@@ -124,8 +126,8 @@ namespace Schedule_Database_Desktop_Version
                     LocationModel location = locationData[selectedRow];
                     GV.ASSIGNMENTFORM.FillLocationData(location);
                     GV.MODE = GV.PreviousMode;
-                    break;
-                
+                    this.Close();
+                    break;                
                 case Mode.None:
                     break;
                 default:
@@ -160,8 +162,8 @@ namespace Schedule_Database_Desktop_Version
         private void btnExport_Click(object sender, EventArgs e)
         {
 
-                ListLooper.ExcelExporter<AssignmentRetrieveModel> exporter = new ListLooper.ExcelExporter<AssignmentRetrieveModel>();
-                exporter.List = (List<AssignmentRetrieveModel>)dgvResults.DataSource;
+                ListLooper.ExcelExporter<AssignmentTableModel> exporter = new ListLooper.ExcelExporter<AssignmentTableModel>();
+                exporter.List = (List<AssignmentTableModel>)dgvResults.DataSource;
                 ReportOps.FormatMultiResultExport(exporter.Wksheet);
 
         }

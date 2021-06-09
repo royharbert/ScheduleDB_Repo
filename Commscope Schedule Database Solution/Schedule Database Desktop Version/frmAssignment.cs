@@ -21,7 +21,6 @@ namespace Schedule_Database_Desktop_Version
 
         //class scope variables
         AssignmentTableModel assignment = new AssignmentTableModel();
-        //List<FE_Model> fe_List = new List<FE_Model>();
         List<ProductModel> productList = new List<ProductModel>();
         private bool dataLoading = false;
         private bool formDirty = false;
@@ -35,11 +34,11 @@ namespace Schedule_Database_Desktop_Version
             }
             set
             {
-                List<AssignmentTableModel> retrieveList = new List<AssignmentTableModel>();
                 assignment = null;
-                assignment = new AssignmentTableModel();
-                retrieveList.Add(assignment);
                 assignment = value;
+                List<AssignmentTableModel> retrieveList = new List<AssignmentTableModel>();
+                retrieveList.Add(assignment);
+                //assignment = new AssignmentTableModel();
                 this.Show();
                 fillData(Assignment);
                 dataLoading = false;
@@ -310,6 +309,8 @@ namespace Schedule_Database_Desktop_Version
             saveInfo.FE_ListXML = serializeFE();
             ActivityModel activity =(ActivityModel)cboActivity.SelectedItem;
             saveInfo.Activity_ID = activity.ID;
+            saveInfo.LocationID = assignment.LocationID;
+            saveInfo.ContactID = assignment.ContactID;
 
             return saveInfo;
         }
@@ -696,7 +697,7 @@ namespace Schedule_Database_Desktop_Version
             List<AssignmentDisplayModel> displayModel = TableToDisplayConverter.ConvertTableToDisplayModel(assignmentList);
             AssignmentDisplayModel D = displayModel[0];
             dataLoading = true;
-            //loadProductsInListbox(assignment.ProductListXML);
+            loadProductsInListbox(assignment.ProductListXML);
             txtPID.Text = D.RequestID;
             cboMSO.Text = D.MSO;
             setActivityCombo(D.Activity);
@@ -726,12 +727,12 @@ namespace Schedule_Database_Desktop_Version
             cboCountry.Text = D.LocCountry;
             txtPostalCode.Text = D.LocPostalCode;
             cboRegion.Text = D.LocRegion;
-            //txtFirstName.Text = D.CustFirstName;
-            //txtLastName.Text = D.CustLastName;
+            txtFirstName.Text = assignment.CustFirstName;
+            txtLastName.Text = assignment.CustLastName;
             txtEMail.Text = D.CustEMail;
             txtPhone.Text = D.CustPhone;
-            //txtLocID.Text = assignment.LocationID.ToString();
-            //txtCustID.Text = assignment.ID_CustomerTable.ToString();
+            txtLocID.Text = D.LocationID.ToString();
+            txtCustID.Text = D.CustomerID.ToString();
             dgvAttachments.DataSource = getAttachments(txtPID.Text);
             populate_lstFE_WithAvailableAndAssigned();
 
@@ -866,6 +867,7 @@ namespace Schedule_Database_Desktop_Version
         {
             dataLoading = true;
             pnlCompletion.Visible = true;
+            pnlCompletion.BringToFront();
             if (assignment.DateCompleted < DateTime.Parse("1/1/1900"))
             {
                 dtpCompleted.Format = DateTimePickerFormat.Custom;
@@ -1150,6 +1152,26 @@ namespace Schedule_Database_Desktop_Version
         private void btnSaveCompletion_Click(object sender, EventArgs e)
         {
             saveEdit();
+        }
+
+        private void txtFirstName_Enter(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnSearchContacts;
+        }
+
+        private void txtFirstName_Leave(object sender, EventArgs e)
+        {
+            this.AcceptButton = null;
+        }
+
+        private void txtSiteName_Enter(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnSearchLocations;
+        }
+
+        private void txtSiteName_Leave(object sender, EventArgs e)
+        {
+            this.AcceptButton = null;
         }
     }
 }
