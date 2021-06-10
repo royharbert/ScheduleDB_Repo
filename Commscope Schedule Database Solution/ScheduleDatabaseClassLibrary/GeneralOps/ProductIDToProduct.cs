@@ -19,8 +19,8 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
             {
                 for (int j = 0; j < productList.Count; j++)
                 {
-                    List<ProductModel> products = GlobalConfig.Connection.Products_GetByColumn("ID",
-                        productList[j].ToString());
+                    List<ProductModel> products = GlobalConfig.Connection.GetItemByColumn<ProductModel>
+                        ("tblProducts", "ID","",  productList[j]);
                     if (products.Count > 0)
                     {
                         productNameList.Add(products[0].Product);

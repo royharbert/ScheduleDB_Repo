@@ -86,12 +86,12 @@ namespace Schedule_Database_Desktop_Version
             cboMSO.DisplayMember = "MSO";
             cboMSO.SelectedIndex = -1;
 
-            List<CityModel> cities = GlobalConfig.Connection.Cities_GetAll();
+            List<CityModel> cities = GlobalConfig.Connection.GenericGetAll<CityModel>("tblCities");
             cboCity.DataSource = cities;
             cboCity.DisplayMember = "City";
             cboCity.SelectedIndex = -1;
 
-            List<StateModel> states = GlobalConfig.Connection.States_GetAll();
+            List<StateModel> states = GlobalConfig.Connection.GenericGetAll<StateModel>("tblStates");
             cboState.DataSource = states;
             cboState.DisplayMember = "Abbreviation";
             cboState.SelectedIndex = -1;
@@ -101,7 +101,7 @@ namespace Schedule_Database_Desktop_Version
             cboCountry.DisplayMember = "Country";
             cboCountry.SelectedIndex = -1;
 
-            List<RegionsModel> regions = GlobalConfig.Connection.Regions_GetAll();
+            List<RegionsModel> regions = GlobalConfig.Connection.GenericGetAll< RegionsModel>("tblRegions");
             cboRegion.DataSource = regions;
             cboRegion.DisplayMember = "Region";
             cboRegion.SelectedIndex = -1;

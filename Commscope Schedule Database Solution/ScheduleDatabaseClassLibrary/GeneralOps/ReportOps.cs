@@ -14,10 +14,9 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
 
             string[] headers = new string[]
             {
-                "Request ID", "MSO", "Activity", "Start Date", "End Date","Salesperson", "Product List", "Number of Techs", "Date Completed",
-                "Hours on Site", "Comments", "CRM Number", "Requestor", "Customer Name",  "Customer Email",
-                "Customer Phone", "Site Name", "Site Address", "City", "State", "Country",
-                "Postal Code", "Region"
+                "Request ID", "MSO", "Activity", "Engineer(s)", "Start Date","End Date", "Salesperson", "Product(s)", "Number of Techs",
+                "Date Completed", "Hours on Site", "Comments", "CRM Number", "Customer First Name", "Customer Last Name", "Customer EMail", "Customer Phone",
+                "Site Name", "Site Address", "Site City", "Site State", "Site Country", "Site Postal Code", "Site Region"
             };
             placeHeaderTextInExport(wks, headers);
             formatExcelHeaderRow(wks);
@@ -25,16 +24,12 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
             int[] widths = new int[]
             {
             //  A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  AA AB  
-                26,15,20,15,15,15,15,15,18,15,25,22,15,15,25,15,18,18,15,18,18,15,18
+                24,25,20,25,15,15,19,25,15,15,10,30,15,10,10,32,16,10,15,18,12,15,14
             };
 
             string[] currencyCols = { "" };
             //FormatExcelColumnsAsCurrency(wks, currencyCols);
             setExcelExportColumnWidths(wks, widths);
-            wks.get_Range("R:R").WrapText = true;
-            wks.get_Range("Z:Z").WrapText = true;
-            wks.get_Range("AA:AA").WrapText = false;
-            wks.get_Range("L:L").WrapText = true;
 
             int[] cols = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 };
             CenterSpecificExcelColumns(wks, cols);

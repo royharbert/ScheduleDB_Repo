@@ -25,7 +25,7 @@ namespace Schedule_Database_Desktop_Version
         {
             InitializeComponent();
             GetFEs = GlobalConfig.Connection.FE_GetAll();
-            GetProducts = GlobalConfig.Connection.Products_GetAll();
+            GetProducts = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts");
         }
 
         private void btnCloseForm_Click(object sender, EventArgs e)

@@ -520,9 +520,9 @@ namespace Schedule_Database_Desktop_Version
                 if (productList.Count > 0)
                 {
                     for (int j = 0; j < productList.Count; j++)
-                    {
-                        List<ProductModel> products = GlobalConfig.Connection.Products_GetByColumn("ID",
-                            productList[j].ToString());
+                    {                       
+                        List<ProductModel> products = GlobalConfig.Connection.GetItemByColumn<ProductModel>
+                            ("tblProducts", "ID", "", productList[j]);
                         if (products.Count > 0)
                         {
                             productModelList.Add(products[0]);
@@ -767,7 +767,7 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.New:
                     break;
                 case Mode.Edit:
-                    requests = GlobalConfig.Connection.Assignment_GetByTripID(e.SearchString);
+                    requests = GlobalConfig.Connection.AssignmentSearch(e.SearchString);
                     switch (requests.Count)
                     {
                         case 0:

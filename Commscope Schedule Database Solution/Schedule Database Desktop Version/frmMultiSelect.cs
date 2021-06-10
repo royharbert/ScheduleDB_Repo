@@ -102,6 +102,7 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.DateRangeReport:
                     AssignmentDisplayModel assignment = displayList[selectedRow];
                     GV.ASSIGNMENTFORM.Assignment = retrieveList[selectedRow];
+                    GV.ASSIGNMENTFORM.BringToFront();
                     break;
                 case Mode.Undo:
                     break;
@@ -161,11 +162,9 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-
-                ListLooper.ExcelExporter<AssignmentTableModel> exporter = new ListLooper.ExcelExporter<AssignmentTableModel>();
-                exporter.List = (List<AssignmentTableModel>)dgvResults.DataSource;
-                ReportOps.FormatMultiResultExport(exporter.Wksheet);
-
+            ListLooper.ExcelExporter<AssignmentDisplayModel> exporter = new ListLooper.ExcelExporter<AssignmentDisplayModel>();
+            exporter.List = (List<AssignmentDisplayModel>)dgvResults.DataSource;
+            ReportOps.FormatMultiResultExport(exporter.Wksheet);
         }
     }
 }

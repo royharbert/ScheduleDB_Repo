@@ -32,3 +32,4 @@ C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule 
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Release\ScheduleDatabaseClassLibrary.csproj.CopyComplete
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Release\ScheduleDatabaseClassLibrary.dll
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Release\ScheduleDatabaseClassLibrary.pdb
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Release\ScheduleDatabaseClassLibrary.csprojAssemblyReference.cache

@@ -14,6 +14,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 
     public class SqlConnector : IDataConnection
     {
+        public static string db { get; set; }
         public List<T> GenericGetAll<T>(string tableName)
         {
             var p = new DynamicParameters();
@@ -60,42 +61,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 return output;
             }
         }
-        //public List<FE_Model> FE_GetAllActive()
-        //{
-        //    using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
-        //    {
-        //        List<FE_Model> output = connection.Query<FE_Model>("dbo.spFE_GetAllActive",
-        //           commandType: CommandType.StoredProcedure).ToList();
-        //        if (output.Count>0)
-        //        {
-        //            return output;
-        //        }
-        //        else
-        //        {
-        //            return null;
-        //        }
-        //    }
-        //}
-
-        //public string FEListXML_GetByRID(string RID)
-        //{
-        //    using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
-        //    {
-        //        var p = new DynamicParameters();
-        //        p.Add("@Request", RID, DbType.String);
-                
-        //        List<string> outputList = connection.Query<string>("dbo.spFEListXML_GetByRID", p,
-        //       commandType: CommandType.StoredProcedure).ToList();
-        //        if (outputList.Count > 0)
-        //        {
-        //            return outputList[0];
-        //        }
-        //        else
-        //        {
-        //            return null;
-        //        }
-        //    }
-        //}
         public List<FE_CalendarModel> GetFEAssignments(DateTime StartDate, DateTime EndDate)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
@@ -135,28 +100,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                     commandType: CommandType.StoredProcedure);
             }
         }
-        /// <summary>
-        /// takes RequestID and returns list of FE ID's assigned to it
-        /// </summary>
-        /// <param name="RID"></param>
-        /// <returns></returns>
-        //public List<int> AssignedFEs_Get(string RID)
-        //{
-        //    using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
-        //    {
-        //        List<string> output = new List<string>();
-        //        List<int> outputInt = new List<int>();
-        //        var p = new DynamicParameters();
-        //        p.Add("@RID", RID, DbType.String);
-        //        output = connection.Query<string>("dbo.spAssignedFEs_Get", p,
-        //           commandType: CommandType.StoredProcedure).ToList();
-        //        if (output.Count > 0)
-        //        {
-        //            outputInt = GeneralOps.Serialization.DeserializeToList<List<int>>(output[0]);
-        //        }
-        //        return outputInt;
-        //    }
-        //}
 
         public List<LocationModel> CustomerLocations_Get(string WhereClause, string action, int ID, string siteName, string mso, 
             string address, string city, string state, string country, string postalCode, string region, int custID)
@@ -195,28 +138,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                     commandType: CommandType.StoredProcedure);
             }
         }
-        //public List<ActivityModel> Activities_GetAll()
-        //{
-        //    using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
-        //    {            
-        //        List<ActivityModel> output = connection.Query<ActivityModel>("dbo.spActivity_GetAll", 
-        //            commandType: CommandType.StoredProcedure).ToList();
 
-        //        return output;
-        //    }
-        //}
-        //public List<AssignmentTableModel> Assignments_GetByActivity(string activity)
-        //{
-        //    using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(db)))
-        //    {
-        //        DynamicParameters p = new DynamicParameters();
-        //        p.Add("@Activity", activity, DbType.String);
-        //        List<AssignmentTableModel> output = connection.Query<AssignmentTableModel>("dbo.spAssignments_GetAllOfType", p,
-        //            commandType: CommandType.StoredProcedure).ToList();
-
-        //        return output;
-        //    }
-        //}
         public void Assignment_CRUD(char action, string ID, DataTable dt)
         {
             string db;
@@ -287,21 +209,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 return output;
             }
         }
-        public static string db { get; set; }
-
-        public List<ProductModel> Products_GetByColumn(string column, string val)
-        {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(db)))
-            {
-                DynamicParameters p = new DynamicParameters();
-                p.Add("@Column", column, DbType.String);
-                p.Add("@Value", val, DbType.String);
-                List<ProductModel> output = connection.Query<ProductModel>("dbo.spProducts_GetByColumn", p,
-                    commandType: CommandType.StoredProcedure).ToList();
-
-                return output;
-            }
-        }
         public void Assignment_ProductsTOXML(int ID, string productXML)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
@@ -312,33 +219,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 
                 connection.Execute("dbo.spAssignments_Product_ListUpdateXMLByID", p, 
                     commandType: CommandType.StoredProcedure);
-            }
-        }
-
-        public List<AssignmentTableModel> Assignment_GetByID(int ID)
-        {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(db)))
-            {
-                DynamicParameters p = new DynamicParameters();
-                p.Add("@ID", ID, DbType.Int32);
-                List<AssignmentTableModel> output = connection.Query<AssignmentTableModel>("dbo.spAssignments_GetByID", p,
-                    commandType: CommandType.StoredProcedure).ToList();
-
-                return output;
-            }
-        }
-
-        public List<AssignmentTableModel> Assignment_GetByTripID(string TID)
-        {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(db)))
-            {
-                DynamicParameters p = new DynamicParameters();
-                p.Add("@TID", TID, DbType.String);
-                List<AssignmentTableModel> output = connection.Query<AssignmentTableModel>
-                    ("dbo.spAssignments_AssignmentRequestModel", p,
-                    commandType: CommandType.StoredProcedure).ToList();
-
-                return output;
             }
         }
 
@@ -823,8 +703,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             {
                 DynamicParameters p = new DynamicParameters();
                 p.Add("@ID", ID, DbType.Int32);
-                List<FE_Model> output = connection.Query<FE_Model>("dbo.spFE_GetByID", p, commandType: CommandType.StoredProcedure).ToList();
-                //List<RequestModel> output = connection.Query<RequestModel>("dbo.dspSearch_VariableFields", p, commandType: CommandType.StoredProcedure).ToList();
+                List<FE_Model> output = connection.Query<FE_Model>("dbo.spFE_GetByID", p, commandType: CommandType.StoredProcedure).ToList();               
                 return output;
             }
         }
@@ -862,52 +741,15 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
 
-        public List<CityModel> Cities_GetAll()
+        public List<AssignmentTableModel> AssignmentSearch(string searchString)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
-                List<CityModel> output = connection.Query<CityModel>("dbo.spCities_GetAll",
-                    commandType: CommandType.StoredProcedure).ToList();
-                return output;
-            }
-        }
-
-        public List<ProductModel> Products_GetAll()
-        {
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
-            {
-                List<ProductModel> output = connection.Query<ProductModel>("dbo.spProducts_GetAll",
-                    commandType: CommandType.StoredProcedure).ToList();
-                return output;
-            }
-        }
-
-        public List<RegionsModel> Regions_GetAll()
-        {
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
-            {
-                List<RegionsModel> output = connection.Query<RegionsModel>("dbo.spRegions_GetAll",
-                    commandType: CommandType.StoredProcedure).ToList();
-                return output;
-            }
-        }
-
-        public List<StateModel> States_GetAll()
-        {
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
-            {
-                List<StateModel> output = connection.Query<StateModel>("dbo.spStates_GetAll",
-                    commandType: CommandType.StoredProcedure).ToList();
-                return output;
-            }
-        }
-
-        public List<RequestorModel> Requestors_GetAll()
-        {
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
-            {
-                List<RequestorModel> output = connection.Query<RequestorModel>("dbo.spRequestors_GetAll",
-                    commandType: CommandType.StoredProcedure).ToList();
+                DynamicParameters p = new DynamicParameters();
+                
+                p.Add("@TID", searchString, DbType.String);
+                List<AssignmentTableModel> output = connection.Query<AssignmentTableModel>
+                    ("dbo.spAssignments_GetByTripID", p, commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
         }

@@ -164,6 +164,7 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                 Excel.Worksheet wks = xlApp.ActiveSheet;
                 wks.get_Range("1:1").WrapText = true;
                 wks.get_Range("1:1").Font.Bold = true;
+                wks.get_Range("A:AC").WrapText = true;
 
                 //get property names, place in row 1
 
@@ -196,7 +197,7 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                 col = 1;
                 foreach (var request in list)
                 {
-                    foreach (PropertyInfo prop in props)
+                    foreach (var prop in props)
                     {
                         wks.Cells[row, col].Value = prop.GetValue(request);
                         col++;

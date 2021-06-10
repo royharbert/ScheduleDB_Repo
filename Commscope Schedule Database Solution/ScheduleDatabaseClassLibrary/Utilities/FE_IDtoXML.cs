@@ -51,7 +51,8 @@ namespace ScheduleDatabaseClassLibrary.Utilities
                         List<string> productString = products.ToList();
                         foreach (var item in productString)
                         {
-                            List<ProductModel> product = GlobalConfig.Connection.Products_GetByColumn("Product", item);
+                            List<ProductModel> product = GlobalConfig.Connection.GetItemByColumn<ProductModel>
+                                ("tblProducts", "Product", item, -1);
                             productIDs.Add(product[0].ID);
                         }
                         string productXML = GeneralOps.Serialization.SerializeToXml(productIDs);

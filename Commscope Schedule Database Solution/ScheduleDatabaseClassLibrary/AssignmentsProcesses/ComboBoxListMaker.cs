@@ -31,22 +31,22 @@ namespace ScheduleDatabaseClassLibrary.AssignmentsProcesses
             List<FE_Model> feList = GlobalConfig.Connection.FE_GetAll();
             feList.Insert(0, new FE_Model());
             fullList.Add(feList);
-            List<CityModel> cityList = GlobalConfig.Connection.Cities_GetAll();
+            List<CityModel> cityList = GlobalConfig.Connection.GenericGetAll<CityModel>("tblCities");
             cityList.Insert(0, new CityModel());
             fullList.Add(cityList);
-            List<StateModel> stateList = GlobalConfig.Connection.States_GetAll();
+            List<StateModel> stateList = GlobalConfig.Connection.GenericGetAll<StateModel>("tblStates");
             stateList.Insert(0, new StateModel());
             fullList.Add(stateList);
             List<CountriesModel> countryList = GlobalConfig.Connection.Countries_GetAll();
             countryList.Insert(0, new CountriesModel());
             fullList.Add(countryList);
-            List<RegionsModel> regionList = GlobalConfig.Connection.Regions_GetAll();
+            List<RegionsModel> regionList = GlobalConfig.Connection.GenericGetAll< RegionsModel>("tblRegions");
             regionList.Insert(0, new RegionsModel());
             fullList.Add(regionList);
-            List<RequestorModel> requestorList = GlobalConfig.Connection.Requestors_GetAll();
+            List<RequestorModel> requestorList = GlobalConfig.Connection.GenericGetAll<RequestorModel>("tblSalespersons");
             requestorList.Insert(0, new RequestorModel());
             fullList.Add(requestorList);
-            List<ProductModel> productList = GlobalConfig.Connection.Products_GetAll();
+            List<ProductModel> productList = GlobalConfig.Connection.GenericGetAll< ProductModel>("tblProducts");
             productList.Insert(0, new ProductModel());
             fullList.Add(productList);
         }
