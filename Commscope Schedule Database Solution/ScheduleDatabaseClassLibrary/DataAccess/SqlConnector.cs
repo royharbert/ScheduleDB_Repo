@@ -253,10 +253,12 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         public List<UserModel> GetUsers_All()
         {
             List<UserModel> output = null;
-            ;
+            
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
-                output = connection.Query<UserModel>("dbo.spUsers_GetAll").ToList();
+                var p = new DynamicParameters();
+                p.Add("@TableName", "tblUsers",DbType.String);
+                output = connection.Query<UserModel>("dbo.spGenericGetAll",p, commandType: CommandType.StoredProcedure).ToList();
             }
 
             return output;
@@ -335,7 +337,11 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
-                List<CompanyHolidaysModel> output = connection.Query<CompanyHolidaysModel>("dbo.spHolidays_GetAll", commandType: CommandType.StoredProcedure).ToList();
+                var p = new DynamicParameters();
+
+                p.Add("@TableName", "tblHolidaysList", DbType.String, ParameterDirection.Input);
+                List<CompanyHolidaysModel> output = connection.Query<CompanyHolidaysModel>("dbo.spGenericGetAll", p, 
+                    commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
         }
