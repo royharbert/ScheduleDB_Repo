@@ -376,7 +376,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 
         }
 
-        public void UpdateFE(char Action, int ID, string FirstName, string LastName, string ManagerID, string Region, string Phone, string EMail, bool Active)
+        public void UpdateFE(string Action, int ID, string FirstName, string LastName, string ManagerID, string Region, string Phone, string EMail, bool Active)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {

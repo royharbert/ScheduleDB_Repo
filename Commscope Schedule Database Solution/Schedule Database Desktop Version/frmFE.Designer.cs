@@ -42,7 +42,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtFE_ManagerID = new System.Windows.Forms.TextBox();
             this.lblFE_Email = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnFE_Save = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lst_FieldEngineer = new System.Windows.Forms.ListBox();
@@ -53,6 +53,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtFE_Active = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_ClearFields = new System.Windows.Forms.Button();
+            this.btnFE_Add = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtFE_FirstName
@@ -160,14 +161,15 @@ namespace Schedule_Database_Desktop_Version
             this.label8.TabIndex = 16;
             this.label8.Text = "Field Engineer Information:";
             // 
-            // btnAdd
+            // btnFE_Save
             // 
-            this.btnAdd.Location = new System.Drawing.Point(602, 299);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(150, 20);
-            this.btnAdd.TabIndex = 17;
-            this.btnAdd.Text = "Add/Save";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnFE_Save.Location = new System.Drawing.Point(602, 299);
+            this.btnFE_Save.Name = "btnFE_Save";
+            this.btnFE_Save.Size = new System.Drawing.Size(150, 20);
+            this.btnFE_Save.TabIndex = 17;
+            this.btnFE_Save.Text = "Save";
+            this.btnFE_Save.UseVisualStyleBackColor = true;
+            this.btnFE_Save.Click += new System.EventHandler(this.btnFE_Save_Click);
             // 
             // btnDelete
             // 
@@ -256,7 +258,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btn_ClearFields
             // 
-            this.btn_ClearFields.Location = new System.Drawing.Point(446, 299);
+            this.btn_ClearFields.Location = new System.Drawing.Point(446, 325);
             this.btn_ClearFields.Name = "btn_ClearFields";
             this.btn_ClearFields.Size = new System.Drawing.Size(150, 20);
             this.btn_ClearFields.TabIndex = 30;
@@ -264,11 +266,21 @@ namespace Schedule_Database_Desktop_Version
             this.btn_ClearFields.UseVisualStyleBackColor = true;
             this.btn_ClearFields.Click += new System.EventHandler(this.btn_ClearFields_Click);
             // 
+            // btnFE_Add
+            // 
+            this.btnFE_Add.Location = new System.Drawing.Point(446, 299);
+            this.btnFE_Add.Name = "btnFE_Add";
+            this.btnFE_Add.Size = new System.Drawing.Size(150, 20);
+            this.btnFE_Add.TabIndex = 31;
+            this.btnFE_Add.Text = "Add";
+            this.btnFE_Add.UseVisualStyleBackColor = true;
+            // 
             // frmFE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 370);
+            this.Controls.Add(this.btnFE_Add);
             this.Controls.Add(this.btn_ClearFields);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblFE_Active);
@@ -279,7 +291,7 @@ namespace Schedule_Database_Desktop_Version
             this.Controls.Add(this.lst_FieldEngineer);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnFE_Save);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblFE_Email);
             this.Controls.Add(this.lblFE_Phone);
@@ -316,7 +328,7 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.TextBox txtFE_ManagerID;
         private System.Windows.Forms.Label lblFE_Email;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnFE_Save;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ListBox lst_FieldEngineer;
@@ -327,6 +339,7 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.TextBox txtFE_Active;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_ClearFields;
+        private System.Windows.Forms.Button btnFE_Add;
     }
 }
 

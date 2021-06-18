@@ -88,9 +88,21 @@ namespace Schedule_Database_Desktop_Version
                 txtFE_Email.Text = model.EMail;
                 txtFE_Active.Text = model.Active.ToString();
             }
+           
+        }
+        private FE_Model loadModel()
+        {
+            model.FirstName = txtFE_FirstName.Text;
+            model.LastName = txtFE_LastName.Text;
+            model.ManagerID = txtFE_ManagerID.Text;
+            model.Region = txtFE_Region.Text;
+            model.Phone = txtFE_Phone.Text;
+            model.EMail = txtFE_Email.Text;
+            model.Active = bool.Parse(txtFE_Active.Text);
+
+            return model;
 
         }
-
         private void btn_markActive_Click(object sender, EventArgs e)
         {
             model.Active = true;
@@ -100,7 +112,7 @@ namespace Schedule_Database_Desktop_Version
         private void btn_markInactive_Click(object sender, EventArgs e)
         {
             model.Active = false;
-            MessageBox.Show("This Field Engineer has been marke inactive");
+            MessageBox.Show("This Field Engineer has been marked inactive");
 
         }
 
@@ -121,6 +133,12 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
+        private void btnFE_Save_Click(object sender, EventArgs e)
+        {
+            model = loadModel();
 
+            GlobalConfig.Connection.UpdateFE("Update", model.ID, model.FirstName, model.LastName, model.ManagerID,
+                model.Region, model.Phone, model.EMail, model.Active);
+        }
     }
 }
