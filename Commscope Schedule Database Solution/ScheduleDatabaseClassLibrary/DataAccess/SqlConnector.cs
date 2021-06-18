@@ -14,6 +14,32 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 
     public class SqlConnector : IDataConnection
     {
+        public void ATEscalationCRUD(string action, int id, string MSO, string ATEType, string PartNumberXML, string ATEDescription, string Quantity, DateTime ResolvedDate, string Resolution,
+        string FELeadXML, string Comments, string CTRNumber, string PeopleSoftNumber, DateTime DateReported, string ATEStatus)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Action", action, DbType.String, ParameterDirection.Input);
+                p.Add("@id", id, DbType.Int32, ParameterDirection.Input);
+                p.Add("@MSO", MSO, DbType.String, ParameterDirection.Input);
+                p.Add("@ATEType", ATEType, DbType.String, ParameterDirection.Input);
+                p.Add("@PartNumberXML", PartNumberXML, DbType.String, ParameterDirection.Input);
+                p.Add("@ATEDescription", ATEDescription, DbType.String, ParameterDirection.Input);
+                p.Add("@Quantity", Quantity, DbType.String, ParameterDirection.Input);
+                p.Add("@DateReported", ResolvedDate, DbType.DateTime, ParameterDirection.Input);
+                p.Add("@Resolution", Resolution, DbType.String, ParameterDirection.Input);
+                p.Add("@FELeadXML", FELeadXML, DbType.String, ParameterDirection.Input);
+                p.Add("@Comments", Comments, DbType.String, ParameterDirection.Input);
+                p.Add("@CTRNumber", CTRNumber, DbType.String, ParameterDirection.Input);
+                p.Add("@PeopleSoftNumber", PeopleSoftNumber, DbType.String, ParameterDirection.Input);
+                p.Add("@DateReported", DateReported, DbType.DateTime, ParameterDirection.Input);
+
+
+                List<ATEscalationsModel> output = connection.Query<ATEscalationsModel>("spATEscalations_CRUD", p,
+                    commandType: CommandType.StoredProcedure).ToList();
+            }
+        }
         public List<AssignmentModel> DateRangeSearch_SortBy(DateTime StartDate, DateTime EndDate, string OrderBy)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
@@ -350,7 +376,24 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 
         }
 
+        public void UpdateFE(string Action, int ID, string FirstName, string LastName, string ManagerID, string Region, string Phone, string EMail, bool Active)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Action", Action, DbType.String, ParameterDirection.Input);
+                p.Add("@ID", ID, DbType.Int32, ParameterDirection.Input);
+                p.Add("@FirstName", FirstName, DbType.String, ParameterDirection.Input);
+                p.Add("@LastName", LastName, DbType.String, ParameterDirection.Input);
+                p.Add("@ManagerID", ManagerID, DbType.String, ParameterDirection.Input);
+                p.Add("@Region", Region, DbType.String, ParameterDirection.Input);
+                p.Add("@Phone", Phone, DbType.String, ParameterDirection.Input);
+                p.Add("@Email", EMail, DbType.String, ParameterDirection.Input);
+                p.Add("@Active", Active, DbType.Boolean, ParameterDirection.Input);
 
+                List<FE_Model> outputFE = connection.Query<FE_Model>("spFE_CRUD", p, commandType: CommandType.StoredProcedure).ToList();
+            }   
+        }
         public void UpdateUser(UserModel ThisUser)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
@@ -783,7 +826,17 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 
             }
         }
+       
+        //public List<FE_Model> UpdateFEStatus(int ID, string FirstName, string LastName, int MangerID, string FullName, string Region, string Phone, string EMail, bool Active)
+        //{
+        //    using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(db)))
+        //    {
+        //        DynamicParameters p = new DynamicParameters();
+        //        p.Add("Active", Active, DbType.Boolean);
 
+
+        //    }
+        //}
         public List<FE_Model> FE_GetByID(int ID)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(db)))

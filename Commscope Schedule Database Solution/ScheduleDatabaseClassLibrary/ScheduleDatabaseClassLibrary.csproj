@@ -87,6 +87,7 @@
     <Compile Include="Models\ActivityModel.cs" />
     <Compile Include="Models\AssignmentModel.cs" />
     <Compile Include="Models\AssignmentSaveModel.cs" />
+    <Compile Include="Models\ATEscalationsModel.cs" />
     <Compile Include="Models\AttachmentModel.cs" />
     <Compile Include="Models\CityModel.cs" />
     <Compile Include="Models\CompanyHolidaysModel.cs" />
