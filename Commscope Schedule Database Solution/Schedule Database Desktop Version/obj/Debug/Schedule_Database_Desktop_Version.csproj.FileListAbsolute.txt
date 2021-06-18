@@ -66,7 +66,6 @@ C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule 
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\Schedule Database Desktop Version\bin\Debug\NuGet.Squirrel.pdb
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\Schedule Database Desktop Version\bin\Debug\Squirrel.pdb
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\Schedule Database Desktop Version\bin\Debug\Dapper.xml
-C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\Schedule Database Desktop Version\obj\Debug\Schedule_Database_Desktop_Version.csprojAssemblyReference.cache
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\Schedule Database Desktop Version\obj\Debug\Schedule_Database_Desktop_Version.csproj.ResolveComReference.cache
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\Schedule Database Desktop Version\obj\Debug\Schedule_Database_Desktop_Version.Form1.resources
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\Schedule Database Desktop Version\obj\Debug\Schedule_Database_Desktop_Version.frmAssignment.resources
@@ -89,3 +88,4 @@ C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule 
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\Schedule Database Desktop Version\obj\Debug\Schedule_Database_Desktop_Version.csproj.CopyComplete
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\Schedule Database Desktop Version\obj\Debug\Schedule Database Desktop Version.exe
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\Schedule Database Desktop Version\obj\Debug\Schedule Database Desktop Version.pdb
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\Schedule Database Desktop Version\obj\Debug\Schedule_Database_Desktop_Version.csproj.AssemblyReference.cache

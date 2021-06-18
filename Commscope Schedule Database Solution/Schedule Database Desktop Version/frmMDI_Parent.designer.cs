@@ -63,6 +63,7 @@ namespace Schedule_Database_Desktop_Version
             this.addEscalationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchEscalationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteEscalationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calendarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +76,8 @@ namespace Schedule_Database_Desktop_Version
             this.databaseModeToolStripMenuItem,
             this.reportsToolStripMenuItem,
             this.utilitiesToolStripMenuItem,
-            this.aTEscalationsToolStripMenuItem});
+            this.aTEscalationsToolStripMenuItem,
+            this.calendarToolStripMenuItem});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
             this.mnuMain.Size = new System.Drawing.Size(1869, 24);
@@ -293,7 +295,7 @@ namespace Schedule_Database_Desktop_Version
             // dateRangeReportToolStripMenuItem
             // 
             this.dateRangeReportToolStripMenuItem.Name = "dateRangeReportToolStripMenuItem";
-            this.dateRangeReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dateRangeReportToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.dateRangeReportToolStripMenuItem.Tag = "3";
             this.dateRangeReportToolStripMenuItem.Text = "Date Range Report";
             this.dateRangeReportToolStripMenuItem.Click += new System.EventHandler(this.dateRangeReportToolStripMenuItem_Click);
@@ -347,7 +349,7 @@ namespace Schedule_Database_Desktop_Version
             // addEscalationToolStripMenuItem
             // 
             this.addEscalationToolStripMenuItem.Name = "addEscalationToolStripMenuItem";
-            this.addEscalationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addEscalationToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.addEscalationToolStripMenuItem.Tag = "2";
             this.addEscalationToolStripMenuItem.Text = "Add Escalation";
             this.addEscalationToolStripMenuItem.Click += new System.EventHandler(this.addEscalationToolStripMenuItem_Click);
@@ -355,7 +357,7 @@ namespace Schedule_Database_Desktop_Version
             // searchEscalationToolStripMenuItem
             // 
             this.searchEscalationToolStripMenuItem.Name = "searchEscalationToolStripMenuItem";
-            this.searchEscalationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.searchEscalationToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.searchEscalationToolStripMenuItem.Tag = "2";
             this.searchEscalationToolStripMenuItem.Text = "Search Escalation";
             this.searchEscalationToolStripMenuItem.Click += new System.EventHandler(this.searchEscalationToolStripMenuItem_Click_1);
@@ -363,10 +365,18 @@ namespace Schedule_Database_Desktop_Version
             // deleteEscalationToolStripMenuItem
             // 
             this.deleteEscalationToolStripMenuItem.Name = "deleteEscalationToolStripMenuItem";
-            this.deleteEscalationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteEscalationToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.deleteEscalationToolStripMenuItem.Tag = "2";
             this.deleteEscalationToolStripMenuItem.Text = "Delete Escalation";
             this.deleteEscalationToolStripMenuItem.Click += new System.EventHandler(this.deleteEscalationToolStripMenuItem_Click);
+            // 
+            // calendarToolStripMenuItem
+            // 
+            this.calendarToolStripMenuItem.Name = "calendarToolStripMenuItem";
+            this.calendarToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.calendarToolStripMenuItem.Tag = "1";
+            this.calendarToolStripMenuItem.Text = "Calendar";
+            this.calendarToolStripMenuItem.Click += new System.EventHandler(this.calendarToolStripMenuItem_Click);
             // 
             // frmAMDI_Parent
             // 
@@ -425,5 +435,6 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.ToolStripMenuItem addEscalationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchEscalationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteEscalationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calendarToolStripMenuItem;
     }
 }

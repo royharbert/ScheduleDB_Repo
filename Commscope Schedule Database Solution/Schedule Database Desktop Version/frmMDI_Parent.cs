@@ -280,5 +280,11 @@ namespace Schedule_Database_Desktop_Version
             ATEscalationsForm.MdiParent = this;
             ATEscalationsForm.Show();
         }
+
+        private void calendarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCalendar calendar = new frmCalendar();
+            calendar.Show();
+        }
     }
 }

@@ -20,5 +20,12 @@ namespace ScheduleDatabaseClassLibrary.Models
         /// Name of region
         /// </summary>
         public string Region { get; set; }
+
+        public override string ToString()
+        {
+            return this.Region;
+        }
     }
+
+    
 }
