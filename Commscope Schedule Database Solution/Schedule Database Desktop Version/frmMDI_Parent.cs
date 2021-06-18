@@ -279,5 +279,12 @@ namespace Schedule_Database_Desktop_Version
             ATEscalationsForm.MdiParent = this;
             ATEscalationsForm.Show();
         }
+
+        private void mSOUpdateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMSOEdit MSOEditForm = new frmMSOEdit();
+            MSOEditForm.MdiParent = this;
+            MSOEditForm.Show();
+        }
     }
 }
