@@ -94,6 +94,7 @@
     <Compile Include="Models\AssignmentSaveModel.cs" />
     <Compile Include="Models\AssignmentTableModel.cs" />
     <Compile Include="Models\AttachmentModel.cs" />
+    <Compile Include="Models\CalendarItemModel.cs" />
     <Compile Include="Models\CityModel.cs" />
     <Compile Include="Models\CompanyHolidaysModel.cs" />
     <Compile Include="Models\CountriesModel.cs" />

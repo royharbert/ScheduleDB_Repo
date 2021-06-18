@@ -14,8 +14,6 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmCalendar : Form
     {
-        string currentRegion = "";
-        List<FE_Model> currentFEs = null;
         Dictionary<string, int> months = new Dictionary<string, int>()
         {
                     { "january", 1},
@@ -31,15 +29,27 @@ namespace Schedule_Database_Desktop_Version
                     { "november", 11},
                     { "december", 12},
         };
+
+        string currentRegion = "";
+        List<FE_Model> currentFEs = null;
+        Dictionary<int, FE_Model> feDictionary = null;
         Graphics g;
         Rectangle[,] dayArray = new Rectangle[5, 7];
-        //Panel[,] dayPanels = new Panel[5, 7];
         public frmCalendar()
         {
             InitializeComponent();
             g = this.CreateGraphics();
             fillRegionComboList();
             cboRegions.SelectedItem = -1;
+        }
+
+        private void makeFE_Dictionary()
+        {
+            List<FE_Model> allFEs = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE");
+            foreach (var fe in allFEs)
+            {
+                feDictionary.Add(fe.ID, fe);
+            }
         }
 
         private void fillRegionComboList()
