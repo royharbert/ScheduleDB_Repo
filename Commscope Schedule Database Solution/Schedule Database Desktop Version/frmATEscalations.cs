@@ -69,7 +69,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void makeProductList()
         {
-            List<ProductModel> products = GlobalConfig.Connection.Products_GetAll();
+            List<ProductModel> products = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts");
             lst_PartNumbers.DataSource = products;
             lst_PartNumbers.DisplayMember = "Product";
         }
@@ -122,41 +122,6 @@ namespace Schedule_Database_Desktop_Version
             model.FELeadXML =  collectLeads();
 
         }
-
-        //private void loadProductsInListbox(string xmlList)
-        //{
-        //    if (xmlList != null & xmlList != "")
-        //    {
-        //        List<int> productList = Serialization.DeserializeToList<List<int>>(xmlList);
-
-        //        //make list of product models from ID's
-        //        List<ProductModel> productModelList = new List<ProductModel>();
-        //        if (productList.Count > 0)
-        //        {
-        //            for (int j = 0; j < productList.Count; j++)
-        //            {
-        //                List<ProductModel> products = GlobalConfig.Connection.Products_GetByColumn("ID",
-        //                    productList[j].ToString());
-        //                if (products.Count > 0)
-        //                {
-        //                    productModelList.Add(products[0]);
-        //                }
-        //            }
-        //        }
-
-        //        for (int j = 0; j < productModelList.Count; j++)
-        //        {
-        //            string product = productModelList[j].Product;
-        //            for (int i = 0; i < lst_PartNumbers.Items.Count; i++)
-        //            {
-        //                ProductModel productModel = (ProductModel)lst_PartNumbers.Items[i];
-        //                if (productModel.Product == product)
-        //                {
-        //                    lst_PartNumbers.SetSelected(i, true);
-        //                }
-        //            }
-        //        }
-        //    }
     }
 }
 

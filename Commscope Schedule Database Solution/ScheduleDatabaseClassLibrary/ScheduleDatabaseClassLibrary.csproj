@@ -68,6 +68,7 @@
     <Compile Include="AssignmentsProcesses\AssignmentSaver.cs" />
     <Compile Include="AssignmentsProcesses\ComboBoxListMaker.cs" />
     <Compile Include="AssignmentsProcesses\ListDeepCopy.cs" />
+    <Compile Include="ATEscalationsModel.cs" />
     <Compile Include="Attributes\ExcelExportProperty.cs" />
     <Compile Include="DataAccess\IDataConnection.cs" />
     <Compile Include="DataAccess\SqlConnector.cs" />
