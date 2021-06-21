@@ -51,7 +51,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            GlobalConfig.Connection.FE_GetAllActive();
+            //GlobalConfig.Connection.FE_GetAllActive();
             MessageBox.Show("Field Engineer Information Updated");
         }
 
@@ -59,7 +59,7 @@ namespace Schedule_Database_Desktop_Version
         {
             if (chk_viewActive.Checked == true)
             {
-                feList = GlobalConfig.Connection.FE_GetAllActive();
+                feList = GlobalConfig.Connection.GetItemByColumn<FE_Model>("tblFE", "Active","",1);
             }
             else
             {
@@ -133,12 +133,12 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
-        private void btnFE_Save_Click(object sender, EventArgs e)
-        {
-            model = loadModel();
+        //private void btnFE_Save_Click(object sender, EventArgs e)
+        //{
+        //    model = loadModel();
 
-            GlobalConfig.Connection.UpdateFE("Update", model.ID, model.FirstName, model.LastName, model.ManagerID,
-                model.Region, model.Phone, model.EMail, model.Active);
-        }
+        //    GlobalConfig.Connection.UpdateFE("Update", model.ID, model.FirstName, model.LastName, model.ManagerID,
+        //        model.Region, model.Phone, model.EMail, model.Active);
+        //}
     }
 }

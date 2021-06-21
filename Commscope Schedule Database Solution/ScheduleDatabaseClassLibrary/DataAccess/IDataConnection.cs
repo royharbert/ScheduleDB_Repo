@@ -59,6 +59,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         List<CityModel> GetAllCities();
         List<AssignmentRetrieveModel> Assignments_GetAll();
         void UpdateTable(string spName, DataTable dataTable);
-        void UpdateFE(string Action, int ID, string FirstName, string LastName, string ManagerID, string Region, string Phone, string EMail, bool Active);
+        //void UpdateFE(string Action, int ID, string FirstName, string LastName, string ManagerID, string Region, string Phone, string EMail, bool Active);
     }
 }
