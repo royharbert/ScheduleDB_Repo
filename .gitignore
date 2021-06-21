@@ -5,3 +5,5 @@
 "Commscope Schedule Database Solution/Schedule Database Desktop Version/obj/Debug/Schedule_Database_Desktop_Version.csproj.ResolveComReference.cache"
 "Commscope Schedule Database Solution/ScheduleDatabaseClassLibrary/obj/Debug/ScheduleDatabaseClassLibrary.csproj.AssemblyReference.cache"
 "Commscope Schedule Database Solution/ScheduleDatabaseClassLibrary/obj/Debug/ScheduleDatabaseClassLibrary.csproj.ResolveComReference.cache"
+**/bin
+**/obj
