@@ -61,6 +61,8 @@ namespace ScheduleDatabaseClassLibrary
             return ConfigurationManager.AppSettings[key];
         }
 
-       
+        ////internal class ConnString
+        ////{
+        ////}
     }
 }

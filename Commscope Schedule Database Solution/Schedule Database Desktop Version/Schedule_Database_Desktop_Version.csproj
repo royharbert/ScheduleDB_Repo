@@ -159,6 +159,12 @@
     <Compile Include="frmMDI_Parent.designer.cs">
       <DependentUpon>frmMDI_Parent.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMSOEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMSOEdit.Designer.cs">
+      <DependentUpon>frmMSOEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMultiSelect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMDI_Parent.resx">
       <DependentUpon>frmMDI_Parent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMSOEdit.resx">
+      <DependentUpon>frmMSOEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMultiSelect.resx">
       <DependentUpon>frmMultiSelect.cs</DependentUpon>
