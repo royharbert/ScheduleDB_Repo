@@ -27,7 +27,6 @@ C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule 
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\bin\Debug\System.Security.AccessControl.xml
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\bin\Debug\System.Security.Permissions.xml
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\bin\Debug\System.Security.Principal.Windows.xml
-C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Debug\ScheduleDatabaseClassLibrary.csprojAssemblyReference.cache
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Debug\ScheduleDatabaseClassLibrary.csproj.ResolveComReference.cache
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Debug\ScheduleDatabaseClassLibrary.csproj.CoreCompileInputs.cache
 C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Debug\ScheduleDatabaseClassLibrary.csproj.CopyComplete
@@ -51,3 +50,4 @@ C:\Users\ldavison\Desktop\ScheduleDB_Repo\Commscope Schedule Database Solution\S
 C:\Users\ldavison\Desktop\ScheduleDB_Repo\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Debug\ScheduleDatabaseClassLibrary.dll
 C:\Users\ldavison\Desktop\ScheduleDB_Repo\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Debug\ScheduleDatabaseClassLibrary.pdb
 C:\Users\ldavison\Desktop\ScheduleDB_Repo\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Debug\ScheduleDatabaseClassLibrary.csproj.AssemblyReference.cache
+C:\Users\rharbert\OneDrive - CommScope\SQLDB\ScheduleDB_Repo\Commscope Schedule Database Solution\ScheduleDatabaseClassLibrary\obj\Debug\ScheduleDatabaseClassLibrary.csproj.AssemblyReference.cache
