@@ -28,7 +28,7 @@ namespace Schedule_Database_Desktop_Version
                     Monitor = 1;
                     GV.ActiveScreen = 1;
                 }
-                ScheduleDatabaseClassLibrary.Models.ScreenModel model = GV.ScreenList[Monitor - 1];
+                ScreenModel model = GV.ScreenList[Monitor - 1];
                 frm.Location = new Point(model.Xpos, model.Ypos);
             }
             else

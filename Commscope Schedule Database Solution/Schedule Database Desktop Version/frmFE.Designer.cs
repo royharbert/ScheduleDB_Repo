@@ -42,54 +42,56 @@ namespace Schedule_Database_Desktop_Version
             this.txtFE_ManagerID = new System.Windows.Forms.TextBox();
             this.lblFE_Email = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnFE_Save = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnDown = new System.Windows.Forms.Button();
-            this.btnUP = new System.Windows.Forms.Button();
+            this.lst_FieldEngineer = new System.Windows.Forms.ListBox();
+            this.btn_markActive = new System.Windows.Forms.Button();
+            this.btn_markInactive = new System.Windows.Forms.Button();
+            this.chk_viewActive = new System.Windows.Forms.CheckBox();
+            this.lblFE_Active = new System.Windows.Forms.Label();
+            this.txtFE_Active = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btn_ClearFields = new System.Windows.Forms.Button();
+            this.btnFE_Add = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtFE_FirstName
             // 
-            this.txtFE_FirstName.Location = new System.Drawing.Point(179, 46);
+            this.txtFE_FirstName.Location = new System.Drawing.Point(493, 49);
             this.txtFE_FirstName.Name = "txtFE_FirstName";
             this.txtFE_FirstName.Size = new System.Drawing.Size(247, 20);
             this.txtFE_FirstName.TabIndex = 0;
-            this.txtFE_FirstName.TextChanged += new System.EventHandler(this.txtFE_FirstName_TextChanged);
             // 
             // lblFE_FirstName
             // 
             this.lblFE_FirstName.AutoSize = true;
-            this.lblFE_FirstName.Location = new System.Drawing.Point(110, 49);
+            this.lblFE_FirstName.Location = new System.Drawing.Point(430, 52);
             this.lblFE_FirstName.Name = "lblFE_FirstName";
             this.lblFE_FirstName.Size = new System.Drawing.Size(57, 13);
             this.lblFE_FirstName.TabIndex = 1;
             this.lblFE_FirstName.Text = "First Name";
-            this.lblFE_FirstName.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblFE_ManagerID
             // 
             this.lblFE_ManagerID.AutoSize = true;
-            this.lblFE_ManagerID.Location = new System.Drawing.Point(106, 198);
+            this.lblFE_ManagerID.Location = new System.Drawing.Point(426, 184);
             this.lblFE_ManagerID.Name = "lblFE_ManagerID";
             this.lblFE_ManagerID.Size = new System.Drawing.Size(63, 13);
             this.lblFE_ManagerID.TabIndex = 3;
             this.lblFE_ManagerID.Text = "Manager ID";
-            this.lblFE_ManagerID.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtFE_LastName
             // 
-            this.txtFE_LastName.Location = new System.Drawing.Point(179, 83);
+            this.txtFE_LastName.Location = new System.Drawing.Point(493, 82);
             this.txtFE_LastName.Name = "txtFE_LastName";
             this.txtFE_LastName.Size = new System.Drawing.Size(247, 20);
             this.txtFE_LastName.TabIndex = 2;
-            this.txtFE_LastName.TextChanged += new System.EventHandler(this.txtFE_LastName_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(111, 86);
+            this.label3.Location = new System.Drawing.Point(431, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 5;
@@ -97,16 +99,15 @@ namespace Schedule_Database_Desktop_Version
             // 
             // txtFE_Region
             // 
-            this.txtFE_Region.Location = new System.Drawing.Point(179, 120);
+            this.txtFE_Region.Location = new System.Drawing.Point(493, 115);
             this.txtFE_Region.Name = "txtFE_Region";
             this.txtFE_Region.Size = new System.Drawing.Size(247, 20);
             this.txtFE_Region.TabIndex = 4;
-            this.txtFE_Region.TextChanged += new System.EventHandler(this.txtFE_Region_TextChanged);
             // 
             // lblFE_Region
             // 
             this.lblFE_Region.AutoSize = true;
-            this.lblFE_Region.Location = new System.Drawing.Point(127, 123);
+            this.lblFE_Region.Location = new System.Drawing.Point(447, 118);
             this.lblFE_Region.Name = "lblFE_Region";
             this.lblFE_Region.Size = new System.Drawing.Size(41, 13);
             this.lblFE_Region.TabIndex = 7;
@@ -114,24 +115,22 @@ namespace Schedule_Database_Desktop_Version
             // 
             // txtFE_Phone
             // 
-            this.txtFE_Phone.Location = new System.Drawing.Point(179, 158);
+            this.txtFE_Phone.Location = new System.Drawing.Point(493, 148);
             this.txtFE_Phone.Name = "txtFE_Phone";
             this.txtFE_Phone.Size = new System.Drawing.Size(247, 20);
             this.txtFE_Phone.TabIndex = 8;
-            this.txtFE_Phone.TextChanged += new System.EventHandler(this.txtFE_Phone_TextChanged);
             // 
             // txtFE_Email
             // 
-            this.txtFE_Email.Location = new System.Drawing.Point(179, 232);
+            this.txtFE_Email.Location = new System.Drawing.Point(493, 214);
             this.txtFE_Email.Name = "txtFE_Email";
             this.txtFE_Email.Size = new System.Drawing.Size(247, 20);
             this.txtFE_Email.TabIndex = 10;
-            this.txtFE_Email.TextChanged += new System.EventHandler(this.txtFE_Email_TextChanged);
             // 
             // lblFE_Phone
             // 
             this.lblFE_Phone.AutoSize = true;
-            this.lblFE_Phone.Location = new System.Drawing.Point(129, 160);
+            this.lblFE_Phone.Location = new System.Drawing.Point(449, 151);
             this.lblFE_Phone.Name = "lblFE_Phone";
             this.lblFE_Phone.Size = new System.Drawing.Size(38, 13);
             this.lblFE_Phone.TabIndex = 12;
@@ -139,7 +138,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // txtFE_ManagerID
             // 
-            this.txtFE_ManagerID.Location = new System.Drawing.Point(179, 195);
+            this.txtFE_ManagerID.Location = new System.Drawing.Point(493, 181);
             this.txtFE_ManagerID.Name = "txtFE_ManagerID";
             this.txtFE_ManagerID.Size = new System.Drawing.Size(247, 20);
             this.txtFE_ManagerID.TabIndex = 9;
@@ -147,91 +146,151 @@ namespace Schedule_Database_Desktop_Version
             // lblFE_Email
             // 
             this.lblFE_Email.AutoSize = true;
-            this.lblFE_Email.Location = new System.Drawing.Point(134, 235);
+            this.lblFE_Email.Location = new System.Drawing.Point(454, 217);
             this.lblFE_Email.Name = "lblFE_Email";
             this.lblFE_Email.Size = new System.Drawing.Size(32, 13);
             this.lblFE_Email.TabIndex = 15;
             this.lblFE_Email.Text = "Email";
-            this.lblFE_Email.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(209, 16);
+            this.label8.Location = new System.Drawing.Point(545, 18);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(195, 13);
+            this.label8.Size = new System.Drawing.Size(132, 13);
             this.label8.TabIndex = 16;
-            this.label8.Text = "Please Enter Field Engineer Information:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.label8.Text = "Field Engineer Information:";
             // 
-            // btnAdd
+            // btnFE_Save
             // 
-            this.btnAdd.Location = new System.Drawing.Point(73, 309);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(64, 20);
-            this.btnAdd.TabIndex = 17;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
+            this.btnFE_Save.Location = new System.Drawing.Point(602, 299);
+            this.btnFE_Save.Name = "btnFE_Save";
+            this.btnFE_Save.Size = new System.Drawing.Size(150, 20);
+            this.btnFE_Save.TabIndex = 17;
+            this.btnFE_Save.Text = "Save";
+            this.btnFE_Save.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(198, 309);
+            this.btnDelete.Location = new System.Drawing.Point(125, 325);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(64, 20);
+            this.btnDelete.Size = new System.Drawing.Size(150, 20);
             this.btnDelete.TabIndex = 18;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(326, 309);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(64, 20);
-            this.btnUpdate.TabIndex = 19;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.button3_Click);
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(453, 309);
+            this.btnClose.Location = new System.Drawing.Point(602, 325);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(64, 20);
+            this.btnClose.Size = new System.Drawing.Size(150, 20);
             this.btnClose.TabIndex = 20;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnDown
+            // lst_FieldEngineer
             // 
-            this.btnDown.Location = new System.Drawing.Point(490, 114);
-            this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(48, 23);
-            this.btnDown.TabIndex = 21;
-            this.btnDown.Text = "Down";
-            this.btnDown.UseVisualStyleBackColor = true;
+            this.lst_FieldEngineer.FormattingEnabled = true;
+            this.lst_FieldEngineer.Location = new System.Drawing.Point(47, 62);
+            this.lst_FieldEngineer.Name = "lst_FieldEngineer";
+            this.lst_FieldEngineer.Size = new System.Drawing.Size(306, 199);
+            this.lst_FieldEngineer.TabIndex = 23;
+            this.lst_FieldEngineer.SelectedIndexChanged += new System.EventHandler(this.lst_FieldEngineer_SelectedIndexChanged);
             // 
-            // btnUP
+            // btn_markActive
             // 
-            this.btnUP.Location = new System.Drawing.Point(490, 86);
-            this.btnUP.Name = "btnUP";
-            this.btnUP.Size = new System.Drawing.Size(48, 23);
-            this.btnUP.TabIndex = 22;
-            this.btnUP.Text = "Up";
-            this.btnUP.UseVisualStyleBackColor = true;
+            this.btn_markActive.Location = new System.Drawing.Point(47, 299);
+            this.btn_markActive.Name = "btn_markActive";
+            this.btn_markActive.Size = new System.Drawing.Size(150, 20);
+            this.btn_markActive.TabIndex = 24;
+            this.btn_markActive.Text = "Mark Active";
+            this.btn_markActive.UseVisualStyleBackColor = true;
+            this.btn_markActive.Click += new System.EventHandler(this.btn_markActive_Click);
+            // 
+            // btn_markInactive
+            // 
+            this.btn_markInactive.Location = new System.Drawing.Point(203, 299);
+            this.btn_markInactive.Name = "btn_markInactive";
+            this.btn_markInactive.Size = new System.Drawing.Size(150, 20);
+            this.btn_markInactive.TabIndex = 25;
+            this.btn_markInactive.Text = "Mark Inactive";
+            this.btn_markInactive.UseVisualStyleBackColor = true;
+            this.btn_markInactive.Click += new System.EventHandler(this.btn_markInactive_Click);
+            // 
+            // chk_viewActive
+            // 
+            this.chk_viewActive.AutoSize = true;
+            this.chk_viewActive.Location = new System.Drawing.Point(110, 267);
+            this.chk_viewActive.Name = "chk_viewActive";
+            this.chk_viewActive.Size = new System.Drawing.Size(179, 17);
+            this.chk_viewActive.TabIndex = 26;
+            this.chk_viewActive.Text = "View Active Field Engineers only";
+            this.chk_viewActive.UseVisualStyleBackColor = true;
+            this.chk_viewActive.CheckedChanged += new System.EventHandler(this.chk_viewActive_CheckedChanged);
+            // 
+            // lblFE_Active
+            // 
+            this.lblFE_Active.AutoSize = true;
+            this.lblFE_Active.Location = new System.Drawing.Point(454, 250);
+            this.lblFE_Active.Name = "lblFE_Active";
+            this.lblFE_Active.Size = new System.Drawing.Size(37, 13);
+            this.lblFE_Active.TabIndex = 28;
+            this.lblFE_Active.Text = "Active";
+            // 
+            // txtFE_Active
+            // 
+            this.txtFE_Active.Location = new System.Drawing.Point(493, 247);
+            this.txtFE_Active.Name = "txtFE_Active";
+            this.txtFE_Active.Size = new System.Drawing.Size(247, 20);
+            this.txtFE_Active.TabIndex = 27;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(107, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(110, 13);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "List of Field Engineers";
+            // 
+            // btn_ClearFields
+            // 
+            this.btn_ClearFields.Location = new System.Drawing.Point(446, 325);
+            this.btn_ClearFields.Name = "btn_ClearFields";
+            this.btn_ClearFields.Size = new System.Drawing.Size(150, 20);
+            this.btn_ClearFields.TabIndex = 30;
+            this.btn_ClearFields.Text = "Clear Fields";
+            this.btn_ClearFields.UseVisualStyleBackColor = true;
+            this.btn_ClearFields.Click += new System.EventHandler(this.btn_ClearFields_Click);
+            // 
+            // btnFE_Add
+            // 
+            this.btnFE_Add.Location = new System.Drawing.Point(446, 299);
+            this.btnFE_Add.Name = "btnFE_Add";
+            this.btnFE_Add.Size = new System.Drawing.Size(150, 20);
+            this.btnFE_Add.TabIndex = 31;
+            this.btnFE_Add.Text = "Add";
+            this.btnFE_Add.UseVisualStyleBackColor = true;
             // 
             // frmFE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 393);
-            this.Controls.Add(this.btnUP);
-            this.Controls.Add(this.btnDown);
+            this.ClientSize = new System.Drawing.Size(813, 370);
+            this.Controls.Add(this.btnFE_Add);
+            this.Controls.Add(this.btn_ClearFields);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblFE_Active);
+            this.Controls.Add(this.txtFE_Active);
+            this.Controls.Add(this.chk_viewActive);
+            this.Controls.Add(this.btn_markInactive);
+            this.Controls.Add(this.btn_markActive);
+            this.Controls.Add(this.lst_FieldEngineer);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnFE_Save);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblFE_Email);
             this.Controls.Add(this.lblFE_Phone);
@@ -246,7 +305,7 @@ namespace Schedule_Database_Desktop_Version
             this.Controls.Add(this.lblFE_FirstName);
             this.Controls.Add(this.txtFE_FirstName);
             this.Name = "frmFE";
-            this.Text = "Main Form";
+            this.Text = "Edit Field Engineer List";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -268,12 +327,18 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.TextBox txtFE_ManagerID;
         private System.Windows.Forms.Label lblFE_Email;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnFE_Save;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnDown;
-        private System.Windows.Forms.Button btnUP;
+        private System.Windows.Forms.ListBox lst_FieldEngineer;
+        private System.Windows.Forms.Button btn_markActive;
+        private System.Windows.Forms.Button btn_markInactive;
+        private System.Windows.Forms.CheckBox chk_viewActive;
+        private System.Windows.Forms.Label lblFE_Active;
+        private System.Windows.Forms.TextBox txtFE_Active;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_ClearFields;
+        private System.Windows.Forms.Button btnFE_Add;
     }
 }
 
