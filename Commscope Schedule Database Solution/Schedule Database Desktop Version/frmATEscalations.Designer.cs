@@ -158,9 +158,9 @@ namespace Schedule_Database_Desktop_Version
             this.lbl_FELead.Location = new System.Drawing.Point(36, 171);
             this.lbl_FELead.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_FELead.Name = "lbl_FELead";
-            this.lbl_FELead.Size = new System.Drawing.Size(40, 17);
+            this.lbl_FELead.Size = new System.Drawing.Size(57, 17);
             this.lbl_FELead.TabIndex = 11;
-            this.lbl_FELead.Text = "Lead";
+            this.lbl_FELead.Text = "Lead(s)";
             // 
             // dtp_DateReported
             // 

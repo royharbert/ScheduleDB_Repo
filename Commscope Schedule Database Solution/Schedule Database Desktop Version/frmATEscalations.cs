@@ -120,6 +120,13 @@ namespace Schedule_Database_Desktop_Version
             ATEscalationsModel model = new ATEscalationsModel();
             model.PartNumberXML = collectProducts();
             model.FELeadXML =  collectLeads();
+            GlobalConfig.Connection.ATEscalationCRUD ("Select", ATEscalation.id, ATEscalation.MSO, ATEscalation.ATEType, ATEscalation.PartNumberXML, ATEscalation.ATEDescription,
+                ATEscalation.Quantity, ATEscalation.ResolvedDate, ATEscalation.Resolution, ATEscalation.FELeadXML, ATEscalation.Comments, ATEscalation.CTRNumber, ATEscalation.PeopleSoftNumber,
+                ATEscalation.DateReported, ATEscalation.ATEStatus);
+
+            GlobalConfig.Connection.ATEscalationCRUD("Update", ATEscalation.id, ATEscalation.MSO, ATEscalation.ATEType, ATEscalation.PartNumberXML, ATEscalation.ATEDescription,
+                ATEscalation.Quantity, ATEscalation.ResolvedDate, ATEscalation.Resolution, ATEscalation.FELeadXML, ATEscalation.Comments, ATEscalation.CTRNumber, ATEscalation.PeopleSoftNumber,
+                ATEscalation.DateReported, ATEscalation.ATEStatus);
 
         }
 

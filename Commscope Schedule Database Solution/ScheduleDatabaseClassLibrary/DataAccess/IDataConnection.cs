@@ -89,5 +89,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         List<AssignmentModel> Assignments_GetAll();
         void UpdateTable(string spName, DataTable dataTable);
         void UpdateFE(string Action, int ID, string FirstName, string LastName, string ManagerID, string Region, string Phone, string EMail, bool Active);
+        void ATEscalationCRUD(string action, int id, string MSO, string ATEType, string PartNumberXML, string ATEDescription, string Quantity, DateTime ResolvedDate, string Resolution,
+        string FELeadXML, string Comments, string CTRNumber, string PeopleSoftNumber, DateTime DateReported, string ATEStatus);
     }
 }
