@@ -64,6 +64,7 @@ namespace Schedule_Database_Desktop_Version
             this.grp_OptionalFields = new System.Windows.Forms.GroupBox();
             this.lst_PartNumbers = new System.Windows.Forms.ListBox();
             this.lst_FELead = new System.Windows.Forms.ListBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.grp_OptionalFields.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +76,7 @@ namespace Schedule_Database_Desktop_Version
             this.cbo_MSO.Name = "cbo_MSO";
             this.cbo_MSO.Size = new System.Drawing.Size(265, 24);
             this.cbo_MSO.TabIndex = 0;
+            this.cbo_MSO.SelectedIndexChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // cbo_Status
             // 
@@ -84,6 +86,7 @@ namespace Schedule_Database_Desktop_Version
             this.cbo_Status.Name = "cbo_Status";
             this.cbo_Status.Size = new System.Drawing.Size(265, 24);
             this.cbo_Status.TabIndex = 1;
+            this.cbo_Status.SelectedIndexChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // cbo_Type
             // 
@@ -93,6 +96,7 @@ namespace Schedule_Database_Desktop_Version
             this.cbo_Type.Name = "cbo_Type";
             this.cbo_Type.Size = new System.Drawing.Size(265, 24);
             this.cbo_Type.TabIndex = 2;
+            this.cbo_Type.SelectedIndexChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // lbl_MSO
             // 
@@ -141,6 +145,7 @@ namespace Schedule_Database_Desktop_Version
             this.txt_Qty.Name = "txt_Qty";
             this.txt_Qty.Size = new System.Drawing.Size(265, 23);
             this.txt_Qty.TabIndex = 8;
+            this.txt_Qty.TextChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // lbl_Qty
             // 
@@ -170,6 +175,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtp_DateReported.Name = "dtp_DateReported";
             this.dtp_DateReported.Size = new System.Drawing.Size(265, 23);
             this.dtp_DateReported.TabIndex = 12;
+            this.dtp_DateReported.ValueChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // dtp_DateResolved
             // 
@@ -180,7 +186,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtp_DateResolved.Name = "dtp_DateResolved";
             this.dtp_DateResolved.Size = new System.Drawing.Size(265, 23);
             this.dtp_DateResolved.TabIndex = 13;
-            this.dtp_DateResolved.ValueChanged += new System.EventHandler(this.dtp_DateResolved_ValueChanged);
+            this.dtp_DateResolved.ValueChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // lbl_DateReported
             // 
@@ -211,6 +217,7 @@ namespace Schedule_Database_Desktop_Version
             this.txt_Description.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txt_Description.Size = new System.Drawing.Size(493, 192);
             this.txt_Description.TabIndex = 16;
+            this.txt_Description.TextChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // txt_Resolution
             // 
@@ -221,6 +228,7 @@ namespace Schedule_Database_Desktop_Version
             this.txt_Resolution.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txt_Resolution.Size = new System.Drawing.Size(493, 187);
             this.txt_Resolution.TabIndex = 17;
+            this.txt_Resolution.TextChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // txt_Comments
             // 
@@ -231,6 +239,7 @@ namespace Schedule_Database_Desktop_Version
             this.txt_Comments.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txt_Comments.Size = new System.Drawing.Size(421, 130);
             this.txt_Comments.TabIndex = 18;
+            this.txt_Comments.TextChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // txt_CTRNumber
             // 
@@ -239,6 +248,7 @@ namespace Schedule_Database_Desktop_Version
             this.txt_CTRNumber.Name = "txt_CTRNumber";
             this.txt_CTRNumber.Size = new System.Drawing.Size(215, 23);
             this.txt_CTRNumber.TabIndex = 19;
+            this.txt_CTRNumber.TextChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // txt_PSNumber
             // 
@@ -247,6 +257,7 @@ namespace Schedule_Database_Desktop_Version
             this.txt_PSNumber.Name = "txt_PSNumber";
             this.txt_PSNumber.Size = new System.Drawing.Size(215, 23);
             this.txt_PSNumber.TabIndex = 20;
+            this.txt_PSNumber.TextChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // lbl_OptionalFields
             // 
@@ -415,6 +426,7 @@ namespace Schedule_Database_Desktop_Version
             this.lst_PartNumbers.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lst_PartNumbers.Size = new System.Drawing.Size(265, 84);
             this.lst_PartNumbers.TabIndex = 38;
+            this.lst_PartNumbers.SelectedIndexChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // lst_FELead
             // 
@@ -425,12 +437,21 @@ namespace Schedule_Database_Desktop_Version
             this.lst_FELead.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lst_FELead.Size = new System.Drawing.Size(265, 84);
             this.lst_FELead.TabIndex = 39;
+            this.lst_FELead.SelectedIndexChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(922, 5);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(60, 23);
+            this.txtID.TabIndex = 40;
             // 
             // FrmATEscalations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 788);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.lst_FELead);
             this.Controls.Add(this.lst_PartNumbers);
             this.Controls.Add(this.lbl_Attachments);
@@ -507,5 +528,6 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.GroupBox grp_OptionalFields;
         private System.Windows.Forms.ListBox lst_PartNumbers;
         public System.Windows.Forms.ListBox lst_FELead;
+        private System.Windows.Forms.TextBox txtID;
     }
 }
