@@ -85,6 +85,7 @@ namespace Schedule_Database_Desktop_Version
             // rdbOrderByStartDate
             // 
             this.rdbOrderByStartDate.AutoSize = true;
+            this.rdbOrderByStartDate.Checked = true;
             this.rdbOrderByStartDate.Location = new System.Drawing.Point(33, 181);
             this.rdbOrderByStartDate.Name = "rdbOrderByStartDate";
             this.rdbOrderByStartDate.Size = new System.Drawing.Size(73, 17);
@@ -129,7 +130,6 @@ namespace Schedule_Database_Desktop_Version
             this.rdbOrderByFE.Name = "rdbOrderByFE";
             this.rdbOrderByFE.Size = new System.Drawing.Size(92, 17);
             this.rdbOrderByFE.TabIndex = 11;
-            this.rdbOrderByFE.TabStop = true;
             this.rdbOrderByFE.Tag = "FE";
             this.rdbOrderByFE.Text = "Field Engineer";
             this.rdbOrderByFE.UseVisualStyleBackColor = true;
@@ -142,7 +142,6 @@ namespace Schedule_Database_Desktop_Version
             this.rdbOrderByRegion.Name = "rdbOrderByRegion";
             this.rdbOrderByRegion.Size = new System.Drawing.Size(59, 17);
             this.rdbOrderByRegion.TabIndex = 12;
-            this.rdbOrderByRegion.TabStop = true;
             this.rdbOrderByRegion.Tag = "Region";
             this.rdbOrderByRegion.Text = "Region";
             this.rdbOrderByRegion.UseVisualStyleBackColor = true;
@@ -155,7 +154,6 @@ namespace Schedule_Database_Desktop_Version
             this.rdbOrderByMSO.Name = "rdbOrderByMSO";
             this.rdbOrderByMSO.Size = new System.Drawing.Size(49, 17);
             this.rdbOrderByMSO.TabIndex = 13;
-            this.rdbOrderByMSO.TabStop = true;
             this.rdbOrderByMSO.Tag = "MSO_ID";
             this.rdbOrderByMSO.Text = "MSO";
             this.rdbOrderByMSO.UseVisualStyleBackColor = true;
@@ -168,7 +166,6 @@ namespace Schedule_Database_Desktop_Version
             this.rdbOrderByRequestID.Name = "rdbOrderByRequestID";
             this.rdbOrderByRequestID.Size = new System.Drawing.Size(79, 17);
             this.rdbOrderByRequestID.TabIndex = 14;
-            this.rdbOrderByRequestID.TabStop = true;
             this.rdbOrderByRequestID.Tag = "RequestID";
             this.rdbOrderByRequestID.Text = "Request ID";
             this.rdbOrderByRequestID.UseVisualStyleBackColor = true;
@@ -181,7 +178,6 @@ namespace Schedule_Database_Desktop_Version
             this.rdbOrderByProduct.Name = "rdbOrderByProduct";
             this.rdbOrderByProduct.Size = new System.Drawing.Size(62, 17);
             this.rdbOrderByProduct.TabIndex = 15;
-            this.rdbOrderByProduct.TabStop = true;
             this.rdbOrderByProduct.Tag = "Product";
             this.rdbOrderByProduct.Text = "Product";
             this.rdbOrderByProduct.UseVisualStyleBackColor = true;
@@ -194,7 +190,6 @@ namespace Schedule_Database_Desktop_Version
             this.rdbOrderByActivity.Name = "rdbOrderByActivity";
             this.rdbOrderByActivity.Size = new System.Drawing.Size(59, 17);
             this.rdbOrderByActivity.TabIndex = 17;
-            this.rdbOrderByActivity.TabStop = true;
             this.rdbOrderByActivity.Tag = "Activity";
             this.rdbOrderByActivity.Text = "Activity";
             this.rdbOrderByActivity.UseVisualStyleBackColor = true;
@@ -207,7 +202,6 @@ namespace Schedule_Database_Desktop_Version
             this.rdbOrderByEndDate.Name = "rdbOrderByEndDate";
             this.rdbOrderByEndDate.Size = new System.Drawing.Size(70, 17);
             this.rdbOrderByEndDate.TabIndex = 18;
-            this.rdbOrderByEndDate.TabStop = true;
             this.rdbOrderByEndDate.Tag = "EndDate";
             this.rdbOrderByEndDate.Text = "End Date";
             this.rdbOrderByEndDate.UseVisualStyleBackColor = true;
@@ -220,7 +214,6 @@ namespace Schedule_Database_Desktop_Version
             this.rdbOrderByCustReqDate.Name = "rdbOrderByCustReqDate";
             this.rdbOrderByCustReqDate.Size = new System.Drawing.Size(138, 17);
             this.rdbOrderByCustReqDate.TabIndex = 19;
-            this.rdbOrderByCustReqDate.TabStop = true;
             this.rdbOrderByCustReqDate.Tag = "CustReqDate";
             this.rdbOrderByCustReqDate.Text = "Customer Request Date";
             this.rdbOrderByCustReqDate.UseVisualStyleBackColor = true;
@@ -259,6 +252,7 @@ namespace Schedule_Database_Desktop_Version
             this.Controls.Add(this.gbxDateRangeOrderBy);
             this.Name = "frmDateRange";
             this.Text = "frmDateRange";
+            this.Load += new System.EventHandler(this.frmDateRange_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -181,7 +181,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void activityToINTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            List<ActivityModel> activities = GlobalConfig.Connection.Activities_GetAll();
+            List<ActivityModel> activities = GlobalConfig.Connection.GenericGetAll<ActivityModel>("tblActivities");
             foreach (ActivityModel activity in activities)
             {
                 GlobalConfig.Connection.Activity_Update_ID(activity.Purpose, activity.ID);
@@ -227,6 +227,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void dateRangeReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            GV.MODE = Mode.DateRangeReport;
             frmDateRange DateRangeForm = new frmDateRange();
             DateRangeForm.MdiParent = this;
             DateRangeForm.Show();
@@ -280,11 +281,10 @@ namespace Schedule_Database_Desktop_Version
             ATEscalationsForm.Show();
         }
 
-        private void mSOUpdateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void calendarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMSOEdit MSOEditForm = new frmMSOEdit();
-            MSOEditForm.MdiParent = this;
-            MSOEditForm.Show();
+            frmCalendar calendar = new frmCalendar();
+            calendar.Show();
         }
     }
 }

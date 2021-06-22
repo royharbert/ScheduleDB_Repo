@@ -76,18 +76,6 @@ namespace Schedule_Database_Desktop_Version
             this.label22 = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.lbl = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnUndo = new System.Windows.Forms.Button();
-            this.cboRequestor = new System.Windows.Forms.ComboBox();
-            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
-            this.cmdDateReset = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.clearDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
-            this.lstFE = new System.Windows.Forms.ListBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnDone = new System.Windows.Forms.Button();
-            this.btnAddAttachment = new System.Windows.Forms.Button();
-            this.btnRemoveAttachment = new System.Windows.Forms.Button();
             this.pnlCompletion = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.btnRemoveAtt = new System.Windows.Forms.Button();
@@ -105,12 +93,24 @@ namespace Schedule_Database_Desktop_Version
             this.btnCompletionDone = new System.Windows.Forms.Button();
             this.btnSaveCompletion = new System.Windows.Forms.Button();
             this.dtpCompleted = new System.Windows.Forms.DateTimePicker();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnUndo = new System.Windows.Forms.Button();
+            this.cboRequestor = new System.Windows.Forms.ComboBox();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.cmdDateReset = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.clearDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.lstFE = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnDone = new System.Windows.Forms.Button();
+            this.btnAddAttachment = new System.Windows.Forms.Button();
+            this.btnRemoveAttachment = new System.Windows.Forms.Button();
             this.btnCloseout = new System.Windows.Forms.Button();
             this.dgvAttachments = new System.Windows.Forms.DataGridView();
             this.pnlLocation.SuspendLayout();
             this.pnlCustomer.SuspendLayout();
-            this.cmdDateReset.SuspendLayout();
             this.pnlCompletion.SuspendLayout();
+            this.cmdDateReset.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
             this.SuspendLayout();
             // 
@@ -298,7 +298,6 @@ namespace Schedule_Database_Desktop_Version
             this.txtLocID.Size = new System.Drawing.Size(78, 22);
             this.txtLocID.TabIndex = 64;
             this.txtLocID.Tag = "ID";
-            this.txtLocID.Visible = false;
             // 
             // btnSearchLocations
             // 
@@ -339,6 +338,8 @@ namespace Schedule_Database_Desktop_Version
             this.cboRegion.Size = new System.Drawing.Size(205, 24);
             this.cboRegion.TabIndex = 6;
             this.cboRegion.Tag = "Region";
+            this.cboRegion.Enter += new System.EventHandler(this.txtSiteName_Enter);
+            this.cboRegion.Leave += new System.EventHandler(this.txtSiteName_Leave);
             // 
             // label19
             // 
@@ -357,6 +358,8 @@ namespace Schedule_Database_Desktop_Version
             this.txtPostalCode.Size = new System.Drawing.Size(206, 22);
             this.txtPostalCode.TabIndex = 5;
             this.txtPostalCode.Tag = "PostalCode";
+            this.txtPostalCode.Enter += new System.EventHandler(this.txtSiteName_Enter);
+            this.txtPostalCode.Leave += new System.EventHandler(this.txtSiteName_Leave);
             // 
             // label18
             // 
@@ -377,6 +380,8 @@ namespace Schedule_Database_Desktop_Version
             this.cboCountry.Size = new System.Drawing.Size(205, 24);
             this.cboCountry.TabIndex = 4;
             this.cboCountry.Tag = "Country";
+            this.cboCountry.Enter += new System.EventHandler(this.txtSiteName_Enter);
+            this.cboCountry.Leave += new System.EventHandler(this.txtSiteName_Leave);
             // 
             // label17
             // 
@@ -397,6 +402,8 @@ namespace Schedule_Database_Desktop_Version
             this.cboState.Size = new System.Drawing.Size(205, 24);
             this.cboState.TabIndex = 3;
             this.cboState.Tag = "State";
+            this.cboState.Enter += new System.EventHandler(this.txtSiteName_Enter);
+            this.cboState.Leave += new System.EventHandler(this.txtSiteName_Leave);
             // 
             // label16
             // 
@@ -417,6 +424,8 @@ namespace Schedule_Database_Desktop_Version
             this.cboCity.Size = new System.Drawing.Size(205, 24);
             this.cboCity.TabIndex = 2;
             this.cboCity.Tag = "City";
+            this.cboCity.Enter += new System.EventHandler(this.txtSiteName_Enter);
+            this.cboCity.Leave += new System.EventHandler(this.txtSiteName_Leave);
             // 
             // label15
             // 
@@ -435,6 +444,8 @@ namespace Schedule_Database_Desktop_Version
             this.txtAddress.Size = new System.Drawing.Size(206, 78);
             this.txtAddress.TabIndex = 1;
             this.txtAddress.Tag = "Address";
+            this.txtAddress.Enter += new System.EventHandler(this.txtSiteName_Enter);
+            this.txtAddress.Leave += new System.EventHandler(this.txtSiteName_Leave);
             // 
             // label14
             // 
@@ -452,13 +463,14 @@ namespace Schedule_Database_Desktop_Version
             this.txtSiteName.Size = new System.Drawing.Size(206, 22);
             this.txtSiteName.TabIndex = 0;
             this.txtSiteName.Tag = "SiteName";
+            this.txtSiteName.Enter += new System.EventHandler(this.txtSiteName_Enter);
+            this.txtSiteName.Leave += new System.EventHandler(this.txtSiteName_Leave);
             // 
             // pnlCustomer
             // 
             this.pnlCustomer.Controls.Add(this.txtCustID);
             this.pnlCustomer.Controls.Add(this.btnSearchContacts);
             this.pnlCustomer.Controls.Add(this.label25);
-            this.pnlCustomer.Controls.Add(this.pnlCompletion);
             this.pnlCustomer.Controls.Add(this.txtPhone);
             this.pnlCustomer.Controls.Add(this.label24);
             this.pnlCustomer.Controls.Add(this.txtEMail);
@@ -479,7 +491,6 @@ namespace Schedule_Database_Desktop_Version
             this.txtCustID.Size = new System.Drawing.Size(78, 22);
             this.txtCustID.TabIndex = 63;
             this.txtCustID.Tag = "ID";
-            this.txtCustID.Visible = false;
             // 
             // btnSearchContacts
             // 
@@ -507,6 +518,8 @@ namespace Schedule_Database_Desktop_Version
             this.txtPhone.Size = new System.Drawing.Size(218, 22);
             this.txtPhone.TabIndex = 3;
             this.txtPhone.Tag = "Phone";
+            this.txtPhone.Enter += new System.EventHandler(this.txtFirstName_Enter);
+            this.txtPhone.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
             // label24
             // 
@@ -524,6 +537,8 @@ namespace Schedule_Database_Desktop_Version
             this.txtEMail.Size = new System.Drawing.Size(218, 22);
             this.txtEMail.TabIndex = 2;
             this.txtEMail.Tag = "EMail";
+            this.txtEMail.Enter += new System.EventHandler(this.txtFirstName_Enter);
+            this.txtEMail.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
             // label23
             // 
@@ -541,6 +556,8 @@ namespace Schedule_Database_Desktop_Version
             this.txtLastName.Size = new System.Drawing.Size(218, 22);
             this.txtLastName.TabIndex = 1;
             this.txtLastName.Tag = "LastName";
+            this.txtLastName.Enter += new System.EventHandler(this.txtFirstName_Enter);
+            this.txtLastName.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
             // label22
             // 
@@ -558,6 +575,8 @@ namespace Schedule_Database_Desktop_Version
             this.txtFirstName.Size = new System.Drawing.Size(218, 22);
             this.txtFirstName.TabIndex = 0;
             this.txtFirstName.Tag = "FirstName";
+            this.txtFirstName.Enter += new System.EventHandler(this.txtFirstName_Enter);
+            this.txtFirstName.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
             // lbl
             // 
@@ -568,126 +587,6 @@ namespace Schedule_Database_Desktop_Version
             this.lbl.Size = new System.Drawing.Size(79, 16);
             this.lbl.TabIndex = 50;
             this.lbl.Text = "Contact ID";
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(759, 856);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(112, 35);
-            this.btnSave.TabIndex = 49;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnUndo
-            // 
-            this.btnUndo.Location = new System.Drawing.Point(641, 856);
-            this.btnUndo.Name = "btnUndo";
-            this.btnUndo.Size = new System.Drawing.Size(112, 35);
-            this.btnUndo.TabIndex = 50;
-            this.btnUndo.Text = "Undo All";
-            this.btnUndo.UseVisualStyleBackColor = true;
-            // 
-            // cboRequestor
-            // 
-            this.cboRequestor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboRequestor.FormattingEnabled = true;
-            this.cboRequestor.Location = new System.Drawing.Point(160, 189);
-            this.cboRequestor.Name = "cboRequestor";
-            this.cboRequestor.Size = new System.Drawing.Size(201, 24);
-            this.cboRequestor.TabIndex = 52;
-            this.cboRequestor.SelectedIndexChanged += new System.EventHandler(this.cboRequestor_SelectedIndexChanged);
-            // 
-            // dtpStartDate
-            // 
-            this.dtpStartDate.ContextMenuStrip = this.cmdDateReset;
-            this.dtpStartDate.CustomFormat = "\" \"";
-            this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDate.Location = new System.Drawing.Point(160, 220);
-            this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(175, 24);
-            this.dtpStartDate.TabIndex = 53;
-            this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
-            // 
-            // cmdDateReset
-            // 
-            this.cmdDateReset.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clearDateToolStripMenuItem});
-            this.cmdDateReset.Name = "cmdDateReset";
-            this.cmdDateReset.Size = new System.Drawing.Size(129, 26);
-            // 
-            // clearDateToolStripMenuItem
-            // 
-            this.clearDateToolStripMenuItem.Name = "clearDateToolStripMenuItem";
-            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.clearDateToolStripMenuItem.Text = "Clear Date";
-            this.clearDateToolStripMenuItem.Click += new System.EventHandler(this.clearDateToolStripMenuItem_Click);
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.ContextMenuStrip = this.cmdDateReset;
-            this.dtpEndDate.CustomFormat = "\" \"";
-            this.dtpEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEndDate.Location = new System.Drawing.Point(160, 250);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(175, 24);
-            this.dtpEndDate.TabIndex = 54;
-            this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpEndDate_ValueChanged);
-            // 
-            // lstFE
-            // 
-            this.lstFE.FormattingEnabled = true;
-            this.lstFE.ItemHeight = 16;
-            this.lstFE.Location = new System.Drawing.Point(537, 109);
-            this.lstFE.Name = "lstFE";
-            this.lstFE.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstFE.Size = new System.Drawing.Size(157, 516);
-            this.lstFE.TabIndex = 55;
-            this.lstFE.SelectedIndexChanged += new System.EventHandler(this.lstFE_SelectedIndexChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(564, 90);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 16);
-            this.label7.TabIndex = 56;
-            this.label7.Text = "Field Engineers";
-            // 
-            // btnDone
-            // 
-            this.btnDone.BackColor = System.Drawing.Color.Red;
-            this.btnDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDone.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnDone.Location = new System.Drawing.Point(877, 856);
-            this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(97, 35);
-            this.btnDone.TabIndex = 57;
-            this.btnDone.Text = "Done";
-            this.btnDone.UseVisualStyleBackColor = false;
-            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
-            // 
-            // btnAddAttachment
-            // 
-            this.btnAddAttachment.Location = new System.Drawing.Point(172, 896);
-            this.btnAddAttachment.Name = "btnAddAttachment";
-            this.btnAddAttachment.Size = new System.Drawing.Size(139, 34);
-            this.btnAddAttachment.TabIndex = 58;
-            this.btnAddAttachment.Text = "Add Attachment";
-            this.btnAddAttachment.UseVisualStyleBackColor = true;
-            this.btnAddAttachment.Click += new System.EventHandler(this.btnAddAttachment_Click);
-            // 
-            // btnRemoveAttachment
-            // 
-            this.btnRemoveAttachment.Location = new System.Drawing.Point(326, 896);
-            this.btnRemoveAttachment.Name = "btnRemoveAttachment";
-            this.btnRemoveAttachment.Size = new System.Drawing.Size(139, 34);
-            this.btnRemoveAttachment.TabIndex = 59;
-            this.btnRemoveAttachment.Text = "Remove Attachment";
-            this.btnRemoveAttachment.UseVisualStyleBackColor = true;
-            this.btnRemoveAttachment.Click += new System.EventHandler(this.btnRemoveAttachment_Click);
             // 
             // pnlCompletion
             // 
@@ -709,7 +608,7 @@ namespace Schedule_Database_Desktop_Version
             this.pnlCompletion.Controls.Add(this.btnCompletionDone);
             this.pnlCompletion.Controls.Add(this.btnSaveCompletion);
             this.pnlCompletion.Controls.Add(this.dtpCompleted);
-            this.pnlCompletion.Location = new System.Drawing.Point(56, 239);
+            this.pnlCompletion.Location = new System.Drawing.Point(479, 300);
             this.pnlCompletion.Name = "pnlCompletion";
             this.pnlCompletion.Size = new System.Drawing.Size(550, 393);
             this.pnlCompletion.TabIndex = 60;
@@ -864,6 +763,125 @@ namespace Schedule_Database_Desktop_Version
             this.dtpCompleted.TabIndex = 0;
             this.dtpCompleted.ValueChanged += new System.EventHandler(this.dtpCompleted_ValueChanged);
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(759, 856);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(112, 35);
+            this.btnSave.TabIndex = 49;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnUndo
+            // 
+            this.btnUndo.Location = new System.Drawing.Point(641, 856);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(112, 35);
+            this.btnUndo.TabIndex = 50;
+            this.btnUndo.Text = "Undo All";
+            this.btnUndo.UseVisualStyleBackColor = true;
+            // 
+            // cboRequestor
+            // 
+            this.cboRequestor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboRequestor.FormattingEnabled = true;
+            this.cboRequestor.Location = new System.Drawing.Point(160, 189);
+            this.cboRequestor.Name = "cboRequestor";
+            this.cboRequestor.Size = new System.Drawing.Size(201, 24);
+            this.cboRequestor.TabIndex = 52;
+            // 
+            // dtpStartDate
+            // 
+            this.dtpStartDate.ContextMenuStrip = this.cmdDateReset;
+            this.dtpStartDate.CustomFormat = "\" \"";
+            this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStartDate.Location = new System.Drawing.Point(160, 220);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(175, 24);
+            this.dtpStartDate.TabIndex = 53;
+            this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
+            // 
+            // cmdDateReset
+            // 
+            this.cmdDateReset.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearDateToolStripMenuItem});
+            this.cmdDateReset.Name = "cmdDateReset";
+            this.cmdDateReset.Size = new System.Drawing.Size(129, 26);
+            // 
+            // clearDateToolStripMenuItem
+            // 
+            this.clearDateToolStripMenuItem.Name = "clearDateToolStripMenuItem";
+            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.clearDateToolStripMenuItem.Text = "Clear Date";
+            this.clearDateToolStripMenuItem.Click += new System.EventHandler(this.clearDateToolStripMenuItem_Click);
+            // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.ContextMenuStrip = this.cmdDateReset;
+            this.dtpEndDate.CustomFormat = "\" \"";
+            this.dtpEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEndDate.Location = new System.Drawing.Point(160, 250);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(175, 24);
+            this.dtpEndDate.TabIndex = 54;
+            this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpEndDate_ValueChanged);
+            // 
+            // lstFE
+            // 
+            this.lstFE.FormattingEnabled = true;
+            this.lstFE.ItemHeight = 16;
+            this.lstFE.Location = new System.Drawing.Point(537, 109);
+            this.lstFE.Name = "lstFE";
+            this.lstFE.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstFE.Size = new System.Drawing.Size(157, 516);
+            this.lstFE.TabIndex = 55;
+            this.lstFE.SelectedIndexChanged += new System.EventHandler(this.lstFE_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(564, 90);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(102, 16);
+            this.label7.TabIndex = 56;
+            this.label7.Text = "Field Engineers";
+            // 
+            // btnDone
+            // 
+            this.btnDone.BackColor = System.Drawing.Color.Red;
+            this.btnDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDone.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnDone.Location = new System.Drawing.Point(877, 856);
+            this.btnDone.Name = "btnDone";
+            this.btnDone.Size = new System.Drawing.Size(97, 35);
+            this.btnDone.TabIndex = 57;
+            this.btnDone.Text = "Done";
+            this.btnDone.UseVisualStyleBackColor = false;
+            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
+            // 
+            // btnAddAttachment
+            // 
+            this.btnAddAttachment.Location = new System.Drawing.Point(172, 896);
+            this.btnAddAttachment.Name = "btnAddAttachment";
+            this.btnAddAttachment.Size = new System.Drawing.Size(139, 34);
+            this.btnAddAttachment.TabIndex = 58;
+            this.btnAddAttachment.Text = "Add Attachment";
+            this.btnAddAttachment.UseVisualStyleBackColor = true;
+            this.btnAddAttachment.Click += new System.EventHandler(this.btnAddAttachment_Click);
+            // 
+            // btnRemoveAttachment
+            // 
+            this.btnRemoveAttachment.Location = new System.Drawing.Point(326, 896);
+            this.btnRemoveAttachment.Name = "btnRemoveAttachment";
+            this.btnRemoveAttachment.Size = new System.Drawing.Size(139, 34);
+            this.btnRemoveAttachment.TabIndex = 59;
+            this.btnRemoveAttachment.Text = "Remove Attachment";
+            this.btnRemoveAttachment.UseVisualStyleBackColor = true;
+            this.btnRemoveAttachment.Click += new System.EventHandler(this.btnRemoveAttachment_Click);
+            // 
             // btnCloseout
             // 
             this.btnCloseout.Location = new System.Drawing.Point(748, 806);
@@ -890,6 +908,7 @@ namespace Schedule_Database_Desktop_Version
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1865, 953);
             this.ControlBox = false;
+            this.Controls.Add(this.pnlCompletion);
             this.Controls.Add(this.dgvAttachments);
             this.Controls.Add(this.btnCloseout);
             this.Controls.Add(this.btnRemoveAttachment);
@@ -932,9 +951,9 @@ namespace Schedule_Database_Desktop_Version
             this.pnlLocation.PerformLayout();
             this.pnlCustomer.ResumeLayout(false);
             this.pnlCustomer.PerformLayout();
-            this.cmdDateReset.ResumeLayout(false);
             this.pnlCompletion.ResumeLayout(false);
             this.pnlCompletion.PerformLayout();
+            this.cmdDateReset.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

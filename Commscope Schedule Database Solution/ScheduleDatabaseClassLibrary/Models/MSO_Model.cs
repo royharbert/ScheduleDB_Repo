@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScheduleDatabaseClassLibrary.GeneralOps;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +10,12 @@ namespace ScheduleDatabaseClassLibrary.Models
     /// <summary>
     /// Represents MSO 
     /// </summary>
-    public class MSO_Model
+    public class MSO_Model : IHaveID
     {
         /// <summary>
         /// Unique identifier
         /// </summary>
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         /// <summary>
         /// Full MSO name

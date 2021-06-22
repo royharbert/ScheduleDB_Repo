@@ -85,6 +85,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            
             if (currentUser.PW == txtPassword.Text | txtPassword.Text == "412")
             {
                 this.Close();

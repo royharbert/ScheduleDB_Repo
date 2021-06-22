@@ -13,13 +13,16 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Schedule_Database_Desktop_Version
 {
+    //git test
     public partial class frmMultiSelect : Form
     {
-        private List<AssignmentModel> dataSource;
+        private List<AssignmentTableModel> retrieveList;
+        private List<AssignmentDisplayModel> displayList;
         private List<CustomerModel> customerData;
         private List<LocationModel> locationData;
 
         public frmCustomerContact CallingForm { get; set; }
+
         public List<LocationModel> LocationData  
         {
             get
@@ -30,7 +33,8 @@ namespace Schedule_Database_Desktop_Version
             set
             {
                 locationData = value;
-                dataSource = null;
+                displayList = null;
+                retrieveList = null;
                 customerData = null;
                 dgvResults.DataSource = locationData;
                 txtCount.Text = locationData.Count.ToString();
@@ -47,26 +51,27 @@ namespace Schedule_Database_Desktop_Version
             set 
             {
                 customerData = value;
-                dataSource = null;
+                retrieveList = null;
                 locationData = null;
                 dgvResults.DataSource = customerData;
                 txtCount.Text = customerData.Count.ToString();
             }
         }
-        public List<AssignmentModel> AssignmentData 
+        public List<AssignmentTableModel> AssignmentData 
         {
             get 
             {
-                return dataSource;
+                return retrieveList;
             } 
             set 
             {
-                dataSource = value;
+                retrieveList = value;
+                displayList = TableToDisplayConverter.ConvertTableToDisplayModel(retrieveList);
                 customerData = null;
                 locationData = null;
-                dgvResults.DataSource = dataSource;
-                txtCount.Text = dataSource.Count.ToString();
-                formatDGV_Assignment();
+                dgvResults.DataSource = displayList;
+                txtCount.Text = displayList.Count.ToString();
+                //formatDGV_Assignment();
                 setDGV_HeaderText(dgvResults);
             } 
         }
@@ -76,11 +81,10 @@ namespace Schedule_Database_Desktop_Version
             for (int i = 0; i < dgv.Columns.Count; i++)
             {                
                 DataGridViewCellStyle style = dgv.ColumnHeadersDefaultCellStyle;
-                style.Font = new System.Drawing.Font(dgv.Font, System.Drawing.FontStyle.Bold);
+                style.Font = new Font(dgv.Font, FontStyle.Bold);
                 dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgv.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
-
         }
         public frmMultiSelect()
         {
@@ -96,8 +100,10 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.New:
                     break;
                 case Mode.Edit:
-                    AssignmentModel assignment = dataSource[selectedRow];
-                    GV.ASSIGNMENTFORM.Assignment = assignment;
+                case Mode.DateRangeReport:
+                    AssignmentDisplayModel assignment = displayList[selectedRow];
+                    GV.ASSIGNMENTFORM.Assignment = retrieveList[selectedRow];
+                    GV.ASSIGNMENTFORM.BringToFront();
                     break;
                 case Mode.Undo:
                     break;
@@ -105,10 +111,12 @@ namespace Schedule_Database_Desktop_Version
                     customer = customerData[selectedRow];
                     GV.ASSIGNMENTFORM.FillCustomerData(customer);
                     GV.MODE = GV.PreviousMode;
+                    this.Close();
                     break;
                 case Mode.CustomerSearchMDI:
                     customer = customerData[selectedRow];
                     CallingForm.FillBoxes(customer);
+                    this.Close();
                     break;
                 // added this LD not sure....
                 case Mode.DeleteCustomer:
@@ -120,14 +128,15 @@ namespace Schedule_Database_Desktop_Version
                     LocationModel location = locationData[selectedRow];
                     GV.ASSIGNMENTFORM.FillLocationData(location);
                     GV.MODE = GV.PreviousMode;
-                    break;
+                    this.Close();
+                    break;                
                 case Mode.None:
                     break;
                 default:
                     break;
             }
             GV.MAINMENU.BringToFront();
-            this.Close();
+            //this.Close();
         }
 
         private void formatDGV_Assignment()
@@ -154,11 +163,9 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-
-                ListLooper.ExcelExporter<AssignmentModel> exporter = new ListLooper.ExcelExporter<AssignmentModel>();
-                exporter.List = (List<AssignmentModel>)dgvResults.DataSource;
-                ReportOps.FormatMultiResultExport(exporter.Wksheet);
-
+            ListLooper.ExcelExporter<AssignmentDisplayModel> exporter = new ListLooper.ExcelExporter<AssignmentDisplayModel>();
+            exporter.List = (List<AssignmentDisplayModel>)dgvResults.DataSource;
+            ReportOps.FormatMultiResultExport(exporter.Wksheet);
         }
     }
 }

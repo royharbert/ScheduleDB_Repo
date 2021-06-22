@@ -18,7 +18,11 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
         /// <returns></returns>
         public static List<int> CheckForExistingAssignments(string RID)
         {
-            List<int> feIDs = GlobalConfig.Connection.AssignedFEs_Get(RID);
+            //List<int> feIDs = GlobalConfig.Connection.AssignedFEs_Get(RID);
+            List<AssignmentTableModel> assignments = GlobalConfig.Connection.GetItemByColumn<AssignmentTableModel>
+                ("tblAssignments", "RequestID", RID);
+            string feXML = assignments[0].FE_ListXML;
+            List<int> feIDs = Serialization.DeserializeToList<List<int>>(feXML);
             return feIDs;
         }
 
@@ -91,10 +95,15 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
         /// <returns></returns>
         private static List<FE_Model> RemoveAssignedFEs(List<string> RID_List)
         {
-            List<FE_Model> availableFE = GlobalConfig.Connection.FE_GetAllActive();
+            //List<FE_Model> availableFE = GlobalConfig.Connection.FE_GetAllActive();
+            List<FE_Model> availableFE = GlobalConfig.Connection.GetItemByColumn<FE_Model>("tblFE",
+                "Active","",1);
             foreach (string RID in RID_List)
             {
-                string feXML = GlobalConfig.Connection.FEListXML_GetByRID(RID);
+                //string feXML = GlobalConfig.Connection.FEListXML_GetByRID(RID);
+                List<AssignmentTableModel> feXML_List = GlobalConfig.Connection.GetItemByColumn<AssignmentTableModel>
+                    ("tblAssignments", "RequestID", RID, -1);
+                string feXML = feXML_List[0].FE_ListXML;
                 List<int> FEs = Serialization.DeserializeToList<List<int>>(feXML);
                 if (FEs != null)
                 {

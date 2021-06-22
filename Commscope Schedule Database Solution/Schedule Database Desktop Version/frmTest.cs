@@ -57,20 +57,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            //List<UserModel> list = GlobalConfig.Connection.GetUsers_All();
-            //TableGenerator<UserModel> tg = new TableGenerator<UserModel>() { List = list };
-            //DataTable table = tg.table;
-
-
-            //FEListConverterToXML.ConvertFEListToXML();
-            AssignmentModel assignment = GlobalConfig.Connection.Assignment_GetByID(4885)[0];
-            string feList = assignment.FE_ListXML;
-            
-            List<FE_Model> result = Serialization.DeserializeToList<List<FE_Model>>(feList);
-
-            txtFE1.Text = result[0].FirstName + " " + result[0].LastName;
-            txtFE2.Text = result[1].FirstName + " " + result[1].LastName;
-            txtFE3.Text = result[2].FirstName + " " + result[2].LastName;
+      
         }
     }
 }

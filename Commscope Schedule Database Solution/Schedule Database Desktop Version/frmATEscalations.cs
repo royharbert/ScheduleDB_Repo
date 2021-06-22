@@ -21,17 +21,15 @@ namespace Schedule_Database_Desktop_Version
         List<string> LeadFE = new List<string>();
         private bool dataLoading = false;
         private bool formDirty = false;
-        private bool dtpResetting = false;
 
         public FrmATEscalations()
         {
+            formDirty = false;
+
             InitializeComponent();
             fillComboLists();
             makeProductList();
             makeLeadList();
-
-
-
         }
 
 
@@ -42,18 +40,32 @@ namespace Schedule_Database_Desktop_Version
             cbo_MSO.DisplayMember = "MSO";
             cbo_MSO.SelectedIndex = -1;
 
-
             cbo_Type.Items.Add("Product");
             cbo_Type.Items.Add("Application");
             cbo_Type.Items.Add("Design");
 
             cbo_Status.Items.Add("Open");
             cbo_Status.Items.Add("Closed");
-
         }
         private void btn_Close_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void loadBoxes(ATEscalationsModel model)
+        {
+            txtID.Text = model.ID.ToString();
+            txt_Comments.Text = model.Comments;
+            txt_CTRNumber.Text = model.Comments;
+            txt_Description.Text = model.ATEDescription;
+            txt_PSNumber.Text = model.PeopleSoftNumber;
+            txt_Qty.Text = model.Quantity.ToString();
+            txt_Resolution.Text = model.Resolution;
+            cbo_MSO.Text = model.MSO;
+            cbo_Status.Text = model.ATEStatus;
+            cbo_Type.Text = model.ATEType;
+            dtp_DateReported.Value = model.DateReported;
+            dtp_DateResolved.Value = model.ResolvedDate;
         }
 
         private void dtp_DateResolved_ValueChanged(object sender, EventArgs e)
@@ -69,7 +81,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void makeProductList()
         {
-            List<ProductModel> products = GlobalConfig.Connection.Products_GetAll();
+            List<ProductModel> products = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts");
             lst_PartNumbers.DataSource = products;
             lst_PartNumbers.DisplayMember = "Product";
         }
@@ -86,7 +98,7 @@ namespace Schedule_Database_Desktop_Version
                 }
 
                 xmlString = Serialization.SerializeToXml<List<string>>(productList);
-                //ATEscalation.productList = xmlString;
+                ATEscalation.PartNumberXML = xmlString;
 
             }
             return xmlString;
@@ -120,50 +132,26 @@ namespace Schedule_Database_Desktop_Version
             ATEscalationsModel model = new ATEscalationsModel();
             model.PartNumberXML = collectProducts();
             model.FELeadXML =  collectLeads();
-            GlobalConfig.Connection.ATEscalationCRUD ("Select", ATEscalation.id, ATEscalation.MSO, ATEscalation.ATEType, ATEscalation.PartNumberXML, ATEscalation.ATEDescription,
-                ATEscalation.Quantity, ATEscalation.ResolvedDate, ATEscalation.Resolution, ATEscalation.FELeadXML, ATEscalation.Comments, ATEscalation.CTRNumber, ATEscalation.PeopleSoftNumber,
-                ATEscalation.DateReported, ATEscalation.ATEStatus);
-
-            GlobalConfig.Connection.ATEscalationCRUD("Update", ATEscalation.id, ATEscalation.MSO, ATEscalation.ATEType, ATEscalation.PartNumberXML, ATEscalation.ATEDescription,
-                ATEscalation.Quantity, ATEscalation.ResolvedDate, ATEscalation.Resolution, ATEscalation.FELeadXML, ATEscalation.Comments, ATEscalation.CTRNumber, ATEscalation.PeopleSoftNumber,
-                ATEscalation.DateReported, ATEscalation.ATEStatus);
-
+            model.ATEDescription = txt_Description.Text;
+            model.ATEStatus = cbo_Status.Text;
+            model.ATEType = cbo_Type.Text;
+            model.Comments = txt_Comments.Text;
+            model.CTRNumber = txt_CTRNumber.Text;
+            model.DateReported = dtp_DateReported.Value;
+            model.ResolvedDate = dtp_DateResolved.Value;
+            model.ID = int.Parse(txtID.Text);
+            ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel> dt =
+                new ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel>();
+            List<ATEscalationsModel> escalations = new List<ATEscalationsModel>();
+            escalations.Add(model);
+            dt.List = escalations;
+            GlobalConfig.Connection.Escalations_Add(dt.table);
         }
 
-        //private void loadProductsInListbox(string xmlList)
-        //{
-        //    if (xmlList != null & xmlList != "")
-        //    {
-        //        List<int> productList = Serialization.DeserializeToList<List<int>>(xmlList);
-
-        //        //make list of product models from ID's
-        //        List<ProductModel> productModelList = new List<ProductModel>();
-        //        if (productList.Count > 0)
-        //        {
-        //            for (int j = 0; j < productList.Count; j++)
-        //            {
-        //                List<ProductModel> products = GlobalConfig.Connection.Products_GetByColumn("ID",
-        //                    productList[j].ToString());
-        //                if (products.Count > 0)
-        //                {
-        //                    productModelList.Add(products[0]);
-        //                }
-        //            }
-        //        }
-
-        //        for (int j = 0; j < productModelList.Count; j++)
-        //        {
-        //            string product = productModelList[j].Product;
-        //            for (int i = 0; i < lst_PartNumbers.Items.Count; i++)
-        //            {
-        //                ProductModel productModel = (ProductModel)lst_PartNumbers.Items[i];
-        //                if (productModel.Product == product)
-        //                {
-        //                    lst_PartNumbers.SetSelected(i, true);
-        //                }
-        //            }
-        //        }
-        //    }
+        private void cbo_MSO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            formDirty = true;
+        }
     }
 }
 

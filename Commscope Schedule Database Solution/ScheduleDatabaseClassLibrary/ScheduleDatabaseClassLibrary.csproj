@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
+      <HintPath>..\packages\Dapper.2.0.90\lib\net461\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -73,22 +73,29 @@
     <Compile Include="DataAccess\SqlConnector.cs" />
     <Compile Include="Enum.cs" />
     <Compile Include="GeneralOps\AttachmentOps.cs" />
+    <Compile Include="GeneralOps\DB_TableToHashTable.cs" />
     <Compile Include="GeneralOps\ExcelOps.cs" />
+    <Compile Include="GeneralOps\FE_XMLtoFE_List.cs" />
     <Compile Include="GeneralOps\FileOps.cs" />
+    <Compile Include="GeneralOps\IHaveID.cs" />
     <Compile Include="GeneralOps\ProductIDToProduct.cs" />
     <Compile Include="GeneralOps\ReportOps.cs" />
     <Compile Include="GeneralOps\ScheduleOps.cs" />
     <Compile Include="GeneralOps\Screens.cs" />
     <Compile Include="GeneralOps\SearchOps.cs" />
     <Compile Include="GeneralOps\Serialization.cs" />
+    <Compile Include="GeneralOps\TableToDisplayConverter.cs" />
     <Compile Include="GeneralOps\WhereClauseGenerator.cs" />
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="GeneralOps\ListLooper.cs" />
     <Compile Include="Models\ActivityModel.cs" />
-    <Compile Include="Models\AssignmentModel.cs" />
+    <Compile Include="Models\AssignmentDisplayModel.cs" />
+    <Compile Include="Models\AssignmentRetrieveModel.cs" />
     <Compile Include="Models\AssignmentSaveModel.cs" />
+    <Compile Include="Models\AssignmentTableModel.cs" />
     <Compile Include="Models\ATEscalationsModel.cs" />
     <Compile Include="Models\AttachmentModel.cs" />
+    <Compile Include="Models\CalendarItemModel.cs" />
     <Compile Include="Models\CityModel.cs" />
     <Compile Include="Models\CompanyHolidaysModel.cs" />
     <Compile Include="Models\CountriesModel.cs" />

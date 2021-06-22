@@ -169,7 +169,6 @@ namespace Schedule_Database_Desktop_Version
             this.btnFE_Save.TabIndex = 17;
             this.btnFE_Save.Text = "Save";
             this.btnFE_Save.UseVisualStyleBackColor = true;
-            this.btnFE_Save.Click += new System.EventHandler(this.btnFE_Save_Click);
             // 
             // btnDelete
             // 

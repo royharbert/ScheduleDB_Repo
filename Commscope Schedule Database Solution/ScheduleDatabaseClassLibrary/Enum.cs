@@ -11,4 +11,13 @@ namespace ScheduleDatabaseClassLibrary
         Live,
         Sandbox
     }
+
+    /// <summary>
+    /// Used when making list from XML
+    /// </summary>
+    public enum ListType
+    {
+        FE,
+        Product
+    }
 }

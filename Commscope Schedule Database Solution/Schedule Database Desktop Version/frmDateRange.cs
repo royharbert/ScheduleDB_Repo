@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace Schedule_Database_Desktop_Version
 {
@@ -17,14 +18,14 @@ namespace Schedule_Database_Desktop_Version
     {
         List<FE_Model> GetFEs;
         List<ProductModel> GetProducts;
-        string OrderBy = "";
+        string OrderBy = "StartDate";
        
 
         public frmDateRange()
         {
             InitializeComponent();
             GetFEs = GlobalConfig.Connection.FE_GetAll();
-            GetProducts = GlobalConfig.Connection.Products_GetAll();
+            GetProducts = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts");
         }
 
         private void btnCloseForm_Click(object sender, EventArgs e)
@@ -33,32 +34,34 @@ namespace Schedule_Database_Desktop_Version
         }
         private List<string> deserializedProducts(string xmlProducts)
         {
-            List<string> productList = null;
-            List<int> products = ScheduleDatabaseClassLibrary.GeneralOps.Serialization.DeserializeToList<List<int>>(xmlProducts);
-            foreach (var item in products)
+            List<string> productList = new List<string>();
+            List<int> products = Serialization.DeserializeToList<List<int>>(xmlProducts);
+            if(products != null) 
             {
-                foreach (var product in GetProducts)
+                foreach(var item in products)
                 {
-                    if (item == product.ID)
+                    foreach (var product in GetProducts)
                     {
-                        productList.Add(product.Product);
+                        if (item == product.ID)
+                        {
+                            productList.Add(product.Product);
+                        }
                     }
-                }
+                } 
             }
             return productList;
         }
         private void btnSearchDateRange_Click(object sender, EventArgs e)
         {
-            List<AssignmentModel> Assignmnents = GlobalConfig.Connection.DateRangeSearch_SortBy(dtpStartDateRange.Value, dtpEndDateRange.Value, OrderBy);
-            foreach (var assignment in Assignmnents)
-            {
-
-                if (assignment.ProductListXML != "")
-                {
-                    List<string> products = deserializedProducts(assignment.ProductListXML);
-                }
-            }
-
+            DateTime startDate = dtpStartDateRange.Value;
+            DateTime endDate = dtpEndDateRange.Value;
+            //Get all assignments in date range
+            List<AssignmentTableModel> Assignments = GlobalConfig.Connection.DateRangeSearch_SortBy(startDate, endDate);
+            frmMultiSelect DisplayForm = new frmMultiSelect();
+            DisplayForm.AssignmentData = Assignments;
+            DisplayForm.Show();
+            DisplayForm.BringToFront();
+            this.Close();
         }
         private void RadioClick(RadioButton radioButton)
         {
@@ -110,6 +113,11 @@ namespace Schedule_Database_Desktop_Version
         private void rdbOrderByProduct_CheckedChanged(object sender, EventArgs e)
         {
             RadioClick(sender as RadioButton);
+        }
+
+        private void frmDateRange_Load(object sender, EventArgs e)
+        {
+
         }
         //   private List<ProductModel> GetProducts = new List<ProductModel>();
     }

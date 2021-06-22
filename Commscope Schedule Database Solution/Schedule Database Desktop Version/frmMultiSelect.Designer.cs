@@ -65,7 +65,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(1665, 857);
+            this.btnExport.Location = new System.Drawing.Point(236, 857);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(130, 33);
             this.btnExport.TabIndex = 3;
@@ -84,7 +84,6 @@ namespace Schedule_Database_Desktop_Version
             this.Controls.Add(this.dgvResults);
             this.Name = "frmMultiSelect";
             this.Text = "Search Results";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

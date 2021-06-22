@@ -11,8 +11,8 @@ namespace ScheduleDatabaseClassLibrary.Utilities
     {
         public static void SerializeFEID()
         {
-            List<AssignmentModel> assignments = GlobalConfig.Connection.Assignments_GetAll();
-            foreach (AssignmentModel assignment in assignments)
+            List<AssignmentRetrieveModel> assignments = GlobalConfig.Connection.Assignments_GetAll();
+            foreach (AssignmentRetrieveModel assignment in assignments)
             {
                 List<int> IDs = new List<int>();
                 if (assignment.FE1ID != 0)
@@ -37,7 +37,7 @@ namespace ScheduleDatabaseClassLibrary.Utilities
 
         public static void SerializeProductListToXML()
         {
-            List<AssignmentModel> assignments = GlobalConfig.Connection.Assignments_GetAll();
+            List<AssignmentRetrieveModel> assignments = GlobalConfig.Connection.Assignments_GetAll();
             foreach (var assignment in assignments)
             {
                 List<int> productIDs = new List<int>();
@@ -51,7 +51,8 @@ namespace ScheduleDatabaseClassLibrary.Utilities
                         List<string> productString = products.ToList();
                         foreach (var item in productString)
                         {
-                            List<ProductModel> product = GlobalConfig.Connection.Products_GetByColumn("Product", item);
+                            List<ProductModel> product = GlobalConfig.Connection.GetItemByColumn<ProductModel>
+                                ("tblProducts", "Product", item, -1);
                             productIDs.Add(product[0].ID);
                         }
                         string productXML = GeneralOps.Serialization.SerializeToXml(productIDs);
