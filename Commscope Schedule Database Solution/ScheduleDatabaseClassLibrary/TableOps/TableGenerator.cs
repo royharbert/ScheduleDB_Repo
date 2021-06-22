@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace ScheduleDatabaseClassLibrary.TableOps
 {
+    /// <summary>
+    /// Creates Data Table from typed list
+    /// Useful in User defined table type operations
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class TableGenerator<T>
     { 
         private DataTable _table = new DataTable();

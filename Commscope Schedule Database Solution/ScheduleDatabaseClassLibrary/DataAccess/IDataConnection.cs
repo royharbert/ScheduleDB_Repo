@@ -10,6 +10,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
+        void Escalations_Add(DataTable dt);
         List<T> GenericGetAll<T>(string tableName);
         List<T> GetItemByColumn<T>(string tableName,string ColumnName,string StringValue,
             int IntValue = -1);

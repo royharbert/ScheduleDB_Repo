@@ -8,7 +8,8 @@ namespace ScheduleDatabaseClassLibrary.Models
 {
     public class ATEscalationsModel
     {
-        public int id { get; set; }
+        public int ID { get; set; }
+        public string EscalationID { get; set; }
         public string MSO { get; set; }
         public string ATEType { get; set; }
         public string PartNumberXML { get; set; }

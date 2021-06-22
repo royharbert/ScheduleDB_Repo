@@ -15,6 +15,17 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
     public class SqlConnector : IDataConnection
     {
         public static string db { get; set; }
+        public void Escalations_Add(DataTable dt)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Rtable", dt);
+
+                connection.Execute("dbo.spEscalationTableTypeInsert", p,
+                    commandType: CommandType.StoredProcedure);
+            }
+        }
         public List<T> GenericGetAll<T>(string tableName)
         {
             var p = new DynamicParameters();
