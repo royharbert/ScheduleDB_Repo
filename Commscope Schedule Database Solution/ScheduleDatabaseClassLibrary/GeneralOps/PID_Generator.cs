@@ -19,5 +19,20 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
 
             return pid;
         }
+
+        /// <summary>
+        /// Gets sequence number for escalationID and increments table
+        /// </summary>
+        /// <param name="mso"></param>
+        /// <returns></returns>
+        public static string GenerateEID(MSO_Model mso)
+        {
+            string eid = "ESC_";
+            string dateStamp = DateTime.Today.ToString("yyMMdd");
+            string sequence = GlobalConfig.Connection.EIDSequence_Get().ToString();
+            sequence = sequence.PadLeft(5, '0');
+            eid += mso.Abbreviation + "_" + dateStamp + "_" + sequence;
+            return eid;
+        }
     }
 }
