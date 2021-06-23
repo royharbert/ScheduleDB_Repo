@@ -43,7 +43,9 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         List<AttachmentModel> GetAttachments(string PID);
         void InsertInto_tblAttachments(AttachmentModel model);        
         int Sequence_Get();        
-        void Sequence_Set(int seq);        
+        void Sequence_Set(int seq);
+        int EIDSequence_Get();
+        void EIDSequence_Set(int seq);
         List<RegionsModel> GetAllRegions();
         List<StateModel> GetAllStates();
         void AddUser(UserModel NewUser);

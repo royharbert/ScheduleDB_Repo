@@ -25,11 +25,13 @@ namespace Schedule_Database_Desktop_Version
         public FrmATEscalations()
         {
             formDirty = false;
-
+            dataLoading = true;
             InitializeComponent();
             fillComboLists();
             makeProductList();
             makeLeadList();
+            dataLoading = false;
+            cbo_MSO.Enabled = true;
         }
 
 
@@ -54,9 +56,9 @@ namespace Schedule_Database_Desktop_Version
 
         private void loadBoxes(ATEscalationsModel model)
         {
-            txtID.Text = model.ID.ToString();
+            txtEID.Text = model.EscalationID;
             txt_Comments.Text = model.Comments;
-            txt_CTRNumber.Text = model.Comments;
+            txt_CTRNumber.Text = model.CTRNumber;
             txt_Description.Text = model.ATEDescription;
             txt_PSNumber.Text = model.PeopleSoftNumber;
             txt_Qty.Text = model.Quantity.ToString();
@@ -66,6 +68,8 @@ namespace Schedule_Database_Desktop_Version
             cbo_Type.Text = model.ATEType;
             dtp_DateReported.Value = model.DateReported;
             dtp_DateResolved.Value = model.ResolvedDate;
+
+            //--TODO load FELead and Product boxes
         }
 
         private void dtp_DateResolved_ValueChanged(object sender, EventArgs e)
@@ -130,8 +134,9 @@ namespace Schedule_Database_Desktop_Version
         private void btn_Save_Click(object sender, EventArgs e)
         {
             ATEscalationsModel model = new ATEscalationsModel();
+            model.EscalationID = txtEID.Text;
             model.PartNumberXML = collectProducts();
-            model.FELeadXML =  collectLeads();
+            model.FELeadXML = collectLeads();
             model.ATEDescription = txt_Description.Text;
             model.ATEStatus = cbo_Status.Text;
             model.ATEType = cbo_Type.Text;
@@ -139,7 +144,11 @@ namespace Schedule_Database_Desktop_Version
             model.CTRNumber = txt_CTRNumber.Text;
             model.DateReported = dtp_DateReported.Value;
             model.ResolvedDate = dtp_DateResolved.Value;
-            model.ID = int.Parse(txtID.Text);
+            model.MSO = cbo_MSO.Text;
+            model.Quantity = txt_Qty.Text;
+            model.Resolution = txt_Resolution.Text;
+            model.PeopleSoftNumber = txt_PSNumber.Text;
+            //model.ID = int.Parse(txtID.Text);
             ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel> dt =
                 new ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel>();
             List<ATEscalationsModel> escalations = new List<ATEscalationsModel>();
@@ -150,7 +159,25 @@ namespace Schedule_Database_Desktop_Version
 
         private void cbo_MSO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            formDirty = true;
+            if (! dataLoading)
+            {
+                formDirty = true;
+                if (sender is ComboBox)
+                {
+                    ComboBox ctl = (ComboBox)sender;
+
+                    if (ctl.Name == "cbo_MSO")
+                    {
+                        txtEID.Text = PID_Generator.GenerateEID((MSO_Model)cbo_MSO.SelectedItem);
+                        cbo_MSO.Enabled = false;
+                    }
+                }
+            }
+        }
+
+        private void dtp_DateResolved_ValueChanged_1(object sender, EventArgs e)
+        {
+            dtp_DateResolved.Format = DateTimePickerFormat.Short;
         }
     }
 }

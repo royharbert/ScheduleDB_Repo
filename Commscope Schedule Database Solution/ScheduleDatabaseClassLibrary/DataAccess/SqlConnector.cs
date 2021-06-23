@@ -14,16 +14,53 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 
     public class SqlConnector : IDataConnection
     {
-        public static string db { get; set; }
-        public void Escalations_Add(DataTable dt)
+        public int EIDSequence_Get()
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                List<SequenceModel> output = connection.Query<SequenceModel>("dbo.spEIDSequence_Get",
+                    commandType: CommandType.StoredProcedure).ToList();
+                GlobalConfig.Connection.EIDSequence_Set(output[0].Sequence + 1);
+                return output[0].Sequence;
+            }
+        }
+        public void EIDSequence_Set(int seq)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
-                p.Add("@Rtable", dt);
+                p.Add("@Sequence", seq, DbType.Int32);
+                connection.Execute("dbo.spEIDSequence_Set", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+        public static string db { get; set; }
+        public void Escalations_Add(DataTable dt)
+        {
+            string db;
+            if (GlobalConfig.DatabaseMode == DatabaseType.Live)
+            {
+                db = ConfigurationManager.ConnectionStrings["Live"].ConnectionString;
+            }
+            else
+            {
+                db = ConfigurationManager.ConnectionStrings["Sandbox"].ConnectionString;
+            }
 
-                connection.Execute("dbo.spEscalationTableTypeInsert", p,
-                    commandType: CommandType.StoredProcedure);
+            using (SqlConnection con = new SqlConnection(db))
+            {
+                SqlCommand cmd = new SqlCommand("spEscalationTableTypeInsert", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter param = new SqlParameter();
+                param.ParameterName = "@Table";
+                param.SqlDbType = System.Data.SqlDbType.Structured;
+                param.Value = dt;
+                cmd.Parameters.Add(param);
+                param = null;
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
             }
         }
         public List<T> GenericGetAll<T>(string tableName)
