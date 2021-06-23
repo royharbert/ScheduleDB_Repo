@@ -18,8 +18,10 @@ namespace Schedule_Database_Desktop_Version
     {
         private List<AssignmentTableModel> retrieveList;
         private List<AssignmentDisplayModel> displayList;
+        private List<ATEscalationsModel> escalationList;
         private List<CustomerModel> customerData;
         private List<LocationModel> locationData;
+        private List<ATEscalationsModel> escalations;
 
         public frmCustomerContact CallingForm { get; set; }
 
@@ -76,6 +78,25 @@ namespace Schedule_Database_Desktop_Version
             } 
         }
 
+        public List<ATEscalationsModel> Escalations
+        {
+            get
+            {
+                return escalations;
+            }
+            set
+            {
+                escalations = value;
+                escalationList = escalations;
+                customerData = null;
+                locationData = null;
+                dgvResults.DataSource = escalationList;
+                txtCount.Text = escalationList.Count.ToString();
+                //formatDGV_Assignment();
+                //setDGV_HeaderText(dgvResults);
+            }
+        }
+
         private static void setDGV_HeaderText(DataGridView dgv)
         {
             for (int i = 0; i < dgv.Columns.Count; i++)
@@ -129,7 +150,12 @@ namespace Schedule_Database_Desktop_Version
                     GV.ASSIGNMENTFORM.FillLocationData(location);
                     GV.MODE = GV.PreviousMode;
                     this.Close();
-                    break;                
+                    break;
+                case Mode.SearchEscalation:
+                    ATEscalationsModel escalation = escalations[selectedRow];
+                    GV.ESCALATIONFORM.loadBoxes(escalation);
+                    GV.MODE = Mode.EditEscalation;
+                    break;
                 case Mode.None:
                     break;
                 default:
@@ -163,9 +189,55 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            ListLooper.ExcelExporter<AssignmentDisplayModel> exporter = new ListLooper.ExcelExporter<AssignmentDisplayModel>();
-            exporter.List = (List<AssignmentDisplayModel>)dgvResults.DataSource;
-            ReportOps.FormatMultiResultExport(exporter.Wksheet);
+            switch (GV.MODE)
+            {  
+                case Mode.SearchEscalation:
+                case Mode.EditEscalation:
+                    ListLooper.ExcelExporter<ATEscalationsModel> exporter = new ListLooper.ExcelExporter<ATEscalationsModel>();
+                    exporter.List = (List<ATEscalationsModel>)dgvResults.DataSource;
+                    //ReportOps.FormatMultiResultExport(exporter.Wksheet);
+                    break;
+                case Mode.DeleteEscalation:
+                    break;
+                case Mode.DateRangeReport:
+                    break;
+                case Mode.Edit:
+                    break;
+                case Mode.Undo:
+                    break;
+                case Mode.CustomerSearch:
+                    break;
+                case Mode.CustomerSearchMDI:
+                    break;
+                case Mode.AddCustomer:
+                    break;
+                case Mode.EditCustomer:
+                    break;
+                case Mode.DeleteCustomer:
+                    break;
+                case Mode.AddCustomerLocation:
+                    break;
+                case Mode.EditCustomerLocation:
+                    break;
+                case Mode.DeleteCustomerLocation:
+                    break;
+                case Mode.LocationSearch:
+                    break;
+                case Mode.LocationSearchMDI:
+                    break;
+                case Mode.Add_Attachment:
+                    break;
+                case Mode.Delete_Attachment:
+                    break;
+                case Mode.None:
+                    break;
+                default:
+                    ListLooper.ExcelExporter<AssignmentDisplayModel> excelExporter = new ListLooper.ExcelExporter<AssignmentDisplayModel>();
+                    excelExporter.List = (List<AssignmentDisplayModel>)dgvResults.DataSource;
+                    ReportOps.FormatMultiResultExport(excelExporter.Wksheet);
+                    break;
+            }
+           
         }
     }
 }

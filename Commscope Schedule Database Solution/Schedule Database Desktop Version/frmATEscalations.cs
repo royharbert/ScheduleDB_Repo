@@ -21,6 +21,7 @@ namespace Schedule_Database_Desktop_Version
         List<string> LeadFE = new List<string>();
         private bool dataLoading = false;
         private bool formDirty = false;
+        frmInput inputForm = new frmInput();
 
         public FrmATEscalations()
         {
@@ -30,10 +31,79 @@ namespace Schedule_Database_Desktop_Version
             fillComboLists();
             makeProductList();
             makeLeadList();
-            dataLoading = false;
-            cbo_MSO.Enabled = true;
+            switch (GV.MODE)
+            {
+                case Mode.New:
+                    break;
+                case Mode.AddEscalation:
+                    dataLoading = false;
+                    cbo_MSO.Enabled = true;
+                    btn_Save.Enabled = false;
+                    break;
+                case Mode.SearchEscalation:
+                    
+                    inputForm.InputDataReady += InputForm_InputDataReady;
+                    inputForm.Show();
+                    
+                    break;
+                case Mode.DeleteEscalation:
+                    break;
+                case Mode.DateRangeReport:
+                    break;
+                case Mode.Edit:
+                    break;
+                case Mode.Undo:
+                    break;
+                case Mode.CustomerSearch:
+                    break;
+                case Mode.CustomerSearchMDI:
+                    break;
+                case Mode.AddCustomer:
+                    break;
+                case Mode.EditCustomer:
+                    break;
+                case Mode.DeleteCustomer:
+                    break;
+                case Mode.AddCustomerLocation:
+                    break;
+                case Mode.EditCustomerLocation:
+                    break;
+                case Mode.DeleteCustomerLocation:
+                    break;
+                case Mode.LocationSearch:
+                    break;
+                case Mode.LocationSearchMDI:
+                    break;
+                case Mode.Add_Attachment:
+                    break;
+                case Mode.Delete_Attachment:
+                    break;
+                case Mode.None:
+                    break;
+                default:
+                    break;
+            }
         }
 
+        private void InputForm_InputDataReady(object sender, InputDataReadyEventArgs e)
+        {
+            string searchTerm = e.SearchString;
+            List<ATEscalationsModel> escalations = GlobalConfig.Connection.SearchEscalations(searchTerm.ToUpper());
+            switch (escalations.Count)
+            {
+                case 0:
+                    MessageBox.Show("No matching records found.");
+                    break;
+                case 1:
+                    loadBoxes(escalations[0]);
+                    break;
+                default:
+                    frmMultiSelect displayForm = new frmMultiSelect();
+                    displayForm.Escalations = escalations;
+                    displayForm.Show();
+                    break;
+            }
+        }
 
         private void fillComboLists()
         {
@@ -54,7 +124,7 @@ namespace Schedule_Database_Desktop_Version
             this.Close();
         }
 
-        private void loadBoxes(ATEscalationsModel model)
+        public void loadBoxes(ATEscalationsModel model)
         {
             txtEID.Text = model.EscalationID;
             txt_Comments.Text = model.Comments;
@@ -72,22 +142,12 @@ namespace Schedule_Database_Desktop_Version
             //--TODO load FELead and Product boxes
         }
 
-        private void dtp_DateResolved_ValueChanged(object sender, EventArgs e)
-        {
-            dtp_DateFormat(sender);
-        }
-        private void dtp_DateFormat(object sender)
-        {
-            DateTimePicker Control = (DateTimePicker)sender;
-            Control.Format = DateTimePickerFormat.Short;
-        }
-
-
         private void makeProductList()
         {
             List<ProductModel> products = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts");
             lst_PartNumbers.DataSource = products;
             lst_PartNumbers.DisplayMember = "Product";
+            lst_PartNumbers.SelectedIndex = -1;
         }
 
         private string collectProducts()
@@ -110,9 +170,11 @@ namespace Schedule_Database_Desktop_Version
 
         private void makeLeadList()
         {
-            List<FE_Model> lead = GlobalConfig.Connection.FE_GetAll();
+            List<FE_Model> lead = GlobalConfig.Connection.GetItemByColumn<FE_Model>("tblFE",
+                "Active", "", 1);
             lst_FELead.DataSource = lead;
             lst_FELead.DisplayMember = "FullName";
+            lst_FELead.SelectedIndex = -1;
         }
 
         private string collectLeads()
@@ -148,18 +210,22 @@ namespace Schedule_Database_Desktop_Version
             model.Quantity = txt_Qty.Text;
             model.Resolution = txt_Resolution.Text;
             model.PeopleSoftNumber = txt_PSNumber.Text;
-            //model.ID = int.Parse(txtID.Text);
             ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel> dt =
                 new ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel>();
             List<ATEscalationsModel> escalations = new List<ATEscalationsModel>();
             escalations.Add(model);
             dt.List = escalations;
-            GlobalConfig.Connection.Escalations_Add(dt.table);
+            int success = GlobalConfig.Connection.Escalations_Add(dt.table);
+            if (success > 0)
+            {
+                MessageBox.Show(model.EscalationID + " saved.");
+                btn_Save.Enabled = false;
+            }
         }
 
         private void cbo_MSO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (! dataLoading)
+            if (!dataLoading)
             {
                 formDirty = true;
                 if (sender is ComboBox)
@@ -178,6 +244,22 @@ namespace Schedule_Database_Desktop_Version
         private void dtp_DateResolved_ValueChanged_1(object sender, EventArgs e)
         {
             dtp_DateResolved.Format = DateTimePickerFormat.Short;
+        }
+
+        private void txtEID_TextChanged(object sender, EventArgs e)
+        {
+            if (txtEID.Text.Length > 0)
+            {
+                btn_Save.Enabled = true;
+            }
+        }
+
+        private void FrmATEscalations_Shown(object sender, EventArgs e)
+        {
+            if (GV.MODE == Mode.SearchEscalation)
+            {
+                inputForm.BringToFront();
+            }
         }
     }
 }

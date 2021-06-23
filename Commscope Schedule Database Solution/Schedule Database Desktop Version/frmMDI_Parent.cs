@@ -269,6 +269,7 @@ namespace Schedule_Database_Desktop_Version
         {
             GV.MODE = Mode.SearchEscalation;
             FrmATEscalations ATEscalationsForm = new FrmATEscalations();
+            GV.ESCALATIONFORM = ATEscalationsForm;
             ATEscalationsForm.MdiParent = this;
             ATEscalationsForm.Show();
         }

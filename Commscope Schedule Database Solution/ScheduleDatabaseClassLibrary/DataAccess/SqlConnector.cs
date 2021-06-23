@@ -14,6 +14,17 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 
     public class SqlConnector : IDataConnection
     {
+        public List<ATEscalationsModel> SearchEscalations(string searchString)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@searchTerm", searchString, DbType.String);
+                List<ATEscalationsModel> output = connection.Query<ATEscalationsModel>("dbo.spEscalationSearch", p,
+                    commandType: CommandType.StoredProcedure).ToList();
+                return output;
+            }
+        }
         public int EIDSequence_Get()
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
@@ -34,7 +45,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
         public static string db { get; set; }
-        public void Escalations_Add(DataTable dt)
+        public int Escalations_Add(DataTable dt)
         {
             string db;
             if (GlobalConfig.DatabaseMode == DatabaseType.Live)
@@ -59,8 +70,9 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 param = null;
 
                 con.Open();
-                cmd.ExecuteNonQuery();
+                int success = cmd.ExecuteNonQuery();
                 con.Close();
+                return success;
             }
         }
         public List<T> GenericGetAll<T>(string tableName)
