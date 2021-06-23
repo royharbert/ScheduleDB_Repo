@@ -446,6 +446,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtEID.Size = new System.Drawing.Size(291, 26);
             this.txtEID.TabIndex = 40;
             this.txtEID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEID.TextChanged += new System.EventHandler(this.txtEID_TextChanged);
             // 
             // FrmATEscalations
             // 
@@ -485,6 +486,7 @@ namespace Schedule_Database_Desktop_Version
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmATEscalations";
             this.Text = "AT Escalations";
+            this.Shown += new System.EventHandler(this.FrmATEscalations_Shown);
             this.grp_OptionalFields.ResumeLayout(false);
             this.grp_OptionalFields.PerformLayout();
             this.ResumeLayout(false);

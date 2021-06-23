@@ -11,6 +11,7 @@ namespace Schedule_Database_Desktop_Version
     class GV
     {
         public static frmCustomerLocation LOCATIONFORM { get; set; }
+        public static FrmATEscalations ESCALATIONFORM { get; set; }
         public List<ProductModel> ProductsList { get; set; }
         public List<FE_Model> AllFE  { get; set; }
         public static UserModel USERMODEL { get; set; }

@@ -11,6 +11,7 @@ namespace Schedule_Database_Desktop_Version
         New,
         AddEscalation,
         SearchEscalation,
+        EditEscalation,
         DeleteEscalation,
         DateRangeReport,
         Edit,
