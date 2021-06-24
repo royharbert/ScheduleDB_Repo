@@ -14,6 +14,37 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 
     public class SqlConnector : IDataConnection
     {
+        public static string db { get; set; }
+        public int Escalation_Update(DataTable dt)
+        {
+            string db;
+            if (GlobalConfig.DatabaseMode == DatabaseType.Live)
+            {
+                db = ConfigurationManager.ConnectionStrings["Live"].ConnectionString;
+            }
+            else
+            {
+                db = ConfigurationManager.ConnectionStrings["Sandbox"].ConnectionString;
+            }
+
+            using (SqlConnection con = new SqlConnection(db))
+            {
+                SqlCommand cmd = new SqlCommand("spEscalationTableTypeUpdate", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter param = new SqlParameter();
+                param.ParameterName = "@Table";
+                param.SqlDbType = SqlDbType.Structured;
+                param.Value = dt;
+                cmd.Parameters.Add(param);
+                param = null;
+
+                con.Open();
+                int success = cmd.ExecuteNonQuery();
+                con.Close();
+                return success;
+            }
+        }
         public List<ATEscalationsModel> SearchEscalations(string searchString)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
@@ -44,7 +75,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 connection.Execute("dbo.spEIDSequence_Set", p, commandType: CommandType.StoredProcedure);
             }
         }
-        public static string db { get; set; }
+        
         public int Escalations_Add(DataTable dt)
         {
             string db;
@@ -64,7 +95,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 
                 SqlParameter param = new SqlParameter();
                 param.ParameterName = "@Table";
-                param.SqlDbType = System.Data.SqlDbType.Structured;
+                param.SqlDbType = SqlDbType.Structured;
                 param.Value = dt;
                 cmd.Parameters.Add(param);
                 param = null;
