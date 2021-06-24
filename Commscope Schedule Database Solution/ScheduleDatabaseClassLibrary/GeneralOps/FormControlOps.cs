@@ -16,7 +16,11 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
             foreach (var item in itemArray)
             {
                 matchString = item.Trim();
-                lb.SetSelected(lb.FindString(matchString), true);
+                int match = lb.FindString(matchString);
+                if (match > -1)
+                {
+                    lb.SetSelected(match, true);
+                }
             }
         }
     }

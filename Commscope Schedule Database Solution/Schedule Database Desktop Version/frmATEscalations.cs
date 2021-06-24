@@ -278,7 +278,8 @@ namespace Schedule_Database_Desktop_Version
 
         private void btn_AddAttachment_Click(object sender, EventArgs e)
         {
-            List<string> fileNames = AttachmentProcs.GetAttachmentType(this);
+            AttachmentModel model = AttachmentProcs.GetAttachmentType(this, txtEID.Text);
+
         }
     }
 }
