@@ -38,5 +38,11 @@ namespace ScheduleDatabaseClassLibrary.Models
         public DateTime DateReported { get; set; }
         [ExcelExportProperty]
         public string ATEStatus { get; set; }
+
+        public ATEscalationsDisplayModel DisplayModel()
+        {
+            ATEscalationsDisplayModel displayModel = new ATEscalationsDisplayModel(this);
+            return displayModel;
+        }
     }
 }

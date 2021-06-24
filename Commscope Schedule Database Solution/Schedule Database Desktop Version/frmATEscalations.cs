@@ -89,27 +89,32 @@ namespace Schedule_Database_Desktop_Version
         {
             string searchTerm = e.SearchString;
             List<ATEscalationsModel> escalations = GlobalConfig.Connection.SearchEscalations(searchTerm.ToUpper());
-            List<ATEscalationsDisplayModel> displayEscalations = new List<ATEscalationsDisplayModel>();
-            foreach (var model in escalations)
-            {
-                ATEscalationsDisplayModel dm = new ATEscalationsDisplayModel(model);
-                displayEscalations.Add(dm);
-                dm = null;
-            }
-            switch (displayEscalations.Count) 
+            switch (escalations.Count)
             {
                 case 0:
                     MessageBox.Show("No matching records found.");
                     break;
                 case 1:
-                    loadBoxes(displayEscalations[0]);
+                    ATEscalationsDisplayModel displayModel = new ATEscalationsDisplayModel(escalations[0]);
+                    loadBoxes(displayModel);
                     break;
                 default:
                     frmMultiSelect displayForm = new frmMultiSelect();
-                    displayForm.Escalations = displayEscalations;
+                    List<ATEscalationsDisplayModel> displayModels = convertToDisplayList(escalations);
+                    displayForm.Escalations = displayModels;
                     displayForm.Show();
                     break;
             }
+        }
+
+        private List<ATEscalationsDisplayModel> convertToDisplayList(List<ATEscalationsModel> lst)
+        {
+            List<ATEscalationsDisplayModel> returnList = new List<ATEscalationsDisplayModel>();
+            foreach (var escalation in lst)
+            {
+                returnList.Add( new ATEscalationsDisplayModel(escalation));
+            }
+            return returnList;
         }
 
         private void fillComboLists()
@@ -128,20 +133,11 @@ namespace Schedule_Database_Desktop_Version
         }
         private void btn_Close_Click(object sender, EventArgs e)
         {
-            if (formDirty)
-            {
-                DialogResult reply = MessageBox.Show("Save changes?", "Save",MessageBoxButtons.YesNo);
-                if (reply == DialogResult.Yes)
-                {
-                    saveRecord();
-                }
-            }
             this.Close();
         }
 
         public void loadBoxes(ATEscalationsDisplayModel model)
         {
-            dataLoading = true;
             txtEID.Text = model.EscalationID;
             txt_Comments.Text = model.Comments;
             txt_CTRNumber.Text = model.CTRNumber;
@@ -158,7 +154,6 @@ namespace Schedule_Database_Desktop_Version
             FormControlOps.markListBoxes(lst_PartNumbers, model.PartNumber);
 
             //--TODO load FELead and Product boxes
-            dataLoading = false;
         }
 
         private void makeProductList()
@@ -204,18 +199,16 @@ namespace Schedule_Database_Desktop_Version
                 foreach (var item in lst_FELead.SelectedItems)
                 {
                     FE_Model lead = (FE_Model)item;
-                    LeadFE.Add(lead.FullName);
+                    LeadFE.Add(lead.FirstName);
+
                 }
                 xmlString = Serialization.SerializeToXml<List<string>>(LeadFE);
 
             }
             return xmlString;
         }
-
-        
-
-        private void saveRecord()
-        {            
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
             ATEscalationsModel model = new ATEscalationsModel();
             model.EscalationID = txtEID.Text;
             model.PartNumberXML = collectProducts();
@@ -233,34 +226,15 @@ namespace Schedule_Database_Desktop_Version
             model.PeopleSoftNumber = txt_PSNumber.Text;
             ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel> dt =
                 new ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel>();
-            int success = 0;
             List<ATEscalationsModel> escalations = new List<ATEscalationsModel>();
             escalations.Add(model);
             dt.List = escalations;
-            switch (GV.MODE)
-            {
-                
-                case Mode.AddEscalation:
-                    success = GlobalConfig.Connection.Escalations_Add(dt.table);
-                    break;
-                case Mode.EditEscalation:
-                    success = GlobalConfig.Connection.Escalation_Update(dt.table);
-                    break;
-            }
+            int success = GlobalConfig.Connection.Escalations_Add(dt.table);
             if (success > 0)
             {
                 MessageBox.Show(model.EscalationID + " saved.");
                 btn_Save.Enabled = false;
             }
-            else
-            {
-                MessageBox.Show("Save failed");
-            }
-            formDirty = false;
-        }
-        private void btn_Save_Click(object sender, EventArgs e)
-        {
-            saveRecord();
         }
 
         private void cbo_MSO_SelectedIndexChanged(object sender, EventArgs e)
@@ -300,6 +274,11 @@ namespace Schedule_Database_Desktop_Version
             {
                 inputForm.BringToFront();
             }
+        }
+
+        private void btn_AddAttachment_Click(object sender, EventArgs e)
+        {
+            List<string> fileNames = AttachmentProcs.GetAttachmentType(this);
         }
     }
 }
