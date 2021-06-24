@@ -12,5 +12,10 @@ namespace ScheduleDatabaseClassLibrary.Models
         public int ID { get; set; }
         public string Product { get; set; }
         public string ProductClass { get; set; }
+        public override string ToString()
+        {
+            return this.Product;
+        }
     }
+
 }

@@ -18,10 +18,10 @@ namespace Schedule_Database_Desktop_Version
     {
         private List<AssignmentTableModel> retrieveList;
         private List<AssignmentDisplayModel> displayList;
-        private List<ATEscalationsModel> escalationList;
+        private List<ATEscalationsDisplayModel> escalationList;
         private List<CustomerModel> customerData;
         private List<LocationModel> locationData;
-        private List<ATEscalationsModel> escalations;
+        private List<ATEscalationsDisplayModel> escalations;
 
         public frmCustomerContact CallingForm { get; set; }
 
@@ -78,7 +78,7 @@ namespace Schedule_Database_Desktop_Version
             } 
         }
 
-        public List<ATEscalationsModel> Escalations
+        public List<ATEscalationsDisplayModel> Escalations
         {
             get
             {
@@ -92,8 +92,22 @@ namespace Schedule_Database_Desktop_Version
                 locationData = null;
                 dgvResults.DataSource = escalationList;
                 txtCount.Text = escalationList.Count.ToString();
-                //formatDGV_Assignment();
-                //setDGV_HeaderText(dgvResults);
+                formatDGV_Escalation();
+                setDGV_EscalationHeaderText(dgvResults);
+            }
+        }
+
+        private void setDGV_EscalationHeaderText(DataGridView dgv)
+        {
+            string[] headers = {"Escalation ID", "FE Lead", "MSO", "Escalation Type", "Product","Description", "Quantity", "Date Reported", "Date Resolved",
+                "Resolution", "Comments", "CTR Number", "PeopleSoft Number", "Status" };
+            for (int i = 0; i < dgv.Columns.Count; i++)
+            {
+                DataGridViewCellStyle style = dgv.ColumnHeadersDefaultCellStyle;
+                style.Font = new Font(dgv.Font, FontStyle.Bold);
+                dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgv.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgv.Columns[i].HeaderText = headers[i];
             }
         }
 
@@ -152,7 +166,7 @@ namespace Schedule_Database_Desktop_Version
                     this.Close();
                     break;
                 case Mode.SearchEscalation:
-                    ATEscalationsModel escalation = escalations[selectedRow];
+                    ATEscalationsDisplayModel escalation = escalations[selectedRow];
                     GV.ESCALATIONFORM.loadBoxes(escalation);
                     GV.MODE = Mode.EditEscalation;
                     break;
@@ -177,6 +191,15 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
+        private void formatDGV_Escalation()
+        {
+            int[] widths = { 200, 150, 200, 100, 200, 300, 100, 150, 150, 300, 300, 150, 150, 100 };
+            for (int i = 0; i < widths.Length; i++)
+            {
+                dgvResults.Columns[i].Width = widths[i];
+            }
+        }
+
         private void formatDGV_Location()
         {
             int[] widths = {    20,150,150,150,150,150,150,150,150,150 };
@@ -193,43 +216,9 @@ namespace Schedule_Database_Desktop_Version
             {  
                 case Mode.SearchEscalation:
                 case Mode.EditEscalation:
-                    ListLooper.ExcelExporter<ATEscalationsModel> exporter = new ListLooper.ExcelExporter<ATEscalationsModel>();
-                    exporter.List = (List<ATEscalationsModel>)dgvResults.DataSource;
-                    //ReportOps.FormatMultiResultExport(exporter.Wksheet);
-                    break;
-                case Mode.DeleteEscalation:
-                    break;
-                case Mode.DateRangeReport:
-                    break;
-                case Mode.Edit:
-                    break;
-                case Mode.Undo:
-                    break;
-                case Mode.CustomerSearch:
-                    break;
-                case Mode.CustomerSearchMDI:
-                    break;
-                case Mode.AddCustomer:
-                    break;
-                case Mode.EditCustomer:
-                    break;
-                case Mode.DeleteCustomer:
-                    break;
-                case Mode.AddCustomerLocation:
-                    break;
-                case Mode.EditCustomerLocation:
-                    break;
-                case Mode.DeleteCustomerLocation:
-                    break;
-                case Mode.LocationSearch:
-                    break;
-                case Mode.LocationSearchMDI:
-                    break;
-                case Mode.Add_Attachment:
-                    break;
-                case Mode.Delete_Attachment:
-                    break;
-                case Mode.None:
+                    ListLooper.ExcelExporter<ATEscalationsDisplayModel> exporter = new ListLooper.ExcelExporter<ATEscalationsDisplayModel>();
+                    exporter.List = (List<ATEscalationsDisplayModel>)dgvResults.DataSource;
+                    ReportOps.FormatEscalationResultExport(exporter.Wksheet);
                     break;
                 default:
                     ListLooper.ExcelExporter<AssignmentDisplayModel> excelExporter = new ListLooper.ExcelExporter<AssignmentDisplayModel>();

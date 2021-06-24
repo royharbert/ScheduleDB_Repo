@@ -917,7 +917,7 @@ namespace Schedule_Database_Desktop_Version
 
             frm.TypeReadyEvent -= Frm_TypeReadyEvent;
             //prepForButtonLogEntry(model.DisplayText);
-}
+        }
 
         private void Frm_TypeReadyEvent(object sender, AttachmentModel e)
         {
