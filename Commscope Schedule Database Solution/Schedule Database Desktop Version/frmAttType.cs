@@ -15,8 +15,25 @@ namespace Schedule_Database_Desktop_Version
 
     public partial class frmAttType : Form
     {
+        string[] _labels = null;
+        public string[] Labels 
+        {
+            get
+            {
+                return Labels;
+            }
+            set
+            {
+                _labels = value;
+                rdoDocCovid.Text = _labels[0];
+                rdoCRM.Text = _labels[1];
+                rdoTripRpt.Text = _labels[2];
+                rdoWRE.Text = _labels[3];
+                rdoRoster.Text = _labels[4];
+                rdoOther.Text = _labels[5];
+            } 
+        }
         string thisType = "";
-        //AttachmentModel model = null;
         public AttachmentModel model { get; set; }
         public event EventHandler<AttachmentModel> TypeReadyEvent;
         public frmAttType(AttachmentModel aModel)
@@ -27,7 +44,11 @@ namespace Schedule_Database_Desktop_Version
         }
 
         private void btnOK_Click(object sender, EventArgs e)
-        {           
+        {
+            if (thisType == "Other" & txtOther.Text != "")
+            {
+                thisType = txtOther.Text;
+            }
             model.ItemType = thisType;
 
             TypeReadyEvent?.Invoke(this, model);
@@ -91,6 +112,11 @@ namespace Schedule_Database_Desktop_Version
             if (rb != null && rb.Checked)
             {
                 thisType = rb.Tag.ToString();
+                txtOther.Enabled = true;
+            }
+            else
+            {
+                txtOther.Enabled = false;
             }
         }
     }

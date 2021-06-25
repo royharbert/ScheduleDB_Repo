@@ -379,6 +379,7 @@ namespace Schedule_Database_Desktop_Version
             this.btn_RemoveAttachment.TabIndex = 34;
             this.btn_RemoveAttachment.Text = "Remove";
             this.btn_RemoveAttachment.UseVisualStyleBackColor = false;
+            this.btn_RemoveAttachment.Click += new System.EventHandler(this.btn_RemoveAttachment_Click);
             // 
             // lbl_Attachments
             // 
@@ -447,6 +448,7 @@ namespace Schedule_Database_Desktop_Version
             this.dgvAttachments.Name = "dgvAttachments";
             this.dgvAttachments.Size = new System.Drawing.Size(493, 161);
             this.dgvAttachments.TabIndex = 41;
+            this.dgvAttachments.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAttachments_RowHeaderMouseClick);
             // 
             // FrmATEscalations
             // 

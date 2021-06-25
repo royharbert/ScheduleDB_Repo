@@ -892,6 +892,8 @@ namespace Schedule_Database_Desktop_Version
             GV.MODE = Mode.Add_Attachment;
             AttachmentModel model = new AttachmentModel();
             frmAttType frm = new frmAttType(model);
+            string[] labels = { "Covid Release", "CRM Entry", "Trip Report Entry", "Weekly Report Entry", "Roster", "Other" };
+            frm.Labels = labels;
             frm.TypeReadyEvent += Frm_TypeReadyEvent;
 
             OpenFileDialog openFD = new OpenFileDialog();
@@ -964,21 +966,8 @@ namespace Schedule_Database_Desktop_Version
 
         private void dgvAttachments_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            List<AttachmentModel> aList = (List<AttachmentModel>)dgvAttachments.DataSource;
-            int selRow = dgvAttachments.CurrentRow.Index;
-            AttachmentModel model = aList[selRow];
-
-            string fileName = dgvAttachments.CurrentRow.Cells[2].Value.ToString();
-            fileName = GlobalConfig.AttachmentPath + "\\" + model.PID + "\\" + fileName;
-            ProcessStartInfo sinfo = new ProcessStartInfo(fileName);
-            try
-            {
-                Process.Start(sinfo);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + "\n" + fileName);
-            }
+            AttachmentProcs.AttachmentsRowHeaderClick(dgvAttachments);
+            
         }
 
         private void btnAttachItem_Click(object sender, EventArgs e)

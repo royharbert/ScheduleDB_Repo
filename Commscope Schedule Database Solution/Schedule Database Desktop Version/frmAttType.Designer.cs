@@ -38,11 +38,13 @@ namespace Schedule_Database_Desktop_Version
             this.rdoTripRpt = new System.Windows.Forms.RadioButton();
             this.rdoCRM = new System.Windows.Forms.RadioButton();
             this.rdoDocCovid = new System.Windows.Forms.RadioButton();
+            this.txtOther = new System.Windows.Forms.TextBox();
             this.gbxAttType.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxAttType
             // 
+            this.gbxAttType.Controls.Add(this.txtOther);
             this.gbxAttType.Controls.Add(this.rdoOther);
             this.gbxAttType.Controls.Add(this.btnCancel);
             this.gbxAttType.Controls.Add(this.btnOK);
@@ -159,6 +161,14 @@ namespace Schedule_Database_Desktop_Version
             this.rdoDocCovid.UseVisualStyleBackColor = true;
             this.rdoDocCovid.CheckedChanged += new System.EventHandler(this.rdoDocCovid_CheckedChanged);
             // 
+            // txtOther
+            // 
+            this.txtOther.Enabled = false;
+            this.txtOther.Location = new System.Drawing.Point(29, 244);
+            this.txtOther.Name = "txtOther";
+            this.txtOther.Size = new System.Drawing.Size(203, 29);
+            this.txtOther.TabIndex = 18;
+            // 
             // frmAttType
             // 
             this.AcceptButton = this.btnOK;
@@ -190,5 +200,6 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.RadioButton rdoOther;
+        private System.Windows.Forms.TextBox txtOther;
     }
 }

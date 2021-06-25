@@ -1,6 +1,8 @@
-﻿using ScheduleDatabaseClassLibrary.Models;
+﻿using ScheduleDatabaseClassLibrary;
+using ScheduleDatabaseClassLibrary.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,11 +13,18 @@ namespace Schedule_Database_Desktop_Version
 {
     public static class AttachmentProcs
     {
-        public static List<string> GetAttachmentType(Form callingForm)
+        /// <summary>
+        /// Returns complete model of attachment
+        /// Saves attachment to DB
+        /// </summary>
+        /// <param name="callingForm"></param>
+        /// <returns></returns>
+        public static List<AttachmentModel> AttachFile(Form callingForm, string PID, string[] labels)
         {
             GV.MODE = Mode.Add_Attachment;
             AttachmentModel model = new AttachmentModel();
             frmAttType frm = new frmAttType(model);
+            frm.Labels = labels;
             EventHandler<AttachmentModel> Frm_TypeReadyEvent = null;
             frm.TypeReadyEvent += Frm_TypeReadyEvent;
 
@@ -29,24 +38,46 @@ namespace Schedule_Database_Desktop_Version
             if (openFD.ShowDialog() == DialogResult.OK)
             {
                 string fullFileName = openFD.FileName;
-                string fileName = Path.GetFileName(fullFileName);
+                string file = Path.GetFileName(fullFileName);
                 model.FileToSave = fullFileName;
-                model.DisplayText = fileName;
+                model.DisplayText = file;
+                model.PID = PID;
                 //FC.SetFormPosition(frm);
                 callingForm.BringToFront();
                 frm.ShowDialog();
             }
-
-            List<string> fileNames = new List<string>();
-            fileNames.Add(model.FileToSave);
-            fileNames.Add(model.DisplayText);
-
-            return fileNames;
+            string fileName = GlobalConfig.AttachmentPath + "\\" + model.PID + "\\" + model.DisplayText;
+            FileOps.SaveAttFile(model);
+            GlobalConfig.Connection.InsertInto_tblAttachments(model);
+            List<AttachmentModel> aList = GlobalConfig.Connection.GetAttachments(PID);
+            return aList;
         }
 
         private static void Frm_TypeReadyEvent(object sender, AttachmentModel e)
         {
-            throw new NotImplementedException();
+            List<AttachmentModel> aList = GlobalConfig.Connection.GetAttachments(e.PID);
+            //dgvAttachments.DataSource = null;
+            //dgvAttachments.DataSource = aList;
+            //formatAttGrid();
+        }
+
+        public static void AttachmentsRowHeaderClick(DataGridView dgv)
+        {
+            List<AttachmentModel> aList = (List<AttachmentModel>)dgv.DataSource;
+            int selRow = dgv.CurrentRow.Index;
+            AttachmentModel model = aList[selRow];
+
+            string fileName = dgv.CurrentRow.Cells[2].Value.ToString();
+            fileName = GlobalConfig.AttachmentPath + "\\" + model.PID + "\\" + fileName;
+            ProcessStartInfo sinfo = new ProcessStartInfo(fileName);
+            try
+            {
+                Process.Start(sinfo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n" + fileName);
+            }
         }
     }
 }
