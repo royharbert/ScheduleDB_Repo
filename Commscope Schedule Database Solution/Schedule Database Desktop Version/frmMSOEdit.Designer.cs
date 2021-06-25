@@ -93,6 +93,7 @@ namespace Schedule_Database_Desktop_Version
             this.btn_markInactive.TabIndex = 6;
             this.btn_markInactive.Text = "Mark Inactive";
             this.btn_markInactive.UseVisualStyleBackColor = true;
+            //this.btn_markInactive.Click += new System.EventHandler(this.btn_markInactive_Click);
             // 
             // imageList1
             // 
@@ -109,6 +110,7 @@ namespace Schedule_Database_Desktop_Version
             this.chk_showActive.TabIndex = 7;
             this.chk_showActive.Text = "Show active MSOs only";
             this.chk_showActive.UseVisualStyleBackColor = true;
+
             // 
             // btn_markActive
             // 
@@ -127,6 +129,7 @@ namespace Schedule_Database_Desktop_Version
             this.btn_close.TabIndex = 9;
             this.btn_close.Text = "Close";
             this.btn_close.UseVisualStyleBackColor = true;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // btn_editMSO
             // 

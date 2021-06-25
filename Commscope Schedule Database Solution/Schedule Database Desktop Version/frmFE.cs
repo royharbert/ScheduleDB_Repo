@@ -43,7 +43,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void makeFEList()
         {
-            List<FE_Model> feList = GlobalConfig.Connection.FE_GetAll();
+            List<FE_Model> feList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE");
             lst_FieldEngineer.DataSource = feList;
             lst_FieldEngineer.DisplayMember = "FullName";
             lst_FieldEngineer.SelectedIndex = -1;
@@ -120,6 +120,7 @@ namespace Schedule_Database_Desktop_Version
         {
 
             MessageBox.Show("Are you sure you want to delete this record?");
+
         }
 
         private void btn_ClearFields_Click(object sender, EventArgs e)
@@ -131,6 +132,48 @@ namespace Schedule_Database_Desktop_Version
                     ctl.Text = "";
                 }
             }
+        }
+
+        private void btnFE_Save_Click(object sender, EventArgs e)
+      {
+        //    //FE_Model model = new FE_Model();
+            //model.FirstName = txtFE_FirstName.Text;
+            //model.LastName = txtFE_LastName.Text;
+            //model.ManagerID = txtFE_ManagerID.Text;
+            //model.Region = txtFE_Region.Text;
+            //model.Phone = txtFE_Phone.Text;
+            //model.EMail = txtFE_Email.Text;
+            //model.Active = bool.Parse(txtFE_Active.Text);
+
+            //ScheduleDatabaseClassLibrary.TableOps.TableGenerator<FE_Model> dt =
+            //    new ScheduleDatabaseClassLibrary.TableOps.TableGenerator<FE_Model>();
+            //List<FE_Model> fieldengineers = new List<FE_Model>();
+            //fieldengineers.Add(model);
+            //dt.List = fieldengineers;
+            //GlobalConfig.Connection.FE_Update(dt.table);
+
+            //MessageBox.Show("Field Engineer has been updated");
+
+        }
+
+        private void btnFE_Add_Click(object sender, EventArgs e)
+        {
+        //    FE_Model model = new FE_Model();
+        //    model.FirstName = txtFE_FirstName.Text;
+        //    model.LastName = txtFE_LastName.Text;
+        //    model.ManagerID = txtFE_ManagerID.Text;
+        //    model.Region = txtFE_Region.Text;
+        //    model.Phone = txtFE_Phone.Text;
+        //    model.EMail = txtFE_Email.Text;
+        //    model.Active = bool.Parse(txtFE_Active.Text);
+
+            //ScheduleDatabaseClassLibrary.TableOps.TableGenerator<FE_Model> dt=
+            //    new ScheduleDatabaseClassLibrary.TableOps.TableGenerator<FE_Model>();
+            //List<FE_Model> escalations = new List<FE_Model>();
+            ////escalations.Add(model);
+            ////dt.List = FieldEngineers;
+            ////GlobalConfig.Connection.FE_Add(dt.table);
+            //MessageBox.Show("Field Engineer has been added");
         }
 
         //private void btnFE_Save_Click(object sender, EventArgs e)

@@ -27,5 +27,21 @@ namespace ScheduleDatabaseClassLibrary.Models
         /// </summary>
         public string Abbreviation { get; set; }
 
-    } 
+        public bool Active { get; set; }
+
+        public MSO_Model()
+        {
+            this.Active = true;
+
+        }
+        public MSO_Model(int ID, string MSO, String Abbreviation, bool Active = true)
+        {
+            this.ID = ID;
+            this.Abbreviation = Abbreviation;
+            this.MSO = MSO;
+            this.Active = Active;
+        }
+
+
+    }
 }

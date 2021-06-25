@@ -286,5 +286,11 @@ namespace Schedule_Database_Desktop_Version
             frmCalendar calendar = new frmCalendar();
             calendar.Show();
         }
+
+        private void mSOUpdateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMSOEdit MSOEditForm = new frmMSOEdit();
+            MSOEditForm.Show();
+        }
     }
 }

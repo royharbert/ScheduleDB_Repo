@@ -15,6 +15,17 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
     public class SqlConnector : IDataConnection
     {
         public static string db { get; set; }
+        public void FE_Update(DataTable FEdt)
+        {
+            //    using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            //    {
+            //        var p = new DynamicParameters();
+            //        p.Add("@Rtable", FEdt);
+
+            //        connection.Execute("dbo.spFETableTypeInsert", p,
+            //            commandType: CommandType.StoredProcedure);
+            //    }
+        }
         public void Escalations_Add(DataTable dt)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
@@ -80,7 +91,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@StartDate", StartDate, DbType.DateTime);
                 p.Add("@EndDate", EndDate, DbType.DateTime);
                 List<FE_CalendarModel> output = connection.Query<FE_CalendarModel>("dbo.spFE_Calendar_GetAssignments", p,
-                   commandType: CommandType.StoredProcedure).ToList();               
+                   commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
         }
@@ -112,7 +123,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
 
-        public List<LocationModel> CustomerLocations_Get(string WhereClause, string action, int ID, string siteName, string mso, 
+        public List<LocationModel> CustomerLocations_Get(string WhereClause, string action, int ID, string siteName, string mso,
             string address, string city, string state, string country, string postalCode, string region, int custID)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
@@ -143,7 +154,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 var p = new DynamicParameters();
                 p.Add("@Activity", activity);
                 p.Add("@ID", ID);
-                
+
 
                 connection.Execute("dbo.spActivity_UpdateID", p,
                     commandType: CommandType.StoredProcedure);
@@ -190,14 +201,14 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 con.Close();
             }
         }
-        public void Customer_CRUD(CustomerModel customer,string action)
+        public void Customer_CRUD(CustomerModel customer, string action)
         {
-            using(IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@Action", action, DbType.String, ParameterDirection.Input);
-                p.Add("@ID", customer.ID, DbType.Int32,ParameterDirection.Input);
-                p.Add("@FirstName", customer.FirstName,DbType.String,ParameterDirection.Input);
+                p.Add("@ID", customer.ID, DbType.Int32, ParameterDirection.Input);
+                p.Add("@FirstName", customer.FirstName, DbType.String, ParameterDirection.Input);
                 p.Add("@LastName", customer.LastName, DbType.String, ParameterDirection.Input);
                 p.Add("@MSO", customer.MSO, DbType.String, ParameterDirection.Input);
                 p.Add("@LocID", customer.LocID, DbType.Int32, ParameterDirection.Input);
@@ -226,9 +237,9 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             {
                 var p = new DynamicParameters();
                 p.Add("@ID", ID);
-                p.Add("@Value", productXML);              
+                p.Add("@Value", productXML);
 
-                connection.Execute("dbo.spAssignments_Product_ListUpdateXMLByID", p, 
+                connection.Execute("dbo.spAssignments_Product_ListUpdateXMLByID", p,
                     commandType: CommandType.StoredProcedure);
             }
         }
@@ -264,12 +275,12 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         public List<UserModel> GetUsers_All()
         {
             List<UserModel> output = null;
-            
+
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
-                p.Add("@TableName", "tblUsers",DbType.String);
-                output = connection.Query<UserModel>("dbo.spGenericGetAll",p, commandType: CommandType.StoredProcedure).ToList();
+                p.Add("@TableName", "tblUsers", DbType.String);
+                output = connection.Query<UserModel>("dbo.spGenericGetAll", p, commandType: CommandType.StoredProcedure).ToList();
             }
 
             return output;
@@ -351,7 +362,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 var p = new DynamicParameters();
 
                 p.Add("@TableName", "tblHolidaysList", DbType.String, ParameterDirection.Input);
-                List<CompanyHolidaysModel> output = connection.Query<CompanyHolidaysModel>("dbo.spGenericGetAll", p, 
+                List<CompanyHolidaysModel> output = connection.Query<CompanyHolidaysModel>("dbo.spGenericGetAll", p,
                     commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
@@ -438,10 +449,10 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
-                List<SequenceModel> output = connection.Query<SequenceModel>("dbo.spSequence_Get", 
+                List<SequenceModel> output = connection.Query<SequenceModel>("dbo.spSequence_Get",
                     commandType: CommandType.StoredProcedure).ToList();
                 GlobalConfig.Connection.Sequence_Set(output[0].Sequence + 1);
-                return output[0].Sequence;               
+                return output[0].Sequence;
             }
         }
 
@@ -697,7 +708,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 DataColumn idColumn = dt.Columns["ID"];
                 if (idColumn != null)
                 {
-                    dt.Columns.Remove("ID"); 
+                    dt.Columns.Remove("ID");
                 }
                 SqlCommand cmd = new SqlCommand(spName, con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -720,7 +731,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             {
                 DynamicParameters p = new DynamicParameters();
                 p.Add("@ID", ID, DbType.Int32);
-                List<FE_Model> output = connection.Query<FE_Model>("dbo.spFE_GetByID", p, commandType: CommandType.StoredProcedure).ToList();               
+                List<FE_Model> output = connection.Query<FE_Model>("dbo.spFE_GetByID", p, commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
         }
@@ -736,13 +747,11 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
 
-
-
         public List<ActivityModel> Activity_GetAll()
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
-                List<ActivityModel> output = connection.Query<ActivityModel>("dbo.spActivity_GetAll", 
+                List<ActivityModel> output = connection.Query<ActivityModel>("dbo.spActivity_GetAll",
                     commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
@@ -757,7 +766,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 return output;
             }
         }
-
         public List<AssignmentTableModel> AssignmentSearch(string searchString)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))

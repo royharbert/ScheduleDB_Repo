@@ -139,13 +139,13 @@ namespace Schedule_Database_Desktop_Version
             model.CTRNumber = txt_CTRNumber.Text;
             model.DateReported = dtp_DateReported.Value;
             model.ResolvedDate = dtp_DateResolved.Value;
-            model.ID = int.Parse(txtID.Text);
-            ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel> dt =
+            //model.ID = int.Parse(txtID.Text);
+            ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel> FEdt =
                 new ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel>();
             List<ATEscalationsModel> escalations = new List<ATEscalationsModel>();
             escalations.Add(model);
-            dt.List = escalations;
-            GlobalConfig.Connection.Escalations_Add(dt.table);
+            FEdt.List = escalations;
+            GlobalConfig.Connection.Escalations_Add(FEdt.table);
         }
 
         private void cbo_MSO_SelectedIndexChanged(object sender, EventArgs e)
