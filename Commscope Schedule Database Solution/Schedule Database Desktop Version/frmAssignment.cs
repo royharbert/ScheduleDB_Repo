@@ -545,26 +545,6 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
-        //private void populateFE_ListBox(AssignmentModel assignment)
-        //{
-        //    List<int> feList = assignedFElist(assignment.FE_ListXML);
-        //    if (feList.Count > 0)
-        //    {
-        //        for (int j = 0; j < feList.Count; j++)
-        //        {
-        //            List<FE_Model> FE = GlobalConfig.Connection.FE_GetByID(feList[j]);
-        //            for (int i = 0; i < lstFE.Items.Count; i++)
-        //            {
-        //                FE_Model item = (FE_Model)lstFE.Items[i];
-        //                if (FE[0].FullName == item.FullName)
-        //                {
-        //                    lstFE.SetSelected(i, true);
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-
         private List<int> assignedFElist(string xmlFE)
         {
             List<int> feList = Serialization.DeserializeToList<List<int>>(xmlFE);
@@ -629,7 +609,7 @@ namespace Schedule_Database_Desktop_Version
             {
                 foreach (int FE in assignedFEs)
                 {
-                    List<FE_Model> fe = GlobalConfig.Connection.FE_GetByID(FE);
+                    List<FE_Model> fe = GlobalConfig.Connection.GetItemByColumn<FE_Model>("tblFE", "ID","",FE);
                     availableFEs.Add(fe[0]);
                 }
                 lstFE.DataSource = availableFEs;

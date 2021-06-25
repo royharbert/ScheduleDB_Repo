@@ -29,18 +29,10 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         void Customer_CRUD(CustomerModel customer, string action);
         List<T> SearchMultipleFields<T>(string TableName, string whereClause);
         void Assignment_ProductsTOXML(int ID, string productXML);
-        List<FE_Model> FE_GetAll();
-        List<ActivityModel> Activity_GetAll();        
         void Assignments_FEListXMLUpdateByID(int AssignmentID, string xmlData);
         void ClearTable(string tableName);
         List<AssignmentTableModel> AssignmentSearch(string searchString);
 
-        /// <summary>
-        /// Returns an FE_Model for the FE corresponding to ID input parameter
-        /// </summary>
-        /// <param name="ID"></param>
-        /// <returns></returns>
-        List<FE_Model> FE_GetByID(int ID);
         void DeleteAttachment(AttachmentModel model);
         List<AttachmentModel> GetAttachments(string PID);
         void InsertInto_tblAttachments(AttachmentModel model);        
@@ -48,21 +40,13 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         void Sequence_Set(int seq);
         int EIDSequence_Get();
         void EIDSequence_Set(int seq);
-        List<RegionsModel> GetAllRegions();
-        List<StateModel> GetAllStates();
         void AddUser(UserModel NewUser);
         void DeleteUser(int OldUser);
         void UpdateUser(UserModel ThisUser);        
         UserModel GetUser(string userName);
-        List<UserModel> GetUsers_All();
-        List<CompanyHolidaysModel> GetAllHolidays();
-        List<CountriesModel> Countries_GetAll();
         void AddCountry(String ctry);
         void DeleteCountry(int idy);
-        void UpdateCountry(int idx, string designer);        
-        List<MSO_Model> MSO_GetAll();
-        List<CityModel> GetAllCities();
-        List<AssignmentRetrieveModel> Assignments_GetAll();
+        void UpdateCountry(int idx, string designer);  
         void UpdateTable(string spName, DataTable dataTable);
         //void UpdateFE(string Action, int ID, string FirstName, string LastName, string ManagerID, string Region, string Phone, string EMail, bool Active);
     }
