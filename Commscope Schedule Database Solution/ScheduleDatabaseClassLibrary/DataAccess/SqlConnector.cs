@@ -17,17 +17,16 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         public static string db { get; set; }
         public void MSO_Update(DataTable dt)
         {
-            string cs;
             if (GlobalConfig.DatabaseMode == DatabaseType.Live)
             {
-                cs = ConfigurationManager.ConnectionStrings["Live"].ConnectionString;
+                db = ConfigurationManager.ConnectionStrings["Live"].ConnectionString;
             }
             else
             {
-                cs = ConfigurationManager.ConnectionStrings["Sandbox"].ConnectionString;
+                db = ConfigurationManager.ConnectionStrings["Sandbox"].ConnectionString;
             }
 
-            using (SqlConnection con = new SqlConnection(cs))
+            using (SqlConnection con = new SqlConnection(db))
             {
                 SqlCommand cmd = new SqlCommand("spMSOTableTypeUpdate", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -47,17 +46,16 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         }
         public int Escalation_Update(DataTable dt)
         {
-            string cs;
             if (GlobalConfig.DatabaseMode == DatabaseType.Live)
             {
-                cs = ConfigurationManager.ConnectionStrings["Live"].ConnectionString;
+                db = ConfigurationManager.ConnectionStrings["Live"].ConnectionString;
             }
             else
             {
-                cs = ConfigurationManager.ConnectionStrings["Sandbox"].ConnectionString;
+                db = ConfigurationManager.ConnectionStrings["Sandbox"].ConnectionString;
             }
 
-            using (SqlConnection con = new SqlConnection(cs))
+            using (SqlConnection con = new SqlConnection(db))
             {
                 SqlCommand cmd = new SqlCommand("spEscalationTableTypeUpdate", con);
                 cmd.CommandType = CommandType.StoredProcedure;
