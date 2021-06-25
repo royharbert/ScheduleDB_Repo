@@ -31,7 +31,6 @@ namespace Schedule_Database_Desktop_Version
         {
             this.components = new System.ComponentModel.Container();
             this.txt_AddMSO = new System.Windows.Forms.TextBox();
-            this.lst_MSOs = new System.Windows.Forms.ListBox();
             this.lbl_AddNewMSO = new System.Windows.Forms.Label();
             this.lbl_MSOs = new System.Windows.Forms.Label();
             this.btn_AddMSO = new System.Windows.Forms.Button();
@@ -41,6 +40,8 @@ namespace Schedule_Database_Desktop_Version
             this.btn_markActive = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
             this.btn_editMSO = new System.Windows.Forms.Button();
+            this.dgv_MSO = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_MSO)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_AddMSO
@@ -49,14 +50,6 @@ namespace Schedule_Database_Desktop_Version
             this.txt_AddMSO.Name = "txt_AddMSO";
             this.txt_AddMSO.Size = new System.Drawing.Size(307, 20);
             this.txt_AddMSO.TabIndex = 0;
-            // 
-            // lst_MSOs
-            // 
-            this.lst_MSOs.FormattingEnabled = true;
-            this.lst_MSOs.Location = new System.Drawing.Point(32, 45);
-            this.lst_MSOs.Name = "lst_MSOs";
-            this.lst_MSOs.Size = new System.Drawing.Size(307, 186);
-            this.lst_MSOs.TabIndex = 1;
             // 
             // lbl_AddNewMSO
             // 
@@ -78,7 +71,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btn_AddMSO
             // 
-            this.btn_AddMSO.Location = new System.Drawing.Point(372, 315);
+            this.btn_AddMSO.Location = new System.Drawing.Point(411, 312);
             this.btn_AddMSO.Name = "btn_AddMSO";
             this.btn_AddMSO.Size = new System.Drawing.Size(183, 23);
             this.btn_AddMSO.TabIndex = 5;
@@ -87,13 +80,12 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btn_markInactive
             // 
-            this.btn_markInactive.Location = new System.Drawing.Point(372, 86);
+            this.btn_markInactive.Location = new System.Drawing.Point(411, 83);
             this.btn_markInactive.Name = "btn_markInactive";
             this.btn_markInactive.Size = new System.Drawing.Size(183, 23);
             this.btn_markInactive.TabIndex = 6;
             this.btn_markInactive.Text = "Mark Inactive";
             this.btn_markInactive.UseVisualStyleBackColor = true;
-            //this.btn_markInactive.Click += new System.EventHandler(this.btn_markInactive_Click);
             // 
             // imageList1
             // 
@@ -104,17 +96,16 @@ namespace Schedule_Database_Desktop_Version
             // chk_showActive
             // 
             this.chk_showActive.AutoSize = true;
-            this.chk_showActive.Location = new System.Drawing.Point(35, 237);
+            this.chk_showActive.Location = new System.Drawing.Point(112, 203);
             this.chk_showActive.Name = "chk_showActive";
             this.chk_showActive.Size = new System.Drawing.Size(139, 17);
             this.chk_showActive.TabIndex = 7;
             this.chk_showActive.Text = "Show active MSOs only";
             this.chk_showActive.UseVisualStyleBackColor = true;
-
             // 
             // btn_markActive
             // 
-            this.btn_markActive.Location = new System.Drawing.Point(372, 115);
+            this.btn_markActive.Location = new System.Drawing.Point(411, 112);
             this.btn_markActive.Name = "btn_markActive";
             this.btn_markActive.Size = new System.Drawing.Size(183, 23);
             this.btn_markActive.TabIndex = 8;
@@ -133,18 +124,28 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btn_editMSO
             // 
-            this.btn_editMSO.Location = new System.Drawing.Point(372, 144);
+            this.btn_editMSO.Location = new System.Drawing.Point(411, 141);
             this.btn_editMSO.Name = "btn_editMSO";
             this.btn_editMSO.Size = new System.Drawing.Size(183, 23);
             this.btn_editMSO.TabIndex = 10;
             this.btn_editMSO.Text = "Edit MSO";
             this.btn_editMSO.UseVisualStyleBackColor = true;
             // 
+            // dgv_MSO
+            // 
+            this.dgv_MSO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_MSO.Location = new System.Drawing.Point(35, 47);
+            this.dgv_MSO.Name = "dgv_MSO";
+            this.dgv_MSO.Size = new System.Drawing.Size(307, 150);
+            this.dgv_MSO.TabIndex = 11;
+            this.dgv_MSO.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_MSO_RowHeaderMouseClick);
+            // 
             // frmMSOEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 454);
+            this.Controls.Add(this.dgv_MSO);
             this.Controls.Add(this.btn_editMSO);
             this.Controls.Add(this.btn_close);
             this.Controls.Add(this.btn_markActive);
@@ -153,10 +154,10 @@ namespace Schedule_Database_Desktop_Version
             this.Controls.Add(this.btn_AddMSO);
             this.Controls.Add(this.lbl_MSOs);
             this.Controls.Add(this.lbl_AddNewMSO);
-            this.Controls.Add(this.lst_MSOs);
             this.Controls.Add(this.txt_AddMSO);
             this.Name = "frmMSOEdit";
             this.Text = "frmMSOUpdate";
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_MSO)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,7 +166,6 @@ namespace Schedule_Database_Desktop_Version
         #endregion
 
         private System.Windows.Forms.TextBox txt_AddMSO;
-        private System.Windows.Forms.ListBox lst_MSOs;
         private System.Windows.Forms.Label lbl_AddNewMSO;
         private System.Windows.Forms.Label lbl_MSOs;
         private System.Windows.Forms.Button btn_AddMSO;
@@ -175,5 +175,6 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Button btn_markActive;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Button btn_editMSO;
+        private System.Windows.Forms.DataGridView dgv_MSO;
     }
 }

@@ -20,16 +20,15 @@ namespace Schedule_Database_Desktop_Version
         public frmMSOEdit()
         {
             InitializeComponent();
-            
+            makeMSOList();
           
         }
 
         private void makeMSOList()
         {
-            List<MSO_Model> msolist = ScheduleDatabaseClassLibrary.GlobalConfig.Connection.MSO_GetAll();
-            lst_MSOs.DataSource = msolist;
-            lst_MSOs.DisplayMember = "Abbreviation";
-            lst_MSOs.SelectedIndex = -1;
+            List<MSO_Model> msolist = ScheduleDatabaseClassLibrary.GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO");
+            dgv_MSO.DataSource = msolist;
+            dgv_MSO.Columns[2].Visible = false;
         }
         private void btn_markInactive_Click(object sender, EventArgs e)
         {
@@ -52,7 +51,7 @@ namespace Schedule_Database_Desktop_Version
                 }
                 else
                 {
-                    msolist = ScheduleDatabaseClassLibrary.GlobalConfig.Connection.MSO_GetAll();
+                    msolist = ScheduleDatabaseClassLibrary.GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO");
                 }
             }
         }
@@ -60,6 +59,20 @@ namespace Schedule_Database_Desktop_Version
         private void btn_close_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgv_MSO_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            List<MSO_Model> MSOs = (List<MSO_Model>)dgv_MSO.DataSource;
+            int currentrow = dgv_MSO.CurrentRow.Index;
+            MSO_Model MSO = MSOs[currentrow];
+            List<MSO_Model> list = new List<MSO_Model>();
+            list.Add(MSO);
+            ScheduleDatabaseClassLibrary.TableOps.TableGenerator<MSO_Model> tg = new ScheduleDatabaseClassLibrary.TableOps.TableGenerator<MSO_Model>();
+            tg.List = list;
+            DataTable dt = tg.table;
+            ScheduleDatabaseClassLibrary.GlobalConfig.Connection.MSO_Update(dt);
+
         }
     }
 }

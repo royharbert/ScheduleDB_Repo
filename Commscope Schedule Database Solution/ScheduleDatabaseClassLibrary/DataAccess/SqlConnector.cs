@@ -15,6 +15,35 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
     public class SqlConnector : IDataConnection
     {
         public static string db { get; set; }
+        public void MSO_Update(DataTable dt)
+        {
+            if (GlobalConfig.DatabaseMode == DatabaseType.Live)
+            {
+                db = ConfigurationManager.ConnectionStrings["Live"].ConnectionString;
+            }
+            else
+            {
+                db = ConfigurationManager.ConnectionStrings["Sandbox"].ConnectionString;
+            }
+
+            using (SqlConnection con = new SqlConnection(db))
+            {
+                SqlCommand cmd = new SqlCommand("spMSOTableTypeUpdate", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter param = new SqlParameter();
+                param.ParameterName = "@Table";
+                param.SqlDbType = SqlDbType.Structured;
+                param.Value = dt;
+                cmd.Parameters.Add(param);
+                param = null;
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                
+            }
+        }
         public int Escalation_Update(DataTable dt)
         {
             string db;
