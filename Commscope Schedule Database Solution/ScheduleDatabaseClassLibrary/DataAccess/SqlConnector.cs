@@ -661,17 +661,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
 
-        public List<FE_Model> FE_GetByID(int ID)
-        {
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
-            {
-                DynamicParameters p = new DynamicParameters();
-                p.Add("@ID", ID, DbType.Int32);
-                List<FE_Model> output = connection.Query<FE_Model>("dbo.spFE_GetByID", p, commandType: CommandType.StoredProcedure).ToList();               
-                return output;
-            }
-        }
-
         public void Assignments_FEListXMLUpdateByID(int AssignmentID, string xmlData)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))

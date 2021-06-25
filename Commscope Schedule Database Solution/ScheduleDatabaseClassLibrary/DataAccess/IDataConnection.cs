@@ -33,12 +33,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         void ClearTable(string tableName);
         List<AssignmentTableModel> AssignmentSearch(string searchString);
 
-        /// <summary>
-        /// Returns an FE_Model for the FE corresponding to ID input parameter
-        /// </summary>
-        /// <param name="ID"></param>
-        /// <returns></returns>
-        List<FE_Model> FE_GetByID(int ID);
         void DeleteAttachment(AttachmentModel model);
         List<AttachmentModel> GetAttachments(string PID);
         void InsertInto_tblAttachments(AttachmentModel model);        
