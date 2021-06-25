@@ -26,7 +26,7 @@ namespace Schedule_Database_Desktop_Version
             int UserID = -1;
             formLoading = true;
             FC.SetFormPosition(this);
-            List<UserModel> users = GlobalConfig.Connection.GetUsers_All();
+            List<UserModel> users = GlobalConfig.Connection.GenericGetAll<UserModel>("tblUsers");
             cboUser.DataSource = users;
             cboUser.DisplayMember = "FullName";
             try

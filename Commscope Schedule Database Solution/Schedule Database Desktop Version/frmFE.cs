@@ -43,7 +43,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void makeFEList()
         {
-            List<FE_Model> feList = GlobalConfig.Connection.FE_GetAll();
+            List<FE_Model> feList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE");
             lst_FieldEngineer.DataSource = feList;
             lst_FieldEngineer.DisplayMember = "FullName";
             lst_FieldEngineer.SelectedIndex = -1;
@@ -63,7 +63,7 @@ namespace Schedule_Database_Desktop_Version
             }
             else
             {
-                feList = GlobalConfig.Connection.FE_GetAll();
+                feList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE");
             }
             
                 lst_FieldEngineer.DataSource = feList;

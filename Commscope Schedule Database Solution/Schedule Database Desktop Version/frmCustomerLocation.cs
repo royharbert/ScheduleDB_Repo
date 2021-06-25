@@ -81,7 +81,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void fillComboLists()
         {
-            List<MSO_Model> MSOs = GlobalConfig.Connection.MSO_GetAll();
+            List<MSO_Model> MSOs = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO");
             cboMSO.DataSource = MSOs;
             cboMSO.DisplayMember = "MSO";
             cboMSO.SelectedIndex = -1;
@@ -96,7 +96,7 @@ namespace Schedule_Database_Desktop_Version
             cboState.DisplayMember = "Abbreviation";
             cboState.SelectedIndex = -1;
 
-            List<CountriesModel> countries = GlobalConfig.Connection.Countries_GetAll();
+            List<CountriesModel> countries = GlobalConfig.Connection.GenericGetAll<CountriesModel>("tblCountries");
             cboCountry.DataSource = countries;
             cboCountry.DisplayMember = "Country";
             cboCountry.SelectedIndex = -1;
