@@ -138,6 +138,7 @@ namespace Schedule_Database_Desktop_Version
             this.dgv_MSO.Name = "dgv_MSO";
             this.dgv_MSO.Size = new System.Drawing.Size(307, 150);
             this.dgv_MSO.TabIndex = 11;
+            this.dgv_MSO.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_MSO_CellEndEdit);
             this.dgv_MSO.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_MSO_RowHeaderMouseClick);
             // 
             // frmMSOEdit

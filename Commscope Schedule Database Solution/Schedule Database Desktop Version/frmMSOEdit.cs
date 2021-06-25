@@ -14,7 +14,7 @@ namespace Schedule_Database_Desktop_Version
     public partial class frmMSOEdit : Form
     {
         //bool formloading = true;
-        MSO_Model model = null;
+        MSO_Model model = new MSO_Model();
         List<MSO_Model> msolist = new List<MSO_Model>();
 
         public frmMSOEdit()
@@ -64,15 +64,29 @@ namespace Schedule_Database_Desktop_Version
         private void dgv_MSO_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             List<MSO_Model> MSOs = (List<MSO_Model>)dgv_MSO.DataSource;
-            int currentrow = dgv_MSO.CurrentRow.Index;
-            MSO_Model MSO = MSOs[currentrow];
+            updateMSOModel();
+            int currentrow = dgv_MSO.CurrentRow.Index;            
             List<MSO_Model> list = new List<MSO_Model>();
-            list.Add(MSO);
+            list.Add(model);
             ScheduleDatabaseClassLibrary.TableOps.TableGenerator<MSO_Model> tg = new ScheduleDatabaseClassLibrary.TableOps.TableGenerator<MSO_Model>();
             tg.List = list;
             DataTable dt = tg.table;
             ScheduleDatabaseClassLibrary.GlobalConfig.Connection.MSO_Update(dt);
 
+        }
+
+        private void dgv_MSO_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            updateMSOModel();
+        }
+
+        private void updateMSOModel()
+        {
+            DataGridViewRow row = dgv_MSO.Rows[e.RowIndex];
+            model.ID = int.Parse(row.Cells[2].Value.ToString());
+            model.MSO = row.Cells[0].Value.ToString();
+            model.Abbreviation = row.Cells[1].Value.ToString();
+            model.Active = bool.Parse(row.Cells[3].Value.ToString());
         }
     }
 }
