@@ -288,7 +288,8 @@ namespace Schedule_Database_Desktop_Version
 
         private void btn_AddAttachment_Click(object sender, EventArgs e)
         {
-            List<AttachmentModel> models = AttachmentProcs.AttachFile(this, txtEID.Text);
+            string[] labels = { "Design Drawing", "Lab Request", "Equuipment List", "Lab Report", "Data Log", "Other" };
+            List<AttachmentModel> models = AttachmentProcs.AttachFile(this, txtEID.Text, labels);
             displayAttachments();
         }
         private void formatAttGrid()

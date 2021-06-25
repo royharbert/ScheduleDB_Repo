@@ -19,11 +19,12 @@ namespace Schedule_Database_Desktop_Version
         /// </summary>
         /// <param name="callingForm"></param>
         /// <returns></returns>
-        public static List<AttachmentModel> AttachFile(Form callingForm, string PID)
+        public static List<AttachmentModel> AttachFile(Form callingForm, string PID, string[] labels)
         {
             GV.MODE = Mode.Add_Attachment;
             AttachmentModel model = new AttachmentModel();
             frmAttType frm = new frmAttType(model);
+            frm.Labels = labels;
             EventHandler<AttachmentModel> Frm_TypeReadyEvent = null;
             frm.TypeReadyEvent += Frm_TypeReadyEvent;
 
