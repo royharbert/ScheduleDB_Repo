@@ -152,8 +152,7 @@ namespace Schedule_Database_Desktop_Version
             dtp_DateResolved.Value = model.ResolvedDate;
             FormControlOps.markListBoxes(lst_FELead, model.FELead);
             FormControlOps.markListBoxes(lst_PartNumbers, model.PartNumber);
-
-            //--TODO load FELead and Product boxes
+            displayAttachments();
         }
 
         private void makeProductList()
@@ -276,10 +275,62 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
+        private void displayAttachments()
+        {
+            List<AttachmentModel> aList = GlobalConfig.Connection.GetAttachments(txtEID.Text);
+            dgvAttachments.DataSource = null;
+            dgvAttachments.DataSource = aList;
+            if(aList.Count > 0)
+            {
+                formatAttGrid();
+            }
+        }
+
         private void btn_AddAttachment_Click(object sender, EventArgs e)
         {
-            AttachmentModel model = AttachmentProcs.GetAttachmentType(this, txtEID.Text);
+            List<AttachmentModel> models = AttachmentProcs.AttachFile(this, txtEID.Text);
+            displayAttachments();
+        }
+        private void formatAttGrid()
+        {
+            dgvAttachments.Columns[0].Visible = false;
+            dgvAttachments.Columns[1].Visible = false;
+            dgvAttachments.Columns[4].Visible = false;
 
+            dgvAttachments.Columns[2].HeaderText = "File Name";
+            dgvAttachments.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvAttachments.Columns[2].DefaultCellStyle.ForeColor = Color.Blue;
+
+            dgvAttachments.Columns[3].HeaderText = "Item Type";
+            dgvAttachments.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvAttachments.Columns[3].DefaultCellStyle.ForeColor = Color.Black;
+        }
+
+        private void btn_RemoveAttachment_Click(object sender, EventArgs e)
+        {
+            //use class to accomplish
+            //make attachment model and pass to class
+            GV.MODE = Mode.Delete_Attachment;
+            if (dgvAttachments.CurrentRow != null)
+            {
+                int sel = dgvAttachments.CurrentRow.Index;
+                List<AttachmentModel> aList = (List<AttachmentModel>)dgvAttachments.DataSource;
+                AttachmentModel model = aList[sel];
+                List<AttachmentModel> newList = AttachmentOps.DeleteAttachment(model);
+                dgvAttachments.DataSource = null;
+                dgvAttachments.DataSource = newList;
+                formatAttGrid();
+                //prepForButtonLogEntry(model.DisplayText);
+            }
+            else
+            {
+                MessageBox.Show("No row selected for deletion. \nPlease click left margin of desired row");
+            }
+        }
+
+        private void dgvAttachments_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            AttachmentProcs.AttachmentsRowHeaderClick(dgvAttachments);
         }
     }
 }
