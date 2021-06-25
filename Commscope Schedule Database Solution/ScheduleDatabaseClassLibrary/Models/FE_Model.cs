@@ -43,5 +43,10 @@ namespace ScheduleDatabaseClassLibrary.Models
             this.Active = Active;
         }
 
+        public override string ToString()
+        {
+            return this.FullName;
+        }
+
     }
 }

@@ -24,7 +24,7 @@ namespace Schedule_Database_Desktop_Version
         public frmDateRange()
         {
             InitializeComponent();
-            GetFEs = GlobalConfig.Connection.FE_GetAll();
+            GetFEs = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE");
             GetProducts = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts");
         }
 

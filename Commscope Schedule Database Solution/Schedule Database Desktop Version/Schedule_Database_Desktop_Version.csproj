@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttachmentProcs.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="FC.cs" />
     <Compile Include="Form1.cs">

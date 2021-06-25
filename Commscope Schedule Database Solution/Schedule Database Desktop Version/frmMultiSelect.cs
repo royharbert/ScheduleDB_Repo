@@ -18,8 +18,10 @@ namespace Schedule_Database_Desktop_Version
     {
         private List<AssignmentTableModel> retrieveList;
         private List<AssignmentDisplayModel> displayList;
+        private List<ATEscalationsDisplayModel> escalationList;
         private List<CustomerModel> customerData;
         private List<LocationModel> locationData;
+        private List<ATEscalationsDisplayModel> escalations;
 
         public frmCustomerContact CallingForm { get; set; }
 
@@ -76,6 +78,39 @@ namespace Schedule_Database_Desktop_Version
             } 
         }
 
+        public List<ATEscalationsDisplayModel> Escalations
+        {
+            get
+            {
+                return escalations;
+            }
+            set
+            {
+                escalations = value;
+                escalationList = escalations;
+                customerData = null;
+                locationData = null;
+                dgvResults.DataSource = escalationList;
+                txtCount.Text = escalationList.Count.ToString();
+                formatDGV_Escalation();
+                setDGV_EscalationHeaderText(dgvResults);
+            }
+        }
+
+        private void setDGV_EscalationHeaderText(DataGridView dgv)
+        {
+            string[] headers = {"Escalation ID", "FE Lead", "MSO", "Escalation Type", "Product","Description", "Quantity", "Date Reported", "Date Resolved",
+                "Resolution", "Comments", "CTR Number", "PeopleSoft Number", "Status" };
+            for (int i = 0; i < dgv.Columns.Count; i++)
+            {
+                DataGridViewCellStyle style = dgv.ColumnHeadersDefaultCellStyle;
+                style.Font = new Font(dgv.Font, FontStyle.Bold);
+                dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgv.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgv.Columns[i].HeaderText = headers[i];
+            }
+        }
+
         private static void setDGV_HeaderText(DataGridView dgv)
         {
             for (int i = 0; i < dgv.Columns.Count; i++)
@@ -129,7 +164,12 @@ namespace Schedule_Database_Desktop_Version
                     GV.ASSIGNMENTFORM.FillLocationData(location);
                     GV.MODE = GV.PreviousMode;
                     this.Close();
-                    break;                
+                    break;
+                case Mode.SearchEscalation:
+                    ATEscalationsDisplayModel escalation = escalations[selectedRow];
+                    GV.ESCALATIONFORM.loadBoxes(escalation);
+                    GV.MODE = Mode.EditEscalation;
+                    break;
                 case Mode.None:
                     break;
                 default:
@@ -151,6 +191,15 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
+        private void formatDGV_Escalation()
+        {
+            int[] widths = { 200, 150, 200, 100, 200, 300, 100, 150, 150, 300, 300, 150, 150, 100 };
+            for (int i = 0; i < widths.Length; i++)
+            {
+                dgvResults.Columns[i].Width = widths[i];
+            }
+        }
+
         private void formatDGV_Location()
         {
             int[] widths = {    20,150,150,150,150,150,150,150,150,150 };
@@ -163,9 +212,21 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            ListLooper.ExcelExporter<AssignmentDisplayModel> exporter = new ListLooper.ExcelExporter<AssignmentDisplayModel>();
-            exporter.List = (List<AssignmentDisplayModel>)dgvResults.DataSource;
-            ReportOps.FormatMultiResultExport(exporter.Wksheet);
+            switch (GV.MODE)
+            {  
+                case Mode.SearchEscalation:
+                case Mode.EditEscalation:
+                    ListLooper.ExcelExporter<ATEscalationsDisplayModel> exporter = new ListLooper.ExcelExporter<ATEscalationsDisplayModel>();
+                    exporter.List = (List<ATEscalationsDisplayModel>)dgvResults.DataSource;
+                    ReportOps.FormatEscalationResultExport(exporter.Wksheet);
+                    break;
+                default:
+                    ListLooper.ExcelExporter<AssignmentDisplayModel> excelExporter = new ListLooper.ExcelExporter<AssignmentDisplayModel>();
+                    excelExporter.List = (List<AssignmentDisplayModel>)dgvResults.DataSource;
+                    ReportOps.FormatMultiResultExport(excelExporter.Wksheet);
+                    break;
+            }
+           
         }
     }
 }

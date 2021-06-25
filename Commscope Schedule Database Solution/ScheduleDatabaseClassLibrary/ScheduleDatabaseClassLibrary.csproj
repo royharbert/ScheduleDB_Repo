@@ -77,6 +77,7 @@
     <Compile Include="GeneralOps\ExcelOps.cs" />
     <Compile Include="GeneralOps\FE_XMLtoFE_List.cs" />
     <Compile Include="GeneralOps\FileOps.cs" />
+    <Compile Include="GeneralOps\FormControlOps.cs" />
     <Compile Include="GeneralOps\IHaveID.cs" />
     <Compile Include="GeneralOps\ProductIDToProduct.cs" />
     <Compile Include="GeneralOps\ReportOps.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Models\AssignmentRetrieveModel.cs" />
     <Compile Include="Models\AssignmentSaveModel.cs" />
     <Compile Include="Models\AssignmentTableModel.cs" />
+    <Compile Include="Models\ATEscalationsDisplayModel.cs" />
     <Compile Include="Models\ATEscalationsModel.cs" />
     <Compile Include="Models\AttachmentModel.cs" />
     <Compile Include="Models\CalendarItemModel.cs" />

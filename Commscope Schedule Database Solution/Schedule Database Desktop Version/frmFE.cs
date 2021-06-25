@@ -63,7 +63,7 @@ namespace Schedule_Database_Desktop_Version
             }
             else
             {
-                feList = GlobalConfig.Connection.FE_GetAll();
+                feList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE");
             }
             
                 lst_FieldEngineer.DataSource = feList;

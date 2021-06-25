@@ -545,26 +545,6 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
-        //private void populateFE_ListBox(AssignmentModel assignment)
-        //{
-        //    List<int> feList = assignedFElist(assignment.FE_ListXML);
-        //    if (feList.Count > 0)
-        //    {
-        //        for (int j = 0; j < feList.Count; j++)
-        //        {
-        //            List<FE_Model> FE = GlobalConfig.Connection.FE_GetByID(feList[j]);
-        //            for (int i = 0; i < lstFE.Items.Count; i++)
-        //            {
-        //                FE_Model item = (FE_Model)lstFE.Items[i];
-        //                if (FE[0].FullName == item.FullName)
-        //                {
-        //                    lstFE.SetSelected(i, true);
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-
         private List<int> assignedFElist(string xmlFE)
         {
             List<int> feList = Serialization.DeserializeToList<List<int>>(xmlFE);
@@ -629,7 +609,7 @@ namespace Schedule_Database_Desktop_Version
             {
                 foreach (int FE in assignedFEs)
                 {
-                    List<FE_Model> fe = GlobalConfig.Connection.FE_GetByID(FE);
+                    List<FE_Model> fe = GlobalConfig.Connection.GetItemByColumn<FE_Model>("tblFE", "ID","",FE);
                     availableFEs.Add(fe[0]);
                 }
                 lstFE.DataSource = availableFEs;
@@ -892,6 +872,8 @@ namespace Schedule_Database_Desktop_Version
             GV.MODE = Mode.Add_Attachment;
             AttachmentModel model = new AttachmentModel();
             frmAttType frm = new frmAttType(model);
+            string[] labels = { "Covid Release", "CRM Entry", "Trip Report Entry", "Weekly Report Entry", "Roster", "Other" };
+            frm.Labels = labels;
             frm.TypeReadyEvent += Frm_TypeReadyEvent;
 
             OpenFileDialog openFD = new OpenFileDialog();
@@ -917,7 +899,7 @@ namespace Schedule_Database_Desktop_Version
 
             frm.TypeReadyEvent -= Frm_TypeReadyEvent;
             //prepForButtonLogEntry(model.DisplayText);
-}
+        }
 
         private void Frm_TypeReadyEvent(object sender, AttachmentModel e)
         {
@@ -964,21 +946,8 @@ namespace Schedule_Database_Desktop_Version
 
         private void dgvAttachments_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            List<AttachmentModel> aList = (List<AttachmentModel>)dgvAttachments.DataSource;
-            int selRow = dgvAttachments.CurrentRow.Index;
-            AttachmentModel model = aList[selRow];
-
-            string fileName = dgvAttachments.CurrentRow.Cells[2].Value.ToString();
-            fileName = GlobalConfig.AttachmentPath + "\\" + model.PID + "\\" + fileName;
-            ProcessStartInfo sinfo = new ProcessStartInfo(fileName);
-            try
-            {
-                Process.Start(sinfo);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + "\n" + fileName);
-            }
+            AttachmentProcs.AttachmentsRowHeaderClick(dgvAttachments);
+            
         }
 
         private void btnAttachItem_Click(object sender, EventArgs e)

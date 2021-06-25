@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Office.Interop.Excel;
 
 namespace ScheduleDatabaseClassLibrary.GeneralOps
 {
@@ -11,7 +12,6 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
     {
         public static void FormatMultiResultExport(Excel.Worksheet wks)
         {
-
             string[] headers = new string[]
             {
                 "Request ID", "MSO", "Activity", "Engineer(s)", "Start Date","End Date", "Salesperson", "Product(s)", "Number of Techs",
@@ -76,6 +76,30 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
             wks.Range["1:1"].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
             wks.Range["1:1"].WrapText = true;
             wks.Range["1:1"].Font.Bold = true;
+        }
+
+        public static void FormatEscalationResultExport(Worksheet wks)
+        {
+            string[] headers = new string[]
+            {
+                "Escalation ID", "FE Lead", "MSO", "Escalation Type", "Product","Description", "Quantity", "Date Reported", "Date Resolved",
+                "Resolution", "Comments", "CTR Number", "PeopleSoft Number", "Status"
+            };
+            placeHeaderTextInExport(wks, headers);
+            formatExcelHeaderRow(wks);
+
+            int[] widths = new int[]
+            {
+            //  A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  AA AB  
+                25,15,20,10,20,30,10,16,16,30,30,15,15,10
+            };
+
+            string[] currencyCols = { "" };
+            //FormatExcelColumnsAsCurrency(wks, currencyCols);
+            setExcelExportColumnWidths(wks, widths);
+
+            int[] cols = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 };
+            CenterSpecificExcelColumns(wks, cols);
         }
     }    
 }
