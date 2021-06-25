@@ -25,7 +25,7 @@ namespace ScheduleDatabaseClassLibrary.Models
         /// <summary>
         /// 3 letter abbreviation
         /// </summary>
-        public string Abbreviation { get; set; }
+        public string Abbreviation { get; set; }       
 
     } 
 }

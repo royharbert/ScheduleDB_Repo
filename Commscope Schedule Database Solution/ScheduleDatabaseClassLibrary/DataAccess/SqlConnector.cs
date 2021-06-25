@@ -17,7 +17,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         public static string db { get; set; }
         public int Escalation_Update(DataTable dt)
         {
-            string db;
             if (GlobalConfig.DatabaseMode == DatabaseType.Live)
             {
                 db = ConfigurationManager.ConnectionStrings["Live"].ConnectionString;

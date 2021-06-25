@@ -32,7 +32,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         void Assignments_FEListXMLUpdateByID(int AssignmentID, string xmlData);
         void ClearTable(string tableName);
         List<AssignmentTableModel> AssignmentSearch(string searchString);
-
         void DeleteAttachment(AttachmentModel model);
         List<AttachmentModel> GetAttachments(string PID);
         void InsertInto_tblAttachments(AttachmentModel model);        
