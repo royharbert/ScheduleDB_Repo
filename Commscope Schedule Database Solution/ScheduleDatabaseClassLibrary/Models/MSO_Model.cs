@@ -12,10 +12,6 @@ namespace ScheduleDatabaseClassLibrary.Models
     /// </summary>
     public class MSO_Model : IHaveID
     {
-        /// <summary>
-        /// Unique identifier
-        /// </summary>
-        public int ID { get; set; }
 
         /// <summary>
         /// Full MSO name
@@ -25,7 +21,28 @@ namespace ScheduleDatabaseClassLibrary.Models
         /// <summary>
         /// 3 letter abbreviation
         /// </summary>
-        public string Abbreviation { get; set; }
+        public string Abbreviation { get; set; }       
 
-    } 
+        public int ID { get; set; }
+        /// <summary>
+        /// Unique identifier
+        /// </summary>
+
+        public bool Active { get; set; }
+
+        public MSO_Model()
+        {
+            this.Active = true;
+
+        }
+        public MSO_Model(int ID, string MSO, String Abbreviation, bool Active = true)
+        {
+            this.ID = ID;
+            this.Abbreviation = Abbreviation;
+            this.MSO = MSO;
+            this.Active = Active;
+        }
+
+
+    }
 }
