@@ -64,8 +64,8 @@ namespace Schedule_Database_Desktop_Version
         private void dgv_MSO_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             List<MSO_Model> MSOs = (List<MSO_Model>)dgv_MSO.DataSource;
-            updateMSOModel();
-            int currentrow = dgv_MSO.CurrentRow.Index;            
+            int currentRow = dgv_MSO.CurrentRow.Index;            
+            updateMSOModel(currentRow);
             List<MSO_Model> list = new List<MSO_Model>();
             list.Add(model);
             ScheduleDatabaseClassLibrary.TableOps.TableGenerator<MSO_Model> tg = new ScheduleDatabaseClassLibrary.TableOps.TableGenerator<MSO_Model>();
@@ -77,12 +77,12 @@ namespace Schedule_Database_Desktop_Version
 
         private void dgv_MSO_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            updateMSOModel();
+            updateMSOModel(e.RowIndex);
         }
 
-        private void updateMSOModel()
+        private void updateMSOModel(int e)
         {
-            DataGridViewRow row = dgv_MSO.Rows[e.RowIndex];
+            DataGridViewRow row = dgv_MSO.Rows[e];
             model.ID = int.Parse(row.Cells[2].Value.ToString());
             model.MSO = row.Cells[0].Value.ToString();
             model.Abbreviation = row.Cells[1].Value.ToString();
