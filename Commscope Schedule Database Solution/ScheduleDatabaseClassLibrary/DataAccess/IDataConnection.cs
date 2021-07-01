@@ -10,8 +10,8 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
-        void MSO_Update(DataTable dt);
         int Escalation_Update(DataTable dt);
+        void MSO_Update(DataTable dt);
         List<ATEscalationsModel> SearchEscalations(string searchString);
         int Escalations_Add(DataTable dt);
         List<T> GenericGetAll<T>(string tableName);
@@ -33,7 +33,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         void Assignments_FEListXMLUpdateByID(int AssignmentID, string xmlData);
         void ClearTable(string tableName);
         List<AssignmentTableModel> AssignmentSearch(string searchString);
-
         void DeleteAttachment(AttachmentModel model);
         List<AttachmentModel> GetAttachments(string PID);
         void InsertInto_tblAttachments(AttachmentModel model);        

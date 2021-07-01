@@ -97,12 +97,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmModelUpdate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmModelUpdate.Designer.cs">
-      <DependentUpon>frmModelUpdate.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAssignment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,9 +225,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMDI_Parent.resx">
       <DependentUpon>frmMDI_Parent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmModelUpdate.resx">
-      <DependentUpon>frmModelUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMSOEdit.resx">
       <DependentUpon>frmMSOEdit.cs</DependentUpon>

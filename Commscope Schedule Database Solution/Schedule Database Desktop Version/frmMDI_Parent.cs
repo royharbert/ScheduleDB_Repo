@@ -293,11 +293,5 @@ namespace Schedule_Database_Desktop_Version
             frmMSOEdit MSOEditForm = new frmMSOEdit();
             MSOEditForm.Show();
         }
-
-        private void updaterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmModelUpdate updater = new frmModelUpdate();
-            updater.Show();
-        }
     }
 }
