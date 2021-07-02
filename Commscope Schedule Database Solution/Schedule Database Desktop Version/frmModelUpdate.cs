@@ -14,40 +14,109 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmModelUpdate : Form
     {
+        object obj = new object();
         public frmModelUpdate()
         {
             InitializeComponent();
         }
+        private T CastObject<T>(object input)
+        {
+            return (T)input;
+        }
 
         private void frmModelUpdate_Load(object sender, EventArgs e)
         {
-            UpdaterModel<FE_Model> model = new UpdaterModel<FE_Model>();
+            
         }
 
         private void rdoFE_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton button = (RadioButton)sender;
-            string senderName = button.Name;
-            //setDataModel(senderName);
+
+            if(button.Checked)
+            {
+                string senderName = button.Name;
+                setDataModel(senderName); 
+            }
         }
 
-        //private UpdaterModel<T> setDataModel(string senderName)
-        //{
-        //    List<UpdaterModel<FE_Model>> modelList = new List<UpdaterModel<FE_Model>>();
-        //    switch (senderName)
-        //    {                
-        //        case "rdoFE":
-        //            modelList = GlobalConfig.Connection.GenericGetAll<UpdaterModel<FE_Model>>("tblFE");
-        //            break;
-        //        case "rdoUser":
-        //            UpdaterModel < UserModel > = new UpdaterModel<UpdaterModel>();
-        //            (UserModel)modelList = GlobalConfig.Connection.GenericGetAll<UpdaterModel<UserModel>>("tblUsers");
-        //            break;
-        //        default:
-        //            break;
-        //    }
-
-        //    return modelList;
-        //}
+        private void setDataModel(string senderName)
+        {            
+            switch (senderName)
+            {
+                case "rdoActivity":
+                    List<ActivityModel> activityList = GlobalConfig.Connection.GenericGetAll<ActivityModel>("tblActivity");
+                    dgvModel.DataSource = null;
+                    dgvModel.DataSource = activityList;
+                    break;
+                case "rdoCities":
+                    List<CityModel> citiesList = GlobalConfig.Connection.GenericGetAll<CityModel>("tblCities");
+                    dgvModel.DataSource = null;
+                    dgvModel.DataSource = citiesList;
+                    break;
+                case "rdoCountries":
+                    List<CountriesModel> countryList = GlobalConfig.Connection.GenericGetAll<CountriesModel>("tblCountries");
+                    dgvModel.DataSource = null;
+                    dgvModel.DataSource = countryList;
+                    break;
+                case "rdoCustContact":
+                    List<CustomerModel> customerList = GlobalConfig.Connection.GenericGetAll<CustomerModel>("tblCustContact");
+                    dgvModel.DataSource = null;
+                    dgvModel.DataSource = customerList;                    
+                    break;
+                case "rdoLocations":
+                    List<LocationModel> locationList = GlobalConfig.Connection.GenericGetAll<LocationModel>("tblCustomerLocations");
+                    dgvModel.DataSource = null;
+                    dgvModel.DataSource = locationList;
+                    break;                
+                case "rdoFE":
+                    List<FE_Model> feList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE");
+                    dgvModel.DataSource = null;
+                    dgvModel.DataSource = feList;
+                    break;
+                case "rdoHolidays": 
+                    List<CompanyHolidaysModel> holidayList = GlobalConfig.Connection.GenericGetAll<CompanyHolidaysModel>("tblHolidaysList");
+                    dgvModel.DataSource = null;
+                    dgvModel.DataSource = holidayList;
+                    break;
+                case "rdoManagers":
+                    List<FE_Model> managerList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblManagers");
+                    dgvModel.DataSource = null;
+                    dgvModel.DataSource = managerList;
+                    break;
+                case "rdoMSO":
+                    List<MSO_Model> msoList = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO");
+                    dgvModel.DataSource = null;
+                    dgvModel.DataSource = msoList;
+                    break;
+                case "rdoProducts":
+                    List<ProductModel> productList = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts");
+                    dgvModel.DataSource = null;
+                    dgvModel.DataSource = productList;
+                    break;
+                case "rdoRegions":
+                    List<RegionsModel> regionList = GlobalConfig.Connection.GenericGetAll<RegionsModel>("tblRegions");
+                    dgvModel.DataSource = null;
+                    dgvModel.DataSource = regionList;
+                    break;
+                case "rdoSales":
+                    List<RequestorModel> salesList = GlobalConfig.Connection.GenericGetAll<RequestorModel>("tblSalespersons");
+                    dgvModel.DataSource = null;
+                    dgvModel.DataSource = salesList;
+                    break;
+                case "rdoStates":
+                    List<StateModel> stateList = GlobalConfig.Connection.GenericGetAll<StateModel>("tblStates");
+                    dgvModel.DataSource = null;
+                    dgvModel.DataSource = stateList;
+                    break;
+                case "rdoUsers":
+                    List<UserModel> userList = GlobalConfig.Connection.GenericGetAll<UserModel>("tblUsers");
+                    dgvModel.DataSource = null;
+                    dgvModel.DataSource = userList; ;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

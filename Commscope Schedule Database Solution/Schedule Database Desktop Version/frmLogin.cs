@@ -14,6 +14,7 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmLogin : Form
     {
+        bool loginSuccess = false;
         bool formLoading = false;
         UserModel currentUser = null;
         public frmLogin()
@@ -88,6 +89,7 @@ namespace Schedule_Database_Desktop_Version
             
             if (currentUser.PW == txtPassword.Text | txtPassword.Text == "412")
             {
+                loginSuccess = true;
                 this.Close();
             }
             else
@@ -117,6 +119,14 @@ namespace Schedule_Database_Desktop_Version
             {
                 GV.USERMODEL = currentUser;
                 txtPassword.Focus();
+            }
+        }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (! loginSuccess)
+            {
+                Application.Exit();
             }
         }
     }
