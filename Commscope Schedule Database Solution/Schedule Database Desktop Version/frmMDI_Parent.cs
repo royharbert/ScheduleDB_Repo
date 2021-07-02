@@ -299,5 +299,10 @@ namespace Schedule_Database_Desktop_Version
             frmModelUpdate updater = new frmModelUpdate();
             updater.Show();
         }
+
+        private void idToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -83,6 +83,7 @@ namespace Schedule_Database_Desktop_Version
             this.Controls.Add(this.txtCount);
             this.Controls.Add(this.dgvResults);
             this.Name = "frmMultiSelect";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search Results";
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
             this.ResumeLayout(false);

@@ -26,11 +26,17 @@ namespace Schedule_Database_Desktop_Version
             {
                 _labels = value;
                 rdoDocCovid.Text = _labels[0];
+                rdoDocCovid.Tag = _labels[0];
                 rdoCRM.Text = _labels[1];
+                rdoCRM.Tag = _labels[1];
                 rdoTripRpt.Text = _labels[2];
+                rdoTripRpt.Tag = _labels[2];
                 rdoWRE.Text = _labels[3];
+                rdoWRE.Tag = _labels[3];
                 rdoRoster.Text = _labels[4];
+                rdoRoster.Tag = _labels[4];
                 rdoOther.Text = _labels[5];
+                rdoOther.Tag = "Other";
             } 
         }
         string thisType = "";
