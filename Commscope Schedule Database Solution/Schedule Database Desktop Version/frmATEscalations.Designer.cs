@@ -61,10 +61,10 @@ namespace Schedule_Database_Desktop_Version
             this.btn_RemoveAttachment = new System.Windows.Forms.Button();
             this.lbl_Attachments = new System.Windows.Forms.Label();
             this.grp_OptionalFields = new System.Windows.Forms.GroupBox();
-            this.lst_PartNumbers = new System.Windows.Forms.ListBox();
             this.lst_FELead = new System.Windows.Forms.ListBox();
             this.txtEID = new System.Windows.Forms.TextBox();
             this.dgvAttachments = new System.Windows.Forms.DataGridView();
+            this.cboProduct = new System.Windows.Forms.ComboBox();
             this.grp_OptionalFields.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
             this.SuspendLayout();
@@ -135,9 +135,9 @@ namespace Schedule_Database_Desktop_Version
             this.lbl_PartNumbers.Location = new System.Drawing.Point(36, 308);
             this.lbl_PartNumbers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_PartNumbers.Name = "lbl_PartNumbers";
-            this.lbl_PartNumbers.Size = new System.Drawing.Size(105, 17);
+            this.lbl_PartNumbers.Size = new System.Drawing.Size(88, 17);
             this.lbl_PartNumbers.TabIndex = 6;
-            this.lbl_PartNumbers.Text = "Part Number(s)";
+            this.lbl_PartNumbers.Text = "Part Number";
             // 
             // txt_Qty
             // 
@@ -171,7 +171,7 @@ namespace Schedule_Database_Desktop_Version
             // dtp_DateReported
             // 
             this.dtp_DateReported.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_DateReported.Location = new System.Drawing.Point(173, 408);
+            this.dtp_DateReported.Location = new System.Drawing.Point(173, 345);
             this.dtp_DateReported.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_DateReported.Name = "dtp_DateReported";
             this.dtp_DateReported.Size = new System.Drawing.Size(265, 23);
@@ -181,7 +181,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.dtp_DateResolved.CustomFormat = " ";
             this.dtp_DateResolved.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_DateResolved.Location = new System.Drawing.Point(173, 440);
+            this.dtp_DateResolved.Location = new System.Drawing.Point(173, 377);
             this.dtp_DateResolved.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_DateResolved.Name = "dtp_DateResolved";
             this.dtp_DateResolved.Size = new System.Drawing.Size(265, 23);
@@ -191,7 +191,7 @@ namespace Schedule_Database_Desktop_Version
             // lbl_DateReported
             // 
             this.lbl_DateReported.AutoSize = true;
-            this.lbl_DateReported.Location = new System.Drawing.Point(36, 408);
+            this.lbl_DateReported.Location = new System.Drawing.Point(36, 345);
             this.lbl_DateReported.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_DateReported.Name = "lbl_DateReported";
             this.lbl_DateReported.Size = new System.Drawing.Size(101, 17);
@@ -201,7 +201,7 @@ namespace Schedule_Database_Desktop_Version
             // lbl_DateResolved
             // 
             this.lbl_DateResolved.AutoSize = true;
-            this.lbl_DateResolved.Location = new System.Drawing.Point(36, 440);
+            this.lbl_DateResolved.Location = new System.Drawing.Point(36, 377);
             this.lbl_DateResolved.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_DateResolved.Name = "lbl_DateResolved";
             this.lbl_DateResolved.Size = new System.Drawing.Size(101, 17);
@@ -237,13 +237,13 @@ namespace Schedule_Database_Desktop_Version
             this.txt_Comments.Multiline = true;
             this.txt_Comments.Name = "txt_Comments";
             this.txt_Comments.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_Comments.Size = new System.Drawing.Size(421, 130);
+            this.txt_Comments.Size = new System.Drawing.Size(421, 191);
             this.txt_Comments.TabIndex = 18;
             this.txt_Comments.TextChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // txt_CTRNumber
             // 
-            this.txt_CTRNumber.Location = new System.Drawing.Point(212, 198);
+            this.txt_CTRNumber.Location = new System.Drawing.Point(212, 262);
             this.txt_CTRNumber.Margin = new System.Windows.Forms.Padding(4);
             this.txt_CTRNumber.Name = "txt_CTRNumber";
             this.txt_CTRNumber.Size = new System.Drawing.Size(215, 23);
@@ -252,7 +252,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // txt_PSNumber
             // 
-            this.txt_PSNumber.Location = new System.Drawing.Point(212, 238);
+            this.txt_PSNumber.Location = new System.Drawing.Point(212, 302);
             this.txt_PSNumber.Margin = new System.Windows.Forms.Padding(4);
             this.txt_PSNumber.Name = "txt_PSNumber";
             this.txt_PSNumber.Size = new System.Drawing.Size(215, 23);
@@ -293,7 +293,7 @@ namespace Schedule_Database_Desktop_Version
             // lbl_CTRNumber
             // 
             this.lbl_CTRNumber.AutoSize = true;
-            this.lbl_CTRNumber.Location = new System.Drawing.Point(57, 207);
+            this.lbl_CTRNumber.Location = new System.Drawing.Point(57, 271);
             this.lbl_CTRNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_CTRNumber.Name = "lbl_CTRNumber";
             this.lbl_CTRNumber.Size = new System.Drawing.Size(90, 17);
@@ -303,7 +303,7 @@ namespace Schedule_Database_Desktop_Version
             // lbl_PSNumber
             // 
             this.lbl_PSNumber.AutoSize = true;
-            this.lbl_PSNumber.Location = new System.Drawing.Point(57, 242);
+            this.lbl_PSNumber.Location = new System.Drawing.Point(57, 306);
             this.lbl_PSNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_PSNumber.Name = "lbl_PSNumber";
             this.lbl_PSNumber.Size = new System.Drawing.Size(135, 17);
@@ -401,24 +401,13 @@ namespace Schedule_Database_Desktop_Version
             this.grp_OptionalFields.Controls.Add(this.lbl_CTRNumber);
             this.grp_OptionalFields.Controls.Add(this.lbl_PSNumber);
             this.grp_OptionalFields.Controls.Add(this.lbl_OptionalFields);
-            this.grp_OptionalFields.Location = new System.Drawing.Point(29, 475);
+            this.grp_OptionalFields.Location = new System.Drawing.Point(29, 412);
             this.grp_OptionalFields.Margin = new System.Windows.Forms.Padding(4);
             this.grp_OptionalFields.Name = "grp_OptionalFields";
             this.grp_OptionalFields.Padding = new System.Windows.Forms.Padding(4);
-            this.grp_OptionalFields.Size = new System.Drawing.Size(463, 278);
+            this.grp_OptionalFields.Size = new System.Drawing.Size(463, 351);
             this.grp_OptionalFields.TabIndex = 37;
             this.grp_OptionalFields.TabStop = false;
-            // 
-            // lst_PartNumbers
-            // 
-            this.lst_PartNumbers.FormattingEnabled = true;
-            this.lst_PartNumbers.ItemHeight = 16;
-            this.lst_PartNumbers.Location = new System.Drawing.Point(173, 307);
-            this.lst_PartNumbers.Name = "lst_PartNumbers";
-            this.lst_PartNumbers.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lst_PartNumbers.Size = new System.Drawing.Size(265, 84);
-            this.lst_PartNumbers.TabIndex = 38;
-            this.lst_PartNumbers.SelectedIndexChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // lst_FELead
             // 
@@ -450,15 +439,27 @@ namespace Schedule_Database_Desktop_Version
             this.dgvAttachments.TabIndex = 41;
             this.dgvAttachments.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAttachments_RowHeaderMouseClick);
             // 
+            // cboProduct
+            // 
+            this.cboProduct.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboProduct.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboProduct.FormattingEnabled = true;
+            this.cboProduct.Location = new System.Drawing.Point(173, 308);
+            this.cboProduct.Name = "cboProduct";
+            this.cboProduct.Size = new System.Drawing.Size(264, 24);
+            this.cboProduct.Sorted = true;
+            this.cboProduct.TabIndex = 42;
+            this.cboProduct.Leave += new System.EventHandler(this.cboProduct_Leave);
+            // 
             // FrmATEscalations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 788);
+            this.Controls.Add(this.cboProduct);
             this.Controls.Add(this.dgvAttachments);
             this.Controls.Add(this.txtEID);
             this.Controls.Add(this.lst_FELead);
-            this.Controls.Add(this.lst_PartNumbers);
             this.Controls.Add(this.lbl_Attachments);
             this.Controls.Add(this.btn_RemoveAttachment);
             this.Controls.Add(this.btn_AddAttachment);
@@ -531,9 +532,9 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Button btn_RemoveAttachment;
         private System.Windows.Forms.Label lbl_Attachments;
         private System.Windows.Forms.GroupBox grp_OptionalFields;
-        private System.Windows.Forms.ListBox lst_PartNumbers;
         public System.Windows.Forms.ListBox lst_FELead;
         private System.Windows.Forms.TextBox txtEID;
         private System.Windows.Forms.DataGridView dgvAttachments;
+        private System.Windows.Forms.ComboBox cboProduct;
     }
 }

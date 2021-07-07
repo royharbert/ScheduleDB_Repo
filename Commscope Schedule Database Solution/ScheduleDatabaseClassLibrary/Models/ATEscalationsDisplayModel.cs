@@ -20,7 +20,7 @@ namespace ScheduleDatabaseClassLibrary.Models
         [ExcelExportProperty]
         public string ATEType { get; set; }
         [ExcelExportProperty]
-        public string PartNumber { get; set; }
+        public string Product { get; set; }
         [ExcelExportProperty]
         public string ATEDescription { get; set; }
         [ExcelExportProperty]
@@ -51,7 +51,7 @@ namespace ScheduleDatabaseClassLibrary.Models
             this.EscalationID = model.EscalationID;
             this.FELead = deserializeLead(model.FELeadXML);
             this.MSO = model.MSO;
-            this.PartNumber = deserializeProducts(model.PartNumberXML);
+            this.Product = model.Product;
             this.PeopleSoftNumber = model.PeopleSoftNumber;
             this.Quantity = model.Quantity;
             this.Resolution = model.Resolution;

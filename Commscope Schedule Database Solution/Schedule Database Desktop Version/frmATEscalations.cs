@@ -124,6 +124,11 @@ namespace Schedule_Database_Desktop_Version
             cbo_MSO.DisplayMember = "MSO";
             cbo_MSO.SelectedIndex = -1;
 
+            List<ProductModel> products = GlobalConfig.Connection.GenericOrderedGetAll<ProductModel>("tblProducts", "Product");
+            cboProduct.DataSource = products;
+            cboProduct.DisplayMember = "Product";
+            cboProduct.SelectedIndex = -1;
+
             cbo_Type.Items.Add("Product");
             cbo_Type.Items.Add("Application");
             cbo_Type.Items.Add("Design");
@@ -148,37 +153,19 @@ namespace Schedule_Database_Desktop_Version
             cbo_MSO.Text = model.MSO;
             cbo_Status.Text = model.ATEStatus;
             cbo_Type.Text = model.ATEType;
+            cboProduct.Text = model.Product;
             dtp_DateReported.Value = model.DateReported;
             dtp_DateResolved.Value = model.ResolvedDate;
             FormControlOps.markListBoxes(lst_FELead, model.FELead);
-            FormControlOps.markListBoxes(lst_PartNumbers, model.PartNumber);
             displayAttachments();
         }
 
         private void makeProductList()
         {
             List<ProductModel> products = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts");
-            lst_PartNumbers.DataSource = products;
-            lst_PartNumbers.DisplayMember = "Product";
-            lst_PartNumbers.SelectedIndex = -1;
-        }
-
-        private string collectProducts()
-        {
-            string xmlString = "";
-            if (!dataLoading)
-            {
-                foreach (var item in lst_PartNumbers.SelectedItems)
-                {
-                    ProductModel product = (ProductModel)item;
-                    productList.Add(product.Product);
-                }
-
-                xmlString = Serialization.SerializeToXml<List<string>>(productList);
-                ATEscalation.PartNumberXML = xmlString;
-
-            }
-            return xmlString;
+            cboProduct.DataSource = products;
+            cboProduct.DisplayMember = "Product";
+            cboProduct.SelectedIndex = -1;
         }
 
         private void makeLeadList()
@@ -210,7 +197,7 @@ namespace Schedule_Database_Desktop_Version
         {
             ATEscalationsModel model = new ATEscalationsModel();
             model.EscalationID = txtEID.Text;
-            model.PartNumberXML = collectProducts();
+            model.Product = cboProduct.Text;
             model.FELeadXML = collectLeads();
             model.ATEDescription = txt_Description.Text;
             model.ATEStatus = cbo_Status.Text;
@@ -332,6 +319,14 @@ namespace Schedule_Database_Desktop_Version
         private void dgvAttachments_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             AttachmentProcs.AttachmentsRowHeaderClick(dgvAttachments);
+        }
+
+        private void cboProduct_Leave(object sender, EventArgs e)
+        {
+            if (cboProduct.SelectedIndex < 0)
+            {
+
+            }
         }
     }
 }

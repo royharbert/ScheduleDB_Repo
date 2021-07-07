@@ -14,6 +14,19 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 
     public class SqlConnector : IDataConnection
     {
+        public List<T> GenericOrderedGetAll<T>(string tableName, string orderByColumn)
+        {
+            var p = new DynamicParameters();
+            p.Add("@TableName", tableName, DbType.String);
+            p.Add("@OrderColumn", orderByColumn, DbType.String);
+            List<T> list = new List<T>();
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                list = connection.Query<T>("dbo.spGenericOrderedGetAll", p,
+                    commandType: CommandType.StoredProcedure).ToList();
+                return list;
+            }
+        }
         public static string db { get; set; }
         public void MSO_Update(DataTable dt)
         {
