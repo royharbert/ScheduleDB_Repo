@@ -17,7 +17,7 @@ namespace ScheduleDatabaseClassLibrary.Models
         [ExcelExportProperty]
         public string ATEType { get; set; }
         [ExcelExportProperty]
-        public string PartNumberXML { get; set; }
+        public string Product { get; set; }
         [ExcelExportProperty]
         public string ATEDescription { get; set; }
         [ExcelExportProperty]

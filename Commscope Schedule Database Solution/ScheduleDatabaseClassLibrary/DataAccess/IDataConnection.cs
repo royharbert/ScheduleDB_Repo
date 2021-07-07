@@ -10,6 +10,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
+        List<T> GenericOrderedGetAll<T>(string tableName, string orderByColumn);
         void MSO_Update(DataTable dt);
         int Escalation_Update(DataTable dt);
         List<ATEscalationsModel> SearchEscalations(string searchString);
