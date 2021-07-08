@@ -48,28 +48,7 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case Mode.DeleteEscalation:
                     break;
-                case Mode.DateRangeReport:
-                    break;
-                case Mode.Edit:
-                    break;
-                case Mode.Undo:
-                    break;
-                case Mode.CustomerSearch:
-                    break;
-                case Mode.CustomerSearchMDI:
-                    break;
-                case Mode.AddCustomer:
-                    break;
-                case Mode.EditCustomer:
-                    break;
-                case Mode.DeleteCustomer:
-                    break;
-                case Mode.AddCustomerLocation:
-                    break;
-                case Mode.EditCustomerLocation:
-                    break;
-                case Mode.DeleteCustomerLocation:
-                    break;
+                
                 case Mode.LocationSearch:
                     break;
                 case Mode.LocationSearchMDI:

@@ -298,6 +298,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtLocID.Size = new System.Drawing.Size(78, 22);
             this.txtLocID.TabIndex = 64;
             this.txtLocID.Tag = "ID";
+            this.txtLocID.Visible = false;
             // 
             // btnSearchLocations
             // 
@@ -491,6 +492,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtCustID.Size = new System.Drawing.Size(78, 22);
             this.txtCustID.TabIndex = 63;
             this.txtCustID.Tag = "ID";
+            this.txtCustID.Visible = false;
             // 
             // btnSearchContacts
             // 
