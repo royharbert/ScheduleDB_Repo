@@ -41,8 +41,8 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         void InsertInto_tblAttachments(AttachmentModel model);        
         int Sequence_Get();        
         void Sequence_Set(int seq);
-        int EIDSequence_Get();
-        void EIDSequence_Set(int seq);
+        int EIDSequence_Get(string tableName);
+        void EIDSequence_Set(string tableName, int seq);
         void AddUser(UserModel NewUser);
         void DeleteUser(int OldUser);
         void UpdateUser(UserModel ThisUser);        

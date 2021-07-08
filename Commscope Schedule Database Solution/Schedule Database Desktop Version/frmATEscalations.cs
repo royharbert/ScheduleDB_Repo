@@ -172,33 +172,53 @@ namespace Schedule_Database_Desktop_Version
             }
             return xmlString;
         }
+        private bool auditSuccess()
+        {
+            bool success = true;
+            foreach (Control control in this.Controls)
+            {
+                if (control.Tag != null && control.Tag.ToString().ToUpper().Contains("REQUIRED"))
+                {
+                    if (control.Text == "")
+                    {
+                        success = false;
+                        MessageBox.Show("Please enter data in all required fields");
+                        break;
+                    }
+                }
+            }
+            return success;
+        }
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            ATEscalationsModel model = new ATEscalationsModel();
-            model.EscalationID = txtEID.Text;
-            model.Product = cboProduct.Text;
-            model.FELeadXML = collectLeads();
-            model.ATEDescription = txt_Description.Text;
-            model.ATEStatus = cbo_Status.Text;
-            model.ATEType = cbo_Type.Text;
-            model.Comments = txt_Comments.Text;
-            model.CTRNumber = txt_CTRNumber.Text;
-            model.DateReported = dtp_DateReported.Value;
-            model.ResolvedDate = dtp_DateResolved.Value;
-            model.MSO = cbo_MSO.Text;
-            model.Quantity = txt_Qty.Text;
-            model.Resolution = txt_Resolution.Text;
-            model.PeopleSoftNumber = txt_PSNumber.Text;
-            ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel> dt =
-                new ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel>();
-            List<ATEscalationsModel> escalations = new List<ATEscalationsModel>();
-            escalations.Add(model);
-            dt.List = escalations;
-            int success = GlobalConfig.Connection.Escalations_Add(dt.table);
-            if (success > 0)
+            if (auditSuccess())
             {
-                MessageBox.Show(model.EscalationID + " saved.");
-                btn_Save.Enabled = false;
+                ATEscalationsModel model = new ATEscalationsModel();
+                model.EscalationID = txtEID.Text;
+                model.Product = cboProduct.Text;
+                model.FELeadXML = collectLeads();
+                model.ATEDescription = txt_Description.Text;
+                model.ATEStatus = cbo_Status.Text;
+                model.ATEType = cbo_Type.Text;
+                model.Comments = txt_Comments.Text;
+                model.CTRNumber = txt_CTRNumber.Text;
+                model.DateReported = dtp_DateReported.Value;
+                model.ResolvedDate = dtp_DateResolved.Value;
+                model.MSO = cbo_MSO.Text;
+                model.Quantity = txt_Qty.Text;
+                model.Resolution = txt_Resolution.Text;
+                model.PeopleSoftNumber = txt_PSNumber.Text;
+                ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel> dt =
+                    new ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel>();
+                List<ATEscalationsModel> escalations = new List<ATEscalationsModel>();
+                escalations.Add(model);
+                dt.List = escalations;
+                int success = GlobalConfig.Connection.Escalations_Add(dt.table);
+                if (success > 0)
+                {
+                    MessageBox.Show(model.EscalationID + " saved.");
+                    btn_Save.Enabled = false;
+                } 
             }
         }
 
@@ -213,7 +233,7 @@ namespace Schedule_Database_Desktop_Version
 
                     if (ctl.Name == "cbo_MSO")
                     {
-                        txtEID.Text = PID_Generator.GenerateEID((MSO_Model)cbo_MSO.SelectedItem);
+                        txtEID.Text = PID_Generator.GenerateEID((MSO_Model)cbo_MSO.SelectedItem, "ESC_");
                         cbo_MSO.Enabled = false;
                     }
                 }

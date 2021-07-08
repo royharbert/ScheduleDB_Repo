@@ -304,5 +304,11 @@ namespace Schedule_Database_Desktop_Version
         {
 
         }
+
+        private void newRequestToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmLabRequest labForm = new frmLabRequest();
+            labForm.Show();
+        }
     }
 }

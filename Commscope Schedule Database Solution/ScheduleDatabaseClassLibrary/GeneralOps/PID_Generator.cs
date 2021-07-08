@@ -25,11 +25,23 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
         /// </summary>
         /// <param name="mso"></param>
         /// <returns></returns>
-        public static string GenerateEID(MSO_Model mso)
+        public static string GenerateEID(MSO_Model mso, string prefix)
         {
-            string eid = "ESC_";
+            string sequence = "";
+            string eid = prefix;
             string dateStamp = DateTime.Today.ToString("yyMMdd");
-            string sequence = GlobalConfig.Connection.EIDSequence_Get().ToString();
+            switch (prefix)
+            {
+                case "ESC_":
+                    sequence = GlobalConfig.Connection.EIDSequence_Get("tblEIDSequence").ToString();
+                    break;
+                case "LAB_":
+                    sequence = GlobalConfig.Connection.EIDSequence_Get("tblSeqLabRequest").ToString();
+                    break;
+                default:
+                    break;
+            }
+            
             sequence = sequence.PadLeft(5, '0');
             eid += mso.Abbreviation + "_" + dateStamp + "_" + sequence;
             return eid;

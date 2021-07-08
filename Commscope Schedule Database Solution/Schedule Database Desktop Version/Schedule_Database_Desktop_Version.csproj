@@ -103,6 +103,12 @@
     <Compile Include="frmAddProduct.Designer.cs">
       <DependentUpon>frmAddProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLabRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLabRequest.Designer.cs">
+      <DependentUpon>frmLabRequest.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModelUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInput.resx">
       <DependentUpon>frmInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLabRequest.resx">
+      <DependentUpon>frmLabRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

@@ -77,6 +77,7 @@ namespace Schedule_Database_Desktop_Version
             this.cbo_MSO.Name = "cbo_MSO";
             this.cbo_MSO.Size = new System.Drawing.Size(265, 24);
             this.cbo_MSO.TabIndex = 0;
+            this.cbo_MSO.Tag = "Required";
             this.cbo_MSO.SelectedIndexChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // cbo_Status
@@ -87,6 +88,7 @@ namespace Schedule_Database_Desktop_Version
             this.cbo_Status.Name = "cbo_Status";
             this.cbo_Status.Size = new System.Drawing.Size(265, 24);
             this.cbo_Status.TabIndex = 1;
+            this.cbo_Status.Tag = "Required";
             this.cbo_Status.SelectedIndexChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // cbo_Type
@@ -97,6 +99,7 @@ namespace Schedule_Database_Desktop_Version
             this.cbo_Type.Name = "cbo_Type";
             this.cbo_Type.Size = new System.Drawing.Size(265, 24);
             this.cbo_Type.TabIndex = 2;
+            this.cbo_Type.Tag = "Required";
             this.cbo_Type.SelectedIndexChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // lbl_MSO
@@ -146,6 +149,7 @@ namespace Schedule_Database_Desktop_Version
             this.txt_Qty.Name = "txt_Qty";
             this.txt_Qty.Size = new System.Drawing.Size(265, 23);
             this.txt_Qty.TabIndex = 8;
+            this.txt_Qty.Tag = "Required";
             this.txt_Qty.TextChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // lbl_Qty
@@ -176,6 +180,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtp_DateReported.Name = "dtp_DateReported";
             this.dtp_DateReported.Size = new System.Drawing.Size(265, 23);
             this.dtp_DateReported.TabIndex = 12;
+            this.dtp_DateReported.Tag = "Required";
             // 
             // dtp_DateResolved
             // 
@@ -186,6 +191,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtp_DateResolved.Name = "dtp_DateResolved";
             this.dtp_DateResolved.Size = new System.Drawing.Size(265, 23);
             this.dtp_DateResolved.TabIndex = 13;
+            this.dtp_DateResolved.Tag = "";
             this.dtp_DateResolved.ValueChanged += new System.EventHandler(this.dtp_DateResolved_ValueChanged_1);
             // 
             // lbl_DateReported
@@ -418,6 +424,7 @@ namespace Schedule_Database_Desktop_Version
             this.lst_FELead.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lst_FELead.Size = new System.Drawing.Size(265, 84);
             this.lst_FELead.TabIndex = 39;
+            this.lst_FELead.Tag = "Required";
             this.lst_FELead.SelectedIndexChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // txtEID
@@ -449,6 +456,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboProduct.Size = new System.Drawing.Size(264, 24);
             this.cboProduct.Sorted = true;
             this.cboProduct.TabIndex = 42;
+            this.cboProduct.Tag = "Required";
             this.cboProduct.Leave += new System.EventHandler(this.cboProduct_Leave);
             // 
             // FrmATEscalations

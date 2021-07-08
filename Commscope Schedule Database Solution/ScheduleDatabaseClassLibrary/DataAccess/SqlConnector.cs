@@ -112,21 +112,24 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 return output;
             }
         }
-        public int EIDSequence_Get()
-        {
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
-            {
-                List<SequenceModel> output = connection.Query<SequenceModel>("dbo.spEIDSequence_Get",
-                    commandType: CommandType.StoredProcedure).ToList();
-                GlobalConfig.Connection.EIDSequence_Set(output[0].Sequence + 1);
-                return output[0].Sequence;
-            }
-        }
-        public void EIDSequence_Set(int seq)
+        public int EIDSequence_Get(string tableName)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
+                p.Add("@Table", tableName, DbType.String);
+                List<SequenceModel> output = connection.Query<SequenceModel>("dbo.spEIDSequence_Get", p,
+                    commandType: CommandType.StoredProcedure).ToList();
+                GlobalConfig.Connection.EIDSequence_Set(tableName, output[0].Sequence + 1);
+                return output[0].Sequence;
+            }
+        }
+        public void EIDSequence_Set(string tableName, int seq)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Table", tableName, DbType.String);
                 p.Add("@Sequence", seq, DbType.Int32);
                 connection.Execute("dbo.spEIDSequence_Set", p, commandType: CommandType.StoredProcedure);
             }

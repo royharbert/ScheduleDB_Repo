@@ -100,13 +100,14 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                 "Active","",1);
             foreach (string RID in RID_List)
             {
-                //string feXML = GlobalConfig.Connection.FEListXML_GetByRID(RID);
+                //Get assignment info
                 List<AssignmentTableModel> feXML_List = GlobalConfig.Connection.GetItemByColumn<AssignmentTableModel>
                     ("tblAssignments", "RequestID", RID, -1);
                 string feXML = feXML_List[0].FE_ListXML;
-                List<int> FEs = Serialization.DeserializeToList<List<int>>(feXML);
-                if (FEs != null)
+                if (feXML != null)
                 {
+                    List<int> FEs = Serialization.DeserializeToList<List<int>>(feXML);
+                
                     foreach (int FE in FEs)
                     {
                         try
