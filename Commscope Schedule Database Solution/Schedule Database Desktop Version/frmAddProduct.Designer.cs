@@ -29,30 +29,37 @@ namespace Schedule_Database_Desktop_Version
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cboCategory = new System.Windows.Forms.ComboBox();
+            this.txtProduct = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cboCategory
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(331, 68);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(232, 28);
-            this.comboBox1.TabIndex = 0;
+            this.cboCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Items.AddRange(new object[] {
+            "Coaxial Amps",
+            "Headend Optics",
+            "Node",
+            "RFoG",
+            "Software"});
+            this.cboCategory.Location = new System.Drawing.Point(331, 68);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(232, 28);
+            this.cboCategory.TabIndex = 0;
             // 
-            // textBox1
+            // txtProduct
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(46, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(252, 26);
-            this.textBox1.TabIndex = 1;
+            this.txtProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProduct.Location = new System.Drawing.Point(46, 70);
+            this.txtProduct.Name = "txtProduct";
+            this.txtProduct.Size = new System.Drawing.Size(252, 26);
+            this.txtProduct.TabIndex = 1;
             // 
             // label1
             // 
@@ -83,6 +90,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnCancel
             // 
@@ -93,20 +101,33 @@ namespace Schedule_Database_Desktop_Version
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(134, 191);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(398, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Make sure  model number is correct before clicking Add";
             // 
             // frmAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 233);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtProduct);
+            this.Controls.Add(this.cboCategory);
             this.Name = "frmAddProduct";
             this.Text = "Add Product";
+            this.Load += new System.EventHandler(this.frmAddProduct_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,11 +135,12 @@ namespace Schedule_Database_Desktop_Version
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cboCategory;
+        private System.Windows.Forms.TextBox txtProduct;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label label3;
     }
 }

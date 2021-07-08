@@ -38,7 +38,6 @@ namespace Schedule_Database_Desktop_Version
                 assignment = value;
                 List<AssignmentTableModel> retrieveList = new List<AssignmentTableModel>();
                 retrieveList.Add(assignment);
-                //assignment = new AssignmentTableModel();
                 this.Show();
                 fillData(Assignment);
                 dataLoading = false;
@@ -96,7 +95,11 @@ namespace Schedule_Database_Desktop_Version
                     break;
             }
         }
-
+        /// <summary>
+        /// Loads lists in combo's and sets DTP formats
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmAssignment_Load(object sender, EventArgs e)
         {
             dataLoading = true;
@@ -279,8 +282,6 @@ namespace Schedule_Database_Desktop_Version
             saveInfo.StartDate = dtpStartDate.Value;
             saveInfo.EndDate = dtpEndDate.Value;
             saveInfo.Activity = cboActivity.Text;
-            //UserControl AssignmentSaveModel;
-            //saveInfo.ProductList = assignment.ProductList;
             saveInfo.FE1ID = 0;
             saveInfo.FE2ID = 0;
             saveInfo.FE3ID = 0;
@@ -309,8 +310,6 @@ namespace Schedule_Database_Desktop_Version
             saveInfo.FE_ListXML = serializeFE();
             ActivityModel activity =(ActivityModel)cboActivity.SelectedItem;
             saveInfo.Activity_ID = activity.ID;
-            saveInfo.LocationID = assignment.LocationID;
-            saveInfo.ContactID = assignment.ContactID;
 
             return saveInfo;
         }
@@ -508,39 +507,28 @@ namespace Schedule_Database_Desktop_Version
             }
             return xmlString;
         }
-
         private void loadProductsInListbox(string xmlList)
         {
+            //deserialize XML
             if (xmlList != null & xmlList != "")
             {
                 List<int> productList = Serialization.DeserializeToList<List<int>>(xmlList);
 
-                //make list of product models from ID's
-                List<ProductModel> productModelList = new List<ProductModel>();
+                //make string of model numbers separated by comma           
                 if (productList.Count > 0)
                 {
+                    string productsString = "";
                     for (int j = 0; j < productList.Count; j++)
-                    {                       
+                    {
                         List<ProductModel> products = GlobalConfig.Connection.GetItemByColumn<ProductModel>
                             ("tblProducts", "ID", "", productList[j]);
                         if (products.Count > 0)
                         {
-                            productModelList.Add(products[0]);
+                            productsString += products[0].Product + ", ";
                         }
                     }
-                }
-
-                for (int j = 0; j < productModelList.Count; j++)
-                {
-                    string product = productModelList[j].Product;
-                    for (int i = 0; i < lstTopics.Items.Count; i++)
-                    {
-                        ProductModel productModel = (ProductModel)lstTopics.Items[i];
-                        if (productModel.Product == product)
-                        {
-                            lstTopics.SetSelected(i, true);
-                        }
-                    }
+                    productsString = productsString.Substring(0, productsString.Length - 2);
+                    FormControlOps.markListBoxes(lstTopics, productsString);
                 }
             }
         }
@@ -605,15 +593,15 @@ namespace Schedule_Database_Desktop_Version
         {
             List<FE_Model> availableFEs = ScheduleOps.GetAvailability(dtpStartDate.Value, dtpEndDate.Value);
             List<int> assignedFEs = ScheduleOps.CheckForExistingAssignments(txtPID.Text);
+            lstFE.DataSource = availableFEs;
+            lstFE.DisplayMember = "FullName";
             try
             {
                 foreach (int FE in assignedFEs)
-                {
-                    List<FE_Model> fe = GlobalConfig.Connection.GetItemByColumn<FE_Model>("tblFE", "ID","",FE);
-                    availableFEs.Add(fe[0]);
-                }
-                lstFE.DataSource = availableFEs;
-                lstFE.DisplayMember = "FullName";
+                //{
+                //    List<FE_Model> fe = GlobalConfig.Connection.GetItemByColumn<FE_Model>("tblFE", "ID","",FE);
+                //    availableFEs.Add(fe[0]);
+                //}
                 highlightAssigned(assignedFEs);
             }
             catch (Exception)
