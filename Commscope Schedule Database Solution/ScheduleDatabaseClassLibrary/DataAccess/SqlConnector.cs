@@ -11,9 +11,22 @@ using System.Configuration;
 
 namespace ScheduleDatabaseClassLibrary.DataAccess
 {
-
     public class SqlConnector : IDataConnection
     {
+        public int Product_Add(string modelNumber, string category)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Product", modelNumber, DbType.String);
+                p.Add("@Category", category, DbType.String);
+                int success = connection.Execute("dbo.spProduct_Add", p,
+                    commandType: CommandType.StoredProcedure);
+
+                return success;
+            }
+        }
+
         public List<T> GenericOrderedGetAll<T>(string tableName, string orderByColumn)
         {
             var p = new DynamicParameters();

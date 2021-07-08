@@ -325,7 +325,9 @@ namespace Schedule_Database_Desktop_Version
         {
             if (cboProduct.SelectedIndex < 0)
             {
-
+                frmAddProduct ProductForm = new frmAddProduct();
+                ProductForm.Product = cboProduct.Text;
+                ProductForm.ShowDialog();
             }
         }
     }
