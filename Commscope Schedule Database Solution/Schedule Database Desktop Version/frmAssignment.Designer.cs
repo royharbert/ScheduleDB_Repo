@@ -908,7 +908,7 @@ namespace Schedule_Database_Desktop_Version
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1865, 953);
+            this.ClientSize = new System.Drawing.Size(1293, 953);
             this.ControlBox = false;
             this.Controls.Add(this.pnlCompletion);
             this.Controls.Add(this.dgvAttachments);
@@ -944,8 +944,8 @@ namespace Schedule_Database_Desktop_Version
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAssignment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Assignment Data";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.frmAssignment_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAssignment_FormClosing);
             this.Load += new System.EventHandler(this.frmAssignment_Load);
