@@ -31,6 +31,9 @@ namespace Schedule_Database_Desktop_Version
         SalesPerson_Add,
         SalesPerson_Update,
         SalesPerson_Delete,
+        LabRequestAdd,
+        LabRequestEdit,
+        LabRequestDelete,
         None
     }
 }

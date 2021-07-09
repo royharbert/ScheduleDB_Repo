@@ -41,23 +41,10 @@ namespace Schedule_Database_Desktop_Version
                     btn_Save.Enabled = false;
                     break;
                 case Mode.SearchEscalation:
-                    
                     inputForm.InputDataReady += InputForm_InputDataReady;
-                    inputForm.Show();
-                    
+                    inputForm.Show();                    
                     break;
                 case Mode.DeleteEscalation:
-                    break;
-                
-                case Mode.LocationSearch:
-                    break;
-                case Mode.LocationSearchMDI:
-                    break;
-                case Mode.Add_Attachment:
-                    break;
-                case Mode.Delete_Attachment:
-                    break;
-                case Mode.None:
                     break;
                 default:
                     break;

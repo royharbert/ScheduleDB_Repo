@@ -26,6 +26,17 @@ namespace Schedule_Database_Desktop_Version
             dgvSales.Columns[2].Visible = false;
             dgvSales.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvSales.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            dgvSales.Columns[0].HeaderText = "Salesperson";
+            dgvSales.Columns[1].HeaderText = "Active";
+
+            DataGridViewCellStyle headerStyle = new DataGridViewCellStyle();
+            headerStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            headerStyle.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+
+            dgvSales.Columns[0].HeaderCell.Style = headerStyle;
+            dgvSales.Columns[1].HeaderCell.Style = headerStyle;
+
         }
 
         private void frmSalesPerson_Load(object sender, EventArgs e)

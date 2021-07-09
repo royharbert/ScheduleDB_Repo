@@ -307,6 +307,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void newRequestToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            GV.MODE = Mode.LabRequestAdd;
             frmLabRequest labForm = new frmLabRequest();
             labForm.Show();
         }
@@ -315,6 +316,13 @@ namespace Schedule_Database_Desktop_Version
         {
             frmSalesPerson SalesForm = new frmSalesPerson();
             SalesForm.Show();
+        }
+
+        private void updateErquestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabRequestEdit;
+            frmLabRequest labForm = new frmLabRequest();
+            labForm.Show(); GV.MODE = Mode.SearchEscalation;
         }
     }
 }
