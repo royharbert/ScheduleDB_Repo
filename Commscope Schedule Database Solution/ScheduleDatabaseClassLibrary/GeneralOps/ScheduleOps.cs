@@ -103,9 +103,9 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                 //Get assignment info
                 List<AssignmentTableModel> feXML_List = GlobalConfig.Connection.GetItemByColumn<AssignmentTableModel>
                     ("tblAssignments", "RequestID", RID, -1);
-                string feXML = feXML_List[0].FE_ListXML;
-                if (feXML != null)
+                if (feXML_List.Count > 0)
                 {
+                    string feXML = feXML_List[0].FE_ListXML;                
                     List<int> FEs = Serialization.DeserializeToList<List<int>>(feXML);
                 
                     foreach (int FE in FEs)

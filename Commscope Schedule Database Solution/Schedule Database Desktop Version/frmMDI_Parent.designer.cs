@@ -333,9 +333,10 @@ namespace Schedule_Database_Desktop_Version
             // salespersonUpdateToolStripMenuItem
             // 
             this.salespersonUpdateToolStripMenuItem.Name = "salespersonUpdateToolStripMenuItem";
-            this.salespersonUpdateToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.salespersonUpdateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salespersonUpdateToolStripMenuItem.Tag = "2";
             this.salespersonUpdateToolStripMenuItem.Text = "Salesperson Update";
+            this.salespersonUpdateToolStripMenuItem.Click += new System.EventHandler(this.salespersonUpdateToolStripMenuItem_Click);
             // 
             // addCustomerContactToolStripMenuItem
             // 

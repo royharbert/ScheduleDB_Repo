@@ -28,6 +28,9 @@ namespace Schedule_Database_Desktop_Version
         LocationSearchMDI,
         Add_Attachment,
         Delete_Attachment,
+        SalesPerson_Add,
+        SalesPerson_Update,
+        SalesPerson_Delete,
         None
     }
 }

@@ -13,6 +13,19 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
+        public void Salesperson_CRUD(char action, int ID, string name, bool active)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Action", action, DbType.String);
+                p.Add("@SalesPerson", name, DbType.String);
+                p.Add("@Active",active, DbType.Boolean);
+                p.Add("@ID", ID, DbType.Int32);
+                connection.Execute("dbo.spSalesperson_CRUD", p,
+                    commandType: CommandType.StoredProcedure);
+            }
+        }
         public int Product_Add(string modelNumber, string category)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))

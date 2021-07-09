@@ -310,5 +310,11 @@ namespace Schedule_Database_Desktop_Version
             frmLabRequest labForm = new frmLabRequest();
             labForm.Show();
         }
+
+        private void salespersonUpdateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSalesPerson SalesForm = new frmSalesPerson();
+            SalesForm.Show();
+        }
     }
 }

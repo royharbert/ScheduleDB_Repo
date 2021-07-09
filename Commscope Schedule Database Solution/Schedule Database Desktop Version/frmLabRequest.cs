@@ -24,19 +24,19 @@ namespace Schedule_Database_Desktop_Version
 
         private void loadComboBoxLists()
         {
-            populateListItems<MSO_Model>(cboMSO, "tblMSO", "MSO");
+            FormControlOps.populateListItems<MSO_Model>(cboMSO, "tblMSO", "MSO");
 
 
             dataLoading = false;
         }
 
-        private void populateListItems<T>(ComboBox cbo, string tableName, string displayItem)
-        {
-            List<T> boxList = GlobalConfig.Connection.GenericGetAll<T>(tableName);
-            cbo.DataSource = boxList;
-            cbo.DisplayMember = displayItem;
-            cbo.SelectedIndex = -1;
-        }
+        //private void populateListItems<T>(ComboBox cbo, string tableName, string displayItem)
+        //{
+        //    List<T> boxList = GlobalConfig.Connection.GenericGetAll<T>(tableName);
+        //    cbo.DataSource = boxList;
+        //    cbo.DisplayMember = displayItem;
+        //    cbo.SelectedIndex = -1;
+        //}
 
         private void frmLabRequest_Load(object sender, EventArgs e)
         {

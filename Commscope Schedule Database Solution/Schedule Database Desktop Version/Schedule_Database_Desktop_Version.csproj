@@ -193,6 +193,12 @@
     <Compile Include="frmMultiSelect.Designer.cs">
       <DependentUpon>frmMultiSelect.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSalesPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSalesPerson.Designer.cs">
+      <DependentUpon>frmSalesPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmScreens.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMultiSelect.resx">
       <DependentUpon>frmMultiSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSalesPerson.resx">
+      <DependentUpon>frmSalesPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmScreens.resx">
       <DependentUpon>frmScreens.cs</DependentUpon>
