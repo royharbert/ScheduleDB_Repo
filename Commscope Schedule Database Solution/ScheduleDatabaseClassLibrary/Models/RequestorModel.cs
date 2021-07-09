@@ -12,5 +12,9 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string SalesPerson { get; set; }
         public bool Active { get; set; }
         public int ID { get; set; }
+        public override string ToString()
+        {
+            return SalesPerson;
+        }
     }
 }

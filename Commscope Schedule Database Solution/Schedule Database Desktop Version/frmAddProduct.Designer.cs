@@ -126,6 +126,7 @@ namespace Schedule_Database_Desktop_Version
             this.Controls.Add(this.txtProduct);
             this.Controls.Add(this.cboCategory);
             this.Name = "frmAddProduct";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Product";
             this.Load += new System.EventHandler(this.frmAddProduct_Load);
             this.ResumeLayout(false);

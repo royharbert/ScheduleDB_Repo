@@ -10,6 +10,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
+        void Salesperson_CRUD(char action, int ID, string name, bool active);
         int Product_Add(string modelNumber, string category);
         List<T> GenericOrderedGetAll<T>(string tableName, string orderByColumn);
         void MSO_Update(DataTable dt);
@@ -41,8 +42,8 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         void InsertInto_tblAttachments(AttachmentModel model);        
         int Sequence_Get();        
         void Sequence_Set(int seq);
-        int EIDSequence_Get();
-        void EIDSequence_Set(int seq);
+        int EIDSequence_Get(string tableName);
+        void EIDSequence_Set(string tableName, int seq);
         void AddUser(UserModel NewUser);
         void DeleteUser(int OldUser);
         void UpdateUser(UserModel ThisUser);        
