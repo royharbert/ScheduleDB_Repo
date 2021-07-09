@@ -13,6 +13,17 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
+        public List<LabRequestModel> SearchLabRequests(string searchTerm)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@searchTerm", searchTerm, DbType.String);
+                List<LabRequestModel> output = connection.Query<LabRequestModel>("dbo.spLabRequestSearch", p,
+                    commandType: CommandType.StoredProcedure).ToList();
+                return output;
+            }
+        }
         public void Salesperson_CRUD(char action, int ID, string name, bool active)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))

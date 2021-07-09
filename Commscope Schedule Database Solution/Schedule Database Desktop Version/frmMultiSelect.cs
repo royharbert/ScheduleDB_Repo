@@ -22,6 +22,7 @@ namespace Schedule_Database_Desktop_Version
         private List<CustomerModel> customerData;
         private List<LocationModel> locationData;
         private List<ATEscalationsDisplayModel> escalations;
+        private List<LabRequestModel> labRequests;
 
         public frmCustomerContact CallingForm { get; set; }
 
@@ -94,6 +95,24 @@ namespace Schedule_Database_Desktop_Version
                 txtCount.Text = escalationList.Count.ToString();
                 formatDGV_Escalation();
                 setDGV_EscalationHeaderText(dgvResults);
+            }
+        }
+        public List<LabRequestModel> LabRequests
+        {
+            get
+            {
+                return labRequests;
+            }
+            set
+            {
+                labRequests = value;                
+                
+                customerData = null;
+                locationData = null;
+                dgvResults.DataSource = labRequests;
+                txtCount.Text = labRequests.Count.ToString();
+                //formatDGV_Escalation();
+                //setDGV_EscalationHeaderText(dgvResults);
             }
         }
 

@@ -49,23 +49,51 @@ namespace Schedule_Database_Desktop_Version
         private void InputForm_InputDataReady(object sender, InputDataReadyEventArgs e)
         {
             string searchTerm = e.SearchString;
-            List<ATEscalationsModel> escalations = GlobalConfig.Connection.SearchEscalations(searchTerm.ToUpper());
-            switch (escalations.Count)
+            List<LabRequestModel> models = GlobalConfig.Connection.SearchLabRequests(searchTerm.ToUpper());
+            switch (models.Count)
             {
                 case 0:
                     MessageBox.Show("No matching records found.");
                     break;
                 case 1:
-                    ATEscalationsDisplayModel displayModel = new ATEscalationsDisplayModel(escalations[0]);
-                    //loadBoxes(displayModel);
+                    LabRequestModel model = models[0]; ;
+                    loadBoxes(model);
                     break;
                 default:
                     frmMultiSelect displayForm = new frmMultiSelect();
-                    //List<ATEscalationsDisplayModel> displayModels = convertToDisplayList(escalations);
-                    //displayForm.Escalations = displayModels;
+                    
+                    displayForm.LabRequests = models;
                     displayForm.Show();
                     break;
             }
+        }
+
+        private LabRequestModel loadModel(LabRequestModel model)
+        {
+            int id = 0;
+            int.TryParse(txtID.Text, out id);
+            model.ID = id;
+            model.Description = txtDescription.Text;
+            model.EndDate = dtpEnd.Value;
+            model.LRID = txtRequestID.Text;
+            model.MSO = cboMSO.Text;
+            model.Product = cboProduct.Text;
+            model.Remarks = txtRemarks.Text;
+            model.StartDate = dtpStart.Value;
+
+            return model;
+        }
+
+        private void loadBoxes(LabRequestModel model)
+        {
+            txtDescription.Text = model.Description;
+            txtRemarks.Text = model.Remarks;
+            txtRequestID.Text = model.LRID;
+            dtpEnd.Value = model.EndDate;
+            dtpStart.Value = model.StartDate;
+            cboMSO.Text = model.MSO;
+            cboProduct.Text = model.Product;
+            txtID.Text = model.ID.ToString();
         }
 
         private void frmLabRequest_Load(object sender, EventArgs e)
@@ -194,6 +222,18 @@ namespace Schedule_Database_Desktop_Version
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgvAttachments_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            AttachmentProcs.AttachmentsRowHeaderClick(dgvAttachments);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            LabRequestModel model = new LabRequestModel();
+            loadModel(model);
+
         }
     }
 
