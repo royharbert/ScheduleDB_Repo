@@ -106,6 +106,7 @@
     <Compile Include="Models\FE_CalendarModel.cs" />
     <Compile Include="Models\FE_Model.cs" />
     <Compile Include="Models\FieldSearchModel.cs" />
+    <Compile Include="Models\LabRequestModel.cs" />
     <Compile Include="Models\LocationModel.cs" />
     <Compile Include="Models\MSO_Model.cs" />
     <Compile Include="Models\ProductModel.cs" />

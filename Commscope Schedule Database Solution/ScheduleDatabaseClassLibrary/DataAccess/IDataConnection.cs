@@ -10,6 +10,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
+        List<LabRequestModel> SearchLabRequests(string searchString);
         void Salesperson_CRUD(char action, int ID, string name, bool active);
         int Product_Add(string modelNumber, string category);
         List<T> GenericOrderedGetAll<T>(string tableName, string orderByColumn);
@@ -27,6 +28,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         List<LocationModel> CustomerLocations_Get(string WhereClause, string action, int ID, string siteName, string mso,
             string address, string city, string state, string country, string postalCode, string region, int custID);
         void Activity_Update_ID(string activity, int ID);
+
         //List<ActivityModel> Activities_GetAll();
         //List<AssignmentTableModel> Assignments_GetByActivity(string activity);
         void Assignment_CRUD(char action, string ID, DataTable dt);

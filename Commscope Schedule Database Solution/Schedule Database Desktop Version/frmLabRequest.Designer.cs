@@ -50,6 +50,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtRemarks = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.txtID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
             this.cmsDTP.SuspendLayout();
             this.SuspendLayout();
@@ -108,6 +109,7 @@ namespace Schedule_Database_Desktop_Version
             this.dgvAttachments.Name = "dgvAttachments";
             this.dgvAttachments.Size = new System.Drawing.Size(350, 197);
             this.dgvAttachments.TabIndex = 5;
+            this.dgvAttachments.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAttachments_RowHeaderMouseClick);
             // 
             // btnAddAttachment
             // 
@@ -235,12 +237,22 @@ namespace Schedule_Database_Desktop_Version
             this.btnSave.TabIndex = 17;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(75, 33);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(74, 20);
+            this.txtID.TabIndex = 18;
+            this.txtID.Visible = false;
             // 
             // frmLabRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 508);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label6);
@@ -292,5 +304,6 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.TextBox txtRemarks;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.TextBox txtID;
     }
 }
