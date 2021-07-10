@@ -10,6 +10,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
+        void LabRequests_CRUD(LabRequestModel model, char action);
         List<LabRequestModel> SearchLabRequests(string searchString);
         void Salesperson_CRUD(char action, int ID, string name, bool active);
         int Product_Add(string modelNumber, string category);
