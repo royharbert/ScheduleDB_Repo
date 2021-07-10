@@ -233,7 +233,20 @@ namespace Schedule_Database_Desktop_Version
         {
             LabRequestModel model = new LabRequestModel();
             loadModel(model);
-
+            switch (GV.MODE)
+            {
+                case Mode.LabRequestAdd:
+                    GlobalConfig.Connection.LabRequests_CRUD(model, 'C');
+                    break;
+                case Mode.LabRequestEdit:
+                    GlobalConfig.Connection.LabRequests_CRUD(model, 'U');
+                    break;
+                case Mode.LabRequestDelete:
+                    GlobalConfig.Connection.LabRequests_CRUD(model, 'D');
+                    break;                
+                default:
+                    break;
+            }
         }
     }
 

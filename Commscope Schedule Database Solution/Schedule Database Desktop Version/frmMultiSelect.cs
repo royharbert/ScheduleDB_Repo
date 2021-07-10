@@ -79,6 +79,23 @@ namespace Schedule_Database_Desktop_Version
             } 
         }
 
+        public List<LabRequestModel> LabRequests
+        {
+            get
+            {
+                return labRequests;
+            }
+            set
+            {
+                labRequests = value;
+                customerData = null;
+                locationData = null;
+                dgvResults.DataSource = labRequests;
+                txtCount.Text = labRequests.Count.ToString();
+                //formatDGV_Assignment();
+                //setDGV_HeaderText(dgvResults);
+            }
+        }
         public List<ATEscalationsDisplayModel> Escalations
         {
             get
@@ -95,24 +112,6 @@ namespace Schedule_Database_Desktop_Version
                 txtCount.Text = escalationList.Count.ToString();
                 formatDGV_Escalation();
                 setDGV_EscalationHeaderText(dgvResults);
-            }
-        }
-        public List<LabRequestModel> LabRequests
-        {
-            get
-            {
-                return labRequests;
-            }
-            set
-            {
-                labRequests = value;                
-                
-                customerData = null;
-                locationData = null;
-                dgvResults.DataSource = labRequests;
-                txtCount.Text = labRequests.Count.ToString();
-                //formatDGV_Escalation();
-                //setDGV_EscalationHeaderText(dgvResults);
             }
         }
 

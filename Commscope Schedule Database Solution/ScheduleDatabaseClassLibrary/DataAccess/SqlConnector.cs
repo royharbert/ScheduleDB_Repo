@@ -13,6 +13,26 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
+        public void LabRequests_CRUD(LabRequestModel model, char action)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Action", action, DbType.String);
+                p.Add("@ID", model.ID, DbType.Int32);
+                p.Add("@LRID", model.LRID, DbType.String);
+                p.Add("@MSO", model.MSO, DbType.String);
+                p.Add("@Product", model.Product, DbType.String);
+                p.Add("@StartDate", model.StartDate, DbType.DateTime);
+                p.Add("@EndDate", model.EndDate, DbType.DateTime);
+                p.Add("@Description", model.Description, DbType.String);
+                p.Add("@Remarks", model.Remarks, DbType.String);
+
+                connection.Execute("dbo.spLabRequest_CRUD", p,
+                    commandType: CommandType.StoredProcedure);
+            }
+        }
+
         public List<LabRequestModel> SearchLabRequests(string searchTerm)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
