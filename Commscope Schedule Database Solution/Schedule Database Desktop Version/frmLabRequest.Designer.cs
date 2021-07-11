@@ -66,6 +66,8 @@ namespace Schedule_Database_Desktop_Version
             // 
             // cboMSO
             // 
+            this.cboMSO.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboMSO.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboMSO.FormattingEnabled = true;
             this.cboMSO.Location = new System.Drawing.Point(82, 65);
             this.cboMSO.Name = "cboMSO";
@@ -85,6 +87,8 @@ namespace Schedule_Database_Desktop_Version
             // 
             // cboProduct
             // 
+            this.cboProduct.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboProduct.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboProduct.FormattingEnabled = true;
             this.cboProduct.Location = new System.Drawing.Point(82, 97);
             this.cboProduct.Name = "cboProduct";

@@ -12,6 +12,7 @@ namespace Schedule_Database_Desktop_Version
     {
         public static frmCustomerLocation LOCATIONFORM { get; set; }
         public static FrmATEscalations ESCALATIONFORM { get; set; }
+        public static frmLabRequest LABREQUESTFORM { get; set; }
         public List<ProductModel> ProductsList { get; set; }
         public List<FE_Model> AllFE  { get; set; }
         public static UserModel USERMODEL { get; set; }

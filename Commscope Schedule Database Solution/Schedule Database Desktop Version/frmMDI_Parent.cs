@@ -300,11 +300,6 @@ namespace Schedule_Database_Desktop_Version
             updater.Show();
         }
 
-        private void idToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void newRequestToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabRequestAdd;
@@ -322,7 +317,13 @@ namespace Schedule_Database_Desktop_Version
         {
             GV.MODE = Mode.LabRequestEdit;
             frmLabRequest labForm = new frmLabRequest();
-            labForm.Show(); GV.MODE = Mode.SearchEscalation;
+            labForm.Show();
+            labForm.getAssignmentSearchData();
+        }
+
+        private void escalationIDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

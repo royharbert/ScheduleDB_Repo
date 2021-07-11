@@ -87,6 +87,7 @@ namespace Schedule_Database_Desktop_Version
             }
             set
             {
+                GV.MODE = Mode.LabRequestEdit;
                 labRequests = value;
                 customerData = null;
                 locationData = null;
@@ -188,12 +189,16 @@ namespace Schedule_Database_Desktop_Version
                     GV.ESCALATIONFORM.loadBoxes(escalation);
                     GV.MODE = Mode.EditEscalation;
                     break;
+                case Mode.LabRequestEdit:
+                    LabRequestModel labRequest = labRequests[selectedRow];
+                    GV.LABREQUESTFORM.LabRequest = labRequest;
+                    break;
                 case Mode.None:
                     break;
                 default:
                     break;
             }
-            GV.MAINMENU.BringToFront();
+            //GV.MAINMENU.BringToFront();
             //this.Close();
         }
 
