@@ -199,7 +199,7 @@ namespace Schedule_Database_Desktop_Version
                     break;
             }
             //GV.MAINMENU.BringToFront();
-            //this.Close();
+            this.Close();
         }
 
         private void formatDGV_Assignment()

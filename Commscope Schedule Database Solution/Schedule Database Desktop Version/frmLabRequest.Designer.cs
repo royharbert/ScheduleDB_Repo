@@ -57,10 +57,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             // txtRequestID
             // 
-            this.txtRequestID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRequestID.Location = new System.Drawing.Point(277, 12);
+            this.txtRequestID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRequestID.Location = new System.Drawing.Point(487, 24);
             this.txtRequestID.Name = "txtRequestID";
-            this.txtRequestID.Size = new System.Drawing.Size(229, 22);
+            this.txtRequestID.Size = new System.Drawing.Size(295, 29);
             this.txtRequestID.TabIndex = 0;
             this.txtRequestID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -69,7 +69,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboMSO.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboMSO.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboMSO.FormattingEnabled = true;
-            this.cboMSO.Location = new System.Drawing.Point(82, 65);
+            this.cboMSO.Location = new System.Drawing.Point(310, 151);
             this.cboMSO.Name = "cboMSO";
             this.cboMSO.Size = new System.Drawing.Size(207, 21);
             this.cboMSO.TabIndex = 1;
@@ -78,7 +78,7 @@ namespace Schedule_Database_Desktop_Version
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 68);
+            this.label1.Location = new System.Drawing.Point(273, 154);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 2;
@@ -90,7 +90,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboProduct.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboProduct.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboProduct.FormattingEnabled = true;
-            this.cboProduct.Location = new System.Drawing.Point(82, 97);
+            this.cboProduct.Location = new System.Drawing.Point(310, 183);
             this.cboProduct.Name = "cboProduct";
             this.cboProduct.Size = new System.Drawing.Size(207, 21);
             this.cboProduct.TabIndex = 3;
@@ -99,7 +99,7 @@ namespace Schedule_Database_Desktop_Version
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 100);
+            this.label2.Location = new System.Drawing.Point(260, 186);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 4;
@@ -109,15 +109,15 @@ namespace Schedule_Database_Desktop_Version
             // dgvAttachments
             // 
             this.dgvAttachments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAttachments.Location = new System.Drawing.Point(23, 206);
+            this.dgvAttachments.Location = new System.Drawing.Point(24, 319);
             this.dgvAttachments.Name = "dgvAttachments";
-            this.dgvAttachments.Size = new System.Drawing.Size(350, 197);
+            this.dgvAttachments.Size = new System.Drawing.Size(787, 197);
             this.dgvAttachments.TabIndex = 5;
             this.dgvAttachments.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAttachments_RowHeaderMouseClick);
             // 
             // btnAddAttachment
             // 
-            this.btnAddAttachment.Location = new System.Drawing.Point(44, 415);
+            this.btnAddAttachment.Location = new System.Drawing.Point(221, 528);
             this.btnAddAttachment.Name = "btnAddAttachment";
             this.btnAddAttachment.Size = new System.Drawing.Size(106, 23);
             this.btnAddAttachment.TabIndex = 6;
@@ -127,7 +127,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btnDeleteAttachment
             // 
-            this.btnDeleteAttachment.Location = new System.Drawing.Point(243, 415);
+            this.btnDeleteAttachment.Location = new System.Drawing.Point(345, 528);
             this.btnDeleteAttachment.Name = "btnDeleteAttachment";
             this.btnDeleteAttachment.Size = new System.Drawing.Size(106, 23);
             this.btnDeleteAttachment.TabIndex = 7;
@@ -138,7 +138,7 @@ namespace Schedule_Database_Desktop_Version
             // dtpStart
             // 
             this.dtpStart.ContextMenuStrip = this.cmsDTP;
-            this.dtpStart.Location = new System.Drawing.Point(82, 128);
+            this.dtpStart.Location = new System.Drawing.Point(310, 214);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(206, 20);
             this.dtpStart.TabIndex = 8;
@@ -162,7 +162,7 @@ namespace Schedule_Database_Desktop_Version
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 132);
+            this.label3.Location = new System.Drawing.Point(249, 218);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 9;
@@ -172,7 +172,7 @@ namespace Schedule_Database_Desktop_Version
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 163);
+            this.label4.Location = new System.Drawing.Point(250, 249);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 11;
@@ -182,7 +182,7 @@ namespace Schedule_Database_Desktop_Version
             // dtpEnd
             // 
             this.dtpEnd.ContextMenuStrip = this.cmsDTP;
-            this.dtpEnd.Location = new System.Drawing.Point(83, 159);
+            this.dtpEnd.Location = new System.Drawing.Point(311, 245);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(206, 20);
             this.dtpEnd.TabIndex = 10;
@@ -191,7 +191,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(434, 68);
+            this.txtDescription.Location = new System.Drawing.Point(869, 114);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(323, 176);
@@ -200,7 +200,7 @@ namespace Schedule_Database_Desktop_Version
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(371, 73);
+            this.label5.Location = new System.Drawing.Point(806, 119);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 13;
@@ -209,7 +209,7 @@ namespace Schedule_Database_Desktop_Version
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(382, 265);
+            this.label6.Location = new System.Drawing.Point(817, 311);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 15;
@@ -217,7 +217,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(434, 262);
+            this.txtRemarks.Location = new System.Drawing.Point(869, 308);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
             this.txtRemarks.Size = new System.Drawing.Size(323, 176);
@@ -225,7 +225,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(657, 453);
+            this.btnClose.Location = new System.Drawing.Point(1092, 499);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(100, 34);
             this.btnClose.TabIndex = 16;
@@ -235,7 +235,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(496, 453);
+            this.btnSave.Location = new System.Drawing.Point(931, 499);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 34);
             this.btnSave.TabIndex = 17;
@@ -245,7 +245,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(75, 33);
+            this.txtID.Location = new System.Drawing.Point(303, 119);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(74, 20);
             this.txtID.TabIndex = 18;
@@ -255,7 +255,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 508);
+            this.ClientSize = new System.Drawing.Size(1224, 667);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);

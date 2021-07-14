@@ -59,6 +59,7 @@ namespace Schedule_Database_Desktop_Version
             {
                 case 0:
                     MessageBox.Show("No matching records found.");
+                    this.Close();
                     break;
                 case 1:
                     ATEscalationsDisplayModel displayModel = new ATEscalationsDisplayModel(escalations[0]);
@@ -311,9 +312,11 @@ namespace Schedule_Database_Desktop_Version
         {
             if (cboProduct.SelectedIndex < 0)
             {
+                string newProduct = cboProduct.Text.ToUpper();
                 frmAddProduct ProductForm = new frmAddProduct();
                 ProductForm.Product = cboProduct.Text;
                 ProductForm.ShowDialog();
+                cboProduct.Text = newProduct;
             }
         }
     }

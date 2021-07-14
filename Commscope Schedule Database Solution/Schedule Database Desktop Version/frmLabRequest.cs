@@ -88,6 +88,7 @@ namespace Schedule_Database_Desktop_Version
                     clearDTP(dtpEnd);
                     break;
                 case Mode.LabRequestEdit:
+                    loadComboBoxLists();
                     break;
                 case Mode.LabRequestDelete:
                     break;
@@ -120,10 +121,12 @@ namespace Schedule_Database_Desktop_Version
         {
             if (cboProduct.SelectedIndex < 0)
             {
+                string newProduct = cboProduct.Text.ToUpper();
                 frmAddProduct ProductForm = new frmAddProduct();
                 ProductForm.Product = cboProduct.Text;
                 ProductForm.ShowDialog();
                 FormControlOps.populateListItems<ProductModel>(cboProduct, "tblProducts", "Product");
+                cboProduct.Text = newProduct;
             }
         }
 
