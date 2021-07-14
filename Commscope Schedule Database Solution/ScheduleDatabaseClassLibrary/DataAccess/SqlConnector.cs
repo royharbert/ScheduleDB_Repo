@@ -38,7 +38,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
-                p.Add("@searchTerm", searchTerm, DbType.String);
+                p.Add("@SearchTerm", searchTerm, DbType.String);
                 List<LabRequestModel> output = connection.Query<LabRequestModel>("dbo.spLabRequestSearch", p,
                     commandType: CommandType.StoredProcedure).ToList();
                 return output;

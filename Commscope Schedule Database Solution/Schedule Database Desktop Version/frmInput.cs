@@ -37,6 +37,7 @@ namespace Schedule_Database_Desktop_Version
         private void frmInput_Activated(object sender, EventArgs e)
         {
             txtInput.Clear();
+            this.BringToFront();
         }
     }
 

@@ -17,59 +17,41 @@ namespace Schedule_Database_Desktop_Version
     {
         bool dataLoading = true;
         bool formDirty = false;
+        LabRequestModel labRequest = null;
+
+        public LabRequestModel LabRequest
+        {
+            get
+            {
+                return labRequest;
+            }
+            set
+            {
+                labRequest = value;
+                loadBoxes(labRequest);
+                cboMSO.Focus();
+                displayAttachments();
+                this.BringToFront();
+            }
+        }
+
         public frmLabRequest()
         {
             InitializeComponent();
+            GV.LABREQUESTFORM = this;
         }
 
         private void loadComboBoxLists()
         {
             FormControlOps.populateListItems<MSO_Model>(cboMSO, "tblMSO", "MSO");
             FormControlOps.populateListItems<ProductModel>(cboProduct, "tblProducts", "Product");
-            switch (GV.MODE)
-            {
-                case Mode.LabRequestAdd:
-                    break;
-                case Mode.LabRequestEdit:
-                    frmInput inputForm = new frmInput();
-                    inputForm.InputDataReady += InputForm_InputDataReady;
-                    inputForm.Show();
-                    break;
-                case Mode.LabRequestDelete:
-                    break;
-                case Mode.None:
-                    break;
-                default:
-                    break;
-            }
 
             dataLoading = false;
         }
 
-        private void InputForm_InputDataReady(object sender, InputDataReadyEventArgs e)
+        private LabRequestModel loadModel()
         {
-            string searchTerm = e.SearchString;
-            List<LabRequestModel> models = GlobalConfig.Connection.SearchLabRequests(searchTerm.ToUpper());
-            switch (models.Count)
-            {
-                case 0:
-                    MessageBox.Show("No matching records found.");
-                    break;
-                case 1:
-                    LabRequestModel model = models[0]; ;
-                    loadBoxes(model);
-                    break;
-                default:
-                    frmMultiSelect displayForm = new frmMultiSelect();
-                    
-                    displayForm.LabRequests = models;
-                    displayForm.Show();
-                    break;
-            }
-        }
-
-        private LabRequestModel loadModel(LabRequestModel model)
-        {
+            LabRequestModel model = new LabRequestModel();
             int id = 0;
             int.TryParse(txtID.Text, out id);
             model.ID = id;
@@ -98,9 +80,23 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmLabRequest_Load(object sender, EventArgs e)
         {
-            loadComboBoxLists();
-            clearDTP(dtpStart);
-            clearDTP(dtpEnd);
+            switch (GV.MODE)
+            {
+                case Mode.LabRequestAdd:
+                    loadComboBoxLists();
+                    clearDTP(dtpStart);
+                    clearDTP(dtpEnd);
+                    break;
+                case Mode.LabRequestEdit:
+                    loadComboBoxLists();
+                    break;
+                case Mode.LabRequestDelete:
+                    break;
+                case Mode.None:
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void cboMSO_SelectedIndexChanged(object sender, EventArgs e)
@@ -125,9 +121,12 @@ namespace Schedule_Database_Desktop_Version
         {
             if (cboProduct.SelectedIndex < 0)
             {
+                string newProduct = cboProduct.Text.ToUpper();
                 frmAddProduct ProductForm = new frmAddProduct();
                 ProductForm.Product = cboProduct.Text;
                 ProductForm.ShowDialog();
+                FormControlOps.populateListItems<ProductModel>(cboProduct, "tblProducts", "Product");
+                cboProduct.Text = newProduct;
             }
         }
 
@@ -231,20 +230,57 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            LabRequestModel model = new LabRequestModel();
-            loadModel(model);
+            LabRequestModel model = loadModel();
             switch (GV.MODE)
             {
                 case Mode.LabRequestAdd:
                     GlobalConfig.Connection.LabRequests_CRUD(model, 'C');
+                    MessageBox.Show(model.LRID + " saved.");
                     break;
                 case Mode.LabRequestEdit:
                     GlobalConfig.Connection.LabRequests_CRUD(model, 'U');
+                    MessageBox.Show(model.LRID + " saved.");
                     break;
                 case Mode.LabRequestDelete:
                     GlobalConfig.Connection.LabRequests_CRUD(model, 'D');
                     break;                
                 default:
+                    break;
+            }
+        }
+
+        public void getAssignmentSearchData()
+        {
+            //GV.MODE = Mode.Edit;
+            dataLoading = true;
+            //clearControls();
+            //lockControls(false, "");
+            frmInput frmInput = new frmInput();
+            frmInput.InputDataReady += FrmInput_InputDataReady;
+            frmInput.Show();
+        }
+
+        private void FrmInput_InputDataReady(object sender, InputDataReadyEventArgs e)
+        {
+            string searchTerm = e.SearchString;
+            List<LabRequestModel> models = GlobalConfig.Connection.SearchLabRequests(searchTerm.ToUpper());
+            this.Show();
+            switch (models.Count)
+            {
+                case 0:
+                    MessageBox.Show("No matching records found.");
+                    break;
+                case 1:
+                    LabRequestModel model = models[0]; ;
+                    loadBoxes(model);
+                    cboMSO.Focus();
+                    displayAttachments();
+                    break;
+                default:
+                    frmMultiSelect displayForm = new frmMultiSelect();
+
+                    displayForm.LabRequests = models;
+                    displayForm.Show();
                     break;
             }
         }
