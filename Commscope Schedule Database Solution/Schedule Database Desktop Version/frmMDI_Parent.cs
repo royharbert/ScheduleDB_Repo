@@ -225,15 +225,6 @@ namespace Schedule_Database_Desktop_Version
             ContactForm.Show();
         }
 
-        private void dateRangeReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            GV.MODE = Mode.DateRangeReport;
-            frmDateRange DateRangeForm = new frmDateRange();
-            DateRangeForm.MdiParent = this;
-            DateRangeForm.Show();
-        }
-
-
 
 
 
@@ -261,15 +252,6 @@ namespace Schedule_Database_Desktop_Version
         {
             GV.MODE = Mode.AddEscalation;
             FrmATEscalations ATEscalationsForm = new FrmATEscalations();
-            ATEscalationsForm.MdiParent = this;
-            ATEscalationsForm.Show();
-        }
-
-        private void searchEscalationToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            GV.MODE = Mode.SearchEscalation;
-            FrmATEscalations ATEscalationsForm = new FrmATEscalations();
-            GV.ESCALATIONFORM = ATEscalationsForm;
             ATEscalationsForm.MdiParent = this;
             ATEscalationsForm.Show();
         }
@@ -322,6 +304,23 @@ namespace Schedule_Database_Desktop_Version
         }
 
         private void escalationIDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.SearchEscalation;
+            FrmATEscalations ATEscalationsForm = new FrmATEscalations();
+            GV.ESCALATIONFORM = ATEscalationsForm;
+            ATEscalationsForm.MdiParent = this;
+            ATEscalationsForm.Show();
+        }
+
+        private void dateRangeReportToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.DateRangeReport;
+            frmDateRange DateRangeForm = new frmDateRange();
+            DateRangeForm.MdiParent = this;
+            DateRangeForm.Show();
+        }
+
+        private void searchByIDToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
