@@ -38,6 +38,7 @@ namespace Schedule_Database_Desktop_Version
                 int success = GlobalConfig.Connection.Product_Add(txtProduct.Text, cboCategory.Text);
 
                 MessageBox.Show(txtProduct.Text + " added.");
+                
                 this.Close();
 
             }

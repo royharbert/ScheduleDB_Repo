@@ -87,7 +87,7 @@ namespace Schedule_Database_Desktop_Version
             this.cbo_Status.Margin = new System.Windows.Forms.Padding(4);
             this.cbo_Status.Name = "cbo_Status";
             this.cbo_Status.Size = new System.Drawing.Size(265, 24);
-            this.cbo_Status.TabIndex = 1;
+            this.cbo_Status.TabIndex = 2;
             this.cbo_Status.Tag = "Required";
             this.cbo_Status.SelectedIndexChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
@@ -98,7 +98,7 @@ namespace Schedule_Database_Desktop_Version
             this.cbo_Type.Margin = new System.Windows.Forms.Padding(4);
             this.cbo_Type.Name = "cbo_Type";
             this.cbo_Type.Size = new System.Drawing.Size(265, 24);
-            this.cbo_Type.TabIndex = 2;
+            this.cbo_Type.TabIndex = 1;
             this.cbo_Type.Tag = "Required";
             this.cbo_Type.SelectedIndexChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
@@ -148,7 +148,7 @@ namespace Schedule_Database_Desktop_Version
             this.txt_Qty.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Qty.Name = "txt_Qty";
             this.txt_Qty.Size = new System.Drawing.Size(265, 23);
-            this.txt_Qty.TabIndex = 8;
+            this.txt_Qty.TabIndex = 3;
             this.txt_Qty.Tag = "Required";
             this.txt_Qty.TextChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
@@ -179,7 +179,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtp_DateReported.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_DateReported.Name = "dtp_DateReported";
             this.dtp_DateReported.Size = new System.Drawing.Size(265, 23);
-            this.dtp_DateReported.TabIndex = 12;
+            this.dtp_DateReported.TabIndex = 6;
             this.dtp_DateReported.Tag = "Required";
             // 
             // dtp_DateResolved
@@ -190,7 +190,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtp_DateResolved.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_DateResolved.Name = "dtp_DateResolved";
             this.dtp_DateResolved.Size = new System.Drawing.Size(265, 23);
-            this.dtp_DateResolved.TabIndex = 13;
+            this.dtp_DateResolved.TabIndex = 7;
             this.dtp_DateResolved.Tag = "";
             this.dtp_DateResolved.ValueChanged += new System.EventHandler(this.dtp_DateResolved_ValueChanged_1);
             // 
@@ -244,7 +244,7 @@ namespace Schedule_Database_Desktop_Version
             this.txt_Comments.Name = "txt_Comments";
             this.txt_Comments.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txt_Comments.Size = new System.Drawing.Size(421, 191);
-            this.txt_Comments.TabIndex = 18;
+            this.txt_Comments.TabIndex = 8;
             this.txt_Comments.TextChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
             // txt_CTRNumber
@@ -333,7 +333,7 @@ namespace Schedule_Database_Desktop_Version
             this.lbl_RequiredFields.Location = new System.Drawing.Point(16, 50);
             this.lbl_RequiredFields.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_RequiredFields.Name = "lbl_RequiredFields";
-            this.lbl_RequiredFields.Size = new System.Drawing.Size(119, 16);
+            this.lbl_RequiredFields.Size = new System.Drawing.Size(118, 16);
             this.lbl_RequiredFields.TabIndex = 29;
             this.lbl_RequiredFields.Text = "Required Fields";
             // 
@@ -423,7 +423,7 @@ namespace Schedule_Database_Desktop_Version
             this.lst_FELead.Name = "lst_FELead";
             this.lst_FELead.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lst_FELead.Size = new System.Drawing.Size(265, 84);
-            this.lst_FELead.TabIndex = 39;
+            this.lst_FELead.TabIndex = 4;
             this.lst_FELead.Tag = "Required";
             this.lst_FELead.SelectedIndexChanged += new System.EventHandler(this.cbo_MSO_SelectedIndexChanged);
             // 
@@ -455,7 +455,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboProduct.Name = "cboProduct";
             this.cboProduct.Size = new System.Drawing.Size(264, 24);
             this.cboProduct.Sorted = true;
-            this.cboProduct.TabIndex = 42;
+            this.cboProduct.TabIndex = 5;
             this.cboProduct.Tag = "Required";
             this.cboProduct.Leave += new System.EventHandler(this.cboProduct_Leave);
             // 

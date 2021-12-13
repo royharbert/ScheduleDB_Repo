@@ -5,11 +5,16 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
+        void FE_CRUD(FE_Model model, char action);
+        void MSO_Add(string MSO_Name, string TLA, bool Active);
+        void ToggleActiveStatus(string tableName, string activeColumnName, int Idx, string idxName);
+        List<T> GenericConditionalGetAll<T>(string tableName, string conditionColumn, string condition, string orderByField = "");
         void LabRequests_CRUD(LabRequestModel model, char action);
         List<LabRequestModel> SearchLabRequests(string searchString);
         void Salesperson_CRUD(char action, int ID, string name, bool active);
@@ -19,7 +24,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         int Escalation_Update(DataTable dt);
         List<ATEscalationsModel> SearchEscalations(string searchString);
         int Escalations_Add(DataTable dt);
-        List<T> GenericGetAll<T>(string tableName);
+        List<T> GenericGetAll<T>(string tableName, string orderByField = "");
         List<T> GetItemByColumn<T>(string tableName,string ColumnName,string StringValue,
             int IntValue = -1);
         List<AssignmentTableModel> DateRangeSearch_SortBy(DateTime StartDate, DateTime EndDate);

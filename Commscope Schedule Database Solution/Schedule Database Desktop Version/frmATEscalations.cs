@@ -86,7 +86,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void fillComboLists()
         {
-            List<MSO_Model> MSOs = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO");
+            List<MSO_Model> MSOs = GlobalConfig.Connection.GenericConditionalGetAll<MSO_Model>("tblMSO", "Active","1", null);
             cbo_MSO.DataSource = MSOs;
             cbo_MSO.DisplayMember = "MSO";
             cbo_MSO.SelectedIndex = -1;
