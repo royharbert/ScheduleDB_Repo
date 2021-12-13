@@ -129,7 +129,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void makeProductList()
         {
-            List<ProductModel> products = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts");
+            List<ProductModel> products = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts", "Product");
             cboProduct.DataSource = products;
             cboProduct.DisplayMember = "Product";
             cboProduct.SelectedIndex = -1;

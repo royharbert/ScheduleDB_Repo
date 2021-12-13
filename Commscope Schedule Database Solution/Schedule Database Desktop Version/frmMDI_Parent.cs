@@ -181,7 +181,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void activityToINTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            List<ActivityModel> activities = GlobalConfig.Connection.GenericGetAll<ActivityModel>("tblActivities");
+            List<ActivityModel> activities = GlobalConfig.Connection.GenericGetAll<ActivityModel>("tblActivities", "Activity");
             foreach (ActivityModel activity in activities)
             {
                 GlobalConfig.Connection.Activity_Update_ID(activity.Purpose, activity.ID);

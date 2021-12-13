@@ -60,85 +60,85 @@ namespace Schedule_Database_Desktop_Version
             switch (senderName)
             {
                 case "rdoActivity":
-                    List<ActivityModel> activityList = GlobalConfig.Connection.GenericGetAll<ActivityModel>("tblActivity");
+                    List<ActivityModel> activityList = GlobalConfig.Connection.GenericGetAll<ActivityModel>("tblActivity", "Activity");
                     dgvModel.DataSource = null;
                     dgvModel.DataSource = activityList;
                     tableType = (int)updateModel.Activities;
                     break;
                 case "rdoCities":
-                    List<CityModel> citiesList = GlobalConfig.Connection.GenericGetAll<CityModel>("tblCities");
+                    List<CityModel> citiesList = GlobalConfig.Connection.GenericGetAll<CityModel>("tblCities", "City");
                     dgvModel.DataSource = null;
                     dgvModel.DataSource = citiesList;
                     tableType = (int)updateModel.Cities;
                     break;
                 case "rdoCountries":
-                    List<CountriesModel> countryList = GlobalConfig.Connection.GenericGetAll<CountriesModel>("tblCountries");
+                    List<CountriesModel> countryList = GlobalConfig.Connection.GenericGetAll<CountriesModel>("tblCountries", "Country");
                     dgvModel.DataSource = null;
                     dgvModel.DataSource = countryList;
                     tableType = (int)updateModel.Countries;
                     break;
                 case "rdoCustContact":
-                    List<CustomerModel> customerList = GlobalConfig.Connection.GenericGetAll<CustomerModel>("tblCustContact");
+                    List<CustomerModel> customerList = GlobalConfig.Connection.GenericGetAll<CustomerModel>("tblCustContact", "LastName");
                     dgvModel.DataSource = null;
                     dgvModel.DataSource = customerList;
                     tableType = (int)updateModel.CustContact;
                     break;
                 case "rdoLocations":
-                    List<LocationModel> locationList = GlobalConfig.Connection.GenericGetAll<LocationModel>("tblCustomerLocations");
+                    List<LocationModel> locationList = GlobalConfig.Connection.GenericGetAll<LocationModel>("tblCustomerLocations", "State");
                     dgvModel.DataSource = null;
                     dgvModel.DataSource = locationList;
                     tableType = (int)updateModel.CustLocations;
                     break;                
                 case "rdoFE":
-                    List<FE_Model> feList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE");
+                    List<FE_Model> feList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE", "LastName");
                     dgvModel.DataSource = null;
                     dgvModel.DataSource = feList;
                     tableType = (int)updateModel.FE;                   
                     break;
                 case "rdoHolidays": 
-                    List<CompanyHolidaysModel> holidayList = GlobalConfig.Connection.GenericGetAll<CompanyHolidaysModel>("tblHolidaysList");
+                    List<CompanyHolidaysModel> holidayList = GlobalConfig.Connection.GenericGetAll<CompanyHolidaysModel>("tblHolidaysList", "Holiday");
                     dgvModel.DataSource = null;
                     dgvModel.DataSource = holidayList;
                     tableType = (int)updateModel.Holidays;
                     break;
                 case "rdoManagers":
-                    List<FE_Model> managerList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblManagers");
+                    List<FE_Model> managerList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblManagers", "LastName");
                     dgvModel.DataSource = null;
                     dgvModel.DataSource = managerList;
                     tableType = (int)updateModel.Managers;
                     break;
                 case "rdoMSO":
-                    List<MSO_Model> msoList = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO");
+                    List<MSO_Model> msoList = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO", "MSO");
                     dgvModel.DataSource = null;
                     dgvModel.DataSource = msoList;
                     tableType = (int)updateModel.MSO;
                     break;
                 case "rdoProducts":
-                    List<ProductModel> productList = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts");
+                    List<ProductModel> productList = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts", "Product");
                     dgvModel.DataSource = null;
                     dgvModel.DataSource = productList;
                     tableType = (int)updateModel.Products;
                     break;
                 case "rdoRegions":
-                    List<RegionsModel> regionList = GlobalConfig.Connection.GenericGetAll<RegionsModel>("tblRegions");
+                    List<RegionsModel> regionList = GlobalConfig.Connection.GenericGetAll<RegionsModel>("tblRegions", "Region");
                     dgvModel.DataSource = null;
                     dgvModel.DataSource = regionList;
                     tableType = (int)updateModel.Regions;
                     break;
                 case "rdoSales":
-                    List<RequestorModel> salesList = GlobalConfig.Connection.GenericGetAll<RequestorModel>("tblSalespersons");
+                    List<RequestorModel> salesList = GlobalConfig.Connection.GenericGetAll<RequestorModel>("tblSalespersons", "SalesPerson");
                     dgvModel.DataSource = null;
                     dgvModel.DataSource = salesList;
                     tableType = (int)updateModel.Salespersons;
                     break;
                 case "rdoStates":
-                    List<StateModel> stateList = GlobalConfig.Connection.GenericGetAll<StateModel>("tblStates");
+                    List<StateModel> stateList = GlobalConfig.Connection.GenericGetAll<StateModel>("tblStates", "State");
                     dgvModel.DataSource = null;
                     dgvModel.DataSource = stateList;
                     tableType = (int)updateModel.States;
                     break;
                 case "rdoUsers":
-                    List<UserModel> userList = GlobalConfig.Connection.GenericGetAll<UserModel>("tblUsers");
+                    List<UserModel> userList = GlobalConfig.Connection.GenericGetAll<UserModel>("tblUsers", "LastName");
                     dgvModel.DataSource = null;
                     dgvModel.DataSource = userList;
                     tableType = (int)updateModel.Users;

@@ -45,7 +45,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void makeFE_Dictionary()
         {
-            List<FE_Model> allFEs = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE");
+            List<FE_Model> allFEs = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE", "LastName");
             foreach (var fe in allFEs)
             {
                 feDictionary.Add(fe.ID, fe);
@@ -54,7 +54,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void fillRegionComboList()
         {
-            List<RegionsModel> regions = GlobalConfig.Connection.GenericGetAll<RegionsModel>("tblRegions");
+            List<RegionsModel> regions = GlobalConfig.Connection.GenericGetAll<RegionsModel>("tblRegions", "Region");
             cboRegions.DataSource = regions;
             cboRegions.DisplayMember = "Region";
         }
