@@ -25,7 +25,7 @@ namespace ScheduleDatabaseClassLibrary.AssignmentsProcesses
             msoList = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO", "MSO");
             msoList.Insert(0, new MSO_Model());
             fullList.Add(msoList);
-            List<ActivityModel> activityList = GlobalConfig.Connection.GenericGetAll<ActivityModel>("tblActivity", "Activity");
+            List<ActivityModel> activityList = GlobalConfig.Connection.GenericGetAll<ActivityModel>("tblActivity", "Purpose");
             activityList.Insert(0, new ActivityModel());
             fullList.Add(activityList);
             List<FE_Model> feList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE", "LastName");

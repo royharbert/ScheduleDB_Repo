@@ -65,7 +65,7 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
             switch (listType)
             {                
                 case ListType.FE:
-                    List<FE_Model> feList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE");
+                    List<FE_Model> feList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE","LastName");
                     foreach (var fe in feList)
                     {
                         table.Add(fe.ID, fe);
@@ -82,7 +82,7 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                     break;
 
                 case ListType.Product:
-                    List<ProductModel> productList = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts");
+                    List<ProductModel> productList = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts", "Product");
                     foreach (var product in productList)
                     {
                         table.Add(product.ID, product);
