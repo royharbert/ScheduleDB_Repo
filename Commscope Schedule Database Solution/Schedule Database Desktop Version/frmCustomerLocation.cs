@@ -81,27 +81,27 @@ namespace Schedule_Database_Desktop_Version
 
         private void fillComboLists()
         {
-            List<MSO_Model> MSOs = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO");
+            List<MSO_Model> MSOs = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO", "MSO");
             cboMSO.DataSource = MSOs;
             cboMSO.DisplayMember = "MSO";
             cboMSO.SelectedIndex = -1;
 
-            List<CityModel> cities = GlobalConfig.Connection.GenericGetAll<CityModel>("tblCities");
+            List<CityModel> cities = GlobalConfig.Connection.GenericGetAll<CityModel>("tblCities", "City");
             cboCity.DataSource = cities;
             cboCity.DisplayMember = "City";
             cboCity.SelectedIndex = -1;
 
-            List<StateModel> states = GlobalConfig.Connection.GenericGetAll<StateModel>("tblStates");
+            List<StateModel> states = GlobalConfig.Connection.GenericGetAll<StateModel>("tblStates", "State");
             cboState.DataSource = states;
             cboState.DisplayMember = "Abbreviation";
             cboState.SelectedIndex = -1;
 
-            List<CountriesModel> countries = GlobalConfig.Connection.GenericGetAll<CountriesModel>("tblCountries");
+            List<CountriesModel> countries = GlobalConfig.Connection.GenericGetAll<CountriesModel>("tblCountries", "Country");
             cboCountry.DataSource = countries;
             cboCountry.DisplayMember = "Country";
             cboCountry.SelectedIndex = -1;
 
-            List<RegionsModel> regions = GlobalConfig.Connection.GenericGetAll< RegionsModel>("tblRegions");
+            List<RegionsModel> regions = GlobalConfig.Connection.GenericGetAll< RegionsModel>("tblRegions", "Region");
             cboRegion.DataSource = regions;
             cboRegion.DisplayMember = "Region";
             cboRegion.SelectedIndex = -1;

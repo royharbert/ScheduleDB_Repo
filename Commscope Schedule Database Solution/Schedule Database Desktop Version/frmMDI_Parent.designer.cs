@@ -82,6 +82,8 @@ namespace Schedule_Database_Desktop_Version
             // 
             // mnuMain
             // 
+            this.mnuMain.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.mnuMain.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.functionToolStripMenuItem,
@@ -94,7 +96,7 @@ namespace Schedule_Database_Desktop_Version
             this.utilitiesToolStripMenuItem});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(1869, 24);
+            this.mnuMain.Size = new System.Drawing.Size(1869, 33);
             this.mnuMain.TabIndex = 2;
             this.mnuMain.Text = "menuStrip1";
             // 
@@ -106,14 +108,14 @@ namespace Schedule_Database_Desktop_Version
             this.setPreferredScreenToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
             this.fileToolStripMenuItem.Tag = "0";
             this.fileToolStripMenuItem.Text = "File";
             // 
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(273, 34);
             this.loginToolStripMenuItem.Tag = "0";
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
@@ -121,7 +123,7 @@ namespace Schedule_Database_Desktop_Version
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(273, 34);
             this.logoutToolStripMenuItem.Tag = "1";
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
@@ -129,7 +131,7 @@ namespace Schedule_Database_Desktop_Version
             // setPreferredScreenToolStripMenuItem
             // 
             this.setPreferredScreenToolStripMenuItem.Name = "setPreferredScreenToolStripMenuItem";
-            this.setPreferredScreenToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.setPreferredScreenToolStripMenuItem.Size = new System.Drawing.Size(273, 34);
             this.setPreferredScreenToolStripMenuItem.Tag = "1";
             this.setPreferredScreenToolStripMenuItem.Text = "Set Preferred Screen";
             this.setPreferredScreenToolStripMenuItem.Click += new System.EventHandler(this.setPreferredScreenToolStripMenuItem_Click);
@@ -137,7 +139,7 @@ namespace Schedule_Database_Desktop_Version
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(273, 34);
             this.exitToolStripMenuItem.Tag = "0";
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
@@ -151,14 +153,14 @@ namespace Schedule_Database_Desktop_Version
             this.restoreRequestToolStripMenuItem,
             this.fieldRequestReportsToolStripMenuItem});
             this.functionToolStripMenuItem.Name = "functionToolStripMenuItem";
-            this.functionToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.functionToolStripMenuItem.Size = new System.Drawing.Size(96, 29);
             this.functionToolStripMenuItem.Tag = "1";
             this.functionToolStripMenuItem.Text = "Function";
             // 
             // newRequestToolStripMenuItem
             // 
             this.newRequestToolStripMenuItem.Name = "newRequestToolStripMenuItem";
-            this.newRequestToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.newRequestToolStripMenuItem.Size = new System.Drawing.Size(285, 34);
             this.newRequestToolStripMenuItem.Tag = "2";
             this.newRequestToolStripMenuItem.Text = "New Request";
             this.newRequestToolStripMenuItem.Click += new System.EventHandler(this.newRequestToolStripMenuItem_Click);
@@ -166,7 +168,7 @@ namespace Schedule_Database_Desktop_Version
             // editRequestToolStripMenuItem
             // 
             this.editRequestToolStripMenuItem.Name = "editRequestToolStripMenuItem";
-            this.editRequestToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.editRequestToolStripMenuItem.Size = new System.Drawing.Size(285, 34);
             this.editRequestToolStripMenuItem.Tag = "1";
             this.editRequestToolStripMenuItem.Text = "Edit Request";
             this.editRequestToolStripMenuItem.Click += new System.EventHandler(this.editRequestToolStripMenuItem_Click);
@@ -174,14 +176,14 @@ namespace Schedule_Database_Desktop_Version
             // deleteRequestToolStripMenuItem
             // 
             this.deleteRequestToolStripMenuItem.Name = "deleteRequestToolStripMenuItem";
-            this.deleteRequestToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.deleteRequestToolStripMenuItem.Size = new System.Drawing.Size(285, 34);
             this.deleteRequestToolStripMenuItem.Tag = "2";
             this.deleteRequestToolStripMenuItem.Text = "Delete Request";
             // 
             // restoreRequestToolStripMenuItem
             // 
             this.restoreRequestToolStripMenuItem.Name = "restoreRequestToolStripMenuItem";
-            this.restoreRequestToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.restoreRequestToolStripMenuItem.Size = new System.Drawing.Size(285, 34);
             this.restoreRequestToolStripMenuItem.Tag = "2";
             this.restoreRequestToolStripMenuItem.Text = "Restore Request";
             // 
@@ -191,7 +193,7 @@ namespace Schedule_Database_Desktop_Version
             this.searchByIDToolStripMenuItem,
             this.dateRangeReportToolStripMenuItem1});
             this.fieldRequestReportsToolStripMenuItem.Name = "fieldRequestReportsToolStripMenuItem";
-            this.fieldRequestReportsToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.fieldRequestReportsToolStripMenuItem.Size = new System.Drawing.Size(285, 34);
             this.fieldRequestReportsToolStripMenuItem.Tag = "1";
             this.fieldRequestReportsToolStripMenuItem.Text = "Field Request Reports";
             // 
@@ -199,7 +201,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.searchByIDToolStripMenuItem.Enabled = false;
             this.searchByIDToolStripMenuItem.Name = "searchByIDToolStripMenuItem";
-            this.searchByIDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.searchByIDToolStripMenuItem.Size = new System.Drawing.Size(264, 34);
             this.searchByIDToolStripMenuItem.Tag = "1";
             this.searchByIDToolStripMenuItem.Text = "Search by ID";
             this.searchByIDToolStripMenuItem.Click += new System.EventHandler(this.searchByIDToolStripMenuItem_Click);
@@ -207,7 +209,7 @@ namespace Schedule_Database_Desktop_Version
             // dateRangeReportToolStripMenuItem1
             // 
             this.dateRangeReportToolStripMenuItem1.Name = "dateRangeReportToolStripMenuItem1";
-            this.dateRangeReportToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.dateRangeReportToolStripMenuItem1.Size = new System.Drawing.Size(264, 34);
             this.dateRangeReportToolStripMenuItem1.Tag = "1";
             this.dateRangeReportToolStripMenuItem1.Text = "Date Range Report";
             this.dateRangeReportToolStripMenuItem1.Click += new System.EventHandler(this.dateRangeReportToolStripMenuItem1_Click);
@@ -216,7 +218,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.calendarToolStripMenuItem.Enabled = false;
             this.calendarToolStripMenuItem.Name = "calendarToolStripMenuItem";
-            this.calendarToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.calendarToolStripMenuItem.Size = new System.Drawing.Size(97, 29);
             this.calendarToolStripMenuItem.Tag = "1";
             this.calendarToolStripMenuItem.Text = "Calendar";
             this.calendarToolStripMenuItem.Click += new System.EventHandler(this.calendarToolStripMenuItem_Click);
@@ -228,14 +230,14 @@ namespace Schedule_Database_Desktop_Version
             this.updateErquestToolStripMenuItem,
             this.searchRequestToolStripMenuItem});
             this.labToolStripMenuItem.Name = "labToolStripMenuItem";
-            this.labToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.labToolStripMenuItem.Size = new System.Drawing.Size(56, 29);
             this.labToolStripMenuItem.Tag = "1";
             this.labToolStripMenuItem.Text = "Lab";
             // 
             // newRequestToolStripMenuItem1
             // 
             this.newRequestToolStripMenuItem1.Name = "newRequestToolStripMenuItem1";
-            this.newRequestToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
+            this.newRequestToolStripMenuItem1.Size = new System.Drawing.Size(235, 34);
             this.newRequestToolStripMenuItem1.Tag = "2";
             this.newRequestToolStripMenuItem1.Text = "New Request";
             this.newRequestToolStripMenuItem1.Click += new System.EventHandler(this.newRequestToolStripMenuItem1_Click);
@@ -243,7 +245,7 @@ namespace Schedule_Database_Desktop_Version
             // updateErquestToolStripMenuItem
             // 
             this.updateErquestToolStripMenuItem.Name = "updateErquestToolStripMenuItem";
-            this.updateErquestToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.updateErquestToolStripMenuItem.Size = new System.Drawing.Size(235, 34);
             this.updateErquestToolStripMenuItem.Tag = "1";
             this.updateErquestToolStripMenuItem.Text = "UpdateRequest";
             this.updateErquestToolStripMenuItem.Click += new System.EventHandler(this.updateErquestToolStripMenuItem_Click);
@@ -254,21 +256,21 @@ namespace Schedule_Database_Desktop_Version
             this.dateRangeToolStripMenuItem1,
             this.requestIDToolStripMenuItem});
             this.searchRequestToolStripMenuItem.Name = "searchRequestToolStripMenuItem";
-            this.searchRequestToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.searchRequestToolStripMenuItem.Size = new System.Drawing.Size(235, 34);
             this.searchRequestToolStripMenuItem.Tag = "1";
             this.searchRequestToolStripMenuItem.Text = "Search Request";
             // 
             // dateRangeToolStripMenuItem1
             // 
             this.dateRangeToolStripMenuItem1.Name = "dateRangeToolStripMenuItem1";
-            this.dateRangeToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
+            this.dateRangeToolStripMenuItem1.Size = new System.Drawing.Size(206, 34);
             this.dateRangeToolStripMenuItem1.Tag = "1";
             this.dateRangeToolStripMenuItem1.Text = "Date Range";
             // 
             // requestIDToolStripMenuItem
             // 
             this.requestIDToolStripMenuItem.Name = "requestIDToolStripMenuItem";
-            this.requestIDToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.requestIDToolStripMenuItem.Size = new System.Drawing.Size(206, 34);
             this.requestIDToolStripMenuItem.Tag = "1";
             this.requestIDToolStripMenuItem.Text = "Request ID";
             // 
@@ -279,14 +281,14 @@ namespace Schedule_Database_Desktop_Version
             this.searchEscalationToolStripMenuItem,
             this.deleteEscalationToolStripMenuItem});
             this.aTEscalationsToolStripMenuItem.Name = "aTEscalationsToolStripMenuItem";
-            this.aTEscalationsToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.aTEscalationsToolStripMenuItem.Size = new System.Drawing.Size(139, 29);
             this.aTEscalationsToolStripMenuItem.Tag = "2";
             this.aTEscalationsToolStripMenuItem.Text = "AT Escalations";
             // 
             // addEscalationToolStripMenuItem
             // 
             this.addEscalationToolStripMenuItem.Name = "addEscalationToolStripMenuItem";
-            this.addEscalationToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.addEscalationToolStripMenuItem.Size = new System.Drawing.Size(249, 34);
             this.addEscalationToolStripMenuItem.Tag = "2";
             this.addEscalationToolStripMenuItem.Text = "Add Escalation";
             this.addEscalationToolStripMenuItem.Click += new System.EventHandler(this.addEscalationToolStripMenuItem_Click);
@@ -297,21 +299,21 @@ namespace Schedule_Database_Desktop_Version
             this.dateRangeToolStripMenuItem,
             this.escalationIDToolStripMenuItem});
             this.searchEscalationToolStripMenuItem.Name = "searchEscalationToolStripMenuItem";
-            this.searchEscalationToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.searchEscalationToolStripMenuItem.Size = new System.Drawing.Size(249, 34);
             this.searchEscalationToolStripMenuItem.Tag = "1";
             this.searchEscalationToolStripMenuItem.Text = "Search Escalation";
             // 
             // dateRangeToolStripMenuItem
             // 
             this.dateRangeToolStripMenuItem.Name = "dateRangeToolStripMenuItem";
-            this.dateRangeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.dateRangeToolStripMenuItem.Size = new System.Drawing.Size(215, 34);
             this.dateRangeToolStripMenuItem.Tag = "1";
             this.dateRangeToolStripMenuItem.Text = "Date Range";
             // 
             // escalationIDToolStripMenuItem
             // 
             this.escalationIDToolStripMenuItem.Name = "escalationIDToolStripMenuItem";
-            this.escalationIDToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.escalationIDToolStripMenuItem.Size = new System.Drawing.Size(215, 34);
             this.escalationIDToolStripMenuItem.Tag = "1";
             this.escalationIDToolStripMenuItem.Text = "Escalation ID";
             this.escalationIDToolStripMenuItem.Click += new System.EventHandler(this.escalationIDToolStripMenuItem_Click);
@@ -319,7 +321,7 @@ namespace Schedule_Database_Desktop_Version
             // deleteEscalationToolStripMenuItem
             // 
             this.deleteEscalationToolStripMenuItem.Name = "deleteEscalationToolStripMenuItem";
-            this.deleteEscalationToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.deleteEscalationToolStripMenuItem.Size = new System.Drawing.Size(249, 34);
             this.deleteEscalationToolStripMenuItem.Tag = "2";
             this.deleteEscalationToolStripMenuItem.Text = "Delete Escalation";
             this.deleteEscalationToolStripMenuItem.Click += new System.EventHandler(this.deleteEscalationToolStripMenuItem_Click);
@@ -329,14 +331,14 @@ namespace Schedule_Database_Desktop_Version
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dateRangeReportToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
             this.reportsToolStripMenuItem.Tag = "3";
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
             // dateRangeReportToolStripMenuItem
             // 
             this.dateRangeReportToolStripMenuItem.Name = "dateRangeReportToolStripMenuItem";
-            this.dateRangeReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dateRangeReportToolStripMenuItem.Size = new System.Drawing.Size(264, 34);
             this.dateRangeReportToolStripMenuItem.Tag = "3";
             this.dateRangeReportToolStripMenuItem.Text = "Date Range Report";
             // 
@@ -350,14 +352,14 @@ namespace Schedule_Database_Desktop_Version
             this.mSOUpdateToolStripMenuItem,
             this.updaterToolStripMenuItem});
             this.administrativeOperationsToolStripMenuItem.Name = "administrativeOperationsToolStripMenuItem";
-            this.administrativeOperationsToolStripMenuItem.Size = new System.Drawing.Size(157, 20);
+            this.administrativeOperationsToolStripMenuItem.Size = new System.Drawing.Size(235, 29);
             this.administrativeOperationsToolStripMenuItem.Tag = "2";
             this.administrativeOperationsToolStripMenuItem.Text = "Administrative Operations";
             // 
             // fEUpdateToolStripMenuItem
             // 
             this.fEUpdateToolStripMenuItem.Name = "fEUpdateToolStripMenuItem";
-            this.fEUpdateToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.fEUpdateToolStripMenuItem.Size = new System.Drawing.Size(272, 34);
             this.fEUpdateToolStripMenuItem.Tag = "2";
             this.fEUpdateToolStripMenuItem.Text = "FE Update";
             this.fEUpdateToolStripMenuItem.Click += new System.EventHandler(this.fEUpdateToolStripMenuItem_Click);
@@ -365,7 +367,7 @@ namespace Schedule_Database_Desktop_Version
             // salespersonUpdateToolStripMenuItem
             // 
             this.salespersonUpdateToolStripMenuItem.Name = "salespersonUpdateToolStripMenuItem";
-            this.salespersonUpdateToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.salespersonUpdateToolStripMenuItem.Size = new System.Drawing.Size(272, 34);
             this.salespersonUpdateToolStripMenuItem.Tag = "2";
             this.salespersonUpdateToolStripMenuItem.Text = "Salesperson Update";
             this.salespersonUpdateToolStripMenuItem.Click += new System.EventHandler(this.salespersonUpdateToolStripMenuItem_Click);
@@ -377,14 +379,14 @@ namespace Schedule_Database_Desktop_Version
             this.searchContactToolStripMenuItem,
             this.deleteContactToolStripMenuItem});
             this.addCustomerContactToolStripMenuItem.Name = "addCustomerContactToolStripMenuItem";
-            this.addCustomerContactToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.addCustomerContactToolStripMenuItem.Size = new System.Drawing.Size(272, 34);
             this.addCustomerContactToolStripMenuItem.Tag = "2";
             this.addCustomerContactToolStripMenuItem.Text = "Customer Contact";
             // 
             // addNewContactToolStripMenuItem
             // 
             this.addNewContactToolStripMenuItem.Name = "addNewContactToolStripMenuItem";
-            this.addNewContactToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.addNewContactToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
             this.addNewContactToolStripMenuItem.Tag = "2";
             this.addNewContactToolStripMenuItem.Text = "Add New Contact";
             this.addNewContactToolStripMenuItem.Click += new System.EventHandler(this.addNewContactToolStripMenuItem_Click);
@@ -392,7 +394,7 @@ namespace Schedule_Database_Desktop_Version
             // searchContactToolStripMenuItem
             // 
             this.searchContactToolStripMenuItem.Name = "searchContactToolStripMenuItem";
-            this.searchContactToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.searchContactToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
             this.searchContactToolStripMenuItem.Tag = "2";
             this.searchContactToolStripMenuItem.Text = "Search Contact";
             this.searchContactToolStripMenuItem.Click += new System.EventHandler(this.searchContactToolStripMenuItem_Click);
@@ -400,7 +402,7 @@ namespace Schedule_Database_Desktop_Version
             // deleteContactToolStripMenuItem
             // 
             this.deleteContactToolStripMenuItem.Name = "deleteContactToolStripMenuItem";
-            this.deleteContactToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.deleteContactToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
             this.deleteContactToolStripMenuItem.Text = "Delete Contact";
             this.deleteContactToolStripMenuItem.Click += new System.EventHandler(this.deleteContactToolStripMenuItem_Click);
             // 
@@ -410,14 +412,14 @@ namespace Schedule_Database_Desktop_Version
             this.addLocationToolStripMenuItem,
             this.searchLocationToolStripMenuItem});
             this.addCustomerLocationToolStripMenuItem.Name = "addCustomerLocationToolStripMenuItem";
-            this.addCustomerLocationToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.addCustomerLocationToolStripMenuItem.Size = new System.Drawing.Size(272, 34);
             this.addCustomerLocationToolStripMenuItem.Tag = "2";
             this.addCustomerLocationToolStripMenuItem.Text = "Customer Location";
             // 
             // addLocationToolStripMenuItem
             // 
             this.addLocationToolStripMenuItem.Name = "addLocationToolStripMenuItem";
-            this.addLocationToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.addLocationToolStripMenuItem.Size = new System.Drawing.Size(238, 34);
             this.addLocationToolStripMenuItem.Tag = "2";
             this.addLocationToolStripMenuItem.Text = "Add Location";
             this.addLocationToolStripMenuItem.Click += new System.EventHandler(this.addLocationToolStripMenuItem_Click);
@@ -425,7 +427,7 @@ namespace Schedule_Database_Desktop_Version
             // searchLocationToolStripMenuItem
             // 
             this.searchLocationToolStripMenuItem.Name = "searchLocationToolStripMenuItem";
-            this.searchLocationToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.searchLocationToolStripMenuItem.Size = new System.Drawing.Size(238, 34);
             this.searchLocationToolStripMenuItem.Tag = "2";
             this.searchLocationToolStripMenuItem.Text = "Search Location";
             this.searchLocationToolStripMenuItem.Click += new System.EventHandler(this.searchLocationToolStripMenuItem_Click);
@@ -433,7 +435,7 @@ namespace Schedule_Database_Desktop_Version
             // mSOUpdateToolStripMenuItem
             // 
             this.mSOUpdateToolStripMenuItem.Name = "mSOUpdateToolStripMenuItem";
-            this.mSOUpdateToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.mSOUpdateToolStripMenuItem.Size = new System.Drawing.Size(272, 34);
             this.mSOUpdateToolStripMenuItem.Tag = "2";
             this.mSOUpdateToolStripMenuItem.Text = "MSO Update";
             this.mSOUpdateToolStripMenuItem.Click += new System.EventHandler(this.mSOUpdateToolStripMenuItem_Click);
@@ -441,7 +443,7 @@ namespace Schedule_Database_Desktop_Version
             // updaterToolStripMenuItem
             // 
             this.updaterToolStripMenuItem.Name = "updaterToolStripMenuItem";
-            this.updaterToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.updaterToolStripMenuItem.Size = new System.Drawing.Size(272, 34);
             this.updaterToolStripMenuItem.Tag = "3";
             this.updaterToolStripMenuItem.Text = "Updater";
             this.updaterToolStripMenuItem.Click += new System.EventHandler(this.updaterToolStripMenuItem_Click);
@@ -452,14 +454,14 @@ namespace Schedule_Database_Desktop_Version
             this.liveToolStripMenuItem,
             this.sandboxToolStripMenuItem});
             this.databaseModeToolStripMenuItem.Name = "databaseModeToolStripMenuItem";
-            this.databaseModeToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.databaseModeToolStripMenuItem.Size = new System.Drawing.Size(154, 29);
             this.databaseModeToolStripMenuItem.Tag = "3";
             this.databaseModeToolStripMenuItem.Text = "Database Mode";
             // 
             // liveToolStripMenuItem
             // 
             this.liveToolStripMenuItem.Name = "liveToolStripMenuItem";
-            this.liveToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.liveToolStripMenuItem.Size = new System.Drawing.Size(184, 34);
             this.liveToolStripMenuItem.Tag = "3";
             this.liveToolStripMenuItem.Text = "Live";
             this.liveToolStripMenuItem.Click += new System.EventHandler(this.liveToolStripMenuItem_Click);
@@ -467,7 +469,7 @@ namespace Schedule_Database_Desktop_Version
             // sandboxToolStripMenuItem
             // 
             this.sandboxToolStripMenuItem.Name = "sandboxToolStripMenuItem";
-            this.sandboxToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.sandboxToolStripMenuItem.Size = new System.Drawing.Size(184, 34);
             this.sandboxToolStripMenuItem.Tag = "3";
             this.sandboxToolStripMenuItem.Text = "Sandbox";
             this.sandboxToolStripMenuItem.Click += new System.EventHandler(this.sandboxToolStripMenuItem_Click);
@@ -479,14 +481,14 @@ namespace Schedule_Database_Desktop_Version
             this.productsToXMLToolStripMenuItem,
             this.activityToINTToolStripMenuItem});
             this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
-            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(85, 29);
             this.utilitiesToolStripMenuItem.Tag = "4";
             this.utilitiesToolStripMenuItem.Text = "Utilities";
             // 
             // fEToXMLToolStripMenuItem
             // 
             this.fEToXMLToolStripMenuItem.Name = "fEToXMLToolStripMenuItem";
-            this.fEToXMLToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.fEToXMLToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
             this.fEToXMLToolStripMenuItem.Tag = "4";
             this.fEToXMLToolStripMenuItem.Text = "FE to XML";
             this.fEToXMLToolStripMenuItem.Click += new System.EventHandler(this.fEToXMLToolStripMenuItem_Click);
@@ -494,7 +496,7 @@ namespace Schedule_Database_Desktop_Version
             // productsToXMLToolStripMenuItem
             // 
             this.productsToXMLToolStripMenuItem.Name = "productsToXMLToolStripMenuItem";
-            this.productsToXMLToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.productsToXMLToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
             this.productsToXMLToolStripMenuItem.Tag = "4";
             this.productsToXMLToolStripMenuItem.Text = "Products to XML";
             this.productsToXMLToolStripMenuItem.Click += new System.EventHandler(this.productsToXMLToolStripMenuItem_Click);
@@ -502,14 +504,14 @@ namespace Schedule_Database_Desktop_Version
             // activityToINTToolStripMenuItem
             // 
             this.activityToINTToolStripMenuItem.Name = "activityToINTToolStripMenuItem";
-            this.activityToINTToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.activityToINTToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
             this.activityToINTToolStripMenuItem.Tag = "4";
             this.activityToINTToolStripMenuItem.Text = "Activity to INT";
             this.activityToINTToolStripMenuItem.Click += new System.EventHandler(this.activityToINTToolStripMenuItem_Click);
             // 
             // frmAMDI_Parent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1869, 898);

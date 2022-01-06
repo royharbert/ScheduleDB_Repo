@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ScheduleDatabaseClassLibrary.GeneralOps;
+using ScheduleDatabaseClassLibrary.Operations;
 
 namespace Schedule_Database_Desktop_Version
 {
@@ -28,12 +29,21 @@ namespace Schedule_Database_Desktop_Version
             model = new FE_Model();
             InitializeComponent();
             makeFEList();
+            fillRegionCombo();
             formloading = false;
             bool active = true;
             bool inactive = false;
 
             string active1 = active.ToString();
             string inactive1 = inactive.ToString();
+        }
+
+        private void fillRegionCombo()
+        {
+            List<RegionsModel> regions = GlobalConfig.Connection.GenericGetAll<RegionsModel>("tblRegions", "Region");
+            txtFE_Region.DataSource= regions;
+            txtFE_Region.DisplayMember = "Region";
+            txtFE_Region.SelectedIndex = -1;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -43,7 +53,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void makeFEList()
         {
-            List<FE_Model> feList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE");
+            List<FE_Model> feList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE", "LastName");
             lst_FieldEngineer.DataSource = feList;
             lst_FieldEngineer.DisplayMember = "FullName";
             lst_FieldEngineer.SelectedIndex = -1;
@@ -57,17 +67,22 @@ namespace Schedule_Database_Desktop_Version
 
         private void chk_viewActive_CheckedChanged(object sender, EventArgs e)
         {
+            lstFE_Refresh();
+        }
+
+        private void lstFE_Refresh()
+        {
             if (chk_viewActive.Checked == true)
             {
-                feList = GlobalConfig.Connection.GetItemByColumn<FE_Model>("tblFE", "Active","",1);
+                feList = GlobalConfig.Connection.GetItemByColumn<FE_Model>("tblFE", "Active", "", 1);
             }
             else
             {
-                feList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE");
+                feList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE", "LastName");
             }
-            
-                lst_FieldEngineer.DataSource = feList;
-                lst_FieldEngineer.DisplayMember = "FullName"; 
+
+            lst_FieldEngineer.DataSource = feList;
+            lst_FieldEngineer.DisplayMember = "FullName";
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -80,15 +95,20 @@ namespace Schedule_Database_Desktop_Version
             if (! formloading)
             {
                 model = (FE_Model)lst_FieldEngineer.SelectedItem;
-                txtFE_FirstName.Text = model.FirstName;
-                txtFE_LastName.Text = model.LastName;
-                txtFE_ManagerID.Text = model.ManagerID;
-                txtFE_Phone.Text = model.Phone;
-                txtFE_Region.Text = model.Phone;
-                txtFE_Email.Text = model.EMail;
-                txtFE_Active.Text = model.Active.ToString();
+                fillTextBoxes();
             }
            
+        }
+
+        private void fillTextBoxes()
+        {
+            txtFE_FirstName.Text = model.FirstName;
+            txtFE_LastName.Text = model.LastName;
+            txtFE_ManagerID.Text = model.ManagerID;
+            txtFE_Phone.Text = model.Phone;
+            txtFE_Region.Text = model.Region;
+            txtFE_Email.Text = model.EMail;
+            txtFE_Active.Text = model.Active.ToString();
         }
         private FE_Model loadModel()
         {
@@ -105,21 +125,17 @@ namespace Schedule_Database_Desktop_Version
         }
         private void btn_markActive_Click(object sender, EventArgs e)
         {
-            model.Active = true;
-            MessageBox.Show("This Field Engineer has been marked active");
-        }
-
-        private void btn_markInactive_Click(object sender, EventArgs e)
-        {
-            model.Active = false;
-            MessageBox.Show("This Field Engineer has been marked inactive");
-
+            model = CommonOps.ToggleFE_ActiveStatus(model);
+            MessageBox.Show(model.FullName + " Active status has been set to " + model.Active);
+            lstFE_Refresh();
+            fillTextBoxes();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
-            MessageBox.Show("Are you sure you want to delete this record?");
+            MessageBox.Show("Are you sure you want to delete this FE?");
+            GlobalConfig.Connection.FE_CRUD(model, 'D');
+            lstFE_Refresh();
 
         }
 
@@ -131,6 +147,8 @@ namespace Schedule_Database_Desktop_Version
                 {
                     ctl.Text = "";
                 }
+                txtFE_Region.SelectedIndex = -1;
+                txtFE_Active.SelectedIndex = -1;
             }
         }
 
@@ -158,22 +176,19 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnFE_Add_Click(object sender, EventArgs e)
         {
-        //    FE_Model model = new FE_Model();
-        //    model.FirstName = txtFE_FirstName.Text;
-        //    model.LastName = txtFE_LastName.Text;
-        //    model.ManagerID = txtFE_ManagerID.Text;
-        //    model.Region = txtFE_Region.Text;
-        //    model.Phone = txtFE_Phone.Text;
-        //    model.EMail = txtFE_Email.Text;
-        //    model.Active = bool.Parse(txtFE_Active.Text);
+            FE_Model model = new FE_Model();
+            model.FirstName = txtFE_FirstName.Text;
+            model.LastName = txtFE_LastName.Text;
+            model.ManagerID = txtFE_ManagerID.Text;
+            model.Region = txtFE_Region.Text;
+            model.Phone = txtFE_Phone.Text;
+            model.EMail = txtFE_Email.Text;
+            model.Active = bool.Parse(txtFE_Active.Text);
 
-            //ScheduleDatabaseClassLibrary.TableOps.TableGenerator<FE_Model> dt=
-            //    new ScheduleDatabaseClassLibrary.TableOps.TableGenerator<FE_Model>();
-            //List<FE_Model> escalations = new List<FE_Model>();
-            ////escalations.Add(model);
-            ////dt.List = FieldEngineers;
-            ////GlobalConfig.Connection.FE_Add(dt.table);
-            //MessageBox.Show("Field Engineer has been added");
+            
+            GlobalConfig.Connection.FE_CRUD(model, 'C');
+            MessageBox.Show(model.FullName + " has been added");
+            lstFE_Refresh();
         }
 
         //private void btnFE_Save_Click(object sender, EventArgs e)

@@ -8,11 +8,75 @@ using System.Threading.Tasks;
 using ScheduleDatabaseClassLibrary.Models;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Windows.Forms;
 
 namespace ScheduleDatabaseClassLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
+        public void FE_CRUD(FE_Model model, char action)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Action", action, DbType.String);
+                p.Add("@ID", model.ID, DbType.Int32);
+                p.Add("@FirstName", model.FirstName, DbType.String);
+                p.Add("@LastName", model.LastName, DbType.String);
+                p.Add("@ManagerID", model.ManagerID, DbType.String);
+                p.Add("@Region", model.Region, DbType.String);
+                p.Add("@Phone", model.Phone, DbType.String);
+                p.Add("@Email", model.EMail, DbType.String);
+                p.Add("@Active", model.Active, DbType.Boolean);
+
+                connection.Execute("dbo.spFE_CRUD", p,
+                    commandType: CommandType.StoredProcedure);
+            }
+        }
+        public void MSO_Add(string MSO_Name, string TLA, bool Active)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@MSO_Name", MSO_Name, DbType.String);
+                p.Add("@TLA", TLA, DbType.String);
+                p.Add("@Active", Active, DbType.Boolean);
+                connection.Execute("dbo.spMSO_Add", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+        public void ToggleActiveStatus(string tableName, string activeColumnName, int Idx, string idxName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                //bool active = false;
+                var p = new DynamicParameters();
+
+                p.Add("@TableName", tableName, DbType.String, ParameterDirection.Input);
+                p.Add("@ActiveColumnName", activeColumnName, DbType.String, ParameterDirection.Input);
+                p.Add("@ID", Idx, DbType.Int32, ParameterDirection.Input);
+                p.Add("@ID_ColName", idxName, DbType.String, ParameterDirection.Input);
+
+                //List<bool> output =
+                connection.Execute("dbo.spToggleActiveStatus", p, commandType: CommandType.StoredProcedure);
+                //active = output[0];
+                //return active;
+            }
+        }
+        public List<T> GenericConditionalGetAll<T>(string tableName, string conditionColumn, string condition, string orderByField = null)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@TableName", tableName, DbType.String);
+                p.Add("@ConditionColumn", conditionColumn, DbType.String);
+                p.Add("@Condition", condition, DbType.String);
+                p.Add("@OrderByField", orderByField, DbType.String);
+
+                List<T> output = connection.Query<T>("dbo.spGenericConditionalGetAll", p,
+                    commandType: CommandType.StoredProcedure).ToList();
+                return output;
+            }
+        }
         public void LabRequests_CRUD(LabRequestModel model, char action)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
@@ -209,14 +273,19 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 return success;
             }
         }
-        public List<T> GenericGetAll<T>(string tableName)
+        public List<T> GenericGetAll<T>(string tableName, string orderByField = "")
         {
             var p = new DynamicParameters();
             p.Add("@TableName", tableName, DbType.String);
+            if (orderByField != "")
+            {
+                p.Add("@OrderColumn", orderByField, DbType.String); 
+            }
+            
             List<T> list = new List<T>();
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
-                list = connection.Query<T>("dbo.spGenericGetAll", p,
+                list = connection.Query<T>("dbo.spGenericOrderedGetAll", p,
                     commandType: CommandType.StoredProcedure).ToList();
                 return list;
             }

@@ -142,7 +142,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void fillComboLists()
         {
-            List<MSO_Model> MSOs = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO");
+            List<MSO_Model> MSOs = GlobalConfig.Connection.GenericConditionalGetAll<MSO_Model>("tblMSO", "Active","1", null);
             cbo_MSO.DataSource = MSOs;
             cbo_MSO.DisplayMember = "MSO";
             cbo_MSO.SelectedIndex = -1;
@@ -185,7 +185,7 @@ namespace Schedule_Database_Desktop_Version
 
         public void makeProductList()
         {
-            List<ProductModel> products = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts");
+            List<ProductModel> products = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts", "Product");
             cboProduct.DataSource = products;
             cboProduct.DisplayMember = "Product";
             cboProduct.SelectedIndex = -1;
