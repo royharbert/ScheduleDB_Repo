@@ -28,6 +28,7 @@ namespace Schedule_Database_Desktop_Version
             formDirty = false;
             dataLoading = true;
             InitializeComponent();
+            GV.ESCALATIONFORM = this;
             fillComboLists();
             makeProductList();
             makeLeadList();
@@ -50,7 +51,62 @@ namespace Schedule_Database_Desktop_Version
                     break;
             }
         }
+        //added 12-13-21 LMD
+        //clear controls
+        //resettextandcomboboxesandDTP
+        //clear list box
+        private void clearControls()
+        {
+            dataLoading = true;
+            /////////////////////////????
+   
+        }
+        private void resetDTP_CustomFormat(DateTimePicker picker)
+        {
+            picker.CustomFormat = "  ";
+            picker.Format = DateTimePickerFormat.Custom;
+            picker.Text = "";
+        }
+        private void resetTextAndComboBoxesAndDTP(Control.ControlCollection controls)
+        {
+            foreach (Control control in controls)
+            {
+                if (control is DateTimePicker)
+                {
+                    resetDTP_CustomFormat(control as DateTimePicker);
+                }
 
+                if (control is TextBox | control is RichTextBox)
+                {
+                    control.Text = "";
+                }
+
+                if (control is ComboBox)
+                {
+                    control.Text = "";
+                    (control as ComboBox).SelectedItem = -1;
+                }
+            }
+        }
+        private void clearListBox(ListBox lbx)
+        {
+            lbx.SelectedItems.Clear();
+        }
+        private void lockControls(bool lockControl, string skipList)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox
+                     | control is DateTimePicker)
+                {
+                    int idx = skipList.IndexOf(control.Name);
+                    if (idx == -1)
+                    {
+                        control.Enabled = !lockControl;
+                    }
+                }
+            }
+        }
         private void InputForm_InputDataReady(object sender, InputDataReadyEventArgs e)
         {
             string searchTerm = e.SearchString;
@@ -127,7 +183,7 @@ namespace Schedule_Database_Desktop_Version
             displayAttachments();
         }
 
-        private void makeProductList()
+        public void makeProductList()
         {
             List<ProductModel> products = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts");
             cboProduct.DataSource = products;
@@ -214,7 +270,8 @@ namespace Schedule_Database_Desktop_Version
         {
             if (!dataLoading)
             {
-                formDirty = true;
+                MSO_Model model = ((MSO_Model)cbo_MSO.SelectedItem);
+               // formDirty = true;
                 if (sender is ComboBox)
                 {
                     ComboBox ctl = (ComboBox)sender;
@@ -224,6 +281,7 @@ namespace Schedule_Database_Desktop_Version
                         txtEID.Text = PID_Generator.GenerateEID((MSO_Model)cbo_MSO.SelectedItem, "ESC_");
                         cbo_MSO.Enabled = false;
                     }
+
                 }
             }
         }
@@ -317,6 +375,24 @@ namespace Schedule_Database_Desktop_Version
                 ProductForm.Product = cboProduct.Text;
                 ProductForm.ShowDialog();
                 cboProduct.Text = newProduct;
+            }
+        }
+
+        private void FrmATEscalations_Activated(object sender, EventArgs e)
+        {
+            switch (GV.MODE)
+            {
+                case Mode.New:
+                    clearControls();
+                    lockControls(true, "cboMSO");
+                    break;
+                case Mode.Edit:
+                    break;
+                case Mode.Undo:
+                case Mode.None:
+                    break;
+                default:
+                    break;
             }
         }
     }

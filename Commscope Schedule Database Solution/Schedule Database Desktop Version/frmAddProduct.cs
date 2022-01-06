@@ -38,13 +38,15 @@ namespace Schedule_Database_Desktop_Version
                 int success = GlobalConfig.Connection.Product_Add(txtProduct.Text, cboCategory.Text);
 
                 MessageBox.Show(txtProduct.Text + " added.");
+                GV.ESCALATIONFORM.makeProductList();
                 this.Close();
 
             }
             else
             {
                 MessageBox.Show("Please select a category for this product");
-            }             
+            }         
+            
         }
     }   
 

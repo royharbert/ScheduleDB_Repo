@@ -46,5 +46,6 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
             eid += mso.Abbreviation + "_" + dateStamp + "_" + sequence;
             return eid;
         }
+
     }
 }
