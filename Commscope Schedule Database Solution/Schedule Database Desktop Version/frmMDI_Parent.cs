@@ -135,6 +135,7 @@ namespace Schedule_Database_Desktop_Version
         private void fEUpdateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmFE feForm = new frmFE();
+            feForm.MdiParent = this;
             feForm.Show();
         }
 

@@ -25,18 +25,12 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
         }
         public static void populateListItems<T>(ComboBox cbo, string tableName, string displayItem)
         {
-            List<T> boxList = GlobalConfig.Connection.GenericGetAll<T>(tableName);
+            List<T> boxList = GlobalConfig.Connection.GenericGetAll<T>(tableName, displayItem);
             cbo.DataSource = boxList;
             cbo.DisplayMember = displayItem;
             cbo.SelectedIndex = -1;
         }
 
-        public static void populateListItems<T>(ListBox cbo, string tableName)
-        {
-            List<T> boxList = GlobalConfig.Connection.GenericGetAll<T>(tableName);
-            cbo.DataSource = boxList;
-            cbo.SelectedIndex = -1;
-        }
     }
 
 }
