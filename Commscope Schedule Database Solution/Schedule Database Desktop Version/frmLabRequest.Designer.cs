@@ -62,6 +62,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtRequestID.Name = "txtRequestID";
             this.txtRequestID.Size = new System.Drawing.Size(295, 29);
             this.txtRequestID.TabIndex = 0;
+            this.txtRequestID.Tag = "L";
             this.txtRequestID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cboMSO
@@ -73,6 +74,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboMSO.Name = "cboMSO";
             this.cboMSO.Size = new System.Drawing.Size(207, 21);
             this.cboMSO.TabIndex = 1;
+            this.cboMSO.Tag = "U";
             this.cboMSO.SelectedIndexChanged += new System.EventHandler(this.cboMSO_SelectedIndexChanged);
             // 
             // label1
@@ -94,6 +96,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboProduct.Name = "cboProduct";
             this.cboProduct.Size = new System.Drawing.Size(207, 21);
             this.cboProduct.TabIndex = 3;
+            this.cboProduct.Tag = "L";
             this.cboProduct.Leave += new System.EventHandler(this.cboProduct_Leave);
             // 
             // label2
@@ -142,6 +145,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(206, 20);
             this.dtpStart.TabIndex = 8;
+            this.dtpStart.Tag = "L";
             this.dtpStart.ValueChanged += new System.EventHandler(this.dtpStart_ValueChanged);
             this.dtpStart.Enter += new System.EventHandler(this.dtpStart_Enter);
             // 
@@ -186,6 +190,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(206, 20);
             this.dtpEnd.TabIndex = 10;
+            this.dtpEnd.Tag = "L";
             this.dtpEnd.ValueChanged += new System.EventHandler(this.dtpEnd_ValueChanged);
             this.dtpEnd.Enter += new System.EventHandler(this.dtpEnd_Enter);
             // 
@@ -196,6 +201,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(323, 176);
             this.txtDescription.TabIndex = 12;
+            this.txtDescription.Tag = "L";
             // 
             // label5
             // 
@@ -222,6 +228,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtRemarks.Name = "txtRemarks";
             this.txtRemarks.Size = new System.Drawing.Size(323, 176);
             this.txtRemarks.TabIndex = 14;
+            this.txtRemarks.Tag = "L";
             // 
             // btnClose
             // 
@@ -249,6 +256,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(74, 20);
             this.txtID.TabIndex = 18;
+            this.txtID.Tag = "L";
             this.txtID.Visible = false;
             // 
             // frmLabRequest

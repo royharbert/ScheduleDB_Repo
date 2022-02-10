@@ -30,8 +30,9 @@ namespace Schedule_Database_Desktop_Version
             InitializeComponent();
             GV.ESCALATIONFORM = this;
             fillComboLists();
-            makeProductList();
             makeLeadList();
+            makeProductList();
+            enableBoxes(false);
             switch (GV.MODE)
             {
                 case Mode.New:
@@ -43,14 +44,66 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case Mode.SearchEscalation:
                     inputForm.InputDataReady += InputForm_InputDataReady;
-                    inputForm.Show();                    
+                    inputForm.Show();  
+                    enableBoxes(true);
                     break;
                 case Mode.DeleteEscalation:
                     break;
                 default:
                     break;
             }
+            dataLoading = false;
         }
+        private void enableBoxes(bool enabled)
+        {
+            foreach (Control ctl in this.Controls)
+            {
+                if (ctl is TextBox)
+                {
+                    TextBox box = (TextBox)ctl;
+                    if (box.Tag.ToString() == "L")
+                    {
+                        ctl.Enabled = enabled;
+                    }
+                }
+                if (ctl is ComboBox)
+                {
+                    ComboBox comboBox = (ComboBox)ctl;
+                    if (comboBox.Tag.ToString() == "L")
+                    {
+                        comboBox.Enabled = enabled;
+                    }
+                }
+                if (ctl is ListBox)
+                {
+                    ListBox listBox = (ListBox)ctl;
+                    if (listBox.Tag.ToString() == "L")
+                    {
+                        listBox.Enabled = enabled;
+                    }
+                }
+                if (ctl is DateTimePicker)
+                {
+                    DateTimePicker datePicker = (DateTimePicker)ctl;
+                    if (datePicker.Tag.ToString() == "L")
+                    {
+                        datePicker.Enabled = enabled;
+                    }
+                }
+                if (ctl is GroupBox)
+                {
+                    GroupBox groupBox = (GroupBox)ctl;
+                    if (groupBox.Tag.ToString() == "L")
+                    {
+                        groupBox.Enabled = enabled;
+                    }
+                }
+            }
+
+        }
+          
+
+
         //added 12-13-21 LMD
         //clear controls
         //resettextandcomboboxesandDTP
@@ -58,8 +111,6 @@ namespace Schedule_Database_Desktop_Version
         private void clearControls()
         {
             dataLoading = true;
-            /////////////////////////????
-   
         }
         private void resetDTP_CustomFormat(DateTimePicker picker)
         {
@@ -92,21 +143,21 @@ namespace Schedule_Database_Desktop_Version
         {
             lbx.SelectedItems.Clear();
         }
-        private void lockControls(bool lockControl, string skipList)
-        {
-            foreach (Control control in this.Controls)
-            {
-                if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox
-                     | control is DateTimePicker)
-                {
-                    int idx = skipList.IndexOf(control.Name);
-                    if (idx == -1)
-                    {
-                        control.Enabled = !lockControl;
-                    }
-                }
-            }
-        }
+        //private void lockControls(bool lockControl, string skipList)
+        //{
+        //    foreach (Control control in this.Controls)
+        //    {
+        //        if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox
+        //             | control is DateTimePicker)
+        //        {
+        //            int idx = skipList.IndexOf(control.Name);
+        //            if (idx == -1)
+        //            {
+        //                control.Enabled = !lockControl;
+        //            }
+        //        }
+        //    }
+        //}
         private void InputForm_InputDataReady(object sender, InputDataReadyEventArgs e)
         {
             string searchTerm = e.SearchString;
@@ -119,6 +170,7 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case 1:
                     ATEscalationsDisplayModel displayModel = new ATEscalationsDisplayModel(escalations[0]);
+                    dataLoading = true;
                     loadBoxes(displayModel);
                     break;
                 default:
@@ -147,11 +199,6 @@ namespace Schedule_Database_Desktop_Version
             cbo_MSO.DisplayMember = "MSO";
             cbo_MSO.SelectedIndex = -1;
 
-            List<ProductModel> products = GlobalConfig.Connection.GenericOrderedGetAll<ProductModel>("tblProducts", "Product");
-            cboProduct.DataSource = products;
-            cboProduct.DisplayMember = "Product";
-            cboProduct.SelectedIndex = -1;
-
             cbo_Type.Items.Add("Product");
             cbo_Type.Items.Add("Application");
             cbo_Type.Items.Add("Design");
@@ -176,19 +223,26 @@ namespace Schedule_Database_Desktop_Version
             cbo_MSO.Text = model.MSO;
             cbo_Status.Text = model.ATEStatus;
             cbo_Type.Text = model.ATEType;
-            cboProduct.Text = model.Product;
+            if (model.Product != null)
+            {
+                FormControlOps.markListBoxes(lst_PartNumber, model.Product); 
+            }
             dtp_DateReported.Value = model.DateReported;
             dtp_DateResolved.Value = model.ResolvedDate;
-            FormControlOps.markListBoxes(lst_FELead, model.FELead);
+            if(model.FELead != null)
+
+            {
+                FormControlOps.markListBoxes(lst_FELead, model.FELead); 
+            }
             displayAttachments();
         }
 
         public void makeProductList()
         {
             List<ProductModel> products = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts", "Product");
-            cboProduct.DataSource = products;
-            cboProduct.DisplayMember = "Product";
-            cboProduct.SelectedIndex = -1;
+            lst_PartNumber.DataSource = products;
+            lst_PartNumber.DisplayMember = "Product";
+            lst_PartNumber.SelectedIndex = -1;
         }
 
         private void makeLeadList()
@@ -199,6 +253,7 @@ namespace Schedule_Database_Desktop_Version
             lst_FELead.DisplayMember = "FullName";
             lst_FELead.SelectedIndex = -1;
         }
+
 
         private string collectLeads()
         {
@@ -213,6 +268,20 @@ namespace Schedule_Database_Desktop_Version
                 }
                 xmlString = Serialization.SerializeToXml<List<string>>(LeadFE);
 
+            }
+            return xmlString;
+        }
+        private string collectProducts()
+        {
+            string xmlString = "";
+            if (!dataLoading)
+            {
+                foreach (var item in lst_PartNumber.SelectedItems)
+                {
+                    ProductModel product = (ProductModel)item;
+                    productList.Add(product.Product);
+                }
+                xmlString = Serialization.SerializeToXml<List<string>>(productList);
             }
             return xmlString;
         }
@@ -239,7 +308,7 @@ namespace Schedule_Database_Desktop_Version
             {
                 ATEscalationsModel model = new ATEscalationsModel();
                 model.EscalationID = txtEID.Text;
-                model.Product = cboProduct.Text;
+                model.Product = collectProducts();
                 model.FELeadXML = collectLeads();
                 model.ATEDescription = txt_Description.Text;
                 model.ATEStatus = cbo_Status.Text;
@@ -257,7 +326,18 @@ namespace Schedule_Database_Desktop_Version
                 List<ATEscalationsModel> escalations = new List<ATEscalationsModel>();
                 escalations.Add(model);
                 dt.List = escalations;
-                int success = GlobalConfig.Connection.Escalations_Add(dt.table);
+                int success = 0;
+                switch(GV.MODE)
+                {
+                    case Mode.AddEscalation:
+                        success = GlobalConfig.Connection.Escalations_Add(dt.table);
+
+                        break;
+                    case Mode.SearchEscalation:
+                        success = GlobalConfig.Connection.Escalation_Update(dt.table);
+                        break;
+
+                }
                 if (success > 0)
                 {
                     MessageBox.Show(model.EscalationID + " saved.");
@@ -270,8 +350,10 @@ namespace Schedule_Database_Desktop_Version
         {
             if (!dataLoading)
             {
+
                 MSO_Model model = ((MSO_Model)cbo_MSO.SelectedItem);
-               // formDirty = true;
+               formDirty = true;
+                enableBoxes(true);
                 if (sender is ComboBox)
                 {
                     ComboBox ctl = (ComboBox)sender;
@@ -366,25 +448,13 @@ namespace Schedule_Database_Desktop_Version
             AttachmentProcs.AttachmentsRowHeaderClick(dgvAttachments);
         }
 
-        private void cboProduct_Leave(object sender, EventArgs e)
-        {
-            if (cboProduct.SelectedIndex < 0)
-            {
-                string newProduct = cboProduct.Text.ToUpper();
-                frmAddProduct ProductForm = new frmAddProduct();
-                ProductForm.Product = cboProduct.Text;
-                ProductForm.ShowDialog();
-                cboProduct.Text = newProduct;
-            }
-        }
-
         private void FrmATEscalations_Activated(object sender, EventArgs e)
         {
             switch (GV.MODE)
             {
                 case Mode.New:
                     clearControls();
-                    lockControls(true, "cboMSO");
+                    //lockControls(true, "cboMSO");
                     break;
                 case Mode.Edit:
                     break;
@@ -393,6 +463,18 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void lst_PartNumber_Leave(object sender, EventArgs e)
+        {
+            if (lst_PartNumber.SelectedIndex < 0)
+            {
+                string newProduct = lst_PartNumber.Text.ToUpper();
+                frmAddProduct ProductForm = new frmAddProduct();
+                ProductForm.Product = lst_PartNumber.Text;
+                ProductForm.ShowDialog();
+                lst_PartNumber.Text = newProduct;
             }
         }
     }

@@ -260,9 +260,9 @@ namespace Schedule_Database_Desktop_Version
         private void deleteEscalationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.DeleteEscalation;
-            FrmATEscalations ATEscalationsForm = new FrmATEscalations();
-            ATEscalationsForm.MdiParent = this;
-            ATEscalationsForm.Show();
+            frmInput ATInputForm = new frmInput();
+            ATInputForm.MdiParent = this;
+            ATInputForm.Show();
         }
 
         private void calendarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -326,6 +326,21 @@ namespace Schedule_Database_Desktop_Version
 
         }
 
+        private void searchDateRangeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.DateRangeReportAT;
+            frmDateRange DateRangeForm = new frmDateRange();
+            DateRangeForm.MdiParent = this;
+            DateRangeForm.Show();
+        }
 
+        private void byEscalationIDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.SearchEscalation;
+            FrmATEscalations ATEscalations = new FrmATEscalations();
+            ATEscalations.MdiParent = this;
+            ATEscalations.Show();
+        }
     }
 }
+ 

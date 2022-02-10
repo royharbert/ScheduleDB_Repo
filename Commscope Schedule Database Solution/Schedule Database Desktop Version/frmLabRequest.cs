@@ -39,6 +39,7 @@ namespace Schedule_Database_Desktop_Version
         {
             InitializeComponent();
             GV.LABREQUESTFORM = this;
+            enableBoxes(false);
         }
 
         private void loadComboBoxLists()
@@ -77,6 +78,37 @@ namespace Schedule_Database_Desktop_Version
             cboProduct.Text = model.Product;
             txtID.Text = model.ID.ToString();
         }
+        private void enableBoxes(bool enabled)
+        {
+            foreach (Control ctl in this.Controls)
+            {
+                if (ctl is TextBox)
+                {
+                    TextBox textBox = (TextBox)ctl;
+                    if (textBox.Tag.ToString() == "L")
+                    {
+                        textBox.Enabled = enabled;
+                    }
+                }
+                if (ctl is ComboBox)
+                {
+                    ComboBox comboBox = (ComboBox)ctl;
+                    if (comboBox.Tag.ToString().Equals("L"))
+                    {
+                        comboBox.Enabled = enabled;
+                    }
+                }
+                if (ctl is DateTimePicker)
+                {
+                    DateTimePicker datePicker = (DateTimePicker)ctl;
+                    if (datePicker.Tag.ToString().Equals("L"))
+                    {
+                        datePicker.Enabled = enabled;
+                    }
+
+                }
+            }
+        }
 
         private void frmLabRequest_Load(object sender, EventArgs e)
         {
@@ -104,6 +136,7 @@ namespace Schedule_Database_Desktop_Version
             if (!dataLoading)
             {
                 //formDirty = true;
+                enableBoxes(true);
                 if (sender is ComboBox)
                 {
                     ComboBox ctl = (ComboBox)sender;
