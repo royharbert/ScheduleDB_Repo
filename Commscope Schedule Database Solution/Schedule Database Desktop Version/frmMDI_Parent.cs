@@ -334,12 +334,12 @@ namespace Schedule_Database_Desktop_Version
             DateRangeForm.Show();
         }
 
-        private void byEscalationIDToolStripMenuItem_Click(object sender, EventArgs e)
+        private void byMSOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.SearchEscalation;
-            FrmATEscalations ATEscalations = new FrmATEscalations();
-            ATEscalations.MdiParent = this;
-            ATEscalations.Show();
+            GV.MODE = Mode.AssignmentSearchByMSO;
+            frmMSOPicker MSOform = new frmMSOPicker();
+            MSOform.MdiParent = this;
+            MSOform.Show();
         }
     }
 }
