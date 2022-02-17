@@ -76,7 +76,10 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                         foreach (var item in IDs)
                         {
                             FE_Model data = (FE_Model)table[item];
-                            listData += data.FullName + " / ";
+                            if (data != null)
+                            {
+                                listData += data.FullName + " / "; 
+                            }
                         } 
                     }
                     break;
@@ -94,7 +97,10 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                         foreach (var item in IDs)
                         {
                             ProductModel data = (ProductModel)table[item];
-                            listData += data.Product + " / ";
+                            if (data != null)
+                            {
+                                listData += data.Product + " / "; 
+                            }
                         } 
                     }
                     break;
