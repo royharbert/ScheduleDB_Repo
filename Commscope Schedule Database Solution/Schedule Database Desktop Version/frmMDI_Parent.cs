@@ -296,7 +296,7 @@ namespace Schedule_Database_Desktop_Version
             SalesForm.Show();
         }
 
-        private void updateErquestToolStripMenuItem_Click(object sender, EventArgs e)
+        private void updateRequestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabRequestEdit;
             frmLabRequest labForm = new frmLabRequest();
@@ -340,6 +340,11 @@ namespace Schedule_Database_Desktop_Version
             frmMSOPicker MSOform = new frmMSOPicker();
             MSOform.MdiParent = this;
             MSOform.Show();
+        }
+
+        private void partNumberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
