@@ -36,6 +36,8 @@
             // 
             // cboMSOSelector
             // 
+            this.cboMSOSelector.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboMSOSelector.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboMSOSelector.FormattingEnabled = true;
             this.cboMSOSelector.Location = new System.Drawing.Point(39, 57);
             this.cboMSOSelector.Name = "cboMSOSelector";
