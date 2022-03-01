@@ -321,11 +321,6 @@ namespace Schedule_Database_Desktop_Version
             DateRangeForm.Show();
         }
 
-        private void searchByIDToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void searchDateRangeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.DateRangeReportAT;
@@ -345,6 +340,25 @@ namespace Schedule_Database_Desktop_Version
         private void partNumberToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void deleteRequestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void byRequestIDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.Edit;
+            GV.ASSIGNMENTFORM.Show();
+            GV.ASSIGNMENTFORM.getAssignmentSearchData();
+
+        }
+
+        private void generalSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.SearchFieldRequest;
+            GV.ASSIGNMENTFORM.Show();
         }
     }
 }

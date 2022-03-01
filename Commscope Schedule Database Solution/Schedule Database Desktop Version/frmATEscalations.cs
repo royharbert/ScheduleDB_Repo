@@ -16,6 +16,7 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class FrmATEscalations : Form
     {
+        DateTime emptyDate = new DateTime(1900, 1, 1);
         ATEscalationsModel ATEscalation = new ATEscalationsModel();
         List<string> productList = new List<string>();
         List<string> LeadFE = new List<string>();
@@ -143,21 +144,12 @@ namespace Schedule_Database_Desktop_Version
         {
             lbx.SelectedItems.Clear();
         }
-        //private void lockControls(bool lockControl, string skipList)
-        //{
-        //    foreach (Control control in this.Controls)
-        //    {
-        //        if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox
-        //             | control is DateTimePicker)
-        //        {
-        //            int idx = skipList.IndexOf(control.Name);
-        //            if (idx == -1)
-        //            {
-        //                control.Enabled = !lockControl;
-        //            }
-        //        }
-        //    }
-        //}
+        private void clearDate(DateTimePicker dtp)
+        {
+            dtp.Value = new DateTime(1900,1,1);
+            dtp.CustomFormat = " ";
+            dtp.Format = DateTimePickerFormat.Custom;
+        }
         private void InputForm_InputDataReady(object sender, InputDataReadyEventArgs e)
         {
             string searchTerm = e.SearchString;
@@ -316,7 +308,15 @@ namespace Schedule_Database_Desktop_Version
                 model.Comments = txt_Comments.Text;
                 model.CTRNumber = txt_CTRNumber.Text;
                 model.DateReported = dtp_DateReported.Value;
-                model.ResolvedDate = dtp_DateResolved.Value;
+                if (GV.MODE == Mode.AddEscalation)
+                {
+                    model.ResolvedDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
+                }
+                else
+                {
+                    model.ResolvedDate = dtp_DateResolved.Value; 
+
+                }
                 model.MSO = cbo_MSO.Text;
                 model.Quantity = txt_Qty.Text;
                 model.Resolution = txt_Resolution.Text;
@@ -370,7 +370,15 @@ namespace Schedule_Database_Desktop_Version
 
         private void dtp_DateResolved_ValueChanged_1(object sender, EventArgs e)
         {
-            dtp_DateResolved.Format = DateTimePickerFormat.Short;
+            if(dtp_DateResolved.Value == emptyDate)
+            {
+                clearDate((DateTimePicker)sender);
+               
+            }
+            else 
+            { 
+              dtp_DateResolved.Format = DateTimePickerFormat.Short;
+            }
         }
 
         private void txtEID_TextChanged(object sender, EventArgs e)
@@ -476,6 +484,12 @@ namespace Schedule_Database_Desktop_Version
                 ProductForm.ShowDialog();
                 lst_PartNumber.Text = newProduct;
             }
+        }
+
+        private void clearDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DateTimePicker dtp = (DateTimePicker)contextMenuStrip1.SourceControl;
+            clearDate(dtp);
         }
     }
 }

@@ -51,8 +51,11 @@ namespace Schedule_Database_Desktop_Version
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.contextMenuStripClearDate = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.clearDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
             this.cmsDTP.SuspendLayout();
+            this.contextMenuStripClearDate.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtRequestID
@@ -259,6 +262,20 @@ namespace Schedule_Database_Desktop_Version
             this.txtID.Tag = "L";
             this.txtID.Visible = false;
             // 
+            // contextMenuStripClearDate
+            // 
+            this.contextMenuStripClearDate.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearDateToolStripMenuItem});
+            this.contextMenuStripClearDate.Name = "contextMenuStripClearDate";
+            this.contextMenuStripClearDate.Size = new System.Drawing.Size(181, 48);
+            // 
+            // clearDateToolStripMenuItem
+            // 
+            this.clearDateToolStripMenuItem.Name = "clearDateToolStripMenuItem";
+            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearDateToolStripMenuItem.Text = "Clear Date";
+            this.clearDateToolStripMenuItem.Click += new System.EventHandler(this.clearDateToolStripMenuItem_Click);
+            // 
             // frmLabRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,6 +306,7 @@ namespace Schedule_Database_Desktop_Version
             this.Load += new System.EventHandler(this.frmLabRequest_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).EndInit();
             this.cmsDTP.ResumeLayout(false);
+            this.contextMenuStripClearDate.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,5 +335,7 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripClearDate;
+        private System.Windows.Forms.ToolStripMenuItem clearDateToolStripMenuItem;
     }
 }

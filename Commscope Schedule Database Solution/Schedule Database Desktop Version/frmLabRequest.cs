@@ -15,6 +15,7 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmLabRequest : Form
     {
+        DateTime emptyDate = new DateTime(1900, 1, 1);
         bool dataLoading = true;
         bool formDirty = false;
         LabRequestModel labRequest = null;
@@ -50,6 +51,12 @@ namespace Schedule_Database_Desktop_Version
             dataLoading = false;
         }
 
+        private void clearDate(DateTimePicker dtp)
+        {
+            dtp.Value = emptyDate;
+            dtp.CustomFormat = " ";
+            dtp.Format = DateTimePickerFormat.Custom;
+        }
         private LabRequestModel loadModel()
         {
             LabRequestModel model = new LabRequestModel();
@@ -316,6 +323,12 @@ namespace Schedule_Database_Desktop_Version
                     displayForm.Show();
                     break;
             }
+        }
+
+        private void clearDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DateTimePicker dtp = (DateTimePicker)contextMenuStripClearDate.SourceControl;
+            clearDate(dtp);
         }
     }
 

@@ -156,6 +156,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtCRM.Name = "txtCRM";
             this.txtCRM.Size = new System.Drawing.Size(71, 22);
             this.txtCRM.TabIndex = 2;
+            this.txtCRM.Tag = "L|CRMNumber";
             this.txtCRM.TextChanged += new System.EventHandler(this.txtCRM_TextChanged);
             // 
             // label
@@ -177,6 +178,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboActivity.Name = "cboActivity";
             this.cboActivity.Size = new System.Drawing.Size(201, 24);
             this.cboActivity.TabIndex = 1;
+            this.cboActivity.Tag = "L|Activity_ID";
             this.cboActivity.SelectedIndexChanged += new System.EventHandler(this.cboActivity_SelectedIndexChanged);
             // 
             // label2
@@ -198,6 +200,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboMSO.Name = "cboMSO";
             this.cboMSO.Size = new System.Drawing.Size(201, 24);
             this.cboMSO.TabIndex = 0;
+            this.cboMSO.Tag = "U|MSO_ID";
             this.cboMSO.SelectedIndexChanged += new System.EventHandler(this.cboMSO_SelectedIndexChanged);
             // 
             // label1
@@ -205,7 +208,7 @@ namespace Schedule_Database_Desktop_Version
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(656, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 16);
+            this.label1.Size = new System.Drawing.Size(74, 16);
             this.label1.TabIndex = 40;
             this.label1.Text = "Request ID";
             // 
@@ -245,7 +248,7 @@ namespace Schedule_Database_Desktop_Version
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(230, 301);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 16);
+            this.label10.Size = new System.Drawing.Size(71, 16);
             this.label10.TabIndex = 43;
             this.label10.Text = "Comments";
             // 
@@ -254,7 +257,7 @@ namespace Schedule_Database_Desktop_Version
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(230, 640);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(81, 16);
+            this.label11.Size = new System.Drawing.Size(80, 16);
             this.label11.TabIndex = 45;
             this.label11.Text = "Attachments";
             // 
@@ -263,7 +266,7 @@ namespace Schedule_Database_Desktop_Version
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(781, 90);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(50, 16);
+            this.label12.Size = new System.Drawing.Size(49, 16);
             this.label12.TabIndex = 46;
             this.label12.Text = "Topics";
             // 
@@ -316,7 +319,7 @@ namespace Schedule_Database_Desktop_Version
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(113, 14);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(136, 16);
+            this.label13.Size = new System.Drawing.Size(135, 16);
             this.label13.TabIndex = 49;
             this.label13.Text = "Customer Location";
             // 
@@ -586,7 +589,7 @@ namespace Schedule_Database_Desktop_Version
             this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl.Location = new System.Drawing.Point(127, 20);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(79, 16);
+            this.lbl.Size = new System.Drawing.Size(78, 16);
             this.lbl.TabIndex = 50;
             this.lbl.Text = "Contact ID";
             // 
@@ -650,7 +653,7 @@ namespace Schedule_Database_Desktop_Version
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(46, 186);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(88, 16);
+            this.label21.Size = new System.Drawing.Size(87, 16);
             this.label21.TabIndex = 12;
             this.label21.Text = "Hours on Site";
             // 
@@ -659,7 +662,7 @@ namespace Schedule_Database_Desktop_Version
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(23, 155);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(111, 16);
+            this.label9.Size = new System.Drawing.Size(110, 16);
             this.label9.TabIndex = 11;
             this.label9.Text = "Number of Techs";
             // 
@@ -682,7 +685,7 @@ namespace Schedule_Database_Desktop_Version
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(84, 68);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 16);
+            this.label8.Size = new System.Drawing.Size(105, 16);
             this.label8.TabIndex = 8;
             this.label8.Text = "Date Completed";
             // 
@@ -691,7 +694,7 @@ namespace Schedule_Database_Desktop_Version
             this.chkRoster.AutoSize = true;
             this.chkRoster.Location = new System.Drawing.Point(390, 247);
             this.chkRoster.Name = "chkRoster";
-            this.chkRoster.Size = new System.Drawing.Size(67, 20);
+            this.chkRoster.Size = new System.Drawing.Size(66, 20);
             this.chkRoster.TabIndex = 7;
             this.chkRoster.Text = "Roster";
             this.chkRoster.UseVisualStyleBackColor = true;
@@ -701,7 +704,7 @@ namespace Schedule_Database_Desktop_Version
             this.chkWRE.AutoSize = true;
             this.chkWRE.Location = new System.Drawing.Point(390, 221);
             this.chkWRE.Name = "chkWRE";
-            this.chkWRE.Size = new System.Drawing.Size(150, 20);
+            this.chkWRE.Size = new System.Drawing.Size(149, 20);
             this.chkWRE.TabIndex = 6;
             this.chkWRE.Text = "Weekly Report Entry";
             this.chkWRE.UseVisualStyleBackColor = true;
@@ -711,7 +714,7 @@ namespace Schedule_Database_Desktop_Version
             this.chkTripRpt.AutoSize = true;
             this.chkTripRpt.Location = new System.Drawing.Point(390, 195);
             this.chkTripRpt.Name = "chkTripRpt";
-            this.chkTripRpt.Size = new System.Drawing.Size(128, 20);
+            this.chkTripRpt.Size = new System.Drawing.Size(127, 20);
             this.chkTripRpt.TabIndex = 5;
             this.chkTripRpt.Text = "Trip Report Entry";
             this.chkTripRpt.UseVisualStyleBackColor = true;
@@ -721,7 +724,7 @@ namespace Schedule_Database_Desktop_Version
             this.chkCRM.AutoSize = true;
             this.chkCRM.Location = new System.Drawing.Point(390, 169);
             this.chkCRM.Name = "chkCRM";
-            this.chkCRM.Size = new System.Drawing.Size(113, 20);
+            this.chkCRM.Size = new System.Drawing.Size(112, 20);
             this.chkCRM.TabIndex = 4;
             this.chkCRM.Text = "CRM Closeout";
             this.chkCRM.UseVisualStyleBackColor = true;
@@ -731,7 +734,7 @@ namespace Schedule_Database_Desktop_Version
             this.chkCOVID.AutoSize = true;
             this.chkCOVID.Location = new System.Drawing.Point(390, 143);
             this.chkCOVID.Name = "chkCOVID";
-            this.chkCOVID.Size = new System.Drawing.Size(123, 20);
+            this.chkCOVID.Size = new System.Drawing.Size(122, 20);
             this.chkCOVID.TabIndex = 3;
             this.chkCOVID.Text = "COVID Release";
             this.chkCOVID.UseVisualStyleBackColor = true;
@@ -792,6 +795,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboRequestor.Name = "cboRequestor";
             this.cboRequestor.Size = new System.Drawing.Size(201, 24);
             this.cboRequestor.TabIndex = 52;
+            this.cboRequestor.Tag = "L|";
             // 
             // dtpStartDate
             // 
@@ -847,7 +851,7 @@ namespace Schedule_Database_Desktop_Version
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(564, 90);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 16);
+            this.label7.Size = new System.Drawing.Size(101, 16);
             this.label7.TabIndex = 56;
             this.label7.Text = "Field Engineers";
             // 

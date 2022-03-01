@@ -29,6 +29,7 @@ namespace Schedule_Database_Desktop_Version
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cbo_MSO = new System.Windows.Forms.ComboBox();
             this.cbo_Status = new System.Windows.Forms.ComboBox();
             this.cbo_Type = new System.Windows.Forms.ComboBox();
@@ -65,8 +66,11 @@ namespace Schedule_Database_Desktop_Version
             this.txtEID = new System.Windows.Forms.TextBox();
             this.dgvAttachments = new System.Windows.Forms.DataGridView();
             this.lst_PartNumber = new System.Windows.Forms.ListBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.clearDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grp_OptionalFields.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbo_MSO
@@ -190,6 +194,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // dtp_DateResolved
             // 
+            this.dtp_DateResolved.ContextMenuStrip = this.contextMenuStrip1;
             this.dtp_DateResolved.CustomFormat = " ";
             this.dtp_DateResolved.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_DateResolved.Location = new System.Drawing.Point(173, 397);
@@ -475,6 +480,20 @@ namespace Schedule_Database_Desktop_Version
             this.lst_PartNumber.Tag = "L";
             this.lst_PartNumber.Leave += new System.EventHandler(this.lst_PartNumber_Leave);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearDateToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            // 
+            // clearDateToolStripMenuItem
+            // 
+            this.clearDateToolStripMenuItem.Name = "clearDateToolStripMenuItem";
+            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearDateToolStripMenuItem.Text = "Clear Date";
+            this.clearDateToolStripMenuItem.Click += new System.EventHandler(this.clearDateToolStripMenuItem_Click);
+            // 
             // FrmATEscalations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -518,6 +537,7 @@ namespace Schedule_Database_Desktop_Version
             this.grp_OptionalFields.ResumeLayout(false);
             this.grp_OptionalFields.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -561,5 +581,7 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.TextBox txtEID;
         private System.Windows.Forms.DataGridView dgvAttachments;
         public System.Windows.Forms.ListBox lst_PartNumber;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem clearDateToolStripMenuItem;
     }
 }
