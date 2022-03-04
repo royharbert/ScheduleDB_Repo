@@ -232,6 +232,7 @@ namespace Schedule_Database_Desktop_Version
             this.lstTopics.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstTopics.Size = new System.Drawing.Size(165, 516);
             this.lstTopics.TabIndex = 11;
+            this.lstTopics.Tag = "U|ProductListXML";
             this.lstTopics.Leave += new System.EventHandler(this.lstTopics_Leave);
             // 
             // rtbComments
@@ -240,6 +241,7 @@ namespace Schedule_Database_Desktop_Version
             this.rtbComments.Name = "rtbComments";
             this.rtbComments.Size = new System.Drawing.Size(454, 289);
             this.rtbComments.TabIndex = 9;
+            this.rtbComments.Tag = "L|Comments";
             this.rtbComments.Text = "";
             this.rtbComments.TextChanged += new System.EventHandler(this.rtbComments_TextChanged);
             // 
@@ -300,7 +302,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtLocID.Name = "txtLocID";
             this.txtLocID.Size = new System.Drawing.Size(78, 22);
             this.txtLocID.TabIndex = 64;
-            this.txtLocID.Tag = "ID";
+            this.txtLocID.Tag = "L|ID";
             this.txtLocID.Visible = false;
             // 
             // btnSearchLocations
@@ -341,7 +343,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboRegion.Name = "cboRegion";
             this.cboRegion.Size = new System.Drawing.Size(205, 24);
             this.cboRegion.TabIndex = 6;
-            this.cboRegion.Tag = "Region";
+            this.cboRegion.Tag = "L|Region";
             this.cboRegion.Enter += new System.EventHandler(this.txtSiteName_Enter);
             this.cboRegion.Leave += new System.EventHandler(this.txtSiteName_Leave);
             // 
@@ -361,7 +363,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtPostalCode.Name = "txtPostalCode";
             this.txtPostalCode.Size = new System.Drawing.Size(206, 22);
             this.txtPostalCode.TabIndex = 5;
-            this.txtPostalCode.Tag = "PostalCode";
+            this.txtPostalCode.Tag = "L|PostalCode";
             this.txtPostalCode.Enter += new System.EventHandler(this.txtSiteName_Enter);
             this.txtPostalCode.Leave += new System.EventHandler(this.txtSiteName_Leave);
             // 
@@ -383,7 +385,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboCountry.Name = "cboCountry";
             this.cboCountry.Size = new System.Drawing.Size(205, 24);
             this.cboCountry.TabIndex = 4;
-            this.cboCountry.Tag = "Country";
+            this.cboCountry.Tag = "L|Country";
             this.cboCountry.Enter += new System.EventHandler(this.txtSiteName_Enter);
             this.cboCountry.Leave += new System.EventHandler(this.txtSiteName_Leave);
             // 
@@ -405,7 +407,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboState.Name = "cboState";
             this.cboState.Size = new System.Drawing.Size(205, 24);
             this.cboState.TabIndex = 3;
-            this.cboState.Tag = "State";
+            this.cboState.Tag = "L|State";
             this.cboState.Enter += new System.EventHandler(this.txtSiteName_Enter);
             this.cboState.Leave += new System.EventHandler(this.txtSiteName_Leave);
             // 
@@ -427,7 +429,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboCity.Name = "cboCity";
             this.cboCity.Size = new System.Drawing.Size(205, 24);
             this.cboCity.TabIndex = 2;
-            this.cboCity.Tag = "City";
+            this.cboCity.Tag = "L|City";
             this.cboCity.Enter += new System.EventHandler(this.txtSiteName_Enter);
             this.cboCity.Leave += new System.EventHandler(this.txtSiteName_Leave);
             // 
@@ -447,7 +449,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(206, 78);
             this.txtAddress.TabIndex = 1;
-            this.txtAddress.Tag = "Address";
+            this.txtAddress.Tag = "L|Address";
             this.txtAddress.Enter += new System.EventHandler(this.txtSiteName_Enter);
             this.txtAddress.Leave += new System.EventHandler(this.txtSiteName_Leave);
             // 
@@ -466,7 +468,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtSiteName.Name = "txtSiteName";
             this.txtSiteName.Size = new System.Drawing.Size(206, 22);
             this.txtSiteName.TabIndex = 0;
-            this.txtSiteName.Tag = "SiteName";
+            this.txtSiteName.Tag = "L|SiteName";
             this.txtSiteName.Enter += new System.EventHandler(this.txtSiteName_Enter);
             this.txtSiteName.Leave += new System.EventHandler(this.txtSiteName_Leave);
             // 
@@ -494,7 +496,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtCustID.Name = "txtCustID";
             this.txtCustID.Size = new System.Drawing.Size(78, 22);
             this.txtCustID.TabIndex = 63;
-            this.txtCustID.Tag = "ID";
+            this.txtCustID.Tag = "L|ID";
             this.txtCustID.Visible = false;
             // 
             // btnSearchContacts
@@ -522,7 +524,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(218, 22);
             this.txtPhone.TabIndex = 3;
-            this.txtPhone.Tag = "Phone";
+            this.txtPhone.Tag = "L|Phone";
             this.txtPhone.Enter += new System.EventHandler(this.txtFirstName_Enter);
             this.txtPhone.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
@@ -541,7 +543,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtEMail.Name = "txtEMail";
             this.txtEMail.Size = new System.Drawing.Size(218, 22);
             this.txtEMail.TabIndex = 2;
-            this.txtEMail.Tag = "EMail";
+            this.txtEMail.Tag = "L|EMail";
             this.txtEMail.Enter += new System.EventHandler(this.txtFirstName_Enter);
             this.txtEMail.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
@@ -560,7 +562,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(218, 22);
             this.txtLastName.TabIndex = 1;
-            this.txtLastName.Tag = "LastName";
+            this.txtLastName.Tag = "L|LastName";
             this.txtLastName.Enter += new System.EventHandler(this.txtFirstName_Enter);
             this.txtLastName.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
@@ -579,7 +581,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(218, 22);
             this.txtFirstName.TabIndex = 0;
-            this.txtFirstName.Tag = "FirstName";
+            this.txtFirstName.Tag = "L|FirstName";
             this.txtFirstName.Enter += new System.EventHandler(this.txtFirstName_Enter);
             this.txtFirstName.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
@@ -807,6 +809,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(175, 24);
             this.dtpStartDate.TabIndex = 53;
+            this.dtpStartDate.Tag = "L|StartDate";
             this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
             // cmdDateReset
@@ -833,6 +836,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(175, 24);
             this.dtpEndDate.TabIndex = 54;
+            this.dtpEndDate.Tag = "L|EndDate";
             this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpEndDate_ValueChanged);
             // 
             // lstFE
@@ -844,6 +848,7 @@ namespace Schedule_Database_Desktop_Version
             this.lstFE.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstFE.Size = new System.Drawing.Size(157, 516);
             this.lstFE.TabIndex = 55;
+            this.lstFE.Tag = "L|FE_ListXML";
             this.lstFE.SelectedIndexChanged += new System.EventHandler(this.lstFE_SelectedIndexChanged);
             // 
             // label7
