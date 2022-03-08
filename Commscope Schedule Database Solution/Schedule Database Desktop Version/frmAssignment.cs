@@ -90,11 +90,79 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.New:
                     assignment = new AssignmentTableModel();
                     break;
+                case Mode.SearchFieldRequest:
+
+                    List<FieldSearchModel> searchList = collectSearchTerms();
+
+                    break;
 
                 default:
                     break;
             }
         }
+
+        private List<FieldSearchModel> collectSearchTerms()
+        {
+            List<FieldSearchModel> list = new List<FieldSearchModel>();
+            foreach (Control control in this.Controls)
+            {
+                //if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox
+                //| control is DateTimePicker)
+                //{
+                //    if (control is TextBox)
+                //    {
+                //        TextBox ctl = (TextBox)control;
+                //        if (ctl.Text != "")
+                //        {
+                //            FieldSearchModel model = new FieldSearchModel();
+                //            model.FieldName = ctl.Tag.ToString();
+                //            model.FieldValue = ctl.Text;
+                //            list.Add (model);
+                //        }
+                //    }
+                //}
+                string searchValue = "";
+                if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox
+                   | control is DateTimePicker)
+                    {
+                    try
+                    {
+                        searchValue = control.Text;
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    if (searchValue != "" | searchValue != " ")
+                    {
+                        processControlSearch(control);
+                    } 
+                }
+            }
+            return list;
+        }
+        private string processControlSearch(Control ctl)
+        {
+            string fieldName = "";
+            string searchValue = "";
+            string clause = "";
+            string tableName = "";
+            string [] tagArray = ctl.Tag.ToString().Split('|');
+            if (tagArray.Length > 0)
+            {
+                tableName = tagArray[0];
+                fieldName = tagArray[1];
+                searchValue = ctl.Text;
+            }
+            else
+            {
+                searchValue = ctl.Text;
+                clause = tagArray[0] + " = " + searchValue;
+            }
+
+
+            return clause;
+        }
+
         /// <summary>
         /// Loads lists in combo's and sets DTP formats
         /// </summary>
@@ -213,6 +281,23 @@ namespace Schedule_Database_Desktop_Version
             {
                 if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox
                      | control is DateTimePicker)                   
+                {
+                    int idx = skipList.IndexOf(control.Name);
+                    if (idx == -1)
+                    {
+                        control.Enabled = !lockControl;
+                    }
+                }
+            }
+            lockPanels(lockControl, "", pnlCustomer);
+            lockPanels(lockControl, "", pnlLocation);
+        }
+        private void lockPanels(bool lockControl, string skipList, Panel panel)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox
+                     | control is DateTimePicker)
                 {
                     int idx = skipList.IndexOf(control.Name);
                     if (idx == -1)
@@ -373,11 +458,11 @@ namespace Schedule_Database_Desktop_Version
         private void btnSave_Click(object sender, EventArgs e)
         {
             List<AssignmentSaveModel> assignments = new List<AssignmentSaveModel>();
-            assignments.Add(assignmentToSave());
             switch (GV.MODE)
             { 
                 case Mode.New:
             
+                    assignments.Add(assignmentToSave());
                     AssignmentSaver saver = new AssignmentSaver();
                     saver.Request = assignments;
                     DataTable dt = new DataTable();
@@ -389,6 +474,7 @@ namespace Schedule_Database_Desktop_Version
                     formDirty = false;
                     break;
                 case Mode.Edit:
+                    assignments.Add(assignmentToSave());
                     saveEdit();
                     break;
                 case Mode.Undo:
@@ -412,6 +498,9 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LocationSearch:
                     break;
                 case Mode.LocationSearchMDI:
+                    break;
+                case Mode.SearchFieldRequest:
+                    collectSearchTerms();
                     break;
                 case Mode.None:
                     break;
@@ -630,13 +719,17 @@ namespace Schedule_Database_Desktop_Version
             {
                 case Mode.New:
                     clearControls();
-                    lockControls(true, "cboMSO"); 
+                    lockControls(true, "cboMSO");
+                    btnSave.Text = "Save";
                     break;
                 case Mode.Edit:                    
                     break;
                 case Mode.Undo:
                     break;
                 case Mode.None:
+                    break;
+                case Mode.SearchFieldRequest:
+                    btnSave.Text = "Search";
                     break;
                 default:
                     break;
