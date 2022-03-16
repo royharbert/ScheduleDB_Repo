@@ -104,6 +104,7 @@ namespace Schedule_Database_Desktop_Version
         private List<FieldSearchModel> collectSearchTerms()
         {
             List<FieldSearchModel> list = new List<FieldSearchModel>();
+            FieldSearchModel model = new FieldSearchModel();
             foreach (Control control in this.Controls)
             {
                 //if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox
@@ -121,46 +122,54 @@ namespace Schedule_Database_Desktop_Version
                 //        }
                 //    }
                 //}
-                string searchValue = "";
-                if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox
-                   | control is DateTimePicker)
+                if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox)
+                {
+                    if (control.Text != "")
                     {
-                    try
-                    {
-                        searchValue = control.Text;
+                        list.Add(processControlSearch(control));
                     }
-                    catch (Exception)
-                    {
-                    }
-                    if (searchValue != "" | searchValue != " ")
-                    {
-                        processControlSearch(control);
-                    } 
                 }
+                else
+                {
+                    if (control is DateTimePicker)
+                    {
+                        DateTimePicker ctl = (DateTimePicker)control;
+                        if (ctl.Format != DateTimePickerFormat.Custom)
+                        {
+                            list.Add( processControlSearch(ctl));
+                        }
+                    }
+                }
+
+
             }
             return list;
         }
-        private string processControlSearch(Control ctl)
+        
+        private FieldSearchModel processControlSearch(Control ctl)
         {
-            string fieldName = "";
-            string searchValue = "";
-            string clause = "";
-            string tableName = "";
-            string [] tagArray = ctl.Tag.ToString().Split('|');
-            if (tagArray.Length > 0)
+            FieldSearchModel model = new FieldSearchModel();
+            string[] tagArray = ctl.Tag.ToString().Split('|');
+            if (ctl.Text != "" && ctl.Text != " ")
             {
-                tableName = tagArray[0];
-                fieldName = tagArray[1];
-                searchValue = ctl.Text;
-            }
-            else
-            {
-                searchValue = ctl.Text;
-                clause = tagArray[0] + " = " + searchValue;
+                if (tagArray.Length > 0)
+                {
+                    model.FieldName = tagArray[1];
+                    if (ctl is DateTimePicker)
+                    {
+                        DateTimePicker dtp = (DateTimePicker)ctl;
+                        model.FieldValue = dtp.Value.Date.ToString();
+                    }
+                    else
+                    {
+                        model.FieldValue = ctl.Text;
+                    }
+                }
+                
             }
 
 
-            return clause;
+            return model;
         }
 
         /// <summary>
@@ -443,39 +452,31 @@ namespace Schedule_Database_Desktop_Version
 
         private void saveEdit()
         {
-            List<AssignmentSaveModel> assignments = new List<AssignmentSaveModel>();
-            assignments.Add(assignmentToSave());
-            DataTable dy = new DataTable();
-            AssignmentSaver saver = new AssignmentSaver();
-            saver.Request = assignments;
-            DataTable dt = new DataTable();
-            dt = CheckForChangedFE_Assignment(assignments[0]);
-            GlobalConfig.Connection.Assignment_CRUD('U', assignment.RequestID, dt);
-            formDirty = false;
-            MessageBox.Show(txtPID.Text + " saved.","",buttons:MessageBoxButtons.YesNo);
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            List<AssignmentSaveModel> assignments = new List<AssignmentSaveModel>();
             switch (GV.MODE)
-            { 
+            {
                 case Mode.New:
-            
+                    List<AssignmentSaveModel> assignments = new List<AssignmentSaveModel>();
                     assignments.Add(assignmentToSave());
+                    DataTable dy = new DataTable();
                     AssignmentSaver saver = new AssignmentSaver();
                     saver.Request = assignments;
                     DataTable dt = new DataTable();
-                    dt = saver.Table;
-                    GlobalConfig.Connection.Assignment_CRUD('I', "", dt);
-                    ScheduleOps.MakeAssignments(assignments[0].StartDate, assignments[0].EndDate,
-                        assignments[0].RequestID, assignments[0].FE_ListXML);
-                    GV.MODE = Mode.Edit;
+                    dt = CheckForChangedFE_Assignment(assignments[0]);
+                    GlobalConfig.Connection.Assignment_CRUD('U', assignment.RequestID, dt);
                     formDirty = false;
+                    MessageBox.Show(txtPID.Text + " saved.", "", buttons: MessageBoxButtons.YesNo);
+                    break;
+                case Mode.AddEscalation:
+                    break;
+                case Mode.SearchEscalation:
+                    break;
+                case Mode.EditEscalation:
+                    break;
+                case Mode.DeleteEscalation:
+                    break;
+                case Mode.DateRangeReport:
                     break;
                 case Mode.Edit:
-                    assignments.Add(assignmentToSave());
-                    saveEdit();
                     break;
                 case Mode.Undo:
                     break;
@@ -499,6 +500,61 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case Mode.LocationSearchMDI:
                     break;
+                case Mode.Add_Attachment:
+                    break;
+                case Mode.Delete_Attachment:
+                    break;
+                case Mode.SalesPerson_Add:
+                    break;
+                case Mode.SalesPerson_Update:
+                    break;
+                case Mode.SalesPerson_Delete:
+                    break;
+                case Mode.LabRequestAdd:
+                    break;
+                case Mode.LabRequestEdit:
+                    break;
+                case Mode.LabRequestDelete:
+                    break;
+                case Mode.DateRangeReportAT:
+                    break;
+                case Mode.AssignmentSearchByMSO:
+                    break;
+                case Mode.SearchFieldRequest:
+                    break;
+                case Mode.None:
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            List<AssignmentSaveModel> assignments = new List<AssignmentSaveModel>();
+            switch (GV.MODE)
+            { 
+                case Mode.New:
+            
+                    assignments.Add(assignmentToSave());
+                    AssignmentSaver saver = new AssignmentSaver();
+                    saver.Request = assignments;
+                    DataTable dt = new DataTable();
+                    dt = saver.Table;
+                    GlobalConfig.Connection.Assignment_CRUD('I', "", dt);
+                    ScheduleOps.MakeAssignments(assignments[0].StartDate, assignments[0].EndDate,
+                        assignments[0].RequestID, assignments[0].FE_ListXML);
+                    GV.MODE = Mode.Edit;
+                    formDirty = false;
+                    MessageBox.Show(txtPID.Text + " saved.");
+                    break;
+                case Mode.Edit:
+                    assignments.Add(assignmentToSave());
+                    saveEdit();
+                    MessageBox.Show(txtPID.Text + " saved.");
+                    break;
+                
                 case Mode.SearchFieldRequest:
                     collectSearchTerms();
                     break;
@@ -508,7 +564,7 @@ namespace Schedule_Database_Desktop_Version
                     break;
             }
             formDirty = false;
-            MessageBox.Show(txtPID.Text + " saved.");
+            
         }
 
         private void cboActivity_SelectedIndexChanged(object sender, EventArgs e)
