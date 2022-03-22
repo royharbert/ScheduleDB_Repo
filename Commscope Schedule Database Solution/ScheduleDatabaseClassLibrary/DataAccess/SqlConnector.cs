@@ -33,6 +33,20 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                     commandType: CommandType.StoredProcedure);
             }
         }
+        public List<AssignmentTableModel> fieldSearch(string whereClause)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@WhereClause", whereClause, DbType.String);
+                //p.Add("@WhereClause", whereClause, DbType.Int32);
+             
+
+                List<AssignmentTableModel> output = connection.Query<AssignmentTableModel>("dbo.spAssignments_SearchVariableFields", p,
+                    commandType: CommandType.StoredProcedure).ToList();
+                return output;
+            }
+        }
         public void MSO_Add(string MSO_Name, string TLA, bool Active)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))

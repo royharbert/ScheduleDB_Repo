@@ -61,5 +61,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         void UpdateCountry(int idx, string designer);  
         void UpdateTable(string spName, DataTable dataTable);
         //void UpdateFE(string Action, int ID, string FirstName, string LastName, string ManagerID, string Region, string Phone, string EMail, bool Active);
+        List<AssignmentTableModel> fieldSearch(string whereClause);
     }
 }

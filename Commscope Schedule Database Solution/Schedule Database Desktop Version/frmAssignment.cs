@@ -107,6 +107,7 @@ namespace Schedule_Database_Desktop_Version
             FieldSearchModel model = new FieldSearchModel();
             foreach (Control control in this.Controls)
             {
+                //can delete these comments
                 //if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox
                 //| control is DateTimePicker)
                 //{
@@ -145,7 +146,6 @@ namespace Schedule_Database_Desktop_Version
             }
             return list;
         }
-        
         private FieldSearchModel processControlSearch(Control ctl)
         {
             FieldSearchModel model = new FieldSearchModel();
@@ -165,12 +165,61 @@ namespace Schedule_Database_Desktop_Version
                         model.FieldValue = ctl.Text;
                     }
                 }
-                
+
+            }
+            int id = 0;
+            model.FieldValue = tagArray[1];
+            switch (ctl.Name)
+            {
+                case "cboMSO":
+                    MSO_Model mSO = cboMSO.SelectedItem as MSO_Model;
+                    id = mSO.ID;
+                    model.FieldName = "MSO_ID";
+                    break;
+                case "cboActivity":
+                    ActivityModel activity = cboActivity.SelectedItem as ActivityModel;
+                    id = activity.ID;
+                    model.FieldName = "Activity_ID";
+                    break;
+                case "cboRequestor":
+                    RequestorModel requestor = cboRequestor.SelectedItem as RequestorModel;
+                    id = requestor.ID;
+                    model.FieldName = "Requestor_ID";
+                    break;
+                case "lstFE":
+                    
+                    break;
+                case "lstTopics":
+                    break;
+                case "txtFirstName":
+                    CustomerModel customer = new CustomerModel();
+                    customer.
+                    break;
+                case "txtLastName":
+                    break;
+                case "txtState":
+                    break;
+                case "txtCity":
+                    break;
+                default:
+                    break;
             }
 
 
             return model;
         }
+        //private List<T> getSearchTermsFromCboAndLst<T>(Control ctl)
+        //{
+        //    if (ctl is ListBox)
+        //    {
+        //        ListBox box = ctl as ListBox;
+        //    }
+        //    else
+        //    {
+        //        ComboBox box = ctl as ComboBox;
+        //    }
+        //    List<T> list = new List<T>();
+        //}
 
         /// <summary>
         /// Loads lists in combo's and sets DTP formats
@@ -351,7 +400,7 @@ namespace Schedule_Database_Desktop_Version
         #region control changed events
         private void cboMSO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!dataLoading)
+            if (GV.MODE == Mode.New)
             {
                 MSO_Model model = ((MSO_Model)cboMSO.SelectedItem);
                 //TODO use assignment save
@@ -556,7 +605,9 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 
                 case Mode.SearchFieldRequest:
-                    collectSearchTerms();
+                    List<FieldSearchModel> list = collectSearchTerms();
+                    string whereClause = buildWhereClause(list);
+                    List<AssignmentTableModel> result = GlobalConfig.Connection.fieldSearch(whereClause);
                     break;
                 case Mode.None:
                     break;
@@ -567,6 +618,17 @@ namespace Schedule_Database_Desktop_Version
             
         }
 
+        private string buildWhereClause(List<FieldSearchModel> list)
+        {
+            string whereClause = string.Empty;
+            foreach (var item in list)
+            {
+                
+                whereClause = whereClause + item.FieldName + " = '"  + item.FieldValue + "' and ";
+            }
+            whereClause = whereClause.Substring(0, whereClause.Length - 5);
+            return whereClause;
+        }
         private void cboActivity_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!dataLoading)

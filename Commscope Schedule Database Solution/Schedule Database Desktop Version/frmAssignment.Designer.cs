@@ -220,6 +220,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtPID.Size = new System.Drawing.Size(287, 26);
             this.txtPID.TabIndex = 39;
             this.txtPID.TabStop = false;
+            this.txtPID.Tag = "L|RequestID";
             this.txtPID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPID.TextChanged += new System.EventHandler(this.txtPID_TextChanged);
             // 
