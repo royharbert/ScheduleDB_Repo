@@ -137,7 +137,7 @@ namespace Schedule_Database_Desktop_Version
             return list;
         }
         /// <summary>
-        /// Accepts a control from the form that has text and returns a FieldSearchModel to append to the where clause
+        /// Accepts a control from the form that has text and returns a List<FieldSearchModel> to append to the where clause
         /// </summary>
         /// <param name="ctl"></param>
         /// <returns></returns>
