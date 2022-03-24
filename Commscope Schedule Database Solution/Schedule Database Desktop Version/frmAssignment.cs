@@ -105,32 +105,111 @@ namespace Schedule_Database_Desktop_Version
         {
             List<FieldSearchModel> list = new List<FieldSearchModel>();
             FieldSearchModel model = new FieldSearchModel();
-            foreach (Control control in this.Controls)
+            foreach (Control ctl in this.Controls)
             {
-                if (control is TextBox | control is RichTextBox)
+                string ctlname = ctl.Name;
+                List<FieldSearchModel> fsmList = new List<FieldSearchModel>();
+                string[] tagArray = null;
+                if (ctl.Tag != null)
                 {
-                    if (control.Text != "")
-                    {
-                        List<FieldSearchModel> searchModels = processControlSearch(control);
-                        foreach (FieldSearchModel item in searchModels)
-                        {
-                            list.Add(item); 
-                        }
-                    }
+                    tagArray = ctl.Tag.ToString().Split('|'); 
                 }
-                else
+                switch (ctl?.GetType().Name)
                 {
-                    if (control is DateTimePicker)
-                    {
-                    List<FieldSearchModel> searchModels = processControlSearch(control);
-                    foreach (FieldSearchModel item in searchModels)
+                    case "TextBox":
+                    case "RichTextBox":
+                        FieldSearchModel fsm = new FieldSearchModel();
+                        fsm.FieldName = tagArray[1];
+                        fsm.FieldValue = ctl.Text;
+                        fsmList.Add(fsm);
+                        break;
+
+                    case "ListBox":
+                        switch (ctl.Name)
                         {
-                            DateTimePicker ctl = (DateTimePicker)control;
-                            if (ctl.Format != DateTimePickerFormat.Custom)
-                            list.Add(item);
+                            case "lstFE":
+                                ListBox listBox = ctl as ListBox;
+                                foreach (FE_Model fe in listBox.SelectedItems)
+                                {
+                                    fsm = new FieldSearchModel();
+                                    FE_Model fE_Model = fe as FE_Model;
+                                    fsm.FieldName = "FE_ListXML";
+                                    fsm.FieldValue = fE_Model.ID.ToString();
+                                    fsmList.Add(fsm);
+                                }
+                                break;
+                            case "lstTopics":
+
+
+                                break;
+                            default:
+                                break;
                         }
-                    }
+                        break;
+                    case "ComboBox":
+                        switch (ctl.Name)
+                        {
+                            case "cboMSO":
+                                {
+                                    MSO_Model mso = cboMSO.SelectedItem as MSO_Model;
+                                    int mso_ID = mso.ID;
+                                    fsm = new FieldSearchModel();
+                                    fsm.FieldName = "MSO_ID";
+                                    fsm.FieldValue = mso_ID.ToString();
+                                    fsmList.Add(fsm);
+                                }
+                                break;
+                            case "cboActivity":
+                                {
+                                    ActivityModel activity = cboActivity.SelectedItem as ActivityModel;
+                                    int activity_ID = activity.ID;
+                                    fsm = new FieldSearchModel();
+                                    fsm.FieldName = "Activity_ID";
+                                    fsm.FieldValue = activity_ID.ToString();
+                                    fsmList.Add(fsm);
+                                }
+                                break;
+                            case "cboRequestor":
+                                {
+                                RequestorModel requestor = cboRequestor.SelectedItem as RequestorModel;
+                                    int requestor_ID = requestor.ID;
+                                    fsm = new FieldSearchModel();
+                                    fsm.FieldName = "Requestor_ID";
+                                    fsm.FieldValue = requestor_ID.ToString();
+                                    fsmList.Add(fsm);
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
                 }
+                //if (control is TextBox | control is RichTextBox)
+                //{
+                //    if (control.Text != "")
+                //    {
+                //        List<FieldSearchModel> searchModels = processControlSearch(control);
+                //        foreach (FieldSearchModel item in searchModels)
+                //        {
+                //            list.Add(item); 
+                //        }
+                //    }
+                //}
+                //else
+                //{
+                //    //if (control is DateTimePicker)
+                //    //{
+                //    //List<FieldSearchModel> searchModels = processControlSearch(control);
+                //    //foreach (FieldSearchModel item in searchModels)
+                //    //    {
+                //    //        DateTimePicker ctl = (DateTimePicker)control;
+                //    //        if (ctl.Format != DateTimePickerFormat.Custom)
+                //    //        list.Add(item);
+                //    //    }
+                //    //}
+                //}
 
 
             }
@@ -138,50 +217,12 @@ namespace Schedule_Database_Desktop_Version
         }
         /// <summary>
         /// Accepts a control from the form that has text and returns a List<FieldSearchModel> to append to the where clause
+            
         /// </summary>
         /// <param name="ctl"></param>
         /// <returns></returns>
-        private List<FieldSearchModel> processControlSearch(Control ctl)
-        {
-            List<FieldSearchModel> fsmList = new List<FieldSearchModel>();
-            string[] tagArray = ctl.TabIndex.ToString().Split('|');
-            switch (ctl)
-            {
-                case TextBox _:
-                case RichTextBox _:
-                    FieldSearchModel fsm = new FieldSearchModel();
-                    fsm.FieldName = tagArray[1];
-                    fsm.FieldValue = ctl.Text;
-                    fsmList.Add(fsm);
-                    break;
-
-                case ListBox _:
-                    switch (ctl.Name)
-                    {
-                        case "lstFE":
-                            ListBox listBox = ctl as ListBox;
-                            foreach (FE_Model fe in listBox.SelectedItems)
-                            {
-                                fsm  = new FieldSearchModel();
-                                FE_Model fE_Model = fe as FE_Model;
-                                fsm.FieldName = "FE_ListXML";
-                                fsm.FieldValue = fE_Model.ID.ToString();
-                                fsmList.Add(fsm);
-                            }
-                            break;
-                        case "lstTopics":
-
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-                case ComboBox _:
-                    
-                    break;
-                default:
-                    break;
-            }
+        //private List<FieldSearchModel> processControlSearch(Control ctl)
+        //{
 
             
             //FieldSearchModel model = new FieldSearchModel();
@@ -248,8 +289,8 @@ namespace Schedule_Database_Desktop_Version
             //fsmList.Add(model);
 
 
-            return fsmList;
-        }
+        //    return fsmList;
+        //}
         //private List<T> getSearchTermsFromCboAndLst<T>(Control ctl)
         //{
         //    if (ctl is ListBox)
