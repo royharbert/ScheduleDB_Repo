@@ -798,7 +798,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboRequestor.Name = "cboRequestor";
             this.cboRequestor.Size = new System.Drawing.Size(201, 24);
             this.cboRequestor.TabIndex = 52;
-            this.cboRequestor.Tag = "L|";
+            this.cboRequestor.Tag = "L|Requestor";
             // 
             // dtpStartDate
             // 

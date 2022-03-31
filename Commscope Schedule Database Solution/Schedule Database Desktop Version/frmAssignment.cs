@@ -108,207 +108,105 @@ namespace Schedule_Database_Desktop_Version
             foreach (Control ctl in this.Controls)
             {
                 string ctlname = ctl.Name;
-                List<FieldSearchModel> fsmList = new List<FieldSearchModel>();
                 string[] tagArray = null;
                 if (ctl.Tag != null)
                 {
                     tagArray = ctl.Tag.ToString().Split('|'); 
                 }
-                switch (ctl?.GetType().Name)
+                if (ctl.Text != "")
                 {
-                    case "TextBox":
-                    case "RichTextBox":
-                        FieldSearchModel fsm = new FieldSearchModel();
-                        fsm.FieldName = tagArray[1];
-                        fsm.FieldValue = ctl.Text;
-                        fsmList.Add(fsm);
-                        break;
+                    switch (ctl?.GetType().Name)
+                    {
+                        case "DateTimePicker":
+                                DateTimePicker dtp = ctl as DateTimePicker;
+                                FieldSearchModel fsm = new FieldSearchModel();
+                            if (dtp.Format!= DateTimePickerFormat.Custom)
+                            {
 
-                    case "ListBox":
-                        switch (ctl.Name)
-                        {
-                            case "lstFE":
-                                ListBox listBox = ctl as ListBox;
-                                foreach (FE_Model fe in listBox.SelectedItems)
-                                {
-                                    fsm = new FieldSearchModel();
-                                    FE_Model fE_Model = fe as FE_Model;
-                                    fsm.FieldName = "FE_ListXML";
-                                    fsm.FieldValue = fE_Model.ID.ToString();
-                                    fsmList.Add(fsm);
-                                }
-                                break;
-                            case "lstTopics":
+                                fsm.FieldName = tagArray[1];
+                                fsm.FieldValue = dtp.Text;
+                                list.Add(fsm); 
+                            }
+
+                            break;
+
+                        case "TextBox":
+                        case "RichTextBox":
+                            fsm = new FieldSearchModel();
+                            fsm.FieldName = tagArray[1];
+                            fsm.FieldValue = ctl.Text;
+                            list.Add(fsm);
+
+                            break;
+
+                        case "ListBox":
+                            switch (ctl.Name)
+                            {
+                                case "lstFE":
+                                    ListBox listBox = ctl as ListBox;
+                                    foreach (FE_Model fe in listBox.SelectedItems)
+                                    {
+                                        fsm = new FieldSearchModel();
+                                        FE_Model fE_Model = fe as FE_Model;
+                                        fsm.FieldName = "FE_ListXML";
+                                        fsm.FieldValue = fE_Model.ID.ToString();
+                                        list.Add(fsm);
+                                    }
+                                    break;
+                                case "lstTopics":
 
 
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                    case "ComboBox":
-                        switch (ctl.Name)
-                        {
-                            case "cboMSO":
-                                {
-                                    MSO_Model mso = cboMSO.SelectedItem as MSO_Model;
-                                    int mso_ID = mso.ID;
-                                    fsm = new FieldSearchModel();
-                                    fsm.FieldName = "MSO_ID";
-                                    fsm.FieldValue = mso_ID.ToString();
-                                    fsmList.Add(fsm);
-                                }
-                                break;
-                            case "cboActivity":
-                                {
-                                    ActivityModel activity = cboActivity.SelectedItem as ActivityModel;
-                                    int activity_ID = activity.ID;
-                                    fsm = new FieldSearchModel();
-                                    fsm.FieldName = "Activity_ID";
-                                    fsm.FieldValue = activity_ID.ToString();
-                                    fsmList.Add(fsm);
-                                }
-                                break;
-                            case "cboRequestor":
-                                {
-                                RequestorModel requestor = cboRequestor.SelectedItem as RequestorModel;
-                                    int requestor_ID = requestor.ID;
-                                    fsm = new FieldSearchModel();
-                                    fsm.FieldName = "Requestor_ID";
-                                    fsm.FieldValue = requestor_ID.ToString();
-                                    fsmList.Add(fsm);
-                                }
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                    default:
-                        break;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        case "ComboBox":
+                            switch (ctl.Name)
+                            {
+                                case "cboMSO":
+                                    {
+                                        MSO_Model mso = cboMSO.SelectedItem as MSO_Model;
+                                        int mso_ID = mso.ID;
+                                        fsm = new FieldSearchModel();
+                                        fsm.FieldName = "MSO_ID";
+                                        fsm.FieldValue = mso_ID.ToString();
+                                        list.Add(fsm);
+                                    }
+                                    break;
+                                case "cboActivity":
+                                    {
+                                        ActivityModel activity = cboActivity.SelectedItem as ActivityModel;
+                                        int activity_ID = activity.ID;
+                                        fsm = new FieldSearchModel();
+                                        fsm.FieldName = "Activity_ID";
+                                        fsm.FieldValue = activity_ID.ToString();
+                                        list.Add(fsm);
+                                    }
+                                    break;
+                                case "cboRequestor":
+                                    {
+                                        RequestorModel requestor = cboRequestor.SelectedItem as RequestorModel;
+                                        int requestor_ID = requestor.ID;
+                                        fsm = new FieldSearchModel();
+                                        fsm.FieldName = "Requestor";
+                                        fsm.FieldValue = requestor_ID.ToString();
+                                        list.Add(fsm);
+                                    }
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        default:
+                            break;
+                    } 
                 }
-                //if (control is TextBox | control is RichTextBox)
-                //{
-                //    if (control.Text != "")
-                //    {
-                //        List<FieldSearchModel> searchModels = processControlSearch(control);
-                //        foreach (FieldSearchModel item in searchModels)
-                //        {
-                //            list.Add(item); 
-                //        }
-                //    }
-                //}
-                //else
-                //{
-                //    //if (control is DateTimePicker)
-                //    //{
-                //    //List<FieldSearchModel> searchModels = processControlSearch(control);
-                //    //foreach (FieldSearchModel item in searchModels)
-                //    //    {
-                //    //        DateTimePicker ctl = (DateTimePicker)control;
-                //    //        if (ctl.Format != DateTimePickerFormat.Custom)
-                //    //        list.Add(item);
-                //    //    }
-                //    //}
-                //}
-
 
             }
             return list;
         }
-        /// <summary>
-        /// Accepts a control from the form that has text and returns a List<FieldSearchModel> to append to the where clause
-            
-        /// </summary>
-        /// <param name="ctl"></param>
-        /// <returns></returns>
-        //private List<FieldSearchModel> processControlSearch(Control ctl)
-        //{
 
-            
-            //FieldSearchModel model = new FieldSearchModel();
-            //string[] tagArray = ctl.Tag.ToString().Split('|');
-            //if (ctl.Text != "" && ctl.Text != " ")
-            //{
-            //    if (tagArray.Length > 0)
-            //    {
-            //        model.FieldName = tagArray[1];
-            //        if (ctl is DateTimePicker)
-            //        {
-            //            DateTimePicker dtp = (DateTimePicker)ctl;
-            //            model.FieldValue = dtp.Value.Date.ToString();
-            //        }
-            //        else
-            //        {
-            //            model.FieldValue = ctl.Text;
-            //        }
-            //    }
-
-            //}
-            //int id = 0;
-            //model.FieldValue = tagArray[1];
-            //switch (ctl.Name)
-            //{
-            //    case "cboMSO":
-            //        MSO_Model mSO = cboMSO.SelectedItem as MSO_Model;
-            //        id = mSO.ID;
-            //        model.FieldName = "MSO_ID";
-            //        break;
-            //    case "cboActivity":
-            //        ActivityModel activity = cboActivity.SelectedItem as ActivityModel;
-            //        id = activity.ID;
-            //        model.FieldName = "Activity_ID";
-            //        break;
-            //    case "cboRequestor":
-            //        RequestorModel requestor = cboRequestor.SelectedItem as RequestorModel;
-            //        id = requestor.ID;
-            //        model.FieldName = "Requestor_ID";
-            //        break;
-            //    //case "lstFE":
-            //    //    foreach (var item in lstFE.SelectedItems)
-            //    //    {
-            //    //        List<int> ids = new List<int>();
-            //    //        FE_Model fe = (FE_Model)item;
-            //    //        ids.Add(fe.ID);
-            //    //    }
-            //    //    break;
-            //    case "lstTopics":
-            //        break;
-            //    case "txtFirstName": 
-            //    case "txtLastName":
-            //        model.FieldName = "ContactID";
-            //        model.FieldValue = ctl.Text;
-            //        break;
-            //    case "txtState":
-            //    case "txtCity":
-            //        model.FieldName = "LocationID";
-            //        model.FieldValue = ctl.Text;
-            //        break; 
-            //    default:
-            //        break;
-            //}
-            //fsmList.Add(model);
-
-
-        //    return fsmList;
-        //}
-        //private List<T> getSearchTermsFromCboAndLst<T>(Control ctl)
-        //{
-        //    if (ctl is ListBox)
-        //    {
-        //        ListBox box = ctl as ListBox;
-        //    }
-        //    else
-        //    {
-        //        ComboBox box = ctl as ComboBox;
-        //    }
-        //    List<T> list = new List<T>();
-        //}
-
-        /// <summary>
-        /// Loads lists in combo's and sets DTP formats
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void frmAssignment_Load(object sender, EventArgs e)
         {
             dataLoading = true;
@@ -703,7 +601,7 @@ namespace Schedule_Database_Desktop_Version
 
         private string buildWhereClause(List<FieldSearchModel> list)
         {
-            string whereClause = string.Empty;
+            string whereClause = " ";
             foreach (var item in list)
             {
                 
