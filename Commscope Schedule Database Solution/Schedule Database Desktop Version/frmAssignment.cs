@@ -115,7 +115,7 @@ namespace Schedule_Database_Desktop_Version
                 }
                 if (ctl.Text != "")
                 {
-                    switch (ctl?.GetType().Name)
+                    switch (ctl?.GetType().Name) //test for push, delete later
                     {
                         case "DateTimePicker":
                                 DateTimePicker dtp = ctl as DateTimePicker;
