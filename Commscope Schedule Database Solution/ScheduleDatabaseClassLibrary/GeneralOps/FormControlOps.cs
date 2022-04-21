@@ -28,7 +28,8 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
             List<T> boxList = GlobalConfig.Connection.GenericGetAll<T>(tableName, displayItem);
             cbo.DataSource = boxList;
             cbo.DisplayMember = displayItem;
-            cbo.SelectedIndex = -1;
+            cbo.SelectedIndex = -1; 
+
         }
 
     }

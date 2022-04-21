@@ -91,7 +91,7 @@ namespace Schedule_Database_Desktop_Version
                     assignment = new AssignmentTableModel();
                     break;
                 case Mode.SearchFieldRequest:
-
+                    populateFEList();
                     List<FieldSearchModel> searchList = collectSearchTerms();
 
                     break;
@@ -115,7 +115,7 @@ namespace Schedule_Database_Desktop_Version
                 }
                 if (ctl.Text != "")
                 {
-                    switch (ctl?.GetType().Name) //test for push, delete later
+                    switch (ctl?.GetType().Name) 
                     {
                         case "DateTimePicker":
                                 DateTimePicker dtp = ctl as DateTimePicker;
@@ -154,6 +154,14 @@ namespace Schedule_Database_Desktop_Version
                                     }
                                     break;
                                 case "lstTopics":
+                                    //    ListBox listBoxTopics = ctl as ListBox;
+                                    //    foreach (ProductModel prod in listBoxTopics.SelectedItems)
+                                    //    {
+                                    //        fsm = new FieldSearchModel();
+                                    //        ProductModel productModel = prod as ProductModel;
+                                    //        fsm.FieldName = "ProductListXML";
+                                    //        fsm.FieldValue = prod.ID.ToString();
+                                    //        list.Add(fsm);
 
 
                                     break;
@@ -257,10 +265,11 @@ namespace Schedule_Database_Desktop_Version
         #region Form setup
         private List<FE_Model> populateFEList()
         {
-            List<FE_Model> availableFEs = ScheduleOps.GetAvailability(dtpStartDate.Value, dtpEndDate.Value);
-            lstFE.DataSource = availableFEs;
+            List<FE_Model> FEList = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE","LastName");
+            lstFE.DataSource = FEList;
             lstFE.DisplayMember = "FullName";
-            return availableFEs;
+            lstFE.Enabled = true;
+            return FEList;
         }
         /// <summary>
         /// clears text from textboxes and richtextboxes, sets combobox selected index to -1
@@ -381,7 +390,7 @@ namespace Schedule_Database_Desktop_Version
         #region control changed events
         private void cboMSO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (GV.MODE == Mode.New)
+            if (GV.MODE == Mode.New && cboMSO.SelectedIndex >0)
             {
                 MSO_Model model = ((MSO_Model)cboMSO.SelectedItem);
                 //TODO use assignment save
@@ -391,6 +400,7 @@ namespace Schedule_Database_Desktop_Version
                 txtPID.Text = PID;
                 lockControls(false, "");
                 setLstFe_Enable();
+
             }
         }
 
@@ -829,6 +839,7 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case Mode.SearchFieldRequest:
                     btnSave.Text = "Search";
+                    populateFEList();
                     break;
                 default:
                     break;
