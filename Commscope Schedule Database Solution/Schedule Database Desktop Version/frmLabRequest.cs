@@ -19,6 +19,7 @@ namespace Schedule_Database_Desktop_Version
         bool dataLoading = true;
         bool formDirty = false;
         LabRequestModel labRequest = null;
+        frmInput inputForm = new frmInput();
 
         public LabRequestModel LabRequest
         {
@@ -40,12 +41,35 @@ namespace Schedule_Database_Desktop_Version
         {
             InitializeComponent();
             GV.LABREQUESTFORM = this;
-            enableBoxes(false);
+            enableBoxes(false, true);
+            //added this switch statement 4-21-22 LMD
+            switch (GV.MODE)
+            {
+                case Mode.LabRequestAdd:
+                    dataLoading = false;
+                    cboMSO.Enabled = true;
+                    btnSave.Enabled = false;
+                    break;
+                case Mode.LabRequestEdit:
+                    inputForm.InputDataReady += FrmInput_InputDataReady;
+                    inputForm.Show();
+                    //took this switch statement from the ATEscalation form
+                    enableBoxes(true, false);
+                    break;
+                case Mode.DeleteEscalation:
+                    break;
+                default:
+                    break;
+
+            }
         }
 
         private void loadComboBoxLists()
         {
-            FormControlOps.populateListItems<MSO_Model>(cboMSO, "tblMSO", "MSO");
+            List< MSO_Model > MSOs = GlobalConfig.Connection.GenericConditionalGetAll<MSO_Model>("tblMSO", "Active", "1", "MSO");
+            cboMSO.DataSource = MSOs;
+            cboMSO.DisplayMember = "MSO";
+            cboMSO.SelectedIndex = -1;
             FormControlOps.populateListItems<ProductModel>(cboProduct, "tblProducts", "Product");
 
             dataLoading = false;
@@ -85,7 +109,7 @@ namespace Schedule_Database_Desktop_Version
             cboProduct.Text = model.Product;
             txtID.Text = model.ID.ToString();
         }
-        private void enableBoxes(bool enabled)
+        private void enableBoxes(bool enabled, bool cboMSOenabled)
         {
             foreach (Control ctl in this.Controls)
             {
@@ -115,6 +139,7 @@ namespace Schedule_Database_Desktop_Version
 
                 }
             }
+                cboMSO.Enabled = cboMSOenabled;
         }
 
         private void frmLabRequest_Load(object sender, EventArgs e)
@@ -128,6 +153,7 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case Mode.LabRequestEdit:
                     loadComboBoxLists();
+
                     break;
                 case Mode.LabRequestDelete:
                     break;
@@ -142,16 +168,17 @@ namespace Schedule_Database_Desktop_Version
         {
             if (!dataLoading)
             {
-                //formDirty = true;
-                enableBoxes(true);
+                MSO_Model model = ((MSO_Model)cboMSO.SelectedItem);
+                formDirty = true;
+                enableBoxes(true, false);
                 if (sender is ComboBox)
                 {
                     ComboBox ctl = (ComboBox)sender;
 
                     if (ctl.Name == "cboMSO")
                     {
-                        txtRequestID.Text = PID_Generator.GenerateEID((MSO_Model)cboMSO.SelectedItem, "LAB_");
-                        cboMSO.Enabled = false;
+                        txtRequestID.Text = PID_Generator.GenerateEID((MSO_Model)cboMSO.SelectedItem, "LAB_", dataLoading);
+                        //cboMSO.Enabled = false;
                     }
                 }
             }

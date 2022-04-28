@@ -205,7 +205,7 @@ namespace Schedule_Database_Desktop_Version
 
         public void loadBoxes(ATEscalationsDisplayModel model)
         {
-            txtEID.Text = model.EscalationID;
+            txtEID.Text = model.EscalationID;       
             txt_Comments.Text = model.Comments;
             txt_CTRNumber.Text = model.CTRNumber;
             txt_Description.Text = model.ATEDescription;
@@ -360,7 +360,7 @@ namespace Schedule_Database_Desktop_Version
 
                     if (ctl.Name == "cbo_MSO")
                     {
-                        txtEID.Text = PID_Generator.GenerateEID((MSO_Model)cbo_MSO.SelectedItem, "ESC_");
+                        txtEID.Text = PID_Generator.GenerateEID((MSO_Model)cbo_MSO.SelectedItem, "ESC_", dataLoading);
                         cbo_MSO.Enabled = false;
                     }
 
