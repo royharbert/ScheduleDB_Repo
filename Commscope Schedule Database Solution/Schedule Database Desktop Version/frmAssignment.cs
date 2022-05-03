@@ -36,7 +36,7 @@ namespace Schedule_Database_Desktop_Version
             {
                 assignment = null;
                 assignment = value;
-                List<AssignmentTableModel> retrieveList = new List<AssignmentTableModel>();
+                List<AssignmentTableModel> retrieveList = new List<AssignmentTableModel>();  
                 retrieveList.Add(assignment);
                 this.Show();
                 fillData(Assignment);
