@@ -41,13 +41,13 @@ namespace Schedule_Database_Desktop_Version
         {
             InitializeComponent();
             GV.LABREQUESTFORM = this;
-            enableBoxes(false, true);
             //added this switch statement 4-21-22 LMD
             switch (GV.MODE)
             {
                 case Mode.LabRequestAdd:
                     dataLoading = false;
-                    cboMSO.Enabled = true;
+                    enableBoxes(false, true);
+                    //cboMSO.Enabled = true;
                     btnSave.Enabled = false;
                     break;
                 case Mode.LabRequestEdit:
@@ -68,8 +68,8 @@ namespace Schedule_Database_Desktop_Version
         {
             List< MSO_Model > MSOs = GlobalConfig.Connection.GenericConditionalGetAll<MSO_Model>("tblMSO", "Active", "1", "MSO");
             cboMSO.DataSource = MSOs;
-            cboMSO.DisplayMember = "MSO";
             cboMSO.SelectedIndex = -1;
+            cboMSO.DisplayMember = "MSO";
             FormControlOps.populateListItems<ProductModel>(cboProduct, "tblProducts", "Product");
 
             dataLoading = false;
@@ -147,6 +147,7 @@ namespace Schedule_Database_Desktop_Version
             switch (GV.MODE)
             {
                 case Mode.LabRequestAdd:
+                    cboMSO.SelectedIndex = -1;
                     loadComboBoxLists();
                     clearDTP(dtpStart);
                     clearDTP(dtpEnd);
@@ -170,18 +171,25 @@ namespace Schedule_Database_Desktop_Version
             {
                 MSO_Model model = ((MSO_Model)cboMSO.SelectedItem);
                 formDirty = true;
-                enableBoxes(true, false);
-                if (sender is ComboBox)
+                if(cboMSO.SelectedIndex > -1)
                 {
-                    ComboBox ctl = (ComboBox)sender;
-
-                    if (ctl.Name == "cboMSO")
-                    {
-                        txtRequestID.Text = PID_Generator.GenerateEID((MSO_Model)cboMSO.SelectedItem, "LAB_", dataLoading);
-                        //cboMSO.Enabled = false;
-                    }
+                    enableBoxes(true,false);
+                    txtRequestID.Text = PID_Generator.GenerateEID((MSO_Model)cboMSO.SelectedItem, "LAB_", dataLoading);
                 }
+                else
+                {
+                    enableBoxes(false,true);
+                }
+                //if (sender is ComboBox)
+                //{
+                //    ComboBox ctl = (ComboBox)sender;
+
+                //    if (ctl.Name == "cboMSO")
+                //    {
+                //    }
+                //}
             }
+
         }
 
         private void cboProduct_Leave(object sender, EventArgs e)

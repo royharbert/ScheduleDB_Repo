@@ -27,8 +27,6 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
         /// <returns></returns>
         public static string GenerateEID(MSO_Model mso, string prefix, bool dataloading)
         {
-            if (dataloading)
-            {
                 string sequence = "";
                 string eid = prefix;
                 string dateStamp = DateTime.Today.ToString("yyMMdd");
@@ -47,11 +45,8 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                 sequence = sequence.PadLeft(5, '0');
                 eid += mso.Abbreviation + "_" + dateStamp + "_" + sequence;
                 return eid; 
-            }
-            else
-            {
-                return "";
-            }
+
+            
         }
 
     }
