@@ -45,7 +45,7 @@ namespace Schedule_Database_Desktop_Version
             switch (GV.MODE)
             {
                 case Mode.LabRequestAdd:
-                    dataLoading = false;
+                    //dataLoading = false;
                     enableBoxes(false, true);
                     //cboMSO.Enabled = true;
                     btnSave.Enabled = false;
@@ -66,10 +66,11 @@ namespace Schedule_Database_Desktop_Version
 
         private void loadComboBoxLists()
         {
+            dataLoading = true;
             List< MSO_Model > MSOs = GlobalConfig.Connection.GenericConditionalGetAll<MSO_Model>("tblMSO", "Active", "1", "MSO");
             cboMSO.DataSource = MSOs;
-            cboMSO.SelectedIndex = -1;
             cboMSO.DisplayMember = "MSO";
+            cboMSO.SelectedIndex = -1;
             FormControlOps.populateListItems<ProductModel>(cboProduct, "tblProducts", "Product");
 
             dataLoading = false;
@@ -180,14 +181,6 @@ namespace Schedule_Database_Desktop_Version
                 {
                     enableBoxes(false,true);
                 }
-                //if (sender is ComboBox)
-                //{
-                //    ComboBox ctl = (ComboBox)sender;
-
-                //    if (ctl.Name == "cboMSO")
-                //    {
-                //    }
-                //}
             }
 
         }
