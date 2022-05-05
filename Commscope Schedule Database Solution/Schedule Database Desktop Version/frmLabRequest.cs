@@ -20,7 +20,6 @@ namespace Schedule_Database_Desktop_Version
         bool formDirty = false;
         LabRequestModel labRequest = null;
         frmInput inputForm = new frmInput();
-
         public LabRequestModel LabRequest
         {
             get
@@ -48,7 +47,7 @@ namespace Schedule_Database_Desktop_Version
                     //dataLoading = false;
                     enableBoxes(false, true);
                     //cboMSO.Enabled = true;
-                    btnSave.Enabled = false;
+                    btnSave.Enabled = true;
                     break;
                 case Mode.LabRequestEdit:
                     inputForm.InputDataReady += FrmInput_InputDataReady;
@@ -104,7 +103,15 @@ namespace Schedule_Database_Desktop_Version
             txtDescription.Text = model.Description;
             txtRemarks.Text = model.Remarks;
             txtRequestID.Text = model.LRID;
-            dtpEnd.Value = model.EndDate;
+            if (dtpEnd.Value == emptyDate)
+            {
+                dtpEnd.Format = DateTimePickerFormat.Custom;
+            }
+            else
+            { 
+                dtpEnd.Value = model.EndDate;
+
+            }            
             dtpStart.Value = model.StartDate;
             cboMSO.Text = model.MSO;
             cboProduct.Text = model.Product;
@@ -319,17 +326,18 @@ namespace Schedule_Database_Desktop_Version
 
         public void getAssignmentSearchData()
         {
+            frmInput frmInput = new frmInput();
             //GV.MODE = Mode.Edit;
             dataLoading = true;
             //clearControls();
             //lockControls(false, "");
-            frmInput frmInput = new frmInput();
             frmInput.InputDataReady += FrmInput_InputDataReady;
             frmInput.Show();
         }
 
         private void FrmInput_InputDataReady(object sender, InputDataReadyEventArgs e)
-        {
+        {      
+            inputForm.Hide();
             string searchTerm = e.SearchString;
             List<LabRequestModel> models = GlobalConfig.Connection.SearchLabRequests(searchTerm.ToUpper());
             this.Show();

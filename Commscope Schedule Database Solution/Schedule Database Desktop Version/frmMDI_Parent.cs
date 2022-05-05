@@ -298,10 +298,15 @@ namespace Schedule_Database_Desktop_Version
 
         private void updateRequestToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            getRequestID();
+        }
+        private void getRequestID()
+        {
             GV.MODE = Mode.LabRequestEdit;
             frmLabRequest labForm = new frmLabRequest();
             labForm.Show();
             labForm.getAssignmentSearchData();
+
         }
 
         private void escalationIDToolStripMenuItem_Click(object sender, EventArgs e)
@@ -359,6 +364,11 @@ namespace Schedule_Database_Desktop_Version
         {
             GV.MODE = Mode.SearchFieldRequest;
             GV.ASSIGNMENTFORM.Show();
+        }
+
+        private void requestIDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            getRequestID();
         }
     }
 }
