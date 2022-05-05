@@ -103,9 +103,9 @@ namespace Schedule_Database_Desktop_Version
             txtDescription.Text = model.Description;
             txtRemarks.Text = model.Remarks;
             txtRequestID.Text = model.LRID;
-            if (dtpEnd.Value == emptyDate)
+            if (model.EndDate == emptyDate)
             {
-                dtpEnd.Format = DateTimePickerFormat.Custom;
+                clearDTP(dtpEnd);
             }
             else
             { 
@@ -347,7 +347,7 @@ namespace Schedule_Database_Desktop_Version
                     MessageBox.Show("No matching records found.");
                     break;
                 case 1:
-                    LabRequestModel model = models[0]; ;
+                    LabRequestModel model = models[0]; 
                     loadBoxes(model);
                     cboMSO.Focus();
                     displayAttachments();
