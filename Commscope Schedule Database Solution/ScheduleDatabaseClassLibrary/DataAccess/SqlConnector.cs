@@ -321,7 +321,20 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 return list;
             }
         }
+        public List<LabRequestModel> DateRangeSearchLab_SortBy(DateTime StartDate, DateTime EndDate)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@start", StartDate, DbType.DateTime, ParameterDirection.Input);
+                p.Add("@end", EndDate, DbType.DateTime, ParameterDirection.Input);
+                //p.Add("@order", "StartDate", DbType.String, ParameterDirection.Input);
 
+                List<LabRequestModel> output = connection.Query<LabRequestModel>("dbo.spLab_GetDateRange", p,
+                commandType: CommandType.StoredProcedure).ToList();
+                return output;
+            }
+        }
 
 
         public List<AssignmentTableModel> DateRangeSearch_SortBy(DateTime StartDate, DateTime EndDate)
@@ -334,7 +347,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@order", "StartDate", DbType.String, ParameterDirection.Input);
 
                 List<AssignmentTableModel> output = connection.Query<AssignmentTableModel>("dbo.spAssignments_GetDateRange", p,
-                    commandType: CommandType.StoredProcedure).ToList();
+                commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
         }

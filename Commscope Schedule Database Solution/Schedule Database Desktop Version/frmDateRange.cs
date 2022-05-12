@@ -56,9 +56,22 @@ namespace Schedule_Database_Desktop_Version
             DateTime startDate = dtpStartDateRange.Value;
             DateTime endDate = dtpEndDateRange.Value;
             //Get all assignments in date range
-            List<AssignmentTableModel> Assignments = GlobalConfig.Connection.DateRangeSearch_SortBy(startDate, endDate);
+            List<AssignmentTableModel> Assignments = null;
+            List<LabRequestModel> Labs = null;
             frmMultiSelect DisplayForm = new frmMultiSelect();
-            DisplayForm.AssignmentData = Assignments;
+            switch (GV.MODE)
+                { 
+                    case Mode.AssignmentSearchDateRange:
+                    Assignments = GlobalConfig.Connection.DateRangeSearch_SortBy(startDate, endDate);
+                    DisplayForm.AssignmentData = Assignments;
+                    this.Height = 334;
+                    break;
+                    case Mode.LabRequestDateRange:
+                    Labs = GlobalConfig.Connection.DateRangeSearchLab_SortBy(startDate, endDate);
+                    DisplayForm.LabRequests = Labs;
+                    this.Height = 195;
+                    break;
+                }
             DisplayForm.Show();
             DisplayForm.BringToFront();
             this.Close();

@@ -370,6 +370,14 @@ namespace Schedule_Database_Desktop_Version
         {
             getRequestID();
         }
+
+        private void dateRangeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabRequestDateRange;
+            frmDateRange frmDateRange = new frmDateRange();
+            frmDateRange.Show();
+            frmDateRange.MdiParent = this;
+        }
     }
 }
  

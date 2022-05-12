@@ -50,7 +50,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btnSearchDateRange
             // 
-            this.btnSearchDateRange.Location = new System.Drawing.Point(70, 283);
+            this.btnSearchDateRange.Location = new System.Drawing.Point(371, 73);
             this.btnSearchDateRange.Name = "btnSearchDateRange";
             this.btnSearchDateRange.Size = new System.Drawing.Size(75, 23);
             this.btnSearchDateRange.TabIndex = 0;
@@ -60,7 +60,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btnCloseForm
             // 
-            this.btnCloseForm.Location = new System.Drawing.Point(253, 283);
+            this.btnCloseForm.Location = new System.Drawing.Point(371, 109);
             this.btnCloseForm.Name = "btnCloseForm";
             this.btnCloseForm.Size = new System.Drawing.Size(75, 23);
             this.btnCloseForm.TabIndex = 1;
@@ -232,7 +232,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 344);
+            this.ClientSize = new System.Drawing.Size(503, 151);
             this.Controls.Add(this.rdbOrderByCustReqDate);
             this.Controls.Add(this.rdbOrderByEndDate);
             this.Controls.Add(this.rdbOrderByStartDate);

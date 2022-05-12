@@ -327,6 +327,7 @@ namespace Schedule_Database_Desktop_Version
             this.dateRangeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.dateRangeToolStripMenuItem1.Tag = "1";
             this.dateRangeToolStripMenuItem1.Text = "Date Range";
+            this.dateRangeToolStripMenuItem1.Click += new System.EventHandler(this.dateRangeToolStripMenuItem1_Click);
             // 
             // requestIDToolStripMenuItem
             // 
@@ -350,21 +351,21 @@ namespace Schedule_Database_Desktop_Version
             // byDateRangeToolStripMenuItem1
             // 
             this.byDateRangeToolStripMenuItem1.Name = "byDateRangeToolStripMenuItem1";
-            this.byDateRangeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.byDateRangeToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.byDateRangeToolStripMenuItem1.Tag = "1";
             this.byDateRangeToolStripMenuItem1.Text = "By Date Range";
             // 
             // byPartNumberToolStripMenuItem
             // 
             this.byPartNumberToolStripMenuItem.Name = "byPartNumberToolStripMenuItem";
-            this.byPartNumberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.byPartNumberToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.byPartNumberToolStripMenuItem.Tag = "1";
             this.byPartNumberToolStripMenuItem.Text = "By Part Number";
             // 
             // byMSOToolStripMenuItem1
             // 
             this.byMSOToolStripMenuItem1.Name = "byMSOToolStripMenuItem1";
-            this.byMSOToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.byMSOToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.byMSOToolStripMenuItem1.Tag = "1";
             this.byMSOToolStripMenuItem1.Text = "By MSO";
             // 

@@ -12,6 +12,7 @@ namespace Schedule_Database_Desktop_Version
         AddEscalation,
         SearchEscalation,
         EditEscalation,
+        DateRangeEscalation,
         DeleteEscalation,
         DateRangeReport,
         Edit,
@@ -34,8 +35,10 @@ namespace Schedule_Database_Desktop_Version
         LabRequestAdd,
         LabRequestEdit,
         LabRequestDelete,
+        LabRequestDateRange,
         DateRangeReportAT,
         AssignmentSearchByMSO,
+        AssignmentSearchDateRange,
         SearchFieldRequest,
         None,
     }
