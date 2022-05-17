@@ -378,6 +378,27 @@ namespace Schedule_Database_Desktop_Version
             frmDateRange.Show();
             frmDateRange.MdiParent = this;
         }
+
+        private void dateRangeToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            searchEscalationsByDateRange();
+        }
+
+        private void byDateRangeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            searchEscalationsByDateRange();
+        }
+        private void searchEscalationsByDateRange()
+        {
+            GV.MODE = Mode.DateRangeEscalation;
+            frmDateRange frmDateRange = new frmDateRange();
+            frmDateRange.Show();
+            frmDateRange.MdiParent = this;
+        }
+        private void byDateRangeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
  

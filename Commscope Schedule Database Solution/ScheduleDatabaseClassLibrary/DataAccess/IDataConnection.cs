@@ -12,6 +12,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
     public interface IDataConnection
     {
         List<LabRequestModel> DateRangeSearchLab_SortBy(DateTime StartDate, DateTime EndDate);
+        List<ATEscalationsDisplayModel> DateRangeSearchEscalations_SortBy(DateTime StartTime, DateTime EndDate);
         void FE_CRUD(FE_Model model, char action);
         void MSO_Add(string MSO_Name, string TLA, bool Active);
         void ToggleActiveStatus(string tableName, string activeColumnName, int Idx, string idxName);

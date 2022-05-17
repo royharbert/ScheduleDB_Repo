@@ -58,6 +58,7 @@ namespace Schedule_Database_Desktop_Version
             //Get all assignments in date range
             List<AssignmentTableModel> Assignments = null;
             List<LabRequestModel> Labs = null;
+            List<ATEscalationsDisplayModel> Escalations = null;
             frmMultiSelect DisplayForm = new frmMultiSelect();
             switch (GV.MODE)
                 { 
@@ -71,6 +72,13 @@ namespace Schedule_Database_Desktop_Version
                     DisplayForm.LabRequests = Labs;
                     this.Height = 195;
                     break;
+                    case Mode.DateRangeEscalation:
+                    Escalations = GlobalConfig.Connection.DateRangeSearchEscalations_SortBy(startDate, endDate);
+                    DisplayForm.Escalations = Escalations;
+                    this.Height = 195;
+
+                    break;
+
                 }
             DisplayForm.Show();
             DisplayForm.BringToFront();

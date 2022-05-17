@@ -40,6 +40,7 @@ namespace ScheduleDatabaseClassLibrary.Models
         [ExcelExportProperty]
         public string ATEStatus { get; set; }
 
+        public ATEscalationsDisplayModel(){}
         public ATEscalationsDisplayModel(ATEscalationsModel model)
         {
             this.ATEDescription = model.ATEDescription;

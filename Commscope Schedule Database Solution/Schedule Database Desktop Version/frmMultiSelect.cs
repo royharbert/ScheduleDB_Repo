@@ -239,10 +239,16 @@ namespace Schedule_Database_Desktop_Version
             {  
                 case Mode.SearchEscalation:
                 case Mode.EditEscalation:
+                case Mode.DateRangeEscalation:
                     ListLooper.ExcelExporter<ATEscalationsDisplayModel> exporter = new ListLooper.ExcelExporter<ATEscalationsDisplayModel>();
                     exporter.List = (List<ATEscalationsDisplayModel>)dgvResults.DataSource;
                     ReportOps.FormatEscalationResultExport(exporter.Wksheet);
                     break;
+                case Mode.LabRequestEdit:
+                    ListLooper.ExcelExporter<LabRequestModel> labExporter = new ListLooper.ExcelExporter<LabRequestModel>();
+                    labExporter.List = (List<LabRequestModel>)dgvResults.DataSource;
+                    //ReportOps.forma
+                    break ;
                 default:
                     ListLooper.ExcelExporter<AssignmentDisplayModel> excelExporter = new ListLooper.ExcelExporter<AssignmentDisplayModel>();
                     excelExporter.List = (List<AssignmentDisplayModel>)dgvResults.DataSource;

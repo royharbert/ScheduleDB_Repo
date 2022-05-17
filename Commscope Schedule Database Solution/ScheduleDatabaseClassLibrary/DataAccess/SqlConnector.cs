@@ -335,8 +335,20 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 return output;
             }
         }
+        public List<ATEscalationsDisplayModel> DateRangeSearchEscalations_SortBy(DateTime StartDate, DateTime EndDate)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@start", StartDate, DbType.DateTime, ParameterDirection.Input);
+                p.Add("@end", EndDate, DbType.DateTime, ParameterDirection.Input);
+                //p.Add("@order", "StartDate", DbType.String, ParameterDirection.Input);
 
-
+                List<ATEscalationsDisplayModel> output = connection.Query<ATEscalationsDisplayModel>("dbo.spATEscalations_GetDateRange1", p,
+                commandType: CommandType.StoredProcedure).ToList();
+                return output;
+            }
+        }
         public List<AssignmentTableModel> DateRangeSearch_SortBy(DateTime StartDate, DateTime EndDate)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
