@@ -247,6 +247,8 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabRequestEdit:
                     ListLooper.ExcelExporter<LabRequestModel> labExporter = new ListLooper.ExcelExporter<LabRequestModel>();
                     labExporter.List = (List<LabRequestModel>)dgvResults.DataSource;
+                    excelExportFormatLabRequest(labExporter.Wksheet);
+
                     //ReportOps.forma
                     break ;
                 default:
@@ -256,6 +258,19 @@ namespace Schedule_Database_Desktop_Version
                     break;
             }
            
+        }
+
+        private void excelExportFormatLabRequest(Excel.Worksheet wks)
+        {
+            wks.get_Range("1:1").HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            wks.Columns[1].Columnwidth = 26;
+            wks.Columns[2].Columnwidth = 26;
+            wks.Columns[3].Columnwidth = 15;
+            wks.Columns[4].Columnwidth = 15;
+            wks.Columns[5].Columnwidth = 15;
+            wks.Columns[6].Columnwidth = 50;
+            wks.Columns[7].Columnwidth = 50;
+          
         }
     }
 }

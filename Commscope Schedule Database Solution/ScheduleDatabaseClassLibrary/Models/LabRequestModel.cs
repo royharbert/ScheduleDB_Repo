@@ -9,7 +9,7 @@ namespace ScheduleDatabaseClassLibrary.Models
 {
     public class LabRequestModel
     {
-        [ExcelExportProperty]
+        //[ExcelExportProperty]
         public int ID { get; set; }
         [ExcelExportProperty]
         public string LRID { get; set; }
