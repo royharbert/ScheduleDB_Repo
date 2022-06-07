@@ -199,7 +199,13 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                 {
                     foreach (var prop in props)
                     {
-                        wks.Cells[row, col].Value = prop.GetValue(request);
+                    if (prop.GetType == typeof( DateTime))
+                    {
+
+                    }
+                    //string t = typeof(prop);
+
+                    wks.Cells[row, col].Value = prop.GetValue(request);
                         col++;
                     }
                     row++;

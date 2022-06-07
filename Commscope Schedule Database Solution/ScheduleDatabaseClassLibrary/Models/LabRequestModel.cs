@@ -9,6 +9,8 @@ namespace ScheduleDatabaseClassLibrary.Models
 {
     public class LabRequestModel
     {
+        private DateTime _startDate;
+        private DateTime _endDate;
         //[ExcelExportProperty]
         public int ID { get; set; }
         [ExcelExportProperty]
@@ -18,9 +20,26 @@ namespace ScheduleDatabaseClassLibrary.Models
         [ExcelExportProperty]
         public string Product { get; set; }
         [ExcelExportProperty]
-        public DateTime StartDate { get; set; }
+        public DateTime StartDate 
+        {
+            get { return _startDate; }
+            set 
+            {
+                _startDate = value;
+                _startDate = _startDate.Date;
+            }
+        }
         [ExcelExportProperty]
-        public DateTime EndDate { get; set; }
+        public DateTime EndDate
+        {
+            get { return _endDate; }
+            set
+            {
+                _endDate = value;
+                _endDate = _endDate.Date;
+
+            }
+        }
         [ExcelExportProperty]
         public string Description { get; set; }
         [ExcelExportProperty]
