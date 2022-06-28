@@ -214,7 +214,7 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                     }
                     else
                     {
-                        wks.Cells[row, col].Value = prop.GetValue(request);
+                        wks.Cells[row, col].Value = prop.GetValue(request); 
                     }
                         col++;
                     }

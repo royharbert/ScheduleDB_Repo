@@ -288,7 +288,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnAddAttachment_Click(object sender, EventArgs e)
         {
-            string[] labels = { "Design Drawing", "E-Mail Chain", "Equipment List", "Lab Report", "Data Log", "Other" };
+              string[] labels = { "Design Drawing", "E-Mail Chain", "Equipment List", "Lab Report", "Data Log", "Other" };
             List<AttachmentModel> models = AttachmentProcs.AttachFile(this, txtRequestID.Text, labels);
             displayAttachments();
         }
