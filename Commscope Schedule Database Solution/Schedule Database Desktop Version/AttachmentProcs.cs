@@ -21,6 +21,7 @@ namespace Schedule_Database_Desktop_Version
         /// <returns></returns>
         public static List<AttachmentModel> AttachFile(Form callingForm, string PID, string[] labels)
         {
+            Mode currentMode = GV.MODE;
             GV.MODE = Mode.Add_Attachment;
             AttachmentModel model = new AttachmentModel();
             frmAttType frm = new frmAttType(model);
@@ -50,6 +51,7 @@ namespace Schedule_Database_Desktop_Version
             FileOps.SaveAttFile(model);
             GlobalConfig.Connection.InsertInto_tblAttachments(model);
             List<AttachmentModel> aList = GlobalConfig.Connection.GetAttachments(PID);
+            GV.MODE = currentMode;
             return aList;
         }
 
