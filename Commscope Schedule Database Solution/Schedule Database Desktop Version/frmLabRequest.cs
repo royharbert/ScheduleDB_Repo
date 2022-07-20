@@ -35,7 +35,29 @@ namespace Schedule_Database_Desktop_Version
                 this.BringToFront();
             }
         }
+        private string collectData()
+        {
+            string msoText = cboMSO.Text;
+            string product = cboProduct.Text;
+            DateTime startDate = dtpStart.Value;
+            DateTime endDate = dtpEnd.Value;
+            string Description = txtDescription.Text;
+            string Remarks = txtRemarks.Text;
 
+            if (msoText.Length > 0)
+            {
+                FieldSearchModel fsm = new FieldSearchModel();
+                fsm.FieldName = extractField(cboMSO.Tag);
+            }
+
+            return null;
+        }
+
+        private string extractField(object ctlTag)
+        {
+            string[] tagArray = ctlTag.ToString().Split('|');
+            return tagArray[1];
+        }
         public frmLabRequest()
         {
             InitializeComponent();
@@ -121,10 +143,17 @@ namespace Schedule_Database_Desktop_Version
         {
             foreach (Control ctl in this.Controls)
             {
+                string lockStatus = " ";
+                if (ctl.Tag != null)
+                {
+                    object tagObject = ctl.Tag;
+                    lockStatus = tagObject.ToString().Split('|')[0]; 
+                }
+
                 if (ctl is TextBox)
                 {
                     TextBox textBox = (TextBox)ctl;
-                    if (textBox.Tag.ToString() == "L")
+                    if (lockStatus == "L")
                     {
                         textBox.Enabled = enabled;
                     }
@@ -132,7 +161,7 @@ namespace Schedule_Database_Desktop_Version
                 if (ctl is ComboBox)
                 {
                     ComboBox comboBox = (ComboBox)ctl;
-                    if (comboBox.Tag.ToString().Equals("L"))
+                    if (lockStatus == "L")
                     {
                         comboBox.Enabled = enabled;
                     }
@@ -140,7 +169,7 @@ namespace Schedule_Database_Desktop_Version
                 if (ctl is DateTimePicker)
                 {
                     DateTimePicker datePicker = (DateTimePicker)ctl;
-                    if (datePicker.Tag.ToString().Equals("L"))
+                    if (lockStatus == "L")
                     {
                         datePicker.Enabled = enabled;
                     }
@@ -365,6 +394,16 @@ namespace Schedule_Database_Desktop_Version
         {
             DateTimePicker dtp = (DateTimePicker)contextMenuStripClearDate.SourceControl;
             clearDate(dtp);
+        }
+
+        private void txtRequestID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            collectData();
         }
     }
 
