@@ -399,6 +399,19 @@ namespace Schedule_Database_Desktop_Version
         {
 
         }
+
+        private void searchRequestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void generalSearchToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabRequestSearch;
+            frmLabRequest frmLabRequest = new frmLabRequest();
+            frmLabRequest.Show();
+            frmLabRequest.MdiParent= this;
+        }
     }
 }
  
