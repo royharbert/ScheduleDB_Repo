@@ -37,20 +37,55 @@ namespace Schedule_Database_Desktop_Version
         }
         private string collectData()
         {
+            List<FieldSearchModel> fsmList = new List<FieldSearchModel>();
             string msoText = cboMSO.Text;
             string product = cboProduct.Text;
             DateTime startDate = dtpStart.Value;
             DateTime endDate = dtpEnd.Value;
-            string Description = txtDescription.Text;
-            string Remarks = txtRemarks.Text;
+            string description = txtDescription.Text;
+            string remarks = txtRemarks.Text;
 
-            if (msoText.Length > 0)
+            FieldSearchModel fsm = new FieldSearchModel();
+
+            if (msoText != "")
             {
-                FieldSearchModel fsm = new FieldSearchModel();
-                fsm.FieldName = extractField(cboMSO.Tag);
-            }
 
+                fsm = makeFSM(cboMSO);
+                fsmList.Add(fsm);
+            }
+            if (product != "")
+            {
+                fsm = makeFSM(cboProduct);
+                fsmList.Add(fsm);
+            }
+            if (dtpStart.Value != emptyDate)
+            {
+                fsm = makeFSM(dtpStart);
+                fsmList.Add(fsm);
+            }
+            if (dtpEnd.Value != emptyDate)
+            {
+                fsm = makeFSM(dtpEnd);
+                fsmList.Add(fsm);
+            }
+            if (description != "")
+            {
+                fsm=makeFSM(txtDescription);
+                fsmList.Add(fsm);
+            }
+            if (remarks != "")
+            {
+                fsm=makeFSM(txtRemarks);
+                fsmList.Add(fsm);
+            }
             return null;
+        }
+        private FieldSearchModel makeFSM(Control ctl)
+        {
+            FieldSearchModel fsm = new FieldSearchModel();
+            fsm.FieldName = extractField(ctl.Tag);
+            fsm.FieldValue = ctl.Text;
+            return fsm;
         }
 
         private string extractField(object ctlTag)
@@ -61,8 +96,11 @@ namespace Schedule_Database_Desktop_Version
         public frmLabRequest()
         {
             InitializeComponent();
-            GV.LABREQUESTFORM = this;
+            //GV.LABREQUESTFORM = this;
             //added this switch statement 4-21-22 LMD
+            btnSave.Visible = true;
+            btnSearch.Visible = false;
+
             switch (GV.MODE)
             {
                 case Mode.LabRequestAdd:
@@ -78,6 +116,11 @@ namespace Schedule_Database_Desktop_Version
                     enableBoxes(true, false);
                     break;
                 case Mode.DeleteEscalation:
+                    break;
+                case Mode.LabRequestSearch:
+                    enableBoxes(true, true);
+                    btnSave.Visible = false;
+                    btnSearch.Visible = true;
                     break;
                 default:
                     break;

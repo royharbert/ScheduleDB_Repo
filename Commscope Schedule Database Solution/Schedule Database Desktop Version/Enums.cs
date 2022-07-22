@@ -35,6 +35,7 @@ namespace Schedule_Database_Desktop_Version
         LabRequestAdd,
         LabRequestEdit,
         LabRequestDelete,
+        LabRequestSearch,
         LabRequestDateRange,
         DateRangeReportAT,
         AssignmentSearchByMSO,

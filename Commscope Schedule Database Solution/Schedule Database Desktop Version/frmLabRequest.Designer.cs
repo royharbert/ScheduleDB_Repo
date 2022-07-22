@@ -280,9 +280,9 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(51, 29);
+            this.btnSearch.Location = new System.Drawing.Point(931, 499);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(100, 34);
             this.btnSearch.TabIndex = 19;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
