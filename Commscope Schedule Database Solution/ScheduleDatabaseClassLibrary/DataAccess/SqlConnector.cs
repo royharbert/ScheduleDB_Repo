@@ -14,6 +14,20 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
+        public List<LabRequestModel> labRequestGenSearch(string whereClause)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@whereClause", whereClause, DbType.String);
+                //p.Add("@WhereClause", whereClause, DbType.Int32);
+
+
+                List<LabRequestModel> output = connection.Query<LabRequestModel>("dbo.spLabRequestSearchGen", p,
+                    commandType: CommandType.StoredProcedure).ToList();
+                return output;
+            }
+        }
         public void FE_CRUD(FE_Model model, char action)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))

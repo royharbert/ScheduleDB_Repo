@@ -35,7 +35,7 @@ namespace Schedule_Database_Desktop_Version
                 this.BringToFront();
             }
         }
-        private string collectData()
+        private List<FieldSearchModel> collectData()
         {
             List<FieldSearchModel> fsmList = new List<FieldSearchModel>();
             string msoText = cboMSO.Text;
@@ -78,7 +78,7 @@ namespace Schedule_Database_Desktop_Version
                 fsm=makeFSM(txtRemarks);
                 fsmList.Add(fsm);
             }
-            return null;
+            return fsmList;
         }
         private FieldSearchModel makeFSM(Control ctl)
         {
@@ -118,6 +118,7 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.DeleteEscalation:
                     break;
                 case Mode.LabRequestSearch:
+                    loadComboBoxLists();
                     enableBoxes(true, true);
                     btnSave.Visible = false;
                     btnSearch.Visible = true;
@@ -446,7 +447,15 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            collectData();
+            List<FieldSearchModel> models = collectData();
+            string whereClause = "where ";
+            foreach (var model in models)
+            {
+                whereClause = whereClause + model.FieldName + " = " + model.FieldValue + " ";
+            }
+
+            List<LabRequestModel> requests = GlobalConfig.Connection.labRequestGenSearch(whereClause);
+
         }
     }
 
