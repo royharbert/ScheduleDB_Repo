@@ -40,8 +40,8 @@ namespace Schedule_Database_Desktop_Version
             List<FieldSearchModel> fsmList = new List<FieldSearchModel>();
             string msoText = cboMSO.Text;
             string product = cboProduct.Text;
-            DateTime startDate = dtpStart.Value;
-            DateTime endDate = dtpEnd.Value;
+            //DateTime startDate = dtpStart.Value;
+            //DateTime endDate = dtpEnd.Value;
             string description = txtDescription.Text;
             string remarks = txtRemarks.Text;
 
@@ -58,16 +58,16 @@ namespace Schedule_Database_Desktop_Version
                 fsm = makeFSM(cboProduct);
                 fsmList.Add(fsm);
             }
-            if (dtpStart.Value != emptyDate)
-            {
-                fsm = makeFSM(dtpStart);
-                fsmList.Add(fsm);
-            }
-            if (dtpEnd.Value != emptyDate)
-            {
-                fsm = makeFSM(dtpEnd);
-                fsmList.Add(fsm);
-            }
+            //if (dtpStart.Value != emptyDate)
+            //{
+            //    fsm = makeFSM(dtpStart);
+            //    fsmList.Add(fsm);
+            //}
+            //if (dtpEnd.Value != emptyDate)
+            //{
+            //    fsm = makeFSM(dtpEnd);
+            //    fsmList.Add(fsm);
+            //}
             if (description != "")
             {
                 fsm=makeFSM(txtDescription);
@@ -96,10 +96,11 @@ namespace Schedule_Database_Desktop_Version
         public frmLabRequest()
         {
             InitializeComponent();
-            //GV.LABREQUESTFORM = this;
-            //added this switch statement 4-21-22 LMD
             btnSave.Visible = true;
             btnSearch.Visible = false;
+            dtpStart.Visible = true;
+            dtpEnd.Visible = true;
+            GV.LABREQUESTFORM = this;
 
             switch (GV.MODE)
             {
@@ -122,11 +123,13 @@ namespace Schedule_Database_Desktop_Version
                     enableBoxes(true, true);
                     btnSave.Visible = false;
                     btnSearch.Visible = true;
+                    dtpStart.Visible = false;
+                    dtpEnd.Visible = false;
                     break;
                 default:
                     break;
-
             }
+           
         }
 
         private void loadComboBoxLists()
@@ -248,19 +251,22 @@ namespace Schedule_Database_Desktop_Version
 
         private void cboMSO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!dataLoading)
+            if (GV.MODE != Mode.LabRequestSearch)
             {
-                MSO_Model model = ((MSO_Model)cboMSO.SelectedItem);
-                formDirty = true;
-                if(cboMSO.SelectedIndex > -1)
+                if (!dataLoading)
                 {
-                    enableBoxes(true,false);
-                    txtRequestID.Text = PID_Generator.GenerateEID((MSO_Model)cboMSO.SelectedItem, "LAB_", dataLoading);
-                }
-                else
-                {
-                    enableBoxes(false,true);
-                }
+                    MSO_Model model = ((MSO_Model)cboMSO.SelectedItem);
+                    formDirty = true;
+                    if (cboMSO.SelectedIndex > -1)
+                    {
+                        enableBoxes(true, false);
+                        txtRequestID.Text = PID_Generator.GenerateEID((MSO_Model)cboMSO.SelectedItem, "LAB_", dataLoading);
+                    }
+                    else
+                    {
+                        enableBoxes(false, true);
+                    }
+                } 
             }
 
         }
@@ -407,20 +413,15 @@ namespace Schedule_Database_Desktop_Version
             frmInput.InputDataReady += FrmInput_InputDataReady;
             frmInput.Show();
         }
-
-        private void FrmInput_InputDataReady(object sender, InputDataReadyEventArgs e)
-        {      
-            inputForm.Hide();
-            string searchTerm = e.SearchString;
-            List<LabRequestModel> models = GlobalConfig.Connection.SearchLabRequests(searchTerm.ToUpper());
-            this.Show();
+        private void displayResults(List<LabRequestModel> models)
+        {
             switch (models.Count)
             {
                 case 0:
                     MessageBox.Show("No matching records found.");
                     break;
                 case 1:
-                    LabRequestModel model = models[0]; 
+                    LabRequestModel model = models[0];
                     loadBoxes(model);
                     cboMSO.Focus();
                     displayAttachments();
@@ -432,6 +433,14 @@ namespace Schedule_Database_Desktop_Version
                     displayForm.Show();
                     break;
             }
+        }
+        private void FrmInput_InputDataReady(object sender, InputDataReadyEventArgs e)
+        {      
+            inputForm.Hide();
+            string searchTerm = e.SearchString;
+            List<LabRequestModel> models = GlobalConfig.Connection.SearchLabRequests(searchTerm.ToUpper());
+            this.Show();
+            displayResults(models);
         }
 
         private void clearDateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -451,10 +460,13 @@ namespace Schedule_Database_Desktop_Version
             string whereClause = "where ";
             foreach (var model in models)
             {
-                whereClause = whereClause + model.FieldName + " = " + model.FieldValue + " ";
+                whereClause = whereClause + model.FieldName + " = '" + model.FieldValue + "' and ";
             }
+                whereClause = whereClause.Substring(0, whereClause.Length - 5);
 
             List<LabRequestModel> requests = GlobalConfig.Connection.labRequestGenSearch(whereClause);
+            displayResults(requests);
+          
 
         }
     }

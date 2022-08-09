@@ -101,7 +101,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboProduct.Name = "cboProduct";
             this.cboProduct.Size = new System.Drawing.Size(207, 21);
             this.cboProduct.TabIndex = 3;
-            this.cboProduct.Tag = "L|Products";
+            this.cboProduct.Tag = "L|Product";
             this.cboProduct.Leave += new System.EventHandler(this.cboProduct_Leave);
             // 
             // label2
