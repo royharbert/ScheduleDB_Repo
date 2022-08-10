@@ -58,16 +58,7 @@ namespace Schedule_Database_Desktop_Version
                 fsm = makeFSM(cboProduct);
                 fsmList.Add(fsm);
             }
-            //if (dtpStart.Value != emptyDate)
-            //{
-            //    fsm = makeFSM(dtpStart);
-            //    fsmList.Add(fsm);
-            //}
-            //if (dtpEnd.Value != emptyDate)
-            //{
-            //    fsm = makeFSM(dtpEnd);
-            //    fsmList.Add(fsm);
-            //}
+   
             if (description != "")
             {
                 fsm=makeFSM(txtDescription);

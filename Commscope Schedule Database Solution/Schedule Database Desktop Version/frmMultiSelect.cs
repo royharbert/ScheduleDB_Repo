@@ -87,7 +87,7 @@ namespace Schedule_Database_Desktop_Version
             }
             set
             {
-                GV.MODE = Mode.LabRequestEdit;
+                //GV.MODE = Mode.LabRequestEdit;
                 labRequests = value;
                 customerData = null;
                 locationData = null;
@@ -190,6 +190,7 @@ namespace Schedule_Database_Desktop_Version
                     GV.MODE = Mode.EditEscalation;
                     break;
                 case Mode.LabRequestEdit:
+                case Mode.LabRequestSearch:
                     LabRequestModel labRequest = labRequests[selectedRow];
                     GV.LABREQUESTFORM.LabRequest = labRequest;
                     break;
