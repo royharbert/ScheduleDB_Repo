@@ -451,7 +451,15 @@ namespace Schedule_Database_Desktop_Version
             string whereClause = "where ";
             foreach (var model in models)
             {
-                whereClause = whereClause + model.FieldName + " = '" + model.FieldValue + "' and ";
+                if (model.FieldName == "Remarks" | model.FieldName == "Description")
+                {
+                        whereClause = whereClause + model.FieldName + " like '%" + model.FieldValue + "%' and ";
+                }
+                else
+                {
+                        whereClause = whereClause + model.FieldName + " = '" + model.FieldValue + "' and ";
+              
+                }
             }
                 whereClause = whereClause.Substring(0, whereClause.Length - 5);
 
