@@ -42,6 +42,8 @@ namespace Schedule_Database_Desktop_Version
             this.lbl_FELead = new System.Windows.Forms.Label();
             this.dtp_DateReported = new System.Windows.Forms.DateTimePicker();
             this.dtp_DateResolved = new System.Windows.Forms.DateTimePicker();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.clearDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_DateReported = new System.Windows.Forms.Label();
             this.lbl_DateResolved = new System.Windows.Forms.Label();
             this.txt_Description = new System.Windows.Forms.TextBox();
@@ -66,11 +68,11 @@ namespace Schedule_Database_Desktop_Version
             this.txtEID = new System.Windows.Forms.TextBox();
             this.dgvAttachments = new System.Windows.Forms.DataGridView();
             this.lst_PartNumber = new System.Windows.Forms.ListBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.clearDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtEndUser = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1.SuspendLayout();
             this.grp_OptionalFields.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbo_MSO
@@ -78,7 +80,7 @@ namespace Schedule_Database_Desktop_Version
             this.cbo_MSO.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbo_MSO.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbo_MSO.FormattingEnabled = true;
-            this.cbo_MSO.Location = new System.Drawing.Point(173, 56);
+            this.cbo_MSO.Location = new System.Drawing.Point(173, 49);
             this.cbo_MSO.Margin = new System.Windows.Forms.Padding(4);
             this.cbo_MSO.Name = "cbo_MSO";
             this.cbo_MSO.Size = new System.Drawing.Size(265, 24);
@@ -91,7 +93,7 @@ namespace Schedule_Database_Desktop_Version
             this.cbo_Status.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbo_Status.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbo_Status.FormattingEnabled = true;
-            this.cbo_Status.Location = new System.Drawing.Point(173, 120);
+            this.cbo_Status.Location = new System.Drawing.Point(173, 140);
             this.cbo_Status.Margin = new System.Windows.Forms.Padding(4);
             this.cbo_Status.Name = "cbo_Status";
             this.cbo_Status.Size = new System.Drawing.Size(265, 24);
@@ -104,7 +106,7 @@ namespace Schedule_Database_Desktop_Version
             this.cbo_Type.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbo_Type.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbo_Type.FormattingEnabled = true;
-            this.cbo_Type.Location = new System.Drawing.Point(173, 88);
+            this.cbo_Type.Location = new System.Drawing.Point(173, 108);
             this.cbo_Type.Margin = new System.Windows.Forms.Padding(4);
             this.cbo_Type.Name = "cbo_Type";
             this.cbo_Type.Size = new System.Drawing.Size(265, 24);
@@ -115,7 +117,7 @@ namespace Schedule_Database_Desktop_Version
             // lbl_MSO
             // 
             this.lbl_MSO.AutoSize = true;
-            this.lbl_MSO.Location = new System.Drawing.Point(36, 60);
+            this.lbl_MSO.Location = new System.Drawing.Point(36, 52);
             this.lbl_MSO.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_MSO.Name = "lbl_MSO";
             this.lbl_MSO.Size = new System.Drawing.Size(39, 17);
@@ -125,7 +127,7 @@ namespace Schedule_Database_Desktop_Version
             // lbl_ATProdApp
             // 
             this.lbl_ATProdApp.AutoSize = true;
-            this.lbl_ATProdApp.Location = new System.Drawing.Point(36, 92);
+            this.lbl_ATProdApp.Location = new System.Drawing.Point(36, 112);
             this.lbl_ATProdApp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_ATProdApp.Name = "lbl_ATProdApp";
             this.lbl_ATProdApp.Size = new System.Drawing.Size(40, 17);
@@ -135,7 +137,7 @@ namespace Schedule_Database_Desktop_Version
             // lbl_EscalationStatus
             // 
             this.lbl_EscalationStatus.AutoSize = true;
-            this.lbl_EscalationStatus.Location = new System.Drawing.Point(36, 123);
+            this.lbl_EscalationStatus.Location = new System.Drawing.Point(36, 143);
             this.lbl_EscalationStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_EscalationStatus.Name = "lbl_EscalationStatus";
             this.lbl_EscalationStatus.Size = new System.Drawing.Size(48, 17);
@@ -145,7 +147,7 @@ namespace Schedule_Database_Desktop_Version
             // lbl_PartNumbers
             // 
             this.lbl_PartNumbers.AutoSize = true;
-            this.lbl_PartNumbers.Location = new System.Drawing.Point(36, 308);
+            this.lbl_PartNumbers.Location = new System.Drawing.Point(36, 328);
             this.lbl_PartNumbers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_PartNumbers.Name = "lbl_PartNumbers";
             this.lbl_PartNumbers.Size = new System.Drawing.Size(88, 17);
@@ -154,7 +156,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // txt_Qty
             // 
-            this.txt_Qty.Location = new System.Drawing.Point(173, 152);
+            this.txt_Qty.Location = new System.Drawing.Point(173, 172);
             this.txt_Qty.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Qty.Name = "txt_Qty";
             this.txt_Qty.Size = new System.Drawing.Size(265, 23);
@@ -165,7 +167,7 @@ namespace Schedule_Database_Desktop_Version
             // lbl_Qty
             // 
             this.lbl_Qty.AutoSize = true;
-            this.lbl_Qty.Location = new System.Drawing.Point(36, 156);
+            this.lbl_Qty.Location = new System.Drawing.Point(36, 176);
             this.lbl_Qty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Qty.Name = "lbl_Qty";
             this.lbl_Qty.Size = new System.Drawing.Size(61, 17);
@@ -175,7 +177,7 @@ namespace Schedule_Database_Desktop_Version
             // lbl_FELead
             // 
             this.lbl_FELead.AutoSize = true;
-            this.lbl_FELead.Location = new System.Drawing.Point(36, 209);
+            this.lbl_FELead.Location = new System.Drawing.Point(36, 229);
             this.lbl_FELead.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_FELead.Name = "lbl_FELead";
             this.lbl_FELead.Size = new System.Drawing.Size(57, 17);
@@ -185,7 +187,7 @@ namespace Schedule_Database_Desktop_Version
             // dtp_DateReported
             // 
             this.dtp_DateReported.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_DateReported.Location = new System.Drawing.Point(173, 366);
+            this.dtp_DateReported.Location = new System.Drawing.Point(173, 386);
             this.dtp_DateReported.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_DateReported.Name = "dtp_DateReported";
             this.dtp_DateReported.Size = new System.Drawing.Size(265, 23);
@@ -197,7 +199,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtp_DateResolved.ContextMenuStrip = this.contextMenuStrip1;
             this.dtp_DateResolved.CustomFormat = " ";
             this.dtp_DateResolved.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_DateResolved.Location = new System.Drawing.Point(173, 397);
+            this.dtp_DateResolved.Location = new System.Drawing.Point(173, 417);
             this.dtp_DateResolved.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_DateResolved.Name = "dtp_DateResolved";
             this.dtp_DateResolved.Size = new System.Drawing.Size(265, 23);
@@ -206,10 +208,24 @@ namespace Schedule_Database_Desktop_Version
             this.dtp_DateResolved.Tag = "L";
             this.dtp_DateResolved.ValueChanged += new System.EventHandler(this.dtp_DateResolved_ValueChanged_1);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearDateToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(129, 26);
+            // 
+            // clearDateToolStripMenuItem
+            // 
+            this.clearDateToolStripMenuItem.Name = "clearDateToolStripMenuItem";
+            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.clearDateToolStripMenuItem.Text = "Clear Date";
+            this.clearDateToolStripMenuItem.Click += new System.EventHandler(this.clearDateToolStripMenuItem_Click);
+            // 
             // lbl_DateReported
             // 
             this.lbl_DateReported.AutoSize = true;
-            this.lbl_DateReported.Location = new System.Drawing.Point(36, 366);
+            this.lbl_DateReported.Location = new System.Drawing.Point(36, 386);
             this.lbl_DateReported.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_DateReported.Name = "lbl_DateReported";
             this.lbl_DateReported.Size = new System.Drawing.Size(101, 17);
@@ -219,7 +235,7 @@ namespace Schedule_Database_Desktop_Version
             // lbl_DateResolved
             // 
             this.lbl_DateResolved.AutoSize = true;
-            this.lbl_DateResolved.Location = new System.Drawing.Point(36, 398);
+            this.lbl_DateResolved.Location = new System.Drawing.Point(36, 418);
             this.lbl_DateResolved.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_DateResolved.Name = "lbl_DateResolved";
             this.lbl_DateResolved.Size = new System.Drawing.Size(101, 17);
@@ -347,7 +363,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.lbl_RequiredFields.AutoSize = true;
             this.lbl_RequiredFields.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_RequiredFields.Location = new System.Drawing.Point(17, 42);
+            this.lbl_RequiredFields.Location = new System.Drawing.Point(17, 18);
             this.lbl_RequiredFields.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_RequiredFields.Name = "lbl_RequiredFields";
             this.lbl_RequiredFields.Size = new System.Drawing.Size(118, 16);
@@ -437,7 +453,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.lst_FELead.FormattingEnabled = true;
             this.lst_FELead.ItemHeight = 16;
-            this.lst_FELead.Location = new System.Drawing.Point(173, 182);
+            this.lst_FELead.Location = new System.Drawing.Point(173, 202);
             this.lst_FELead.Name = "lst_FELead";
             this.lst_FELead.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lst_FELead.Size = new System.Drawing.Size(265, 84);
@@ -472,7 +488,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.lst_PartNumber.FormattingEnabled = true;
             this.lst_PartNumber.ItemHeight = 16;
-            this.lst_PartNumber.Location = new System.Drawing.Point(173, 275);
+            this.lst_PartNumber.Location = new System.Drawing.Point(173, 295);
             this.lst_PartNumber.Name = "lst_PartNumber";
             this.lst_PartNumber.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lst_PartNumber.Size = new System.Drawing.Size(265, 84);
@@ -480,25 +496,32 @@ namespace Schedule_Database_Desktop_Version
             this.lst_PartNumber.Tag = "L";
             this.lst_PartNumber.Leave += new System.EventHandler(this.lst_PartNumber_Leave);
             // 
-            // contextMenuStrip1
+            // txtEndUser
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clearDateToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.txtEndUser.Location = new System.Drawing.Point(173, 78);
+            this.txtEndUser.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEndUser.Name = "txtEndUser";
+            this.txtEndUser.Size = new System.Drawing.Size(265, 23);
+            this.txtEndUser.TabIndex = 42;
+            this.txtEndUser.Tag = "L";
             // 
-            // clearDateToolStripMenuItem
+            // label1
             // 
-            this.clearDateToolStripMenuItem.Name = "clearDateToolStripMenuItem";
-            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.clearDateToolStripMenuItem.Text = "Clear Date";
-            this.clearDateToolStripMenuItem.Click += new System.EventHandler(this.clearDateToolStripMenuItem_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(36, 81);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 17);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "End User";
             // 
             // FrmATEscalations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1042, 824);
+            this.ClientSize = new System.Drawing.Size(1043, 899);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtEndUser);
             this.Controls.Add(this.lst_PartNumber);
             this.Controls.Add(this.dgvAttachments);
             this.Controls.Add(this.txtEID);
@@ -534,10 +557,10 @@ namespace Schedule_Database_Desktop_Version
             this.Text = "AT Escalations";
             this.Activated += new System.EventHandler(this.FrmATEscalations_Activated);
             this.Shown += new System.EventHandler(this.FrmATEscalations_Shown);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.grp_OptionalFields.ResumeLayout(false);
             this.grp_OptionalFields.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -583,5 +606,7 @@ namespace Schedule_Database_Desktop_Version
         public System.Windows.Forms.ListBox lst_PartNumber;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem clearDateToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtEndUser;
+        private System.Windows.Forms.Label label1;
     }
 }

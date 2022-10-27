@@ -54,6 +54,8 @@ namespace Schedule_Database_Desktop_Version
             this.contextMenuStripClearDate = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.clearDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.txtEndUser = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
             this.cmsDTP.SuspendLayout();
             this.contextMenuStripClearDate.SuspendLayout();
@@ -75,7 +77,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboMSO.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboMSO.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboMSO.FormattingEnabled = true;
-            this.cboMSO.Location = new System.Drawing.Point(310, 151);
+            this.cboMSO.Location = new System.Drawing.Point(309, 119);
             this.cboMSO.Name = "cboMSO";
             this.cboMSO.Size = new System.Drawing.Size(207, 21);
             this.cboMSO.TabIndex = 1;
@@ -85,7 +87,7 @@ namespace Schedule_Database_Desktop_Version
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(273, 154);
+            this.label1.Location = new System.Drawing.Point(271, 122);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 2;
@@ -120,7 +122,7 @@ namespace Schedule_Database_Desktop_Version
             this.dgvAttachments.Location = new System.Drawing.Point(24, 319);
             this.dgvAttachments.Name = "dgvAttachments";
             this.dgvAttachments.Size = new System.Drawing.Size(787, 197);
-            this.dgvAttachments.TabIndex = 5;
+            this.dgvAttachments.TabIndex = 7;
             this.dgvAttachments.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAttachments_RowHeaderMouseClick);
             // 
             // btnAddAttachment
@@ -149,7 +151,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtpStart.Location = new System.Drawing.Point(310, 214);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(206, 20);
-            this.dtpStart.TabIndex = 8;
+            this.dtpStart.TabIndex = 4;
             this.dtpStart.Tag = "L|StartDate";
             this.dtpStart.ValueChanged += new System.EventHandler(this.dtpStart_ValueChanged);
             this.dtpStart.Enter += new System.EventHandler(this.dtpStart_Enter);
@@ -174,7 +176,7 @@ namespace Schedule_Database_Desktop_Version
             this.label3.Location = new System.Drawing.Point(249, 218);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
-            this.label3.TabIndex = 9;
+            this.label3.TabIndex = 10;
             this.label3.Text = "Start Date";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -194,7 +196,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtpEnd.Location = new System.Drawing.Point(311, 245);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(206, 20);
-            this.dtpEnd.TabIndex = 10;
+            this.dtpEnd.TabIndex = 6;
             this.dtpEnd.Tag = "L|EndDate";
             this.dtpEnd.ValueChanged += new System.EventHandler(this.dtpEnd_ValueChanged);
             this.dtpEnd.Enter += new System.EventHandler(this.dtpEnd_Enter);
@@ -205,7 +207,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(323, 176);
-            this.txtDescription.TabIndex = 12;
+            this.txtDescription.TabIndex = 8;
             this.txtDescription.Tag = "L|Description";
             // 
             // label5
@@ -232,7 +234,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
             this.txtRemarks.Size = new System.Drawing.Size(323, 176);
-            this.txtRemarks.TabIndex = 14;
+            this.txtRemarks.TabIndex = 9;
             this.txtRemarks.Tag = "L|Remarks";
             // 
             // btnClose
@@ -240,7 +242,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnClose.Location = new System.Drawing.Point(1092, 499);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(100, 34);
-            this.btnClose.TabIndex = 16;
+            this.btnClose.TabIndex = 18;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -257,7 +259,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(303, 119);
+            this.txtID.Location = new System.Drawing.Point(310, 90);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(74, 20);
             this.txtID.TabIndex = 18;
@@ -283,16 +285,37 @@ namespace Schedule_Database_Desktop_Version
             this.btnSearch.Location = new System.Drawing.Point(931, 499);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(100, 34);
-            this.btnSearch.TabIndex = 19;
+            this.btnSearch.TabIndex = 17;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtEndUser
+            // 
+            this.txtEndUser.Location = new System.Drawing.Point(308, 150);
+            this.txtEndUser.Name = "txtEndUser";
+            this.txtEndUser.Size = new System.Drawing.Size(208, 20);
+            this.txtEndUser.TabIndex = 2;
+            this.txtEndUser.Tag = "L|EndUser";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(251, 153);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "End User";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // frmLabRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1224, 667);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtEndUser);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnSave);
@@ -315,7 +338,6 @@ namespace Schedule_Database_Desktop_Version
             this.Controls.Add(this.txtRequestID);
             this.Name = "frmLabRequest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lab Request";
             this.Load += new System.EventHandler(this.frmLabRequest_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).EndInit();
             this.cmsDTP.ResumeLayout(false);
@@ -351,5 +373,7 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.ContextMenuStrip contextMenuStripClearDate;
         private System.Windows.Forms.ToolStripMenuItem clearDateToolStripMenuItem;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtEndUser;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -18,6 +18,8 @@ namespace ScheduleDatabaseClassLibrary.Models
         [ExcelExportProperty]
         public string MSO { get; set; }
         [ExcelExportProperty]
+        public string EndUser { get; set; }
+        [ExcelExportProperty]
         public string ATEType { get; set; }
         [ExcelExportProperty]
         public string Product { get; set; }

@@ -119,6 +119,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@EndDate", model.EndDate, DbType.DateTime);
                 p.Add("@Description", model.Description, DbType.String);
                 p.Add("@Remarks", model.Remarks, DbType.String);
+                p.Add("@EndUser", model.EndUser, DbType.String);
 
                 connection.Execute("dbo.spLabRequest_CRUD", p,
                     commandType: CommandType.StoredProcedure);

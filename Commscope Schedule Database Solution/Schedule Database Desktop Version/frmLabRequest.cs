@@ -154,6 +154,7 @@ namespace Schedule_Database_Desktop_Version
             model.Product = cboProduct.Text;
             model.Remarks = txtRemarks.Text;
             model.StartDate = dtpStart.Value;
+            model.EndUser = txtEndUser.Text;
 
             return model;
         }
@@ -176,6 +177,7 @@ namespace Schedule_Database_Desktop_Version
             cboMSO.Text = model.MSO;
             cboProduct.Text = model.Product;
             txtID.Text = model.ID.ToString();
+            txtEndUser.Text = model.EndUser.ToString();
         }
         private void enableBoxes(bool enabled, bool cboMSOenabled)
         {
@@ -466,6 +468,11 @@ namespace Schedule_Database_Desktop_Version
             List<LabRequestModel> requests = GlobalConfig.Connection.labRequestGenSearch(whereClause);
             displayResults(requests);
           
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
 
         }
     }
