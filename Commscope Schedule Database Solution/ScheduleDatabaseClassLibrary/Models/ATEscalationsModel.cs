@@ -10,7 +10,7 @@ namespace ScheduleDatabaseClassLibrary.Models
     public class ATEscalationsModel
     {
         //public int ID { get; set; }
-        [ExcelExportProperty]
+        //[ExcelExportProperty]
         public string EscalationID { get; set; }
         [ExcelExportProperty]
         public string MSO { get; set; }
@@ -38,6 +38,10 @@ namespace ScheduleDatabaseClassLibrary.Models
         public DateTime DateReported { get; set; }
         [ExcelExportProperty]
         public string ATEStatus { get; set; }
+        [ExcelExportProperty]
+        public string EndUser { get; set; }
+        
+
 
         public ATEscalationsDisplayModel DisplayModel()
         {

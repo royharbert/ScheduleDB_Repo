@@ -215,6 +215,7 @@ namespace Schedule_Database_Desktop_Version
             cbo_MSO.Text = model.MSO;
             cbo_Status.Text = model.ATEStatus;
             cbo_Type.Text = model.ATEType;
+            txtEndUser.Text = model.EndUser;
             if (model.Product != null)
             {
                 FormControlOps.markListBoxes(lst_PartNumber, model.Product); 
@@ -323,6 +324,7 @@ namespace Schedule_Database_Desktop_Version
                 model.PeopleSoftNumber = txt_PSNumber.Text;
                 ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel> dt =
                     new ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel>();
+                model.EndUser = txtEndUser.Text;
                 List<ATEscalationsModel> escalations = new List<ATEscalationsModel>();
                 escalations.Add(model);
                 dt.List = escalations;
