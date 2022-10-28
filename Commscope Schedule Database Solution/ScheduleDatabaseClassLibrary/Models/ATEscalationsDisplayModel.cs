@@ -11,7 +11,7 @@ namespace ScheduleDatabaseClassLibrary.Models
     public class ATEscalationsDisplayModel
     {
         //public int ID { get; set; }
-        //[ExcelExportProperty]
+        [ExcelExportProperty]
         public string EscalationID { get; set; }
         [ExcelExportProperty]
         public string FELead { get; set; }
@@ -39,12 +39,9 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string PeopleSoftNumber { get; set; }
         [ExcelExportProperty]
         public string ATEStatus { get; set; }
-        [ExcelExportProperty]
-        //added this because missing 10-27-22 LMD
+        [ExcelExportProperty]           //added this because missing 10-27-22 LMD        
         public string EndUser { get; set; }
-       
-
-        //added this for new MSO field 10-27-22 LMD
+            //added this for new MSO field 10-27-22 LMD
 
         public ATEscalationsDisplayModel(){}
         public ATEscalationsDisplayModel(ATEscalationsModel model)
