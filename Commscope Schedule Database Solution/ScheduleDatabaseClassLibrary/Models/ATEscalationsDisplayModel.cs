@@ -39,10 +39,8 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string PeopleSoftNumber { get; set; }
         [ExcelExportProperty]
         public string ATEStatus { get; set; }
-        [ExcelExportProperty]
-            //added this because missing 10-27-22 LMD
+        [ExcelExportProperty]           //added this because missing 10-27-22 LMD        
         public string EndUser { get; set; }
-        [ExcelExportProperty]
             //added this for new MSO field 10-27-22 LMD
 
         public ATEscalationsDisplayModel(){}
@@ -62,6 +60,7 @@ namespace ScheduleDatabaseClassLibrary.Models
             this.Quantity = model.Quantity;
             this.Resolution = model.Resolution;
             this.ResolvedDate = model.ResolvedDate;
+            this.EndUser = model.EndUser;
         }
 
         private string deserializeProducts(string partNumberXML)
