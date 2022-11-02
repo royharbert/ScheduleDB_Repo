@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtRecordID = new System.Windows.Forms.TextBox();
             this.cboMSO = new System.Windows.Forms.ComboBox();
             this.cboSeverity = new System.Windows.Forms.ComboBox();
             this.txtCity = new System.Windows.Forms.TextBox();
@@ -71,33 +71,33 @@
             this.lstProducts = new System.Windows.Forms.ListBox();
             this.rtxDescription = new System.Windows.Forms.RichTextBox();
             this.rtxComments = new System.Windows.Forms.RichTextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdoATEsc = new System.Windows.Forms.RadioButton();
+            this.rdoLabReq = new System.Windows.Forms.RadioButton();
+            this.grpRecordType = new System.Windows.Forms.GroupBox();
             this.label23 = new System.Windows.Forms.Label();
             this.txtCTRNum = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvAttachments = new System.Windows.Forms.DataGridView();
             this.label24 = new System.Windows.Forms.Label();
             this.btnRemoveAttach = new System.Windows.Forms.Button();
             this.btnAddAttach = new System.Windows.Forms.Button();
             this.lstResolution = new System.Windows.Forms.ListBox();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.grpRecordType.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtRecordID
             // 
-            this.textBox1.Location = new System.Drawing.Point(440, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(396, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtRecordID.Location = new System.Drawing.Point(440, 47);
+            this.txtRecordID.Name = "txtRecordID";
+            this.txtRecordID.Size = new System.Drawing.Size(396, 20);
+            this.txtRecordID.TabIndex = 0;
             // 
             // cboMSO
             // 
             this.cboMSO.FormattingEnabled = true;
-            this.cboMSO.Location = new System.Drawing.Point(111, 89);
+            this.cboMSO.Location = new System.Drawing.Point(111, 90);
             this.cboMSO.Name = "cboMSO";
             this.cboMSO.Size = new System.Drawing.Size(273, 21);
             this.cboMSO.TabIndex = 2;
@@ -463,38 +463,38 @@
             this.rtxComments.TabIndex = 46;
             this.rtxComments.Text = "";
             // 
-            // radioButton1
+            // rdoATEsc
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(22, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(91, 17);
-            this.radioButton1.TabIndex = 48;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "AT Escalation";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdoATEsc.AutoSize = true;
+            this.rdoATEsc.Location = new System.Drawing.Point(22, 19);
+            this.rdoATEsc.Name = "rdoATEsc";
+            this.rdoATEsc.Size = new System.Drawing.Size(91, 17);
+            this.rdoATEsc.TabIndex = 48;
+            this.rdoATEsc.TabStop = true;
+            this.rdoATEsc.Text = "AT Escalation";
+            this.rdoATEsc.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdoLabReq
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(146, 19);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(86, 17);
-            this.radioButton2.TabIndex = 49;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Lab Request";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdoLabReq.AutoSize = true;
+            this.rdoLabReq.Location = new System.Drawing.Point(146, 19);
+            this.rdoLabReq.Name = "rdoLabReq";
+            this.rdoLabReq.Size = new System.Drawing.Size(86, 17);
+            this.rdoLabReq.TabIndex = 49;
+            this.rdoLabReq.TabStop = true;
+            this.rdoLabReq.Text = "Lab Request";
+            this.rdoLabReq.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // grpRecordType
             // 
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Location = new System.Drawing.Point(111, 28);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(273, 52);
-            this.groupBox1.TabIndex = 50;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Record Type";
+            this.grpRecordType.Controls.Add(this.rdoATEsc);
+            this.grpRecordType.Controls.Add(this.rdoLabReq);
+            this.grpRecordType.Location = new System.Drawing.Point(111, 28);
+            this.grpRecordType.Name = "grpRecordType";
+            this.grpRecordType.Size = new System.Drawing.Size(273, 52);
+            this.grpRecordType.TabIndex = 50;
+            this.grpRecordType.TabStop = false;
+            this.grpRecordType.Text = "Record Type";
             // 
             // label23
             // 
@@ -533,13 +533,13 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvAttachments
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(418, 303);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(457, 237);
-            this.dataGridView1.TabIndex = 55;
+            this.dgvAttachments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAttachments.Location = new System.Drawing.Point(418, 303);
+            this.dgvAttachments.Name = "dgvAttachments";
+            this.dgvAttachments.Size = new System.Drawing.Size(457, 237);
+            this.dgvAttachments.TabIndex = 55;
             // 
             // label24
             // 
@@ -586,12 +586,12 @@
             this.Controls.Add(this.btnRemoveAttach);
             this.Controls.Add(this.btnAddAttach);
             this.Controls.Add(this.label24);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvAttachments);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.txtCTRNum);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpRecordType);
             this.Controls.Add(this.rtxComments);
             this.Controls.Add(this.rtxDescription);
             this.Controls.Add(this.lstProducts);
@@ -634,12 +634,12 @@
             this.Controls.Add(this.txtCity);
             this.Controls.Add(this.cboSeverity);
             this.Controls.Add(this.cboMSO);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtRecordID);
             this.Name = "frmLabEsc";
             this.Text = "frmLabEsc";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.grpRecordType.ResumeLayout(false);
+            this.grpRecordType.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -647,7 +647,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtRecordID;
         private System.Windows.Forms.ComboBox cboMSO;
         private System.Windows.Forms.ComboBox cboSeverity;
         private System.Windows.Forms.TextBox txtCity;
@@ -690,14 +690,14 @@
         private System.Windows.Forms.ListBox lstProducts;
         private System.Windows.Forms.RichTextBox rtxDescription;
         private System.Windows.Forms.RichTextBox rtxComments;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rdoATEsc;
+        private System.Windows.Forms.RadioButton rdoLabReq;
+        private System.Windows.Forms.GroupBox grpRecordType;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox txtCTRNum;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAttachments;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Button btnRemoveAttach;
         private System.Windows.Forms.Button btnAddAttach;
