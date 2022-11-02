@@ -41,7 +41,6 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string ATEStatus { get; set; }
         [ExcelExportProperty]           //added this because missing 10-27-22 LMD        
         public string EndUser { get; set; }
-            //added this for new MSO field 10-27-22 LMD
 
         public ATEscalationsDisplayModel(){}
         public ATEscalationsDisplayModel(ATEscalationsModel model)

@@ -493,6 +493,11 @@ namespace Schedule_Database_Desktop_Version
             DateTimePicker dtp = (DateTimePicker)contextMenuStrip1.SourceControl;
             clearDate(dtp);
         }
+
+        private void FrmATEscalations_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

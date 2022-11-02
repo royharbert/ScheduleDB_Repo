@@ -556,6 +556,7 @@ namespace Schedule_Database_Desktop_Version
             this.Name = "FrmATEscalations";
             this.Text = "AT Escalations";
             this.Activated += new System.EventHandler(this.FrmATEscalations_Activated);
+            this.Load += new System.EventHandler(this.FrmATEscalations_Load);
             this.Shown += new System.EventHandler(this.FrmATEscalations_Shown);
             this.contextMenuStrip1.ResumeLayout(false);
             this.grp_OptionalFields.ResumeLayout(false);
