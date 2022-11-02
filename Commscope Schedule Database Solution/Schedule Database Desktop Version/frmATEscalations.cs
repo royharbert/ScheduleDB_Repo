@@ -322,6 +322,7 @@ namespace Schedule_Database_Desktop_Version
                 model.Quantity = txt_Qty.Text;
                 model.Resolution = txt_Resolution.Text;
                 model.PeopleSoftNumber = txt_PSNumber.Text;
+                model.EndUser = txtEndUser.Text;
                 ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel> dt =
                     new ScheduleDatabaseClassLibrary.TableOps.TableGenerator<ATEscalationsModel>();
                 model.EndUser = txtEndUser.Text;
