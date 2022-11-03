@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtRecordID = new System.Windows.Forms.TextBox();
             this.cboMSO = new System.Windows.Forms.ComboBox();
             this.cboSeverity = new System.Windows.Forms.ComboBox();
@@ -83,8 +84,11 @@
             this.btnRemoveAttach = new System.Windows.Forms.Button();
             this.btnAddAttach = new System.Windows.Forms.Button();
             this.lstResolution = new System.Windows.Forms.ListBox();
+            this.dtpContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.clearDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grpRecordType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
+            this.dtpContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtRecordID
@@ -93,6 +97,7 @@
             this.txtRecordID.Name = "txtRecordID";
             this.txtRecordID.Size = new System.Drawing.Size(396, 20);
             this.txtRecordID.TabIndex = 0;
+            this.txtRecordID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cboMSO
             // 
@@ -280,6 +285,7 @@
             // 
             // dtpStartDate
             // 
+            this.dtpStartDate.ContextMenuStrip = this.dtpContextMenu;
             this.dtpStartDate.Location = new System.Drawing.Point(111, 532);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(273, 20);
@@ -287,6 +293,7 @@
             // 
             // dtpClosedDate
             // 
+            this.dtpClosedDate.ContextMenuStrip = this.dtpContextMenu;
             this.dtpClosedDate.Location = new System.Drawing.Point(111, 590);
             this.dtpClosedDate.Name = "dtpClosedDate";
             this.dtpClosedDate.Size = new System.Drawing.Size(273, 20);
@@ -294,6 +301,7 @@
             // 
             // dtpDueDate
             // 
+            this.dtpDueDate.ContextMenuStrip = this.dtpContextMenu;
             this.dtpDueDate.Location = new System.Drawing.Point(111, 561);
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.Size = new System.Drawing.Size(273, 20);
@@ -577,6 +585,20 @@
             this.lstResolution.Size = new System.Drawing.Size(451, 82);
             this.lstResolution.TabIndex = 59;
             // 
+            // dtpContextMenu
+            // 
+            this.dtpContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearDateToolStripMenuItem});
+            this.dtpContextMenu.Name = "dtpContextMenu";
+            this.dtpContextMenu.Size = new System.Drawing.Size(181, 48);
+            // 
+            // clearDateToolStripMenuItem
+            // 
+            this.clearDateToolStripMenuItem.Name = "clearDateToolStripMenuItem";
+            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearDateToolStripMenuItem.Text = "Clear Date";
+            this.clearDateToolStripMenuItem.Click += new System.EventHandler(this.clearDateToolStripMenuItem_Click);
+            // 
             // frmLabEsc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -640,6 +662,7 @@
             this.grpRecordType.ResumeLayout(false);
             this.grpRecordType.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).EndInit();
+            this.dtpContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -702,5 +725,7 @@
         private System.Windows.Forms.Button btnRemoveAttach;
         private System.Windows.Forms.Button btnAddAttach;
         private System.Windows.Forms.ListBox lstResolution;
+        private System.Windows.Forms.ContextMenuStrip dtpContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem clearDateToolStripMenuItem;
     }
 }

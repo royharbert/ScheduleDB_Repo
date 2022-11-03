@@ -89,6 +89,7 @@
     <Compile Include="GeneralOps\WhereClauseGenerator.cs" />
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="GeneralOps\ListLooper.cs" />
+    <Compile Include="Globals.cs" />
     <Compile Include="Models\ActivityModel.cs" />
     <Compile Include="Models\AssignmentDisplayModel.cs" />
     <Compile Include="Models\AssignmentRetrieveModel.cs" />

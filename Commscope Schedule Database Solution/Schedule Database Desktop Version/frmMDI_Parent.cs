@@ -252,9 +252,9 @@ namespace Schedule_Database_Desktop_Version
         private void addEscalationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.AddEscalation;
-            FrmATEscalations ATEscalationsForm = new FrmATEscalations();
-            ATEscalationsForm.MdiParent = this;
-            ATEscalationsForm.Show();
+            frmLabEsc EscalationsForm = new frmLabEsc();
+            EscalationsForm.MdiParent = this;
+            EscalationsForm.Show();
         }
 
         private void deleteEscalationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -412,6 +412,7 @@ namespace Schedule_Database_Desktop_Version
             frmLabRequest.Show();
             frmLabRequest.MdiParent= this;
         }
+
     }
 }
  

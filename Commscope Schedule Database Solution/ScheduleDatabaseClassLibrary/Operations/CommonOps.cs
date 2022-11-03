@@ -35,5 +35,28 @@ namespace ScheduleDatabaseClassLibrary.Operations
             dgv.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgv.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
+
+        public static DateTime dtpReset(DateTimePicker dtp)
+        {
+            if (dtp.Value <= Globals.nullDate)
+            {
+                dtp.Value = new DateTime(1900, 1, 1);
+                Application.DoEvents();
+                dtp.CustomFormat = " ";
+                dtp.Format = DateTimePickerFormat.Custom;
+            }
+            return dtp.Value;
+        }
+
+        public static DateTime dtpForcedReset(DateTimePicker dtp)
+        {
+            
+            dtp.Value = new DateTime(1900, 1, 1);
+            Application.DoEvents();
+            dtp.CustomFormat = " ";
+            dtp.Format = DateTimePickerFormat.Custom;
+            
+            return dtp.Value;
+        }
     }
 }
