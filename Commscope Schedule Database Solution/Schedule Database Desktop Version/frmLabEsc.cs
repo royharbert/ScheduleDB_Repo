@@ -35,5 +35,23 @@ namespace Schedule_Database_Desktop_Version
                 }                
             }
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmLabEsc_Load(object sender, EventArgs e)
+        {
+            foreach (var ctl in this.Controls)
+            {
+                if (ctl is ComboBox)
+                    //ctl = 
+                {
+                    //string[] tagArray = ctl
+                        CommonOps.loadComboList((ComboBox)ctl); 
+                }
+            }
+        }
     }
 }

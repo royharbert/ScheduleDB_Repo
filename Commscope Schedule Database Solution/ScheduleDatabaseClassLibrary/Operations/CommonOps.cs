@@ -58,5 +58,14 @@ namespace ScheduleDatabaseClassLibrary.Operations
             
             return dtp.Value;
         }
+
+        public static  void loadComboList<T>(ComboBox cbo)
+        {
+            string tagString = cbo.Tag.ToString();
+            string[] tagArray = tagString.Split('|');
+            string tableName = tagArray[0];
+            string displayItem = tagArray[1];
+            List<T> boxList = GlobalConfig.Connection.GenericGetAll<T>(tableName, displayItem);
+        }
     }
 }

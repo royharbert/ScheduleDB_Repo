@@ -52,6 +52,8 @@
             this.cboEntryAdmin = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.clearDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dtpClosedDate = new System.Windows.Forms.DateTimePicker();
             this.dtpDueDate = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
@@ -84,11 +86,9 @@
             this.btnRemoveAttach = new System.Windows.Forms.Button();
             this.btnAddAttach = new System.Windows.Forms.Button();
             this.lstResolution = new System.Windows.Forms.ListBox();
-            this.dtpContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.clearDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dtpContextMenu.SuspendLayout();
             this.grpRecordType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
-            this.dtpContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtRecordID
@@ -97,6 +97,7 @@
             this.txtRecordID.Name = "txtRecordID";
             this.txtRecordID.Size = new System.Drawing.Size(396, 20);
             this.txtRecordID.TabIndex = 0;
+            this.txtRecordID.Tag = "EscID";
             this.txtRecordID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cboMSO
@@ -106,6 +107,7 @@
             this.cboMSO.Name = "cboMSO";
             this.cboMSO.Size = new System.Drawing.Size(273, 21);
             this.cboMSO.TabIndex = 2;
+            this.cboMSO.Tag = "MSO|MSO|MSOModel";
             // 
             // cboSeverity
             // 
@@ -114,6 +116,7 @@
             this.cboSeverity.Name = "cboSeverity";
             this.cboSeverity.Size = new System.Drawing.Size(273, 21);
             this.cboSeverity.TabIndex = 3;
+            this.cboSeverity.Tag = "Severity";
             // 
             // txtCity
             // 
@@ -121,6 +124,7 @@
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(273, 20);
             this.txtCity.TabIndex = 5;
+            this.txtCity.Tag = "City|City";
             // 
             // txtEndUser
             // 
@@ -128,6 +132,7 @@
             this.txtEndUser.Name = "txtEndUser";
             this.txtEndUser.Size = new System.Drawing.Size(273, 20);
             this.txtEndUser.TabIndex = 6;
+            this.txtEndUser.Tag = "EndUser|EndUser";
             // 
             // label1
             // 
@@ -203,6 +208,7 @@
             this.txtEscNum.Name = "txtEscNum";
             this.txtEscNum.Size = new System.Drawing.Size(273, 20);
             this.txtEscNum.TabIndex = 14;
+            this.txtEscNum.Tag = "EscNum";
             // 
             // txtPSNum
             // 
@@ -210,6 +216,7 @@
             this.txtPSNum.Name = "txtPSNum";
             this.txtPSNum.Size = new System.Drawing.Size(273, 20);
             this.txtPSNum.TabIndex = 15;
+            this.txtPSNum.Tag = "PSNumber";
             // 
             // label8
             // 
@@ -238,6 +245,7 @@
             this.cboCountry.Name = "cboCountry";
             this.cboCountry.Size = new System.Drawing.Size(273, 21);
             this.cboCountry.TabIndex = 18;
+            this.cboCountry.Tag = "Country|Country";
             // 
             // cboState
             // 
@@ -246,6 +254,7 @@
             this.cboState.Name = "cboState";
             this.cboState.Size = new System.Drawing.Size(273, 21);
             this.cboState.TabIndex = 19;
+            this.cboState.Tag = "StateStated";
             // 
             // cboRequestor
             // 
@@ -254,6 +263,7 @@
             this.cboRequestor.Name = "cboRequestor";
             this.cboRequestor.Size = new System.Drawing.Size(273, 21);
             this.cboRequestor.TabIndex = 20;
+            this.cboRequestor.Tag = "Requestor";
             // 
             // label10
             // 
@@ -272,6 +282,7 @@
             this.cboEntryAdmin.Name = "cboEntryAdmin";
             this.cboEntryAdmin.Size = new System.Drawing.Size(273, 21);
             this.cboEntryAdmin.TabIndex = 23;
+            this.cboEntryAdmin.Tag = "EntryAdmin";
             // 
             // label11
             // 
@@ -290,6 +301,21 @@
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(273, 20);
             this.dtpStartDate.TabIndex = 25;
+            this.dtpStartDate.Tag = "DateOpened";
+            // 
+            // dtpContextMenu
+            // 
+            this.dtpContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearDateToolStripMenuItem});
+            this.dtpContextMenu.Name = "dtpContextMenu";
+            this.dtpContextMenu.Size = new System.Drawing.Size(129, 26);
+            // 
+            // clearDateToolStripMenuItem
+            // 
+            this.clearDateToolStripMenuItem.Name = "clearDateToolStripMenuItem";
+            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.clearDateToolStripMenuItem.Text = "Clear Date";
+            this.clearDateToolStripMenuItem.Click += new System.EventHandler(this.clearDateToolStripMenuItem_Click);
             // 
             // dtpClosedDate
             // 
@@ -298,6 +324,7 @@
             this.dtpClosedDate.Name = "dtpClosedDate";
             this.dtpClosedDate.Size = new System.Drawing.Size(273, 20);
             this.dtpClosedDate.TabIndex = 26;
+            this.dtpClosedDate.Tag = "DateCompleted";
             // 
             // dtpDueDate
             // 
@@ -306,6 +333,7 @@
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.Size = new System.Drawing.Size(273, 20);
             this.dtpDueDate.TabIndex = 27;
+            this.dtpDueDate.Tag = "DueDate";
             // 
             // label12
             // 
@@ -343,6 +371,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(273, 20);
             this.txtEmail.TabIndex = 31;
+            this.txtEmail.Tag = "EMail";
             // 
             // label15
             // 
@@ -431,6 +460,7 @@
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(273, 21);
             this.cboStatus.TabIndex = 41;
+            this.cboStatus.Tag = "Status";
             // 
             // cboLead
             // 
@@ -439,6 +469,7 @@
             this.cboLead.Name = "cboLead";
             this.cboLead.Size = new System.Drawing.Size(273, 21);
             this.cboLead.TabIndex = 42;
+            this.cboLead.Tag = "LeadAssigned";
             // 
             // txtQty
             // 
@@ -446,6 +477,7 @@
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(273, 20);
             this.txtQty.TabIndex = 43;
+            this.txtQty.Tag = "Quantity";
             // 
             // lstProducts
             // 
@@ -454,6 +486,7 @@
             this.lstProducts.Name = "lstProducts";
             this.lstProducts.Size = new System.Drawing.Size(457, 147);
             this.lstProducts.TabIndex = 44;
+            this.lstProducts.Tag = "Product";
             // 
             // rtxDescription
             // 
@@ -461,6 +494,7 @@
             this.rtxDescription.Name = "rtxDescription";
             this.rtxDescription.Size = new System.Drawing.Size(451, 199);
             this.rtxDescription.TabIndex = 45;
+            this.rtxDescription.Tag = "Description";
             this.rtxDescription.Text = "";
             // 
             // rtxComments
@@ -469,6 +503,7 @@
             this.rtxComments.Name = "rtxComments";
             this.rtxComments.Size = new System.Drawing.Size(451, 192);
             this.rtxComments.TabIndex = 46;
+            this.rtxComments.Tag = "Comments";
             this.rtxComments.Text = "";
             // 
             // rdoATEsc
@@ -520,6 +555,7 @@
             this.txtCTRNum.Name = "txtCTRNum";
             this.txtCTRNum.Size = new System.Drawing.Size(273, 20);
             this.txtCTRNum.TabIndex = 51;
+            this.txtCTRNum.Tag = "CTRNum";
             // 
             // btnSave
             // 
@@ -540,6 +576,7 @@
             this.btnClose.TabIndex = 54;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // dgvAttachments
             // 
@@ -584,20 +621,7 @@
             this.lstResolution.Name = "lstResolution";
             this.lstResolution.Size = new System.Drawing.Size(451, 82);
             this.lstResolution.TabIndex = 59;
-            // 
-            // dtpContextMenu
-            // 
-            this.dtpContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clearDateToolStripMenuItem});
-            this.dtpContextMenu.Name = "dtpContextMenu";
-            this.dtpContextMenu.Size = new System.Drawing.Size(181, 48);
-            // 
-            // clearDateToolStripMenuItem
-            // 
-            this.clearDateToolStripMenuItem.Name = "clearDateToolStripMenuItem";
-            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.clearDateToolStripMenuItem.Text = "Clear Date";
-            this.clearDateToolStripMenuItem.Click += new System.EventHandler(this.clearDateToolStripMenuItem_Click);
+            this.lstResolution.Tag = "Resolution";
             // 
             // frmLabEsc
             // 
@@ -658,11 +682,12 @@
             this.Controls.Add(this.cboMSO);
             this.Controls.Add(this.txtRecordID);
             this.Name = "frmLabEsc";
-            this.Text = "frmLabEsc";
+            this.Text = "Lab Request/Escalation";
+            this.Load += new System.EventHandler(this.frmLabEsc_Load);
+            this.dtpContextMenu.ResumeLayout(false);
             this.grpRecordType.ResumeLayout(false);
             this.grpRecordType.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).EndInit();
-            this.dtpContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
