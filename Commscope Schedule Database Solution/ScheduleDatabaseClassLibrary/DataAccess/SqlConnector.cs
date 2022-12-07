@@ -47,6 +47,41 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                     commandType: CommandType.StoredProcedure);
             }
         }
+        public void LabEsc_CRUD(LabEscModel model, char action)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Action", action, DbType.String);
+                p.Add("ID", model.ID, DbType.Int32);
+                p.Add("@EscID", model.EscID, DbType.String);
+                p.Add("@MSO", model.MSO, DbType.String);
+                p.Add("@EndUser", model.EndUser, DbType.String);
+                p.Add("@City", model.City, DbType.String);
+                p.Add("@State", model.State, DbType.String);
+                p.Add("@Country", model.Country, DbType.String);
+                p.Add("@Severity", model.Severity, DbType.String);
+                p.Add("@Requestor", model.Requestor, DbType.String);
+                p.Add("@CTRNum", model.CTRNum, DbType.String);
+                p.Add("@IsEsc", model.IsEsc, DbType.Boolean);
+                p.Add("@EntryAdmin", model.EntryAdmin, DbType.String);
+                p.Add("@DateOpened", model.DateOpened, DbType.DateTime2);
+                p.Add("@DateDue", model.DateDue, DbType.DateTime2);
+                p.Add("@DateCompleted", model.DateCompleted, DbType.DateTime2);
+                p.Add("@EMail", model.EMail, DbType.String);
+                p.Add("@Product", model.Product, DbType.String);
+                p.Add("@LeadAssigned", model.LeadAssigned, DbType.String);
+                p.Add("@Quantity", model.Quantity, DbType.Int64);
+                p.Add("@Status", model.Status, DbType.String);
+                p.Add("@Comments", model.Comments, DbType.String);
+                p.Add("@Description", model.Description, DbType.String);
+                p.Add("@Resolution", model.Resolution, DbType.String);
+                p.Add("@PSNumber", model.PSNumber, DbType.String);
+
+                connection.Execute("dbo.spLabEsc_CRUD", p, commandType: CommandType.StoredProcedure);
+
+            }
+        }
         public List<AssignmentTableModel> fieldSearch(string whereClause)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
