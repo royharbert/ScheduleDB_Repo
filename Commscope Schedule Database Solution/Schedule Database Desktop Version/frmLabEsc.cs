@@ -17,6 +17,7 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmLabEsc : Form
     {
+        bool isEscalation = false;
         public frmLabEsc()
         {
             InitializeComponent();
@@ -46,8 +47,27 @@ namespace Schedule_Database_Desktop_Version
             this.Close();
         }
 
-        private void frmLabEsc_Load(object sender, EventArgs e)
+        private void frmLabEsc_Load(object sender, EventArgs e)            
         {
+            // determine type
+            RadioButton[] buttons = { rdoATEsc, rdoLabReq };
+            for (int i = 0; i < buttons.Length - 1; i++)
+            {
+                if (true)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            isEscalation = true;
+                            break;
+                        case 1:
+                            isEscalation = false;
+                            break;
+                    
+                    }
+                }
+            }
+
             //load combo lists
             List<MSO_Model> models = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO", "MSO");
             populateCBOList<MSO_Model>(cboMSO, models, "MSO");
