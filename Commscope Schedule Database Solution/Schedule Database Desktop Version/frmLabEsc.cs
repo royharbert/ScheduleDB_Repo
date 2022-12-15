@@ -48,49 +48,39 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmLabEsc_Load(object sender, EventArgs e)
         {
-            //create tagObject for combos
-            foreach (var ctl in this.Controls)
-            {
-                if (ctl is ComboBox)
-                {
-                    ComboBox cbo = (ComboBox)ctl;
-                    switch (cbo.Name)
-                    {
-                        case "cboMSO":
-                            CtlTag tag = new CtlTag();
-                            tag.TableColumn = "MSO";
-                            tag.ObjModel = "MSOModel";
-                            tag.InitialLock = false;
-                            cbo.Tag= tag;
+            //load combo lists
+            List<MSO_Model> models = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO", "MSO");
+            populateCBOList<MSO_Model>(cboMSO, models, "MSO");
 
-                            //CommonOps.loadComboList(cbo)
-                            CtlTag cTag = (CtlTag)cbo.Tag;
+            List<CityModel> cities = GlobalConfig.Connection.GenericGetAll<CityModel>("tblCities", "City");
+            populateCBOList<CityModel>(cboCity, cities, "City");
 
-                            T  = CreateInstance<>(); 
-                            List<MSO_Model> list = new List<MSO_Model>();
-                            list = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO", "MSO");
+            List<StateModel> states = GlobalConfig.Connection.GenericGetAll<StateModel>("tblStates", "State");
+            populateCBOList<StateModel>(cboState, states, "State");
 
+            List<CountriesModel> countries = GlobalConfig.Connection.GenericGetAll<CountriesModel>("tblCountries", "Country");
+            populateCBOList<CountriesModel>(cboCountry, countries, "Country");
 
-                            break;
-                    }
+            List<PriorityModel> priorities = GlobalConfig.Connection.GenericGetAll<PriorityModel>("tblPriorities", "Priority");
+            populateCBOList<PriorityModel>(cboSeverity, priorities, "Priority");
 
-                    CommonOps.loadComboList<CtlTag>((ComboBox)ctl);
-                }
-            }
+            List<RequestorModel> salesPersons = GlobalConfig.Connection.GenericGetAll<RequestorModel>("tblSalespersons", "SalesPerson");
+            populateCBOList<RequestorModel>(cboRequestor, salesPersons, "Salesperson");
 
-            //CtlTag tag = new CtlTag();
-            //tag.TableColumn = "MSO";
-            //tag.ObjModel = "MSOModel";
-            //tag.InitialLock = false;
-            //cboMSO.Tag= tag;
+            List<AdminModel> admins = GlobalConfig.Connection.GenericGetAll<AdminModel>("tblAdmins", "FullName");
+            populateCBOList<AdminModel>(cboEntryAdmin, admins, "FullName");
 
-
+            List<FE_Model> FEs = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE", "Last" +
+                "Name");
+            populateCBOList<FE_Model>(cboEntryAdmin, FEs, "FullName");
         }
 
-        private T CreateInstance<T>() where T: new()
+        private void populateCBOList<T>(ComboBox cbo, List<T> models, string displayMember)
         {
-            return new T();
+            cbo.DataSource = models;
+            cbo.DisplayMember = displayMember;
+            cbo.SelectedIndex = -1;
         }
-
+       
     }
 }

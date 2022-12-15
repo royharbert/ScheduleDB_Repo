@@ -32,7 +32,6 @@
             this.txtRecordID = new System.Windows.Forms.TextBox();
             this.cboMSO = new System.Windows.Forms.ComboBox();
             this.cboSeverity = new System.Windows.Forms.ComboBox();
-            this.txtCity = new System.Windows.Forms.TextBox();
             this.txtEndUser = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -86,6 +85,7 @@
             this.btnRemoveAttach = new System.Windows.Forms.Button();
             this.btnAddAttach = new System.Windows.Forms.Button();
             this.lstResolution = new System.Windows.Forms.ListBox();
+            this.cboCity = new System.Windows.Forms.ComboBox();
             this.dtpContextMenu.SuspendLayout();
             this.grpRecordType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
@@ -117,14 +117,6 @@
             this.cboSeverity.Size = new System.Drawing.Size(273, 21);
             this.cboSeverity.TabIndex = 3;
             this.cboSeverity.Tag = "Severity";
-            // 
-            // txtCity
-            // 
-            this.txtCity.Location = new System.Drawing.Point(111, 148);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(273, 20);
-            this.txtCity.TabIndex = 5;
-            this.txtCity.Tag = "City|City";
             // 
             // txtEndUser
             // 
@@ -623,11 +615,20 @@
             this.lstResolution.TabIndex = 59;
             this.lstResolution.Tag = "Resolution";
             // 
+            // cboCity
+            // 
+            this.cboCity.FormattingEnabled = true;
+            this.cboCity.Location = new System.Drawing.Point(112, 147);
+            this.cboCity.Name = "cboCity";
+            this.cboCity.Size = new System.Drawing.Size(271, 21);
+            this.cboCity.TabIndex = 60;
+            // 
             // frmLabEsc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1403, 665);
+            this.Controls.Add(this.cboCity);
             this.Controls.Add(this.lstResolution);
             this.Controls.Add(this.btnRemoveAttach);
             this.Controls.Add(this.btnAddAttach);
@@ -677,12 +678,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtEndUser);
-            this.Controls.Add(this.txtCity);
             this.Controls.Add(this.cboSeverity);
             this.Controls.Add(this.cboMSO);
             this.Controls.Add(this.txtRecordID);
             this.Name = "frmLabEsc";
-            this.Text = "Lab Request/Escalation";
+            this.Text = "\"MSO\"";
             this.Load += new System.EventHandler(this.frmLabEsc_Load);
             this.dtpContextMenu.ResumeLayout(false);
             this.grpRecordType.ResumeLayout(false);
@@ -698,7 +698,6 @@
         private System.Windows.Forms.TextBox txtRecordID;
         private System.Windows.Forms.ComboBox cboMSO;
         private System.Windows.Forms.ComboBox cboSeverity;
-        private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtEndUser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -752,5 +751,6 @@
         private System.Windows.Forms.ListBox lstResolution;
         private System.Windows.Forms.ContextMenuStrip dtpContextMenu;
         private System.Windows.Forms.ToolStripMenuItem clearDateToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cboCity;
     }
 }
