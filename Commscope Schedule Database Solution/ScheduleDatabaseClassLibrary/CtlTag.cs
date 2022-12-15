@@ -10,6 +10,6 @@ namespace ScheduleDatabaseClassLibrary
     {
         public bool InitialLock { get; set; }
         public string TableColumn { get; set; }
-        public string ObjModel { get; set; }
+        public object ObjModel { get; set; }
     }
 }

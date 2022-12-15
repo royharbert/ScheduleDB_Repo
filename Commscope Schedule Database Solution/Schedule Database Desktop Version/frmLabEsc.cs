@@ -6,7 +6,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;using ScheduleDatabaseClassLibrary.Operations;
+using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
+using ScheduleDatabaseClassLibrary;
+using ScheduleDatabaseClassLibrary.GeneralOps;
+using ScheduleDatabaseClassLibrary.Models;
+using ScheduleDatabaseClassLibrary.Operations;
 
 namespace Schedule_Database_Desktop_Version
 {
@@ -43,15 +48,49 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmLabEsc_Load(object sender, EventArgs e)
         {
+            //create tagObject for combos
             foreach (var ctl in this.Controls)
             {
                 if (ctl is ComboBox)
-                    //ctl = 
                 {
-                    //string[] tagArray = ctl
-                        CommonOps.loadComboList((ComboBox)ctl); 
+                    ComboBox cbo = (ComboBox)ctl;
+                    switch (cbo.Name)
+                    {
+                        case "cboMSO":
+                            CtlTag tag = new CtlTag();
+                            tag.TableColumn = "MSO";
+                            tag.ObjModel = "MSOModel";
+                            tag.InitialLock = false;
+                            cbo.Tag= tag;
+
+                            //CommonOps.loadComboList(cbo)
+                            CtlTag cTag = (CtlTag)cbo.Tag;
+
+                            T  = CreateInstance<>(); 
+                            List<MSO_Model> list = new List<MSO_Model>();
+                            list = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO", "MSO");
+
+
+                            break;
+                    }
+
+                    CommonOps.loadComboList<CtlTag>((ComboBox)ctl);
                 }
             }
+
+            //CtlTag tag = new CtlTag();
+            //tag.TableColumn = "MSO";
+            //tag.ObjModel = "MSOModel";
+            //tag.InitialLock = false;
+            //cboMSO.Tag= tag;
+
+
         }
+
+        private T CreateInstance<T>() where T: new()
+        {
+            return new T();
+        }
+
     }
 }
