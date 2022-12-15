@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< HEAD
 using Microsoft.Office.Interop.Excel;
+=======
+>>>>>>> a1229901c4d8384a06f0b063bf39e0ae3e93538a
 using ScheduleDatabaseClassLibrary;
 using ScheduleDatabaseClassLibrary.GeneralOps;
 using ScheduleDatabaseClassLibrary.Models;
@@ -21,6 +24,21 @@ namespace Schedule_Database_Desktop_Version
         public frmLabEsc()
         {
             InitializeComponent();
+            fillComboBoxes();
+
+            switch (GV.MODE)
+            {
+                case Mode.LabEscAdd:
+                    break;
+                case Mode.LabEscEdit:
+                    break;
+                case Mode.LabEscDelete:
+                    break;
+                case Mode.LabEscSearch:
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void clearDateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,12 +59,134 @@ namespace Schedule_Database_Desktop_Version
                 }                
             }
         }
+<<<<<<< HEAD
+=======
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            LabEscModel model = loadModel();
+            switch (switch_on)
+            {
+                default:
+            }
+
+        }
+
+        private void fillComboBoxes()
+        {
+            List<MSO_Model> MSOs = GlobalConfig.Connection.GenericConditionalGetAll<MSO_Model>("tblMSO", "Active", "1", "MSO");
+            cboMSO.DataSource = MSOs;
+            cboMSO.DisplayMember = "MSO";
+            cboMSO.SelectedIndex = -1;
+
+            //List<FE_Model> Leads = GlobalConfig.Connection.GenericConditionalGetAll<FE_Model>("tblFE", "Active", "", "");
+            //cboLead.DataSource = Leads;
+            //cboLead.DisplayMember = "FullName";
+            //cboLead.SelectedIndex = -1;
+
+
+
+            cboSeverity.Items.Add("High");
+            cboSeverity.Items.Add("Standard");
+            cboSeverity.Items.Add("Low");
+
+            cboStatus.Items.Add("Open");
+            cboStatus.Items.Add("Closed");
+
+
+
+        }
+        private LabEscModel loadModel()
+        {
+            LabEscModel model = new LabEscModel();
+            //int id = 0;
+            //int.TryParse(txtRecordID.Text, out id);
+            //model.ID = id;
+            model.EscID = txtRecordID.Text;
+            model.MSO = cboMSO.Text;
+            model.EndUser = txtEndUser.Text;
+            model.City = txtCity.Text;
+            model.State = cboState.Text;
+            model.Country = cboCountry.Text;
+            model.Severity = cboSeverity.Text;
+            model.Requestor = cboRequestor.Text;
+            model.CTRNum = txtCTRNum.Text;
+            model.EscNum = txtEscNum.Text;
+            //model.IsEsc = rdoATEsc.Checked;
+            //model.IsEsc = rdoLabReq.Checked;
+            model.EntryAdmin = cboEntryAdmin.Text;
+            model.DateOpened = dtpStartDate.Value;
+            model.DateDue = dtpDueDate.Value;
+            model.DateCompleted = dtpClosedDate.Value;
+            model.EMail = txtEmail.Text;
+            model.LeadAssigned = cboLead.Text;
+            model.Status = cboStatus.Text;
+            model.Comments = rtxComments.Text;
+            model.Description = rtxDescription.Text;
+
+        }
+        private void loadboxes(LabEscModel model)
+        {
+            txtRecordID.Text = model.EscID;
+            cboMSO.Text = model.MSO;
+            txtEndUser.Text = model.EndUser;
+            txtCity.Text = model.City;
+            cboState.Text = model.State;
+            cboCountry.Text = model.Country;
+            cboSeverity.Text = model.Severity;
+            cboRequestor.Text = model.Requestor;
+            txtCTRNum.Text = model.CTRNum;
+            txtEscNum.Text = model.EscNum;
+            //rdoATEsc.Checked = model.IsEsc;
+            //rdoLabReq.Checked = model.IsEsc;
+            cboEntryAdmin.Text = model.EntryAdmin;
+            dtpStartDate.Value = model.DateOpened;
+            dtpDueDate.Value = model.DateDue;
+            dtpClosedDate.Value = model.DateCompleted;
+            txtEmail.Text = model.EMail;
+            //product
+            //if (model.product != null)
+            //{
+            //    FormControlOps.markListBoxes(lstProducts, model.Product)
+            //}
+            cboLead.Text = model.LeadAssigned;
+           // txtQty.Text = model.Quantity; (int)
+            cboStatus.Text = model.Status;
+            rtxComments.Text = model.Comments;
+            rtxDescription.Text = model.Description;
+            //
+            txtPSNum.Text = model.PSNumber;
+            //displayAttachments();
+
+        }
+        private void makeProductList()
+        {
+
+        }
+        private void frmLabEsc_Load(object sender, EventArgs e)
+        {
+
+        }
+        private string serializeProducts(List<ProductModel> products)
+        {
+            string xmlString;
+            List<string> ProductList = new List<string>();
+            foreach (var product in lstProducts.SelectedItems)
+            {
+                ProductModel prod = product as ProductModel;
+                ProductList.Add(prod.Product);
+            }
+            xmlString = Serialization.SerializeToXml<List<string>>(ProductList);
+            //assignment.ProductListXML = xmlString;
+            return xmlString;
+        }
+>>>>>>> a1229901c4d8384a06f0b063bf39e0ae3e93538a
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+<<<<<<< HEAD
         private void frmLabEsc_Load(object sender, EventArgs e)            
         {
             // determine type
@@ -102,5 +242,7 @@ namespace Schedule_Database_Desktop_Version
             cbo.SelectedIndex = -1;
         }
        
+=======
+>>>>>>> a1229901c4d8384a06f0b063bf39e0ae3e93538a
     }
 }
