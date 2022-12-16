@@ -41,6 +41,11 @@ namespace Schedule_Database_Desktop_Version
         AssignmentSearchByMSO,
         AssignmentSearchDateRange,
         SearchFieldRequest,
-        None,
+        LabEscAdd,
+        LabEscEdit,
+        LabEscDelete,
+        LabEscSearch,
+        LabEscDateRange,
+        None
     }
 }
