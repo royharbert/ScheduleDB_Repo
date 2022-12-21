@@ -78,7 +78,7 @@ namespace Schedule_Database_Desktop_Version
             fillComboList<CountriesModel>(cboCountry, "tblCountries", "Country");
 
             fillComboList<PriorityModel>(cboSeverity, "tblPriorities", "Priority");
-            fillComboList<RequestorModel>(cboRequestor, "tblSalespersons", "SalesPerson");DownBars fixed
+            fillComboList<RequestorModel>(cboRequestor, "tblSalespersons", "SalesPerson");
             fillComboList<StatusModel>(cboStatus, "tblStatus", "Status");
             fillComboList<FE_Model>(cboLead, "tblFE", "LastName");
         }
