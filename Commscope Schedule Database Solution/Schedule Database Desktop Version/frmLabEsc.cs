@@ -53,17 +53,21 @@ namespace Schedule_Database_Desktop_Version
                     DateTime newDate = CommonOps.dtpForcedReset(sourceControl as DateTimePicker);
                     DateTimePicker dtp = (DateTimePicker)sourceControl;
                     dtp.Value = newDate;
-                }
+                }                
             }
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //LabEscModel model = loadModel();
-            //switch (switch_on)
-            //{
-            //    default:
-            //}
+            LabEscModel model = loadModel();
+            switch (switch_on)
+            {
+                default:
+            }
+        }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void fillComboBoxes()
@@ -99,7 +103,7 @@ namespace Schedule_Database_Desktop_Version
             model.EscID = txtRecordID.Text;
             model.MSO = cboMSO.Text;
             model.EndUser = txtEndUser.Text;
-            model.City = cboCity.Text;
+            model.City = txtCity.Text;
             model.State = cboState.Text;
             model.Country = cboCountry.Text;
             model.Severity = cboSeverity.Text;
@@ -118,15 +122,13 @@ namespace Schedule_Database_Desktop_Version
             model.Comments = rtxComments.Text;
             model.Description = rtxDescription.Text;
 
-            return model;
-
         }
         private void loadboxes(LabEscModel model)
         {
             txtRecordID.Text = model.EscID;
             cboMSO.Text = model.MSO;
             txtEndUser.Text = model.EndUser;
-            cboCity.Text = model.City;
+            txtCity.Text = model.City;
             cboState.Text = model.State;
             cboCountry.Text = model.Country;
             cboSeverity.Text = model.Severity;
@@ -146,7 +148,7 @@ namespace Schedule_Database_Desktop_Version
             //    FormControlOps.markListBoxes(lstProducts, model.Product)
             //}
             cboLead.Text = model.LeadAssigned;
-            // txtQty.Text = model.Quantity; (int)
+           // txtQty.Text = model.Quantity; (int)
             cboStatus.Text = model.Status;
             rtxComments.Text = model.Comments;
             rtxDescription.Text = model.Description;
@@ -156,6 +158,10 @@ namespace Schedule_Database_Desktop_Version
 
         }
         private void makeProductList()
+        {
+
+        }
+        private void frmLabEsc_Load(object sender, EventArgs e)
         {
 
         }
@@ -178,7 +184,8 @@ namespace Schedule_Database_Desktop_Version
             this.Close();
         }
 
-        private void frmLabEsc_Load(object sender, EventArgs e)
+
+        private void frmLabEsc_Load(object sender, EventArgs e)            
         {
             // determine type
             RadioButton[] buttons = { rdoATEsc, rdoLabReq };
@@ -194,7 +201,7 @@ namespace Schedule_Database_Desktop_Version
                         case 1:
                             isEscalation = false;
                             break;
-
+                    
                     }
                 }
             }
@@ -232,6 +239,6 @@ namespace Schedule_Database_Desktop_Version
             cbo.DisplayMember = displayMember;
             cbo.SelectedIndex = -1;
         }
-    }  
-
+       
+    }
 }
