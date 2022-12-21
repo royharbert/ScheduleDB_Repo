@@ -58,11 +58,11 @@ namespace Schedule_Database_Desktop_Version
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            LabEscModel model = loadModel();
-            switch (switch_on)
-            {
-                default:
-            }
+            //LabEscModel model = loadModel();
+            //switch (switch_on)
+            //{
+            //    default:
+            //}
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -72,27 +72,30 @@ namespace Schedule_Database_Desktop_Version
 
         private void fillComboBoxes()
         {
-            List<MSO_Model> MSOs = GlobalConfig.Connection.GenericConditionalGetAll<MSO_Model>("tblMSO", "Active", "1", "MSO");
-            cboMSO.DataSource = MSOs;
-            cboMSO.DisplayMember = "MSO";
-            cboMSO.SelectedIndex = -1;
+            fillComboList<MSO_Model>(cboMSO, "tblMSO", "MSO");
+            fillComboList<CityModel>(cboCity, "tblCities", "City");
+            fillComboList<StateModel>(cboState, "tblStates", "State");
+            fillComboList<CountriesModel>(cboCountry, "tblCountries", "Country");
 
-            //List<FE_Model> Leads = GlobalConfig.Connection.GenericConditionalGetAll<FE_Model>("tblFE", "Active", "", "");
-            //cboLead.DataSource = Leads;
-            //cboLead.DisplayMember = "FullName";
-            //cboLead.SelectedIndex = -1;
+            fillComboList<PriorityModel>(cboSeverity, "tblPriorities", "Priority");
+            fillComboList<RequestorModel>(cboRequestor, "tblSalespersons", "SalesPerson");DownBars fixed
+            fillComboList<StatusModel>(cboStatus, "tblStatus", "Status");
+            fillComboList<FE_Model>(cboLead, "tblFE", "LastName");
+        }
 
-
-
-            cboSeverity.Items.Add("High");
-            cboSeverity.Items.Add("Standard");
-            cboSeverity.Items.Add("Low");
-
-            cboStatus.Items.Add("Open");
-            cboStatus.Items.Add("Closed");
-
-
-
+        private void fillComboList<T>(ComboBox cbo, string table, string displayField)
+        {
+            List<T> data = GlobalConfig.Connection.GenericGetAll<T>(table, displayField);
+            cbo.DataSource = data;
+            if (displayField != "LastName")
+            {
+                cbo.DisplayMember = displayField; 
+            }
+            else
+            {
+                cbo.DisplayMember = "FullName";
+            }
+            cbo.SelectedIndex = -1;
         }
         private LabEscModel loadModel()
         {
@@ -103,7 +106,7 @@ namespace Schedule_Database_Desktop_Version
             model.EscID = txtRecordID.Text;
             model.MSO = cboMSO.Text;
             model.EndUser = txtEndUser.Text;
-            model.City = txtCity.Text;
+            model.City = cboCity.Text;
             model.State = cboState.Text;
             model.Country = cboCountry.Text;
             model.Severity = cboSeverity.Text;
@@ -122,13 +125,15 @@ namespace Schedule_Database_Desktop_Version
             model.Comments = rtxComments.Text;
             model.Description = rtxDescription.Text;
 
+            return model;
+
         }
         private void loadboxes(LabEscModel model)
         {
             txtRecordID.Text = model.EscID;
             cboMSO.Text = model.MSO;
             txtEndUser.Text = model.EndUser;
-            txtCity.Text = model.City;
+            cboCity.Text = model.City;
             cboState.Text = model.State;
             cboCountry.Text = model.Country;
             cboSeverity.Text = model.Severity;
@@ -178,60 +183,53 @@ namespace Schedule_Database_Desktop_Version
             //assignment.ProductListXML = xmlString;
             return xmlString;
         }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
-        private void frmLabEsc_Load(object sender, EventArgs e)            
-        {
-            // determine type
-            RadioButton[] buttons = { rdoATEsc, rdoLabReq };
-            for (int i = 0; i < buttons.Length - 1; i++)
-            {
-                if (true)
-                {
-                    switch (i)
-                    {
-                        case 0:
-                            isEscalation = true;
-                            break;
-                        case 1:
-                            isEscalation = false;
-                            break;
+        //private void frmLabEsc_Load(object sender, EventArgs e)            
+        //{
+        //    // determine type
+        //    RadioButton[] buttons = { rdoATEsc, rdoLabReq };
+        //    for (int i = 0; i < buttons.Length - 1; i++)
+        //    {
+        //        if (true)
+        //        {
+        //            switch (i)
+        //            {
+        //                case 0:
+        //                    isEscalation = true;
+        //                    break;
+        //                case 1:
+        //                    isEscalation = false;
+        //                    break;
                     
-                    }
-                }
-            }
+        //            }
+        //        }
+        //    }
 
-            //load combo lists
-            List<MSO_Model> models = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO", "MSO");
-            populateCBOList<MSO_Model>(cboMSO, models, "MSO");
+        //    //load combo lists
+        //    List<MSO_Model> models = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO", "MSO");
+        //    populateCBOList<MSO_Model>(cboMSO, models, "MSO");
 
-            List<CityModel> cities = GlobalConfig.Connection.GenericGetAll<CityModel>("tblCities", "City");
-            populateCBOList<CityModel>(cboCity, cities, "City");
+        //    List<CityModel> cities = GlobalConfig.Connection.GenericGetAll<CityModel>("tblCities", "City");
+        //    populateCBOList<CityModel>(cboCity, cities, "City");
 
-            List<StateModel> states = GlobalConfig.Connection.GenericGetAll<StateModel>("tblStates", "State");
-            populateCBOList<StateModel>(cboState, states, "State");
+        //    List<StateModel> states = GlobalConfig.Connection.GenericGetAll<StateModel>("tblStates", "State");
+        //    populateCBOList<StateModel>(cboState, states, "State");
 
-            List<CountriesModel> countries = GlobalConfig.Connection.GenericGetAll<CountriesModel>("tblCountries", "Country");
-            populateCBOList<CountriesModel>(cboCountry, countries, "Country");
+        //    List<CountriesModel> countries = GlobalConfig.Connection.GenericGetAll<CountriesModel>("tblCountries", "Country");
+        //    populateCBOList<CountriesModel>(cboCountry, countries, "Country");
 
-            List<PriorityModel> priorities = GlobalConfig.Connection.GenericGetAll<PriorityModel>("tblPriorities", "Priority");
-            populateCBOList<PriorityModel>(cboSeverity, priorities, "Priority");
+        //    List<PriorityModel> priorities = GlobalConfig.Connection.GenericGetAll<PriorityModel>("tblPriorities", "Priority");
+        //    populateCBOList<PriorityModel>(cboSeverity, priorities, "Priority");
 
-            List<RequestorModel> salesPersons = GlobalConfig.Connection.GenericGetAll<RequestorModel>("tblSalespersons", "SalesPerson");
-            populateCBOList<RequestorModel>(cboRequestor, salesPersons, "Salesperson");
+        //    List<RequestorModel> salesPersons = GlobalConfig.Connection.GenericGetAll<RequestorModel>("tblSalespersons", "SalesPerson");
+        //    populateCBOList<RequestorModel>(cboRequestor, salesPersons, "Salesperson");
 
-            List<AdminModel> admins = GlobalConfig.Connection.GenericGetAll<AdminModel>("tblAdmins", "FullName");
-            populateCBOList<AdminModel>(cboEntryAdmin, admins, "FullName");
+        //    List<AdminModel> admins = GlobalConfig.Connection.GenericGetAll<AdminModel>("tblAdmins", "FullName");
+        //    populateCBOList<AdminModel>(cboEntryAdmin, admins, "FullName");
 
-            List<FE_Model> FEs = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE", "Last" +
-                "Name");
-            populateCBOList<FE_Model>(cboEntryAdmin, FEs, "FullName");
-        }
+        //    List<FE_Model> FEs = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE", "Last" +
+        //        "Name");
+        //    populateCBOList<FE_Model>(cboEntryAdmin, FEs, "FullName");
+        //}
 
         private void populateCBOList<T>(ComboBox cbo, List<T> models, string displayMember)
         {

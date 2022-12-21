@@ -121,6 +121,7 @@
     <Compile Include="Models\SearchTermModel.cs" />
     <Compile Include="Models\SequenceModel.cs" />
     <Compile Include="Models\StateModel.cs" />
+    <Compile Include="Models\StatusModel.cs" />
     <Compile Include="Models\UpdaterModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="GeneralOps\PID_Generator.cs" />

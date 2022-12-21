@@ -84,10 +84,8 @@
             this.label24 = new System.Windows.Forms.Label();
             this.btnRemoveAttach = new System.Windows.Forms.Button();
             this.btnAddAttach = new System.Windows.Forms.Button();
-            this.lstResolution = new System.Windows.Forms.ListBox();
             this.cboCity = new System.Windows.Forms.ComboBox();
-            this.dtpContextMenu.SuspendLayout();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboResolution = new System.Windows.Forms.ComboBox();
             this.dtpContextMenu.SuspendLayout();
             this.grpRecordType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
@@ -317,20 +315,7 @@
             // 
             // dtpContextMenu
             // 
-            this.dtpContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clearDateToolStripMenuItem});
-            this.dtpContextMenu.Name = "dtpContextMenu";
-            this.dtpContextMenu.Size = new System.Drawing.Size(129, 26);
-            // 
-            // clearDateToolStripMenuItem
-            // 
-            this.clearDateToolStripMenuItem.Name = "clearDateToolStripMenuItem";
-            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.clearDateToolStripMenuItem.Text = "Clear Date";
-            this.clearDateToolStripMenuItem.Click += new System.EventHandler(this.clearDateToolStripMenuItem_Click);
-            // 
-            // dtpContextMenu
-            // 
+            this.dtpContextMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.dtpContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clearDateToolStripMenuItem});
             this.dtpContextMenu.Name = "dtpContextMenu";
@@ -656,30 +641,29 @@
             this.btnAddAttach.Text = "Add";
             this.btnAddAttach.UseVisualStyleBackColor = true;
             // 
-            // lstResolution
-            // 
-            this.lstResolution.FormattingEnabled = true;
-            this.lstResolution.Location = new System.Drawing.Point(910, 479);
-            this.lstResolution.Name = "lstResolution";
-            this.lstResolution.Size = new System.Drawing.Size(451, 82);
-            this.lstResolution.TabIndex = 59;
-            this.lstResolution.Tag = "Resolution";
-            // 
             // cboCity
             // 
             this.cboCity.FormattingEnabled = true;
-            this.cboCity.Location = new System.Drawing.Point(112, 147);
+            this.cboCity.Location = new System.Drawing.Point(112, 140);
             this.cboCity.Name = "cboCity";
             this.cboCity.Size = new System.Drawing.Size(271, 21);
             this.cboCity.TabIndex = 60;
+            // 
+            // cboResolution
+            // 
+            this.cboResolution.FormattingEnabled = true;
+            this.cboResolution.Location = new System.Drawing.Point(1032, 538);
+            this.cboResolution.Name = "cboResolution";
+            this.cboResolution.Size = new System.Drawing.Size(284, 21);
+            this.cboResolution.TabIndex = 61;
             // 
             // frmLabEsc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1403, 665);
+            this.Controls.Add(this.cboResolution);
             this.Controls.Add(this.cboCity);
-            this.Controls.Add(this.lstResolution);
             this.Controls.Add(this.btnRemoveAttach);
             this.Controls.Add(this.btnAddAttach);
             this.Controls.Add(this.label24);
@@ -801,5 +785,6 @@
         private System.Windows.Forms.ContextMenuStrip dtpContextMenu;
         private System.Windows.Forms.ToolStripMenuItem clearDateToolStripMenuItem;
         private System.Windows.Forms.ComboBox cboCity;
+        private System.Windows.Forms.ComboBox cboResolution;
     }
 }
