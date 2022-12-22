@@ -18,6 +18,7 @@ namespace Schedule_Database_Desktop_Version
     public partial class frmLabEsc : Form
     {
         bool isEscalation = false;
+        LabEscModel model;
         public frmLabEsc()
         {
             InitializeComponent();
@@ -26,6 +27,9 @@ namespace Schedule_Database_Desktop_Version
             switch (GV.MODE)
             {
                 case Mode.LabEscAdd:
+                    model = new LabEscModel();
+                    loadModel(model);
+                    GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
                     break;
                 case Mode.LabEscEdit:
                     break;
@@ -58,11 +62,14 @@ namespace Schedule_Database_Desktop_Version
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //LabEscModel model = loadModel();
-            //switch (switch_on)
-            //{
-            //    default:
-            //}
+            switch (GV.MODE)
+            {
+                case Mode.LabEscAdd:
+                    model = loadModel(model);
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -97,9 +104,9 @@ namespace Schedule_Database_Desktop_Version
             }
             cbo.SelectedIndex = -1;
         }
-        private LabEscModel loadModel()
+        private LabEscModel loadModel(LabEscModel model)
         {
-            LabEscModel model = new LabEscModel();
+            //LabEscModel model = new LabEscModel();
             //int id = 0;
             //int.TryParse(txtRecordID.Text, out id);
             //model.ID = id;
