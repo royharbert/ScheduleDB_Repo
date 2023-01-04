@@ -506,13 +506,13 @@ namespace Schedule_Database_Desktop_Version
                     formDirty = false;
                     MessageBox.Show(txtPID.Text + " saved.", "", buttons: MessageBoxButtons.YesNo);
                     break;
-                case Mode.AddEscalation:
+                case Mode.LabEscAdd:
                     break;
-                case Mode.SearchEscalation:
+                case Mode.LabEscSearch:
                     break;
-                case Mode.EditEscalation:
+                case Mode.LabEscEdit:
                     break;
-                case Mode.DeleteEscalation:
+                case Mode.LabEscDelete:
                     break;
                 case Mode.DateRangeReport:
                     break;

@@ -72,7 +72,7 @@ namespace Schedule_Database_Desktop_Version
                     DisplayForm.LabRequests = Labs;
                     this.Height = 195;
                     break;
-                    case Mode.DateRangeEscalation:
+                    case Mode.LabEscDateRange:
                     Escalations = GlobalConfig.Connection.DateRangeSearchEscalations_SortBy(startDate, endDate);
                     DisplayForm.Escalations = Escalations;
                     this.Height = 195;

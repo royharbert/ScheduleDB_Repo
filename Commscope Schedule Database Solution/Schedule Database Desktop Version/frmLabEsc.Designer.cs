@@ -109,6 +109,7 @@
             this.cboMSO.Size = new System.Drawing.Size(273, 21);
             this.cboMSO.TabIndex = 2;
             this.cboMSO.Tag = "MSO|MSO|MSOModel";
+            this.cboMSO.SelectedIndexChanged += new System.EventHandler(this.cboMSO_SelectedIndexChanged);
             // 
             // cboSeverity
             // 

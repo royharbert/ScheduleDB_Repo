@@ -251,7 +251,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void addEscalationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.AddEscalation;
+            GV.MODE = Mode.LabEscAdd;
             frmLabEsc EscalationsForm = new frmLabEsc();
             EscalationsForm.MdiParent = this;
             EscalationsForm.Show();
@@ -259,7 +259,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void deleteEscalationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.DeleteEscalation;
+            GV.MODE = Mode.LabEscDelete;
             frmInput ATInputForm = new frmInput();
             ATInputForm.MdiParent = this;
             ATInputForm.Show();
@@ -311,7 +311,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void escalationIDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.SearchEscalation;
+            GV.MODE = Mode.LabEscSearch;
             FrmATEscalations ATEscalationsForm = new FrmATEscalations();
             GV.ESCALATIONFORM = ATEscalationsForm;
             ATEscalationsForm.MdiParent = this;
@@ -390,7 +390,7 @@ namespace Schedule_Database_Desktop_Version
         }
         private void searchEscalationsByDateRange()
         {
-            GV.MODE = Mode.DateRangeEscalation;
+            GV.MODE = Mode.LabEscDateRange;
             frmDateRange frmDateRange = new frmDateRange();
             frmDateRange.Show();
             frmDateRange.MdiParent = this;

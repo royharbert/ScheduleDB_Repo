@@ -184,10 +184,10 @@ namespace Schedule_Database_Desktop_Version
                     GV.MODE = GV.PreviousMode;
                     this.Close();
                     break;
-                case Mode.SearchEscalation:
+                case Mode.LabEscSearch:
                     ATEscalationsDisplayModel escalation = escalations[selectedRow];
                     GV.ESCALATIONFORM.loadBoxes(escalation);
-                    GV.MODE = Mode.EditEscalation;
+                    GV.MODE = Mode.LabEscEdit;
                     break;
                 case Mode.LabRequestEdit:
                 case Mode.LabRequestSearch:
@@ -238,9 +238,9 @@ namespace Schedule_Database_Desktop_Version
         {
             switch (GV.MODE)
             {  
-                case Mode.SearchEscalation:
-                case Mode.EditEscalation:
-                case Mode.DateRangeEscalation:
+                case Mode.LabEscSearch:
+                case Mode.LabEscEdit:
+                case Mode.LabEscDateRange:
                     ListLooper.ExcelExporter<ATEscalationsDisplayModel> exporter = new ListLooper.ExcelExporter<ATEscalationsDisplayModel>();
                     exporter.List = (List<ATEscalationsDisplayModel>)dgvResults.DataSource;
                     ReportOps.FormatEscalationResultExport(exporter.Wksheet);

@@ -18,18 +18,19 @@ namespace Schedule_Database_Desktop_Version
     public partial class frmLabEsc : Form
     {
         bool isEscalation = false;
-        LabEscModel model;
+        bool formDirty = false;
+        LabEscModel model = new LabEscModel();
         public frmLabEsc()
         {
             InitializeComponent();
             fillComboBoxes();
+            CommonOps.lockControls(true, this, "cboMSO");
 
             switch (GV.MODE)
             {
                 case Mode.LabEscAdd:
                     model = new LabEscModel();
-                    loadModel(model);
-                    GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
+                    
                     break;
                 case Mode.LabEscEdit:
                     break;
@@ -65,7 +66,8 @@ namespace Schedule_Database_Desktop_Version
             switch (GV.MODE)
             {
                 case Mode.LabEscAdd:
-                    model = loadModel(model);
+                    loadModel(model);
+                    GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
                     break;
                 default:
                     break;
@@ -244,6 +246,22 @@ namespace Schedule_Database_Desktop_Version
             cbo.DisplayMember = displayMember;
             cbo.SelectedIndex = -1;
         }
-       
+
+        private void cboMSO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (GV.MODE == Mode.LabEscAdd && cboMSO.SelectedIndex > 0)
+            {
+                MSO_Model model = ((MSO_Model)cboMSO.SelectedItem);
+                //assignment.MSO_ID = model.ID;
+                formDirty = true;
+                string PID = PID_Generator.GeneratePID(model);
+                txtRecordID.Text = PID;
+                CommonOps.lockControls(false, this, "");
+                //setLstFe_Enable();
+
+            }
+        }
+
+        
     }
 }

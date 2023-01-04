@@ -9,11 +9,6 @@ namespace Schedule_Database_Desktop_Version
     public enum Mode
     {
         New,
-        AddEscalation,
-        SearchEscalation,
-        EditEscalation,
-        DateRangeEscalation,
-        DeleteEscalation,
         DateRangeReport,
         Edit,
         Undo,

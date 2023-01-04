@@ -38,17 +38,17 @@ namespace Schedule_Database_Desktop_Version
             {
                 case Mode.New:
                     break;
-                case Mode.AddEscalation:
+                case Mode.LabEscAdd:
                     dataLoading = false;
                     cbo_MSO.Enabled = true;
                     btn_Save.Enabled = false;
                     break;
-                case Mode.SearchEscalation:
+                case Mode.LabEscSearch:
                     inputForm.InputDataReady += InputForm_InputDataReady;
                     inputForm.Show();  
                     enableBoxes(true);
                     break;
-                case Mode.DeleteEscalation:
+                case Mode.LabEscDelete:
                     break;
                 default:
                     break;
@@ -309,7 +309,7 @@ namespace Schedule_Database_Desktop_Version
                 model.Comments = txt_Comments.Text;
                 model.CTRNumber = txt_CTRNumber.Text;
                 model.DateReported = dtp_DateReported.Value;
-                if (GV.MODE == Mode.AddEscalation)
+                if (GV.MODE == Mode.LabEscAdd)
                 {
                     model.ResolvedDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
                 }
@@ -332,11 +332,11 @@ namespace Schedule_Database_Desktop_Version
                 int success = 0;
                 switch(GV.MODE)
                 {
-                    case Mode.AddEscalation:
+                    case Mode.LabEscAdd:
                         success = GlobalConfig.Connection.Escalations_Add(dt.table);
 
                         break;
-                    case Mode.SearchEscalation:
+                    case Mode.LabEscSearch:
                         success = GlobalConfig.Connection.Escalation_Update(dt.table);
                         break;
 
@@ -394,7 +394,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void FrmATEscalations_Shown(object sender, EventArgs e)
         {
-            if (GV.MODE == Mode.SearchEscalation)
+            if (GV.MODE == Mode.LabEscSearch)
             {
                 inputForm.BringToFront();
             }

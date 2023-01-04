@@ -107,7 +107,7 @@ namespace Schedule_Database_Desktop_Version
                     //took this switch statement from the ATEscalation form
                     enableBoxes(true, false);
                     break;
-                case Mode.DeleteEscalation:
+                case Mode.LabEscDelete:
                     break;
                 case Mode.LabRequestSearch:
                     loadComboBoxLists();

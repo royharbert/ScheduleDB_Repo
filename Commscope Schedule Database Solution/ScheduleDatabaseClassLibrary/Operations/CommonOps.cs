@@ -11,7 +11,31 @@ using System.Windows.Forms;
 namespace ScheduleDatabaseClassLibrary.Operations
 {
     public static class CommonOps
-    {
+    { 
+         /// <summary>
+         /// locks or unlocks all textboxes, comboboxes, richtext boxes and list boxes
+         /// unless they are in the comma separated skipList(no spaces)
+         /// </summary>
+         /// <param name="lockControl"> bool to indicate whether to lock or unlock</param>
+         /// <param name="skipList">Comma separated list of control names to skip over</param>
+        public static void lockControls(bool lockControl, Form frm, string skipList)
+        {
+            foreach (Control control in frm.Controls)
+            {
+                if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox
+                     | control is DateTimePicker)
+                {
+                    int idx = skipList.IndexOf(control.Name);
+                    if (idx == -1)
+                    {
+                        control.Enabled = !lockControl;
+                    }
+                }
+            }
+            //lockPanels(lockControl, "", pnlCustomer);
+            //lockPanels(lockControl, "", pnlLocation);
+    }
+    
         public static FE_Model ToggleFE_ActiveStatus(FE_Model model)
         {
             GlobalConfig.Connection.ToggleActiveStatus("tblFE", "Active", model.ID, "ID");

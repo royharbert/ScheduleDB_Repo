@@ -11,7 +11,7 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
     {
         public static string GeneratePID(MSO_Model mso)
         {
-            string pid = "SR_";
+            string pid = "LAB_";
             string dateStamp = DateTime.Today.ToString("yyMMdd");
             string sequence = GlobalConfig.Connection.Sequence_Get().ToString();
             sequence = sequence.PadLeft(5, '0');
