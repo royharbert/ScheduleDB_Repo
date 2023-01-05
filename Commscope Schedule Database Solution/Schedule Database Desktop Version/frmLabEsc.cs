@@ -66,8 +66,10 @@ namespace Schedule_Database_Desktop_Version
             switch (GV.MODE)
             {
                 case Mode.LabEscAdd:
+                    //TODO Audit form
                     loadModel(model);
                     GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
+                    MessageBox.Show(txtRecordID.Text + " has been saved");
                     break;
                 default:
                     break;
@@ -85,7 +87,7 @@ namespace Schedule_Database_Desktop_Version
             fillComboList<CityModel>(cboCity, "tblCities", "City");
             fillComboList<StateModel>(cboState, "tblStates", "State");
             fillComboList<CountriesModel>(cboCountry, "tblCountries", "Country");
-
+            fillListList<ProductModel>(lstProducts, "tblProducts", "Product");
             fillComboList<PriorityModel>(cboSeverity, "tblPriorities", "Priority");
             fillComboList<RequestorModel>(cboRequestor, "tblSalespersons", "SalesPerson");
             fillComboList<StatusModel>(cboStatus, "tblStatus", "Status");
@@ -99,6 +101,22 @@ namespace Schedule_Database_Desktop_Version
             if (displayField != "LastName")
             {
                 cbo.DisplayMember = displayField; 
+            }
+            else
+            {
+                cbo.DisplayMember = "FullName";
+            }
+            cbo.SelectedIndex = -1;
+        }
+
+
+        private void fillListList<T>(System.Windows.Forms.ListBox cbo, string table, string displayField)
+        {
+            List<T> data = GlobalConfig.Connection.GenericGetAll<T>(table, displayField);
+            cbo.DataSource = data;
+            if (displayField != "LastName")
+            {
+                cbo.DisplayMember = displayField;
             }
             else
             {
@@ -122,8 +140,7 @@ namespace Schedule_Database_Desktop_Version
             model.Requestor = cboRequestor.Text;
             model.CTRNum = txtCTRNum.Text;
             model.EscNum = txtEscNum.Text;
-            //model.IsEsc = rdoATEsc.Checked;
-            //model.IsEsc = rdoLabReq.Checked;
+            model.IsEsc = isEscalation;
             model.EntryAdmin = cboEntryAdmin.Text;
             model.DateOpened = dtpStartDate.Value;
             model.DateDue = dtpDueDate.Value;
@@ -133,6 +150,12 @@ namespace Schedule_Database_Desktop_Version
             model.Status = cboStatus.Text;
             model.Comments = rtxComments.Text;
             model.Description = rtxDescription.Text;
+
+            if (lstProducts.SelectedIndex > -1)
+            {
+                ProductModel product = (ProductModel)lstProducts.SelectedItems[0];
+                model.Product = product.Product; 
+            }
 
             return model;
 
@@ -149,8 +172,6 @@ namespace Schedule_Database_Desktop_Version
             cboRequestor.Text = model.Requestor;
             txtCTRNum.Text = model.CTRNum;
             txtEscNum.Text = model.EscNum;
-            //rdoATEsc.Checked = model.IsEsc;
-            //rdoLabReq.Checked = model.IsEsc;
             cboEntryAdmin.Text = model.EntryAdmin;
             dtpStartDate.Value = model.DateOpened;
             dtpDueDate.Value = model.DateDue;
@@ -166,6 +187,14 @@ namespace Schedule_Database_Desktop_Version
             cboStatus.Text = model.Status;
             rtxComments.Text = model.Comments;
             rtxDescription.Text = model.Description;
+            if (model.IsEsc)
+            {
+                rdoATEsc.Checked = true;
+            }
+            else
+            {
+                rdoLabReq.Checked = true;
+            }
             //
             txtPSNum.Text = model.PSNumber;
             //displayAttachments();
@@ -262,6 +291,30 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
-        
+        private void rdoATEsc_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoATEsc.Checked)
+            {
+                isEscalation = true;
+            }
+
+            else
+            {
+                isEscalation = false;
+            }
+        }
+
+        private void rdoLabReq_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoLabReq.Checked)
+            {
+                isEscalation = false;
+            }
+
+            else
+            {
+                isEscalation = true;
+            }
+        }
     }
 }

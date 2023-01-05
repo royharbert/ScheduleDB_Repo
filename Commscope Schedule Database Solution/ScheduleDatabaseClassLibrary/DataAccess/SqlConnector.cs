@@ -64,6 +64,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@Requestor", model.Requestor, DbType.String);
                 p.Add("@CTRNum", model.CTRNum, DbType.String);
                 p.Add("@IsEsc", model.IsEsc, DbType.Boolean);
+                p.Add("@EscNum", model.EscNum, DbType.String);
                 p.Add("@EntryAdmin", model.EntryAdmin, DbType.String);
                 p.Add("@DateOpened", model.DateOpened, DbType.DateTime2);
                 p.Add("@DateDue", model.DateDue, DbType.DateTime2);
