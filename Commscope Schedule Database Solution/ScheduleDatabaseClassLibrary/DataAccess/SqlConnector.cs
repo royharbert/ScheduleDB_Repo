@@ -53,7 +53,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             {
                 var p = new DynamicParameters();
                 p.Add("@Action", action, DbType.String);
-                p.Add("ID", model.ID, DbType.Int32);
+                p.Add("ID", model.ID, DbType.Int32,ParameterDirection.Output);
                 p.Add("@EscID", model.EscID, DbType.String);
                 p.Add("@MSO", model.MSO, DbType.String);
                 p.Add("@EndUser", model.EndUser, DbType.String);
@@ -80,7 +80,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@PSNumber", model.PSNumber, DbType.String);
 
                 connection.Execute("dbo.spLabEsc_CRUD", p, commandType: CommandType.StoredProcedure);
-
             }
         }
         public List<AssignmentTableModel> fieldSearch(string whereClause)

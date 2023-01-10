@@ -19,28 +19,13 @@ namespace Schedule_Database_Desktop_Version
     {
         bool isEscalation = false;
         bool formDirty = false;
+        DateTime emptyDate = new DateTime(1900,1,1);
         LabEscModel model = new LabEscModel();
+        string dtpCustomFormat = " ";
+        
         public frmLabEsc()
         {
             InitializeComponent();
-            fillComboBoxes();
-            CommonOps.lockControls(true, this, "cboMSO");
-
-            switch (GV.MODE)
-            {
-                case Mode.LabEscAdd:
-                    model = new LabEscModel();
-                    
-                    break;
-                case Mode.LabEscEdit:
-                    break;
-                case Mode.LabEscDelete:
-                    break;
-                case Mode.LabEscSearch:
-                    break;
-                default:
-                    break;
-            }
         }
 
         private void clearDateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -62,18 +47,67 @@ namespace Schedule_Database_Desktop_Version
             }
         }
         private void btnSave_Click(object sender, EventArgs e)
-        {
+        {            
+            string errorList = "";
             switch (GV.MODE)
             {
                 case Mode.LabEscAdd:
-                    //TODO Audit form
+                case Mode.LabEscEdit:
+
                     loadModel(model);
-                    GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
-                    MessageBox.Show(txtRecordID.Text + " has been saved");
-                    break;
-                default:
+                    errorList = "";
+                    errorList = auditData();
+                    if (errorList.Length == 0)
+                    {
+                        switch (GV.MODE)
+                        {
+                            case Mode.LabEscAdd:
+                                GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
+                                break;
+                            case Mode.LabEscEdit:
+                                GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
+                                break;
+                        } 
+                    
+                        MessageBox.Show(txtRecordID.Text + " has been saved");
+                        GV.MODE = Mode.LabEscEdit;
+                    }
+                    else
+                    {
+                        errorList = errorList + "\r\n\r\n Project not saved.";
+                        MessageBox.Show(errorList);
+                    }
                     break;
             }
+        }
+
+        private string auditData()
+        {
+            string errorList = "";
+
+            if (!rdoATEsc.Checked && !rdoLabReq.Checked)
+            {
+                errorList = errorList + "Esclation/Lab Request not selected" + Environment.NewLine;
+            }
+            if (model.EscID == "")
+            {
+                errorList = errorList + "Request number not assigned" + Environment.NewLine;
+            }
+            if (model.Requestor == "")
+            {
+                errorList = errorList + "Requestor name not assigned" + Environment.NewLine;
+            }
+            if (model.Product == "")
+            {
+                errorList = errorList + "Product not selected" + Environment.NewLine;
+            }
+            if (model.Severity == "")
+            {
+                errorList = errorList + "Severity not assigned" + Environment.NewLine;
+            }
+
+
+            return errorList;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -126,10 +160,9 @@ namespace Schedule_Database_Desktop_Version
         }
         private LabEscModel loadModel(LabEscModel model)
         {
-            //LabEscModel model = new LabEscModel();
-            //int id = 0;
-            //int.TryParse(txtRecordID.Text, out id);
-            //model.ID = id;
+            int id = -1;
+            int.TryParse(txtID.Text, out id);
+            model.ID = id;
             model.EscID = txtRecordID.Text;
             model.MSO = cboMSO.Text;
             model.EndUser = txtEndUser.Text;
@@ -141,11 +174,20 @@ namespace Schedule_Database_Desktop_Version
             model.CTRNum = txtCTRNum.Text;
             model.EscNum = txtEscNum.Text;
             model.IsEsc = isEscalation;
-            model.EntryAdmin = cboEntryAdmin.Text;
-            model.DateOpened = dtpStartDate.Value;
-            model.DateDue = dtpDueDate.Value;
-            model.DateCompleted = dtpClosedDate.Value;
-            model.EMail = txtEmail.Text;
+            if (GV.MODE == Mode.LabEscAdd)
+            {
+                model.EntryAdmin = GV.USERMODEL.FullName;
+                model.DateOpened = dtpStartDate.Value;
+                model.DateDue = dtpDueDate.Value;
+                model.DateCompleted = emptyDate;
+            }
+            else
+            {
+                model.DateOpened = dtpStartDate.Value;
+                model.DateDue = dtpDueDate.Value;
+                model.DateCompleted = dtpClosedDate.Value; 
+            }
+           
             model.LeadAssigned = cboLead.Text;
             model.Status = cboStatus.Text;
             model.Comments = rtxComments.Text;
@@ -176,7 +218,7 @@ namespace Schedule_Database_Desktop_Version
             dtpStartDate.Value = model.DateOpened;
             dtpDueDate.Value = model.DateDue;
             dtpClosedDate.Value = model.DateCompleted;
-            txtEmail.Text = model.EMail;
+            txtEntryAdmin.Text = model.EMail;
             //product
             //if (model.product != null)
             //{
@@ -206,7 +248,26 @@ namespace Schedule_Database_Desktop_Version
         }
         private void frmLabEsc_Load(object sender, EventArgs e)
         {
+            fillComboBoxes();
+            dtpClosedDate.CustomFormat = dtpCustomFormat;
+            dtpDueDate.CustomFormat = dtpCustomFormat;
+            CommonOps.lockControls(true, this, "cboMSO");
 
+            switch (GV.MODE)
+            {
+                case Mode.LabEscAdd:
+                    model = new LabEscModel();
+                    dtpClosedDate.Format = DateTimePickerFormat.Custom;
+                    break;
+                case Mode.LabEscEdit:
+                    break;
+                case Mode.LabEscDelete:
+                    break;
+                case Mode.LabEscSearch:
+                    break;
+                default:
+                    break;
+            }
         }
         private string serializeProducts(List<ProductModel> products)
         {
@@ -221,53 +282,6 @@ namespace Schedule_Database_Desktop_Version
             //assignment.ProductListXML = xmlString;
             return xmlString;
         }
-        //private void frmLabEsc_Load(object sender, EventArgs e)            
-        //{
-        //    // determine type
-        //    RadioButton[] buttons = { rdoATEsc, rdoLabReq };
-        //    for (int i = 0; i < buttons.Length - 1; i++)
-        //    {
-        //        if (true)
-        //        {
-        //            switch (i)
-        //            {
-        //                case 0:
-        //                    isEscalation = true;
-        //                    break;
-        //                case 1:
-        //                    isEscalation = false;
-        //                    break;
-                    
-        //            }
-        //        }
-        //    }
-
-        //    //load combo lists
-        //    List<MSO_Model> models = GlobalConfig.Connection.GenericGetAll<MSO_Model>("tblMSO", "MSO");
-        //    populateCBOList<MSO_Model>(cboMSO, models, "MSO");
-
-        //    List<CityModel> cities = GlobalConfig.Connection.GenericGetAll<CityModel>("tblCities", "City");
-        //    populateCBOList<CityModel>(cboCity, cities, "City");
-
-        //    List<StateModel> states = GlobalConfig.Connection.GenericGetAll<StateModel>("tblStates", "State");
-        //    populateCBOList<StateModel>(cboState, states, "State");
-
-        //    List<CountriesModel> countries = GlobalConfig.Connection.GenericGetAll<CountriesModel>("tblCountries", "Country");
-        //    populateCBOList<CountriesModel>(cboCountry, countries, "Country");
-
-        //    List<PriorityModel> priorities = GlobalConfig.Connection.GenericGetAll<PriorityModel>("tblPriorities", "Priority");
-        //    populateCBOList<PriorityModel>(cboSeverity, priorities, "Priority");
-
-        //    List<RequestorModel> salesPersons = GlobalConfig.Connection.GenericGetAll<RequestorModel>("tblSalespersons", "SalesPerson");
-        //    populateCBOList<RequestorModel>(cboRequestor, salesPersons, "Salesperson");
-
-        //    List<AdminModel> admins = GlobalConfig.Connection.GenericGetAll<AdminModel>("tblAdmins", "FullName");
-        //    populateCBOList<AdminModel>(cboEntryAdmin, admins, "FullName");
-
-        //    List<FE_Model> FEs = GlobalConfig.Connection.GenericGetAll<FE_Model>("tblFE", "Last" +
-        //        "Name");
-        //    populateCBOList<FE_Model>(cboEntryAdmin, FEs, "FullName");
-        //}
 
         private void populateCBOList<T>(ComboBox cbo, List<T> models, string displayMember)
         {
@@ -281,13 +295,10 @@ namespace Schedule_Database_Desktop_Version
             if (GV.MODE == Mode.LabEscAdd && cboMSO.SelectedIndex > 0)
             {
                 MSO_Model model = ((MSO_Model)cboMSO.SelectedItem);
-                //assignment.MSO_ID = model.ID;
                 formDirty = true;
                 string PID = PID_Generator.GeneratePID(model);
                 txtRecordID.Text = PID;
                 CommonOps.lockControls(false, this, "");
-                //setLstFe_Enable();
-
             }
         }
 
@@ -296,11 +307,13 @@ namespace Schedule_Database_Desktop_Version
             if (rdoATEsc.Checked)
             {
                 isEscalation = true;
+                txtEscNum.Enabled = false;
             }
 
             else
             {
                 isEscalation = false;
+                txtEscNum.Enabled = true;
             }
         }
 
@@ -309,11 +322,25 @@ namespace Schedule_Database_Desktop_Version
             if (rdoLabReq.Checked)
             {
                 isEscalation = false;
+                txtEscNum.Enabled = true;
             }
 
             else
             {
                 isEscalation = true;
+                txtEscNum.Enabled= false;
+            }
+        }
+
+        private void dtpClosedDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (GV.MODE == Mode.LabEscAdd)
+            {
+                dtpClosedDate.Format = DateTimePickerFormat.Custom;
+            }
+            else
+            {
+                dtpClosedDate.Format = DateTimePickerFormat.Long;
             }
         }
     }

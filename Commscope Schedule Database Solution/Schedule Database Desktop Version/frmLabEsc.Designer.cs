@@ -58,7 +58,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtEntryAdmin = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -86,6 +86,8 @@
             this.btnAddAttach = new System.Windows.Forms.Button();
             this.cboCity = new System.Windows.Forms.ComboBox();
             this.cboResolution = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.dtpContextMenu.SuspendLayout();
             this.grpRecordType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
@@ -93,7 +95,7 @@
             // 
             // txtRecordID
             // 
-            this.txtRecordID.Location = new System.Drawing.Point(420, 28);
+            this.txtRecordID.Location = new System.Drawing.Point(406, 28);
             this.txtRecordID.Name = "txtRecordID";
             this.txtRecordID.Size = new System.Drawing.Size(396, 20);
             this.txtRecordID.TabIndex = 0;
@@ -102,9 +104,9 @@
             // 
             // cboMSO
             // 
-            this.cboMSO.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cboMSO.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboMSO.FormattingEnabled = true;
-            this.cboMSO.Location = new System.Drawing.Point(87, 81);
+            this.cboMSO.Location = new System.Drawing.Point(88, 81);
             this.cboMSO.Name = "cboMSO";
             this.cboMSO.Size = new System.Drawing.Size(273, 21);
             this.cboMSO.TabIndex = 2;
@@ -113,7 +115,7 @@
             // 
             // cboSeverity
             // 
-            this.cboSeverity.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cboSeverity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboSeverity.FormattingEnabled = true;
             this.cboSeverity.Location = new System.Drawing.Point(87, 229);
             this.cboSeverity.Name = "cboSeverity";
@@ -123,7 +125,7 @@
             // 
             // txtEndUser
             // 
-            this.txtEndUser.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtEndUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEndUser.Location = new System.Drawing.Point(87, 111);
             this.txtEndUser.Name = "txtEndUser";
             this.txtEndUser.Size = new System.Drawing.Size(273, 20);
@@ -206,7 +208,7 @@
             // 
             // txtEscNum
             // 
-            this.txtEscNum.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtEscNum.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEscNum.Location = new System.Drawing.Point(87, 465);
             this.txtEscNum.Name = "txtEscNum";
             this.txtEscNum.Size = new System.Drawing.Size(273, 20);
@@ -215,7 +217,7 @@
             // 
             // txtPSNum
             // 
-            this.txtPSNum.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtPSNum.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPSNum.Location = new System.Drawing.Point(87, 407);
             this.txtPSNum.Name = "txtPSNum";
             this.txtPSNum.Size = new System.Drawing.Size(273, 20);
@@ -246,7 +248,7 @@
             // 
             // cboCountry
             // 
-            this.cboCountry.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cboCountry.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboCountry.FormattingEnabled = true;
             this.cboCountry.Location = new System.Drawing.Point(87, 201);
             this.cboCountry.Name = "cboCountry";
@@ -256,7 +258,7 @@
             // 
             // cboState
             // 
-            this.cboState.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cboState.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboState.FormattingEnabled = true;
             this.cboState.Location = new System.Drawing.Point(87, 170);
             this.cboState.Name = "cboState";
@@ -266,7 +268,7 @@
             // 
             // cboRequestor
             // 
-            this.cboRequestor.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cboRequestor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboRequestor.FormattingEnabled = true;
             this.cboRequestor.Location = new System.Drawing.Point(87, 259);
             this.cboRequestor.Name = "cboRequestor";
@@ -306,7 +308,7 @@
             // 
             // dtpStartDate
             // 
-            this.dtpStartDate.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.dtpStartDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpStartDate.ContextMenuStrip = this.dtpContextMenu;
             this.dtpStartDate.Location = new System.Drawing.Point(87, 494);
             this.dtpStartDate.Name = "dtpStartDate";
@@ -331,17 +333,18 @@
             // 
             // dtpClosedDate
             // 
-            this.dtpClosedDate.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.dtpClosedDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpClosedDate.ContextMenuStrip = this.dtpContextMenu;
             this.dtpClosedDate.Location = new System.Drawing.Point(87, 552);
             this.dtpClosedDate.Name = "dtpClosedDate";
             this.dtpClosedDate.Size = new System.Drawing.Size(273, 20);
             this.dtpClosedDate.TabIndex = 26;
             this.dtpClosedDate.Tag = "DateCompleted";
+            this.dtpClosedDate.ValueChanged += new System.EventHandler(this.dtpClosedDate_ValueChanged);
             // 
             // dtpDueDate
             // 
-            this.dtpDueDate.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.dtpDueDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpDueDate.ContextMenuStrip = this.dtpContextMenu;
             this.dtpDueDate.Location = new System.Drawing.Point(87, 523);
             this.dtpDueDate.Name = "dtpDueDate";
@@ -382,24 +385,24 @@
             this.label14.Text = "Date Opened";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtEmail
+            // txtEntryAdmin
             // 
-            this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtEmail.Location = new System.Drawing.Point(87, 289);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(273, 20);
-            this.txtEmail.TabIndex = 31;
-            this.txtEmail.Tag = "EMail";
+            this.txtEntryAdmin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtEntryAdmin.Location = new System.Drawing.Point(87, 289);
+            this.txtEntryAdmin.Name = "txtEntryAdmin";
+            this.txtEntryAdmin.Size = new System.Drawing.Size(273, 20);
+            this.txtEntryAdmin.TabIndex = 31;
+            this.txtEntryAdmin.Tag = "EMail";
             // 
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label15.Location = new System.Drawing.Point(44, 294);
+            this.label15.Location = new System.Drawing.Point(11, 294);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(39, 15);
+            this.label15.Size = new System.Drawing.Size(72, 15);
             this.label15.TabIndex = 32;
-            this.label15.Text = "Email";
+            this.label15.Text = "Entry Admin";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label16
@@ -459,7 +462,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label21.Location = new System.Drawing.Point(867, 28);
+            this.label21.Location = new System.Drawing.Point(852, 29);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(69, 15);
             this.label21.TabIndex = 38;
@@ -477,7 +480,7 @@
             // 
             // cboStatus
             // 
-            this.cboStatus.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cboStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboStatus.FormattingEnabled = true;
             this.cboStatus.Location = new System.Drawing.Point(85, 318);
             this.cboStatus.Name = "cboStatus";
@@ -487,7 +490,7 @@
             // 
             // cboLead
             // 
-            this.cboLead.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cboLead.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboLead.FormattingEnabled = true;
             this.cboLead.Location = new System.Drawing.Point(87, 348);
             this.cboLead.Name = "cboLead";
@@ -497,7 +500,7 @@
             // 
             // txtQty
             // 
-            this.txtQty.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtQty.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtQty.Location = new System.Drawing.Point(87, 375);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(273, 20);
@@ -559,7 +562,7 @@
             // 
             this.grpRecordType.Controls.Add(this.rdoATEsc);
             this.grpRecordType.Controls.Add(this.rdoLabReq);
-            this.grpRecordType.Location = new System.Drawing.Point(111, 28);
+            this.grpRecordType.Location = new System.Drawing.Point(85, 12);
             this.grpRecordType.Name = "grpRecordType";
             this.grpRecordType.Size = new System.Drawing.Size(273, 52);
             this.grpRecordType.TabIndex = 50;
@@ -579,7 +582,7 @@
             // 
             // txtCTRNum
             // 
-            this.txtCTRNum.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtCTRNum.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCTRNum.Location = new System.Drawing.Point(87, 436);
             this.txtCTRNum.Name = "txtCTRNum";
             this.txtCTRNum.Size = new System.Drawing.Size(273, 20);
@@ -589,7 +592,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnSave.Location = new System.Drawing.Point(984, 590);
+            this.btnSave.Location = new System.Drawing.Point(937, 590);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(125, 43);
             this.btnSave.TabIndex = 53;
@@ -600,7 +603,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnClose.Location = new System.Drawing.Point(1151, 590);
+            this.btnClose.Location = new System.Drawing.Point(1104, 590);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(125, 43);
             this.btnClose.TabIndex = 54;
@@ -646,6 +649,7 @@
             // 
             // cboCity
             // 
+            this.cboCity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboCity.FormattingEnabled = true;
             this.cboCity.Location = new System.Drawing.Point(85, 140);
             this.cboCity.Name = "cboCity";
@@ -660,11 +664,27 @@
             this.cboResolution.Size = new System.Drawing.Size(284, 21);
             this.cboResolution.TabIndex = 61;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(629, 170);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(54, 20);
+            this.textBox1.TabIndex = 62;
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(72, 610);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(64, 20);
+            this.txtID.TabIndex = 63;
+            // 
             // frmLabEsc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1348, 665);
+            this.ClientSize = new System.Drawing.Size(1309, 665);
+            this.Controls.Add(this.txtID);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.cboResolution);
             this.Controls.Add(this.cboCity);
             this.Controls.Add(this.btnRemoveAttach);
@@ -690,7 +710,7 @@
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtEntryAdmin);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -759,7 +779,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtEntryAdmin;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
@@ -789,5 +809,7 @@
         private System.Windows.Forms.ToolStripMenuItem clearDateToolStripMenuItem;
         private System.Windows.Forms.ComboBox cboCity;
         private System.Windows.Forms.ComboBox cboResolution;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtID;
     }
 }
