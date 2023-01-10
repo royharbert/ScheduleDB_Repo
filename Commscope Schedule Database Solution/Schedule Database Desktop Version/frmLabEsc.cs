@@ -52,15 +52,35 @@ namespace Schedule_Database_Desktop_Version
         private void btnSave_Click(object sender, EventArgs e)
         {            
             string errorList = "";
+            errorList = auditData();
             switch (GV.MODE)
             {
                 case Mode.LabEscAdd:
                 case Mode.LabEscEdit:
 
                     loadModel(model);
-                    GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
-                    MessageBox.Show(txtRecordID.Text + " has been saved");
+                    if (errorList.Length == 0)
+                    {
+                        switch (GV.MODE)
+                        {
+                            case Mode.LabEscAdd:
+                                GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
+                                break;
+                            case Mode.LabEscEdit:
+                                GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
+                                break;
+                        }
+
+                        MessageBox.Show(txtRecordID.Text + " has been saved");
+                        GV.MODE = Mode.LabEscEdit;
+                    }
+                    else
+                    {
+                        errorList = errorList + "\r\n\r\n Project not saved.";
+                        MessageBox.Show(errorList);
+                    }
                     break;
+
                 case Mode.LabEscSearch:
                     //loadModel(model);
                     //GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
@@ -81,34 +101,7 @@ namespace Schedule_Database_Desktop_Version
                     List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
                     displayResults(requests);
                     break;
-                case Mode.LabEscEdit:
-
                 default:
-                    break;
-            }
-        }
-                    errorList = "";
-                    errorList = auditData();
-                    if (errorList.Length == 0)
-                    {
-                        switch (GV.MODE)
-                        {
-                            case Mode.LabEscAdd:
-                                GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
-                                break;
-                            case Mode.LabEscEdit:
-                                GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
-                                break;
-                        } 
-                    
-                        MessageBox.Show(txtRecordID.Text + " has been saved");
-                        GV.MODE = Mode.LabEscEdit;
-                    }
-                    else
-                    {
-                        errorList = errorList + "\r\n\r\n Project not saved.";
-                        MessageBox.Show(errorList);
-                    }
                     break;
             }
         }
@@ -131,7 +124,6 @@ namespace Schedule_Database_Desktop_Version
             //DateTime dateOpened = dtpStartDate.Value;
             //DateTime dateDue = dtpDueDate.Value;
             //DateTime dateClosed = dtpClosedDate.Value;
-            string eMail = txtEmail.Text;
             string product = lstProducts.Text;
             string leadAssigned = cboLead.Text;
             //int quantity = 000000000000000000000000000000;
@@ -192,11 +184,6 @@ namespace Schedule_Database_Desktop_Version
             if (entryAdmin != "")
             {
                 fsm = makeFSM(cboEntryAdmin);
-                fsmList.Add(fsm);
-            }
-            if (eMail != "")
-            {
-                fsm = makeFSM(txtEmail);
                 fsmList.Add(fsm);
             }
             if (product != "")
@@ -402,13 +389,8 @@ namespace Schedule_Database_Desktop_Version
             dtpDueDate.Value = model.DateDue;
             dtpClosedDate.Value = model.DateCompleted;
             txtEntryAdmin.Text = model.EMail;
-            //product
-            //if (model.product != null)
-            //{
-            //    FormControlOps.markListBoxes(lstProducts, model.Product)
-            //}
             cboLead.Text = model.LeadAssigned;
-           // txtQty.Text = model.Quantity; (int)
+            txtQty.Text = model.Quantity.ToString(); 
             cboStatus.Text = model.Status;
             rtxComments.Text = model.Comments;
             rtxDescription.Text = model.Description;
@@ -539,18 +521,6 @@ namespace Schedule_Database_Desktop_Version
             //else
             //{
                 dtpDueDate.Format = DateTimePickerFormat.Long;
-            //}
-        }
-
-        private void dtpClosedDate_ValueChanged(object sender, EventArgs e)
-        {
-            //if (GV.MODE == Mode.LabEscAdd)
-            //{
-            //    setCustomFormat(dtpClosedDate);
-            //}
-            //else
-            //{
-                dtpClosedDate.Format = DateTimePickerFormat.Long;
             //}
         }
     }
