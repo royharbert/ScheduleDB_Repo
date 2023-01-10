@@ -312,10 +312,10 @@ namespace Schedule_Database_Desktop_Version
         private void escalationIDToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscSearch;
-            FrmATEscalations ATEscalationsForm = new FrmATEscalations();
-            GV.ESCALATIONFORM = ATEscalationsForm;
-            ATEscalationsForm.MdiParent = this;
-            ATEscalationsForm.Show();
+            frmLabEsc LabEscForm = new frmLabEsc();
+            GV.LABESCFORM = LabEscForm;
+            LabEscForm.MdiParent = this;
+            LabEscForm.Show();
         }
 
         private void dateRangeReportToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -413,6 +413,13 @@ namespace Schedule_Database_Desktop_Version
             frmLabRequest.MdiParent= this;
         }
 
+        private void generalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscSearch;
+            frmLabEsc frmLabEsc = new frmLabEsc();
+            frmLabEsc.Show();
+            frmLabEsc.MdiParent = this;
+        }
     }
 }
  

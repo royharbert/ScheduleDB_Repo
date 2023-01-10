@@ -1277,7 +1277,8 @@ namespace Schedule_Database_Desktop_Version
             //}
         }
 
-        private void clearDateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 
+            ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dtpResetting = true;
             Control sourceControl = null;

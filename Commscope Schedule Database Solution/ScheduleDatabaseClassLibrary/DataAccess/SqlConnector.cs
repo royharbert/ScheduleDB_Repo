@@ -14,6 +14,20 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
+        public List<LabEscModel> LabEscSearchGen(string whereClause)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@whereClause", whereClause, DbType.String);
+
+                List<LabEscModel> output = connection.Query<LabEscModel>("dbo.spLabEscSearchGen", p, 
+               
+                    commandType: CommandType.StoredProcedure).ToList();
+                return output;
+
+            }
+        }
         public List<LabRequestModel> labRequestGenSearch(string whereClause)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
@@ -160,7 +174,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                     commandType: CommandType.StoredProcedure);
             }
         }
-
         public List<LabRequestModel> SearchLabRequests(string searchTerm)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))

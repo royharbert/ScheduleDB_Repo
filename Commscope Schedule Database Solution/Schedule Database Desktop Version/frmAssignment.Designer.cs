@@ -825,7 +825,7 @@ namespace Schedule_Database_Desktop_Version
             this.clearDateToolStripMenuItem.Name = "clearDateToolStripMenuItem";
             this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.clearDateToolStripMenuItem.Text = "Clear Date";
-            this.clearDateToolStripMenuItem.Click += new System.EventHandler(this.clearDateToolStripMenuItem_Click);
+      
             // 
             // dtpEndDate
             // 

@@ -103,6 +103,7 @@
     <Compile Include="Models\CalendarItemModel.cs" />
     <Compile Include="Models\CityModel.cs" />
     <Compile Include="Models\EscRequestorModel.cs" />
+    <Compile Include="Models\LabEscDisplayModel.cs" />
     <Compile Include="Models\LabEscModel.cs" />
     <Compile Include="Models\CompanyHolidaysModel.cs" />
     <Compile Include="Models\CountriesModel.cs" />

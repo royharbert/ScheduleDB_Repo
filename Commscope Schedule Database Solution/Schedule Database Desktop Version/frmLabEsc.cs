@@ -19,8 +19,11 @@ namespace Schedule_Database_Desktop_Version
     {
         bool isEscalation = false;
         bool formDirty = false;
-        DateTime emptyDate = new DateTime(1900,1,1);
+
+        DateTime emptyDate = new DateTime(1900, 1, 1);
         LabEscModel model = new LabEscModel();
+        frmInput inputForm = new frmInput();
+
         string dtpCustomFormat = " ";
         
         public frmLabEsc()
@@ -55,6 +58,35 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscEdit:
 
                     loadModel(model);
+                    GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
+                    MessageBox.Show(txtRecordID.Text + " has been saved");
+                    break;
+                case Mode.LabEscSearch:
+                    //loadModel(model);
+                    //GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
+                    List<FieldSearchModel> models = collectData();
+                    string whereClause = "where ";
+                    foreach (var model in models)
+                    {
+                        if(model.FieldName == "Comments"| model.FieldName == "Description")
+                        {
+                            whereClause = whereClause + model.FieldName + " like '%" + model.FieldValue + "%' and ";
+                        }
+                        else
+                        {
+                            whereClause = whereClause + model.FieldName + " = '" + model.FieldValue + "' and ";
+                        }
+                    }
+                    whereClause = whereClause.Substring(0, whereClause.Length - 5);
+                    List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
+                    displayResults(requests);
+                    break;
+                case Mode.LabEscEdit:
+
+                default:
+                    break;
+            }
+        }
                     errorList = "";
                     errorList = auditData();
                     if (errorList.Length == 0)
@@ -77,6 +109,157 @@ namespace Schedule_Database_Desktop_Version
                         errorList = errorList + "\r\n\r\n Project not saved.";
                         MessageBox.Show(errorList);
                     }
+                    break;
+            }
+        }
+
+        private List<FieldSearchModel> collectData()
+        {
+            List<FieldSearchModel> fsmList = new List<FieldSearchModel>();
+            string mso = cboMSO.Text;
+            string endUser = txtEndUser.Text;
+            string city = cboCity.Text;
+            string state = cboState.Text;
+            string country = cboCountry.Text;
+            string severity = cboSeverity.Text;
+            string requestor = cboRequestor.Text;
+            string psNum = txtPSNum.Text;
+            string ctrNum = txtCTRNum.Text;
+            //bool isEsc = rdoATEsc.;
+            //bool isLab = rdoLabReq.;
+            string entryAdmin = cboEntryAdmin.Text;
+            //DateTime dateOpened = dtpStartDate.Value;
+            //DateTime dateDue = dtpDueDate.Value;
+            //DateTime dateClosed = dtpClosedDate.Value;
+            string eMail = txtEmail.Text;
+            string product = lstProducts.Text;
+            string leadAssigned = cboLead.Text;
+            //int quantity = 000000000000000000000000000000;
+            string status = cboStatus.Text;
+            string comments = rtxComments.Text;
+            string description = rtxDescription.Text;
+            string resolution = cboResolution.Text;
+
+            FieldSearchModel fsm = new FieldSearchModel();
+
+            if (mso != "")
+            {
+
+                fsm = makeFSM(cboMSO);
+                fsmList.Add(fsm);
+            }
+            if (endUser != "")
+            {
+                fsm = makeFSM(txtEndUser);
+                fsmList.Add(fsm);
+            }
+
+            if (city != "")
+            {
+                fsm = makeFSM(cboCity);
+                fsmList.Add(fsm);
+            }
+            if (state != "")
+            {
+                fsm = makeFSM(cboState);
+                fsmList.Add(fsm);
+            }
+            if (country != "")
+            {
+                fsm = makeFSM(cboCountry);
+                fsmList.Add(fsm);
+            }
+            if (severity != "")
+            {
+                fsm = makeFSM(cboSeverity);
+                fsmList.Add(fsm);
+            }
+            if (requestor != "")
+            {
+                fsm = makeFSM(cboRequestor);
+                fsmList.Add(fsm);
+            }
+            if (ctrNum != "")
+            {
+                fsm = makeFSM(txtCTRNum);
+                fsmList.Add(fsm);
+            }
+            if (psNum != "")
+            {
+                fsm = makeFSM(txtPSNum);
+                fsmList.Add(fsm);
+            }
+            if (entryAdmin != "")
+            {
+                fsm = makeFSM(cboEntryAdmin);
+                fsmList.Add(fsm);
+            }
+            if (eMail != "")
+            {
+                fsm = makeFSM(txtEmail);
+                fsmList.Add(fsm);
+            }
+            if (product != "")
+            {
+                fsm = makeFSM(lstProducts);
+                fsmList.Add(fsm);
+            }
+            if (leadAssigned != "")
+            {
+                fsm = makeFSM(cboLead);
+                fsmList.Add(fsm);
+            }
+            if (status != "")
+            {
+                fsm = makeFSM(cboStatus);
+                fsmList.Add(fsm);
+            }
+            if (comments != "")
+            {
+                fsm = makeFSM(rtxComments);
+                fsmList.Add(fsm);
+            }
+            if (description != "")
+            {
+                fsm = makeFSM(rtxDescription);
+                fsmList.Add(fsm);
+            }
+            if (resolution != "")
+            {
+                fsm = makeFSM(cboResolution);
+                fsmList.Add(fsm);
+            }
+            return fsmList;
+        }
+        private FieldSearchModel makeFSM(Control ctl)
+        {
+            FieldSearchModel fsm = new FieldSearchModel();
+            fsm.FieldName = extractField(ctl.Tag);
+            fsm.FieldValue = ctl.Text;
+            return fsm;
+        }
+        private string extractField(object ctlTag)
+        {
+            string[] tagArray = ctlTag.ToString().Split('|');
+            return tagArray[1];
+        }
+        private void displayResults(List<LabEscModel> models)
+        {
+            switch (models.Count)
+            {
+                case 0:
+                    MessageBox.Show("No matching records found");
+                    break;
+                case 1:
+                    LabEscModel model = models[0];
+                    loadBoxes(model);
+                    cboMSO.Focus();
+                  //displayAttachments();
+                    break;
+                default:
+                    frmMultiSelect displayForm = new frmMultiSelect();
+                    displayForm.Requests = models;
+                    displayForm.Show();
                     break;
             }
         }
@@ -202,7 +385,7 @@ namespace Schedule_Database_Desktop_Version
             return model;
 
         }
-        private void loadboxes(LabEscModel model)
+        public void loadBoxes(LabEscModel model)
         {
             txtRecordID.Text = model.EscID;
             cboMSO.Text = model.MSO;
@@ -342,6 +525,33 @@ namespace Schedule_Database_Desktop_Version
             {
                 dtpClosedDate.Format = DateTimePickerFormat.Long;
             }
+        }
+        private void setCustomFormat(DateTimePicker dtp)
+        {
+            DateTime newDate = CommonOps.dtpForcedReset(dtp);
+        }
+        private void dtpDueDate_ValueChanged(object sender, EventArgs e)
+        {
+            //if (GV.MODE == Mode.LabEscAdd)
+            //{
+            //    setCustomFormat(dtpDueDate);
+            //}
+            //else
+            //{
+                dtpDueDate.Format = DateTimePickerFormat.Long;
+            //}
+        }
+
+        private void dtpClosedDate_ValueChanged(object sender, EventArgs e)
+        {
+            //if (GV.MODE == Mode.LabEscAdd)
+            //{
+            //    setCustomFormat(dtpClosedDate);
+            //}
+            //else
+            //{
+                dtpClosedDate.Format = DateTimePickerFormat.Long;
+            //}
         }
     }
 }
