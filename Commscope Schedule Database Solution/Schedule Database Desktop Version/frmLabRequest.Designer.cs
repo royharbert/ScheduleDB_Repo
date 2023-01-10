@@ -307,7 +307,6 @@ namespace Schedule_Database_Desktop_Version
             this.label7.TabIndex = 21;
             this.label7.Text = "End User";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // frmLabRequest
             // 

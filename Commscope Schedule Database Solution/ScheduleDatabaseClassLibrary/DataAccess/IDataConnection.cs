@@ -12,6 +12,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
     public interface IDataConnection
     {
         void LabEsc_CRUD(LabEscModel model, char action);
+        List<LabEscModel> LabEscSearchGen(string whereClause);
         List<LabRequestModel> labRequestGenSearch(string whereClause);
         List<LabRequestModel> DateRangeSearchLab_SortBy(DateTime StartDate, DateTime EndDate);
         List<ATEscalationsDisplayModel> DateRangeSearchEscalations_SortBy(DateTime StartTime, DateTime EndDate);

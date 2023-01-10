@@ -471,10 +471,6 @@ namespace Schedule_Database_Desktop_Version
 
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 
 }

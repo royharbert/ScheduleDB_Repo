@@ -23,6 +23,7 @@ namespace Schedule_Database_Desktop_Version
         private List<LocationModel> locationData;
         private List<ATEscalationsDisplayModel> escalations;
         private List<LabRequestModel> labRequests;
+        private List<LabEscModel> requests;
 
         public frmCustomerContact CallingForm { get; set; }
 
@@ -116,10 +117,27 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
+
+        public List<LabEscModel> Requests
+        {
+            get
+            {
+                return requests;
+            }
+            set
+            {
+                requests = value;
+                customerData=null;
+                locationData=null;
+                dgvResults.DataSource = requests;
+                txtCount.Text=requests.Count.ToString();
+            }
+        }
+
         private void setDGV_EscalationHeaderText(DataGridView dgv)
         {
-            string[] headers = {"Escalation ID", "FE Lead", "MSO", "Escalation Type", "Product","Description", "Quantity", "Date Reported", "Date Resolved",
-                "Resolution", "Comments", "CTR Number", "PeopleSoft Number", "Status" };
+            string[] headers = { "EscID", "MSO", "EndUser", "City", "State", "Country", "Severity", "Requestor", "CTRNum", "EscNum", "IsEsc", "EntryAdmin", "DateOpened", "DateDue", "DateCompleted", "EMail", "Product", "LeadAssigned", "Quantity", "Status", "Comments", "Description", "Resolution", "PSNumber" };
+
             for (int i = 0; i < dgv.Columns.Count; i++)
             {
                 DataGridViewCellStyle style = dgv.ColumnHeadersDefaultCellStyle;
@@ -185,8 +203,8 @@ namespace Schedule_Database_Desktop_Version
                     this.Close();
                     break;
                 case Mode.LabEscSearch:
-                    ATEscalationsDisplayModel escalation = escalations[selectedRow];
-                    GV.ESCALATIONFORM.loadBoxes(escalation);
+                    LabEscModel request = requests[selectedRow];
+                    GV.LABESCFORM.loadBoxes(request);
                     GV.MODE = Mode.LabEscEdit;
                     break;
                 case Mode.LabRequestEdit:

@@ -338,6 +338,7 @@
             this.dtpClosedDate.Size = new System.Drawing.Size(273, 20);
             this.dtpClosedDate.TabIndex = 26;
             this.dtpClosedDate.Tag = "DateCompleted";
+            this.dtpClosedDate.ValueChanged += new System.EventHandler(this.dtpClosedDate_ValueChanged);
             // 
             // dtpDueDate
             // 
@@ -348,6 +349,7 @@
             this.dtpDueDate.Size = new System.Drawing.Size(273, 20);
             this.dtpDueDate.TabIndex = 27;
             this.dtpDueDate.Tag = "DueDate";
+            this.dtpDueDate.ValueChanged += new System.EventHandler(this.dtpDueDate_ValueChanged);
             // 
             // label12
             // 
