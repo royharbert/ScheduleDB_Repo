@@ -30,8 +30,31 @@ namespace Schedule_Database_Desktop_Version
         {
             InitializeComponent();
         }
+        private void frmLabEsc_Load(object sender, EventArgs e)
+        {
+            fillComboBoxes();
+            dtpClosedDate.CustomFormat = dtpCustomFormat;
+            dtpDueDate.CustomFormat = dtpCustomFormat;
 
-        private void clearDateToolStripMenuItem_Click(object sender, EventArgs e)
+            switch (GV.MODE)
+            {
+                case Mode.LabEscAdd:
+                    CommonOps.lockControls(true, this, "cboMSO");
+                    model = new LabEscModel();
+                    dtpClosedDate.Format = DateTimePickerFormat.Custom;
+                    break;
+                case Mode.LabEscEdit:
+                    break;
+                case Mode.LabEscDelete:
+                    break;
+                case Mode.LabEscSearch:
+                    CommonOps.lockControls(false, this, "cboMSO");
+                    break;
+                default:
+                    break;
+            }
+        }
+            private void clearDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Try to cast the sender to a ToolStripItem
             ToolStripItem menuItem = sender as ToolStripItem;
@@ -52,13 +75,13 @@ namespace Schedule_Database_Desktop_Version
         private void btnSave_Click(object sender, EventArgs e)
         {            
             string errorList = "";
+            loadModel(model);
             errorList = auditData();
             switch (GV.MODE)
             {
                 case Mode.LabEscAdd:
                 case Mode.LabEscEdit:
 
-                    loadModel(model);
                     if (errorList.Length == 0)
                     {
                         switch (GV.MODE)
@@ -69,6 +92,7 @@ namespace Schedule_Database_Desktop_Version
                             case Mode.LabEscEdit:
                                 GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
                                 break;
+
                         }
 
                         MessageBox.Show(txtRecordID.Text + " has been saved");
@@ -88,7 +112,7 @@ namespace Schedule_Database_Desktop_Version
                     string whereClause = "where ";
                     foreach (var model in models)
                     {
-                        if(model.FieldName == "Comments"| model.FieldName == "Description")
+                        if(model.FieldName == "Comments"| model.FieldName == "Description") //add all textbox
                         {
                             whereClause = whereClause + model.FieldName + " like '%" + model.FieldValue + "%' and ";
                         }
@@ -126,7 +150,8 @@ namespace Schedule_Database_Desktop_Version
             //DateTime dateClosed = dtpClosedDate.Value;
             string product = lstProducts.Text;
             string leadAssigned = cboLead.Text;
-            //int quantity = 000000000000000000000000000000;
+            int quan = 0;
+            int quantity = int.TryParse(txtQty.Text,out quan);
             string status = cboStatus.Text;
             string comments = rtxComments.Text;
             string description = rtxDescription.Text;
@@ -411,29 +436,7 @@ namespace Schedule_Database_Desktop_Version
         {
 
         }
-        private void frmLabEsc_Load(object sender, EventArgs e)
-        {
-            fillComboBoxes();
-            dtpClosedDate.CustomFormat = dtpCustomFormat;
-            dtpDueDate.CustomFormat = dtpCustomFormat;
-            CommonOps.lockControls(true, this, "cboMSO");
 
-            switch (GV.MODE)
-            {
-                case Mode.LabEscAdd:
-                    model = new LabEscModel();
-                    dtpClosedDate.Format = DateTimePickerFormat.Custom;
-                    break;
-                case Mode.LabEscEdit:
-                    break;
-                case Mode.LabEscDelete:
-                    break;
-                case Mode.LabEscSearch:
-                    break;
-                default:
-                    break;
-            }
-        }
         private string serializeProducts(List<ProductModel> products)
         {
             string xmlString;
