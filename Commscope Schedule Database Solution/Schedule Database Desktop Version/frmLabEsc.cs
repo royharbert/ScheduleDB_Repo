@@ -50,7 +50,8 @@ namespace Schedule_Database_Desktop_Version
             }
         }
         private void btnSave_Click(object sender, EventArgs e)
-        {            
+        {
+            loadModel(model);
             string errorList = "";
             errorList = auditData();
             switch (GV.MODE)
