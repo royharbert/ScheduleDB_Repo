@@ -61,13 +61,13 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                     commandType: CommandType.StoredProcedure);
             }
         }
-        public void LabEsc_CRUD(LabEscModel model, char action)
+        public LabEscModel LabEsc_CRUD(LabEscModel model, char action)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@Action", action, DbType.String);
-                p.Add("ID", model.ID, DbType.Int32,ParameterDirection.Output);
+                p.Add("@ID", model.ID, DbType.Int32);
                 p.Add("@EscID", model.EscID, DbType.String);
                 p.Add("@MSO", model.MSO, DbType.String);
                 p.Add("@EndUser", model.EndUser, DbType.String);
@@ -94,6 +94,14 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@PSNumber", model.PSNumber, DbType.String);
 
                 connection.Execute("dbo.spLabEsc_CRUD", p, commandType: CommandType.StoredProcedure);
+
+                LabEscModel eModel = new LabEscModel();
+                p = new DynamicParameters();
+                p.Add("@EID", model.EscID, DbType.String);
+                LabEscModel output = connection.Query<LabEscModel>("dbo.spGetEscByID", p,
+                    commandType: CommandType.StoredProcedure).ToList().FirstOrDefault();
+
+                return output;
             }
         }
         public List<AssignmentTableModel> fieldSearch(string whereClause)
@@ -102,8 +110,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             {
                 var p = new DynamicParameters();
                 p.Add("@WhereClause", whereClause, DbType.String);
-                //p.Add("@WhereClause", whereClause, DbType.Int32);
-             
 
                 List<AssignmentTableModel> output = connection.Query<AssignmentTableModel>("dbo.spAssignments_SearchVariableFields", p,
                     commandType: CommandType.StoredProcedure).ToList();

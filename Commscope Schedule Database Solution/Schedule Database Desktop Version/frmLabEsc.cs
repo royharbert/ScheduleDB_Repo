@@ -74,7 +74,6 @@ namespace Schedule_Database_Desktop_Version
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            loadModel(model);
             string errorList = "";
             loadModel(model);
             errorList = auditData();
@@ -88,7 +87,9 @@ namespace Schedule_Database_Desktop_Version
                         switch (GV.MODE)
                         {
                             case Mode.LabEscAdd:
-                                GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
+                                model = GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
+                                loadBoxes(model);
+                                txtID.Text = model.ID.ToString();
                                 break;
                             case Mode.LabEscEdit:
                                 GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
@@ -145,14 +146,14 @@ namespace Schedule_Database_Desktop_Version
             string ctrNum = txtCTRNum.Text;
             //bool isEsc = rdoATEsc.;
             //bool isLab = rdoLabReq.;
-            string entryAdmin = cboEntryAdmin.Text;
+            string entryAdmin = txtEntryAdmin.Text;
             //DateTime dateOpened = dtpStartDate.Value;
             //DateTime dateDue = dtpDueDate.Value;
             //DateTime dateClosed = dtpClosedDate.Value;
             string product = lstProducts.Text;
             string leadAssigned = cboLead.Text;
-            int quan = 0;
-            int quantity = int.TryParse(txtQty.Text,out quan);
+            int quantity = 0;
+            int.TryParse(txtQty.Text, out quantity);
             string status = cboStatus.Text;
             string comments = rtxComments.Text;
             string description = rtxDescription.Text;
@@ -209,7 +210,7 @@ namespace Schedule_Database_Desktop_Version
             }
             if (entryAdmin != "")
             {
-                fsm = makeFSM(cboEntryAdmin);
+                fsm = makeFSM(txtEntryAdmin);
                 fsmList.Add(fsm);
             }
             if (product != "")
@@ -254,7 +255,7 @@ namespace Schedule_Database_Desktop_Version
         private string extractField(object ctlTag)
         {
             string[] tagArray = ctlTag.ToString().Split('|');
-            return tagArray[1];
+            return tagArray[0];
         }
         private void displayResults(List<LabEscModel> models)
         {
@@ -358,6 +359,7 @@ namespace Schedule_Database_Desktop_Version
         {
             int id = -1;
             int.TryParse(txtID.Text, out id);
+            txtID.Text = id.ToString();
             model.ID = id;
             model.EscID = txtRecordID.Text;
             model.MSO = cboMSO.Text;
@@ -381,7 +383,15 @@ namespace Schedule_Database_Desktop_Version
             {
                 model.DateOpened = dtpStartDate.Value;
                 model.DateDue = dtpDueDate.Value;
-                model.DateCompleted = dtpClosedDate.Value; 
+                if (dtpClosedDate.Format == DateTimePickerFormat.Custom)
+                {
+                    model.DateCompleted = emptyDate;
+                }
+                else
+                { 
+                    model.DateCompleted = dtpClosedDate.Value; 
+
+                }
             }
            
             model.LeadAssigned = cboLead.Text;
@@ -410,11 +420,11 @@ namespace Schedule_Database_Desktop_Version
             cboRequestor.Text = model.Requestor;
             txtCTRNum.Text = model.CTRNum;
             txtEscNum.Text = model.EscNum;
-            cboEntryAdmin.Text = model.EntryAdmin;
+            txtEntryAdmin.Text = model.EntryAdmin;
             dtpStartDate.Value = model.DateOpened;
             dtpDueDate.Value = model.DateDue;
             dtpClosedDate.Value = model.DateCompleted;
-            txtEntryAdmin.Text = model.EMail;
+            txtEntryAdmin.Text = model.EntryAdmin;
             cboLead.Text = model.LeadAssigned;
             txtQty.Text = model.Quantity.ToString(); 
             cboStatus.Text = model.Status;
@@ -430,6 +440,7 @@ namespace Schedule_Database_Desktop_Version
             }
             //
             txtPSNum.Text = model.PSNumber;
+            txtID.Text = model.ID.ToString();
             //displayAttachments();
 
         }

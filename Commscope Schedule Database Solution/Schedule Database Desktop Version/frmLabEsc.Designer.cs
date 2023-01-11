@@ -48,8 +48,6 @@
             this.cboState = new System.Windows.Forms.ComboBox();
             this.cboRequestor = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.cboEntryAdmin = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.dtpContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.clearDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,7 +84,6 @@
             this.btnAddAttach = new System.Windows.Forms.Button();
             this.cboCity = new System.Windows.Forms.ComboBox();
             this.cboResolution = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
             this.dtpContextMenu.SuspendLayout();
             this.grpRecordType.SuspendLayout();
@@ -98,29 +95,34 @@
             this.txtRecordID.Location = new System.Drawing.Point(406, 28);
             this.txtRecordID.Name = "txtRecordID";
             this.txtRecordID.Size = new System.Drawing.Size(396, 20);
-            this.txtRecordID.TabIndex = 0;
+            this.txtRecordID.TabIndex = 200;
+            this.txtRecordID.TabStop = false;
             this.txtRecordID.Tag = "EscID";
             this.txtRecordID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cboMSO
             // 
             this.cboMSO.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboMSO.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cboMSO.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboMSO.FormattingEnabled = true;
             this.cboMSO.Location = new System.Drawing.Point(88, 81);
             this.cboMSO.Name = "cboMSO";
             this.cboMSO.Size = new System.Drawing.Size(273, 21);
-            this.cboMSO.TabIndex = 2;
-            this.cboMSO.Tag = "MSO|MSO|MSOModel";
+            this.cboMSO.TabIndex = 0;
+            this.cboMSO.Tag = "MSO";
             this.cboMSO.SelectedIndexChanged += new System.EventHandler(this.cboMSO_SelectedIndexChanged);
             // 
             // cboSeverity
             // 
             this.cboSeverity.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboSeverity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cboSeverity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboSeverity.FormattingEnabled = true;
             this.cboSeverity.Location = new System.Drawing.Point(87, 229);
             this.cboSeverity.Name = "cboSeverity";
             this.cboSeverity.Size = new System.Drawing.Size(273, 21);
-            this.cboSeverity.TabIndex = 3;
+            this.cboSeverity.TabIndex = 5;
             this.cboSeverity.Tag = "Severity";
             // 
             // txtEndUser
@@ -129,8 +131,8 @@
             this.txtEndUser.Location = new System.Drawing.Point(87, 111);
             this.txtEndUser.Name = "txtEndUser";
             this.txtEndUser.Size = new System.Drawing.Size(273, 20);
-            this.txtEndUser.TabIndex = 6;
-            this.txtEndUser.Tag = "EndUser|EndUser";
+            this.txtEndUser.TabIndex = 1;
+            this.txtEndUser.Tag = "EndUser";
             // 
             // label1
             // 
@@ -139,7 +141,7 @@
             this.label1.Location = new System.Drawing.Point(48, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 15);
-            this.label1.TabIndex = 7;
+            this.label1.TabIndex = 200;
             this.label1.Text = "MSO";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -150,7 +152,7 @@
             this.label2.Location = new System.Drawing.Point(48, 167);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 15);
-            this.label2.TabIndex = 8;
+            this.label2.TabIndex = 200;
             this.label2.Text = "State";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -161,7 +163,7 @@
             this.label3.Location = new System.Drawing.Point(57, 140);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 15);
-            this.label3.TabIndex = 9;
+            this.label3.TabIndex = 200;
             this.label3.Text = "City";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -171,7 +173,7 @@
             this.label4.Location = new System.Drawing.Point(380, 44);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 13);
-            this.label4.TabIndex = 10;
+            this.label4.TabIndex = 200;
             // 
             // label5
             // 
@@ -180,7 +182,7 @@
             this.label5.Location = new System.Drawing.Point(25, 111);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 15);
-            this.label5.TabIndex = 11;
+            this.label5.TabIndex = 200;
             this.label5.Text = "End User";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -191,7 +193,7 @@
             this.label6.Location = new System.Drawing.Point(35, 201);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 15);
-            this.label6.TabIndex = 12;
+            this.label6.TabIndex = 200;
             this.label6.Text = "Country";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -202,7 +204,7 @@
             this.label7.Location = new System.Drawing.Point(34, 231);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 15);
-            this.label7.TabIndex = 13;
+            this.label7.TabIndex = 200;
             this.label7.Text = "Severity";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -212,7 +214,7 @@
             this.txtEscNum.Location = new System.Drawing.Point(87, 465);
             this.txtEscNum.Name = "txtEscNum";
             this.txtEscNum.Size = new System.Drawing.Size(273, 20);
-            this.txtEscNum.TabIndex = 14;
+            this.txtEscNum.TabIndex = 13;
             this.txtEscNum.Tag = "EscNum";
             // 
             // txtPSNum
@@ -221,7 +223,7 @@
             this.txtPSNum.Location = new System.Drawing.Point(87, 407);
             this.txtPSNum.Name = "txtPSNum";
             this.txtPSNum.Size = new System.Drawing.Size(273, 20);
-            this.txtPSNum.TabIndex = 15;
+            this.txtPSNum.TabIndex = 11;
             this.txtPSNum.Tag = "PSNumber";
             // 
             // label8
@@ -231,7 +233,7 @@
             this.label8.Location = new System.Drawing.Point(4, 436);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 15);
-            this.label8.TabIndex = 16;
+            this.label8.TabIndex = 200;
             this.label8.Text = "CTR Number";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -242,19 +244,21 @@
             this.label9.Location = new System.Drawing.Point(19, 261);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 15);
-            this.label9.TabIndex = 17;
+            this.label9.TabIndex = 200;
             this.label9.Text = "Requestor";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cboCountry
             // 
             this.cboCountry.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboCountry.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cboCountry.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboCountry.FormattingEnabled = true;
             this.cboCountry.Location = new System.Drawing.Point(87, 201);
             this.cboCountry.Name = "cboCountry";
             this.cboCountry.Size = new System.Drawing.Size(273, 21);
-            this.cboCountry.TabIndex = 18;
-            this.cboCountry.Tag = "Country|Country";
+            this.cboCountry.TabIndex = 4;
+            this.cboCountry.Tag = "Country";
             // 
             // cboState
             // 
@@ -263,17 +267,19 @@
             this.cboState.Location = new System.Drawing.Point(87, 170);
             this.cboState.Name = "cboState";
             this.cboState.Size = new System.Drawing.Size(273, 21);
-            this.cboState.TabIndex = 19;
-            this.cboState.Tag = "StateStated";
+            this.cboState.TabIndex = 3;
+            this.cboState.Tag = "State";
             // 
             // cboRequestor
             // 
             this.cboRequestor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboRequestor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cboRequestor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboRequestor.FormattingEnabled = true;
             this.cboRequestor.Location = new System.Drawing.Point(87, 259);
             this.cboRequestor.Name = "cboRequestor";
             this.cboRequestor.Size = new System.Drawing.Size(273, 21);
-            this.cboRequestor.TabIndex = 20;
+            this.cboRequestor.TabIndex = 6;
             this.cboRequestor.Tag = "Requestor";
             // 
             // label10
@@ -287,25 +293,6 @@
             this.label10.Text = "Esc Number";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // cboEntryAdmin
-            // 
-            this.cboEntryAdmin.FormattingEnabled = true;
-            this.cboEntryAdmin.Location = new System.Drawing.Point(462, 590);
-            this.cboEntryAdmin.Name = "cboEntryAdmin";
-            this.cboEntryAdmin.Size = new System.Drawing.Size(273, 21);
-            this.cboEntryAdmin.TabIndex = 23;
-            this.cboEntryAdmin.Tag = "EntryAdmin";
-            // 
-            // label11
-            // 
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label11.Location = new System.Drawing.Point(383, 596);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 15);
-            this.label11.TabIndex = 24;
-            this.label11.Text = "Entry Admin";
-            // 
             // dtpStartDate
             // 
             this.dtpStartDate.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -313,7 +300,7 @@
             this.dtpStartDate.Location = new System.Drawing.Point(87, 494);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(273, 20);
-            this.dtpStartDate.TabIndex = 25;
+            this.dtpStartDate.TabIndex = 14;
             this.dtpStartDate.Tag = "DateOpened";
             // 
             // dtpContextMenu
@@ -338,7 +325,7 @@
             this.dtpClosedDate.Location = new System.Drawing.Point(87, 552);
             this.dtpClosedDate.Name = "dtpClosedDate";
             this.dtpClosedDate.Size = new System.Drawing.Size(273, 20);
-            this.dtpClosedDate.TabIndex = 26;
+            this.dtpClosedDate.TabIndex = 16;
             this.dtpClosedDate.Tag = "DateCompleted";
             this.dtpClosedDate.ValueChanged += new System.EventHandler(this.dtpClosedDate_ValueChanged);
             // 
@@ -349,7 +336,7 @@
             this.dtpDueDate.Location = new System.Drawing.Point(87, 523);
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.Size = new System.Drawing.Size(273, 20);
-            this.dtpDueDate.TabIndex = 27;
+            this.dtpDueDate.TabIndex = 15;
             this.dtpDueDate.Tag = "DueDate";
             this.dtpDueDate.ValueChanged += new System.EventHandler(this.dtpDueDate_ValueChanged);
             // 
@@ -392,8 +379,9 @@
             this.txtEntryAdmin.Location = new System.Drawing.Point(87, 289);
             this.txtEntryAdmin.Name = "txtEntryAdmin";
             this.txtEntryAdmin.Size = new System.Drawing.Size(273, 20);
-            this.txtEntryAdmin.TabIndex = 31;
-            this.txtEntryAdmin.Tag = "EMail";
+            this.txtEntryAdmin.TabIndex = 7;
+            this.txtEntryAdmin.TabStop = false;
+            this.txtEntryAdmin.Tag = "";
             // 
             // label15
             // 
@@ -424,7 +412,7 @@
             this.label17.Location = new System.Drawing.Point(370, 63);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(63, 15);
-            this.label17.TabIndex = 34;
+            this.label17.TabIndex = 0;
             this.label17.Text = "Product(s)";
             // 
             // label18
@@ -482,21 +470,25 @@
             // cboStatus
             // 
             this.cboStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cboStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboStatus.FormattingEnabled = true;
             this.cboStatus.Location = new System.Drawing.Point(85, 318);
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(273, 21);
-            this.cboStatus.TabIndex = 41;
+            this.cboStatus.TabIndex = 8;
             this.cboStatus.Tag = "Status";
             // 
             // cboLead
             // 
             this.cboLead.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboLead.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cboLead.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboLead.FormattingEnabled = true;
             this.cboLead.Location = new System.Drawing.Point(87, 348);
             this.cboLead.Name = "cboLead";
             this.cboLead.Size = new System.Drawing.Size(273, 21);
-            this.cboLead.TabIndex = 42;
+            this.cboLead.TabIndex = 9;
             this.cboLead.Tag = "LeadAssigned";
             // 
             // txtQty
@@ -505,7 +497,7 @@
             this.txtQty.Location = new System.Drawing.Point(87, 375);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(273, 20);
-            this.txtQty.TabIndex = 43;
+            this.txtQty.TabIndex = 10;
             this.txtQty.Tag = "Quantity";
             // 
             // lstProducts
@@ -514,7 +506,7 @@
             this.lstProducts.Location = new System.Drawing.Point(373, 81);
             this.lstProducts.Name = "lstProducts";
             this.lstProducts.Size = new System.Drawing.Size(457, 186);
-            this.lstProducts.TabIndex = 44;
+            this.lstProducts.TabIndex = 17;
             this.lstProducts.Tag = "Product";
             // 
             // rtxDescription
@@ -587,7 +579,7 @@
             this.txtCTRNum.Location = new System.Drawing.Point(87, 436);
             this.txtCTRNum.Name = "txtCTRNum";
             this.txtCTRNum.Size = new System.Drawing.Size(273, 20);
-            this.txtCTRNum.TabIndex = 51;
+            this.txtCTRNum.TabIndex = 12;
             this.txtCTRNum.Tag = "CTRNum";
             // 
             // btnSave
@@ -618,7 +610,7 @@
             this.dgvAttachments.Location = new System.Drawing.Point(373, 303);
             this.dgvAttachments.Name = "dgvAttachments";
             this.dgvAttachments.Size = new System.Drawing.Size(457, 228);
-            this.dgvAttachments.TabIndex = 55;
+            this.dgvAttachments.TabIndex = 18;
             // 
             // label24
             // 
@@ -651,11 +643,14 @@
             // cboCity
             // 
             this.cboCity.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboCity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cboCity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboCity.FormattingEnabled = true;
             this.cboCity.Location = new System.Drawing.Point(85, 140);
             this.cboCity.Name = "cboCity";
             this.cboCity.Size = new System.Drawing.Size(275, 21);
-            this.cboCity.TabIndex = 60;
+            this.cboCity.TabIndex = 2;
+            this.cboCity.Tag = "City";
             // 
             // cboResolution
             // 
@@ -664,13 +659,6 @@
             this.cboResolution.Name = "cboResolution";
             this.cboResolution.Size = new System.Drawing.Size(284, 21);
             this.cboResolution.TabIndex = 61;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(629, 170);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(54, 20);
-            this.textBox1.TabIndex = 62;
             // 
             // txtID
             // 
@@ -685,7 +673,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1309, 665);
             this.Controls.Add(this.txtID);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.cboResolution);
             this.Controls.Add(this.cboCity);
             this.Controls.Add(this.btnRemoveAttach);
@@ -718,8 +705,6 @@
             this.Controls.Add(this.dtpDueDate);
             this.Controls.Add(this.dtpClosedDate);
             this.Controls.Add(this.dtpStartDate);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.cboEntryAdmin);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cboRequestor);
             this.Controls.Add(this.cboState);
@@ -772,8 +757,6 @@
         private System.Windows.Forms.ComboBox cboState;
         private System.Windows.Forms.ComboBox cboRequestor;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cboEntryAdmin;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.DateTimePicker dtpClosedDate;
         private System.Windows.Forms.DateTimePicker dtpDueDate;
@@ -810,7 +793,6 @@
         private System.Windows.Forms.ToolStripMenuItem clearDateToolStripMenuItem;
         private System.Windows.Forms.ComboBox cboCity;
         private System.Windows.Forms.ComboBox cboResolution;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtID;
     }
 }
