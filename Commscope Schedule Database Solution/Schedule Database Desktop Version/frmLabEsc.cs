@@ -266,7 +266,9 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case 1:
                     LabEscModel model = models[0];
-                    loadBoxes(model);
+                    frmLabEsc escForm = new frmLabEsc();
+                    escForm.Show();
+                    escForm.loadBoxes(model);
                     cboMSO.Focus();
                   //displayAttachments();
                     break;

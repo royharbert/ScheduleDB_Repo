@@ -204,7 +204,9 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case Mode.LabEscSearch:
                     LabEscModel request = requests[selectedRow];
-                    GV.LABESCFORM.loadBoxes(request);
+                    frmLabEsc escForm = new frmLabEsc();
+                    escForm.Show();
+                    escForm.loadBoxes(request);
                     GV.MODE = Mode.LabEscEdit;
                     break;
                 case Mode.LabRequestEdit:
@@ -217,7 +219,6 @@ namespace Schedule_Database_Desktop_Version
                 default:
                     break;
             }
-            //GV.MAINMENU.BringToFront();
             this.Close();
         }
 
