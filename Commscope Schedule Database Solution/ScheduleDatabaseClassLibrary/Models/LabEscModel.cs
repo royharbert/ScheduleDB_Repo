@@ -19,7 +19,6 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string Requestor { get; set; }
         public string CTRNum { get; set; }
         public string EscNum { get; set; }
-        public bool IsEsc { get; set; }
         public string EntryAdmin { get; set; }
         public DateTime DateOpened { get; set; }
         public DateTime DateDue { get; set; }
@@ -33,5 +32,6 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string Description { get; set; }
         public string Resolution { get; set; }
         public string PSNumber { get; set; }
+        public string RecordType { get; set; }
     }
 }

@@ -33,8 +33,6 @@ namespace ScheduleDatabaseClassLibrary.Models
         [ExcelExportProperty]
         public string EscNum { get; set; }
         [ExcelExportProperty]
-        public bool IsEsc { get; set; }
-        [ExcelExportProperty]
         public string EntryAdmin { get; set; }
         [ExcelExportProperty]
         public DateTime DateOpened { get; set; }
@@ -60,6 +58,8 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string Resolution { get; set; }
         [ExcelExportProperty]
         public string PSNumber { get; set; }
+        [ExcelExportProperty]
+        public string RecordType { get; set; }
         
 
         public LabEscDisplayModel(LabEscModel model)
@@ -73,7 +73,6 @@ namespace ScheduleDatabaseClassLibrary.Models
             this.Requestor = model.Requestor;
             this.CTRNum = model.CTRNum;
             this.EscNum = model.EscNum;
-            this.IsEsc = model.IsEsc;
             this.EntryAdmin = model.EntryAdmin;
             this.DateCompleted = model.DateCompleted;
             this.DateOpened = model.DateOpened;
@@ -87,6 +86,7 @@ namespace ScheduleDatabaseClassLibrary.Models
             this.Description = model.Description;  
             this.Resolution = model.Resolution;
             this.PSNumber = model.PSNumber;
+            this.RecordType = model.RecordType;
         }
     }
 

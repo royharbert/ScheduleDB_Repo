@@ -35,6 +35,7 @@ namespace Schedule_Database_Desktop_Version
             fillComboBoxes();
             dtpClosedDate.CustomFormat = dtpCustomFormat;
             dtpDueDate.CustomFormat = dtpCustomFormat;
+            dtpStartDate.CustomFormat = dtpCustomFormat;
 
             switch (GV.MODE)
             {
@@ -52,6 +53,9 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscSearch:
                     CommonOps.lockControls(false, this, "cboMSO");
                     btnSave.Text = "Search";
+                    dtpClosedDate.Format = DateTimePickerFormat.Custom;
+                    dtpDueDate.Format = DateTimePickerFormat.Custom;
+                    dtpStartDate.Format = DateTimePickerFormat.Custom;                   
                     break;
                 default:
                     break;
@@ -117,7 +121,8 @@ namespace Schedule_Database_Desktop_Version
                     string whereClause = "where ";
                     foreach (var model in models)
                     {
-                        if(model.FieldName == "Comments"| model.FieldName == "Description") //add all textbox
+                        if(model.FieldName == "Comments"| model.FieldName == "Description"| model.FieldName == "PSNumber"| model.FieldName == "Resolution" 
+                            | model.FieldName == "CTRNum"| model.FieldName == "EscNum" /*| model.FieldName == "City"*/) 
                         {
                             whereClause = whereClause + model.FieldName + " like '%" + model.FieldValue + "%' and ";
                         }
@@ -146,9 +151,8 @@ namespace Schedule_Database_Desktop_Version
             string severity = cboSeverity.Text;
             string requestor = cboRequestor.Text;
             string psNum = txtPSNum.Text;
+            string escNum = txtEscNum.Text;
             string ctrNum = txtCTRNum.Text;
-            //bool isEsc = rdoATEsc.;
-            //bool isLab = rdoLabReq.;
             string entryAdmin = txtEntryAdmin.Text;
             //DateTime dateOpened = dtpStartDate.Value;
             //DateTime dateDue = dtpDueDate.Value;
@@ -161,6 +165,7 @@ namespace Schedule_Database_Desktop_Version
             string comments = rtxComments.Text;
             string description = rtxDescription.Text;
             string resolution = cboResolution.Text;
+            string recordType = cboRecType.Text;
 
             FieldSearchModel fsm = new FieldSearchModel();
 
@@ -211,6 +216,11 @@ namespace Schedule_Database_Desktop_Version
                 fsm = makeFSM(txtPSNum);
                 fsmList.Add(fsm);
             }
+            if (escNum != "")
+            {
+                fsm = makeFSM(txtEscNum);
+                fsmList.Add(fsm);
+            }
             if (entryAdmin != "")
             {
                 fsm = makeFSM(txtEntryAdmin);
@@ -246,6 +256,11 @@ namespace Schedule_Database_Desktop_Version
                 fsm = makeFSM(cboResolution);
                 fsmList.Add(fsm);
             }
+            if (recordType != "")
+            {
+                fsm = makeFSM(cboRecType);
+                fsmList.Add(fsm);
+            }
             return fsmList;
         }
         private FieldSearchModel makeFSM(Control ctl)
@@ -273,6 +288,7 @@ namespace Schedule_Database_Desktop_Version
                     escForm.Show();
                     escForm.loadBoxes(model);
                     cboMSO.Focus();
+                    escForm.BringToFront();
                   //displayAttachments();
                     break;
                 default:
@@ -287,10 +303,6 @@ namespace Schedule_Database_Desktop_Version
         {
             string errorList = "";
 
-            if (!rdoATEsc.Checked && !rdoLabReq.Checked)
-            {
-                errorList = errorList + "Esclation/Lab Request not selected" + Environment.NewLine;
-            }
             if (model.EscID == "")
             {
                 errorList = errorList + "Request number not assigned" + Environment.NewLine;
@@ -328,6 +340,10 @@ namespace Schedule_Database_Desktop_Version
             fillComboList<RequestorModel>(cboRequestor, "tblSalespersons", "SalesPerson");
             fillComboList<StatusModel>(cboStatus, "tblStatus", "Status");
             fillComboList<FE_Model>(cboLead, "tblFE", "LastName");
+
+            cboRecType.Items.Add("AT Escalation");
+            cboRecType.Items.Add("Lab Request");
+
         }
 
         private void fillComboList<T>(ComboBox cbo, string table, string displayField)
@@ -376,7 +392,6 @@ namespace Schedule_Database_Desktop_Version
             model.Requestor = cboRequestor.Text;
             model.CTRNum = txtCTRNum.Text;
             model.EscNum = txtEscNum.Text;
-            model.IsEsc = isEscalation;
             if (GV.MODE == Mode.LabEscAdd)
             {
                 model.EntryAdmin = GV.USERMODEL.FullName;
@@ -403,6 +418,8 @@ namespace Schedule_Database_Desktop_Version
             model.Status = cboStatus.Text;
             model.Comments = rtxComments.Text;
             model.Description = rtxDescription.Text;
+            model.Resolution = cboResolution.Text;
+            model.RecordType = cboRecType.Text;
 
             if (lstProducts.SelectedIndex > -1)
             {
@@ -435,14 +452,8 @@ namespace Schedule_Database_Desktop_Version
             cboStatus.Text = model.Status;
             rtxComments.Text = model.Comments;
             rtxDescription.Text = model.Description;
-            if (model.IsEsc)
-            {
-                rdoATEsc.Checked = true;
-            }
-            else
-            {
-                rdoLabReq.Checked = true;
-            }
+            cboRecType.Text = model.RecordType;
+            cboResolution.Text = model.Resolution;
             //
             txtPSNum.Text = model.PSNumber;
             txtID.Text = model.ID.ToString();
@@ -487,36 +498,6 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
-        private void rdoATEsc_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdoATEsc.Checked)
-            {
-                isEscalation = true;
-                txtEscNum.Enabled = false;
-            }
-
-            else
-            {
-                isEscalation = false;
-                txtEscNum.Enabled = true;
-            }
-        }
-
-        private void rdoLabReq_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdoLabReq.Checked)
-            {
-                isEscalation = false;
-                txtEscNum.Enabled = true;
-            }
-
-            else
-            {
-                isEscalation = true;
-                txtEscNum.Enabled= false;
-            }
-        }
-
         private void dtpClosedDate_ValueChanged(object sender, EventArgs e)
         {
             if (GV.MODE == Mode.LabEscAdd)
@@ -542,6 +523,11 @@ namespace Schedule_Database_Desktop_Version
             //{
                 dtpDueDate.Format = DateTimePickerFormat.Long;
             //}
+        }
+
+        private void dtpStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            dtpDueDate.Format = DateTimePickerFormat.Long;
         }
     }
 }

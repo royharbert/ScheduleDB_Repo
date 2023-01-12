@@ -77,7 +77,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@Severity", model.Severity, DbType.String);
                 p.Add("@Requestor", model.Requestor, DbType.String);
                 p.Add("@CTRNum", model.CTRNum, DbType.String);
-                p.Add("@IsEsc", model.IsEsc, DbType.Boolean);
                 p.Add("@EscNum", model.EscNum, DbType.String);
                 p.Add("@EntryAdmin", model.EntryAdmin, DbType.String);
                 p.Add("@DateOpened", model.DateOpened, DbType.DateTime2);
@@ -92,6 +91,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@Description", model.Description, DbType.String);
                 p.Add("@Resolution", model.Resolution, DbType.String);
                 p.Add("@PSNumber", model.PSNumber, DbType.String);
+                p.Add("@RecordType", model.RecordType, DbType.String);
 
                 connection.Execute("dbo.spLabEsc_CRUD", p, commandType: CommandType.StoredProcedure);
 
