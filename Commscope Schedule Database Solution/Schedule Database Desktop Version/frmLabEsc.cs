@@ -42,13 +42,16 @@ namespace Schedule_Database_Desktop_Version
                     CommonOps.lockControls(true, this, "cboMSO");
                     model = new LabEscModel();
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
+                    btnSave.Text = "Save";
                     break;
                 case Mode.LabEscEdit:
+                    btnSave.Text = "Save";
                     break;
                 case Mode.LabEscDelete:
                     break;
                 case Mode.LabEscSearch:
                     CommonOps.lockControls(false, this, "cboMSO");
+                    btnSave.Text = "Search";
                     break;
                 default:
                     break;
