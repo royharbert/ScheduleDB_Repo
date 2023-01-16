@@ -9,11 +9,27 @@ using ScheduleDatabaseClassLibrary.Models;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
 
 namespace ScheduleDatabaseClassLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
+        public void InsertPerson(string tableName, PersonModel model)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@TableName", tableName, DbType.String);
+                p.Add("@FirstName", model.FirstName, DbType.String);
+                p.Add("@LastName", model.LastName, DbType.String);
+                p.Add("@PhoneNumber", model.PhoneNumber, DbType.String);
+                p.Add("@Active", model.Active, DbType.String);
+
+                connection.Execute("dbo.spPersonInsert", p,
+                    commandType: CommandType.StoredProcedure);
+            }
+        }
         public List<LabEscModel> LabEscSearchGen(string whereClause)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
@@ -34,8 +50,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             {
                 var p = new DynamicParameters();
                 p.Add("@whereClause", whereClause, DbType.String);
-                //p.Add("@WhereClause", whereClause, DbType.Int32);
-
 
                 List<LabRequestModel> output = connection.Query<LabRequestModel>("dbo.spLabRequestSearchGen", p,
                     commandType: CommandType.StoredProcedure).ToList();
@@ -232,7 +246,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
         public static string db { get; set; }
-        public void MSO_Update(DataTable dt)
+        public void MSO_Update(System.Data.DataTable dt)
         {
             string cs;
             if (GlobalConfig.DatabaseMode == DatabaseType.Live)
@@ -262,7 +276,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 
             }
         }
-        public int Escalation_Update(DataTable dt)
+        public int Escalation_Update(System.Data.DataTable dt)
         {
             string cs;
             if (GlobalConfig.DatabaseMode == DatabaseType.Live)
@@ -326,7 +340,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
         
-        public int Escalations_Add(DataTable dt)
+        public int Escalations_Add(System.Data.DataTable dt)
         {
             string db;
             if (GlobalConfig.DatabaseMode == DatabaseType.Live)
@@ -510,7 +524,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
 
-        public void Assignment_CRUD(char action, string ID, DataTable dt)
+        public void Assignment_CRUD(char action, string ID, System.Data.DataTable dt)
         {
             string db;
             if (GlobalConfig.DatabaseMode == DatabaseType.Live)
@@ -907,7 +921,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
 
-        public void UpdateTable(string spName, DataTable dt)
+        public void UpdateTable(string spName, System.Data.DataTable dt)
         {
             string db;
             if (GlobalConfig.DatabaseMode == DatabaseType.Live)

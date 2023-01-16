@@ -40,7 +40,7 @@ namespace Schedule_Database_Desktop_Version
             switch (GV.MODE)
             {
                 case Mode.LabEscAdd:
-                    CommonOps.lockControls(true, this, "cboMSO");
+                    CommonOps.lockControls(true, this, "cboMSO, cboRecType");
                     model = new LabEscModel();
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
                     btnSave.Text = "Save";
@@ -51,7 +51,7 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscDelete:
                     break;
                 case Mode.LabEscSearch:
-                    CommonOps.lockControls(false, this, "cboMSO");
+                    CommonOps.lockControls(false, this, "");
                     btnSave.Text = "Search";
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
                     dtpDueDate.Format = DateTimePickerFormat.Custom;
@@ -331,24 +331,24 @@ namespace Schedule_Database_Desktop_Version
 
         private void fillComboBoxes()
         {
-            fillComboList<MSO_Model>(cboMSO, "tblMSO", "MSO");
-            fillComboList<CityModel>(cboCity, "tblCities", "City");
-            fillComboList<StateModel>(cboState, "tblStates", "State");
-            fillComboList<CountriesModel>(cboCountry, "tblCountries", "Country");
-            fillListList<ProductModel>(lstProducts, "tblProducts", "Product");
-            fillComboList<PriorityModel>(cboSeverity, "tblPriorities", "Priority");
-            fillComboList<RequestorModel>(cboRequestor, "tblSalespersons", "SalesPerson");
-            fillComboList<StatusModel>(cboStatus, "tblStatus", "Status");
-            fillComboList<FE_Model>(cboLead, "tblFE", "LastName");
+            fillComboList<MSO_Model>(cboMSO, "tblMSO", "MSO", "MSO");
+            fillComboList<CityModel>(cboCity, "tblCities", "City", "City");
+            fillComboList<StateModel>(cboState, "tblStates", "State", "State");
+            fillComboList<CountriesModel>(cboCountry, "tblCountries", "Country", "ID");
+            fillListList<ProductModel>(lstProducts, "tblProducts", "Product", "Product");
+            fillComboList<PriorityModel>(cboSeverity, "tblPriorities", "Priority", "Priority");
+            fillComboList<PersonModel>(cboRequestor, "tblEscRequestors", "FullName", "LastName");
+            fillComboList<StatusModel>(cboStatus, "tblStatus", "Status", "Status");
+            fillComboList<PersonModel>(cboLead, "tblEscLeads", "FullName", "LastName");
 
             cboRecType.Items.Add("AT Escalation");
             cboRecType.Items.Add("Lab Request");
 
         }
 
-        private void fillComboList<T>(ComboBox cbo, string table, string displayField)
+        private void fillComboList<T>(ComboBox cbo, string table, string displayField, string orderByCol)
         {
-            List<T> data = GlobalConfig.Connection.GenericGetAll<T>(table, displayField);
+            List<T> data = GlobalConfig.Connection.GenericGetAll<T>(table, orderByCol);
             cbo.DataSource = data;
             if (displayField != "LastName")
             {
@@ -362,9 +362,9 @@ namespace Schedule_Database_Desktop_Version
         }
 
 
-        private void fillListList<T>(System.Windows.Forms.ListBox cbo, string table, string displayField)
+        private void fillListList<T>(System.Windows.Forms.ListBox cbo, string table, string displayField, string orderByField)
         {
-            List<T> data = GlobalConfig.Connection.GenericGetAll<T>(table, displayField);
+            List<T> data = GlobalConfig.Connection.GenericGetAll<T>(table, orderByField);
             cbo.DataSource = data;
             if (displayField != "LastName")
             {
@@ -528,6 +528,46 @@ namespace Schedule_Database_Desktop_Version
         private void dtpStartDate_ValueChanged(object sender, EventArgs e)
         {
             dtpDueDate.Format = DateTimePickerFormat.Long;
+        }
+
+        private void cboRequestor_Leave(object sender, EventArgs e)
+        {
+            PersonModel model = new PersonModel();
+            // break entry int fname and lname
+            string name = cboRequestor.Text;
+            if (name != "")
+            {
+                addPerson(cboRequestor, model, "tblEscRequestors");                
+            }
+        }
+
+        private void addPerson(ComboBox cbo, PersonModel model, string tableName)
+        {
+            string[] nameArray = AddPersonToDropdownList.ParsePerson(cbo, cbo.Text);
+            string fullName = nameArray[0] + " " + nameArray[1];
+            int idx = cbo.FindString(fullName);
+            if (idx == -1)
+            {
+                frmAddPerson personForm = new frmAddPerson();
+                personForm.FirstName = nameArray[0];
+                personForm.LastName = nameArray[1];
+                personForm.ActiveTable = tableName;
+                personForm.ShowDialog();
+            }
+        }
+
+        private void cboLead_Leave(object sender, EventArgs e)
+        {
+
+            PersonModel model = new PersonModel();
+
+            // break entry int fname and lname
+            string name = cboLead.Text;
+            if (name != "")
+            {
+                addPerson(cboLead, model, "tblEscLeads");
+                fillComboList<PersonModel>(cboLead, "tblEscLeads", "FullName", "LastName");
+            }
         }
     }
 }

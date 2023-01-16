@@ -279,6 +279,8 @@
             this.cboRequestor.Size = new System.Drawing.Size(273, 21);
             this.cboRequestor.TabIndex = 6;
             this.cboRequestor.Tag = "Requestor";
+            this.cboRequestor.Text = "Roy Harbert";
+            this.cboRequestor.Leave += new System.EventHandler(this.cboRequestor_Leave);
             // 
             // label10
             // 
@@ -489,6 +491,7 @@
             this.cboLead.Size = new System.Drawing.Size(273, 21);
             this.cboLead.TabIndex = 9;
             this.cboLead.Tag = "LeadAssigned";
+            this.cboLead.Leave += new System.EventHandler(this.cboLead_Leave);
             // 
             // txtQty
             // 

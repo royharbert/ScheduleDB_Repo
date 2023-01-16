@@ -73,6 +73,7 @@
     <Compile Include="DataAccess\IDataConnection.cs" />
     <Compile Include="DataAccess\SqlConnector.cs" />
     <Compile Include="Enum.cs" />
+    <Compile Include="GeneralOps\AddPersonToDropdownList.cs" />
     <Compile Include="GeneralOps\AttachmentOps.cs" />
     <Compile Include="GeneralOps\DB_TableToHashTable.cs" />
     <Compile Include="GeneralOps\ExcelOps.cs" />
@@ -102,7 +103,7 @@
     <Compile Include="Models\AttachmentModel.cs" />
     <Compile Include="Models\CalendarItemModel.cs" />
     <Compile Include="Models\CityModel.cs" />
-    <Compile Include="Models\EscRequestorModel.cs" />
+    <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\LabEscDisplayModel.cs" />
     <Compile Include="Models\LabEscModel.cs" />
     <Compile Include="Models\CompanyHolidaysModel.cs" />
