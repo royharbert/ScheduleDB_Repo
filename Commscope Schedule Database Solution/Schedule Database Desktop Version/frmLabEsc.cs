@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,8 +45,10 @@ namespace Schedule_Database_Desktop_Version
                     model = new LabEscModel();
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
                     btnSave.Text = "Save";
+                    txtEntryAdmin.Text = GV.USERMODEL.FullName;
                     break;
                 case Mode.LabEscEdit:
+                    getAttachments(model.EscID);
                     btnSave.Text = "Save";
                     break;
                 case Mode.LabEscDelete:
@@ -134,6 +137,7 @@ namespace Schedule_Database_Desktop_Version
                     whereClause = whereClause.Substring(0, whereClause.Length - 5);
                     List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
                     displayResults(requests);
+                   
                     break;
                 default:
                     break;
@@ -457,7 +461,10 @@ namespace Schedule_Database_Desktop_Version
             //
             txtPSNum.Text = model.PSNumber;
             txtID.Text = model.ID.ToString();
-            //displayAttachments();
+            List<AttachmentModel> aList = GlobalConfig.Connection.GetAttachments(model.EscID);
+            dgvAttachments.DataSource = null;
+            dgvAttachments.DataSource = aList;
+            formatAttGrid();
 
         }
         private void makeProductList()
@@ -567,6 +574,98 @@ namespace Schedule_Database_Desktop_Version
             {
                 addPerson(cboLead, model, "tblEscLeads");
                 fillComboList<PersonModel>(cboLead, "tblEscLeads", "FullName", "LastName");
+            }
+        }
+
+        private void Frm_TypeReadyEvent(object sender, AttachmentModel e)
+        {
+            string fileName = GlobalConfig.AttachmentPath + "\\" + e.PID + "\\" + e.DisplayText;
+            FileOps.SaveAttFile(e);
+            GlobalConfig.Connection.InsertInto_tblAttachments(e);
+            List<AttachmentModel> aList = GlobalConfig.Connection.GetAttachments(e.PID);
+            dgvAttachments.DataSource = null;
+            dgvAttachments.DataSource = aList;
+            btnSave.Text = "Save";
+            formatAttGrid();
+        }
+
+        private void formatAttGrid()
+        {
+
+            dgvAttachments.Columns[0].Visible = false;
+            dgvAttachments.Columns[1].Visible = false;
+            dgvAttachments.Columns[4].Visible = false;
+
+            dgvAttachments.Columns[2].HeaderText = "File Name";
+            dgvAttachments.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvAttachments.Columns[2].DefaultCellStyle.ForeColor = Color.Blue;
+
+            dgvAttachments.Columns[3].HeaderText = "Item Type";
+            dgvAttachments.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvAttachments.Columns[3].DefaultCellStyle.ForeColor = Color.Black;
+        }
+
+        private List<AttachmentModel> getAttachments(string pid)
+        {
+            List<AttachmentModel> att = GlobalConfig.Connection.GetAttachments(pid);
+            dgvAttachments.DataSource = att;
+            formatAttGrid();
+            return att;
+        }
+
+        private void btnAddAttach_Click(object sender, EventArgs e)
+        {
+            var origMode = GV.MODE;
+            GV.MODE = Mode.Add_Attachment;
+            AttachmentModel model = new AttachmentModel();
+            frmAttType frm = new frmAttType(model);
+            string[] labels = { "Covid Release", "CRM Entry", "Trip Report Entry", "Weekly Report Entry", "Roster", "Other" };
+            frm.Labels = labels;
+            frm.TypeReadyEvent += Frm_TypeReadyEvent;
+
+            OpenFileDialog openFD = new OpenFileDialog();
+            openFD.Title = "Save Attachment";
+            string myDox = Environment.SpecialFolder.MyDocuments.ToString();
+            openFD.InitialDirectory = myDox;
+            openFD.RestoreDirectory = true;
+            openFD.Multiselect = false;
+
+            model.ID = 0;
+            model.PID = txtRecordID.Text;
+
+            if (openFD.ShowDialog() == DialogResult.OK)
+            {
+                string fullFileName = openFD.FileName;
+                string fileName = Path.GetFileName(fullFileName);
+                model.FileToSave = fullFileName;
+                model.DisplayText = fileName;
+                //FC.SetFormPosition(frm);
+                this.BringToFront();
+                frm.ShowDialog();
+            }
+            GV.MODE= origMode;
+            frm.TypeReadyEvent -= Frm_TypeReadyEvent;
+        }
+
+        private void btnRemoveAttach_Click(object sender, EventArgs e)
+        {
+            //use class to accomplish
+            //make attachment model and pass to class
+            GV.MODE = Mode.Delete_Attachment;
+            if (dgvAttachments.CurrentRow != null)
+            {
+                int sel = dgvAttachments.CurrentRow.Index;
+                List<AttachmentModel> aList = (List<AttachmentModel>)dgvAttachments.DataSource;
+                AttachmentModel model = aList[sel];
+                List<AttachmentModel> newList = AttachmentOps.DeleteAttachment(model);
+                dgvAttachments.DataSource = null;
+                dgvAttachments.DataSource = newList;
+                formatAttGrid();
+                //prepForButtonLogEntry(model.DisplayText);
+            }
+            else
+            {
+                MessageBox.Show("No row selected for deletion. \nPlease click left margin of desired row");
             }
         }
     }

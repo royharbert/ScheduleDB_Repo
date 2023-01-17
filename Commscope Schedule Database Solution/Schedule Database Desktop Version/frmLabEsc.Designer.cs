@@ -597,6 +597,7 @@
             this.btnRemoveAttach.TabIndex = 58;
             this.btnRemoveAttach.Text = "Remove";
             this.btnRemoveAttach.UseVisualStyleBackColor = true;
+            this.btnRemoveAttach.Click += new System.EventHandler(this.btnRemoveAttach_Click);
             // 
             // btnAddAttach
             // 
@@ -606,6 +607,7 @@
             this.btnAddAttach.TabIndex = 57;
             this.btnAddAttach.Text = "Add";
             this.btnAddAttach.UseVisualStyleBackColor = true;
+            this.btnAddAttach.Click += new System.EventHandler(this.btnAddAttach_Click);
             // 
             // cboCity
             // 
