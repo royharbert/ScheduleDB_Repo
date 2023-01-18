@@ -44,14 +44,14 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 
             }
         }
-        public List<LabRequestModel> labRequestGenSearch(string whereClause)
+        public List<LabEscModel> labRequestGenSearch(string whereClause)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@whereClause", whereClause, DbType.String);
 
-                List<LabRequestModel> output = connection.Query<LabRequestModel>("dbo.spLabRequestSearchGen", p,
+                List<LabEscModel> output = connection.Query<LabEscModel>("dbo.spLabRequestSearchGen", p,
                     commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
@@ -174,33 +174,33 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 return output;
             }
         }
-        public void LabRequests_CRUD(LabRequestModel model, char action)
+        public void LabRequests_CRUD(LabEscModel model, char action)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
-                p.Add("@Action", action, DbType.String);
-                p.Add("@ID", model.ID, DbType.Int32);
-                p.Add("@LRID", model.LRID, DbType.String);
-                p.Add("@MSO", model.MSO, DbType.String);
-                p.Add("@Product", model.Product, DbType.String);
-                p.Add("@StartDate", model.StartDate, DbType.DateTime);
-                p.Add("@EndDate", model.EndDate, DbType.DateTime);
-                p.Add("@Description", model.Description, DbType.String);
-                p.Add("@Remarks", model.Remarks, DbType.String);
-                p.Add("@EndUser", model.EndUser, DbType.String);
+                //p.Add("@Action", action, DbType.String);
+                //p.Add("@ID", model.ID, DbType.Int32);
+                //p.Add("@LRID", model.LRID, DbType.String);
+                //p.Add("@MSO", model.MSO, DbType.String);
+                //p.Add("@Product", model.Product, DbType.String);
+                //p.Add("@StartDate", model.StartDate, DbType.DateTime);
+                //p.Add("@EndDate", model.EndDate, DbType.DateTime);
+                //p.Add("@Description", model.Description, DbType.String);
+                //p.Add("@Remarks", model.Remarks, DbType.String);
+                //p.Add("@EndUser", model.EndUser, DbType.String);
 
                 connection.Execute("dbo.spLabRequest_CRUD", p,
                     commandType: CommandType.StoredProcedure);
             }
         }
-        public List<LabRequestModel> SearchLabRequests(string searchTerm)
+        public List<LabEscModel> SearchLabRequests(string searchTerm)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@SearchTerm", searchTerm, DbType.String);
-                List<LabRequestModel> output = connection.Query<LabRequestModel>("dbo.spLabRequestSearch", p,
+                List<LabEscModel> output = connection.Query<LabEscModel>("dbo.spLabRequestSearch", p,
                     commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
@@ -404,7 +404,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 return list;
             }
         }
-        public List<LabRequestModel> DateRangeSearchLab_SortBy(DateTime StartDate, DateTime EndDate)
+        public List<LabEscModel> DateRangeSearchLab_SortBy(DateTime StartDate, DateTime EndDate)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
@@ -413,7 +413,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@end", EndDate, DbType.DateTime, ParameterDirection.Input);
                 //p.Add("@order", "StartDate", DbType.String, ParameterDirection.Input);
 
-                List<LabRequestModel> output = connection.Query<LabRequestModel>("dbo.spLab_GetDateRange", p,
+                List<LabEscModel> output = connection.Query<LabEscModel>("dbo.spLab_GetDateRange", p,
                 commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }

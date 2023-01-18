@@ -550,12 +550,6 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case Mode.SalesPerson_Delete:
                     break;
-                case Mode.LabRequestAdd:
-                    break;
-                case Mode.LabRequestEdit:
-                    break;
-                case Mode.LabRequestDelete:
-                    break;
                 case Mode.DateRangeReportAT:
                     break;
                 case Mode.AssignmentSearchByMSO:

@@ -57,7 +57,7 @@ namespace Schedule_Database_Desktop_Version
             DateTime endDate = dtpEndDateRange.Value;
             //Get all assignments in date range
             List<AssignmentTableModel> Assignments = null;
-            List<LabRequestModel> Labs = null;
+            List<LabEscModel> Labs = null;
             List<ATEscalationsDisplayModel> Escalations = null;
             frmMultiSelect DisplayForm = new frmMultiSelect();
             switch (GV.MODE)
@@ -66,11 +66,6 @@ namespace Schedule_Database_Desktop_Version
                     Assignments = GlobalConfig.Connection.DateRangeSearch_SortBy(startDate, endDate);
                     DisplayForm.AssignmentData = Assignments;
                     this.Height = 334;
-                    break;
-                    case Mode.LabRequestDateRange:
-                    Labs = GlobalConfig.Connection.DateRangeSearchLab_SortBy(startDate, endDate);
-                    DisplayForm.LabRequests = Labs;
-                    this.Height = 195;
                     break;
                     case Mode.LabEscDateRange:
                     Escalations = GlobalConfig.Connection.DateRangeSearchEscalations_SortBy(startDate, endDate);

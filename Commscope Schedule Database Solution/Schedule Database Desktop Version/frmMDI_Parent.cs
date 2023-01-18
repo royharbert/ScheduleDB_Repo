@@ -285,7 +285,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void newRequestToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabRequestAdd;
+            GV.MODE = Mode.LabEscAdd;
             frmLabRequest labForm = new frmLabRequest();
             labForm.Show();
         }
@@ -302,7 +302,7 @@ namespace Schedule_Database_Desktop_Version
         }
         private void getRequestID()
         {
-            GV.MODE = Mode.LabRequestEdit;
+            GV.MODE = Mode.LabEscEdit;
             frmLabRequest labForm = new frmLabRequest();
             labForm.Show();
             labForm.getAssignmentSearchData();
@@ -373,7 +373,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void dateRangeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabRequestDateRange;
+            GV.MODE = Mode.LabEscDateRange;
             frmDateRange frmDateRange = new frmDateRange();
             frmDateRange.Show();
             frmDateRange.MdiParent = this;
@@ -407,7 +407,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void generalSearchToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabRequestSearch;
+            GV.MODE = Mode.LabEscSearch;
             frmLabRequest frmLabRequest = new frmLabRequest();
             frmLabRequest.Show();
             frmLabRequest.MdiParent= this;

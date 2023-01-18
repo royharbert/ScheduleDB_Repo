@@ -18,18 +18,20 @@ namespace Schedule_Database_Desktop_Version
         DateTime emptyDate = new DateTime(1900, 1, 1);
         bool dataLoading = true;
         bool formDirty = false;
-        LabRequestModel labRequest = null;
+        LabEscModel labEsc = null;
         frmInput inputForm = new frmInput();
-        public LabRequestModel LabRequest
+        public LabEscModel LabRequest
         {
             get
             {
-                return labRequest;
+                return labEsc;
             }
             set
             {
-                labRequest = value;
-                loadBoxes(labRequest);
+                labEsc = value;
+                btnSave.Text = "Save";
+                GV.MODE = Mode.LabEscEdit;
+                loadBoxes(labEsc);
                 cboMSO.Focus();
                 displayAttachments();
                 this.BringToFront();
@@ -95,13 +97,13 @@ namespace Schedule_Database_Desktop_Version
 
             switch (GV.MODE)
             {
-                case Mode.LabRequestAdd:
+                case Mode.LabEscAdd:
                     //dataLoading = false;
                     enableBoxes(false, true);
                     //cboMSO.Enabled = true;
                     btnSave.Enabled = true;
                     break;
-                case Mode.LabRequestEdit:
+                case Mode.LabEscEdit:
                     inputForm.InputDataReady += FrmInput_InputDataReady;
                     inputForm.Show();
                     //took this switch statement from the ATEscalation form
@@ -109,7 +111,7 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case Mode.LabEscDelete:
                     break;
-                case Mode.LabRequestSearch:
+                case Mode.LabEscSearch:
                     loadComboBoxLists();
                     enableBoxes(true, true);
                     btnSave.Visible = false;
@@ -141,43 +143,43 @@ namespace Schedule_Database_Desktop_Version
             dtp.CustomFormat = " ";
             dtp.Format = DateTimePickerFormat.Custom;
         }
-        private LabRequestModel loadModel()
+        private LabEscModel loadModel()
         {
-            LabRequestModel model = new LabRequestModel();
-            int id = 0;
-            int.TryParse(txtID.Text, out id);
-            model.ID = id;
-            model.Description = txtDescription.Text;
-            model.EndDate = dtpEnd.Value;
-            model.LRID = txtRequestID.Text;
-            model.MSO = cboMSO.Text;
-            model.Product = cboProduct.Text;
-            model.Remarks = txtRemarks.Text;
-            model.StartDate = dtpStart.Value;
-            model.EndUser = txtEndUser.Text;
+            LabEscModel model = new LabEscModel();
+            //int id = 0;
+            //int.TryParse(txtID.Text, out id);
+            //model.ID = id;
+            //model.Description = txtDescription.Text;
+            //model.EndDate = dtpEnd.Value;
+            //model.LRID = txtRequestID.Text;
+            //model.MSO = cboMSO.Text;
+            //model.Product = cboProduct.Text;
+            //model.Remarks = txtRemarks.Text;
+            //model.StartDate = dtpStart.Value;
+            //model.EndUser = txtEndUser.Text;
 
             return model;
         }
 
-        private void loadBoxes(LabRequestModel model)
+        private void loadBoxes(LabEscModel model)
         {
             txtDescription.Text = model.Description;
-            txtRemarks.Text = model.Remarks;
-            txtRequestID.Text = model.LRID;
-            if (model.EndDate == emptyDate)
-            {
-                clearDTP(dtpEnd);
-            }
-            else
-            { 
-                dtpEnd.Value = model.EndDate;
+            //txtRemarks.Text = model.Remarks;
+            //txtRequestID.Text = model.LRID;
+            //if (model.EndDate == emptyDate)
+            //{
+            //    clearDTP(dtpEnd);
+            //}
+            //else
+            //{ 
+            //    dtpEnd.Value = model.EndDate;
 
-            }            
-            dtpStart.Value = model.StartDate;
-            cboMSO.Text = model.MSO;
-            cboProduct.Text = model.Product;
-            txtID.Text = model.ID.ToString();
-            txtEndUser.Text = model.EndUser.ToString();
+            //}            
+            //dtpStart.Value = model.StartDate;
+            //cboMSO.Text = model.MSO;
+            //cboProduct.Text = model.Product;
+            //txtID.Text = model.ID.ToString();
+            //txtEndUser.Text = model.EndUser.ToString();
         }
         private void enableBoxes(bool enabled, bool cboMSOenabled)
         {
@@ -223,17 +225,17 @@ namespace Schedule_Database_Desktop_Version
         {
             switch (GV.MODE)
             {
-                case Mode.LabRequestAdd:
+                case Mode.LabEscAdd:
                     cboMSO.SelectedIndex = -1;
                     loadComboBoxLists();
                     clearDTP(dtpStart);
                     clearDTP(dtpEnd);
                     break;
-                case Mode.LabRequestEdit:
+                case Mode.LabEscEdit:
                     loadComboBoxLists();
 
                     break;
-                case Mode.LabRequestDelete:
+                case Mode.LabEscDelete:
                     break;
                 case Mode.None:
                     break;
@@ -244,7 +246,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void cboMSO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (GV.MODE != Mode.LabRequestSearch)
+            if (GV.MODE != Mode.LabEscSearch)
             {
                 if (!dataLoading)
                 {
@@ -377,18 +379,18 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            LabRequestModel model = loadModel();
+            LabEscModel model = loadModel();
             switch (GV.MODE)
             {
-                case Mode.LabRequestAdd:
+                case Mode.LabEscAdd:
                     GlobalConfig.Connection.LabRequests_CRUD(model, 'C');
-                    MessageBox.Show(model.LRID + " saved.");
+                    MessageBox.Show(model.EscID+ " saved.");
                     break;
-                case Mode.LabRequestEdit:
+                case Mode.LabEscEdit:
                     GlobalConfig.Connection.LabRequests_CRUD(model, 'U');
-                    MessageBox.Show(model.LRID + " saved.");
+                    MessageBox.Show(model.EscID + " saved.");
                     break;
-                case Mode.LabRequestDelete:
+                case Mode.LabEscDelete:
                     GlobalConfig.Connection.LabRequests_CRUD(model, 'D');
                     break;                
                 default:
@@ -406,7 +408,7 @@ namespace Schedule_Database_Desktop_Version
             frmInput.InputDataReady += FrmInput_InputDataReady;
             frmInput.Show();
         }
-        private void displayResults(List<LabRequestModel> models)
+        private void displayResults(List<LabEscModel> models)
         {
             switch (models.Count)
             {
@@ -414,8 +416,8 @@ namespace Schedule_Database_Desktop_Version
                     MessageBox.Show("No matching records found.");
                     break;
                 case 1:
-                    LabRequestModel model = models[0];
-                    loadBoxes(model);
+                    LabEscModel model = models[0];
+                    //loadBoxes(model);
                     cboMSO.Focus();
                     displayAttachments();
                     break;
@@ -431,7 +433,7 @@ namespace Schedule_Database_Desktop_Version
         {      
             inputForm.Hide();
             string searchTerm = e.SearchString;
-            List<LabRequestModel> models = GlobalConfig.Connection.SearchLabRequests(searchTerm.ToUpper());
+            List<LabEscModel> models = GlobalConfig.Connection.SearchLabRequests(searchTerm.ToUpper());
             this.Show();
             displayResults(models);
         }
@@ -465,7 +467,7 @@ namespace Schedule_Database_Desktop_Version
             }
                 whereClause = whereClause.Substring(0, whereClause.Length - 5);
 
-            List<LabRequestModel> requests = GlobalConfig.Connection.labRequestGenSearch(whereClause);
+            List<LabEscModel> requests = GlobalConfig.Connection.labRequestGenSearch(whereClause);
             displayResults(requests);
           
 

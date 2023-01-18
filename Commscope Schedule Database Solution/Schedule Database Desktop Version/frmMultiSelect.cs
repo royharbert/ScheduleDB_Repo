@@ -22,7 +22,7 @@ namespace Schedule_Database_Desktop_Version
         private List<CustomerModel> customerData;
         private List<LocationModel> locationData;
         private List<ATEscalationsDisplayModel> escalations;
-        private List<LabRequestModel> labRequests;
+        private List<LabEscModel> labRequests;
         private List<LabEscModel> requests;
 
         public frmCustomerContact CallingForm { get; set; }
@@ -80,7 +80,7 @@ namespace Schedule_Database_Desktop_Version
             } 
         }
 
-        public List<LabRequestModel> LabRequests
+        public List<LabEscModel> LabRequests
         {
             get
             {
@@ -206,12 +206,12 @@ namespace Schedule_Database_Desktop_Version
                     LabEscModel request = requests[selectedRow];
                     frmLabEsc escForm = new frmLabEsc();
                     escForm.Show();
-                    escForm.loadBoxes(request);
+                    //escForm.loadBoxes(request);
                     GV.MODE = Mode.LabEscEdit;
+                    escForm.LabEsc = request;
                     break;
-                case Mode.LabRequestEdit:
-                case Mode.LabRequestSearch:
-                    LabRequestModel labRequest = labRequests[selectedRow];
+                case Mode.LabEscEdit:                
+                    LabEscModel labRequest = labRequests[selectedRow];
                     GV.LABREQUESTFORM.LabRequest = labRequest;
                     break;
                 case Mode.None:
@@ -264,13 +264,6 @@ namespace Schedule_Database_Desktop_Version
                     exporter.List = (List<ATEscalationsDisplayModel>)dgvResults.DataSource;
                     ReportOps.FormatEscalationResultExport(exporter.Wksheet);
                     break;
-                case Mode.LabRequestEdit:
-                    ListLooper.ExcelExporter<LabRequestModel> labExporter = new ListLooper.ExcelExporter<LabRequestModel>();
-                    labExporter.List = (List<LabRequestModel>)dgvResults.DataSource;
-                    excelExportFormatLabRequest(labExporter.Wksheet);
-
-                    //ReportOps.forma
-                    break ;
                 default:
                     ListLooper.ExcelExporter<AssignmentDisplayModel> excelExporter = new ListLooper.ExcelExporter<AssignmentDisplayModel>();
                     excelExporter.List = (List<AssignmentDisplayModel>)dgvResults.DataSource;

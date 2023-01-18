@@ -562,6 +562,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnClose.Location = new System.Drawing.Point(1118, 608);
             this.btnClose.Name = "btnClose";
@@ -661,8 +662,10 @@
             // 
             // frmLabEsc
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(1311, 679);
             this.Controls.Add(this.lblRecordType);
             this.Controls.Add(this.cboRecType);

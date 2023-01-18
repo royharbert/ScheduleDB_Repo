@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,13 +21,32 @@ namespace Schedule_Database_Desktop_Version
     {
         bool isEscalation = false;
         bool formDirty = false;
+        LabEscModel labEsc;
 
         DateTime emptyDate = new DateTime(1900, 1, 1);
         LabEscModel model = new LabEscModel();
         frmInput inputForm = new frmInput();
 
         string dtpCustomFormat = " ";
-        
+
+        public LabEscModel LabEsc
+        {
+            get
+            {
+                return labEsc;
+            }
+            set
+            {
+                labEsc = value;
+                btnSave.Text = "Save";
+                GV.MODE = Mode.LabEscEdit;
+                loadBoxes(labEsc);
+                cboMSO.Focus();
+                getAttachments(labEsc.EscID);
+                this.BringToFront();
+            }
+        }
+
         public frmLabEsc()
         {
             InitializeComponent();
@@ -56,9 +76,9 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscSearch:
                     CommonOps.lockControls(false, this, "");
                     btnSave.Text = "Search";
-                    dtpClosedDate.Format = DateTimePickerFormat.Custom;
-                    dtpDueDate.Format = DateTimePickerFormat.Custom;
-                    dtpStartDate.Format = DateTimePickerFormat.Custom;                   
+                    //dtpClosedDate.Format = DateTimePickerFormat.Custom;
+                    //dtpDueDate.Format = DateTimePickerFormat.Custom;
+                    //dtpStartDate.Format = DateTimePickerFormat.Custom;                   
                     break;
                 default:
                     break;
@@ -125,7 +145,7 @@ namespace Schedule_Database_Desktop_Version
                     foreach (var model in models)
                     {
                         if(model.FieldName == "Comments"| model.FieldName == "Description"| model.FieldName == "PSNumber"| model.FieldName == "Resolution" 
-                            | model.FieldName == "CTRNum"| model.FieldName == "EscNum" /*| model.FieldName == "City"*/) 
+                            | model.FieldName == "CTRNum"| model.FieldName == "EscNum" | model.FieldName == "EscID") 
                         {
                             whereClause = whereClause + model.FieldName + " like '%" + model.FieldValue + "%' and ";
                         }
@@ -137,6 +157,7 @@ namespace Schedule_Database_Desktop_Version
                     whereClause = whereClause.Substring(0, whereClause.Length - 5);
                     List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
                     displayResults(requests);
+                    this.Close();
                    
                     break;
                 default:
@@ -170,8 +191,14 @@ namespace Schedule_Database_Desktop_Version
             string description = rtxDescription.Text;
             string resolution = cboResolution.Text;
             string recordType = cboRecType.Text;
+            string escId = txtRecordID.Text;
 
             FieldSearchModel fsm = new FieldSearchModel();
+            if (txtRecordID.Text != "")
+            {
+                fsm = makeFSM(txtRecordID);
+                fsmList.Add(fsm);
+            }
 
             if (mso != "")
             {
@@ -417,7 +444,7 @@ namespace Schedule_Database_Desktop_Version
 
                 }
             }
-           
+            model.PSNumber = txtPSNum.Text;
             model.LeadAssigned = cboLead.Text;
             model.Status = cboStatus.Text;
             model.Comments = rtxComments.Text;
@@ -495,7 +522,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void cboMSO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (GV.MODE == Mode.LabEscAdd && cboMSO.SelectedIndex > 0)
+            if (GV.MODE == Mode.LabEscAdd && cboMSO.SelectedIndex > -1)
             {
                 MSO_Model model = ((MSO_Model)cboMSO.SelectedItem);
                 formDirty = true;
@@ -570,11 +597,13 @@ namespace Schedule_Database_Desktop_Version
 
             // break entry int fname and lname
             string name = cboLead.Text;
+            int curIdx = cboLead.SelectedIndex;
             if (name != "")
             {
                 addPerson(cboLead, model, "tblEscLeads");
                 fillComboList<PersonModel>(cboLead, "tblEscLeads", "FullName", "LastName");
             }
+            cboLead.SelectedIndex = curIdx;
         }
 
         private void Frm_TypeReadyEvent(object sender, AttachmentModel e)
