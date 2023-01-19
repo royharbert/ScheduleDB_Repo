@@ -76,6 +76,7 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscSearch:
                     CommonOps.lockControls(false, this, "");
                     btnSave.Text = "Search";
+                    
                     //dtpClosedDate.Format = DateTimePickerFormat.Custom;
                     //dtpDueDate.Format = DateTimePickerFormat.Custom;
                     //dtpStartDate.Format = DateTimePickerFormat.Custom;                   
@@ -157,6 +158,8 @@ namespace Schedule_Database_Desktop_Version
                     whereClause = whereClause.Substring(0, whereClause.Length - 5);
                     List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
                     displayResults(requests);
+                    GV.MODE = Mode.LabEscEdit;
+                    btnSave.Text = "Save";
                     this.Close();
                    
                     break;
@@ -320,7 +323,6 @@ namespace Schedule_Database_Desktop_Version
                     escForm.loadBoxes(model);
                     cboMSO.Focus();
                     escForm.BringToFront();
-                  //displayAttachments();
                     break;
                 default:
                     frmMultiSelect displayForm = new frmMultiSelect();
