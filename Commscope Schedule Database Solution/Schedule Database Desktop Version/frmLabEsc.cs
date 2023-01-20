@@ -61,6 +61,7 @@ namespace Schedule_Database_Desktop_Version
             switch (GV.MODE)
             {
                 case Mode.LabEscAdd:
+                    txtRecordID.Clear();
                     CommonOps.lockControls(true, this, "cboMSO, cboRecType");
                     model = new LabEscModel();
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
@@ -158,14 +159,20 @@ namespace Schedule_Database_Desktop_Version
                     whereClause = whereClause.Substring(0, whereClause.Length - 5);
                     List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
                     displayResults(requests);
-                    GV.MODE = Mode.LabEscEdit;
-                    btnSave.Text = "Save";
+                    //GV.MODE = Mode.LabEscEdit;
+                    //btnSave.Text = "Save";
+
                     this.Close();
                    
                     break;
                 default:
                     break;
             }
+        }
+
+        public void setBtnSaveText(string text)
+        {
+            btnSave.Text = text;
         }
 
         private List<FieldSearchModel> collectData()
@@ -321,6 +328,7 @@ namespace Schedule_Database_Desktop_Version
                     frmLabEsc escForm = new frmLabEsc();
                     escForm.Show();
                     escForm.loadBoxes(model);
+                    escForm.setBtnSaveText("Save");
                     cboMSO.Focus();
                     escForm.BringToFront();
                     break;
@@ -422,6 +430,9 @@ namespace Schedule_Database_Desktop_Version
             model.State = cboState.Text;
             model.Country = cboCountry.Text;
             model.Severity = cboSeverity.Text;
+            int quantity = 0;
+            int.TryParse(txtQty.Text, out quantity);
+            model.Quantity = quantity;
             model.Requestor = cboRequestor.Text;
             model.CTRNum = txtCTRNum.Text;
             model.EscNum = txtEscNum.Text;
@@ -528,7 +539,7 @@ namespace Schedule_Database_Desktop_Version
             {
                 MSO_Model model = ((MSO_Model)cboMSO.SelectedItem);
                 formDirty = true;
-                string PID = PID_Generator.GeneratePID(model);
+                string PID = PID_Generator.GeneratePID(model, cboRecType.Text);
                 txtRecordID.Text = PID;
                 CommonOps.lockControls(false, this, "");
             }
@@ -698,6 +709,11 @@ namespace Schedule_Database_Desktop_Version
             {
                 MessageBox.Show("No row selected for deletion. \nPlease click left margin of desired row");
             }
+        }
+
+        private void dgvAttachments_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            AttachmentProcs.AttachmentsRowHeaderClick(dgvAttachments);
         }
     }
 }

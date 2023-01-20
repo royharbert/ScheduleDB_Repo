@@ -533,11 +533,11 @@
             // 
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label23.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label23.Location = new System.Drawing.Point(17, 369);
+            this.label23.Location = new System.Drawing.Point(-25, 369);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(71, 15);
+            this.label23.Size = new System.Drawing.Size(113, 16);
             this.label23.TabIndex = 52;
-            this.label23.Text = "PS Number";
+            this.label23.Text = "Dynamics 365#";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtCTRNum
@@ -579,6 +579,7 @@
             this.dgvAttachments.Name = "dgvAttachments";
             this.dgvAttachments.Size = new System.Drawing.Size(457, 228);
             this.dgvAttachments.TabIndex = 18;
+            this.dgvAttachments.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAttachments_RowHeaderMouseClick);
             // 
             // label24
             // 

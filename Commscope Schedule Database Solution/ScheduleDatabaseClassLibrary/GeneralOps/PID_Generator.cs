@@ -9,9 +9,17 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
 {
     public static class PID_Generator
     {
-        public static string GeneratePID(MSO_Model mso)
+        public static string GeneratePID(MSO_Model mso, string recordType)
         {
-            string pid = "LAB_";
+            string pid = "";
+            if (recordType == "Lab Request")
+            {
+                pid = "LAB_";
+            }
+            else
+            {
+                pid = "ESC_";
+            }
             string dateStamp = DateTime.Today.ToString("yyMMdd");
             string sequence = GlobalConfig.Connection.Sequence_Get().ToString();
             sequence = sequence.PadLeft(5, '0');

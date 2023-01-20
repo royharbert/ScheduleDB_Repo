@@ -396,7 +396,7 @@ namespace Schedule_Database_Desktop_Version
                 //TODO use assignment save
                 //assignment.MSO_ID = model.ID;
                 formDirty = true;
-                string PID = PID_Generator.GeneratePID(model);
+                string PID = PID_Generator.GeneratePID(model, "");
                 txtPID.Text = PID;
                 lockControls(false, "");
                 setLstFe_Enable();

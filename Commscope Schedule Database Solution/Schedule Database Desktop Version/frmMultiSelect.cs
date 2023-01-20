@@ -207,7 +207,7 @@ namespace Schedule_Database_Desktop_Version
                     frmLabEsc escForm = new frmLabEsc();
                     escForm.Show();
                     //escForm.loadBoxes(request);
-                    GV.MODE = Mode.LabEscEdit;
+                    //GV.MODE = Mode.LabEscEdit;
                     escForm.LabEsc = request;
                     break;
                 case Mode.LabEscEdit:                
