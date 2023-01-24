@@ -19,7 +19,6 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmLabEsc : Form
     {
-        bool isEscalation = false;
         bool formDirty = false;
         LabEscModel labEsc;
 
@@ -76,11 +75,7 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case Mode.LabEscSearch:
                     CommonOps.lockControls(false, this, "");
-                    btnSave.Text = "Search";
-                    
-                    //dtpClosedDate.Format = DateTimePickerFormat.Custom;
-                    //dtpDueDate.Format = DateTimePickerFormat.Custom;
-                    //dtpStartDate.Format = DateTimePickerFormat.Custom;                   
+                    btnSave.Text = "Search";          
                     break;
                 default:
                     break;
@@ -159,8 +154,6 @@ namespace Schedule_Database_Desktop_Version
                     whereClause = whereClause.Substring(0, whereClause.Length - 5);
                     List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
                     displayResults(requests);
-                    //GV.MODE = Mode.LabEscEdit;
-                    //btnSave.Text = "Save";
 
                     this.Close();
                    
@@ -189,9 +182,6 @@ namespace Schedule_Database_Desktop_Version
             string escNum = txtEscNum.Text;
             string ctrNum = txtCTRNum.Text;
             string entryAdmin = txtEntryAdmin.Text;
-            //DateTime dateOpened = dtpStartDate.Value;
-            //DateTime dateDue = dtpDueDate.Value;
-            //DateTime dateClosed = dtpClosedDate.Value;
             string product = lstProducts.Text;
             string leadAssigned = cboLead.Text;
             int quantity = 0;
@@ -562,14 +552,7 @@ namespace Schedule_Database_Desktop_Version
         }
         private void dtpDueDate_ValueChanged(object sender, EventArgs e)
         {
-            //if (GV.MODE == Mode.LabEscAdd)
-            //{
-            //    setCustomFormat(dtpDueDate);
-            //}
-            //else
-            //{
                 dtpDueDate.Format = DateTimePickerFormat.Long;
-            //}
         }
 
         private void dtpStartDate_ValueChanged(object sender, EventArgs e)
@@ -580,24 +563,6 @@ namespace Schedule_Database_Desktop_Version
         private void cboRequestor_Leave(object sender, EventArgs e)
         {
             updatePersonTable(cboRequestor, "tblEscRequestors");
-            //PersonModel model = new PersonModel();
-
-            //// break entry int fname and lname
-            //string name = cboRequestor.Text;
-            //int curIdx = cboRequestor.SelectedIndex;
-            //if (name != "")
-            //{
-            //    addPerson(cboRequestor, "tblEscRequestors");
-            //    fillComboList<PersonModel>(cboRequestor, "tblEscRequestors", "FullName", "LastName");
-            //}
-            //if (cboRequestor.SelectedIndex != -1)
-            //{
-            //    cboRequestor.SelectedIndex = curIdx; 
-            //}
-            //else
-            //{
-            //    cboRequestor.Text = name;
-            //}
         }
 
         private void addPerson(ComboBox cbo, string tableName)
