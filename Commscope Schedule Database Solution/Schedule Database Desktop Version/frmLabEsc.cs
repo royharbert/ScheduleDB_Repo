@@ -579,16 +579,28 @@ namespace Schedule_Database_Desktop_Version
 
         private void cboRequestor_Leave(object sender, EventArgs e)
         {
-            PersonModel model = new PersonModel();
-            // break entry int fname and lname
-            string name = cboRequestor.Text;
-            if (name != "")
-            {
-                addPerson(cboRequestor, model, "tblEscRequestors");                
-            }
+            updatePersonTable(cboRequestor, "tblEscRequestors");
+            //PersonModel model = new PersonModel();
+
+            //// break entry int fname and lname
+            //string name = cboRequestor.Text;
+            //int curIdx = cboRequestor.SelectedIndex;
+            //if (name != "")
+            //{
+            //    addPerson(cboRequestor, "tblEscRequestors");
+            //    fillComboList<PersonModel>(cboRequestor, "tblEscRequestors", "FullName", "LastName");
+            //}
+            //if (cboRequestor.SelectedIndex != -1)
+            //{
+            //    cboRequestor.SelectedIndex = curIdx; 
+            //}
+            //else
+            //{
+            //    cboRequestor.Text = name;
+            //}
         }
 
-        private void addPerson(ComboBox cbo, PersonModel model, string tableName)
+        private void addPerson(ComboBox cbo, string tableName)
         {
             string[] nameArray = AddPersonToDropdownList.ParsePerson(cbo, cbo.Text);
             string fullName = nameArray[0] + " " + nameArray[1];
@@ -603,20 +615,31 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
+        private void updatePersonTable(ComboBox cbo, string tableName)
+        {
+            // break entry into fname and lname
+            string name = cbo.Text;
+            int curIdx = cbo.SelectedIndex;
+            if (name != "" && cbo.SelectedIndex == -1)
+            {
+                PersonModel model = new PersonModel();
+                
+                addPerson(cbo, tableName);
+                fillComboList<PersonModel>(cbo, tableName, "FullName", "LastName");
+            }
+            if (cbo.SelectedIndex != -1)
+            {
+                cbo.SelectedIndex = curIdx;
+            }
+            else
+            {
+                cbo.Text = name;
+            }
+        }
+
         private void cboLead_Leave(object sender, EventArgs e)
         {
-
-            PersonModel model = new PersonModel();
-
-            // break entry int fname and lname
-            string name = cboLead.Text;
-            int curIdx = cboLead.SelectedIndex;
-            if (name != "")
-            {
-                addPerson(cboLead, model, "tblEscLeads");
-                fillComboList<PersonModel>(cboLead, "tblEscLeads", "FullName", "LastName");
-            }
-            cboLead.SelectedIndex = curIdx;
+            updatePersonTable(cboLead, "tblEscLeads");
         }
 
         private void Frm_TypeReadyEvent(object sender, AttachmentModel e)

@@ -87,7 +87,7 @@ namespace Schedule_Database_Desktop_Version
 
         private async Task CheckForUpdates()
         {
-            using (var manager = new UpdateManager(@"\\sccacve1\Databases\ScheduleDB"))
+            using (var manager = new UpdateManager(@"\\usca5pdbatdgs01\Databases\LabProgramUpadtes"))
             {
                 await manager.UpdateApp();
             }

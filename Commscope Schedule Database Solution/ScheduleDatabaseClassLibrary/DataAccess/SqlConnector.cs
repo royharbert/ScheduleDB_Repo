@@ -25,9 +25,14 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@LastName", model.LastName, DbType.String);
                 p.Add("@PhoneNumber", model.PhoneNumber, DbType.String);
                 p.Add("@Active", model.Active, DbType.String);
+                p.Add("@ID", 0, DbType.Int32, ParameterDirection.Output);
 
-                connection.Execute("dbo.spPersonInsert", p,
-                    commandType: CommandType.StoredProcedure);
+                string sql = $@"insert into " + tableName + $@" ( FirstName, LastName, PhoneNumber, Active) 
+                    values (@FirstName, @LastName, 
+                    @PhoneNumber, @Active); 
+                    select @ID = @@IDENTITY";
+                connection.Execute(sql, p);
+                int newID = p.Get<int>("@ID");
             }
         }
         public List<LabEscModel> LabEscSearchGen(string whereClause)
