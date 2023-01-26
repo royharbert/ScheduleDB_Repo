@@ -424,9 +424,6 @@ namespace Schedule_Database_Desktop_Version
         {
             GV.MODE = Mode.LabEscSearch;
             showLabEscForm();
-            //frmLabEsc escForm = new frmLabEsc();
-            //escForm.Show();
-            //escForm.MdiParent = this;
         }
     }
 }
