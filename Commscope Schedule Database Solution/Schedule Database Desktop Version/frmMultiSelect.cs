@@ -88,14 +88,11 @@ namespace Schedule_Database_Desktop_Version
             }
             set
             {
-                //GV.MODE = Mode.LabRequestEdit;
                 labRequests = value;
                 customerData = null;
                 locationData = null;
                 dgvResults.DataSource = labRequests;
                 txtCount.Text = labRequests.Count.ToString();
-                //formatDGV_Assignment();
-                //setDGV_HeaderText(dgvResults);
             }
         }
         public List<ATEscalationsDisplayModel> Escalations
@@ -206,8 +203,7 @@ namespace Schedule_Database_Desktop_Version
                     LabEscModel request = requests[selectedRow];
                     frmLabEsc escForm = new frmLabEsc();
                     escForm.Show();
-                    //escForm.loadBoxes(request);
-                    //GV.MODE = Mode.LabEscEdit;
+                    //escForm.MdiParent = frmAMDI_Parent;
                     escForm.LabEsc = request;
                     break;
                 case Mode.LabEscEdit:                

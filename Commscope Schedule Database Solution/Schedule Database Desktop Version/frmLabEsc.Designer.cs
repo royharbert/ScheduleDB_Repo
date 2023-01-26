@@ -84,6 +84,8 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.cboRecType = new System.Windows.Forms.ComboBox();
             this.lblRecordType = new System.Windows.Forms.Label();
+            this.txtHeight = new System.Windows.Forms.TextBox();
+            this.txtWidth = new System.Windows.Forms.TextBox();
             this.dtpContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
             this.SuspendLayout();
@@ -100,11 +102,10 @@
             // 
             // cboMSO
             // 
-            this.cboMSO.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboMSO.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboMSO.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboMSO.FormattingEnabled = true;
-            this.cboMSO.Location = new System.Drawing.Point(94, 87);
+            this.cboMSO.Location = new System.Drawing.Point(95, 87);
             this.cboMSO.Name = "cboMSO";
             this.cboMSO.Size = new System.Drawing.Size(273, 21);
             this.cboMSO.TabIndex = 0;
@@ -113,11 +114,10 @@
             // 
             // cboSeverity
             // 
-            this.cboSeverity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboSeverity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboSeverity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboSeverity.FormattingEnabled = true;
-            this.cboSeverity.Location = new System.Drawing.Point(94, 226);
+            this.cboSeverity.Location = new System.Drawing.Point(95, 226);
             this.cboSeverity.Name = "cboSeverity";
             this.cboSeverity.Size = new System.Drawing.Size(273, 21);
             this.cboSeverity.TabIndex = 5;
@@ -125,8 +125,7 @@
             // 
             // txtEndUser
             // 
-            this.txtEndUser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEndUser.Location = new System.Drawing.Point(94, 115);
+            this.txtEndUser.Location = new System.Drawing.Point(95, 115);
             this.txtEndUser.Name = "txtEndUser";
             this.txtEndUser.Size = new System.Drawing.Size(273, 20);
             this.txtEndUser.TabIndex = 1;
@@ -208,8 +207,7 @@
             // 
             // txtEscNum
             // 
-            this.txtEscNum.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEscNum.Location = new System.Drawing.Point(94, 419);
+            this.txtEscNum.Location = new System.Drawing.Point(95, 419);
             this.txtEscNum.Name = "txtEscNum";
             this.txtEscNum.Size = new System.Drawing.Size(273, 20);
             this.txtEscNum.TabIndex = 13;
@@ -217,8 +215,7 @@
             // 
             // txtPSNum
             // 
-            this.txtPSNum.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPSNum.Location = new System.Drawing.Point(94, 365);
+            this.txtPSNum.Location = new System.Drawing.Point(95, 365);
             this.txtPSNum.Name = "txtPSNum";
             this.txtPSNum.Size = new System.Drawing.Size(273, 20);
             this.txtPSNum.TabIndex = 11;
@@ -248,11 +245,10 @@
             // 
             // cboCountry
             // 
-            this.cboCountry.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboCountry.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboCountry.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboCountry.FormattingEnabled = true;
-            this.cboCountry.Location = new System.Drawing.Point(94, 198);
+            this.cboCountry.Location = new System.Drawing.Point(95, 198);
             this.cboCountry.Name = "cboCountry";
             this.cboCountry.Size = new System.Drawing.Size(273, 21);
             this.cboCountry.TabIndex = 4;
@@ -260,9 +256,8 @@
             // 
             // cboState
             // 
-            this.cboState.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboState.FormattingEnabled = true;
-            this.cboState.Location = new System.Drawing.Point(94, 170);
+            this.cboState.Location = new System.Drawing.Point(95, 170);
             this.cboState.Name = "cboState";
             this.cboState.Size = new System.Drawing.Size(273, 21);
             this.cboState.TabIndex = 3;
@@ -270,11 +265,10 @@
             // 
             // cboRequestor
             // 
-            this.cboRequestor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboRequestor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboRequestor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboRequestor.FormattingEnabled = true;
-            this.cboRequestor.Location = new System.Drawing.Point(94, 254);
+            this.cboRequestor.Location = new System.Drawing.Point(95, 254);
             this.cboRequestor.Name = "cboRequestor";
             this.cboRequestor.Size = new System.Drawing.Size(273, 21);
             this.cboRequestor.TabIndex = 6;
@@ -295,9 +289,8 @@
             // 
             // dtpStartDate
             // 
-            this.dtpStartDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpStartDate.ContextMenuStrip = this.dtpContextMenu;
-            this.dtpStartDate.Location = new System.Drawing.Point(94, 446);
+            this.dtpStartDate.Location = new System.Drawing.Point(95, 446);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(273, 20);
             this.dtpStartDate.TabIndex = 14;
@@ -321,9 +314,8 @@
             // 
             // dtpClosedDate
             // 
-            this.dtpClosedDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpClosedDate.ContextMenuStrip = this.dtpContextMenu;
-            this.dtpClosedDate.Location = new System.Drawing.Point(94, 500);
+            this.dtpClosedDate.Location = new System.Drawing.Point(95, 500);
             this.dtpClosedDate.Name = "dtpClosedDate";
             this.dtpClosedDate.Size = new System.Drawing.Size(273, 20);
             this.dtpClosedDate.TabIndex = 16;
@@ -332,9 +324,8 @@
             // 
             // dtpDueDate
             // 
-            this.dtpDueDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpDueDate.ContextMenuStrip = this.dtpContextMenu;
-            this.dtpDueDate.Location = new System.Drawing.Point(94, 473);
+            this.dtpDueDate.Location = new System.Drawing.Point(95, 473);
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.Size = new System.Drawing.Size(273, 20);
             this.dtpDueDate.TabIndex = 15;
@@ -376,8 +367,7 @@
             // 
             // txtEntryAdmin
             // 
-            this.txtEntryAdmin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEntryAdmin.Location = new System.Drawing.Point(94, 527);
+            this.txtEntryAdmin.Location = new System.Drawing.Point(95, 527);
             this.txtEntryAdmin.Name = "txtEntryAdmin";
             this.txtEntryAdmin.Size = new System.Drawing.Size(273, 20);
             this.txtEntryAdmin.TabIndex = 7;
@@ -470,11 +460,10 @@
             // 
             // cboStatus
             // 
-            this.cboStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboStatus.FormattingEnabled = true;
-            this.cboStatus.Location = new System.Drawing.Point(94, 282);
+            this.cboStatus.Location = new System.Drawing.Point(95, 282);
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(273, 21);
             this.cboStatus.TabIndex = 8;
@@ -482,11 +471,10 @@
             // 
             // cboLead
             // 
-            this.cboLead.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboLead.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboLead.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboLead.FormattingEnabled = true;
-            this.cboLead.Location = new System.Drawing.Point(94, 310);
+            this.cboLead.Location = new System.Drawing.Point(95, 310);
             this.cboLead.Name = "cboLead";
             this.cboLead.Size = new System.Drawing.Size(273, 21);
             this.cboLead.TabIndex = 9;
@@ -495,8 +483,7 @@
             // 
             // txtQty
             // 
-            this.txtQty.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtQty.Location = new System.Drawing.Point(94, 338);
+            this.txtQty.Location = new System.Drawing.Point(95, 338);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(273, 20);
             this.txtQty.TabIndex = 10;
@@ -542,8 +529,7 @@
             // 
             // txtCTRNum
             // 
-            this.txtCTRNum.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCTRNum.Location = new System.Drawing.Point(94, 392);
+            this.txtCTRNum.Location = new System.Drawing.Point(95, 392);
             this.txtCTRNum.Name = "txtCTRNum";
             this.txtCTRNum.Size = new System.Drawing.Size(273, 20);
             this.txtCTRNum.TabIndex = 12;
@@ -613,11 +599,10 @@
             // 
             // cboCity
             // 
-            this.cboCity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboCity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboCity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboCity.FormattingEnabled = true;
-            this.cboCity.Location = new System.Drawing.Point(94, 142);
+            this.cboCity.Location = new System.Drawing.Point(95, 142);
             this.cboCity.Name = "cboCity";
             this.cboCity.Size = new System.Drawing.Size(273, 21);
             this.cboCity.TabIndex = 2;
@@ -640,11 +625,10 @@
             // 
             // cboRecType
             // 
-            this.cboRecType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboRecType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboRecType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboRecType.FormattingEnabled = true;
-            this.cboRecType.Location = new System.Drawing.Point(94, 59);
+            this.cboRecType.Location = new System.Drawing.Point(95, 59);
             this.cboRecType.Name = "cboRecType";
             this.cboRecType.Size = new System.Drawing.Size(273, 21);
             this.cboRecType.TabIndex = 201;
@@ -661,13 +645,29 @@
             this.lblRecordType.Text = "Record Type";
             this.lblRecordType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // txtHeight
+            // 
+            this.txtHeight.Location = new System.Drawing.Point(287, 581);
+            this.txtHeight.Name = "txtHeight";
+            this.txtHeight.Size = new System.Drawing.Size(80, 20);
+            this.txtHeight.TabIndex = 203;
+            // 
+            // txtWidth
+            // 
+            this.txtWidth.Location = new System.Drawing.Point(287, 607);
+            this.txtWidth.Name = "txtWidth";
+            this.txtWidth.Size = new System.Drawing.Size(80, 20);
+            this.txtWidth.TabIndex = 204;
+            // 
             // frmLabEsc
             // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(1311, 679);
+            this.ClientSize = new System.Drawing.Size(1314, 679);
+            this.Controls.Add(this.txtWidth);
+            this.Controls.Add(this.txtHeight);
             this.Controls.Add(this.lblRecordType);
             this.Controls.Add(this.cboRecType);
             this.Controls.Add(this.txtID);
@@ -722,6 +722,7 @@
             this.Controls.Add(this.cboMSO);
             this.Controls.Add(this.txtRecordID);
             this.Name = "frmLabEsc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmLabEsc";
             this.Load += new System.EventHandler(this.frmLabEsc_Load);
             this.dtpContextMenu.ResumeLayout(false);
@@ -788,5 +789,7 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.ComboBox cboRecType;
         private System.Windows.Forms.Label lblRecordType;
+        private System.Windows.Forms.TextBox txtHeight;
+        private System.Windows.Forms.TextBox txtWidth;
     }
 }

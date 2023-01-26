@@ -52,6 +52,8 @@ namespace Schedule_Database_Desktop_Version
         }
         private void frmLabEsc_Load(object sender, EventArgs e)
         {
+            txtHeight.Text = this.Height.ToString();
+            txtWidth.Text = this.Width.ToString();
             fillComboBoxes();
             dtpClosedDate.CustomFormat = dtpCustomFormat;
             dtpDueDate.CustomFormat = dtpCustomFormat;
@@ -488,18 +490,37 @@ namespace Schedule_Database_Desktop_Version
             rtxDescription.Text = model.Description;
             cboRecType.Text = model.RecordType;
             cboResolution.Text = model.Resolution;
-            //
             txtPSNum.Text = model.PSNumber;
             txtID.Text = model.ID.ToString();
+
+            //highlight product
+            int idx = highlightProductList(model.Product);
+            lstProducts.SelectedIndex = idx;
+
+            //display attachments
             List<AttachmentModel> aList = GlobalConfig.Connection.GetAttachments(model.EscID);
             dgvAttachments.DataSource = null;
             dgvAttachments.DataSource = aList;
             formatAttGrid();
 
         }
-        private void makeProductList()
+        private int highlightProductList(string selectedProduct)
         {
+            int idx = -1;
+            foreach (var model in lstProducts.Items)
+            {
+                idx++;
+                ProductModel product = model as ProductModel;
+                if (product != null) 
+                {
+                    if (selectedProduct == product.Product)
+                    {
+                        break;
+                    }
+                }
 
+            }
+            return idx;
         }
 
         private string serializeProducts(List<ProductModel> products)
