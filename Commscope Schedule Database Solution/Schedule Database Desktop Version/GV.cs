@@ -10,15 +10,11 @@ namespace Schedule_Database_Desktop_Version
 {
     class GV
     {
-        public static frmCustomerLocation LOCATIONFORM { get; set; }
-        public static FrmATEscalations ESCALATIONFORM { get; set; }
-        public static frmLabRequest LABREQUESTFORM { get; set; }
+        public static frmLabEsc ESCALATIONFORM { get; set; }
         public static frmLabEsc LABESCFORM { get; set; }
         public List<ProductModel> ProductsList { get; set; }
-        public List<FE_Model> AllFE  { get; set; }
         public static UserModel USERMODEL { get; set; }
         public static frmAMDI_Parent MAINMENU { get; set; }
-        public static frmAssignment ASSIGNMENTFORM { get; set; }
         public static frmLogin LOGIN { get; set; }
         public static int Priviledge { get; set; }
         public static List<ScreenModel> ScreenList { get; set; }

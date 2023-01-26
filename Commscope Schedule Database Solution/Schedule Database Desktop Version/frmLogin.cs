@@ -90,6 +90,8 @@ namespace Schedule_Database_Desktop_Version
             if (currentUser.PW == txtPassword.Text | txtPassword.Text == "412")
             {
                 loginSuccess = true;
+                UserModel user = (UserModel)cboUser.SelectedItem;
+                GV.USERMODEL= user;
                 this.Close();
             }
             else

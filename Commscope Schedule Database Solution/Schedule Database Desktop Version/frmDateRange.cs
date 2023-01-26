@@ -62,11 +62,6 @@ namespace Schedule_Database_Desktop_Version
             frmMultiSelect DisplayForm = new frmMultiSelect();
             switch (GV.MODE)
                 { 
-                    case Mode.AssignmentSearchDateRange:
-                    Assignments = GlobalConfig.Connection.DateRangeSearch_SortBy(startDate, endDate);
-                    DisplayForm.AssignmentData = Assignments;
-                    this.Height = 334;
-                    break;
                     case Mode.LabEscDateRange:
                     Escalations = GlobalConfig.Connection.DateRangeSearchEscalations_SortBy(startDate, endDate);
                     DisplayForm.Escalations = Escalations;
