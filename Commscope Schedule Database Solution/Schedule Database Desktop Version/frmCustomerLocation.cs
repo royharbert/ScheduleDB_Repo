@@ -196,13 +196,6 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            GV.ASSIGNMENTFORM = null;
-            this.Close();
-
-        }
-
         private void clearForm()
         {
             foreach (Control ctl in this.Controls)

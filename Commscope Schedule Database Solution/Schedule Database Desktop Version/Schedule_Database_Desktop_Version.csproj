@@ -103,77 +103,17 @@
     <Compile Include="frmAddPerson.Designer.cs">
       <DependentUpon>frmAddPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAddProduct.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAddProduct.Designer.cs">
-      <DependentUpon>frmAddProduct.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmLabEsc.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLabEsc.Designer.cs">
       <DependentUpon>frmLabEsc.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLabRequest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLabRequest.Designer.cs">
-      <DependentUpon>frmLabRequest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmModelUpdate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmModelUpdate.Designer.cs">
-      <DependentUpon>frmModelUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmAssignment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAssignment.Designer.cs">
-      <DependentUpon>frmAssignment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmATEscalations.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmATEscalations.designer.cs">
-      <DependentUpon>frmATEscalations.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAttType.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAttType.designer.cs">
       <DependentUpon>frmAttType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmCalendar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCalendar.Designer.cs">
-      <DependentUpon>frmCalendar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmCustomerContact.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCustomerContact.designer.cs">
-      <DependentUpon>frmCustomerContact.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmCustomerLocation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCustomerLocation.designer.cs">
-      <DependentUpon>frmCustomerLocation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDateRange.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDateRange.designer.cs">
-      <DependentUpon>frmDateRange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmFE.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmFE.Designer.cs">
-      <DependentUpon>frmFE.cs</DependentUpon>
     </Compile>
     <Compile Include="frmInput.cs">
       <SubType>Form</SubType>
@@ -193,35 +133,11 @@
     <Compile Include="frmMDI_Parent.designer.cs">
       <DependentUpon>frmMDI_Parent.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMSO.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMSO.designer.cs">
-      <DependentUpon>frmMSO.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmMSOPicker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMSOPicker.Designer.cs">
-      <DependentUpon>frmMSOPicker.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmMSO_Add.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMSO_Add.designer.cs">
-      <DependentUpon>frmMSO_Add.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmMultiSelect.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMultiSelect.Designer.cs">
       <DependentUpon>frmMultiSelect.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmSalesPerson.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSalesPerson.Designer.cs">
-      <DependentUpon>frmSalesPerson.cs</DependentUpon>
     </Compile>
     <Compile Include="frmScreens.cs">
       <SubType>Form</SubType>
@@ -244,32 +160,8 @@
     <EmbeddedResource Include="frmAddPerson.resx">
       <DependentUpon>frmAddPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddProduct.resx">
-      <DependentUpon>frmAddProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAssignment.resx">
-      <DependentUpon>frmAssignment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmATEscalations.resx">
-      <DependentUpon>frmATEscalations.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmAttType.resx">
       <DependentUpon>frmAttType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmCalendar.resx">
-      <DependentUpon>frmCalendar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmCustomerContact.resx">
-      <DependentUpon>frmCustomerContact.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmCustomerLocation.resx">
-      <DependentUpon>frmCustomerLocation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDateRange.resx">
-      <DependentUpon>frmDateRange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmFE.resx">
-      <DependentUpon>frmFE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInput.resx">
       <DependentUpon>frmInput.cs</DependentUpon>
@@ -277,32 +169,14 @@
     <EmbeddedResource Include="frmLabEsc.resx">
       <DependentUpon>frmLabEsc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLabRequest.resx">
-      <DependentUpon>frmLabRequest.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMDI_Parent.resx">
       <DependentUpon>frmMDI_Parent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmModelUpdate.resx">
-      <DependentUpon>frmModelUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMSO.resx">
-      <DependentUpon>frmMSO.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMSOPicker.resx">
-      <DependentUpon>frmMSOPicker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMSO_Add.resx">
-      <DependentUpon>frmMSO_Add.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmMultiSelect.resx">
       <DependentUpon>frmMultiSelect.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSalesPerson.resx">
-      <DependentUpon>frmSalesPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmScreens.resx">
       <DependentUpon>frmScreens.cs</DependentUpon>

@@ -25,8 +25,6 @@ namespace Schedule_Database_Desktop_Version
         private List<LabEscModel> labRequests;
         private List<LabEscModel> requests;
 
-        public frmCustomerContact CallingForm { get; set; }
-
         public List<LocationModel> LocationData  
         {
             get
@@ -166,49 +164,12 @@ namespace Schedule_Database_Desktop_Version
             CustomerModel customer;
             switch (GV.MODE)
             {
-                case Mode.New:
-                    break;
-                case Mode.Edit:
-                case Mode.DateRangeReport:
-                    AssignmentDisplayModel assignment = displayList[selectedRow];
-                    GV.ASSIGNMENTFORM.Assignment = retrieveList[selectedRow];
-                    GV.ASSIGNMENTFORM.BringToFront();
-                    break;
-                case Mode.Undo:
-                    break;
-                case Mode.CustomerSearch:                    
-                    customer = customerData[selectedRow];
-                    GV.ASSIGNMENTFORM.FillCustomerData(customer);
-                    GV.MODE = GV.PreviousMode;
-                    this.Close();
-                    break;
-                case Mode.CustomerSearchMDI:
-                    customer = customerData[selectedRow];
-                    CallingForm.FillBoxes(customer);
-                    this.Close();
-                    break;
-                // added this LD not sure....
-                case Mode.DeleteCustomer:
-                    customer = customerData[selectedRow];
-                    CallingForm.FillBoxes(customer);
-                    this.Close();
-                    break;
-                case Mode.LocationSearch:
-                    LocationModel location = locationData[selectedRow];
-                    GV.ASSIGNMENTFORM.FillLocationData(location);
-                    GV.MODE = GV.PreviousMode;
-                    this.Close();
-                    break;
                 case Mode.LabEscSearch:
                     LabEscModel request = requests[selectedRow];
                     frmLabEsc escForm = new frmLabEsc();
                     escForm.Show();
                     //escForm.MdiParent = frmAMDI_Parent;
                     escForm.LabEsc = request;
-                    break;
-                case Mode.LabEscEdit:                
-                    LabEscModel labRequest = labRequests[selectedRow];
-                    GV.LABREQUESTFORM.LabRequest = labRequest;
                     break;
                 case Mode.None:
                     break;
