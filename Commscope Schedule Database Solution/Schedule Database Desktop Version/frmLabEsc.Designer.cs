@@ -315,6 +315,7 @@
             // dtpClosedDate
             // 
             this.dtpClosedDate.ContextMenuStrip = this.dtpContextMenu;
+            this.dtpClosedDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpClosedDate.Location = new System.Drawing.Point(95, 500);
             this.dtpClosedDate.Name = "dtpClosedDate";
             this.dtpClosedDate.Size = new System.Drawing.Size(273, 20);
@@ -633,6 +634,7 @@
             this.cboRecType.Size = new System.Drawing.Size(273, 21);
             this.cboRecType.TabIndex = 201;
             this.cboRecType.Tag = "RecordType";
+            this.cboRecType.SelectedIndexChanged += new System.EventHandler(this.cboRecType_SelectedIndexChanged);
             // 
             // lblRecordType
             // 

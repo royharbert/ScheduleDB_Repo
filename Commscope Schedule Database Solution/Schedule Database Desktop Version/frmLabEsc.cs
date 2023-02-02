@@ -67,7 +67,7 @@ namespace Schedule_Database_Desktop_Version
                     model = new LabEscModel();
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
                     btnSave.Text = "Save";
-                    txtEntryAdmin.Text = GV.USERMODEL.FullName;
+                    //txtEntryAdmin.Text = GV.USERMODEL.FullName;
                     break;
                 case Mode.LabEscEdit:
                     getAttachments(model.EscID);
@@ -492,6 +492,7 @@ namespace Schedule_Database_Desktop_Version
             cboResolution.Text = model.Resolution;
             txtPSNum.Text = model.PSNumber;
             txtID.Text = model.ID.ToString();
+            txtEntryAdmin.Text = model.EntryAdmin;
 
             //highlight product
             int idx = highlightProductList(model.Product);
@@ -723,6 +724,24 @@ namespace Schedule_Database_Desktop_Version
         private void dgvAttachments_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             AttachmentProcs.AttachmentsRowHeaderClick(dgvAttachments);
+        }
+
+        private void cboRecType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (txtRecordID.Text != "")
+            {
+                string EID = txtRecordID.Text;
+                if (EID.Substring(0,3) == "LAB")
+                {
+                    txtRecordID.Text = EID.Replace("LAB", "ESC");
+                    model.RecordType = "AT Escalation";
+                }
+                else
+                {
+                    txtRecordID.Text = EID.Replace("ESC", "LAB");
+                    model.RecordType = "Lab Request";
+                }
+            }
         }
     }
 }

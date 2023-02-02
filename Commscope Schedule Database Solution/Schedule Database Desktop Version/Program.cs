@@ -25,7 +25,6 @@ namespace Schedule_Database_Desktop_Version
             {
                 GlobalConfig.SetDatabaseMode(DatabaseType.Sandbox);
             }
-            //Application.Run(new frmCalendar());
             Application.Run(new frmAMDI_Parent());
         }
     }
