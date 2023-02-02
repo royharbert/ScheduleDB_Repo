@@ -52,8 +52,6 @@ namespace Schedule_Database_Desktop_Version
         }
         private void frmLabEsc_Load(object sender, EventArgs e)
         {
-            //txtHeight.Text = this.Height.ToString();
-            //txtWidth.Text = this.Width.ToString();
             fillComboBoxes();
             dtpClosedDate.CustomFormat = dtpCustomFormat;
             dtpDueDate.CustomFormat = dtpCustomFormat;
@@ -67,7 +65,6 @@ namespace Schedule_Database_Desktop_Version
                     model = new LabEscModel();
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
                     btnSave.Text = "Save";
-                    txtEntryAdmin.Text = GV.USERMODEL.FullName;
                     break;
                 case Mode.LabEscEdit:
                     getAttachments(model.EscID);
@@ -492,6 +489,7 @@ namespace Schedule_Database_Desktop_Version
             cboResolution.Text = model.Resolution;
             txtPSNum.Text = model.PSNumber;
             txtID.Text = model.ID.ToString();
+            txtEntryAdmin.Text = model.EntryAdmin;
 
             //highlight product
             int idx = highlightProductList(model.Product);
@@ -556,29 +554,22 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
-        private void dtpClosedDate_ValueChanged(object sender, EventArgs e)
-        {
-            if (GV.MODE == Mode.LabEscAdd)
-            {
-                dtpClosedDate.Format = DateTimePickerFormat.Custom;
-            }
-            else
-            {
-                dtpClosedDate.Format = DateTimePickerFormat.Long;
-            }
-        }
         private void setCustomFormat(DateTimePicker dtp)
         {
             DateTime newDate = CommonOps.dtpForcedReset(dtp);
         }
-        private void dtpDueDate_ValueChanged(object sender, EventArgs e)
-        {
-                dtpDueDate.Format = DateTimePickerFormat.Long;
-        }
 
-        private void dtpStartDate_ValueChanged(object sender, EventArgs e)
+        private void dtpCommon_ValueChanfedEvent(object sender, EventArgs e)
         {
-            dtpDueDate.Format = DateTimePickerFormat.Long;
+            DateTimePicker dtp = sender as DateTimePicker;
+            if (dtp.Value == emptyDate | dtp.Value == null)
+            {
+                dtp.Format = DateTimePickerFormat.Custom;
+            }
+            else
+            {
+                dtp.Format = DateTimePickerFormat.Long;
+            }
         }
 
         private void cboRequestor_Leave(object sender, EventArgs e)
@@ -723,6 +714,30 @@ namespace Schedule_Database_Desktop_Version
         private void dgvAttachments_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             AttachmentProcs.AttachmentsRowHeaderClick(dgvAttachments);
+        }
+
+        private void cboRecType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (txtRecordID.Text != "")
+            {
+                string EID = txtRecordID.Text;
+                if (EID.Substring(0,3) == "LAB")
+                {
+                    txtRecordID.Text = EID.Replace("LAB", "ESC");
+                    model.RecordType = "AT Escalation";
+                }
+                else
+                {
+                    txtRecordID.Text = EID.Replace("ESC", "LAB");
+                    model.RecordType = "Lab Request";
+                }
+            }
+        }
+
+        private void frmLabEsc_Resize(object sender, EventArgs e)
+        {
+            this.Height = 718;
+            this.Width = 1330;
         }
     }
 }

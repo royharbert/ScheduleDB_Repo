@@ -29,10 +29,6 @@ namespace Schedule_Database_Desktop_Version
             GV.MAINMENU = this;
             frmLogin LoginForm = new frmLogin();
             LoginForm.ShowDialog();
-            //frmAssignment frmAssignment = new frmAssignment();
-            //frmAssignment.MdiParent = this;
-            //frmAssignment.Dock = DockStyle.Fill;
-            //GV.ASSIGNMENTFORM = frmAssignment;
             int configMode = Properties.Settings.Default.DatabaseMode;
             if (configMode == 1)
             {
@@ -155,9 +151,9 @@ namespace Schedule_Database_Desktop_Version
         private void showLabEscForm()
         {
             frmLabEsc EscalationsForm = new frmLabEsc();
-            EscalationsForm.MdiParent = this;
-            //EscalationsForm.Height = 970;
-            //EscalationsForm.Width = 1950;
+            EscalationsForm.StartPosition = FormStartPosition.CenterScreen;
+            EscalationsForm.Height = 718;
+            EscalationsForm.Width = 1330;
             EscalationsForm.Show();
         }
 
@@ -165,6 +161,12 @@ namespace Schedule_Database_Desktop_Version
         {
             GV.MODE = Mode.LabEscSearch;
             showLabEscForm();
+        }
+        //remove after test
+        private void tESTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLabEsc escForm = new frmLabEsc();
+            escForm.Show();
         }
     }
 }
