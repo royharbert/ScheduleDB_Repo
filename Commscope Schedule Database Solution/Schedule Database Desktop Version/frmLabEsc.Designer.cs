@@ -678,19 +678,19 @@
             this.lblRecordType.Text = "Record Type";
             this.lblRecordType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtHeight
-            // 
-            this.txtHeight.Location = new System.Drawing.Point(287, 581);
-            this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(80, 20);
-            this.txtHeight.TabIndex = 203;
-            // 
-            // txtWidth
-            // 
-            this.txtWidth.Location = new System.Drawing.Point(287, 607);
-            this.txtWidth.Name = "txtWidth";
-            this.txtWidth.Size = new System.Drawing.Size(80, 20);
-            this.txtWidth.TabIndex = 204;
+            //// txtHeight
+            //// 
+            //this.txtHeight.Location = new System.Drawing.Point(287, 581);
+            //this.txtHeight.Name = "txtHeight";
+            //this.txtHeight.Size = new System.Drawing.Size(80, 20);
+            //this.txtHeight.TabIndex = 203;
+            //// 
+            //// txtWidth
+            //// 
+            //this.txtWidth.Location = new System.Drawing.Point(287, 607);
+            //this.txtWidth.Name = "txtWidth";
+            //this.txtWidth.Size = new System.Drawing.Size(80, 20);
+            //this.txtWidth.TabIndex = 204;
             // 
             // frmLabEsc
             // 

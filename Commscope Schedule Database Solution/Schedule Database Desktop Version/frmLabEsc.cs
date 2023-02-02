@@ -52,8 +52,8 @@ namespace Schedule_Database_Desktop_Version
         }
         private void frmLabEsc_Load(object sender, EventArgs e)
         {
-            txtHeight.Text = this.Height.ToString();
-            txtWidth.Text = this.Width.ToString();
+            //txtHeight.Text = this.Height.ToString();
+            //txtWidth.Text = this.Width.ToString();
             fillComboBoxes();
             dtpClosedDate.CustomFormat = dtpCustomFormat;
             dtpDueDate.CustomFormat = dtpCustomFormat;
