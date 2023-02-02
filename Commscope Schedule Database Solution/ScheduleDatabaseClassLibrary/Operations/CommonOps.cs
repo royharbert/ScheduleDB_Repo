@@ -42,6 +42,8 @@ namespace ScheduleDatabaseClassLibrary.Operations
             model.Active = ! model.Active;
             return model;
         }
+
+
         public static void ToggleMSO_ActiveStatus(DataGridView dgv)
         {
             int idx = 0;
@@ -72,6 +74,7 @@ namespace ScheduleDatabaseClassLibrary.Operations
             return dtp.Value;
         }
 
+
         public static DateTime dtpForcedReset(DateTimePicker dtp)
         {
             
@@ -90,6 +93,63 @@ namespace ScheduleDatabaseClassLibrary.Operations
             string tableName = tagArray[0];
             string displayItem = tagArray[1];
             List<T> boxList = GlobalConfig.Connection.GenericGetAll<T>(tableName, displayItem);
+        }
+        public static DateTime CalculateDateDue(DateTime StartDate, string priority)
+        {
+            //get list of holidays
+            List<CompanyHolidaysModel> holidayList = GlobalConfig.Connection.GetAllHolidays();
+            //create list of holiday dates
+            List<DateTime> holidayDates = new List<DateTime>();
+            foreach (var holiday in holidayList)
+            {
+                holidayDates.Add(holiday.HolidayDate.Date);
+            }
+            //use Pty to determine work days
+            int workDays = 0;
+            switch (priority)
+            {
+                case "P1":
+                    workDays = (int)prty.P1;
+                    break;
+
+                case "P2":
+                    workDays = (int)prty.P2;
+                    break;
+
+                case "P3":
+                    workDays = (int)prty.P3;
+                    break;
+
+                default:
+                    break;
+            }
+            //loop thru for number of days
+            DateTime currentDay = StartDate;
+            int wkDay = 1;
+            while (wkDay <= workDays)
+            {
+                //check day of week
+                if (currentDay.DayOfWeek != DayOfWeek.Saturday && currentDay.DayOfWeek != DayOfWeek.Sunday)
+                {
+                    //check to see if current date is holiday
+                    if (!holidayDates.Contains(currentDay.Date))
+                    {
+                        //if not holiday increment counter
+                        wkDay++;
+                    }
+                }
+                currentDay = currentDay.AddDays(1);
+
+            }
+
+            //make sure not returning holiday or weekend
+            while (currentDay.DayOfWeek == DayOfWeek.Saturday || currentDay.DayOfWeek == DayOfWeek.Sunday
+                || holidayDates.Contains(currentDay.Date))
+            {
+                currentDay = currentDay.AddDays(1);
+            }
+            //at end of loop return date
+            return currentDay.Date;
         }
     }
 }
