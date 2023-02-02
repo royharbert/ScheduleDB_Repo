@@ -15,6 +15,14 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
+        public List<CompanyHolidaysModel> GetAllHolidays()
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                List<CompanyHolidaysModel> output = connection.Query<CompanyHolidaysModel>("dbo.spHolidays_GetAll", commandType: CommandType.StoredProcedure).ToList();
+                return output;
+            }
+        }
         public void InsertPerson(string tableName, PersonModel model)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
