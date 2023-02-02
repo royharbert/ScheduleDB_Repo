@@ -65,7 +65,6 @@ namespace Schedule_Database_Desktop_Version
                     model = new LabEscModel();
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
                     btnSave.Text = "Save";
-                    //txtEntryAdmin.Text = GV.USERMODEL.FullName;
                     break;
                 case Mode.LabEscEdit:
                     getAttachments(model.EscID);
@@ -740,6 +739,12 @@ namespace Schedule_Database_Desktop_Version
                     model.RecordType = "Lab Request";
                 }
             }
+        }
+
+        private void frmLabEsc_Resize(object sender, EventArgs e)
+        {
+            this.Height = 718;
+            this.Width = 1330;
         }
     }
 }
