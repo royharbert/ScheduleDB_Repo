@@ -84,8 +84,6 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.cboRecType = new System.Windows.Forms.ComboBox();
             this.lblRecordType = new System.Windows.Forms.Label();
-            this.txtHeight = new System.Windows.Forms.TextBox();
-            this.txtWidth = new System.Windows.Forms.TextBox();
             this.dtpContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
             this.SuspendLayout();
@@ -623,6 +621,7 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(64, 20);
             this.txtID.TabIndex = 63;
+            this.txtID.Visible = false;
             // 
             // cboRecType
             // 
@@ -647,20 +646,6 @@
             this.lblRecordType.Text = "Record Type";
             this.lblRecordType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtHeight
-            // 
-            this.txtHeight.Location = new System.Drawing.Point(287, 581);
-            this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(80, 20);
-            this.txtHeight.TabIndex = 203;
-            // 
-            // txtWidth
-            // 
-            this.txtWidth.Location = new System.Drawing.Point(287, 607);
-            this.txtWidth.Name = "txtWidth";
-            this.txtWidth.Size = new System.Drawing.Size(80, 20);
-            this.txtWidth.TabIndex = 204;
-            // 
             // frmLabEsc
             // 
             this.AcceptButton = this.btnSave;
@@ -668,8 +653,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(1314, 679);
-            this.Controls.Add(this.txtWidth);
-            this.Controls.Add(this.txtHeight);
             this.Controls.Add(this.lblRecordType);
             this.Controls.Add(this.cboRecType);
             this.Controls.Add(this.txtID);
@@ -791,7 +774,5 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.ComboBox cboRecType;
         private System.Windows.Forms.Label lblRecordType;
-        private System.Windows.Forms.TextBox txtHeight;
-        private System.Windows.Forms.TextBox txtWidth;
     }
 }
