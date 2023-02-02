@@ -554,29 +554,22 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
-        private void dtpClosedDate_ValueChanged(object sender, EventArgs e)
-        {
-            if (GV.MODE == Mode.LabEscAdd)
-            {
-                dtpClosedDate.Format = DateTimePickerFormat.Custom;
-            }
-            else
-            {
-                dtpClosedDate.Format = DateTimePickerFormat.Long;
-            }
-        }
         private void setCustomFormat(DateTimePicker dtp)
         {
             DateTime newDate = CommonOps.dtpForcedReset(dtp);
         }
-        private void dtpDueDate_ValueChanged(object sender, EventArgs e)
-        {
-                dtpDueDate.Format = DateTimePickerFormat.Long;
-        }
 
-        private void dtpStartDate_ValueChanged(object sender, EventArgs e)
+        private void dtpCommon_ValueChanfedEvent(object sender, EventArgs e)
         {
-            dtpDueDate.Format = DateTimePickerFormat.Long;
+            DateTimePicker dtp = sender as DateTimePicker;
+            if (dtp.Value == emptyDate | dtp.Value == null)
+            {
+                dtp.Format = DateTimePickerFormat.Custom;
+            }
+            else
+            {
+                dtp.Format = DateTimePickerFormat.Long;
+            }
         }
 
         private void cboRequestor_Leave(object sender, EventArgs e)

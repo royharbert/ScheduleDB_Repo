@@ -1,4 +1,6 @@
-﻿namespace Schedule_Database_Desktop_Version
+﻿using System;
+
+namespace Schedule_Database_Desktop_Version
 {
     partial class frmLabEsc
     {
@@ -293,7 +295,8 @@
             this.dtpStartDate.Size = new System.Drawing.Size(273, 20);
             this.dtpStartDate.TabIndex = 14;
             this.dtpStartDate.Tag = "DateOpened";
-            this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
+            this.dtpStartDate.ValueChanged += dtpCommon_ValueChanfedEvent;
+            //this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
             // dtpContextMenu
             // 
@@ -319,7 +322,7 @@
             this.dtpClosedDate.Size = new System.Drawing.Size(273, 20);
             this.dtpClosedDate.TabIndex = 16;
             this.dtpClosedDate.Tag = "DateCompleted";
-            this.dtpClosedDate.ValueChanged += new System.EventHandler(this.dtpClosedDate_ValueChanged);
+            this.dtpClosedDate.ValueChanged += dtpCommon_ValueChanfedEvent;
             // 
             // dtpDueDate
             // 
@@ -329,7 +332,7 @@
             this.dtpDueDate.Size = new System.Drawing.Size(273, 20);
             this.dtpDueDate.TabIndex = 15;
             this.dtpDueDate.Tag = "DueDate";
-            this.dtpDueDate.ValueChanged += new System.EventHandler(this.dtpDueDate_ValueChanged);
+            this.dtpDueDate.ValueChanged += dtpCommon_ValueChanfedEvent;
             // 
             // label12
             // 
