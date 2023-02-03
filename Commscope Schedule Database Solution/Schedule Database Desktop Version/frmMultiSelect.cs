@@ -161,7 +161,7 @@ namespace Schedule_Database_Desktop_Version
         private void dgvResults_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int selectedRow = dgvResults.CurrentRow.Index;
-            CustomerModel customer;
+            //CustomerModel customer;
             switch (GV.MODE)
             {
                 case Mode.LabEscSearch:
