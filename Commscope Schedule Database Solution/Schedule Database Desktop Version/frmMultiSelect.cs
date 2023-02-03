@@ -217,8 +217,8 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscSearch:
                 case Mode.LabEscEdit:
                 case Mode.LabEscDateRange:
-                    ListLooper.ExcelExporter<ATEscalationsDisplayModel> exporter = new ListLooper.ExcelExporter<ATEscalationsDisplayModel>();
-                    exporter.List = (List<ATEscalationsDisplayModel>)dgvResults.DataSource;
+                    ListLooper.ExcelExporter<LabEscModel> exporter = new ListLooper.ExcelExporter<LabEscModel>();
+                    exporter.List = (List<LabEscModel>)dgvResults.DataSource;
                     ReportOps.FormatEscalationResultExport(exporter.Wksheet);
                     break;
                 default:
