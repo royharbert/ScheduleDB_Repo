@@ -11,6 +11,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
+        List<LabEscModel> GetOpenEscSortedByDateDue();
         List<CompanyHolidaysModel> GetAllHolidays();
         void InsertPerson(string tableName, PersonModel model);
         LabEscModel LabEsc_CRUD(LabEscModel model, char action);

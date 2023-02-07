@@ -42,7 +42,9 @@ namespace Schedule_Database_Desktop_Version
             this.databaseModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.liveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sandboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tESTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openItemsByDateDueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.incompleteByDateDueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,10 +55,11 @@ namespace Schedule_Database_Desktop_Version
             this.fileToolStripMenuItem,
             this.aTEscalationsToolStripMenuItem,
             this.databaseModeToolStripMenuItem,
-            this.tESTToolStripMenuItem});
+            this.reportsToolStripMenuItem});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(1508, 24);
+            this.mnuMain.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
+            this.mnuMain.Size = new System.Drawing.Size(1843, 25);
             this.mnuMain.TabIndex = 2;
             this.mnuMain.Text = "menuStrip1";
             // 
@@ -68,7 +71,7 @@ namespace Schedule_Database_Desktop_Version
             this.setPreferredScreenToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 19);
             this.fileToolStripMenuItem.Tag = "0";
             this.fileToolStripMenuItem.Text = "File";
             // 
@@ -110,7 +113,7 @@ namespace Schedule_Database_Desktop_Version
             this.addEscalationToolStripMenuItem,
             this.searchEscalationToolStripMenuItem});
             this.aTEscalationsToolStripMenuItem.Name = "aTEscalationsToolStripMenuItem";
-            this.aTEscalationsToolStripMenuItem.Size = new System.Drawing.Size(129, 20);
+            this.aTEscalationsToolStripMenuItem.Size = new System.Drawing.Size(129, 19);
             this.aTEscalationsToolStripMenuItem.Tag = "2";
             this.aTEscalationsToolStripMenuItem.Text = "Escalations/Requests";
             // 
@@ -144,7 +147,7 @@ namespace Schedule_Database_Desktop_Version
             this.liveToolStripMenuItem,
             this.sandboxToolStripMenuItem});
             this.databaseModeToolStripMenuItem.Name = "databaseModeToolStripMenuItem";
-            this.databaseModeToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.databaseModeToolStripMenuItem.Size = new System.Drawing.Size(101, 19);
             this.databaseModeToolStripMenuItem.Tag = "3";
             this.databaseModeToolStripMenuItem.Text = "Database Mode";
             // 
@@ -164,26 +167,40 @@ namespace Schedule_Database_Desktop_Version
             this.sandboxToolStripMenuItem.Text = "Sandbox";
             this.sandboxToolStripMenuItem.Click += new System.EventHandler(this.sandboxToolStripMenuItem_Click);
             // 
-            // tESTToolStripMenuItem
+            // reportsToolStripMenuItem
             // 
-            this.tESTToolStripMenuItem.Name = "tESTToolStripMenuItem";
-            this.tESTToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.tESTToolStripMenuItem.Tag = "3";
-            this.tESTToolStripMenuItem.Text = "TEST";
-            this.tESTToolStripMenuItem.Click += new System.EventHandler(this.tESTToolStripMenuItem_Click);
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openItemsByDateDueToolStripMenuItem});
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 19);
+            this.reportsToolStripMenuItem.Tag = "3";
+            this.reportsToolStripMenuItem.Text = "Reports";
+            // 
+            // openItemsByDateDueToolStripMenuItem
+            // 
+            this.openItemsByDateDueToolStripMenuItem.Name = "openItemsByDateDueToolStripMenuItem";
+            this.openItemsByDateDueToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.openItemsByDateDueToolStripMenuItem.Tag = "3";
+            this.openItemsByDateDueToolStripMenuItem.Text = "Open Items by Date Due";
+            this.openItemsByDateDueToolStripMenuItem.Click += new System.EventHandler(this.openItemsByDateDueToolStripMenuItem_Click);
+            // 
+            // incompleteByDateDueToolStripMenuItem
+            // 
+            this.incompleteByDateDueToolStripMenuItem.Name = "incompleteByDateDueToolStripMenuItem";
+            this.incompleteByDateDueToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
             // frmAMDI_Parent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1508, 898);
+            this.ClientSize = new System.Drawing.Size(1843, 1197);
             this.Controls.Add(this.mnuMain);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mnuMain;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmAMDI_Parent";
             this.Text = "Commscope Schedule Database";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -208,6 +225,8 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.ToolStripMenuItem addEscalationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchEscalationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tESTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem incompleteByDateDueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openItemsByDateDueToolStripMenuItem;
     }
 }

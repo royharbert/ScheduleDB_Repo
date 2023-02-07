@@ -87,6 +87,7 @@ namespace Schedule_Database_Desktop_Version
             set
             {
                 labRequests = value;
+                requests = value;
                 customerData = null;
                 locationData = null;
                 dgvResults.DataSource = labRequests;
@@ -165,10 +166,10 @@ namespace Schedule_Database_Desktop_Version
             switch (GV.MODE)
             {
                 case Mode.LabEscSearch:
+                case Mode.OpenEscByDate:
                     LabEscModel request = requests[selectedRow];
                     frmLabEsc escForm = new frmLabEsc();
                     escForm.Show();
-                    //escForm.MdiParent = frmAMDI_Parent;
                     escForm.LabEsc = request;
                     break;
                 case Mode.None:

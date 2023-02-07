@@ -148,25 +148,43 @@ namespace Schedule_Database_Desktop_Version
             showLabEscForm();
         }
 
-        private void showLabEscForm()
+        private frmLabEsc showLabEscForm()
         {
             frmLabEsc EscalationsForm = new frmLabEsc();
             EscalationsForm.StartPosition = FormStartPosition.CenterScreen;
             EscalationsForm.Height = 718;
             EscalationsForm.Width = 1330;
             EscalationsForm.Show();
+            return EscalationsForm;
         }
 
         private void generalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscSearch;
-            showLabEscForm();
+            frmLabEsc escForm = showLabEscForm();
+            
         }
-        //remove after test
-        private void tESTToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openItemsByDateDueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmLabEsc escForm = new frmLabEsc();
-            escForm.Show();
+            GV.MODE = Mode.OpenEscByDate;
+            List<LabEscModel> openEsc = ReportOps.GetOpenEscByDateDue();
+            switch (openEsc.Count)
+            {
+                case 0:
+                    MessageBox.Show("No open escalations/requests");
+                    break;  
+                case 1:
+                    frmLabEsc escForm = showLabEscForm();
+                    escForm.LabEsc = openEsc[0];
+                    break;
+
+                default:
+                    frmMultiSelect results = new frmMultiSelect();
+                    results.LabRequests = openEsc;
+                    results.Show();
+
+                    break;
+            }
         }
     }
 }

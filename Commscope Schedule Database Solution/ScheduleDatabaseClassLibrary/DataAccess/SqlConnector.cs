@@ -15,6 +15,14 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
+        public List<LabEscModel> GetOpenEscSortedByDateDue()
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                List<LabEscModel> output = connection.Query<LabEscModel>("dbo.spEscOpenByDueDate", commandType: CommandType.StoredProcedure).ToList();
+                return output;
+            }
+        }
         public List<CompanyHolidaysModel> GetAllHolidays()
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
