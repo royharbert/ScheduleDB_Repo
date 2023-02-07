@@ -20,6 +20,7 @@ namespace Schedule_Database_Desktop_Version
     public partial class frmLabEsc : Form
     {
         bool formDirty = false;
+        bool formLoading = false;
         LabEscModel labEsc;
 
         DateTime emptyDate = new DateTime(1900, 1, 1);
@@ -98,7 +99,8 @@ namespace Schedule_Database_Desktop_Version
                 }                
             }
         }
-        private void btnSave_Click(object sender, EventArgs e)
+
+        private void saveData()
         {
             string errorList = "";
             loadModel(model);
@@ -124,6 +126,7 @@ namespace Schedule_Database_Desktop_Version
                         }
 
                         MessageBox.Show(txtRecordID.Text + " has been saved");
+                        formDirty = false;
                         GV.MODE = Mode.LabEscEdit;
                     }
                     else
@@ -134,14 +137,12 @@ namespace Schedule_Database_Desktop_Version
                     break;
 
                 case Mode.LabEscSearch:
-                    //loadModel(model);
-                    //GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
                     List<FieldSearchModel> models = collectData();
                     string whereClause = "where ";
                     foreach (var model in models)
                     {
-                        if(model.FieldName == "Comments"| model.FieldName == "Description"| model.FieldName == "PSNumber"| model.FieldName == "Resolution" 
-                            | model.FieldName == "CTRNum"| model.FieldName == "EscNum" | model.FieldName == "EscID") 
+                        if (model.FieldName == "Comments" | model.FieldName == "Description" | model.FieldName == "PSNumber" | model.FieldName == "Resolution"
+                            | model.FieldName == "CTRNum" | model.FieldName == "EscNum" | model.FieldName == "EscID")
                         {
                             whereClause = whereClause + model.FieldName + " like '%" + model.FieldValue + "%' and ";
                         }
@@ -153,13 +154,17 @@ namespace Schedule_Database_Desktop_Version
                     whereClause = whereClause.Substring(0, whereClause.Length - 5);
                     List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
                     displayResults(requests);
-
+                    formDirty = false;
                     this.Close();
-                   
+
                     break;
                 default:
                     break;
             }
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            saveData();            
         }
 
         public void setBtnSaveText(string text)
@@ -327,7 +332,7 @@ namespace Schedule_Database_Desktop_Version
                     displayForm.Show();
                     break;
             }
-        }
+       }
 
         private string auditData()
         {
@@ -463,8 +468,13 @@ namespace Schedule_Database_Desktop_Version
             return model;
 
         }
+        /// <summary>
+        /// Sets formLoading flag to true, populates boxes with data and sets formloading back to false when done
+        /// </summary>
+        /// <param name="model"></param>
         public void loadBoxes(LabEscModel model)
         {
+            formLoading = true;
             txtRecordID.Text = model.EscID;
             cboMSO.Text = model.MSO;
             txtEndUser.Text = model.EndUser;
@@ -500,7 +510,8 @@ namespace Schedule_Database_Desktop_Version
             dgvAttachments.DataSource = null;
             dgvAttachments.DataSource = aList;
             formatAttGrid();
-
+            formLoading = false;
+            formDirty = false;
         }
         private int highlightProductList(string selectedProduct)
         {
@@ -569,6 +580,14 @@ namespace Schedule_Database_Desktop_Version
             else
             {
                 dtp.Format = DateTimePickerFormat.Long;
+            }
+        }
+
+        private void controlTextChangedSharedEvent(object sender, EventArgs e)
+        {
+            if (!formLoading)
+            {
+                formDirty = true;
             }
         }
 
@@ -738,6 +757,19 @@ namespace Schedule_Database_Desktop_Version
         {
             this.Height = 718;
             this.Width = 1330;
+        }
+
+        private void frmLabEsc_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (formDirty)
+            {
+                DialogResult reply = MessageBox.Show("Do you want to save changes?", "Save Changes", MessageBoxButtons.YesNoCancel);
+                if (reply == DialogResult.Yes)
+                {
+                    saveData();
+                }
+                
+            }
         }
     }
 }
