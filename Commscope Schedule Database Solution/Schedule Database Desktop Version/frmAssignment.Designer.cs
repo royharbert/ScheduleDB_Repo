@@ -616,7 +616,7 @@ namespace Schedule_Database_Desktop_Version
             this.pnlCompletion.Controls.Add(this.btnCompletionDone);
             this.pnlCompletion.Controls.Add(this.btnSaveCompletion);
             this.pnlCompletion.Controls.Add(this.dtpCompleted);
-            this.pnlCompletion.Location = new System.Drawing.Point(479, 300);
+            this.pnlCompletion.Location = new System.Drawing.Point(246, 129);
             this.pnlCompletion.Name = "pnlCompletion";
             this.pnlCompletion.Size = new System.Drawing.Size(550, 393);
             this.pnlCompletion.TabIndex = 60;
@@ -825,7 +825,6 @@ namespace Schedule_Database_Desktop_Version
             this.clearDateToolStripMenuItem.Name = "clearDateToolStripMenuItem";
             this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.clearDateToolStripMenuItem.Text = "Clear Date";
-      
             // 
             // dtpEndDate
             // 

@@ -92,6 +92,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // txtRecordID
             // 
+            this.txtRecordID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtRecordID.Location = new System.Drawing.Point(423, 26);
             this.txtRecordID.Name = "txtRecordID";
             this.txtRecordID.Size = new System.Drawing.Size(396, 20);
@@ -136,6 +137,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label1.Location = new System.Drawing.Point(57, 89);
@@ -147,6 +149,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label2.Location = new System.Drawing.Point(57, 173);
@@ -158,6 +161,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label3.Location = new System.Drawing.Point(66, 145);
@@ -169,6 +173,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(380, 44);
             this.label4.Name = "label4";
@@ -177,9 +182,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label5.Location = new System.Drawing.Point(34, 117);
+            this.label5.Location = new System.Drawing.Point(30, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 15);
             this.label5.TabIndex = 200;
@@ -188,9 +194,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label6.Location = new System.Drawing.Point(44, 201);
+            this.label6.Location = new System.Drawing.Point(40, 201);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 15);
             this.label6.TabIndex = 200;
@@ -199,9 +206,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label7.Location = new System.Drawing.Point(43, 229);
+            this.label7.Location = new System.Drawing.Point(39, 229);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 15);
             this.label7.TabIndex = 200;
@@ -228,9 +236,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label8.Location = new System.Drawing.Point(13, 397);
+            this.label8.Location = new System.Drawing.Point(9, 397);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 15);
             this.label8.TabIndex = 200;
@@ -239,9 +248,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label9
             // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label9.Location = new System.Drawing.Point(28, 257);
+            this.label9.Location = new System.Drawing.Point(24, 257);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 15);
             this.label9.TabIndex = 200;
@@ -286,9 +296,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label10
             // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label10.Location = new System.Drawing.Point(17, 425);
+            this.label10.Location = new System.Drawing.Point(13, 425);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(75, 15);
             this.label10.TabIndex = 21;
@@ -343,9 +354,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label12
             // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label12.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label12.Location = new System.Drawing.Point(18, 505);
+            this.label12.Location = new System.Drawing.Point(14, 505);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(74, 15);
             this.label12.TabIndex = 28;
@@ -354,9 +366,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label13
             // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label13.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label13.Location = new System.Drawing.Point(33, 478);
+            this.label13.Location = new System.Drawing.Point(29, 478);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(59, 15);
             this.label13.TabIndex = 29;
@@ -365,9 +378,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label14
             // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label14.Location = new System.Drawing.Point(12, 451);
+            this.label14.Location = new System.Drawing.Point(8, 451);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(80, 15);
             this.label14.TabIndex = 30;
@@ -386,9 +400,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label15
             // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label15.Location = new System.Drawing.Point(20, 532);
+            this.label15.Location = new System.Drawing.Point(16, 532);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(72, 15);
             this.label15.TabIndex = 32;
@@ -397,9 +412,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label16
             // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label16.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label16.Location = new System.Drawing.Point(57, 313);
+            this.label16.Location = new System.Drawing.Point(53, 313);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(35, 15);
             this.label16.TabIndex = 33;
@@ -408,6 +424,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label17
             // 
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label17.Location = new System.Drawing.Point(387, 61);
@@ -418,9 +435,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label18
             // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label18.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label18.Location = new System.Drawing.Point(41, 341);
+            this.label18.Location = new System.Drawing.Point(37, 341);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(51, 15);
             this.label18.TabIndex = 35;
@@ -429,9 +447,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label19
             // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label19.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label19.Location = new System.Drawing.Point(51, 285);
+            this.label19.Location = new System.Drawing.Point(47, 285);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(41, 15);
             this.label19.TabIndex = 36;
@@ -440,6 +459,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label20
             // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label20.Location = new System.Drawing.Point(868, 283);
@@ -450,6 +470,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label21
             // 
+            this.label21.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label21.Location = new System.Drawing.Point(868, 27);
@@ -460,6 +481,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label22
             // 
+            this.label22.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label22.Location = new System.Drawing.Point(868, 536);
@@ -504,6 +526,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // lstProducts
             // 
+            this.lstProducts.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lstProducts.FormattingEnabled = true;
             this.lstProducts.Location = new System.Drawing.Point(390, 79);
             this.lstProducts.Name = "lstProducts";
@@ -514,6 +537,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // rtxDescription
             // 
+            this.rtxDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxDescription.Location = new System.Drawing.Point(868, 44);
             this.rtxDescription.Name = "rtxDescription";
             this.rtxDescription.Size = new System.Drawing.Size(424, 233);
@@ -524,6 +548,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // rtxComments
             // 
+            this.rtxComments.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxComments.Location = new System.Drawing.Point(868, 301);
             this.rtxComments.Name = "rtxComments";
             this.rtxComments.Size = new System.Drawing.Size(424, 228);
@@ -534,13 +559,14 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label23
             // 
+            this.label23.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.label23.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label23.Location = new System.Drawing.Point(-21, 369);
+            this.label23.Location = new System.Drawing.Point(-25, 369);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(113, 16);
             this.label23.TabIndex = 52;
-            this.label23.Text = "Dynamics 365#";
+            this.label23.Text = "365 Number";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtCTRNum
@@ -554,6 +580,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btnSave
             // 
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnSave.Location = new System.Drawing.Point(951, 608);
             this.btnSave.Name = "btnSave";
@@ -565,6 +592,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnClose.Location = new System.Drawing.Point(1118, 608);
@@ -577,6 +605,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // dgvAttachments
             // 
+            this.dgvAttachments.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvAttachments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAttachments.Location = new System.Drawing.Point(390, 301);
             this.dgvAttachments.Name = "dgvAttachments";
@@ -586,6 +615,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label24
             // 
+            this.label24.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label24.Location = new System.Drawing.Point(387, 283);
@@ -596,6 +626,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btnRemoveAttach
             // 
+            this.btnRemoveAttach.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRemoveAttach.Location = new System.Drawing.Point(626, 547);
             this.btnRemoveAttach.Name = "btnRemoveAttach";
             this.btnRemoveAttach.Size = new System.Drawing.Size(75, 23);
@@ -606,6 +637,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btnAddAttach
             // 
+            this.btnAddAttach.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAddAttach.Location = new System.Drawing.Point(518, 547);
             this.btnAddAttach.Name = "btnAddAttach";
             this.btnAddAttach.Size = new System.Drawing.Size(75, 23);
@@ -628,6 +660,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // cboResolution
             // 
+            this.cboResolution.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboResolution.FormattingEnabled = true;
             this.cboResolution.Location = new System.Drawing.Point(868, 561);
             this.cboResolution.Name = "cboResolution";
@@ -637,6 +670,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // txtID
             // 
+            this.txtID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtID.Location = new System.Drawing.Point(72, 610);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(64, 20);
@@ -658,9 +692,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             // lblRecordType
             // 
+            this.lblRecordType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblRecordType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.lblRecordType.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblRecordType.Location = new System.Drawing.Point(16, 61);
+            this.lblRecordType.Location = new System.Drawing.Point(12, 61);
             this.lblRecordType.Name = "lblRecordType";
             this.lblRecordType.Size = new System.Drawing.Size(76, 15);
             this.lblRecordType.TabIndex = 202;
@@ -727,6 +762,7 @@ namespace Schedule_Database_Desktop_Version
             this.Controls.Add(this.cboSeverity);
             this.Controls.Add(this.cboMSO);
             this.Controls.Add(this.txtRecordID);
+            this.MaximizeBox = false;
             this.Name = "frmLabEsc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmLabEsc";

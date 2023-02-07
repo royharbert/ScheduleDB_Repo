@@ -94,7 +94,7 @@ namespace ScheduleDatabaseClassLibrary.Operations
             string displayItem = tagArray[1];
             List<T> boxList = GlobalConfig.Connection.GenericGetAll<T>(tableName, displayItem);
         }
-        public static DateTime CalculateDateDue(DateTime StartDate, string priority)
+        public static DateTime CalculateDateDue(DateTime StartDate, string severity)
         {
             //get list of holidays
             List<CompanyHolidaysModel> holidayList = GlobalConfig.Connection.GetAllHolidays();
@@ -106,18 +106,18 @@ namespace ScheduleDatabaseClassLibrary.Operations
             }
             //use Pty to determine work days
             int workDays = 0;
-            switch (priority)
+            switch (severity)
             {
-                case "P1":
-                    workDays = (int)prty.P1;
+                case "L1":
+                    workDays = (int)sevty.L1;
                     break;
 
-                case "P2":
-                    workDays = (int)prty.P2;
+                case "L2":
+                    workDays = (int)sevty.L2;
                     break;
 
-                case "P3":
-                    workDays = (int)prty.P3;
+                case "L3":
+                    workDays = (int)sevty.L3;
                     break;
 
                 default:

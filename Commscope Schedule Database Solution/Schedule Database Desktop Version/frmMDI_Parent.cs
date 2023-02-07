@@ -186,6 +186,12 @@ namespace Schedule_Database_Desktop_Version
                     break;
             }
         }
+
+        private void updateHolidayListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHoliday holidayForm = new frmHoliday();
+            holidayForm.Show();
+        }
     }
 }
  

@@ -42,6 +42,7 @@ namespace Schedule_Database_Desktop_Version
             this.databaseModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.liveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sandboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateHolidayListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openItemsByDateDueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incompleteByDateDueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,6 +70,7 @@ namespace Schedule_Database_Desktop_Version
             this.loginToolStripMenuItem,
             this.logoutToolStripMenuItem,
             this.setPreferredScreenToolStripMenuItem,
+            this.updateHolidayListToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 19);
@@ -78,7 +80,7 @@ namespace Schedule_Database_Desktop_Version
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loginToolStripMenuItem.Tag = "0";
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
@@ -86,7 +88,7 @@ namespace Schedule_Database_Desktop_Version
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logoutToolStripMenuItem.Tag = "1";
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
@@ -94,7 +96,7 @@ namespace Schedule_Database_Desktop_Version
             // setPreferredScreenToolStripMenuItem
             // 
             this.setPreferredScreenToolStripMenuItem.Name = "setPreferredScreenToolStripMenuItem";
-            this.setPreferredScreenToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.setPreferredScreenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.setPreferredScreenToolStripMenuItem.Tag = "1";
             this.setPreferredScreenToolStripMenuItem.Text = "Set Preferred Screen";
             this.setPreferredScreenToolStripMenuItem.Click += new System.EventHandler(this.setPreferredScreenToolStripMenuItem_Click);
@@ -102,7 +104,7 @@ namespace Schedule_Database_Desktop_Version
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Tag = "0";
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
@@ -188,6 +190,14 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.incompleteByDateDueToolStripMenuItem.Name = "incompleteByDateDueToolStripMenuItem";
             this.incompleteByDateDueToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // updateHolidayListToolStripMenuItem
+            // 
+            this.updateHolidayListToolStripMenuItem.Name = "updateHolidayListToolStripMenuItem";
+            this.updateHolidayListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateHolidayListToolStripMenuItem.Tag = "2";
+            this.updateHolidayListToolStripMenuItem.Text = "Update Holiday List";
+            this.updateHolidayListToolStripMenuItem.Click += new System.EventHandler(this.updateHolidayListToolStripMenuItem_Click);
             // 
             // frmAMDI_Parent
             // 

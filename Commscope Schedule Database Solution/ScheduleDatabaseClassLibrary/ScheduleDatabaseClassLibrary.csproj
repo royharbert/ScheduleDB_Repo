@@ -69,6 +69,7 @@
     <Compile Include="AssignmentsProcesses\ComboBoxListMaker.cs" />
     <Compile Include="AssignmentsProcesses\ListDeepCopy.cs" />
     <Compile Include="Attributes\ExcelExportProperty.cs" />
+    <Compile Include="Holiday_Update.cs" />
     <Compile Include="CtlTag.cs" />
     <Compile Include="DataAccess\IDataConnection.cs" />
     <Compile Include="DataAccess\SqlConnector.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Models\AttachmentModel.cs" />
     <Compile Include="Models\CalendarItemModel.cs" />
     <Compile Include="Models\CityModel.cs" />
+    <Compile Include="Models\StringHolidaysModel.cs" />
     <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\LabEscDisplayModel.cs" />
     <Compile Include="Models\LabEscModel.cs" />
