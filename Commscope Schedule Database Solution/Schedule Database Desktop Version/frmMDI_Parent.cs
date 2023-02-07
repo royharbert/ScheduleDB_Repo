@@ -187,7 +187,7 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
-        private void updateHolidayListToolStripMenuItem_Click(object sender, EventArgs e)
+        private void updateHolidayListToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             frmHoliday holidayForm = new frmHoliday();
             holidayForm.Show();
