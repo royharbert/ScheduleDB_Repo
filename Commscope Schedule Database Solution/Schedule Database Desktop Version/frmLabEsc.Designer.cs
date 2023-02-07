@@ -306,8 +306,6 @@ namespace Schedule_Database_Desktop_Version
             this.dtpStartDate.Size = new System.Drawing.Size(273, 20);
             this.dtpStartDate.TabIndex = 14;
             this.dtpStartDate.Tag = "DateOpened";
-            this.dtpStartDate.ValueChanged += dtpCommon_ValueChanfedEvent;
-            //this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
             // dtpContextMenu
             // 
@@ -333,7 +331,6 @@ namespace Schedule_Database_Desktop_Version
             this.dtpClosedDate.Size = new System.Drawing.Size(273, 20);
             this.dtpClosedDate.TabIndex = 16;
             this.dtpClosedDate.Tag = "DateCompleted";
-            this.dtpClosedDate.ValueChanged += dtpCommon_ValueChanfedEvent;
             // 
             // dtpDueDate
             // 
@@ -343,7 +340,6 @@ namespace Schedule_Database_Desktop_Version
             this.dtpDueDate.Size = new System.Drawing.Size(273, 20);
             this.dtpDueDate.TabIndex = 15;
             this.dtpDueDate.Tag = "DueDate";
-            this.dtpDueDate.ValueChanged += dtpCommon_ValueChanfedEvent;
             // 
             // label12
             // 
@@ -552,7 +548,7 @@ namespace Schedule_Database_Desktop_Version
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(113, 16);
             this.label23.TabIndex = 52;
-            this.label23.Text = "Dynamics 365#";
+            this.label23.Text = "365 Number";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtCTRNum
@@ -683,20 +679,6 @@ namespace Schedule_Database_Desktop_Version
             this.lblRecordType.TabIndex = 202;
             this.lblRecordType.Text = "Record Type";
             this.lblRecordType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtHeight
-            // 
-            this.txtHeight.Location = new System.Drawing.Point(287, 581);
-            this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(80, 20);
-            this.txtHeight.TabIndex = 203;
-            // 
-            // txtWidth
-            // 
-            this.txtWidth.Location = new System.Drawing.Point(287, 607);
-            this.txtWidth.Name = "txtWidth";
-            this.txtWidth.Size = new System.Drawing.Size(80, 20);
-            this.txtWidth.TabIndex = 204;
             // 
             // frmLabEsc
             // 

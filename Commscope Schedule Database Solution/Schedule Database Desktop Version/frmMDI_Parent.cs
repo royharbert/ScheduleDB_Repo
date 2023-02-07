@@ -168,6 +168,12 @@ namespace Schedule_Database_Desktop_Version
             frmLabEsc escForm = new frmLabEsc();
             escForm.Show();
         }
+
+        private void updateHolidayListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHoliday holidayForm = new frmHoliday();
+            holidayForm.Show();
+        }
     }
 }
  

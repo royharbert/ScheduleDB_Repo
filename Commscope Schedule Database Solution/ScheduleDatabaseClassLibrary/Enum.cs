@@ -20,10 +20,10 @@ namespace ScheduleDatabaseClassLibrary
         FE,
         Product
     }
-    public enum prty
+    public enum sevty
     {
-        P1 = 2,
-        P2 = 5,
-        P3 = 10
+        L1 = 5,
+        L2 = 10,
+        L3 = 20
     }
 }
