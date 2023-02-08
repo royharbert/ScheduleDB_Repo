@@ -50,10 +50,12 @@ namespace Schedule_Database_Desktop_Version
             if (GlobalConfig.DatabaseMode == DatabaseType.Live)
             {
                 dbMode = "LIVE DATA";
+                pbSandbox.Visible = false;
             }
             else
             {
                 dbMode = "SANDBOX";
+                pbSandbox.Visible = true;
             }
             this.Text = $"     V.{ versionInfo.FileVersion }" + "     " + dbMode;
         }
@@ -191,6 +193,23 @@ namespace Schedule_Database_Desktop_Version
         {
             frmHoliday holidayForm = new frmHoliday();
             holidayForm.Show();
+        }
+
+        private void checkHolidaySched()
+        {
+            List<CompanyHolidaysModel> holidays = GlobalConfig.Connection.GenericGetAll<CompanyHolidaysModel>("tblHolidaysList", "HolidayDate");
+            DateTime ckDate = holidays[2].HolidayDate;
+            int ckYear = ckDate.Year;
+            int curYear = DateTime.Now.Year;
+            if (curYear > ckYear)
+            {
+                MessageBox.Show("Please update Holidays List");
+            }
+        }
+
+        private void frmAMDI_Parent_Load(object sender, EventArgs e)
+        {
+            checkHolidaySched();
         }
     }
 }

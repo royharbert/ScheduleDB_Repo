@@ -62,10 +62,13 @@ namespace Schedule_Database_Desktop_Version
             {
                 case Mode.LabEscAdd:
                     txtRecordID.Clear();
+                    cboRecType.Enabled = true;
+                    cboMSO.Enabled = true;
                     CommonOps.lockControls(true, this, "cboMSO, cboRecType");
                     model = new LabEscModel();
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
                     btnSave.Text = "Save";
+                    formLoading = false;
                     break;
                 case Mode.LabEscEdit:
                     getAttachments(model.EscID);
@@ -118,6 +121,8 @@ namespace Schedule_Database_Desktop_Version
                                 model = GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
                                 loadBoxes(model);
                                 txtID.Text = model.ID.ToString();
+                                cboRecType.Enabled = false;
+                                cboMSO.Enabled = false;
                                 break;
                             case Mode.LabEscEdit:
                                 GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
@@ -366,6 +371,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void fillComboBoxes()
         {
+            formLoading = true;
             fillComboList<MSO_Model>(cboMSO, "tblMSO", "MSO", "MSO");
             fillComboList<CityModel>(cboCity, "tblCities", "City", "City");
             fillComboList<StateModel>(cboState, "tblStates", "State", "State");
@@ -770,6 +776,38 @@ namespace Schedule_Database_Desktop_Version
                 }
                 
             }
+        }
+
+        private void calculateDateDue()
+        {
+            dtpDueDate.Format = DateTimePickerFormat.Custom;
+            DateTime dueDate = emptyDate;
+            if (cboSeverity.Text != "" & dtpStartDate.Text != "" & !formLoading)
+            {
+                dueDate = CommonOps.CalculateDateDue(dtpStartDate.Value, cboSeverity.Text);
+                dtpDueDate.Format = DateTimePickerFormat.Long;
+            }
+            dtpDueDate.Value = dueDate;
+        }
+
+        private void cboSeverity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            calculateDateDue();
+        }
+
+        private void dtpStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            calculateDateDue();
+        }
+
+        private void btnNewProduct_Click(object sender, EventArgs e)
+        {
+            frmAddProduct npForm= new frmAddProduct();
+            npForm.StartPosition = FormStartPosition.CenterScreen;
+            npForm.ShowDialog();
+            List<ProductModel> products = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts", "Product");
+            lstProducts.DataSource = products;
+            lstProducts.DisplayMember = "Product";
         }
     }
 }

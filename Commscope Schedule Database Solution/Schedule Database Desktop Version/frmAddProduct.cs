@@ -21,12 +21,19 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmAddProduct_Load(object sender, EventArgs e)
         {
-            txtProduct.Text = Product.ToUpper();
+            txtProduct.Clear();
             cboCategory.SelectedIndex = -1;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            GlobalConfig.Connection.Product_Add(txtProduct.Text, cboCategory.Text);
+            MessageBox.Show(txtProduct.Text + " added,");
             this.Close();
         }
     }
