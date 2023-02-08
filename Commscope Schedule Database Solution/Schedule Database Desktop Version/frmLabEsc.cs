@@ -67,6 +67,7 @@ namespace Schedule_Database_Desktop_Version
                     CommonOps.lockControls(true, this, "cboMSO, cboRecType");
                     model = new LabEscModel();
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
+                    txtEntryAdmin.Text = GV.USERMODEL.FullName;
                     btnSave.Text = "Save";
                     formLoading = false;
                     break;
@@ -493,7 +494,11 @@ namespace Schedule_Database_Desktop_Version
             txtEscNum.Text = model.EscNum;
             txtEntryAdmin.Text = model.EntryAdmin;
             dtpStartDate.Value = model.DateOpened;
-            dtpDueDate.Value = model.DateDue;
+            if (model.DateDue != emptyDate)
+            {
+                dtpDueDate.Format = DateTimePickerFormat.Long;
+                dtpDueDate.Value = model.DateDue; 
+            }
             dtpClosedDate.Value = model.DateCompleted;
             txtEntryAdmin.Text = model.EntryAdmin;
             cboLead.Text = model.LeadAssigned;

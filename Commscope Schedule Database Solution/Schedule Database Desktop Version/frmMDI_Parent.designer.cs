@@ -52,9 +52,9 @@ namespace Schedule_Database_Desktop_Version
             this.mnuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSandbox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // mnuMain
-            // 
+            //// 
+            //// mnuMain
+            //// 
             this.mnuMain.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,

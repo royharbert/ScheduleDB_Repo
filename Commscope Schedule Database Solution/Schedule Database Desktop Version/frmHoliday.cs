@@ -21,12 +21,7 @@ namespace Schedule_Database_Desktop_Version
         public frmHoliday()
         {
             InitializeComponent();
-            HolidayList = GetHolidays();
-            sHolidayList = make_hList(HolidayList);
-            DataTable dtbl = makeTable(sHolidayList);
-            dgvHolidays.DataSource = dtbl;
-            dgvHolidays.Refresh();
-            dgvHolidays.AutoGenerateColumns = false;
+            
         }
         private List<CompanyHolidaysModel> GetHolidays()
         {
@@ -76,6 +71,18 @@ namespace Schedule_Database_Desktop_Version
                 dt.Rows.Add(hDay.Holiday, hDay.HolidayDate);
             }
             return dt;
+        }
+
+        private void frmHoliday_Load(object sender, EventArgs e)
+        {
+            HolidayList = GetHolidays();
+            sHolidayList = make_hList(HolidayList);
+            DataTable dtbl = makeTable(sHolidayList);
+            dgvHolidays.DataSource = dtbl;
+            dgvHolidays.Refresh();
+            dgvHolidays.AutoGenerateColumns = false;
+            dgvHolidays.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvHolidays.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
     }
 }

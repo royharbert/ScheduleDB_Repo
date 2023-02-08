@@ -73,6 +73,7 @@
             this.Name = "frmHoliday";
             this.Tag = "";
             this.Text = "Holiday List";
+            this.Load += new System.EventHandler(this.frmHoliday_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHolidays)).EndInit();
             this.ResumeLayout(false);
 
