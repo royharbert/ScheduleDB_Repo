@@ -1,6 +1,5 @@
 ﻿using ScheduleDatabaseClassLibrary;
 using ScheduleDatabaseClassLibrary.Models;
-using ScheduleDatabaseClassLibrary.Utilities;
 using System;
 using System.Collections.Generic;
 using Squirrel;
@@ -189,10 +188,15 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
-        private void updateHolidayListToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void updateHolidays()
         {
             frmHoliday holidayForm = new frmHoliday();
             holidayForm.Show();
+        }
+
+        private void updateHolidayListToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            updateHolidays();
         }
 
         private void checkHolidaySched()
@@ -210,6 +214,17 @@ namespace Schedule_Database_Desktop_Version
         private void frmAMDI_Parent_Load(object sender, EventArgs e)
         {
             checkHolidaySched();
+        }
+
+        private void holidaysListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            updateHolidays();
+        }
+
+        private void adminMaintenanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAdminMaint adminForm= new frmAdminMaint();
+            adminForm.ShowDialog();
         }
     }
 }

@@ -97,11 +97,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddAdmin.Designer.cs">
+      <DependentUpon>frmAddAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAddProduct.Designer.cs">
       <DependentUpon>frmAddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdminMaint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdminMaint.Designer.cs">
+      <DependentUpon>frmAdminMaint.cs</DependentUpon>
     </Compile>
     <Compile Include="frmHoliday.cs">
       <SubType>Form</SubType>
@@ -169,8 +181,14 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddAdmin.resx">
+      <DependentUpon>frmAddAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddProduct.resx">
       <DependentUpon>frmAddProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdminMaint.resx">
+      <DependentUpon>frmAdminMaint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHoliday.resx">
       <DependentUpon>frmHoliday.cs</DependentUpon>
