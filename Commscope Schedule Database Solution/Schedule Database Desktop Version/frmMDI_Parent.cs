@@ -223,7 +223,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void adminMaintenanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAdminMaint adminForm= new frmAdminMaint();
+            frmAdminMaint adminForm = new frmAdminMaint();
             adminForm.ShowDialog();
         }
     }

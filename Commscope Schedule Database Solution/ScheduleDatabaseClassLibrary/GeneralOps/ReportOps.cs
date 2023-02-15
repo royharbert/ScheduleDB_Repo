@@ -80,12 +80,12 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
 
         public static void FormatEscalationResultExport(Worksheet wks)
         {
-            string[] headers = new string[]
-            {
-                "Escalation ID", "FE Lead", "MSO", "Escalation Type", "Product","Description", "Quantity", "Date Reported", "Date Resolved",
-                "Resolution", "Comments", "CTR Number", "PeopleSoft Number", "Status"
-            };
-            placeHeaderTextInExport(wks, headers);
+            //string[] headers = new string[];
+            //{
+            //    "Escalation ID", "FE Lead", "MSO", "Escalation Type", "Product","Description", "Quantity", "Date Reported", "Date Resolved",
+            //    "Resolution", "Comments", "CTR Number", "PeopleSoft Number", "Status"
+            //};
+            //placeHeaderTextInExport(wks, headers);
             formatExcelHeaderRow(wks);
 
             int[] widths = new int[]

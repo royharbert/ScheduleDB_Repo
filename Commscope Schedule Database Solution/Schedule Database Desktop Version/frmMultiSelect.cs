@@ -223,8 +223,8 @@ namespace Schedule_Database_Desktop_Version
                     ReportOps.FormatEscalationResultExport(exporter.Wksheet);
                     break;
                 default:
-                    ListLooper.ExcelExporter<AssignmentDisplayModel> excelExporter = new ListLooper.ExcelExporter<AssignmentDisplayModel>();
-                    excelExporter.List = (List<AssignmentDisplayModel>)dgvResults.DataSource;
+                    ListLooper.ExcelExporter<LabEscModel> excelExporter = new ListLooper.ExcelExporter<LabEscModel>();
+                    excelExporter.List = (List<LabEscModel>)dgvResults.DataSource;
                     ReportOps.FormatMultiResultExport(excelExporter.Wksheet);
                     break;
             }

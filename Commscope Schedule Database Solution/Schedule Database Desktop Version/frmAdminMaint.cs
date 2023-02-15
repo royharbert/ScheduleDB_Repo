@@ -15,6 +15,7 @@ namespace Schedule_Database_Desktop_Version
     public partial class frmAdminMaint : Form
     {
         bool AddingUser = false;
+        int selRow = -1;
         public frmAdminMaint()
         {
             InitializeComponent();
@@ -45,13 +46,27 @@ namespace Schedule_Database_Desktop_Version
 
         private void loadDGV()
         {
+            DataGridViewCell curCell = dgvAdmin.CurrentCell;
+            int idx = -1;
+            if (selRow != -1)
+            {
+                idx = dgvAdmin.CurrentRow.Index;
+            }
             List<AdminModel> admins = GlobalConfig.Connection.GenericGetAll<AdminModel>("tblUsers", "LastName");
             dgvAdmin.DataSource = admins;
             formatDGV();
+            if (selRow != -1)
+            {
+                dgvAdmin.ClearSelection();
+                dgvAdmin.Rows[idx].Selected = true; 
+                //dgvAdmin.CurrentCell = curCell;
+            }
         }
 
         private void dgvAdmin_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            selRow = dgvAdmin.CurrentRow.Index;
+            lblFunction.Text = "Editing User";
             AddingUser = false;
             List<AdminModel> admins = (List <AdminModel>) dgvAdmin.DataSource;
             int curRow = dgvAdmin.CurrentRow.Index;
@@ -69,7 +84,7 @@ namespace Schedule_Database_Desktop_Version
             {
                 rdoActive.Checked = false;
             }
-            loadDGV();
+            //loadDGV();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -103,6 +118,8 @@ namespace Schedule_Database_Desktop_Version
                 case false:                    
                     GlobalConfig.Connection.UpdateUser(model);
                     MessageBox.Show(model.FullName + " updated");
+                    clearBoxes();
+                    //loadDGV();
                     break;
             }
             loadDGV();
@@ -121,8 +138,30 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            lblFunction.Text= "Adding User";
             AddingUser = true;
             clearBoxes();
         }
-    }
+
+        private void txtPassword_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                txtPassword.PasswordChar = '\0';
+            }
+        }
+
+        private void txtPassword_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                txtPassword.PasswordChar = '*';
+            }
+        }
+
+        private void dgvAdmin_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+    }    
 }
