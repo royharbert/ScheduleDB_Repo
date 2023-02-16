@@ -49,12 +49,14 @@ namespace Schedule_Database_Desktop_Version
             if (GlobalConfig.DatabaseMode == DatabaseType.Live)
             {
                 dbMode = "LIVE DATA";
+                pbLive.Visible = true;
                 pbSandbox.Visible = false;
             }
             else
             {
                 dbMode = "SANDBOX";
                 pbSandbox.Visible = true;
+                pbLive.Visible = false;
             }
             this.Text = $"     V.{ versionInfo.FileVersion }" + "     " + dbMode;
         }
@@ -168,24 +170,41 @@ namespace Schedule_Database_Desktop_Version
         private void openItemsByDateDueToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.OpenEscByDate;
-            List<LabEscModel> openEsc = ReportOps.GetOpenEscByDateDue();
-            switch (openEsc.Count)
+
+            GetModels();
+        }
+
+        private List<LabEscModel> GetModels(string type = "", bool isOpen = false)
+        {
+            List<LabEscModel> models = new List<LabEscModel>();
+            if (GV.MODE == Mode.OpenEscByDate)
+            {
+                models = ReportOps.GetOpenEscByDateDue();
+            }
+            else
+            {
+                models = GlobalConfig.Connection.GetLabEscByStatus(type, isOpen);
+            }
+
+            switch (models.Count)
             {
                 case 0:
-                    MessageBox.Show("No open escalations/requests");
-                    break;  
+                    MessageBox.Show("No matching escalations/requests");
+                    break;
                 case 1:
                     frmLabEsc escForm = showLabEscForm();
-                    escForm.LabEsc = openEsc[0];
+                    escForm.LabEsc = models[0];
                     break;
 
                 default:
                     frmMultiSelect results = new frmMultiSelect();
-                    results.LabRequests = openEsc;
+                    results.LabRequests = models;
                     results.Show();
 
                     break;
             }
+
+            return models;
         }
 
         private void updateHolidays()
@@ -225,6 +244,30 @@ namespace Schedule_Database_Desktop_Version
         {
             frmAdminMaint adminForm = new frmAdminMaint();
             adminForm.ShowDialog();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscReport;
+            GetModels("E", true);
+        }
+
+        private void closedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscReport;
+            GetModels("E", false);
+        }
+
+        private void openToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscReport;
+            GetModels("L", true);
+        }
+
+        private void closedToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscReport;
+            GetModels("L", false);
         }
     }
 }

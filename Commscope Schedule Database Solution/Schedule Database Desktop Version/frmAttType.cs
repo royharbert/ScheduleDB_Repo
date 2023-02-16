@@ -33,8 +33,6 @@ namespace Schedule_Database_Desktop_Version
                 rdoTripRpt.Tag = _labels[2];
                 rdoWRE.Text = _labels[3];
                 rdoWRE.Tag = _labels[3];
-                rdoRoster.Text = _labels[4];
-                rdoRoster.Tag = _labels[4];
                 rdoOther.Text = _labels[5];
                 rdoOther.Tag = "Other";
             } 

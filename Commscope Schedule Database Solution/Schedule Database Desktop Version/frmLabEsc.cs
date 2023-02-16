@@ -382,6 +382,7 @@ namespace Schedule_Database_Desktop_Version
             fillComboList<PersonModel>(cboRequestor, "tblEscRequestors", "FullName", "LastName");
             fillComboList<StatusModel>(cboStatus, "tblStatus", "Status", "Status");
             fillComboList<PersonModel>(cboLead, "tblEscLeads", "FullName", "LastName");
+            fillComboList<ResolutionModel>(cboResolution, "tblResolutions", "ResolutionType", "ResolutionType");
 
             cboRecType.Items.Add("AT Escalation");
             cboRecType.Items.Add("Lab Request");

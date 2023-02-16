@@ -16,6 +16,7 @@ namespace Schedule_Database_Desktop_Version
         LabEscSearch,
         LabEscDateRange,
         OpenEscByDate,
+        LabEscReport,
         None
     }
 }

@@ -59,24 +59,6 @@ namespace Schedule_Database_Desktop_Version
                 txtCount.Text = customerData.Count.ToString();
             }
         }
-        public List<AssignmentTableModel> AssignmentData 
-        {
-            get 
-            {
-                return retrieveList;
-            } 
-            set 
-            {
-                retrieveList = value;
-                displayList = TableToDisplayConverter.ConvertTableToDisplayModel(retrieveList);
-                customerData = null;
-                locationData = null;
-                dgvResults.DataSource = displayList;
-                txtCount.Text = displayList.Count.ToString();
-                //formatDGV_Assignment();
-                setDGV_HeaderText(dgvResults);
-            } 
-        }
 
         public List<LabEscModel> LabRequests
         {
@@ -167,6 +149,7 @@ namespace Schedule_Database_Desktop_Version
             {
                 case Mode.LabEscSearch:
                 case Mode.OpenEscByDate:
+                case Mode.LabEscReport:
                     LabEscModel request = requests[selectedRow];
                     frmLabEsc escForm = new frmLabEsc();
                     escForm.Show();
@@ -218,6 +201,7 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscSearch:
                 case Mode.LabEscEdit:
                 case Mode.LabEscDateRange:
+                case Mode.OpenEscByDate:
                     ListLooper.ExcelExporter<LabEscModel> exporter = new ListLooper.ExcelExporter<LabEscModel>();
                     exporter.List = (List<LabEscModel>)dgvResults.DataSource;
                     ReportOps.FormatEscalationResultExport(exporter.Wksheet);

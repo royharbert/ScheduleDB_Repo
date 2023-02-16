@@ -30,15 +30,14 @@ namespace Schedule_Database_Desktop_Version
         private void InitializeComponent()
         {
             this.gbxAttType = new System.Windows.Forms.GroupBox();
+            this.txtOther = new System.Windows.Forms.TextBox();
             this.rdoOther = new System.Windows.Forms.RadioButton();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.rdoRoster = new System.Windows.Forms.RadioButton();
             this.rdoWRE = new System.Windows.Forms.RadioButton();
             this.rdoTripRpt = new System.Windows.Forms.RadioButton();
             this.rdoCRM = new System.Windows.Forms.RadioButton();
             this.rdoDocCovid = new System.Windows.Forms.RadioButton();
-            this.txtOther = new System.Windows.Forms.TextBox();
             this.gbxAttType.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +47,6 @@ namespace Schedule_Database_Desktop_Version
             this.gbxAttType.Controls.Add(this.rdoOther);
             this.gbxAttType.Controls.Add(this.btnCancel);
             this.gbxAttType.Controls.Add(this.btnOK);
-            this.gbxAttType.Controls.Add(this.rdoRoster);
             this.gbxAttType.Controls.Add(this.rdoWRE);
             this.gbxAttType.Controls.Add(this.rdoTripRpt);
             this.gbxAttType.Controls.Add(this.rdoCRM);
@@ -60,6 +58,14 @@ namespace Schedule_Database_Desktop_Version
             this.gbxAttType.TabIndex = 1;
             this.gbxAttType.TabStop = false;
             this.gbxAttType.Text = "Attachment Type";
+            // 
+            // txtOther
+            // 
+            this.txtOther.Enabled = false;
+            this.txtOther.Location = new System.Drawing.Point(29, 244);
+            this.txtOther.Name = "txtOther";
+            this.txtOther.Size = new System.Drawing.Size(203, 29);
+            this.txtOther.TabIndex = 18;
             // 
             // rdoOther
             // 
@@ -96,29 +102,16 @@ namespace Schedule_Database_Desktop_Version
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // rdoRoster
-            // 
-            this.rdoRoster.AutoSize = true;
-            this.rdoRoster.Location = new System.Drawing.Point(35, 172);
-            this.rdoRoster.Name = "rdoRoster";
-            this.rdoRoster.Size = new System.Drawing.Size(82, 28);
-            this.rdoRoster.TabIndex = 5;
-            this.rdoRoster.TabStop = true;
-            this.rdoRoster.Tag = "Roster";
-            this.rdoRoster.Text = "Roster";
-            this.rdoRoster.UseVisualStyleBackColor = true;
-            this.rdoRoster.CheckedChanged += new System.EventHandler(this.rdoRoster_CheckedChanged);
-            // 
             // rdoWRE
             // 
             this.rdoWRE.AutoSize = true;
             this.rdoWRE.Location = new System.Drawing.Point(34, 138);
             this.rdoWRE.Name = "rdoWRE";
-            this.rdoWRE.Size = new System.Drawing.Size(199, 28);
+            this.rdoWRE.Size = new System.Drawing.Size(204, 28);
             this.rdoWRE.TabIndex = 4;
             this.rdoWRE.TabStop = true;
             this.rdoWRE.Tag = "Weekly Report Entry";
-            this.rdoWRE.Text = "Weekly Report Entry";
+            this.rdoWRE.Text = "Product Specification";
             this.rdoWRE.UseVisualStyleBackColor = true;
             this.rdoWRE.CheckedChanged += new System.EventHandler(this.rdoWRE_CheckedChanged);
             // 
@@ -127,11 +120,11 @@ namespace Schedule_Database_Desktop_Version
             this.rdoTripRpt.AutoSize = true;
             this.rdoTripRpt.Location = new System.Drawing.Point(34, 104);
             this.rdoTripRpt.Name = "rdoTripRpt";
-            this.rdoTripRpt.Size = new System.Drawing.Size(170, 28);
+            this.rdoTripRpt.Size = new System.Drawing.Size(101, 28);
             this.rdoTripRpt.TabIndex = 3;
             this.rdoTripRpt.TabStop = true;
             this.rdoTripRpt.Tag = "Trip Report Entry";
-            this.rdoTripRpt.Text = "Trip Report Entry";
+            this.rdoTripRpt.Text = "Lab Data";
             this.rdoTripRpt.UseVisualStyleBackColor = true;
             this.rdoTripRpt.CheckedChanged += new System.EventHandler(this.rdoTripRpt_CheckedChanged);
             // 
@@ -140,11 +133,11 @@ namespace Schedule_Database_Desktop_Version
             this.rdoCRM.AutoSize = true;
             this.rdoCRM.Location = new System.Drawing.Point(34, 70);
             this.rdoCRM.Name = "rdoCRM";
-            this.rdoCRM.Size = new System.Drawing.Size(118, 28);
+            this.rdoCRM.Size = new System.Drawing.Size(120, 28);
             this.rdoCRM.TabIndex = 2;
             this.rdoCRM.TabStop = true;
             this.rdoCRM.Tag = "CRM Entry";
-            this.rdoCRM.Text = "CRM Entry";
+            this.rdoCRM.Text = "Lab Report";
             this.rdoCRM.UseVisualStyleBackColor = true;
             this.rdoCRM.CheckedChanged += new System.EventHandler(this.rdoCRM_CheckedChanged);
             // 
@@ -153,21 +146,13 @@ namespace Schedule_Database_Desktop_Version
             this.rdoDocCovid.AutoSize = true;
             this.rdoDocCovid.Location = new System.Drawing.Point(34, 36);
             this.rdoDocCovid.Name = "rdoDocCovid";
-            this.rdoDocCovid.Size = new System.Drawing.Size(150, 28);
+            this.rdoDocCovid.Size = new System.Drawing.Size(81, 28);
             this.rdoDocCovid.TabIndex = 1;
             this.rdoDocCovid.TabStop = true;
             this.rdoDocCovid.Tag = "Covid Release";
-            this.rdoDocCovid.Text = "Covid Release";
+            this.rdoDocCovid.Text = "E-Mail";
             this.rdoDocCovid.UseVisualStyleBackColor = true;
             this.rdoDocCovid.CheckedChanged += new System.EventHandler(this.rdoDocCovid_CheckedChanged);
-            // 
-            // txtOther
-            // 
-            this.txtOther.Enabled = false;
-            this.txtOther.Location = new System.Drawing.Point(29, 244);
-            this.txtOther.Name = "txtOther";
-            this.txtOther.Size = new System.Drawing.Size(203, 29);
-            this.txtOther.TabIndex = 18;
             // 
             // frmAttType
             // 
@@ -192,7 +177,6 @@ namespace Schedule_Database_Desktop_Version
         #endregion
 
         private System.Windows.Forms.GroupBox gbxAttType;
-        private System.Windows.Forms.RadioButton rdoRoster;
         private System.Windows.Forms.RadioButton rdoWRE;
         private System.Windows.Forms.RadioButton rdoTripRpt;
         private System.Windows.Forms.RadioButton rdoCRM;

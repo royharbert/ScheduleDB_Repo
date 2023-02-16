@@ -104,6 +104,7 @@
     <Compile Include="Models\AttachmentModel.cs" />
     <Compile Include="Models\CalendarItemModel.cs" />
     <Compile Include="Models\CityModel.cs" />
+    <Compile Include="Models\ResolutionModel.cs" />
     <Compile Include="Models\StringHolidaysModel.cs" />
     <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\LabEscDisplayModel.cs" />

@@ -10,11 +10,24 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
+using System.Reflection;
 
 namespace ScheduleDatabaseClassLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
+        public List<LabEscModel> GetLabEscByStatus(string type, bool status)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Type", type, DbType.String);
+                p.Add("@Open", status, DbType.Boolean);
+
+                List<LabEscModel> output = connection.Query<LabEscModel>("dbo.spLabEscGet", p, commandType: CommandType.StoredProcedure).ToList();
+                return output;
+            }
+        }
         public List<LabEscModel> GetOpenEscSortedByDateDue()
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))

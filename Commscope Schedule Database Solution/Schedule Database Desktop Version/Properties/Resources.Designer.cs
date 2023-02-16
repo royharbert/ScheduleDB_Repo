@@ -63,9 +63,9 @@ namespace Schedule_Database_Desktop_Version.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap childhood_g1f81a3467_640 {
+        internal static System.Drawing.Bitmap childhood_gdc5593de0_1280 {
             get {
-                object obj = ResourceManager.GetObject("childhood-g1f81a3467_640", resourceCulture);
+                object obj = ResourceManager.GetObject("childhood-gdc5593de0_1280", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Schedule_Database_Desktop_Version.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap childhood_gdc5593de0_1280 {
+        internal static System.Drawing.Bitmap NH2000 {
             get {
-                object obj = ResourceManager.GetObject("childhood-gdc5593de0_1280", resourceCulture);
+                object obj = ResourceManager.GetObject("NH2000", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
