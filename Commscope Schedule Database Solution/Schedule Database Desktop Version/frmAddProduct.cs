@@ -23,6 +23,7 @@ namespace Schedule_Database_Desktop_Version
         {
             txtProduct.Clear();
             cboCategory.SelectedIndex = -1;
+            FC.SetFormPosition(this);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

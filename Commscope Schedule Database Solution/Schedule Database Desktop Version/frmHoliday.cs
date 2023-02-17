@@ -75,6 +75,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmHoliday_Load(object sender, EventArgs e)
         {
+            FC.SetFormPosition(this);
             HolidayList = GetHolidays();
             sHolidayList = make_hList(HolidayList);
             DataTable dtbl = makeTable(sHolidayList);

@@ -154,9 +154,10 @@ namespace Schedule_Database_Desktop_Version
         private frmLabEsc showLabEscForm()
         {
             frmLabEsc EscalationsForm = new frmLabEsc();
+            //EscalationsForm.MdiParent= this;
             EscalationsForm.StartPosition = FormStartPosition.CenterScreen;
-            EscalationsForm.Height = 718;
-            EscalationsForm.Width = 1330;
+            //EscalationsForm.Height = 718;
+            //EscalationsForm.Width = 1330;
             EscalationsForm.Show();
             return EscalationsForm;
         }

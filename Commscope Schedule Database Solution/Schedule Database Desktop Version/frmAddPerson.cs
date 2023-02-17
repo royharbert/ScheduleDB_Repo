@@ -55,6 +55,7 @@ namespace Schedule_Database_Desktop_Version
         private void frmAddPerson_Load(object sender, EventArgs e)
         {
             rdoActive.Checked = true;
+            FC.SetFormPosition(this);
         }
 
         private void btnOK_Click(object sender, EventArgs e)

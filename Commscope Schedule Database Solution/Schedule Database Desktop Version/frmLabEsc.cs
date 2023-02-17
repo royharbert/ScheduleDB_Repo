@@ -54,6 +54,7 @@ namespace Schedule_Database_Desktop_Version
         private void frmLabEsc_Load(object sender, EventArgs e)
         {
             fillComboBoxes();
+            FC.SetFormPosition(this);
             dtpClosedDate.CustomFormat = dtpCustomFormat;
             dtpDueDate.CustomFormat = dtpCustomFormat;
             dtpStartDate.CustomFormat = dtpCustomFormat;
@@ -763,12 +764,6 @@ namespace Schedule_Database_Desktop_Version
                     model.RecordType = "Lab Request";
                 }
             }
-        }
-
-        private void frmLabEsc_Resize(object sender, EventArgs e)
-        {
-            this.Height = 718;
-            this.Width = 1330;
         }
 
         private void frmLabEsc_FormClosing(object sender, FormClosingEventArgs e)

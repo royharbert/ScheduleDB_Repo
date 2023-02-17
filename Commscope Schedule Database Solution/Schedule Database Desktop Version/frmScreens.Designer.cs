@@ -29,6 +29,7 @@ namespace Schedule_Database_Desktop_Version
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmScreens));
             this.rdoScreen1 = new System.Windows.Forms.RadioButton();
             this.rdoScreen2 = new System.Windows.Forms.RadioButton();
             this.rdoScreen3 = new System.Windows.Forms.RadioButton();
@@ -113,9 +114,11 @@ namespace Schedule_Database_Desktop_Version
             this.Controls.Add(this.rdoScreen2);
             this.Controls.Add(this.rdoScreen1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmScreens";
             this.Text = "Screen Selection";
+            this.Load += new System.EventHandler(this.frmScreens_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

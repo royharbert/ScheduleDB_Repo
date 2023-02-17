@@ -61,5 +61,10 @@ namespace Schedule_Database_Desktop_Version
         {
             setGV_Screen((RadioButton)sender);
         }
+
+        private void frmScreens_Load(object sender, EventArgs e)
+        {
+            FC.SetFormPosition(this);
+        }
     }
 }

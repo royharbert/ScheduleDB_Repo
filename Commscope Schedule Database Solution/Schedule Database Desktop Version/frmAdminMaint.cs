@@ -42,6 +42,7 @@ namespace Schedule_Database_Desktop_Version
         private void frmAdminMaint_Load(object sender, EventArgs e)
         {
             loadDGV();
+            FC.SetFormPosition(this);
         }
 
         private void loadDGV()

@@ -29,6 +29,7 @@ namespace Schedule_Database_Desktop_Version
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMultiSelect));
             this.dgvResults = new System.Windows.Forms.DataGridView();
             this.txtCount = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -82,9 +83,11 @@ namespace Schedule_Database_Desktop_Version
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCount);
             this.Controls.Add(this.dgvResults);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMultiSelect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search Results";
+            this.Load += new System.EventHandler(this.frmMultiSelect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -29,7 +29,7 @@ namespace Schedule_Database_Desktop_Version
                     GV.ActiveScreen = 1;
                 }
                 ScreenModel model = GV.ScreenList[Monitor - 1];
-                frm.Location = new Point(model.Xpos, model.Ypos);
+                frm.Location = new Point(model.Xpos - 6, model.Ypos + 49);
             }
             else
             {

@@ -35,6 +35,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons8-database-48.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.90\lib\net461\Dapper.dll</HintPath>
@@ -282,7 +289,9 @@
   <ItemGroup>
     <None Include="Properties\childhood-g1f81a3467_640.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\LiveImage.bmp" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Properties\childhood-gdc5593de0_1280.jpg" />
   </ItemGroup>
@@ -291,6 +300,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NH2000.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LiveImg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-database-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons8-database-48.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

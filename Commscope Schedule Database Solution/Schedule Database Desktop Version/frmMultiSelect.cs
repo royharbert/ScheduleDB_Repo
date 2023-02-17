@@ -227,5 +227,10 @@ namespace Schedule_Database_Desktop_Version
             wks.Columns[7].Columnwidth = 50;
           
         }
+
+        private void frmMultiSelect_Load(object sender, EventArgs e)
+        {
+            FC.SetFormPosition(this);
+        }
     }
 }

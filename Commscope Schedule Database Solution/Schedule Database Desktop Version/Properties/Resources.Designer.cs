@@ -73,6 +73,26 @@ namespace Schedule_Database_Desktop_Version.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_database_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_database_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LiveImg {
+            get {
+                object obj = ResourceManager.GetObject("LiveImg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NH2000 {
             get {
                 object obj = ResourceManager.GetObject("NH2000", resourceCulture);

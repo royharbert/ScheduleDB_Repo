@@ -123,5 +123,10 @@ namespace Schedule_Database_Desktop_Version
                 txtOther.Enabled = false;
             }
         }
+
+        private void frmAttType_Load(object sender, EventArgs e)
+        {
+            FC.SetFormPosition(this);
+        }
     }
 }

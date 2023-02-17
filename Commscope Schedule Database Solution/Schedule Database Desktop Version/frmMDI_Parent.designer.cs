@@ -29,6 +29,7 @@ namespace Schedule_Database_Desktop_Version
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAMDI_Parent));
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,11 +56,11 @@ namespace Schedule_Database_Desktop_Version
             this.liveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sandboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incompleteByDateDueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pbSandbox = new System.Windows.Forms.PictureBox();
             this.pbLive = new System.Windows.Forms.PictureBox();
+            this.pbSandbox = new System.Windows.Forms.PictureBox();
             this.mnuMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSandbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLive)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSandbox)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuMain
@@ -197,7 +198,7 @@ namespace Schedule_Database_Desktop_Version
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.openToolStripMenuItem.Tag = "3";
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
@@ -205,7 +206,7 @@ namespace Schedule_Database_Desktop_Version
             // closedToolStripMenuItem
             // 
             this.closedToolStripMenuItem.Name = "closedToolStripMenuItem";
-            this.closedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closedToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.closedToolStripMenuItem.Text = "Closed";
             this.closedToolStripMenuItem.Click += new System.EventHandler(this.closedToolStripMenuItem_Click);
             // 
@@ -222,7 +223,7 @@ namespace Schedule_Database_Desktop_Version
             // openToolStripMenuItem1
             // 
             this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(110, 22);
             this.openToolStripMenuItem1.Tag = "3";
             this.openToolStripMenuItem1.Text = "Open";
             this.openToolStripMenuItem1.Click += new System.EventHandler(this.openToolStripMenuItem1_Click);
@@ -230,7 +231,7 @@ namespace Schedule_Database_Desktop_Version
             // closedToolStripMenuItem1
             // 
             this.closedToolStripMenuItem1.Name = "closedToolStripMenuItem1";
-            this.closedToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.closedToolStripMenuItem1.Size = new System.Drawing.Size(110, 22);
             this.closedToolStripMenuItem1.Tag = "3";
             this.closedToolStripMenuItem1.Text = "Closed";
             this.closedToolStripMenuItem1.Click += new System.EventHandler(this.closedToolStripMenuItem1_Click);
@@ -292,48 +293,54 @@ namespace Schedule_Database_Desktop_Version
             this.incompleteByDateDueToolStripMenuItem.Name = "incompleteByDateDueToolStripMenuItem";
             this.incompleteByDateDueToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
-            // pbSandbox
-            // 
-            this.pbSandbox.Image = global::Schedule_Database_Desktop_Version.Properties.Resources.childhood_gdc5593de0_1280;
-            this.pbSandbox.Location = new System.Drawing.Point(121, 82);
-            this.pbSandbox.Name = "pbSandbox";
-            this.pbSandbox.Size = new System.Drawing.Size(1280, 853);
-            this.pbSandbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbSandbox.TabIndex = 4;
-            this.pbSandbox.TabStop = false;
-            // 
             // pbLive
             // 
-            this.pbLive.Image = global::Schedule_Database_Desktop_Version.Properties.Resources.NH2000;
-            this.pbLive.Location = new System.Drawing.Point(121, 81);
+            this.pbLive.BackgroundImage = global::Schedule_Database_Desktop_Version.Properties.Resources.NH2000;
+            this.pbLive.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLive.Image = global::Schedule_Database_Desktop_Version.Properties.Resources.LiveImg;
+            this.pbLive.Location = new System.Drawing.Point(0, 25);
             this.pbLive.Name = "pbLive";
-            this.pbLive.Size = new System.Drawing.Size(1279, 854);
+            this.pbLive.Size = new System.Drawing.Size(1508, 959);
             this.pbLive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLive.TabIndex = 6;
             this.pbLive.TabStop = false;
+            // 
+            // pbSandbox
+            // 
+            this.pbSandbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbSandbox.Image = global::Schedule_Database_Desktop_Version.Properties.Resources.childhood_gdc5593de0_1280;
+            this.pbSandbox.Location = new System.Drawing.Point(0, 25);
+            this.pbSandbox.Name = "pbSandbox";
+            this.pbSandbox.Size = new System.Drawing.Size(1508, 959);
+            this.pbSandbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSandbox.TabIndex = 4;
+            this.pbSandbox.TabStop = false;
             // 
             // frmAMDI_Parent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1508, 984);
             this.Controls.Add(this.pbLive);
             this.Controls.Add(this.pbSandbox);
             this.Controls.Add(this.mnuMain);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mnuMain;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmAMDI_Parent";
-            this.Text = "Commscope Schedule Database";
+            this.RightToLeftLayout = true;
+            this.Text = "Commscope Lab Database";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmAMDI_Parent_Load);
             this.mnuMain.ResumeLayout(false);
             this.mnuMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSandbox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLive)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSandbox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

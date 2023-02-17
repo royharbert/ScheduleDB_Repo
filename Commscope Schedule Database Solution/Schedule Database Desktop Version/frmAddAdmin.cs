@@ -22,6 +22,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmAddAdmin_Load(object sender, EventArgs e)
         {
+            FC.SetFormPosition(this);
             if (!AddingAdmin)
             {
                 txtFirstName.Text = admin.FirstName;
