@@ -93,31 +93,6 @@ namespace Schedule_Database_Desktop_Version
             dgvHolidays.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvHolidays.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
-
-        private void dgvHolidays_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            int col = e.ColumnIndex;
-            int row = e.RowIndex;
-            if (col == 1)
-            {
-                DateTimePicker dtp = new DateTimePicker();
-                dgvHolidays.Controls.Add(dtp);
-                //dtp.Format = DateTimePickerFormat.Short;
-                Rectangle rect = dgvHolidays.GetCellDisplayRectangle(col, row,true);
-                dtp.Size = new Size(rect.Width, rect.Height);
-                dtp.Location = new Point(rect.X, rect.Y);
-                dtp.CloseUp += new EventHandler(dtp_CloseUp);
-                dtp.Visible = true;
-            }
-        }
-
-        private void dtp_CloseUp(object sender, EventArgs e)
-        {
-            DateTimePicker dtp = sender as DateTimePicker;
-            dgvHolidays.CurrentCell.Value = dtp.Text.ToString();
-            dtp.Visible = false;
-        }
-
         
     }
 }
