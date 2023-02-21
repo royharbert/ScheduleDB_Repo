@@ -11,6 +11,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
+        void UpdateHolidays(string holiday, DateTime holidayDate);
         List<LabEscModel> GetLabEscByStatus(string type, bool status);
         List<LabEscModel> GetOpenEscSortedByDateDue();
         List<CompanyHolidaysModel> GetAllHolidays();

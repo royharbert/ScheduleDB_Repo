@@ -46,17 +46,25 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
+            //DataTable dt = new DataTable();
 
-            dt.Columns.Add("Holiday");
-            dt.Columns.Add("HolidayDate");
+            //dt.Columns.Add("Holiday");
+            //dt.Columns.Add("HolidayDate");
             int i = dgvHolidays.Rows.Count;
 
             for (int k = 0; k < i - 1; k++)
             {
-                dt.Rows.Add(dgvHolidays.Rows[k].Cells[0].Value.ToString(), dgvHolidays.Rows[k].Cells[1].Value);
+                //dt.Rows.Add(dgvHolidays.Rows[k].Cells[0].Value.ToString(), dgvHolidays.Rows[k].Cells[1].Value);
+                //Holiday_Update.UpdateHolidays(dt);
+                string holiday = dgvHolidays.Rows[k].Cells[0].Value.ToString();
+                DateTime date;
+                DateTime.TryParse(dgvHolidays.Rows[k].Cells[1].Value.ToString() ?? "", out date);
+
+                GlobalConfig.Connection.UpdateHolidays(holiday, date);
+                dgvHolidays.DataSource = null;
+                dgvHolidays.DataSource = GetHolidays();
+
             }
-            ScheduleDatabaseClassLibrary.Holiday_Update.UpdateHolidays(dt);
             MessageBox.Show("Updates saved");
         }
 

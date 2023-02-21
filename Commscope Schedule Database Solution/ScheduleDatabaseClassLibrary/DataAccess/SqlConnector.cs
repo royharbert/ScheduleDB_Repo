@@ -11,11 +11,23 @@ using System.Configuration;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using System.Reflection;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ScheduleDatabaseClassLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
+        public void UpdateHolidays(string holiday, DateTime holidayDate)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Holiday", holiday, DbType.String);
+                p.Add("@HolidayDate", holidayDate, DbType.DateTime2);
+
+                connection.Execute("dbo.spHolidays_Update", p, commandType: CommandType.StoredProcedure);
+            }
+        }
         public List<LabEscModel> GetLabEscByStatus(string type, bool status)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
