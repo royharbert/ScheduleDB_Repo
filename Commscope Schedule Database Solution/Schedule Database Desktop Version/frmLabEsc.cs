@@ -71,6 +71,7 @@ namespace Schedule_Database_Desktop_Version
                     txtEntryAdmin.Text = GV.USERMODEL.FullName;
                     btnSave.Text = "Save";
                     formLoading = false;
+                    cboStatus.SelectedIndex = 1;
                     break;
                 case Mode.LabEscEdit:
                     getAttachments(model.EscID);
@@ -80,7 +81,7 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case Mode.LabEscSearch:
                     CommonOps.lockControls(false, this, "");
-                    btnSave.Text = "Search";          
+                    btnSave.Text = "Search";
                     break;
                 default:
                     break;
@@ -101,7 +102,12 @@ namespace Schedule_Database_Desktop_Version
                     DateTime newDate = CommonOps.dtpForcedReset(sourceControl as DateTimePicker);
                     DateTimePicker dtp = (DateTimePicker)sourceControl;
                     dtp.Value = newDate;
-                }                
+                }
+                //changes status back to open if date completed is cleared LMD 2-21-23
+                if (dtpClosedDate.Value == emptyDate)
+                {
+                    cboStatus.SelectedIndex = 1;
+                }
             }
         }
 
@@ -501,7 +507,16 @@ namespace Schedule_Database_Desktop_Version
                 dtpDueDate.Format = DateTimePickerFormat.Long;
                 dtpDueDate.Value = model.DateDue; 
             }
-            dtpClosedDate.Value = model.DateCompleted;
+            //fixes date closed note populating in report 2-21-23 LMD
+            if (model.DateCompleted == emptyDate)
+            {
+                dtpClosedDate.Format = DateTimePickerFormat.Custom;
+            }
+            else
+            {
+                dtpClosedDate.Format = DateTimePickerFormat.Long;
+                dtpClosedDate.Value= model.DateCompleted;
+            }
             txtEntryAdmin.Text = model.EntryAdmin;
             cboLead.Text = model.LeadAssigned;
             txtQty.Text = model.Quantity.ToString(); 
@@ -809,6 +824,26 @@ namespace Schedule_Database_Desktop_Version
             List<ProductModel> products = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts", "Product");
             lstProducts.DataSource = products;
             lstProducts.DisplayMember = "Product";
+        }
+
+        private void dtpClosedDate_ValueChanged(object sender, EventArgs e)
+        {
+            //changes status apporopriately with closed date change
+            if (model.DateCompleted == emptyDate)
+            {
+                dtpClosedDate.Format = DateTimePickerFormat.Custom;
+                cboStatus.SelectedIndex = 1;
+            }
+            else
+            {
+                dtpClosedDate.Format = DateTimePickerFormat.Long;
+                cboStatus.SelectedIndex = 0;
+            }
+        }
+
+        private void cboStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

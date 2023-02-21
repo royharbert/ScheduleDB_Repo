@@ -339,12 +339,12 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.dtpClosedDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpClosedDate.ContextMenuStrip = this.dtpContextMenu;
-            this.dtpClosedDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpClosedDate.Location = new System.Drawing.Point(117, 502);
             this.dtpClosedDate.Name = "dtpClosedDate";
             this.dtpClosedDate.Size = new System.Drawing.Size(273, 20);
             this.dtpClosedDate.TabIndex = 16;
             this.dtpClosedDate.Tag = "DateCompleted";
+            this.dtpClosedDate.ValueChanged += new System.EventHandler(this.dtpClosedDate_ValueChanged);
             // 
             // dtpDueDate
             // 
@@ -505,6 +505,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboStatus.Size = new System.Drawing.Size(273, 21);
             this.cboStatus.TabIndex = 8;
             this.cboStatus.Tag = "Status";
+            this.cboStatus.SelectedIndexChanged += new System.EventHandler(this.cboStatus_SelectedIndexChanged);
             // 
             // cboLead
             // 
