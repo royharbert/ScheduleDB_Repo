@@ -439,7 +439,7 @@ namespace Schedule_Database_Desktop_Version
             model.Requestor = cboRequestor.Text;
             model.CTRNum = txtCTRNum.Text;
             model.EscNum = txtEscNum.Text;
-            if (GV.MODE == Mode.LabEscAdd)
+            if (GV.MODE == Mode.LabEscAdd | GV.MODE == Mode.LabEscEdit) 
             {
                 model.EntryAdmin = GV.USERMODEL.FullName;
                 model.DateOpened = dtpStartDate.Value;

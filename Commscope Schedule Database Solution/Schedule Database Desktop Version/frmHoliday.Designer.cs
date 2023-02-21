@@ -40,8 +40,10 @@
             this.dgvHolidays.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHolidays.Location = new System.Drawing.Point(40, 41);
             this.dgvHolidays.Name = "dgvHolidays";
+            this.dgvHolidays.RowHeadersWidth = 62;
             this.dgvHolidays.Size = new System.Drawing.Size(385, 339);
             this.dgvHolidays.TabIndex = 0;
+            this.dgvHolidays.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvHolidays_CellMouseClick);
             // 
             // btnSave
             // 

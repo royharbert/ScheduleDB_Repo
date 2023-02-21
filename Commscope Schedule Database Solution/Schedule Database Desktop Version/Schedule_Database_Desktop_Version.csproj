@@ -8,7 +8,7 @@
     <ProjectGuid>{EF4480C9-A091-4870-943C-7BBAB8F1C196}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Schedule_Database_Desktop_Version</RootNamespace>
-    <AssemblyName>Schedule Database Desktop Version</AssemblyName>
+    <AssemblyName>Lab Database Desktop Version</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

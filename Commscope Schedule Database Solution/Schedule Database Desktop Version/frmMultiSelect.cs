@@ -16,8 +16,8 @@ namespace Schedule_Database_Desktop_Version
     //git test
     public partial class frmMultiSelect : Form
     {
-        private List<AssignmentTableModel> retrieveList;
-        private List<AssignmentDisplayModel> displayList;
+        //private List<AssignmentTableModel> retrieveList;
+        //private List<AssignmentDisplayModel> displayList;
         private List<ATEscalationsDisplayModel> escalationList;
         private List<CustomerModel> customerData;
         private List<LocationModel> locationData;
@@ -35,8 +35,8 @@ namespace Schedule_Database_Desktop_Version
             set
             {
                 locationData = value;
-                displayList = null;
-                retrieveList = null;
+                //displayList = null;
+                //retrieveList = null;
                 customerData = null;
                 dgvResults.DataSource = locationData;
                 txtCount.Text = locationData.Count.ToString();
@@ -53,7 +53,7 @@ namespace Schedule_Database_Desktop_Version
             set 
             {
                 customerData = value;
-                retrieveList = null;
+                //retrieveList = null;
                 locationData = null;
                 dgvResults.DataSource = customerData;
                 txtCount.Text = customerData.Count.ToString();
