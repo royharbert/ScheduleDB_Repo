@@ -98,11 +98,11 @@
     <Compile Include="AttachmentProcs.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="FC.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="frmAltMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmAltMainMenu.Designer.cs">
+      <DependentUpon>frmAltMainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddAdmin.cs">
       <SubType>Form</SubType>
@@ -185,8 +185,8 @@
     <Compile Include="GV.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="frmAltMainMenu.resx">
+      <DependentUpon>frmAltMainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddAdmin.resx">
       <DependentUpon>frmAddAdmin.cs</DependentUpon>

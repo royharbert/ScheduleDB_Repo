@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace Schedule_Database_Desktop_Version
 {
-    public partial class Form1 : Form
+    public partial class frmAltMainMenu : Form
     {
-        public Form1()
+        public frmAltMainMenu()
         {
             InitializeComponent();
         }
@@ -29,10 +29,9 @@ namespace Schedule_Database_Desktop_Version
             //RemoveAssignedFEs(RIDs);
         }
 
+        private void frmAltMainMenu_Load(object sender, EventArgs e)
+        {
 
-       
-        
-
-    
+        }
     }
 }
