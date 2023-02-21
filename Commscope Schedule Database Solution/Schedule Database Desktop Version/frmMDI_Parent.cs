@@ -221,7 +221,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void checkHolidaySched()
         {
-            List<CompanyHolidaysModel> holidays = GlobalConfig.Connection.GenericGetAll<CompanyHolidaysModel>("tblHolidaysList", "HolidayDate");
+            List<HolidaysModel> holidays = GlobalConfig.Connection.GenericGetAll<HolidaysModel>("tblHolidaysList", "HolidayDate");
             DateTime ckDate = holidays[2].HolidayDate;
             int ckYear = ckDate.Year;
             int curYear = DateTime.Now.Year;

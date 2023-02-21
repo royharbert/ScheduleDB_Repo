@@ -11,10 +11,11 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
-        void UpdateHolidays(string holiday, DateTime holidayDate);
+        void HolidayAdd(string holiday, DateTime holidayDate);
+        void UpdateHolidays(string holiday, DateTime holidayDate, int idx);
         List<LabEscModel> GetLabEscByStatus(string type, bool status);
         List<LabEscModel> GetOpenEscSortedByDateDue();
-        List<CompanyHolidaysModel> GetAllHolidays();
+        List<HolidaysModel> GetAllHolidays();
         void InsertPerson(string tableName, PersonModel model);
         LabEscModel LabEsc_CRUD(LabEscModel model, char action);
         List<LabEscModel> LabEscSearchGen(string whereClause);

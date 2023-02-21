@@ -105,11 +105,10 @@
     <Compile Include="Models\CalendarItemModel.cs" />
     <Compile Include="Models\CityModel.cs" />
     <Compile Include="Models\ResolutionModel.cs" />
-    <Compile Include="Models\StringHolidaysModel.cs" />
+    <Compile Include="Models\HolidaysModel.cs" />
     <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\LabEscDisplayModel.cs" />
     <Compile Include="Models\LabEscModel.cs" />
-    <Compile Include="Models\CompanyHolidaysModel.cs" />
     <Compile Include="Models\CountriesModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\DocumentModel.cs" />

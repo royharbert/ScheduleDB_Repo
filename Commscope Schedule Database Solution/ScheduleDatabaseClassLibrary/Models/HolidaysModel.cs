@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ScheduleDatabaseClassLibrary.Models
 {
-    public class StringHolidaysModel
+    public class HolidaysModel
     {
         public int ID { get; set; }
         public string Holiday { get; set;}
-        public string HolidayDate { get; set; }
+        public DateTime HolidayDate { get; set; }
 
     }
 }

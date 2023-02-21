@@ -77,7 +77,7 @@ namespace ScheduleDatabaseClassLibrary.Operations
         public static DateTime CalculateDateDue(DateTime StartDate, string severity)
         {
             //get list of holidays
-            List<CompanyHolidaysModel> holidayList = GlobalConfig.Connection.GetAllHolidays();
+            List<HolidaysModel> holidayList = GlobalConfig.Connection.GetAllHolidays();
             //create list of holiday dates
             List<DateTime> holidayDates = new List<DateTime>();
             foreach (var holiday in holidayList)

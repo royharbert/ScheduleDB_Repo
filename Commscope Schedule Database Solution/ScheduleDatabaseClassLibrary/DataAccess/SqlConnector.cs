@@ -17,13 +17,25 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
-        public void UpdateHolidays(string holiday, DateTime holidayDate)
+        public void HolidayAdd(string holiday, DateTime holidayDate)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@Holiday", holiday, DbType.String);
                 p.Add("@HolidayDate", holidayDate, DbType.DateTime2);
+
+                connection.Execute("dbo.spHolidayAdd", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+        public void UpdateHolidays(string holiday, DateTime holidayDate, int idx)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Holiday", holiday, DbType.String);
+                p.Add("@HolidayDate", holidayDate, DbType.DateTime2);
+                p.Add("@ID", idx, DbType.Int32);
 
                 connection.Execute("dbo.spHolidays_Update", p, commandType: CommandType.StoredProcedure);
             }
@@ -48,11 +60,11 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 return output;
             }
         }
-        public List<CompanyHolidaysModel> GetAllHolidays()
+        public List<HolidaysModel> GetAllHolidays()
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
-                List<CompanyHolidaysModel> output = connection.Query<CompanyHolidaysModel>("dbo.spHolidays_GetAll", commandType: CommandType.StoredProcedure).ToList();
+                List<HolidaysModel> output = connection.Query<HolidaysModel>("dbo.spHolidays_GetAll", commandType: CommandType.StoredProcedure).ToList();
                 return output;
             }
         }
