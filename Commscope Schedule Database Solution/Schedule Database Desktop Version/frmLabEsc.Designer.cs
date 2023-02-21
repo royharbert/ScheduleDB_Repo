@@ -98,7 +98,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtRecordID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRecordID.Location = new System.Drawing.Point(499, 21);
             this.txtRecordID.Name = "txtRecordID";
-            this.txtRecordID.Size = new System.Drawing.Size(396, 26);
+            this.txtRecordID.Size = new System.Drawing.Size(396, 35);
             this.txtRecordID.TabIndex = 200;
             this.txtRecordID.TabStop = false;
             this.txtRecordID.Tag = "EscID";
@@ -326,12 +326,12 @@ namespace Schedule_Database_Desktop_Version
             this.dtpContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clearDateToolStripMenuItem});
             this.dtpContextMenu.Name = "dtpContextMenu";
-            this.dtpContextMenu.Size = new System.Drawing.Size(129, 26);
+            this.dtpContextMenu.Size = new System.Drawing.Size(166, 36);
             // 
             // clearDateToolStripMenuItem
             // 
             this.clearDateToolStripMenuItem.Name = "clearDateToolStripMenuItem";
-            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(165, 32);
             this.clearDateToolStripMenuItem.Text = "Clear Date";
             this.clearDateToolStripMenuItem.Click += new System.EventHandler(this.clearDateToolStripMenuItem_Click);
             // 
@@ -433,7 +433,7 @@ namespace Schedule_Database_Desktop_Version
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label17.Location = new System.Drawing.Point(426, 63);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(63, 15);
+            this.label17.Size = new System.Drawing.Size(93, 22);
             this.label17.TabIndex = 0;
             this.label17.Text = "Product(s)";
             // 
@@ -468,7 +468,7 @@ namespace Schedule_Database_Desktop_Version
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label20.Location = new System.Drawing.Point(1006, 283);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(135, 15);
+            this.label20.Size = new System.Drawing.Size(195, 22);
             this.label20.TabIndex = 37;
             this.label20.Text = "Comments / Resolution";
             // 
@@ -479,7 +479,7 @@ namespace Schedule_Database_Desktop_Version
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label21.Location = new System.Drawing.Point(1006, 27);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(69, 15);
+            this.label21.Size = new System.Drawing.Size(100, 22);
             this.label21.TabIndex = 38;
             this.label21.Text = "Description";
             // 
@@ -490,7 +490,7 @@ namespace Schedule_Database_Desktop_Version
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label22.Location = new System.Drawing.Point(1006, 536);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(95, 15);
+            this.label22.Size = new System.Drawing.Size(141, 22);
             this.label22.TabIndex = 39;
             this.label22.Text = "Resolution Type";
             // 
@@ -610,6 +610,7 @@ namespace Schedule_Database_Desktop_Version
             this.dgvAttachments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAttachments.Location = new System.Drawing.Point(429, 291);
             this.dgvAttachments.Name = "dgvAttachments";
+            this.dgvAttachments.RowHeadersWidth = 62;
             this.dgvAttachments.Size = new System.Drawing.Size(549, 228);
             this.dgvAttachments.TabIndex = 18;
             this.dgvAttachments.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAttachments_RowHeaderMouseClick);
@@ -621,7 +622,7 @@ namespace Schedule_Database_Desktop_Version
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label24.Location = new System.Drawing.Point(426, 273);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(74, 15);
+            this.label24.Size = new System.Drawing.Size(109, 22);
             this.label24.TabIndex = 56;
             this.label24.Text = "Attachments";
             // 

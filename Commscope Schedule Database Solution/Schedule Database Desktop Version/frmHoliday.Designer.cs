@@ -43,6 +43,7 @@
             this.dgvHolidays.RowHeadersWidth = 62;
             this.dgvHolidays.Size = new System.Drawing.Size(385, 339);
             this.dgvHolidays.TabIndex = 0;
+            this.dgvHolidays.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHolidays_CellClick);
             // 
             // btnSave
             // 

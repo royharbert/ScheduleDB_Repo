@@ -18,6 +18,7 @@ namespace Schedule_Database_Desktop_Version
     {
         List<StringHolidaysModel> sHolidayList = new List<StringHolidaysModel>();
         List<CompanyHolidaysModel> HolidayList = new List<CompanyHolidaysModel>();
+        DateTimePicker dtp = new DateTimePicker();
         public frmHoliday()
         {
             InitializeComponent();
@@ -93,6 +94,24 @@ namespace Schedule_Database_Desktop_Version
             dgvHolidays.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvHolidays.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
-        
+
+        private void dgvHolidays_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dtp= new DateTimePicker();
+            int row = e.RowIndex;
+            int col = e.ColumnIndex;
+            dgvHolidays.Controls.Add(dtp);
+            Rectangle rect = dgvHolidays.GetCellDisplayRectangle(col, row, true);
+            dtp.Size = new Size(rect.Width, rect.Height);
+            dtp.Location = new Point(rect.X, rect.Y);
+            dtp.CloseUp += new EventHandler(dtp_CloseUp);
+            dtp.Visible = true;
+        }
+
+        private void dtp_CloseUp(object sender, EventArgs e)
+        {
+            dgvHolidays.CurrentCell.Value = dtp.Value.ToString();
+            dtp.Visible = false;
+        }
     }
 }
