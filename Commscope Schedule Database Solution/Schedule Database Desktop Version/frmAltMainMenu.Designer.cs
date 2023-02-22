@@ -29,162 +29,162 @@ namespace Schedule_Database_Desktop_Version
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
+            this.btnSearchByID = new System.Windows.Forms.Button();
+            this.btnDateRange = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnNewRecord = new System.Windows.Forms.Button();
+            this.btnHolidayMaint = new System.Windows.Forms.Button();
+            this.btnPreferredScreen = new System.Windows.Forms.Button();
+            this.btnUserMaint = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnRptOpenReq = new System.Windows.Forms.Button();
+            this.btnRptClosedEsc = new System.Windows.Forms.Button();
+            this.btnRptOpenEsc = new System.Windows.Forms.Button();
+            this.btnRptAllOpen = new System.Windows.Forms.Button();
+            this.btnRpeClosedReq = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btlAltLayout = new System.Windows.Forms.Button();
+            this.btnChangePW = new System.Windows.Forms.Button();
+            this.rdoLive = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdoDev = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.rdoDev.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnSearchByID
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(327, 249);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 36);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Search by ID";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSearchByID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchByID.Location = new System.Drawing.Point(302, 249);
+            this.btnSearchByID.Name = "btnSearchByID";
+            this.btnSearchByID.Size = new System.Drawing.Size(226, 36);
+            this.btnSearchByID.TabIndex = 1;
+            this.btnSearchByID.Text = "Search by ID";
+            this.btnSearchByID.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnDateRange
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(327, 193);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(178, 36);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Search Date Range";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDateRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDateRange.Location = new System.Drawing.Point(302, 193);
+            this.btnDateRange.Name = "btnDateRange";
+            this.btnDateRange.Size = new System.Drawing.Size(226, 36);
+            this.btnDateRange.TabIndex = 2;
+            this.btnDateRange.Text = "Search Date Range";
+            this.btnDateRange.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnSearch
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(327, 137);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(178, 36);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Search";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(302, 137);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(226, 36);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnNewRecord
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(327, 79);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(178, 36);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Add New";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnNewRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewRecord.Location = new System.Drawing.Point(302, 79);
+            this.btnNewRecord.Name = "btnNewRecord";
+            this.btnNewRecord.Size = new System.Drawing.Size(226, 36);
+            this.btnNewRecord.TabIndex = 4;
+            this.btnNewRecord.Text = "Add New";
+            this.btnNewRecord.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnHolidayMaint
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(67, 307);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(185, 36);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Holiday Maintenance";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnHolidayMaint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHolidayMaint.Location = new System.Drawing.Point(42, 307);
+            this.btnHolidayMaint.Name = "btnHolidayMaint";
+            this.btnHolidayMaint.Size = new System.Drawing.Size(233, 36);
+            this.btnHolidayMaint.TabIndex = 6;
+            this.btnHolidayMaint.Text = "Holiday Maintenance";
+            this.btnHolidayMaint.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnPreferredScreen
             // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(67, 249);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(185, 36);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Set Preferred Screen";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnPreferredScreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreferredScreen.Location = new System.Drawing.Point(42, 249);
+            this.btnPreferredScreen.Name = "btnPreferredScreen";
+            this.btnPreferredScreen.Size = new System.Drawing.Size(233, 36);
+            this.btnPreferredScreen.TabIndex = 7;
+            this.btnPreferredScreen.Text = "Set Preferred Screen";
+            this.btnPreferredScreen.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnUserMaint
             // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(67, 193);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(185, 36);
-            this.button8.TabIndex = 8;
-            this.button8.Text = "User Maintenance";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnUserMaint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserMaint.Location = new System.Drawing.Point(42, 193);
+            this.btnUserMaint.Name = "btnUserMaint";
+            this.btnUserMaint.Size = new System.Drawing.Size(233, 36);
+            this.btnUserMaint.TabIndex = 8;
+            this.btnUserMaint.Text = "User Maintenance";
+            this.btnUserMaint.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // btnDelete
             // 
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(327, 307);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(178, 36);
-            this.button10.TabIndex = 10;
-            this.button10.Text = "Delete Record";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(302, 307);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(226, 36);
+            this.btnDelete.TabIndex = 10;
+            this.btnDelete.Text = "Delete Record";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // btnRptOpenReq
             // 
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(578, 249);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(180, 36);
-            this.button11.TabIndex = 11;
-            this.button11.Text = "Open Lab Requests";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnRptOpenReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRptOpenReq.Location = new System.Drawing.Point(553, 249);
+            this.btnRptOpenReq.Name = "btnRptOpenReq";
+            this.btnRptOpenReq.Size = new System.Drawing.Size(228, 36);
+            this.btnRptOpenReq.TabIndex = 11;
+            this.btnRptOpenReq.Text = "Open Lab Requests";
+            this.btnRptOpenReq.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // btnRptClosedEsc
             // 
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(578, 193);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(180, 36);
-            this.button12.TabIndex = 12;
-            this.button12.Text = "Closed AT Escalations";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnRptClosedEsc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRptClosedEsc.Location = new System.Drawing.Point(553, 193);
+            this.btnRptClosedEsc.Name = "btnRptClosedEsc";
+            this.btnRptClosedEsc.Size = new System.Drawing.Size(228, 36);
+            this.btnRptClosedEsc.TabIndex = 12;
+            this.btnRptClosedEsc.Text = "Closed AT Escalations";
+            this.btnRptClosedEsc.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // btnRptOpenEsc
             // 
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(578, 137);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(180, 36);
-            this.button13.TabIndex = 13;
-            this.button13.Text = "Open AT Escalations";
-            this.button13.UseVisualStyleBackColor = true;
+            this.btnRptOpenEsc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRptOpenEsc.Location = new System.Drawing.Point(553, 137);
+            this.btnRptOpenEsc.Name = "btnRptOpenEsc";
+            this.btnRptOpenEsc.Size = new System.Drawing.Size(228, 36);
+            this.btnRptOpenEsc.TabIndex = 13;
+            this.btnRptOpenEsc.Text = "Open AT Escalations";
+            this.btnRptOpenEsc.UseVisualStyleBackColor = true;
             // 
-            // button14
+            // btnRptAllOpen
             // 
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(578, 79);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(180, 36);
-            this.button14.TabIndex = 14;
-            this.button14.Text = "All Open Items";
-            this.button14.UseVisualStyleBackColor = true;
+            this.btnRptAllOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRptAllOpen.Location = new System.Drawing.Point(553, 79);
+            this.btnRptAllOpen.Name = "btnRptAllOpen";
+            this.btnRptAllOpen.Size = new System.Drawing.Size(228, 36);
+            this.btnRptAllOpen.TabIndex = 14;
+            this.btnRptAllOpen.Text = "All Open Items";
+            this.btnRptAllOpen.UseVisualStyleBackColor = true;
             // 
-            // button15
+            // btnRpeClosedReq
             // 
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Location = new System.Drawing.Point(578, 307);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(180, 36);
-            this.button15.TabIndex = 15;
-            this.button15.Text = "Closed Lab Requests";
-            this.button15.UseVisualStyleBackColor = true;
+            this.btnRpeClosedReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRpeClosedReq.Location = new System.Drawing.Point(553, 307);
+            this.btnRpeClosedReq.Name = "btnRpeClosedReq";
+            this.btnRpeClosedReq.Size = new System.Drawing.Size(228, 36);
+            this.btnRpeClosedReq.TabIndex = 15;
+            this.btnRpeClosedReq.Text = "Closed Lab Requests";
+            this.btnRpeClosedReq.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -216,46 +216,46 @@ namespace Schedule_Database_Desktop_Version
             this.label3.TabIndex = 18;
             this.label3.Text = "Reports";
             // 
-            // button5
+            // btnExit
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(553, 413);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(228, 36);
-            this.button5.TabIndex = 19;
-            this.button5.Text = "Exit App";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(553, 413);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(228, 36);
+            this.btnExit.TabIndex = 19;
+            this.btnExit.Text = "Exit App";
+            this.btnExit.UseVisualStyleBackColor = true;
             // 
-            // button16
+            // btlAltLayout
             // 
-            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.Location = new System.Drawing.Point(67, 79);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(185, 36);
-            this.button16.TabIndex = 20;
-            this.button16.Text = "Alternate Layout";
-            this.button16.UseVisualStyleBackColor = true;
+            this.btlAltLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btlAltLayout.Location = new System.Drawing.Point(42, 79);
+            this.btlAltLayout.Name = "btlAltLayout";
+            this.btlAltLayout.Size = new System.Drawing.Size(233, 36);
+            this.btlAltLayout.TabIndex = 20;
+            this.btlAltLayout.Text = "Alternate Layout";
+            this.btlAltLayout.UseVisualStyleBackColor = true;
             // 
-            // button17
+            // btnChangePW
             // 
-            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button17.Location = new System.Drawing.Point(67, 137);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(185, 36);
-            this.button17.TabIndex = 21;
-            this.button17.Text = "Change Password";
-            this.button17.UseVisualStyleBackColor = true;
+            this.btnChangePW.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePW.Location = new System.Drawing.Point(42, 137);
+            this.btnChangePW.Name = "btnChangePW";
+            this.btnChangePW.Size = new System.Drawing.Size(233, 36);
+            this.btnChangePW.TabIndex = 21;
+            this.btnChangePW.Text = "Change Password";
+            this.btnChangePW.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rdoLive
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 31);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(45, 17);
-            this.radioButton1.TabIndex = 22;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Live";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdoLive.AutoSize = true;
+            this.rdoLive.Location = new System.Drawing.Point(6, 31);
+            this.rdoLive.Name = "rdoLive";
+            this.rdoLive.Size = new System.Drawing.Size(45, 17);
+            this.rdoLive.TabIndex = 22;
+            this.rdoLive.TabStop = true;
+            this.rdoLive.Text = "Live";
+            this.rdoLive.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
@@ -268,16 +268,16 @@ namespace Schedule_Database_Desktop_Version
             this.radioButton2.Text = "Development";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // rdoDev
             // 
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Location = new System.Drawing.Point(42, 370);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(349, 61);
-            this.groupBox1.TabIndex = 24;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Database Mode";
+            this.rdoDev.Controls.Add(this.rdoLive);
+            this.rdoDev.Controls.Add(this.radioButton2);
+            this.rdoDev.Location = new System.Drawing.Point(42, 370);
+            this.rdoDev.Name = "rdoDev";
+            this.rdoDev.Size = new System.Drawing.Size(349, 61);
+            this.rdoDev.TabIndex = 24;
+            this.rdoDev.TabStop = false;
+            this.rdoDev.Text = "Database Mode";
             // 
             // label4
             // 
@@ -306,59 +306,59 @@ namespace Schedule_Database_Desktop_Version
             this.ClientSize = new System.Drawing.Size(823, 480);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button17);
-            this.Controls.Add(this.button16);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.rdoDev);
+            this.Controls.Add(this.btnChangePW);
+            this.Controls.Add(this.btlAltLayout);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button15);
-            this.Controls.Add(this.button14);
-            this.Controls.Add(this.button13);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRpeClosedReq);
+            this.Controls.Add(this.btnRptAllOpen);
+            this.Controls.Add(this.btnRptOpenEsc);
+            this.Controls.Add(this.btnRptClosedEsc);
+            this.Controls.Add(this.btnRptOpenReq);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUserMaint);
+            this.Controls.Add(this.btnPreferredScreen);
+            this.Controls.Add(this.btnHolidayMaint);
+            this.Controls.Add(this.btnNewRecord);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnDateRange);
+            this.Controls.Add(this.btnSearchByID);
             this.Name = "frmAltMainMenu";
             this.Text = "Main Menu";
             this.Load += new System.EventHandler(this.frmAltMainMenu_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.rdoDev.ResumeLayout(false);
+            this.rdoDev.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button btnSearchByID;
+        private System.Windows.Forms.Button btnDateRange;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnNewRecord;
+        private System.Windows.Forms.Button btnHolidayMaint;
+        private System.Windows.Forms.Button btnPreferredScreen;
+        private System.Windows.Forms.Button btnUserMaint;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnRptOpenReq;
+        private System.Windows.Forms.Button btnRptClosedEsc;
+        private System.Windows.Forms.Button btnRptOpenEsc;
+        private System.Windows.Forms.Button btnRptAllOpen;
+        private System.Windows.Forms.Button btnRpeClosedReq;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btlAltLayout;
+        private System.Windows.Forms.Button btnChangePW;
+        private System.Windows.Forms.RadioButton rdoLive;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox rdoDev;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
     }

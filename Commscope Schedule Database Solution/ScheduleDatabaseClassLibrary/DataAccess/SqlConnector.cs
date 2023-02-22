@@ -23,7 +23,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             {
                 var p = new DynamicParameters();
                 p.Add("@Holiday", holiday, DbType.String);
-                p.Add("@HolidayDate", holidayDate, DbType.DateTime2);
+                p.Add("@HolidayDate", holidayDate.Date, DbType.DateTime2);
 
                 connection.Execute("dbo.spHolidayAdd", p, commandType: CommandType.StoredProcedure);
             }
