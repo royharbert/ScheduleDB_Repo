@@ -59,9 +59,9 @@ namespace Schedule_Database_Desktop_Version
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(302, 249);
+            this.button1.Location = new System.Drawing.Point(327, 249);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(226, 36);
+            this.button1.Size = new System.Drawing.Size(178, 36);
             this.button1.TabIndex = 1;
             this.button1.Text = "Search by ID";
             this.button1.UseVisualStyleBackColor = true;
@@ -69,9 +69,9 @@ namespace Schedule_Database_Desktop_Version
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(302, 193);
+            this.button2.Location = new System.Drawing.Point(327, 193);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(226, 36);
+            this.button2.Size = new System.Drawing.Size(178, 36);
             this.button2.TabIndex = 2;
             this.button2.Text = "Search Date Range";
             this.button2.UseVisualStyleBackColor = true;
@@ -79,9 +79,9 @@ namespace Schedule_Database_Desktop_Version
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(302, 137);
+            this.button3.Location = new System.Drawing.Point(327, 137);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(226, 36);
+            this.button3.Size = new System.Drawing.Size(178, 36);
             this.button3.TabIndex = 3;
             this.button3.Text = "Search";
             this.button3.UseVisualStyleBackColor = true;
@@ -89,9 +89,9 @@ namespace Schedule_Database_Desktop_Version
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(302, 79);
+            this.button4.Location = new System.Drawing.Point(327, 79);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(226, 36);
+            this.button4.Size = new System.Drawing.Size(178, 36);
             this.button4.TabIndex = 4;
             this.button4.Text = "Add New";
             this.button4.UseVisualStyleBackColor = true;
@@ -99,9 +99,9 @@ namespace Schedule_Database_Desktop_Version
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(42, 307);
+            this.button6.Location = new System.Drawing.Point(67, 307);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(233, 36);
+            this.button6.Size = new System.Drawing.Size(185, 36);
             this.button6.TabIndex = 6;
             this.button6.Text = "Holiday Maintenance";
             this.button6.UseVisualStyleBackColor = true;
@@ -109,9 +109,9 @@ namespace Schedule_Database_Desktop_Version
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(42, 249);
+            this.button7.Location = new System.Drawing.Point(67, 249);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(233, 36);
+            this.button7.Size = new System.Drawing.Size(185, 36);
             this.button7.TabIndex = 7;
             this.button7.Text = "Set Preferred Screen";
             this.button7.UseVisualStyleBackColor = true;
@@ -119,9 +119,9 @@ namespace Schedule_Database_Desktop_Version
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(42, 193);
+            this.button8.Location = new System.Drawing.Point(67, 193);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(233, 36);
+            this.button8.Size = new System.Drawing.Size(185, 36);
             this.button8.TabIndex = 8;
             this.button8.Text = "User Maintenance";
             this.button8.UseVisualStyleBackColor = true;
@@ -129,9 +129,9 @@ namespace Schedule_Database_Desktop_Version
             // button10
             // 
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(302, 307);
+            this.button10.Location = new System.Drawing.Point(327, 307);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(226, 36);
+            this.button10.Size = new System.Drawing.Size(178, 36);
             this.button10.TabIndex = 10;
             this.button10.Text = "Delete Record";
             this.button10.UseVisualStyleBackColor = true;
@@ -139,9 +139,9 @@ namespace Schedule_Database_Desktop_Version
             // button11
             // 
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(553, 249);
+            this.button11.Location = new System.Drawing.Point(578, 249);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(228, 36);
+            this.button11.Size = new System.Drawing.Size(180, 36);
             this.button11.TabIndex = 11;
             this.button11.Text = "Open Lab Requests";
             this.button11.UseVisualStyleBackColor = true;
@@ -149,9 +149,9 @@ namespace Schedule_Database_Desktop_Version
             // button12
             // 
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(553, 193);
+            this.button12.Location = new System.Drawing.Point(578, 193);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(228, 36);
+            this.button12.Size = new System.Drawing.Size(180, 36);
             this.button12.TabIndex = 12;
             this.button12.Text = "Closed AT Escalations";
             this.button12.UseVisualStyleBackColor = true;
@@ -159,9 +159,9 @@ namespace Schedule_Database_Desktop_Version
             // button13
             // 
             this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(553, 137);
+            this.button13.Location = new System.Drawing.Point(578, 137);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(228, 36);
+            this.button13.Size = new System.Drawing.Size(180, 36);
             this.button13.TabIndex = 13;
             this.button13.Text = "Open AT Escalations";
             this.button13.UseVisualStyleBackColor = true;
@@ -169,9 +169,9 @@ namespace Schedule_Database_Desktop_Version
             // button14
             // 
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(553, 79);
+            this.button14.Location = new System.Drawing.Point(578, 79);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(228, 36);
+            this.button14.Size = new System.Drawing.Size(180, 36);
             this.button14.TabIndex = 14;
             this.button14.Text = "All Open Items";
             this.button14.UseVisualStyleBackColor = true;
@@ -179,9 +179,9 @@ namespace Schedule_Database_Desktop_Version
             // button15
             // 
             this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Location = new System.Drawing.Point(553, 307);
+            this.button15.Location = new System.Drawing.Point(578, 307);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(228, 36);
+            this.button15.Size = new System.Drawing.Size(180, 36);
             this.button15.TabIndex = 15;
             this.button15.Text = "Closed Lab Requests";
             this.button15.UseVisualStyleBackColor = true;
@@ -229,9 +229,9 @@ namespace Schedule_Database_Desktop_Version
             // button16
             // 
             this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.Location = new System.Drawing.Point(42, 79);
+            this.button16.Location = new System.Drawing.Point(67, 79);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(233, 36);
+            this.button16.Size = new System.Drawing.Size(185, 36);
             this.button16.TabIndex = 20;
             this.button16.Text = "Alternate Layout";
             this.button16.UseVisualStyleBackColor = true;
@@ -239,9 +239,9 @@ namespace Schedule_Database_Desktop_Version
             // button17
             // 
             this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button17.Location = new System.Drawing.Point(42, 137);
+            this.button17.Location = new System.Drawing.Point(67, 137);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(233, 36);
+            this.button17.Size = new System.Drawing.Size(185, 36);
             this.button17.TabIndex = 21;
             this.button17.Text = "Change Password";
             this.button17.UseVisualStyleBackColor = true;
