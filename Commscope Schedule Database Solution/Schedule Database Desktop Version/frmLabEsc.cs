@@ -81,6 +81,7 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case Mode.LabEscSearch:
                     CommonOps.lockControls(false, this, "");
+                    txtRecordID.Focus();
                     btnSave.Text = "Search";
                     break;
                 default:
@@ -708,8 +709,8 @@ namespace Schedule_Database_Desktop_Version
             GV.MODE = Mode.Add_Attachment;
             AttachmentModel model = new AttachmentModel();
             frmAttType frm = new frmAttType(model);
-            string[] labels = { "Covid Release", "CRM Entry", "Trip Report Entry", "Weekly Report Entry", "Roster", "Other" };
-            frm.Labels = labels;
+            //string[] labels = { "Covid Release", "CRM Entry", "Trip Report Entry", "Weekly Report Entry", "Roster", "Other" };
+            //frm.Labels = labels;
             frm.TypeReadyEvent += Frm_TypeReadyEvent;
 
             OpenFileDialog openFD = new OpenFileDialog();
@@ -845,5 +846,15 @@ namespace Schedule_Database_Desktop_Version
         {
 
         }
+
+        private void txtRecordID_TextChanged(object sender, EventArgs e)
+        {
+            if (! formLoading)
+            {
+                GV.MODE = Mode.LabEscEdit;
+                formDirty = true;
+            }
+        }
+
     }
 }

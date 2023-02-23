@@ -95,6 +95,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnNewRecord.TabIndex = 4;
             this.btnNewRecord.Text = "Add New";
             this.btnNewRecord.UseVisualStyleBackColor = true;
+            this.btnNewRecord.Click += new System.EventHandler(this.btnNewRecord_Click);
             // 
             // btnHolidayMaint
             // 
