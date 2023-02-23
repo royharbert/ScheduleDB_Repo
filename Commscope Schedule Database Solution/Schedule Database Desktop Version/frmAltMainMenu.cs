@@ -21,12 +21,16 @@ namespace Schedule_Database_Desktop_Version
             InitializeComponent();
         }
 
-        private void btnTest_Click(object sender, EventArgs e)
+        
+        private frmLabEsc showLabEscForm()
         {
-            DateTime Start = DateTime.Parse("Apr 1, 2020");
-            DateTime End = DateTime.Parse("Apr 28, 2021");
-            //List<string> RIDs = getRIDs(Start, End);
-            //RemoveAssignedFEs(RIDs);
+            frmLabEsc EscalationsForm = new frmLabEsc();
+            //EscalationsForm.MdiParent= this;
+            EscalationsForm.StartPosition = FormStartPosition.CenterScreen;
+            //EscalationsForm.Height = 718;
+            //EscalationsForm.Width = 1330;
+            EscalationsForm.Show();
+            return EscalationsForm;
         }
 
         private void frmAltMainMenu_Load(object sender, EventArgs e)
@@ -37,6 +41,12 @@ namespace Schedule_Database_Desktop_Version
         private void button4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnNewRecord_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscAdd;
+            showLabEscForm();
         }
     }
 }
