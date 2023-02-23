@@ -103,6 +103,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtRecordID.TabStop = false;
             this.txtRecordID.Tag = "EscID";
             this.txtRecordID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtRecordID.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
             // 
             // cboMSO
             // 
@@ -277,6 +278,8 @@ namespace Schedule_Database_Desktop_Version
             // cboState
             // 
             this.cboState.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboState.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cboState.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboState.FormattingEnabled = true;
             this.cboState.Location = new System.Drawing.Point(117, 172);
             this.cboState.Name = "cboState";
@@ -395,7 +398,7 @@ namespace Schedule_Database_Desktop_Version
             // txtEntryAdmin
             // 
             this.txtEntryAdmin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEntryAdmin.Location = new System.Drawing.Point(107, 528);
+            this.txtEntryAdmin.Location = new System.Drawing.Point(117, 528);
             this.txtEntryAdmin.Name = "txtEntryAdmin";
             this.txtEntryAdmin.Size = new System.Drawing.Size(273, 20);
             this.txtEntryAdmin.TabIndex = 7;

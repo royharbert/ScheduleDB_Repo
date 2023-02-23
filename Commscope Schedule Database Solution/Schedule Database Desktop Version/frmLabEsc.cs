@@ -81,6 +81,7 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case Mode.LabEscSearch:
                     CommonOps.lockControls(false, this, "");
+                    txtRecordID.Focus();
                     btnSave.Text = "Search";
                     break;
                 default:
@@ -844,6 +845,15 @@ namespace Schedule_Database_Desktop_Version
         private void cboStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtRecordID_TextChanged(object sender, EventArgs e)
+        {
+            if (! formLoading)
+            {
+                GV.MODE = Mode.LabEscEdit;
+                formDirty = true;
+            }
         }
     }
 }
