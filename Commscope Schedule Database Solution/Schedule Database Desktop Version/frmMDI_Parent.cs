@@ -166,7 +166,7 @@ namespace Schedule_Database_Desktop_Version
             GV.MODE = Mode.LabEscSearch;
             frmLabEsc escForm = showLabEscForm();            
         }
-        private void openItemsByDateDueToolStripMenuItem_Click(object sender, EventArgs e)
+       private void openItemsByDateDueToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.OpenEscByDate;
             GetModels();
@@ -266,6 +266,31 @@ namespace Schedule_Database_Desktop_Version
         {
             GV.MODE = Mode.LabEscReport;
             GetModels("L", false);
+        }
+
+        private void dashboardViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPassword passwordForm = new frmPassword();
+            passwordForm.Show();
+        }
+
+        private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltMainMenu altMainMenu = new frmAltMainMenu();
+            altMainMenu.Show();
+        }
+
+        private void deleteRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscDelete;
+            frmInput inputfrm = new frmInput();
+            inputfrm.Show();
+
         }
     }
 }

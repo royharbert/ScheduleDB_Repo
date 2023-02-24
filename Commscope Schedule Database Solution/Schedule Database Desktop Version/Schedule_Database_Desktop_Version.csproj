@@ -170,6 +170,12 @@
     <Compile Include="frmMultiSelect.Designer.cs">
       <DependentUpon>frmMultiSelect.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPassword.Designer.cs">
+      <DependentUpon>frmPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmScreens.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMultiSelect.resx">
       <DependentUpon>frmMultiSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPassword.resx">
+      <DependentUpon>frmPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmScreens.resx">
       <DependentUpon>frmScreens.cs</DependentUpon>
