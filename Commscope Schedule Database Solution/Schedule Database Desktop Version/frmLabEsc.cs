@@ -41,7 +41,6 @@ namespace Schedule_Database_Desktop_Version
                 btnSave.Text = "Save";
                 GV.MODE = Mode.LabEscEdit;
                 loadBoxes(labEsc);
-                cboMSO.Focus();
                 getAttachments(labEsc.EscID);
                 txtRecordID.Enabled = false;
                 this.BringToFront();
@@ -87,9 +86,12 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscSearch:
                     CommonOps.lockControls(false, this, "");
                     txtRecordID.Focus();
-                    dtpClosedDate.CustomFormat = dtpCustomFormat;
-                    dtpDueDate.CustomFormat = dtpCustomFormat;
-                    dtpStartDate.CustomFormat = dtpCustomFormat;
+                    dtpClosedDate.Format = DateTimePickerFormat.Custom;
+                    dtpDueDate.Format = DateTimePickerFormat.Custom;
+                    dtpStartDate.Format = DateTimePickerFormat.Custom;
+                    dtpStartDate.Enabled = false;
+                    dtpDueDate.Enabled = false;
+                    dtpClosedDate.Enabled = false;
                     btnSave.Text = "Search";
                     break;
                 default:
