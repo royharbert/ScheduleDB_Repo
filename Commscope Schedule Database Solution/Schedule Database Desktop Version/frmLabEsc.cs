@@ -78,6 +78,10 @@ namespace Schedule_Database_Desktop_Version
                     btnSave.Text = "Save";
                     break;
                 case Mode.LabEscDelete:
+                    CommonOps.lockControls(true, this, "");
+                    btnSave.Text = "Delete";
+                    getAttachments(model.EscID);
+
                     break;
                 case Mode.LabEscSearch:
                     CommonOps.lockControls(false, this, "");
@@ -135,6 +139,9 @@ namespace Schedule_Database_Desktop_Version
                                 break;
                             case Mode.LabEscEdit:
                                 GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
+                                break;
+                            case Mode.LabEscDelete:
+                                model = GlobalConfig.Connection.LabEsc_CRUD(model, 'D');
                                 break;
 
                         }

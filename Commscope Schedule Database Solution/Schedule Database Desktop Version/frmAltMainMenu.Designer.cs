@@ -51,8 +51,6 @@ namespace Schedule_Database_Desktop_Version
             this.rdoLive = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.rdoDev = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.rdoDev.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +63,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnSearchByID.TabIndex = 1;
             this.btnSearchByID.Text = "Search by ID";
             this.btnSearchByID.UseVisualStyleBackColor = true;
+            this.btnSearchByID.Click += new System.EventHandler(this.btnSearchByID_Click);
             // 
             // btnDateRange
             // 
@@ -75,6 +74,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnDateRange.TabIndex = 2;
             this.btnDateRange.Text = "Search Date Range";
             this.btnDateRange.UseVisualStyleBackColor = true;
+            this.btnDateRange.Click += new System.EventHandler(this.btnDateRange_Click);
             // 
             // btnSearch
             // 
@@ -85,6 +85,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnNewRecord
             // 
@@ -106,6 +107,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnHolidayMaint.TabIndex = 6;
             this.btnHolidayMaint.Text = "Holiday Maintenance";
             this.btnHolidayMaint.UseVisualStyleBackColor = true;
+            this.btnHolidayMaint.Click += new System.EventHandler(this.btnHolidayMaint_Click);
             // 
             // btnPreferredScreen
             // 
@@ -116,6 +118,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnPreferredScreen.TabIndex = 7;
             this.btnPreferredScreen.Text = "Set Preferred Screen";
             this.btnPreferredScreen.UseVisualStyleBackColor = true;
+            this.btnPreferredScreen.Click += new System.EventHandler(this.btnPreferredScreen_Click);
             // 
             // btnUserMaint
             // 
@@ -136,6 +139,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Delete Record";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnRptOpenReq
             // 
@@ -146,6 +150,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnRptOpenReq.TabIndex = 11;
             this.btnRptOpenReq.Text = "Open Lab Requests";
             this.btnRptOpenReq.UseVisualStyleBackColor = true;
+            this.btnRptOpenReq.Click += new System.EventHandler(this.btnRptOpenReq_Click);
             // 
             // btnRptClosedEsc
             // 
@@ -156,6 +161,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnRptClosedEsc.TabIndex = 12;
             this.btnRptClosedEsc.Text = "Closed AT Escalations";
             this.btnRptClosedEsc.UseVisualStyleBackColor = true;
+            this.btnRptClosedEsc.Click += new System.EventHandler(this.btnRptClosedEsc_Click);
             // 
             // btnRptOpenEsc
             // 
@@ -166,6 +172,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnRptOpenEsc.TabIndex = 13;
             this.btnRptOpenEsc.Text = "Open AT Escalations";
             this.btnRptOpenEsc.UseVisualStyleBackColor = true;
+            this.btnRptOpenEsc.Click += new System.EventHandler(this.btnRptOpenEsc_Click);
             // 
             // btnRptAllOpen
             // 
@@ -176,6 +183,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnRptAllOpen.TabIndex = 14;
             this.btnRptAllOpen.Text = "All Open Items";
             this.btnRptAllOpen.UseVisualStyleBackColor = true;
+            this.btnRptAllOpen.Click += new System.EventHandler(this.btnRptAllOpen_Click);
             // 
             // btnRpeClosedReq
             // 
@@ -186,6 +194,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnRpeClosedReq.TabIndex = 15;
             this.btnRpeClosedReq.Text = "Closed Lab Requests";
             this.btnRpeClosedReq.UseVisualStyleBackColor = true;
+            this.btnRpeClosedReq.Click += new System.EventHandler(this.btnRpeClosedReq_Click);
             // 
             // label1
             // 
@@ -224,8 +233,9 @@ namespace Schedule_Database_Desktop_Version
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(228, 36);
             this.btnExit.TabIndex = 19;
-            this.btnExit.Text = "Exit App";
+            this.btnExit.Text = "Exit Screen";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btlAltLayout
             // 
@@ -246,6 +256,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnChangePW.TabIndex = 21;
             this.btnChangePW.Text = "Change Password";
             this.btnChangePW.UseVisualStyleBackColor = true;
+            this.btnChangePW.Click += new System.EventHandler(this.btnChangePW_Click);
             // 
             // rdoLive
             // 
@@ -257,6 +268,7 @@ namespace Schedule_Database_Desktop_Version
             this.rdoLive.TabStop = true;
             this.rdoLive.Text = "Live";
             this.rdoLive.UseVisualStyleBackColor = true;
+            this.rdoLive.CheckedChanged += new System.EventHandler(this.rdoLive_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -268,6 +280,7 @@ namespace Schedule_Database_Desktop_Version
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Development";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // rdoDev
             // 
@@ -280,33 +293,11 @@ namespace Schedule_Database_Desktop_Version
             this.rdoDev.TabStop = false;
             this.rdoDev.Text = "Database Mode";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(44, 442);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 16);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Current Mode";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(150, 442);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 16);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Version";
-            // 
             // frmAltMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 480);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.rdoDev);
             this.Controls.Add(this.btnChangePW);
             this.Controls.Add(this.btlAltLayout);
@@ -360,7 +351,5 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.RadioButton rdoLive;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.GroupBox rdoDev;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
     }
 }
