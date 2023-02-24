@@ -28,10 +28,11 @@ namespace Schedule_Database_Desktop_Version
         
         private frmLabEsc showLabEscForm()
         {
+            Mode curMode = GV.MODE;
             frmLabEsc EscalationsForm = new frmLabEsc();
             EscalationsForm.StartPosition = FormStartPosition.CenterScreen;
-
             EscalationsForm.Show();
+            GV.MODE = curMode;
             return EscalationsForm;
         }
 
