@@ -43,6 +43,7 @@ namespace Schedule_Database_Desktop_Version
                 loadBoxes(labEsc);
                 cboMSO.Focus();
                 getAttachments(labEsc.EscID);
+                txtRecordID.Enabled = false;
                 this.BringToFront();
             }
         }
