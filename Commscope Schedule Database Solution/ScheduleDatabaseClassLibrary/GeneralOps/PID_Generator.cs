@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ScheduleDatabaseClassLibrary.GeneralOps
 {
@@ -23,7 +24,7 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
             string dateStamp = DateTime.Today.ToString("yyMMdd");
             string sequence = GlobalConfig.Connection.Sequence_Get().ToString();
             sequence = sequence.PadLeft(5, '0');
-            pid += mso.Abbreviation + "_" + dateStamp + "_" + sequence;
+            pid += mso.Abbreviation + "_" + dateStamp + "_" + sequence;            
 
             return pid;
         }

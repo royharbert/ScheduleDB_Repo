@@ -95,15 +95,15 @@ namespace Schedule_Database_Desktop_Version
             // txtRecordID
             // 
             this.txtRecordID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtRecordID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRecordID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRecordID.Location = new System.Drawing.Point(499, 21);
             this.txtRecordID.Name = "txtRecordID";
-            this.txtRecordID.Size = new System.Drawing.Size(396, 26);
+            this.txtRecordID.Size = new System.Drawing.Size(396, 19);
             this.txtRecordID.TabIndex = 200;
             this.txtRecordID.TabStop = false;
             this.txtRecordID.Tag = "EscID";
             this.txtRecordID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtRecordID.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
             // 
             // cboMSO
             // 
@@ -117,7 +117,6 @@ namespace Schedule_Database_Desktop_Version
             this.cboMSO.TabIndex = 0;
             this.cboMSO.Tag = "MSO";
             this.cboMSO.SelectedIndexChanged += new System.EventHandler(this.cboMSO_SelectedIndexChanged);
-            this.cboMSO.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
             // 
             // cboSeverity
             // 
@@ -142,7 +141,6 @@ namespace Schedule_Database_Desktop_Version
             this.txtEndUser.TabIndex = 1;
             this.txtEndUser.Tag = "EndUser";
             this.txtEndUser.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
-
             // 
             // label1
             // 
@@ -306,8 +304,8 @@ namespace Schedule_Database_Desktop_Version
             this.cboRequestor.Size = new System.Drawing.Size(273, 21);
             this.cboRequestor.TabIndex = 6;
             this.cboRequestor.Tag = "Requestor";
-            this.cboRequestor.Leave += new System.EventHandler(this.cboRequestor_Leave);
             this.cboRequestor.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
+            this.cboRequestor.Leave += new System.EventHandler(this.cboRequestor_Leave);
             // 
             // label10
             // 
@@ -330,8 +328,8 @@ namespace Schedule_Database_Desktop_Version
             this.dtpStartDate.Size = new System.Drawing.Size(273, 20);
             this.dtpStartDate.TabIndex = 14;
             this.dtpStartDate.Tag = "DateOpened";
-            this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             this.dtpStartDate.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
+            this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
             // dtpContextMenu
             // 
@@ -357,8 +355,8 @@ namespace Schedule_Database_Desktop_Version
             this.dtpClosedDate.Size = new System.Drawing.Size(273, 20);
             this.dtpClosedDate.TabIndex = 16;
             this.dtpClosedDate.Tag = "DateCompleted";
-            this.dtpClosedDate.ValueChanged += new System.EventHandler(this.dtpClosedDate_ValueChanged);
             this.dtpClosedDate.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
+            this.dtpClosedDate.ValueChanged += new System.EventHandler(this.dtpClosedDate_ValueChanged);
             // 
             // dtpDueDate
             // 
@@ -535,8 +533,8 @@ namespace Schedule_Database_Desktop_Version
             this.cboLead.Size = new System.Drawing.Size(273, 21);
             this.cboLead.TabIndex = 9;
             this.cboLead.Tag = "LeadAssigned";
-            this.cboLead.Leave += new System.EventHandler(this.cboLead_Leave);
             this.cboLead.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
+            this.cboLead.Leave += new System.EventHandler(this.cboLead_Leave);
             // 
             // txtQty
             // 
@@ -717,8 +715,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboRecType.Size = new System.Drawing.Size(273, 21);
             this.cboRecType.TabIndex = 201;
             this.cboRecType.Tag = "RecordType";
-            this.cboRecType.SelectedIndexChanged += new System.EventHandler(this.cboRecType_SelectedIndexChanged);
-            this.cboRecType.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
+            this.cboRecType.SelectedIndexChanged += new System.EventHandler(this.cboRecType_SelectedIndexChanged_1);
             // 
             // lblRecordType
             // 
