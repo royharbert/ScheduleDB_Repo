@@ -111,7 +111,7 @@ namespace Schedule_Database_Desktop_Version
             this.rdoWRE.Size = new System.Drawing.Size(204, 28);
             this.rdoWRE.TabIndex = 4;
             this.rdoWRE.TabStop = true;
-            this.rdoWRE.Tag = "Weekly Report Entry";
+            this.rdoWRE.Tag = "Product Specification";
             this.rdoWRE.Text = "Product Specification";
             this.rdoWRE.UseVisualStyleBackColor = true;
             this.rdoWRE.CheckedChanged += new System.EventHandler(this.rdoWRE_CheckedChanged);
@@ -124,7 +124,7 @@ namespace Schedule_Database_Desktop_Version
             this.rdoTripRpt.Size = new System.Drawing.Size(101, 28);
             this.rdoTripRpt.TabIndex = 3;
             this.rdoTripRpt.TabStop = true;
-            this.rdoTripRpt.Tag = "Trip Report Entry";
+            this.rdoTripRpt.Tag = "Lab Data";
             this.rdoTripRpt.Text = "Lab Data";
             this.rdoTripRpt.UseVisualStyleBackColor = true;
             this.rdoTripRpt.CheckedChanged += new System.EventHandler(this.rdoTripRpt_CheckedChanged);
@@ -137,7 +137,7 @@ namespace Schedule_Database_Desktop_Version
             this.rdoCRM.Size = new System.Drawing.Size(120, 28);
             this.rdoCRM.TabIndex = 2;
             this.rdoCRM.TabStop = true;
-            this.rdoCRM.Tag = "CRM Entry";
+            this.rdoCRM.Tag = "Lab Report";
             this.rdoCRM.Text = "Lab Report";
             this.rdoCRM.UseVisualStyleBackColor = true;
             this.rdoCRM.CheckedChanged += new System.EventHandler(this.rdoCRM_CheckedChanged);
@@ -150,7 +150,7 @@ namespace Schedule_Database_Desktop_Version
             this.rdoDocCovid.Size = new System.Drawing.Size(81, 28);
             this.rdoDocCovid.TabIndex = 1;
             this.rdoDocCovid.TabStop = true;
-            this.rdoDocCovid.Tag = "Covid Release";
+            this.rdoDocCovid.Tag = "E-Mail";
             this.rdoDocCovid.Text = "E-Mail";
             this.rdoDocCovid.UseVisualStyleBackColor = true;
             this.rdoDocCovid.CheckedChanged += new System.EventHandler(this.rdoDocCovid_CheckedChanged);

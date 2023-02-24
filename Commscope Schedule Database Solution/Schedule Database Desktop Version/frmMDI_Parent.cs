@@ -153,25 +153,22 @@ namespace Schedule_Database_Desktop_Version
 
         private frmLabEsc showLabEscForm()
         {
+            Mode curMode= GV.MODE;
             frmLabEsc EscalationsForm = new frmLabEsc();
-            //EscalationsForm.MdiParent= this;
             EscalationsForm.StartPosition = FormStartPosition.CenterScreen;
-            //EscalationsForm.Height = 718;
-            //EscalationsForm.Width = 1330;
             EscalationsForm.Show();
+            GV.MODE = curMode;
             return EscalationsForm;
         }
 
         private void generalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscSearch;
-            frmLabEsc escForm = showLabEscForm();
-            
+            frmLabEsc escForm = showLabEscForm();            
         }
        private void openItemsByDateDueToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.OpenEscByDate;
-
             GetModels();
         }
 

@@ -65,7 +65,7 @@ namespace Schedule_Database_Desktop_Version
                     txtRecordID.Clear();
                     cboRecType.Enabled = true;
                     cboMSO.Enabled = true;
-                    CommonOps.lockControls(true, this, "cboMSO, cboRecType");
+                    CommonOps.lockControls(true, this, "cboRecType");
                     model = new LabEscModel();
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
                     txtEntryAdmin.Text = GV.USERMODEL.FullName;
@@ -86,6 +86,9 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscSearch:
                     CommonOps.lockControls(false, this, "");
                     txtRecordID.Focus();
+                    dtpClosedDate.CustomFormat = dtpCustomFormat;
+                    dtpDueDate.CustomFormat = dtpCustomFormat;
+                    dtpStartDate.CustomFormat = dtpCustomFormat;
                     btnSave.Text = "Search";
                     break;
                 default:
@@ -591,13 +594,17 @@ namespace Schedule_Database_Desktop_Version
 
         private void cboMSO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (GV.MODE == Mode.LabEscAdd && cboMSO.SelectedIndex > -1)
+            if (GV.MODE == Mode.LabEscAdd && cboMSO.SelectedIndex > -1 && cboRecType.Text != "" && txtRecordID.Text == "")
             {
                 MSO_Model model = ((MSO_Model)cboMSO.SelectedItem);
                 formDirty = true;
                 string PID = PID_Generator.GeneratePID(model, cboRecType.Text);
                 txtRecordID.Text = PID;
                 CommonOps.lockControls(false, this, "");
+                txtRecordID.Enabled = false;
+                cboRecType.Enabled = false;
+                cboMSO.Enabled= false;
+                GV.MODE = Mode.LabEscAdd;
             }
         }
 
@@ -716,8 +723,6 @@ namespace Schedule_Database_Desktop_Version
             GV.MODE = Mode.Add_Attachment;
             AttachmentModel model = new AttachmentModel();
             frmAttType frm = new frmAttType(model);
-            //string[] labels = { "Covid Release", "CRM Entry", "Trip Report Entry", "Weekly Report Entry", "Roster", "Other" };
-            //frm.Labels = labels;
             frm.TypeReadyEvent += Frm_TypeReadyEvent;
 
             OpenFileDialog openFD = new OpenFileDialog();
@@ -776,7 +781,7 @@ namespace Schedule_Database_Desktop_Version
             if (txtRecordID.Text != "")
             {
                 string EID = txtRecordID.Text;
-                if (EID.Substring(0,3) == "LAB")
+                if (EID.Substring(0,3) == "LAB" & !formLoading)
                 {
                     txtRecordID.Text = EID.Replace("LAB", "ESC");
                     model.RecordType = "AT Escalation";
@@ -863,5 +868,9 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
+        private void cboRecType_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            cboMSO.Enabled= true;
+        }
     }
 }
