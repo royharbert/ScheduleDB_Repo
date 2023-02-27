@@ -68,11 +68,30 @@ namespace Schedule_Database_Desktop_Version
             }
             set
             {
+                string emptyDate = "1/1/1900";
                 labRequests = value;
                 requests = value;
                 customerData = null;
                 locationData = null;
                 dgvResults.DataSource = labRequests;
+
+                foreach (DataGridViewRow row in dgvResults.Rows)
+                {
+                    string test = (row.Cells["DateDue"].Value.ToString());
+                    test = test.Substring(0, test.IndexOf(" "));
+                    if (test == emptyDate)
+                    {
+                        row.Cells["DateDue"].Value = "";
+                    }
+
+                    test = (row.Cells["DateCompleted"].Value.ToString());
+                    test = test.Substring(0, test.IndexOf(" "));
+                    if (test == emptyDate)
+                    {
+                        row.Cells["DateCompleted"].Value = "";
+                    }
+                }
+
                 txtCount.Text = labRequests.Count.ToString();
             }
         }

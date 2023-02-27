@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Drawing.Imaging;
 
 namespace Schedule_Database_Desktop_Version
 {
@@ -27,6 +28,7 @@ namespace Schedule_Database_Desktop_Version
             //Color defaultBackColor = this.BackColor;
             GV.MAINMENU = this;
             frmLogin LoginForm = new frmLogin();
+            
             LoginForm.ShowDialog();
             int configMode = Properties.Settings.Default.DatabaseMode;
             if (configMode == 1)
@@ -183,7 +185,7 @@ namespace Schedule_Database_Desktop_Version
             {
                 models = GlobalConfig.Connection.GetLabEscByStatus(type, isOpen);
             }
-
+            DateTime emptyDate = new DateTime(1900, 1, 1);
             switch (models.Count)
             {
                 case 0:
@@ -196,6 +198,7 @@ namespace Schedule_Database_Desktop_Version
 
                 default:
                     frmMultiSelect results = new frmMultiSelect();
+                    
                     results.LabRequests = models;
                     results.Show();
 
