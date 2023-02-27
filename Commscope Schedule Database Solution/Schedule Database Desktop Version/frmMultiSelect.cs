@@ -91,8 +91,28 @@ namespace Schedule_Database_Desktop_Version
                         row.Cells["DateCompleted"].Value = "";
                     }
                 }
+                formatDGV_Escalations();
 
                 txtCount.Text = labRequests.Count.ToString();
+            }
+        }
+
+        private void formatDGV_Escalations()
+        {
+            dgvResults.Columns[0].Visible= false;
+            foreach (DataGridViewColumn col in dgvResults.Columns)
+            {
+                col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
+            }
+            string[] headers = {"Escalation ID", "MSO", "End User", "City", "State", "Country", "Severity", "Requestor", "CTR Number", "Escalatioin Number", "Entry Admin", "Date Opened",
+                                "Date Due", "Date Completed", "E-Mail","Product", "Lead Assigned", "Quantity", "Status", "Comments", "Description", "Resolution", "MS 365 Number",
+                                "Record Type"};
+            int[] widths = {145, 140, 150, 125, 120, 125, 60, 140, 115, 115, 115, 100, 100, 100, 180, 90, 115, 60, 125, 150, 150, 130, 100, 100};
+            for (int i = 0; i < headers.Length - 1; i++)
+            {
+                dgvResults.Columns[i + 1].HeaderText = headers[i];
+                dgvResults.Columns[i + 1].Width = widths[i];
             }
         }
         public List<ATEscalationsDisplayModel> Escalations
