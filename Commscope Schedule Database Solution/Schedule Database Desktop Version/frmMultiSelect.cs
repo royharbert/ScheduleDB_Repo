@@ -68,7 +68,7 @@ namespace Schedule_Database_Desktop_Version
             }
             set
             {
-                string emptyDate = "1/1/1900";
+                
                 labRequests = value;
                 requests = value;
                 customerData = null;
@@ -77,23 +77,30 @@ namespace Schedule_Database_Desktop_Version
 
                 foreach (DataGridViewRow row in dgvResults.Rows)
                 {
-                    string test = (row.Cells["DateDue"].Value.ToString());
-                    test = test.Substring(0, test.IndexOf(" "));
-                    if (test == emptyDate)
-                    {
-                        row.Cells["DateDue"].Value = "";
-                    }
+                    removeEmptyDate(row, "DateDue");
+                    removeEmptyDate(row, "DateCompleted");
 
-                    test = (row.Cells["DateCompleted"].Value.ToString());
-                    test = test.Substring(0, test.IndexOf(" "));
-                    if (test == emptyDate)
-                    {
-                        row.Cells["DateCompleted"].Value = "";
-                    }
+
+                    //string test = (row.Cells["DateCompleted"].Value.ToString());
+                    //test = test.Substring(0, test.IndexOf(" "));
+                    //if (test == emptyDate)
+                    //{
+                    //    row.Cells["DateCompleted"].Value = "";
+                    //}
                 }
                 formatDGV_Escalations();
 
                 txtCount.Text = labRequests.Count.ToString();
+            }
+        }
+        private void removeEmptyDate(DataGridViewRow row, string colHeader)
+        {
+            string emptyDate = "1/1/1900";
+            string test = (row.Cells[colHeader].Value.ToString());
+            test = test.Substring(0, test.IndexOf(" "));
+            if (test == emptyDate)
+            {
+                row.Cells[colHeader].Value = "";
             }
         }
 
