@@ -79,14 +79,6 @@ namespace Schedule_Database_Desktop_Version
                 {
                     removeEmptyDate(row, "DateDue");
                     removeEmptyDate(row, "DateCompleted");
-
-
-                    //string test = (row.Cells["DateCompleted"].Value.ToString());
-                    //test = test.Substring(0, test.IndexOf(" "));
-                    //if (test == emptyDate)
-                    //{
-                    //    row.Cells["DateCompleted"].Value = "";
-                    //}
                 }
                 formatDGV_Escalations();
 
