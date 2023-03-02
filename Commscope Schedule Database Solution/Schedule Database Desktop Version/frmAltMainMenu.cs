@@ -106,7 +106,10 @@ namespace Schedule_Database_Desktop_Version
         }
         private void btnDateRange_Click(object sender, EventArgs e)
         {
+            GV.MODE = Mode.LabEscSearch;
 
+            frmSearchDateRange searchDateRange = new frmSearchDateRange();
+            searchDateRange.Show();
         }
 
         private void btnSearchByID_Click(object sender, EventArgs e)
@@ -114,8 +117,21 @@ namespace Schedule_Database_Desktop_Version
             GV.MODE = Mode.LabEscSearch;
             frmInput inputID = new frmInput();
             inputID.Show();
+            GV.inputForm = inputID;
+            inputID.InputDataReady += InputID_InputDataReady;
 
 
+        }
+
+        private void InputID_InputDataReady(object sender, InputDataReadyEventArgs e)
+        {
+            string pid = e.SearchString.ToString();
+            List<LabEscModel> results = GlobalConfig.Connection.LabEscGetByPID("&" + pid +"&");
+            switch (results.Count)
+            {
+                default:
+                    break;
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -123,6 +139,8 @@ namespace Schedule_Database_Desktop_Version
             GV.MODE = Mode.LabEscDelete;
             frmInput inputID = new frmInput();
             inputID.Show();
+            GV.inputForm = inputID;
+            inputID.InputDataReady += InputID_InputDataReady;
         }
 
         private void btnRptAllOpen_Click(object sender, EventArgs e)

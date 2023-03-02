@@ -11,6 +11,8 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
+        List<LabEscModel>  labEscSearchDateRange(DateTime startDate, DateTime endDate);
+        List<LabEscModel> LabEscGetByPID(string PID);
         void HolidayAdd(string holiday, DateTime holidayDate);
         void UpdateHolidays(string holiday, DateTime holidayDate, int idx);
         List<LabEscModel> GetLabEscByStatus(string type, bool status);

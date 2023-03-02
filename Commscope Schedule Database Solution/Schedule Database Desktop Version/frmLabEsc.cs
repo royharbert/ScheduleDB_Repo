@@ -24,6 +24,7 @@ namespace Schedule_Database_Desktop_Version
         LabEscModel labEsc;
 
         DateTime emptyDate = new DateTime(1900, 1, 1);
+        DateTime nullDate = new DateTime(0001, 1, 1);
         LabEscModel model = new LabEscModel();
         frmInput inputForm = new frmInput();
 
@@ -522,7 +523,7 @@ namespace Schedule_Database_Desktop_Version
                 dtpDueDate.Value = model.DateDue; 
             }
             //fixes date closed note populating in report 2-21-23 LMD
-            if (model.DateCompleted == emptyDate)
+            if (model.DateCompleted == emptyDate | model.DateCompleted == nullDate)
             {
                 dtpClosedDate.Format = DateTimePickerFormat.Custom;
             }

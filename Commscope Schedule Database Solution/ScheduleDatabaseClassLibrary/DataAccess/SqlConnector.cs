@@ -17,6 +17,30 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
+        public List<LabEscModel> labEscSearchDateRange(DateTime startDate, DateTime endDate)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@start", startDate, DbType.DateTime);
+                p.Add("@end", endDate, DbType.DateTime);
+
+                List<LabEscModel> output = connection.Query<LabEscModel>("dbo.spLabEsc_DateRange", p, commandType: CommandType.StoredProcedure).ToList();
+                return output;
+            }
+        }
+
+        public List<LabEscModel> LabEscGetByPID(string PID)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@PID", PID, DbType.String);
+
+                List<LabEscModel> output = connection.Query<LabEscModel>("dbo.spLabEscGetByPID", p, commandType: CommandType.StoredProcedure).ToList();
+                return output;
+            }
+        }
         public void HolidayAdd(string holiday, DateTime holidayDate)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
