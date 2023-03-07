@@ -38,7 +38,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmAltMainMenu_Load(object sender, EventArgs e)
         {
-
+            FC.SetFormPosition(this);
         }
 
         private void btnNewRecord_Click(object sender, EventArgs e)
