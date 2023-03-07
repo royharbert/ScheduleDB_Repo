@@ -38,7 +38,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmAltMainMenu_Load(object sender, EventArgs e)
         {
-
+            FC.SetFormPosition(this);
         }
 
         private void btnNewRecord_Click(object sender, EventArgs e)
@@ -229,6 +229,11 @@ namespace Schedule_Database_Desktop_Version
             GlobalConfig.SetDatabaseMode(DatabaseType.Sandbox);
             setDBConfigProperty();
             this.Refresh();
+        }
+
+        private void btlAltLayout_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

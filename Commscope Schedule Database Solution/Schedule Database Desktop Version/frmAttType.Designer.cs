@@ -52,7 +52,7 @@ namespace Schedule_Database_Desktop_Version
             this.gbxAttType.Controls.Add(this.rdoTripRpt);
             this.gbxAttType.Controls.Add(this.rdoCRM);
             this.gbxAttType.Controls.Add(this.rdoDocCovid);
-            this.gbxAttType.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.gbxAttType.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.gbxAttType.Location = new System.Drawing.Point(12, 12);
             this.gbxAttType.Name = "gbxAttType";
             this.gbxAttType.Size = new System.Drawing.Size(255, 451);
@@ -160,12 +160,12 @@ namespace Schedule_Database_Desktop_Version
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(279, 484);
             this.Controls.Add(this.gbxAttType);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmAttType";
