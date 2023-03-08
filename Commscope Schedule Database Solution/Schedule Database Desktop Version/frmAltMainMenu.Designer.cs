@@ -48,10 +48,6 @@ namespace Schedule_Database_Desktop_Version
             this.btnExit = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnChangePW = new System.Windows.Forms.Button();
-            this.rdoLive = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.rdoDev = new System.Windows.Forms.GroupBox();
-            this.rdoDev.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSearchByID
@@ -229,7 +225,7 @@ namespace Schedule_Database_Desktop_Version
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(553, 413);
+            this.btnExit.Location = new System.Drawing.Point(553, 395);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(228, 36);
             this.btnExit.TabIndex = 19;
@@ -246,7 +242,6 @@ namespace Schedule_Database_Desktop_Version
             this.btnLogout.TabIndex = 20;
             this.btnLogout.Text = "Sign Out";
             this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btlAltLayout_Click);
             // 
             // btnChangePW
             // 
@@ -259,47 +254,11 @@ namespace Schedule_Database_Desktop_Version
             this.btnChangePW.UseVisualStyleBackColor = true;
             this.btnChangePW.Click += new System.EventHandler(this.btnChangePW_Click);
             // 
-            // rdoLive
-            // 
-            this.rdoLive.AutoSize = true;
-            this.rdoLive.Location = new System.Drawing.Point(6, 31);
-            this.rdoLive.Name = "rdoLive";
-            this.rdoLive.Size = new System.Drawing.Size(45, 17);
-            this.rdoLive.TabIndex = 22;
-            this.rdoLive.TabStop = true;
-            this.rdoLive.Text = "Live";
-            this.rdoLive.UseVisualStyleBackColor = true;
-            this.rdoLive.CheckedChanged += new System.EventHandler(this.rdoLive_CheckedChanged);
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(111, 31);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(88, 17);
-            this.radioButton2.TabIndex = 23;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Development";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
-            // rdoDev
-            // 
-            this.rdoDev.Controls.Add(this.rdoLive);
-            this.rdoDev.Controls.Add(this.radioButton2);
-            this.rdoDev.Location = new System.Drawing.Point(42, 370);
-            this.rdoDev.Name = "rdoDev";
-            this.rdoDev.Size = new System.Drawing.Size(349, 61);
-            this.rdoDev.TabIndex = 24;
-            this.rdoDev.TabStop = false;
-            this.rdoDev.Text = "Database Mode";
-            // 
             // frmAltMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 480);
-            this.Controls.Add(this.rdoDev);
             this.Controls.Add(this.btnChangePW);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnExit);
@@ -322,8 +281,6 @@ namespace Schedule_Database_Desktop_Version
             this.Name = "frmAltMainMenu";
             this.Text = "Main Menu";
             this.Load += new System.EventHandler(this.frmAltMainMenu_Load);
-            this.rdoDev.ResumeLayout(false);
-            this.rdoDev.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,8 +306,5 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnChangePW;
-        private System.Windows.Forms.RadioButton rdoLive;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.GroupBox rdoDev;
     }
 }

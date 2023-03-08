@@ -216,24 +216,5 @@ namespace Schedule_Database_Desktop_Version
             }
             Properties.Settings.Default.Save();
         }
-
-        private void rdoLive_CheckedChanged(object sender, EventArgs e)
-        {
-            GlobalConfig.SetDatabaseMode(DatabaseType.Live);
-            setDBConfigProperty();
-            this.Refresh();
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            GlobalConfig.SetDatabaseMode(DatabaseType.Sandbox);
-            setDBConfigProperty();
-            this.Refresh();
-        }
-
-        private void btlAltLayout_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
