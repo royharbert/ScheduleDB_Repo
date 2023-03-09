@@ -25,7 +25,7 @@ namespace Schedule_Database_Desktop_Version
             setDBConfigProperty();
         }
 
-        
+
         private frmLabEsc showLabEscForm()
         {
             Mode curMode = GV.MODE;
@@ -126,7 +126,7 @@ namespace Schedule_Database_Desktop_Version
         private void InputID_InputDataReady(object sender, InputDataReadyEventArgs e)
         {
             string pid = e.SearchString.ToString();
-            List<LabEscModel> results = GlobalConfig.Connection.LabEscGetByPID("&" + pid +"&");
+            List<LabEscModel> results = GlobalConfig.Connection.LabEscGetByPID("&" + pid + "&");
             switch (results.Count)
             {
                 default:

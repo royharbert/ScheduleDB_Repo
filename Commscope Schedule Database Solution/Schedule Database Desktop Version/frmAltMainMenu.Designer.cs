@@ -242,6 +242,14 @@ namespace Schedule_Database_Desktop_Version
             this.btlAltLayout.TabIndex = 20;
             this.btlAltLayout.Text = "Alternate Layout";
             this.btlAltLayout.UseVisualStyleBackColor = true;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(42, 79);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(233, 36);
+            this.btnLogout.TabIndex = 20;
+            this.btnLogout.Text = "Sign Out";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnChangePW
             // 

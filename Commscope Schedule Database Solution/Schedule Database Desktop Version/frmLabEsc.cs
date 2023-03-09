@@ -32,6 +32,7 @@ namespace Schedule_Database_Desktop_Version
 
         public LabEscModel LabEsc
         {
+
             get
             {
                 return labEsc;
@@ -876,6 +877,11 @@ namespace Schedule_Database_Desktop_Version
         private void cboRecType_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             cboMSO.Enabled= true;
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -229,6 +229,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMDI_Parent.resx">
       <DependentUpon>frmMDI_Parent.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMultiSelect.resx">
       <DependentUpon>frmMultiSelect.cs</DependentUpon>
