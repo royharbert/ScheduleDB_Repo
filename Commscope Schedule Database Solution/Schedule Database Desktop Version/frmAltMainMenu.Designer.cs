@@ -242,6 +242,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnLogout.TabIndex = 20;
             this.btnLogout.Text = "Sign Out";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnChangePW
             // 
