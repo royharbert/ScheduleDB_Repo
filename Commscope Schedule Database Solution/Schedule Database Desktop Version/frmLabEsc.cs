@@ -553,6 +553,7 @@ namespace Schedule_Database_Desktop_Version
             dgvAttachments.DataSource = null;
             dgvAttachments.DataSource = aList;
             formatAttGrid();
+            GV.MODE = Mode.LabEscEdit;
             formLoading = false;
             formDirty = false;
         }
@@ -867,7 +868,7 @@ namespace Schedule_Database_Desktop_Version
         {
             if (! formLoading)
             {
-                GV.MODE = Mode.LabEscEdit;
+                //GV.MODE = Mode.LabEscEdit;
                 formDirty = true;
             }
         }
