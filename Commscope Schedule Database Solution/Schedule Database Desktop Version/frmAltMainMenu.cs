@@ -219,7 +219,10 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-          
+            GV.Priviledge = 0;
+            GV.MAINMENU.SetMenuAccess();
+            GV.USERMODEL = null;
+            this.Close();
 
         }
     }

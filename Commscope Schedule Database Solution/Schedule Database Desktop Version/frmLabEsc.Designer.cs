@@ -907,7 +907,7 @@ namespace Schedule_Database_Desktop_Version
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(369, 628);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(375, 628);
             this.tableLayoutPanel1.TabIndex = 207;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 

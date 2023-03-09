@@ -323,7 +323,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
 
-        public int AddUser(AdminModel NewUser)
+        public int AddUser(UserModel NewUser)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
@@ -352,7 +352,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         }
 
 
-        public void UpdateUser(AdminModel ThisUser)
+        public void UpdateUser(UserModel ThisUser)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {

@@ -38,9 +38,9 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         void Sequence_Set(int seq);
         int EIDSequence_Get(string tableName);
         void EIDSequence_Set(string tableName, int seq);
-        int AddUser(AdminModel NewUser);
+        int AddUser(UserModel NewUser);
         void DeleteUser(int OldUser);
-        void UpdateUser(AdminModel ThisUser);        
+        void UpdateUser(UserModel ThisUser);        
         UserModel GetUser(string userName);
         void AddCountry(String ctry);
         void DeleteCountry(int idy);

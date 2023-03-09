@@ -13,7 +13,7 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmAddAdmin : Form
     {
-        public AdminModel admin { get; set; }
+        public UserModel admin { get; set; }
         public bool AddingAdmin { get; set; }
         public frmAddAdmin()
         {
