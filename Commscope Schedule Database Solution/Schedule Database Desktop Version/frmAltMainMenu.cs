@@ -223,6 +223,7 @@ namespace Schedule_Database_Desktop_Version
             GV.MAINMENU.SetMenuAccess();
             GV.USERMODEL = null;
             this.Close();
+        }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
