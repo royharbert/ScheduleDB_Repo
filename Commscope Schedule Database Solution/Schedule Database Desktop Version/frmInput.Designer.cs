@@ -76,7 +76,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(674, 226);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnGo);
@@ -87,7 +87,7 @@ namespace Schedule_Database_Desktop_Version
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmInput";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Project ID Input";
+            this.Text = "Input Form";
             this.Activated += new System.EventHandler(this.frmInput_Activated);
             this.Load += new System.EventHandler(this.frmInput_Load);
             this.ResumeLayout(false);

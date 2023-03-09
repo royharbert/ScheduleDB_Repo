@@ -204,7 +204,6 @@
             this.btnCloseForm.TabIndex = 22;
             this.btnCloseForm.Text = "Close";
             this.btnCloseForm.UseVisualStyleBackColor = true;
-            this.btnCloseForm.Click += new System.EventHandler(this.btnCloseForm_Click);
             // 
             // btnSearchDateRange
             // 

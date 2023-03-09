@@ -38,7 +38,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmAltMainMenu_Load(object sender, EventArgs e)
         {
-            FC.SetFormPosition(this);
+
         }
 
         private void btnNewRecord_Click(object sender, EventArgs e)
@@ -215,6 +215,20 @@ namespace Schedule_Database_Desktop_Version
                 setFormText();
             }
             Properties.Settings.Default.Save();
+        }
+
+        private void rdoLive_CheckedChanged(object sender, EventArgs e)
+        {
+            GlobalConfig.SetDatabaseMode(DatabaseType.Live);
+            setDBConfigProperty();
+            this.Refresh();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            GlobalConfig.SetDatabaseMode(DatabaseType.Sandbox);
+            setDBConfigProperty();
+            this.Refresh();
         }
     }
 }

@@ -46,7 +46,7 @@ namespace Schedule_Database_Desktop_Version
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
+            this.btlAltLayout = new System.Windows.Forms.Button();
             this.btnChangePW = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -233,15 +233,15 @@ namespace Schedule_Database_Desktop_Version
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnLogout
+            // btlAltLayout
             // 
-            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(42, 79);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(233, 36);
-            this.btnLogout.TabIndex = 20;
-            this.btnLogout.Text = "Sign Out";
-            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btlAltLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btlAltLayout.Location = new System.Drawing.Point(42, 79);
+            this.btlAltLayout.Name = "btlAltLayout";
+            this.btlAltLayout.Size = new System.Drawing.Size(233, 36);
+            this.btlAltLayout.TabIndex = 20;
+            this.btlAltLayout.Text = "Alternate Layout";
+            this.btlAltLayout.UseVisualStyleBackColor = true;
             // 
             // btnChangePW
             // 
@@ -260,7 +260,7 @@ namespace Schedule_Database_Desktop_Version
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 480);
             this.Controls.Add(this.btnChangePW);
-            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.btlAltLayout);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -304,7 +304,7 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btlAltLayout;
         private System.Windows.Forms.Button btnChangePW;
     }
 }

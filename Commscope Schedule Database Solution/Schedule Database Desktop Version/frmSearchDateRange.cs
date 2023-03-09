@@ -18,6 +18,11 @@ namespace Schedule_Database_Desktop_Version
         {
             InitializeComponent();
         }
+        private void btnCloseForm_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnSearchDateRange_Click(object sender, EventArgs e)
         {
             List<LabEscModel> model  = GlobalConfig.Connection.labEscSearchDateRange(dtpStartDateRange.Value, dtpEndDateRange.Value);
@@ -45,11 +50,6 @@ namespace Schedule_Database_Desktop_Version
         private void frmSearchDateRange_Load(object sender, EventArgs e)
         {
             FC.SetFormPosition(this);
-        }
-
-        private void btnCloseForm_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
