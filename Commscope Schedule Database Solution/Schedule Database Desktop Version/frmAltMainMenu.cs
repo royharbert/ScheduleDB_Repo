@@ -219,10 +219,10 @@ namespace Schedule_Database_Desktop_Version
 
         private void rdoLive_CheckedChanged(object sender, EventArgs e)
         {
-            GlobalConfig.SetDatabaseMode(DatabaseType.Live);
-            setDBConfigProperty();
-            this.Refresh();
-        }
+            GV.Priviledge = 0;
+            GV.MAINMENU.SetMenuAccess();
+            GV.USERMODEL = null;
+            this.Close();
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {

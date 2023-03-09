@@ -53,7 +53,7 @@ namespace Schedule_Database_Desktop_Version
             {
                 idx = dgvAdmin.CurrentRow.Index;
             }
-            List<AdminModel> admins = GlobalConfig.Connection.GenericGetAll<AdminModel>("tblUsers", "LastName");
+            List<UserModel> admins = GlobalConfig.Connection.GenericGetAll<UserModel>("tblUsers", "LastName");
             dgvAdmin.DataSource = admins;
             formatDGV();
             if (selRow != -1)
@@ -69,9 +69,9 @@ namespace Schedule_Database_Desktop_Version
             selRow = dgvAdmin.CurrentRow.Index;
             lblFunction.Text = "Editing User";
             AddingUser = false;
-            List<AdminModel> admins = (List <AdminModel>) dgvAdmin.DataSource;
+            List<UserModel> admins = (List <UserModel>) dgvAdmin.DataSource;
             int curRow = dgvAdmin.CurrentRow.Index;
-            AdminModel model = admins[curRow];
+            UserModel model = admins[curRow];
             txtFirstName.Text = model.FirstName;
             txtLastName.Text = model.LastName;
             txtPassword.Text = model.PW;
@@ -91,7 +91,7 @@ namespace Schedule_Database_Desktop_Version
         private void btnSave_Click(object sender, EventArgs e)
         {
             int ID = 0;
-            AdminModel model = new AdminModel();
+            UserModel model = new UserModel();
             model.FirstName = txtFirstName.Text;
             model.LastName = txtLastName.Text;
             model.PW = txtPassword.Text;

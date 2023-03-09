@@ -14,7 +14,7 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string FirstName { get; set; }
         public string PW { get; set; }
         public int Priviledge { get; set; }
-        public bool ActiveDesigner { get; set; }
+        public bool Active { get; set; }
         private string _fullName;
 
         public string FullName
@@ -45,7 +45,7 @@ namespace ScheduleDatabaseClassLibrary.Models
 
             bool pActive = true;
             bool.TryParse(activeDesigner, out pActive);
-            ActiveDesigner = pActive;
+            Active = pActive;
 
             int IDval = 0;
             int.TryParse(id, out IDval);

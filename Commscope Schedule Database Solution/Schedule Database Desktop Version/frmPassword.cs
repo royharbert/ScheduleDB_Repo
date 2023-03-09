@@ -27,15 +27,15 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnChangePass_Click(object sender, EventArgs e)
         {
-            AdminModel model = new AdminModel();
-
+            UserModel model = GV.USERMODEL;
 
             if (txtNewPass.Text == txtConfirmPass.Text && txtCurrentPass.Text == GV.USERMODEL.PW)
             {
-                txtNewPass.Text = model.PW;
+                model.PW = txtNewPass.Text;
                
                 GlobalConfig.Connection.UpdateUser(model);
                 MessageBox.Show("Password has been updated");
+                this.Close();
             }
             else if (txtNewPass.Text == txtConfirmPass.Text && txtCurrentPass.Text != GV.USERMODEL.PW)
             {
