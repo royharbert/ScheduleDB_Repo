@@ -201,7 +201,7 @@ namespace Schedule_Database_Desktop_Version
                             whereClause = whereClause + " upper(" + model.FieldName + ") like  upper('%" + model.FieldValue + "%') and ";
                         }
                     }
-                    whereClause = whereClause.Substring(0, whereClause.Length - 5);
+                    whereClause = whereClause.Substring(0, whereClause.Length - 5);                    
                     List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
                     displayResults(requests);
                     formDirty = false;
