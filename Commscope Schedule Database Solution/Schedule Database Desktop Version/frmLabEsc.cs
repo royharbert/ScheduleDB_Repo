@@ -431,7 +431,7 @@ namespace Schedule_Database_Desktop_Version
             fillComboList<StatusModel>(cboStatus, "tblStatus", "Status", "Status");
             fillComboList<PersonModel>(cboLead, "tblEscLeads", "FullName", "LastName");
             fillComboList<ResolutionModel>(cboResolution, "tblResolutions", "ResolutionType", "ResolutionType");
-
+            fillComboList<ApplicationModel>(cboApplication, "tblApplication", "ApplicationName", "ApplicationName");
             cboRecType.Items.Add("AT Escalation");
             cboRecType.Items.Add("Lab Request");
 
@@ -514,6 +514,7 @@ namespace Schedule_Database_Desktop_Version
             model.Description = rtxDescription.Text;
             model.Resolution = cboResolution.Text;
             model.RecordType = cboRecType.Text;
+            model.Application = cboApplication.Text;
 
             if (lstProducts.SelectedIndex > -1)
             {
@@ -569,6 +570,7 @@ namespace Schedule_Database_Desktop_Version
             txtPSNum.Text = model.PSNumber;
             txtID.Text = model.ID.ToString();
             txtEntryAdmin.Text = model.EntryAdmin;
+            cboApplication.Text = model.Application;
 
             //highlight product
             int idx = highlightProductList(model.Product);

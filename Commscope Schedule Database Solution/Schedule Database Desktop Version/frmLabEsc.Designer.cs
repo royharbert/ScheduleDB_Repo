@@ -935,6 +935,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboApplication.Name = "cboApplication";
             this.cboApplication.Size = new System.Drawing.Size(269, 26);
             this.cboApplication.TabIndex = 209;
+            this.cboApplication.Tag = "Application";
             // 
             // frmLabEsc
             // 
