@@ -38,7 +38,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmAltMainMenu_Load(object sender, EventArgs e)
         {
-
+            FC.SetFormPosition(this);
         }
 
         private void btnNewRecord_Click(object sender, EventArgs e)
@@ -231,5 +231,14 @@ namespace Schedule_Database_Desktop_Version
             setDBConfigProperty();
             this.Refresh();
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            GV.USERMODEL = null;
+            this.Visible = false;
+            GV.Priviledge = 0;
+            GV.MAINMENU.SetMenuAccess();
+        }
+       
     }
 }
