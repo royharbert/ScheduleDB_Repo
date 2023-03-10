@@ -44,7 +44,6 @@ namespace Schedule_Database_Desktop_Version
                 GV.MODE = Mode.LabEscEdit;
                 loadBoxes(labEsc);
                 getAttachments(labEsc.EscID);
-                txtRecordID.Enabled = false;
                 this.BringToFront();
             }
         }
@@ -166,6 +165,28 @@ namespace Schedule_Database_Desktop_Version
                     break;
 
                 case Mode.LabEscSearch:
+                    //List<FieldSearchModel> models = collectData();
+                    //string whereClause = "where ";
+                    //foreach (var model in models)
+                    //{
+                    //    if (model.FieldName == "Comments" | model.FieldName == "Description" | model.FieldName == "PSNumber" | model.FieldName == "Resolution"
+                    //        | model.FieldName == "CTRNum" | model.FieldName == "EscNum" | model.FieldName == "EscID")
+                    //    {
+                    //        whereClause = whereClause + model.FieldName + " like '%" + model.FieldValue + "%' and ";
+                    //    }
+                    //    else
+                    //    {
+                    //        whereClause = whereClause + model.FieldName + " = '" + model.FieldValue + "' and ";
+                    //    }
+                    //}
+                    //whereClause = whereClause.Substring(0, whereClause.Length - 5);
+                    //List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
+                    //displayResults(requests);
+                    //formDirty = false;
+                    //this.Close();
+
+                    //break;
+
                     List<FieldSearchModel> models = collectData();
                     string whereClause = "where ";
                     foreach (var model in models)
@@ -173,11 +194,11 @@ namespace Schedule_Database_Desktop_Version
                         if (model.FieldName == "Comments" | model.FieldName == "Description" | model.FieldName == "PSNumber" | model.FieldName == "Resolution"
                             | model.FieldName == "CTRNum" | model.FieldName == "EscNum" | model.FieldName == "EscID")
                         {
-                            whereClause = whereClause + model.FieldName + " like '%" + model.FieldValue + "%' and ";
+                            whereClause = whereClause + " upper(" + model.FieldName + ") like  upper('%" + model.FieldValue + "%') and ";
                         }
                         else
                         {
-                            whereClause = whereClause + model.FieldName + " = '" + model.FieldValue + "' and ";
+                            whereClause = whereClause + " upper(" + model.FieldName + ") like  upper('%" + model.FieldValue + "%') and ";
                         }
                     }
                     whereClause = whereClause.Substring(0, whereClause.Length - 5);
@@ -607,7 +628,7 @@ namespace Schedule_Database_Desktop_Version
                 string PID = PID_Generator.GeneratePID(model, cboRecType.Text);
                 txtRecordID.Text = PID;
                 CommonOps.lockControls(false, this, "");
-                txtRecordID.Enabled = false;
+                //txtRecordID.Enabled = false;
                 cboRecType.Enabled = false;
                 cboMSO.Enabled= false;
                 GV.MODE = Mode.LabEscAdd;
