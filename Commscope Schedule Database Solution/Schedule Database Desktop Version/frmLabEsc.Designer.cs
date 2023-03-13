@@ -90,12 +90,12 @@ namespace Schedule_Database_Desktop_Version
             this.btnNewProduct = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.cboType = new System.Windows.Forms.ComboBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpLeft = new System.Windows.Forms.TableLayoutPanel();
             this.label25 = new System.Windows.Forms.Label();
             this.cboApplication = new System.Windows.Forms.ComboBox();
             this.dtpContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tlpLeft.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtRecordID
@@ -842,80 +842,80 @@ namespace Schedule_Database_Desktop_Version
             this.cboType.TabIndex = 206;
             this.cboType.Tag = "Requestor";
             // 
-            // tableLayoutPanel1
+            // tlpLeft
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tlpLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74F));
-            this.tableLayoutPanel1.Controls.Add(this.lblRecordType, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cboType, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label11, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.cboRecType, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.cboCity, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.txtCTRNum, 1, 13);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label16, 0, 10);
-            this.tableLayoutPanel1.Controls.Add(this.label18, 0, 11);
-            this.tableLayoutPanel1.Controls.Add(this.label23, 0, 12);
-            this.tableLayoutPanel1.Controls.Add(this.txtQty, 1, 11);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 13);
-            this.tableLayoutPanel1.Controls.Add(this.txtEntryAdmin, 1, 18);
-            this.tableLayoutPanel1.Controls.Add(this.cboLead, 1, 10);
-            this.tableLayoutPanel1.Controls.Add(this.dtpClosedDate, 1, 17);
-            this.tableLayoutPanel1.Controls.Add(this.dtpDueDate, 1, 16);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 0, 14);
-            this.tableLayoutPanel1.Controls.Add(this.cboStatus, 1, 9);
-            this.tableLayoutPanel1.Controls.Add(this.dtpStartDate, 1, 15);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 0, 15);
-            this.tableLayoutPanel1.Controls.Add(this.txtEscNum, 1, 14);
-            this.tableLayoutPanel1.Controls.Add(this.label13, 0, 16);
-            this.tableLayoutPanel1.Controls.Add(this.label12, 0, 17);
-            this.tableLayoutPanel1.Controls.Add(this.txtPSNum, 1, 12);
-            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 18);
-            this.tableLayoutPanel1.Controls.Add(this.label19, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.cboMSO, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtEndUser, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cboState, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.cboCountry, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.cboSeverity, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.cboRequestor, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label25, 0, 19);
-            this.tableLayoutPanel1.Controls.Add(this.cboApplication, 1, 19);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(21, 33);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 20;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(375, 640);
-            this.tableLayoutPanel1.TabIndex = 207;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            this.tlpLeft.ColumnCount = 2;
+            this.tlpLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26F));
+            this.tlpLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74F));
+            this.tlpLeft.Controls.Add(this.lblRecordType, 0, 0);
+            this.tlpLeft.Controls.Add(this.label1, 0, 1);
+            this.tlpLeft.Controls.Add(this.cboType, 1, 8);
+            this.tlpLeft.Controls.Add(this.label5, 0, 2);
+            this.tlpLeft.Controls.Add(this.label11, 0, 8);
+            this.tlpLeft.Controls.Add(this.cboRecType, 1, 0);
+            this.tlpLeft.Controls.Add(this.label3, 0, 3);
+            this.tlpLeft.Controls.Add(this.cboCity, 1, 3);
+            this.tlpLeft.Controls.Add(this.label2, 0, 4);
+            this.tlpLeft.Controls.Add(this.label6, 0, 5);
+            this.tlpLeft.Controls.Add(this.label7, 0, 6);
+            this.tlpLeft.Controls.Add(this.txtCTRNum, 1, 13);
+            this.tlpLeft.Controls.Add(this.label9, 0, 7);
+            this.tlpLeft.Controls.Add(this.label16, 0, 10);
+            this.tlpLeft.Controls.Add(this.label18, 0, 11);
+            this.tlpLeft.Controls.Add(this.label23, 0, 12);
+            this.tlpLeft.Controls.Add(this.txtQty, 1, 11);
+            this.tlpLeft.Controls.Add(this.label8, 0, 13);
+            this.tlpLeft.Controls.Add(this.txtEntryAdmin, 1, 18);
+            this.tlpLeft.Controls.Add(this.cboLead, 1, 10);
+            this.tlpLeft.Controls.Add(this.dtpClosedDate, 1, 17);
+            this.tlpLeft.Controls.Add(this.dtpDueDate, 1, 16);
+            this.tlpLeft.Controls.Add(this.label10, 0, 14);
+            this.tlpLeft.Controls.Add(this.cboStatus, 1, 9);
+            this.tlpLeft.Controls.Add(this.dtpStartDate, 1, 15);
+            this.tlpLeft.Controls.Add(this.label14, 0, 15);
+            this.tlpLeft.Controls.Add(this.txtEscNum, 1, 14);
+            this.tlpLeft.Controls.Add(this.label13, 0, 16);
+            this.tlpLeft.Controls.Add(this.label12, 0, 17);
+            this.tlpLeft.Controls.Add(this.txtPSNum, 1, 12);
+            this.tlpLeft.Controls.Add(this.label15, 0, 18);
+            this.tlpLeft.Controls.Add(this.label19, 0, 9);
+            this.tlpLeft.Controls.Add(this.cboMSO, 1, 1);
+            this.tlpLeft.Controls.Add(this.txtEndUser, 1, 2);
+            this.tlpLeft.Controls.Add(this.cboState, 1, 4);
+            this.tlpLeft.Controls.Add(this.cboCountry, 1, 5);
+            this.tlpLeft.Controls.Add(this.cboSeverity, 1, 6);
+            this.tlpLeft.Controls.Add(this.cboRequestor, 1, 7);
+            this.tlpLeft.Controls.Add(this.label25, 0, 19);
+            this.tlpLeft.Controls.Add(this.cboApplication, 1, 19);
+            this.tlpLeft.Location = new System.Drawing.Point(21, 33);
+            this.tlpLeft.Name = "tlpLeft";
+            this.tlpLeft.RowCount = 20;
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpLeft.Size = new System.Drawing.Size(375, 640);
+            this.tlpLeft.TabIndex = 207;
+            this.tlpLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // label25
             // 
@@ -944,7 +944,7 @@ namespace Schedule_Database_Desktop_Version
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(1409, 741);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tlpLeft);
             this.Controls.Add(this.btnNewProduct);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.cboResolution);
@@ -972,8 +972,8 @@ namespace Schedule_Database_Desktop_Version
             this.Load += new System.EventHandler(this.frmLabEsc_Load);
             this.dtpContextMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tlpLeft.ResumeLayout(false);
+            this.tlpLeft.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1039,7 +1039,7 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Button btnNewProduct;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cboType;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tlpLeft;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.ComboBox cboApplication;
     }

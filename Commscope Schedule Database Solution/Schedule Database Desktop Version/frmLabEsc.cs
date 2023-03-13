@@ -66,7 +66,7 @@ namespace Schedule_Database_Desktop_Version
                     txtRecordID.Clear();
                     cboRecType.Enabled = true;
                     cboMSO.Enabled = true;
-                    CommonOps.lockControls(true, this, "cboRecType");
+                    CommonOps.lockControls(true, tlpLeft, "cboRecType");
                     model = new LabEscModel();
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
                     txtEntryAdmin.Text = GV.USERMODEL.FullName;
@@ -93,6 +93,7 @@ namespace Schedule_Database_Desktop_Version
                     dtpStartDate.Enabled = false;
                     dtpDueDate.Enabled = false;
                     dtpClosedDate.Enabled = false;
+                    txtRecordID.ReadOnly= false;
                     btnSave.Text = "Search";
                     break;
                 default:
@@ -165,27 +166,7 @@ namespace Schedule_Database_Desktop_Version
                     break;
 
                 case Mode.LabEscSearch:
-                    //List<FieldSearchModel> models = collectData();
-                    //string whereClause = "where ";
-                    //foreach (var model in models)
-                    //{
-                    //    if (model.FieldName == "Comments" | model.FieldName == "Description" | model.FieldName == "PSNumber" | model.FieldName == "Resolution"
-                    //        | model.FieldName == "CTRNum" | model.FieldName == "EscNum" | model.FieldName == "EscID")
-                    //    {
-                    //        whereClause = whereClause + model.FieldName + " like '%" + model.FieldValue + "%' and ";
-                    //    }
-                    //    else
-                    //    {
-                    //        whereClause = whereClause + model.FieldName + " = '" + model.FieldValue + "' and ";
-                    //    }
-                    //}
-                    //whereClause = whereClause.Substring(0, whereClause.Length - 5);
-                    //List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
-                    //displayResults(requests);
-                    //formDirty = false;
-                    //this.Close();
-
-                    //break;
+            
 
                     List<FieldSearchModel> models = collectData();
                     string whereClause = "where ";
@@ -209,6 +190,7 @@ namespace Schedule_Database_Desktop_Version
                     List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
                     displayResults(requests);
                     formDirty = false;
+                    txtRecordID.ReadOnly = true;
                     this.Close();
 
                     break;
@@ -633,7 +615,7 @@ namespace Schedule_Database_Desktop_Version
                 formDirty = true;
                 string PID = PID_Generator.GeneratePID(model, cboRecType.Text);
                 txtRecordID.Text = PID;
-                CommonOps.lockControls(false, this, "");
+                CommonOps.lockControls(false, tlpLeft, "");
                 //txtRecordID.Enabled = false;
                 cboRecType.Enabled = false;
                 cboMSO.Enabled= false;

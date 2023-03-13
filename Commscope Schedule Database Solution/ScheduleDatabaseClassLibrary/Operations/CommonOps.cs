@@ -33,6 +33,22 @@ namespace ScheduleDatabaseClassLibrary.Operations
                 }
             }
         }
+
+        public static void lockControls(bool lockControl, TableLayoutPanel frm, string skipList)
+        {
+            foreach (Control control in frm.Controls)
+            {
+                if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox
+                     | control is DateTimePicker)
+                {
+                    int idx = skipList.IndexOf(control.Name);
+                    if (idx == -1)
+                    {
+                        control.Enabled = !lockControl;
+                    }
+                }
+            }
+        }
         public static void MakeMSO_StatusList(List<MSO_Model> msoList, DataGridView dgv)
         {
             dgv.DataSource = msoList;
