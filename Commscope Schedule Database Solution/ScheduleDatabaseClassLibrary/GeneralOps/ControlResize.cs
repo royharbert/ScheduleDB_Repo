@@ -13,8 +13,8 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
     {
         public static void ResizeControl(Control ctl, int left, int width, int frm)
         {
-            originalFormSize = this.Size;
-            btnOriginalRect = new Rectangle()
+            //originalFormSize = this.Size;
+            btnOriginalRect = new Rectangle();
         }
 
         public static Rectangle btnOriginalRect;
