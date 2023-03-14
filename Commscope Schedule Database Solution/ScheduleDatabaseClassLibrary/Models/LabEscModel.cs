@@ -57,5 +57,7 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string PSNumber { get; set; }
         [ExcelExportProperty]
         public string RecordType { get; set; }
+        [ExcelExportProperty]
+        public string Application { get; set; }
     }
 }

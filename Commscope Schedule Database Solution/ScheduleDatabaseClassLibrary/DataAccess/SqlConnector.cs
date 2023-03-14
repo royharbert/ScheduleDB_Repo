@@ -170,6 +170,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@Resolution", model.Resolution, DbType.String);
                 p.Add("@PSNumber", model.PSNumber, DbType.String);
                 p.Add("@RecordType", model.RecordType, DbType.String);
+                p.Add("@Application", model.Application, DbType.String);
 
                 connection.Execute("dbo.spLabEsc_CRUD", p, commandType: CommandType.StoredProcedure);
 

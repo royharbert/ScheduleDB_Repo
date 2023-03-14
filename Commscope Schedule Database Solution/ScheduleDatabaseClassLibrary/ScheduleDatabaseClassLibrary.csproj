@@ -96,6 +96,7 @@
     <Compile Include="Globals.cs" />
     <Compile Include="Models\ActivityModel.cs" />
     <Compile Include="Models\AdminModel.cs" />
+    <Compile Include="Models\ApplicationModel.cs" />
     <Compile Include="Models\AssignmentDisplayModel.cs" />
     <Compile Include="Models\AssignmentRetrieveModel.cs" />
     <Compile Include="Models\AssignmentSaveModel.cs" />
