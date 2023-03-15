@@ -89,9 +89,7 @@ namespace Schedule_Database_Desktop_Version
             this.lblRecordType = new System.Windows.Forms.Label();
             this.btnNewProduct = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.cboType = new System.Windows.Forms.ComboBox();
             this.tlpLeft = new System.Windows.Forms.TableLayoutPanel();
-            this.label25 = new System.Windows.Forms.Label();
             this.cboApplication = new System.Windows.Forms.ComboBox();
             this.dtpContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
@@ -391,6 +389,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtpDueDate.TabIndex = 15;
             this.dtpDueDate.Tag = "DueDate";
             this.dtpDueDate.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
+            this.dtpDueDate.ValueChanged += new System.EventHandler(this.dtpDueDate_ValueChanged);
             // 
             // label12
             // 
@@ -609,6 +608,8 @@ namespace Schedule_Database_Desktop_Version
             this.rtxDescription.Tag = "Description";
             this.rtxDescription.Text = "";
             this.rtxDescription.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
+            this.rtxDescription.Enter += new System.EventHandler(this.rtxDescription_Enter);
+            this.rtxDescription.Leave += new System.EventHandler(this.rtxDescription_Leave);
             // 
             // rtxComments
             // 
@@ -623,6 +624,8 @@ namespace Schedule_Database_Desktop_Version
             this.rtxComments.Tag = "Comments";
             this.rtxComments.Text = "";
             this.rtxComments.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
+            this.rtxComments.Enter += new System.EventHandler(this.rtxComments_Enter);
+            this.rtxComments.Leave += new System.EventHandler(this.rtxComments_Leave);
             // 
             // label23
             // 
@@ -829,19 +832,6 @@ namespace Schedule_Database_Desktop_Version
             this.label11.Text = "Type";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // cboType
-            // 
-            this.cboType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cboType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboType.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cboType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.cboType.FormattingEnabled = true;
-            this.cboType.Location = new System.Drawing.Point(100, 259);
-            this.cboType.Name = "cboType";
-            this.cboType.Size = new System.Drawing.Size(272, 26);
-            this.cboType.TabIndex = 206;
-            this.cboType.Tag = "Requestor";
-            // 
             // tlpLeft
             // 
             this.tlpLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -852,7 +842,6 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74F));
             this.tlpLeft.Controls.Add(this.lblRecordType, 0, 0);
             this.tlpLeft.Controls.Add(this.label1, 0, 1);
-            this.tlpLeft.Controls.Add(this.cboType, 1, 8);
             this.tlpLeft.Controls.Add(this.label5, 0, 2);
             this.tlpLeft.Controls.Add(this.label11, 0, 8);
             this.tlpLeft.Controls.Add(this.cboRecType, 1, 0);
@@ -888,8 +877,7 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.Controls.Add(this.cboCountry, 1, 5);
             this.tlpLeft.Controls.Add(this.cboSeverity, 1, 6);
             this.tlpLeft.Controls.Add(this.cboRequestor, 1, 7);
-            this.tlpLeft.Controls.Add(this.label25, 0, 19);
-            this.tlpLeft.Controls.Add(this.cboApplication, 1, 19);
+            this.tlpLeft.Controls.Add(this.cboApplication, 1, 8);
             this.tlpLeft.Location = new System.Drawing.Point(21, 33);
             this.tlpLeft.Name = "tlpLeft";
             this.tlpLeft.RowCount = 20;
@@ -915,26 +903,15 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpLeft.Size = new System.Drawing.Size(375, 640);
             this.tlpLeft.TabIndex = 207;
-            this.tlpLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
-            // 
-            // label25
-            // 
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(3, 608);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(91, 23);
-            this.label25.TabIndex = 208;
-            this.label25.Text = "Application";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cboApplication
             // 
             this.cboApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboApplication.FormattingEnabled = true;
-            this.cboApplication.Location = new System.Drawing.Point(100, 611);
+            this.cboApplication.Location = new System.Drawing.Point(100, 259);
             this.cboApplication.Name = "cboApplication";
             this.cboApplication.Size = new System.Drawing.Size(269, 26);
-            this.cboApplication.TabIndex = 209;
+            this.cboApplication.TabIndex = 210;
             this.cboApplication.Tag = "Application";
             // 
             // frmLabEsc
@@ -1038,9 +1015,7 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Label lblRecordType;
         private System.Windows.Forms.Button btnNewProduct;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cboType;
         private System.Windows.Forms.TableLayoutPanel tlpLeft;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.ComboBox cboApplication;
     }
 }
