@@ -44,6 +44,7 @@ namespace Schedule_Database_Desktop_Version
                 GV.MODE = Mode.LabEscEdit;
                 loadBoxes(labEsc);
                 getAttachments(labEsc.EscID);
+                txtRecordID.ReadOnly = true;    
                 this.BringToFront();
             }
         }
@@ -86,7 +87,6 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case Mode.LabEscSearch:
                     CommonOps.lockControls(false, this, "");
-                    txtRecordID.Focus();
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
                     dtpDueDate.Format = DateTimePickerFormat.Custom;
                     dtpStartDate.Format = DateTimePickerFormat.Custom;
@@ -95,6 +95,7 @@ namespace Schedule_Database_Desktop_Version
                     dtpClosedDate.Enabled = false;
                     txtRecordID.ReadOnly= false;
                     btnSave.Text = "Search";
+                    txtRecordID.Focus();
                     break;
                 default:
                     break;
@@ -166,8 +167,6 @@ namespace Schedule_Database_Desktop_Version
                     break;
 
                 case Mode.LabEscSearch:
-            
-
                     List<FieldSearchModel> models = collectData();
                     string whereClause = "where ";
                     foreach (var model in models)
@@ -359,7 +358,8 @@ namespace Schedule_Database_Desktop_Version
                     escForm.Show();
                     escForm.loadBoxes(model);
                     escForm.setBtnSaveText("Save");
-                    cboMSO.Focus();
+                    //escForm.dtpDateCompleted.Focus();
+                    escForm.txtRecordID.ReadOnly= true;
                     escForm.BringToFront();
                     break;
                 default:
@@ -842,6 +842,7 @@ namespace Schedule_Database_Desktop_Version
         private void dtpStartDate_ValueChanged(object sender, EventArgs e)
         {
             calculateDateDue();
+            setDTP_Format(sender);
         }
 
         private void btnNewProduct_Click(object sender, EventArgs e)
@@ -857,16 +858,17 @@ namespace Schedule_Database_Desktop_Version
         private void dtpClosedDate_ValueChanged(object sender, EventArgs e)
         {
             //changes status apporopriately with closed date change
-            if (model.DateCompleted == emptyDate)
-            {
-                dtpClosedDate.Format = DateTimePickerFormat.Custom;
-                cboStatus.SelectedIndex = 1;
-            }
-            else
-            {
-                dtpClosedDate.Format = DateTimePickerFormat.Long;
-                cboStatus.SelectedIndex = 0;
-            }
+            //if (model.DateCompleted == emptyDate)
+            //{
+            //    dtpClosedDate.Format = DateTimePickerFormat.Custom;
+            //    cboStatus.SelectedIndex = 1;
+            //}
+            //else
+            //{
+            //    dtpClosedDate.Format = DateTimePickerFormat.Long;
+            //    cboStatus.SelectedIndex = 0;
+            //}
+            setDTP_Format(sender);
         }
 
         private void cboStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -878,7 +880,6 @@ namespace Schedule_Database_Desktop_Version
         {
             if (! formLoading)
             {
-                //GV.MODE = Mode.LabEscEdit;
                 formDirty = true;
             }
         }
@@ -888,9 +889,58 @@ namespace Schedule_Database_Desktop_Version
             cboMSO.Enabled= true;
         }
 
-        private void cboProdApp_SelectedIndexChanged(object sender, EventArgs e)
+        private void rtxDescription_Enter(object sender, EventArgs e)
         {
+            setDefaultButton(false);
+        }
 
+        private void rtxComments_Enter(object sender, EventArgs e)
+        {
+            setDefaultButton(false);
+        }
+
+        private void setDefaultButton(bool set)
+        {
+            if(set)
+            {
+                this.AcceptButton = btnSave;
+                this.CancelButton = btnClose;
+            }
+            else
+            {
+                this.AcceptButton = null;
+                this.CancelButton = null;
+            }
+        }
+
+        private void rtxComments_Leave(object sender, EventArgs e)
+        {
+            setDefaultButton(true);
+        }
+
+        private void rtxDescription_Leave(object sender, EventArgs e)
+        {
+            setDefaultButton(true);
+        }
+
+        private void setDTP_Format(object sndr)
+        {
+            DateTimePicker dtp = (DateTimePicker)sndr;
+            if(dtp.Value != emptyDate)
+            {
+                dtp.Format = DateTimePickerFormat.Long;
+                dtp.Enabled = true;
+            }
+            else
+            {
+                dtp.Format = DateTimePickerFormat.Custom;
+                dtp.Enabled = true;
+            }
+        }
+
+        private void dtpDueDate_ValueChanged(object sender, EventArgs e)
+        {
+            setDTP_Format(sender);
         }
     }
 }

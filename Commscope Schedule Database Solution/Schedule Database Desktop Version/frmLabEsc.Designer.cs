@@ -388,6 +388,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtpDueDate.TabIndex = 15;
             this.dtpDueDate.Tag = "DueDate";
             this.dtpDueDate.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
+            this.dtpDueDate.ValueChanged += new System.EventHandler(this.dtpDueDate_ValueChanged);
             // 
             // label12
             // 
@@ -606,6 +607,8 @@ namespace Schedule_Database_Desktop_Version
             this.rtxDescription.Tag = "Description";
             this.rtxDescription.Text = "";
             this.rtxDescription.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
+            this.rtxDescription.Enter += new System.EventHandler(this.rtxDescription_Enter);
+            this.rtxDescription.Leave += new System.EventHandler(this.rtxDescription_Leave);
             // 
             // rtxComments
             // 
@@ -620,6 +623,8 @@ namespace Schedule_Database_Desktop_Version
             this.rtxComments.Tag = "Comments";
             this.rtxComments.Text = "";
             this.rtxComments.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
+            this.rtxComments.Enter += new System.EventHandler(this.rtxComments_Enter);
+            this.rtxComments.Leave += new System.EventHandler(this.rtxComments_Leave);
             // 
             // label23
             // 
@@ -865,6 +870,8 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.Controls.Add(this.cboCountry, 1, 5);
             this.tlpLeft.Controls.Add(this.cboSeverity, 1, 6);
             this.tlpLeft.Controls.Add(this.cboRequestor, 1, 7);
+            this.tlpLeft.Controls.Add(this.cboApplication, 1, 8);
+            this.tlpLeft.Location = new System.Drawing.Point(21, 33);
             this.tlpLeft.Controls.Add(this.label15, 0, 19);
             this.tlpLeft.Controls.Add(this.dtpClosedDate, 1, 18);
             this.tlpLeft.Controls.Add(this.dtpDueDate, 1, 17);
@@ -916,10 +923,10 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.cboApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboApplication.FormattingEnabled = true;
-            this.cboApplication.Location = new System.Drawing.Point(133, 483);
+            this.cboApplication.Location = new System.Drawing.Point(100, 259);
             this.cboApplication.Name = "cboApplication";
-            this.cboApplication.Size = new System.Drawing.Size(270, 26);
-            this.cboApplication.TabIndex = 209;
+            this.cboApplication.Size = new System.Drawing.Size(269, 26);
+            this.cboApplication.TabIndex = 210;
             this.cboApplication.Tag = "Application";
             // 
             // lblArch
