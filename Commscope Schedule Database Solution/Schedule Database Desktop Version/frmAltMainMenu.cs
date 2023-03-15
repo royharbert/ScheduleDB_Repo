@@ -178,11 +178,6 @@ namespace Schedule_Database_Desktop_Version
         {
             this.Close();
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
         private void setFormText()
         {
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
@@ -239,6 +234,11 @@ namespace Schedule_Database_Desktop_Version
             GV.Priviledge = 0;
             GV.MAINMENU.SetMenuAccess();
         }
-       
+
+        private void btnUserMaint_Click(object sender, EventArgs e)
+        {
+            frmAdminMaint adminMaint = new frmAdminMaint();
+            adminMaint.Show();
+        }
     }
 }

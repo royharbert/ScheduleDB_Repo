@@ -38,7 +38,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // txtInput
             // 
-            this.txtInput.Location = new System.Drawing.Point(206, 63);
+            this.txtInput.Location = new System.Drawing.Point(159, 69);
             this.txtInput.Name = "txtInput";
             this.txtInput.Size = new System.Drawing.Size(298, 29);
             this.txtInput.TabIndex = 0;
@@ -46,7 +46,7 @@ namespace Schedule_Database_Desktop_Version
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(94, 66);
+            this.label1.Location = new System.Drawing.Point(47, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 24);
             this.label1.TabIndex = 1;
@@ -54,7 +54,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btnGo
             // 
-            this.btnGo.Location = new System.Drawing.Point(192, 129);
+            this.btnGo.Location = new System.Drawing.Point(145, 135);
             this.btnGo.Name = "btnGo";
             this.btnGo.Size = new System.Drawing.Size(130, 36);
             this.btnGo.TabIndex = 2;
@@ -64,7 +64,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(374, 129);
+            this.btnCancel.Location = new System.Drawing.Point(327, 135);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(130, 36);
             this.btnCancel.TabIndex = 3;
@@ -76,8 +76,8 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(674, 226);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(518, 226);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnGo);
             this.Controls.Add(this.label1);
@@ -89,7 +89,6 @@ namespace Schedule_Database_Desktop_Version
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Input Form";
             this.Activated += new System.EventHandler(this.frmInput_Activated);
-            this.Load += new System.EventHandler(this.frmInput_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

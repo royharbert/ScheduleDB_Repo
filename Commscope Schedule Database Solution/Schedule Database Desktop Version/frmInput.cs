@@ -39,11 +39,6 @@ namespace Schedule_Database_Desktop_Version
             txtInput.Clear();
             this.BringToFront();
         }
-
-        private void frmInput_Load(object sender, EventArgs e)
-        {
-            FC.SetFormPosition(this);
-        }
     }
 
     public class InputDataReadyEventArgs : EventArgs

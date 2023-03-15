@@ -125,6 +125,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnUserMaint.TabIndex = 8;
             this.btnUserMaint.Text = "User Maintenance";
             this.btnUserMaint.UseVisualStyleBackColor = true;
+            this.btnUserMaint.Click += new System.EventHandler(this.btnUserMaint_Click);
             // 
             // btnDelete
             // 

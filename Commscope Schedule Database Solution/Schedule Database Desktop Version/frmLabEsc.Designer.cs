@@ -89,10 +89,10 @@ namespace Schedule_Database_Desktop_Version
             this.lblRecordType = new System.Windows.Forms.Label();
             this.btnNewProduct = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.cboType = new System.Windows.Forms.ComboBox();
             this.tlpLeft = new System.Windows.Forms.TableLayoutPanel();
-            this.label25 = new System.Windows.Forms.Label();
+            this.cboProdApp = new System.Windows.Forms.ComboBox();
             this.cboApplication = new System.Windows.Forms.ComboBox();
+            this.lblArch = new System.Windows.Forms.Label();
             this.dtpContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
             this.tlpLeft.SuspendLayout();
@@ -118,9 +118,9 @@ namespace Schedule_Database_Desktop_Version
             this.cboMSO.Dock = System.Windows.Forms.DockStyle.Top;
             this.cboMSO.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboMSO.FormattingEnabled = true;
-            this.cboMSO.Location = new System.Drawing.Point(100, 35);
+            this.cboMSO.Location = new System.Drawing.Point(133, 35);
             this.cboMSO.Name = "cboMSO";
-            this.cboMSO.Size = new System.Drawing.Size(272, 26);
+            this.cboMSO.Size = new System.Drawing.Size(271, 26);
             this.cboMSO.TabIndex = 0;
             this.cboMSO.Tag = "MSO";
             this.cboMSO.SelectedIndexChanged += new System.EventHandler(this.cboMSO_SelectedIndexChanged);
@@ -132,9 +132,9 @@ namespace Schedule_Database_Desktop_Version
             this.cboSeverity.Dock = System.Windows.Forms.DockStyle.Top;
             this.cboSeverity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboSeverity.FormattingEnabled = true;
-            this.cboSeverity.Location = new System.Drawing.Point(100, 195);
+            this.cboSeverity.Location = new System.Drawing.Point(133, 195);
             this.cboSeverity.Name = "cboSeverity";
-            this.cboSeverity.Size = new System.Drawing.Size(272, 26);
+            this.cboSeverity.Size = new System.Drawing.Size(271, 26);
             this.cboSeverity.TabIndex = 5;
             this.cboSeverity.Tag = "Severity";
             this.cboSeverity.SelectedIndexChanged += new System.EventHandler(this.cboSeverity_SelectedIndexChanged);
@@ -144,45 +144,45 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.txtEndUser.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtEndUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtEndUser.Location = new System.Drawing.Point(100, 67);
+            this.txtEndUser.Location = new System.Drawing.Point(133, 67);
             this.txtEndUser.Name = "txtEndUser";
-            this.txtEndUser.Size = new System.Drawing.Size(272, 24);
+            this.txtEndUser.Size = new System.Drawing.Size(271, 24);
             this.txtEndUser.TabIndex = 1;
             this.txtEndUser.Tag = "EndUser";
             this.txtEndUser.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Location = new System.Drawing.Point(3, 34);
+            this.label1.Location = new System.Drawing.Point(3, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 27);
+            this.label1.Size = new System.Drawing.Size(124, 27);
             this.label1.TabIndex = 200;
             this.label1.Text = "MSO";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Location = new System.Drawing.Point(3, 130);
+            this.label2.Location = new System.Drawing.Point(3, 133);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 27);
+            this.label2.Size = new System.Drawing.Size(124, 27);
             this.label2.TabIndex = 200;
             this.label2.Text = "State";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label3.Location = new System.Drawing.Point(3, 98);
+            this.label3.Location = new System.Drawing.Point(3, 101);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 27);
+            this.label3.Size = new System.Drawing.Size(124, 27);
             this.label3.TabIndex = 200;
             this.label3.Text = "City";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -200,36 +200,36 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label5.Location = new System.Drawing.Point(3, 66);
+            this.label5.Location = new System.Drawing.Point(3, 69);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 27);
+            this.label5.Size = new System.Drawing.Size(124, 27);
             this.label5.TabIndex = 200;
             this.label5.Text = "End User";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label6.Location = new System.Drawing.Point(3, 162);
+            this.label6.Location = new System.Drawing.Point(3, 165);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 27);
+            this.label6.Size = new System.Drawing.Size(124, 27);
             this.label6.TabIndex = 200;
             this.label6.Text = "Country";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label7.Location = new System.Drawing.Point(3, 194);
+            this.label7.Location = new System.Drawing.Point(3, 197);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 27);
+            this.label7.Size = new System.Drawing.Size(124, 27);
             this.label7.TabIndex = 200;
             this.label7.Text = "Severity";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -238,9 +238,9 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.txtEscNum.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtEscNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtEscNum.Location = new System.Drawing.Point(100, 451);
+            this.txtEscNum.Location = new System.Drawing.Point(133, 451);
             this.txtEscNum.Name = "txtEscNum";
-            this.txtEscNum.Size = new System.Drawing.Size(272, 24);
+            this.txtEscNum.Size = new System.Drawing.Size(271, 24);
             this.txtEscNum.TabIndex = 13;
             this.txtEscNum.Tag = "EscNum";
             this.txtEscNum.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
@@ -249,33 +249,33 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.txtPSNum.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtPSNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtPSNum.Location = new System.Drawing.Point(100, 387);
+            this.txtPSNum.Location = new System.Drawing.Point(133, 387);
             this.txtPSNum.Name = "txtPSNum";
-            this.txtPSNum.Size = new System.Drawing.Size(272, 24);
+            this.txtPSNum.Size = new System.Drawing.Size(271, 24);
             this.txtPSNum.TabIndex = 11;
             this.txtPSNum.Tag = "PSNumber";
             this.txtPSNum.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
             // 
             // label8
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label8.Location = new System.Drawing.Point(3, 418);
+            this.label8.Location = new System.Drawing.Point(3, 421);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 27);
+            this.label8.Size = new System.Drawing.Size(124, 27);
             this.label8.TabIndex = 200;
             this.label8.Text = "CTR Number";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label9
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label9.Location = new System.Drawing.Point(3, 226);
+            this.label9.Location = new System.Drawing.Point(3, 229);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 27);
+            this.label9.Size = new System.Drawing.Size(124, 27);
             this.label9.TabIndex = 200;
             this.label9.Text = "Requestor";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -287,9 +287,9 @@ namespace Schedule_Database_Desktop_Version
             this.cboCountry.Dock = System.Windows.Forms.DockStyle.Top;
             this.cboCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboCountry.FormattingEnabled = true;
-            this.cboCountry.Location = new System.Drawing.Point(100, 163);
+            this.cboCountry.Location = new System.Drawing.Point(133, 163);
             this.cboCountry.Name = "cboCountry";
-            this.cboCountry.Size = new System.Drawing.Size(272, 26);
+            this.cboCountry.Size = new System.Drawing.Size(271, 26);
             this.cboCountry.TabIndex = 4;
             this.cboCountry.Tag = "Country";
             this.cboCountry.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
@@ -301,9 +301,9 @@ namespace Schedule_Database_Desktop_Version
             this.cboState.Dock = System.Windows.Forms.DockStyle.Top;
             this.cboState.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboState.FormattingEnabled = true;
-            this.cboState.Location = new System.Drawing.Point(100, 131);
+            this.cboState.Location = new System.Drawing.Point(133, 131);
             this.cboState.Name = "cboState";
-            this.cboState.Size = new System.Drawing.Size(272, 26);
+            this.cboState.Size = new System.Drawing.Size(271, 26);
             this.cboState.TabIndex = 3;
             this.cboState.Tag = "State";
             this.cboState.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
@@ -315,9 +315,9 @@ namespace Schedule_Database_Desktop_Version
             this.cboRequestor.Dock = System.Windows.Forms.DockStyle.Top;
             this.cboRequestor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboRequestor.FormattingEnabled = true;
-            this.cboRequestor.Location = new System.Drawing.Point(100, 227);
+            this.cboRequestor.Location = new System.Drawing.Point(133, 227);
             this.cboRequestor.Name = "cboRequestor";
-            this.cboRequestor.Size = new System.Drawing.Size(272, 26);
+            this.cboRequestor.Size = new System.Drawing.Size(271, 26);
             this.cboRequestor.TabIndex = 6;
             this.cboRequestor.Tag = "Requestor";
             this.cboRequestor.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
@@ -325,12 +325,12 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label10
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label10.Location = new System.Drawing.Point(3, 450);
+            this.label10.Location = new System.Drawing.Point(3, 453);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(91, 27);
+            this.label10.Size = new System.Drawing.Size(124, 27);
             this.label10.TabIndex = 21;
             this.label10.Text = "Esc Number";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -338,13 +338,12 @@ namespace Schedule_Database_Desktop_Version
             // dtpStartDate
             // 
             this.dtpStartDate.ContextMenuStrip = this.dtpContextMenu;
-            this.dtpStartDate.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dtpStartDate.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dtpStartDate.Location = new System.Drawing.Point(100, 483);
+            this.dtpStartDate.Location = new System.Drawing.Point(133, 515);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dtpStartDate.Size = new System.Drawing.Size(272, 24);
+            this.dtpStartDate.Size = new System.Drawing.Size(270, 24);
             this.dtpStartDate.TabIndex = 14;
             this.dtpStartDate.Tag = "DateOpened";
             this.dtpStartDate.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
@@ -368,12 +367,11 @@ namespace Schedule_Database_Desktop_Version
             // dtpClosedDate
             // 
             this.dtpClosedDate.ContextMenuStrip = this.dtpContextMenu;
-            this.dtpClosedDate.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtpClosedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.dtpClosedDate.Location = new System.Drawing.Point(100, 547);
+            this.dtpClosedDate.Location = new System.Drawing.Point(133, 579);
             this.dtpClosedDate.Name = "dtpClosedDate";
             this.dtpClosedDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dtpClosedDate.Size = new System.Drawing.Size(272, 24);
+            this.dtpClosedDate.Size = new System.Drawing.Size(270, 24);
             this.dtpClosedDate.TabIndex = 16;
             this.dtpClosedDate.Tag = "DateCompleted";
             this.dtpClosedDate.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
@@ -382,59 +380,58 @@ namespace Schedule_Database_Desktop_Version
             // dtpDueDate
             // 
             this.dtpDueDate.ContextMenuStrip = this.dtpContextMenu;
-            this.dtpDueDate.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtpDueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.dtpDueDate.Location = new System.Drawing.Point(100, 515);
+            this.dtpDueDate.Location = new System.Drawing.Point(133, 547);
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dtpDueDate.Size = new System.Drawing.Size(272, 24);
+            this.dtpDueDate.Size = new System.Drawing.Size(270, 24);
             this.dtpDueDate.TabIndex = 15;
             this.dtpDueDate.Tag = "DueDate";
             this.dtpDueDate.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
             // 
             // label12
             // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label12.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label12.Location = new System.Drawing.Point(3, 546);
+            this.label12.Location = new System.Drawing.Point(3, 581);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(91, 27);
+            this.label12.Size = new System.Drawing.Size(124, 27);
             this.label12.TabIndex = 28;
             this.label12.Text = "Date Closed";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label13
             // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label13.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label13.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label13.Location = new System.Drawing.Point(3, 514);
+            this.label13.Location = new System.Drawing.Point(3, 549);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(91, 27);
+            this.label13.Size = new System.Drawing.Size(124, 27);
             this.label13.TabIndex = 29;
             this.label13.Text = "Due Date";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label14
             // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label14.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label14.Location = new System.Drawing.Point(3, 482);
+            this.label14.Location = new System.Drawing.Point(3, 517);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(91, 27);
+            this.label14.Size = new System.Drawing.Size(124, 27);
             this.label14.TabIndex = 30;
             this.label14.Text = "Date Opened";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtEntryAdmin
             // 
-            this.txtEntryAdmin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtEntryAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEntryAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtEntryAdmin.Location = new System.Drawing.Point(100, 579);
+            this.txtEntryAdmin.Location = new System.Drawing.Point(134, 611);
             this.txtEntryAdmin.Name = "txtEntryAdmin";
-            this.txtEntryAdmin.Size = new System.Drawing.Size(272, 24);
+            this.txtEntryAdmin.Size = new System.Drawing.Size(270, 24);
             this.txtEntryAdmin.TabIndex = 7;
             this.txtEntryAdmin.TabStop = false;
             this.txtEntryAdmin.Tag = "EntryAdmin";
@@ -442,24 +439,24 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label15
             // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label15.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label15.Location = new System.Drawing.Point(3, 578);
+            this.label15.Location = new System.Drawing.Point(3, 613);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(91, 27);
+            this.label15.Size = new System.Drawing.Size(124, 27);
             this.label15.TabIndex = 32;
             this.label15.Text = "Entry Admin";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label16
             // 
-            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label16.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label16.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label16.Location = new System.Drawing.Point(3, 322);
+            this.label16.Location = new System.Drawing.Point(3, 325);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(91, 27);
+            this.label16.Size = new System.Drawing.Size(124, 27);
             this.label16.TabIndex = 33;
             this.label16.Text = "Lead";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -479,24 +476,24 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label18
             // 
-            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label18.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label18.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label18.Location = new System.Drawing.Point(3, 354);
+            this.label18.Location = new System.Drawing.Point(3, 357);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(91, 27);
+            this.label18.Size = new System.Drawing.Size(124, 27);
             this.label18.TabIndex = 35;
             this.label18.Text = "Quantity";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label19
             // 
-            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label19.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label19.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label19.Location = new System.Drawing.Point(3, 290);
+            this.label19.Location = new System.Drawing.Point(3, 293);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(91, 27);
+            this.label19.Size = new System.Drawing.Size(124, 27);
             this.label19.TabIndex = 36;
             this.label19.Text = "Status";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -547,9 +544,9 @@ namespace Schedule_Database_Desktop_Version
             this.cboStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.cboStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboStatus.FormattingEnabled = true;
-            this.cboStatus.Location = new System.Drawing.Point(100, 291);
+            this.cboStatus.Location = new System.Drawing.Point(133, 291);
             this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(272, 26);
+            this.cboStatus.Size = new System.Drawing.Size(271, 26);
             this.cboStatus.TabIndex = 8;
             this.cboStatus.Tag = "Status";
             this.cboStatus.SelectedIndexChanged += new System.EventHandler(this.cboStatus_SelectedIndexChanged);
@@ -562,9 +559,9 @@ namespace Schedule_Database_Desktop_Version
             this.cboLead.Dock = System.Windows.Forms.DockStyle.Top;
             this.cboLead.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboLead.FormattingEnabled = true;
-            this.cboLead.Location = new System.Drawing.Point(100, 323);
+            this.cboLead.Location = new System.Drawing.Point(133, 323);
             this.cboLead.Name = "cboLead";
-            this.cboLead.Size = new System.Drawing.Size(272, 26);
+            this.cboLead.Size = new System.Drawing.Size(271, 26);
             this.cboLead.TabIndex = 9;
             this.cboLead.Tag = "LeadAssigned";
             this.cboLead.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
@@ -574,9 +571,9 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.txtQty.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtQty.Location = new System.Drawing.Point(100, 355);
+            this.txtQty.Location = new System.Drawing.Point(133, 355);
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(272, 24);
+            this.txtQty.Size = new System.Drawing.Size(271, 24);
             this.txtQty.TabIndex = 10;
             this.txtQty.Tag = "Quantity";
             this.txtQty.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
@@ -626,12 +623,12 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label23
             // 
-            this.label23.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label23.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label23.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label23.Location = new System.Drawing.Point(3, 386);
+            this.label23.Location = new System.Drawing.Point(3, 389);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(91, 27);
+            this.label23.Size = new System.Drawing.Size(124, 27);
             this.label23.TabIndex = 52;
             this.label23.Text = "365 Number";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -640,9 +637,9 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.txtCTRNum.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCTRNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtCTRNum.Location = new System.Drawing.Point(100, 419);
+            this.txtCTRNum.Location = new System.Drawing.Point(133, 419);
             this.txtCTRNum.Name = "txtCTRNum";
-            this.txtCTRNum.Size = new System.Drawing.Size(272, 24);
+            this.txtCTRNum.Size = new System.Drawing.Size(271, 24);
             this.txtCTRNum.TabIndex = 12;
             this.txtCTRNum.Tag = "CTRNum";
             this.txtCTRNum.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
@@ -742,9 +739,9 @@ namespace Schedule_Database_Desktop_Version
             this.cboCity.Dock = System.Windows.Forms.DockStyle.Top;
             this.cboCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboCity.FormattingEnabled = true;
-            this.cboCity.Location = new System.Drawing.Point(100, 99);
+            this.cboCity.Location = new System.Drawing.Point(133, 99);
             this.cboCity.Name = "cboCity";
-            this.cboCity.Size = new System.Drawing.Size(272, 26);
+            this.cboCity.Size = new System.Drawing.Size(271, 26);
             this.cboCity.TabIndex = 2;
             this.cboCity.Tag = "City";
             this.cboCity.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
@@ -783,21 +780,20 @@ namespace Schedule_Database_Desktop_Version
             this.cboRecType.Dock = System.Windows.Forms.DockStyle.Top;
             this.cboRecType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboRecType.FormattingEnabled = true;
-            this.cboRecType.Location = new System.Drawing.Point(100, 3);
+            this.cboRecType.Location = new System.Drawing.Point(133, 3);
             this.cboRecType.Name = "cboRecType";
-            this.cboRecType.Size = new System.Drawing.Size(272, 26);
+            this.cboRecType.Size = new System.Drawing.Size(271, 26);
             this.cboRecType.TabIndex = 201;
             this.cboRecType.Tag = "RecordType";
             this.cboRecType.SelectedIndexChanged += new System.EventHandler(this.cboRecType_SelectedIndexChanged_1);
             // 
             // lblRecordType
             // 
-            this.lblRecordType.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblRecordType.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblRecordType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblRecordType.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblRecordType.Location = new System.Drawing.Point(3, 2);
+            this.lblRecordType.Location = new System.Drawing.Point(3, 5);
             this.lblRecordType.Name = "lblRecordType";
-            this.lblRecordType.Size = new System.Drawing.Size(91, 27);
+            this.lblRecordType.Size = new System.Drawing.Size(124, 27);
             this.lblRecordType.TabIndex = 202;
             this.lblRecordType.Text = "Record Type";
             this.lblRecordType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -819,28 +815,14 @@ namespace Schedule_Database_Desktop_Version
             // 
             // label11
             // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label11.Dock = System.Windows.Forms.DockStyle.Right;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label11.Location = new System.Drawing.Point(3, 258);
+            this.label11.Location = new System.Drawing.Point(3, 256);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(91, 27);
+            this.label11.Size = new System.Drawing.Size(124, 32);
             this.label11.TabIndex = 205;
-            this.label11.Text = "Type";
+            this.label11.Text = "Prod/App";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cboType
-            // 
-            this.cboType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cboType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboType.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cboType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.cboType.FormattingEnabled = true;
-            this.cboType.Location = new System.Drawing.Point(100, 259);
-            this.cboType.Name = "cboType";
-            this.cboType.Size = new System.Drawing.Size(272, 26);
-            this.cboType.TabIndex = 206;
-            this.cboType.Tag = "Requestor";
             // 
             // tlpLeft
             // 
@@ -848,13 +830,12 @@ namespace Schedule_Database_Desktop_Version
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpLeft.ColumnCount = 2;
-            this.tlpLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26F));
-            this.tlpLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74F));
+            this.tlpLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.18673F));
+            this.tlpLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.81327F));
+            this.tlpLeft.Controls.Add(this.cboProdApp, 1, 8);
             this.tlpLeft.Controls.Add(this.lblRecordType, 0, 0);
             this.tlpLeft.Controls.Add(this.label1, 0, 1);
-            this.tlpLeft.Controls.Add(this.cboType, 1, 8);
             this.tlpLeft.Controls.Add(this.label5, 0, 2);
-            this.tlpLeft.Controls.Add(this.label11, 0, 8);
             this.tlpLeft.Controls.Add(this.cboRecType, 1, 0);
             this.tlpLeft.Controls.Add(this.label3, 0, 3);
             this.tlpLeft.Controls.Add(this.cboCity, 1, 3);
@@ -868,19 +849,15 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.Controls.Add(this.label23, 0, 12);
             this.tlpLeft.Controls.Add(this.txtQty, 1, 11);
             this.tlpLeft.Controls.Add(this.label8, 0, 13);
-            this.tlpLeft.Controls.Add(this.txtEntryAdmin, 1, 18);
             this.tlpLeft.Controls.Add(this.cboLead, 1, 10);
-            this.tlpLeft.Controls.Add(this.dtpClosedDate, 1, 17);
-            this.tlpLeft.Controls.Add(this.dtpDueDate, 1, 16);
+            this.tlpLeft.Controls.Add(this.txtEntryAdmin, 1, 19);
+            this.tlpLeft.Controls.Add(this.cboApplication, 1, 15);
+            this.tlpLeft.Controls.Add(this.lblArch, 0, 15);
+            this.tlpLeft.Controls.Add(this.label11, 0, 8);
             this.tlpLeft.Controls.Add(this.label10, 0, 14);
             this.tlpLeft.Controls.Add(this.cboStatus, 1, 9);
-            this.tlpLeft.Controls.Add(this.dtpStartDate, 1, 15);
-            this.tlpLeft.Controls.Add(this.label14, 0, 15);
             this.tlpLeft.Controls.Add(this.txtEscNum, 1, 14);
-            this.tlpLeft.Controls.Add(this.label13, 0, 16);
-            this.tlpLeft.Controls.Add(this.label12, 0, 17);
             this.tlpLeft.Controls.Add(this.txtPSNum, 1, 12);
-            this.tlpLeft.Controls.Add(this.label15, 0, 18);
             this.tlpLeft.Controls.Add(this.label19, 0, 9);
             this.tlpLeft.Controls.Add(this.cboMSO, 1, 1);
             this.tlpLeft.Controls.Add(this.txtEndUser, 1, 2);
@@ -888,54 +865,75 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.Controls.Add(this.cboCountry, 1, 5);
             this.tlpLeft.Controls.Add(this.cboSeverity, 1, 6);
             this.tlpLeft.Controls.Add(this.cboRequestor, 1, 7);
-            this.tlpLeft.Controls.Add(this.label25, 0, 19);
-            this.tlpLeft.Controls.Add(this.cboApplication, 1, 19);
-            this.tlpLeft.Location = new System.Drawing.Point(21, 33);
+            this.tlpLeft.Controls.Add(this.label15, 0, 19);
+            this.tlpLeft.Controls.Add(this.dtpClosedDate, 1, 18);
+            this.tlpLeft.Controls.Add(this.dtpDueDate, 1, 17);
+            this.tlpLeft.Controls.Add(this.dtpStartDate, 1, 16);
+            this.tlpLeft.Controls.Add(this.label12, 0, 18);
+            this.tlpLeft.Controls.Add(this.label13, 0, 17);
+            this.tlpLeft.Controls.Add(this.label14, 0, 16);
+            this.tlpLeft.Location = new System.Drawing.Point(12, 33);
             this.tlpLeft.Name = "tlpLeft";
             this.tlpLeft.RowCount = 20;
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
-            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpLeft.Size = new System.Drawing.Size(375, 640);
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.Size = new System.Drawing.Size(407, 640);
             this.tlpLeft.TabIndex = 207;
-            this.tlpLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // label25
+            // cboProdApp
             // 
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(3, 608);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(91, 23);
-            this.label25.TabIndex = 208;
-            this.label25.Text = "Application";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cboProdApp.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cboProdApp.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboProdApp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cboProdApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.cboProdApp.FormattingEnabled = true;
+            this.cboProdApp.Location = new System.Drawing.Point(133, 259);
+            this.cboProdApp.Name = "cboProdApp";
+            this.cboProdApp.Size = new System.Drawing.Size(271, 26);
+            this.cboProdApp.TabIndex = 210;
+            this.cboProdApp.Tag = "Requestor";
+            this.cboProdApp.SelectedIndexChanged += new System.EventHandler(this.cboProdApp_SelectedIndexChanged);
             // 
             // cboApplication
             // 
             this.cboApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboApplication.FormattingEnabled = true;
-            this.cboApplication.Location = new System.Drawing.Point(100, 611);
+            this.cboApplication.Location = new System.Drawing.Point(133, 483);
             this.cboApplication.Name = "cboApplication";
-            this.cboApplication.Size = new System.Drawing.Size(269, 26);
+            this.cboApplication.Size = new System.Drawing.Size(270, 26);
             this.cboApplication.TabIndex = 209;
             this.cboApplication.Tag = "Application";
+            // 
+            // lblArch
+            // 
+            this.lblArch.AutoSize = true;
+            this.lblArch.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblArch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblArch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblArch.Location = new System.Drawing.Point(41, 480);
+            this.lblArch.Name = "lblArch";
+            this.lblArch.Size = new System.Drawing.Size(86, 32);
+            this.lblArch.TabIndex = 208;
+            this.lblArch.Text = "Architecture";
+            this.lblArch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmLabEsc
             // 
@@ -1038,9 +1036,9 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Label lblRecordType;
         private System.Windows.Forms.Button btnNewProduct;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cboType;
         private System.Windows.Forms.TableLayoutPanel tlpLeft;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.ComboBox cboApplication;
+        private System.Windows.Forms.ComboBox cboProdApp;
+        private System.Windows.Forms.Label lblArch;
     }
 }

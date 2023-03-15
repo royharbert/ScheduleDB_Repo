@@ -47,7 +47,7 @@
             // 
             this.dgvHolidays.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHolidays.Location = new System.Drawing.Point(16, 13);
-            this.dgvHolidays.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvHolidays.Margin = new System.Windows.Forms.Padding(4);
             this.dgvHolidays.Name = "dgvHolidays";
             this.dgvHolidays.RowHeadersWidth = 62;
             this.dgvHolidays.Size = new System.Drawing.Size(513, 417);
@@ -59,7 +59,7 @@
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnSave.Location = new System.Drawing.Point(13, 450);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(236, 48);
             this.btnSave.TabIndex = 1;
@@ -71,7 +71,7 @@
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnClose.Location = new System.Drawing.Point(290, 450);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(236, 48);
             this.btnClose.TabIndex = 2;
@@ -96,7 +96,7 @@
             this.dtpHoliday.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpHoliday.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.dtpHoliday.Location = new System.Drawing.Point(116, 80);
-            this.dtpHoliday.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpHoliday.Margin = new System.Windows.Forms.Padding(4);
             this.dtpHoliday.Name = "dtpHoliday";
             this.dtpHoliday.Size = new System.Drawing.Size(276, 23);
             this.dtpHoliday.TabIndex = 4;
@@ -118,7 +118,7 @@
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtName.Location = new System.Drawing.Point(116, 19);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(276, 23);
             this.txtName.TabIndex = 6;
@@ -127,7 +127,7 @@
             // 
             this.btnNewHoliday.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnNewHoliday.Location = new System.Drawing.Point(640, 309);
-            this.btnNewHoliday.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNewHoliday.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewHoliday.Name = "btnNewHoliday";
             this.btnNewHoliday.Size = new System.Drawing.Size(215, 48);
             this.btnNewHoliday.TabIndex = 7;
@@ -139,7 +139,7 @@
             // 
             this.btnAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnAddNew.Location = new System.Drawing.Point(148, 517);
-            this.btnAddNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddNew.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(236, 48);
             this.btnAddNew.TabIndex = 8;
@@ -158,7 +158,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txtName, 1, 0);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(551, 160);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -170,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 591);
+            this.ClientSize = new System.Drawing.Size(963, 579);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.btnNewHoliday);
@@ -179,7 +179,7 @@
             this.Controls.Add(this.dgvHolidays);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmHoliday";
             this.Tag = "";
             this.Text = "Holiday List";

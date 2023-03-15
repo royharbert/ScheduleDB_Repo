@@ -85,7 +85,7 @@ namespace Schedule_Database_Desktop_Version
             dgvHolidays.Columns[0].Visible= false;
             dgvHolidays.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvHolidays.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            this.Width = 455;
+            this.Width = 561;
         }
 
         private void dgvHolidays_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -130,14 +130,14 @@ namespace Schedule_Database_Desktop_Version
         private void btnAddNew_Click(object sender, EventArgs e)
         {
             btnAddNew.Enabled = false;
-            this.Width = 780;
+            this.Width = 979;
         }
 
         private void btnNewHoliday_Click(object sender, EventArgs e)
         {
             GlobalConfig.Connection.HolidayAdd(txtName.Text, dtpHoliday.Value);
             btnAddNew.Enabled = true;
-            this.Width = 455;
+            this.Width = 561;
             List<HolidaysModel> holidays = GetHolidays();
             dgvHolidays.DataSource = null;
             dgvHolidays.DataSource = holidays;

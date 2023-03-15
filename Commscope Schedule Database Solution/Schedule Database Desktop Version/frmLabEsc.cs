@@ -888,7 +888,7 @@ namespace Schedule_Database_Desktop_Version
             cboMSO.Enabled= true;
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void cboProdApp_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
