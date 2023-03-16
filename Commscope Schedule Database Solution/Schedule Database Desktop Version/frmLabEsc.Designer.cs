@@ -917,7 +917,6 @@ namespace Schedule_Database_Desktop_Version
             this.cboProdApp.Size = new System.Drawing.Size(271, 26);
             this.cboProdApp.TabIndex = 210;
             this.cboProdApp.Tag = "Requestor";
-            this.cboProdApp.SelectedIndexChanged += new System.EventHandler(this.cboProdApp_SelectedIndexChanged);
             // 
             // cboApplication
             // 
