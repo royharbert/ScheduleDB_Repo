@@ -39,6 +39,7 @@
             this.btnNewHoliday = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnDeleteHol = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHolidays)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,10 +59,10 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnSave.Location = new System.Drawing.Point(13, 450);
+            this.btnSave.Location = new System.Drawing.Point(16, 450);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(236, 48);
+            this.btnSave.Size = new System.Drawing.Size(236, 45);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -73,7 +74,7 @@
             this.btnClose.Location = new System.Drawing.Point(290, 450);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(236, 48);
+            this.btnClose.Size = new System.Drawing.Size(236, 45);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -138,10 +139,10 @@
             // btnAddNew
             // 
             this.btnAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnAddNew.Location = new System.Drawing.Point(148, 517);
+            this.btnAddNew.Location = new System.Drawing.Point(16, 502);
             this.btnAddNew.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(236, 48);
+            this.btnAddNew.Size = new System.Drawing.Size(236, 45);
             this.btnAddNew.TabIndex = 8;
             this.btnAddNew.Text = "Add New Holiday";
             this.btnAddNew.UseVisualStyleBackColor = true;
@@ -166,11 +167,21 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(396, 123);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
+            // btnDeleteHol
+            // 
+            this.btnDeleteHol.Location = new System.Drawing.Point(290, 502);
+            this.btnDeleteHol.Name = "btnDeleteHol";
+            this.btnDeleteHol.Size = new System.Drawing.Size(236, 45);
+            this.btnDeleteHol.TabIndex = 10;
+            this.btnDeleteHol.Text = "Delete Holiday";
+            this.btnDeleteHol.UseVisualStyleBackColor = true;
+            // 
             // frmHoliday
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(963, 579);
+            this.ClientSize = new System.Drawing.Size(963, 654);
+            this.Controls.Add(this.btnDeleteHol);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.btnNewHoliday);
@@ -203,5 +214,6 @@
         private System.Windows.Forms.Button btnNewHoliday;
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button btnDeleteHol;
     }
 }

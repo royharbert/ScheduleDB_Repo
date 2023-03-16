@@ -90,15 +90,15 @@ namespace Schedule_Database_Desktop_Version
             this.btnNewProduct = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.tlpLeft = new System.Windows.Forms.TableLayoutPanel();
-            this.cboProdApp = new System.Windows.Forms.ComboBox();
             this.lblArch = new System.Windows.Forms.Label();
+            this.cboProdApp = new System.Windows.Forms.ComboBox();
             this.cboArchitecture = new System.Windows.Forms.ComboBox();
             this.gbDateRange = new System.Windows.Forms.GroupBox();
-            this.dtpStart = new System.Windows.Forms.DateTimePicker();
-            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.ckFilter = new System.Windows.Forms.CheckBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.dtpContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
             this.tlpLeft.SuspendLayout();
@@ -915,27 +915,6 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.Size = new System.Drawing.Size(407, 640);
             this.tlpLeft.TabIndex = 207;
             // 
-            // cboProdApp
-            // 
-            this.cboProdApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboProdApp.FormattingEnabled = true;
-            this.cboProdApp.Location = new System.Drawing.Point(133, 259);
-            this.cboProdApp.Name = "cboProdApp";
-            this.cboProdApp.Size = new System.Drawing.Size(269, 26);
-            this.cboProdApp.TabIndex = 210;
-            this.cboProdApp.Tag = "Requestor";
-            this.cboProdApp.SelectedIndexChanged += new System.EventHandler(this.cboProdApp_SelectedIndexChanged);
-            // 
-            // cboApplication
-            // 
-            this.cboApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboApplication.FormattingEnabled = true;
-            this.cboApplication.Location = new System.Drawing.Point(100, 259);
-            this.cboApplication.Name = "cboApplication";
-            this.cboApplication.Size = new System.Drawing.Size(269, 26);
-            this.cboApplication.TabIndex = 210;
-            this.cboApplication.Tag = "Application";
-            // 
             // lblArch
             // 
             this.lblArch.AutoSize = true;
@@ -948,6 +927,16 @@ namespace Schedule_Database_Desktop_Version
             this.lblArch.TabIndex = 208;
             this.lblArch.Text = "Architecture";
             this.lblArch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cboProdApp
+            // 
+            this.cboProdApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboProdApp.FormattingEnabled = true;
+            this.cboProdApp.Location = new System.Drawing.Point(133, 259);
+            this.cboProdApp.Name = "cboProdApp";
+            this.cboProdApp.Size = new System.Drawing.Size(269, 26);
+            this.cboProdApp.TabIndex = 210;
+            this.cboProdApp.Tag = "ProdApp";
             // 
             // cboArchitecture
             // 
@@ -974,32 +963,16 @@ namespace Schedule_Database_Desktop_Version
             this.gbDateRange.TabStop = false;
             this.gbDateRange.Text = "Optional Date Range Filter";
             // 
-            // dtpStart
+            // ckFilter
             // 
-            this.dtpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpStart.Location = new System.Drawing.Point(166, 28);
-            this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(259, 24);
-            this.dtpStart.TabIndex = 0;
-            // 
-            // dtpEnd
-            // 
-            this.dtpEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpEnd.Location = new System.Drawing.Point(166, 58);
-            this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(259, 24);
-            this.dtpEnd.TabIndex = 1;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(88, 28);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(74, 18);
-            this.label25.TabIndex = 2;
-            this.label25.Text = "Start Date";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ckFilter.AutoSize = true;
+            this.ckFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckFilter.Location = new System.Drawing.Point(6, 37);
+            this.ckFilter.Name = "ckFilter";
+            this.ckFilter.Size = new System.Drawing.Size(83, 22);
+            this.ckFilter.TabIndex = 4;
+            this.ckFilter.Text = "Filter On";
+            this.ckFilter.UseVisualStyleBackColor = true;
             // 
             // label26
             // 
@@ -1012,16 +985,32 @@ namespace Schedule_Database_Desktop_Version
             this.label26.Text = "End Date";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // ckFilter
+            // label25
             // 
-            this.ckFilter.AutoSize = true;
-            this.ckFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckFilter.Location = new System.Drawing.Point(6, 37);
-            this.ckFilter.Name = "ckFilter";
-            this.ckFilter.Size = new System.Drawing.Size(83, 22);
-            this.ckFilter.TabIndex = 4;
-            this.ckFilter.Text = "Filter On";
-            this.ckFilter.UseVisualStyleBackColor = true;
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(88, 28);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(74, 18);
+            this.label25.TabIndex = 2;
+            this.label25.Text = "Start Date";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // dtpEnd
+            // 
+            this.dtpEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEnd.Location = new System.Drawing.Point(166, 58);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(259, 24);
+            this.dtpEnd.TabIndex = 1;
+            // 
+            // dtpStart
+            // 
+            this.dtpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStart.Location = new System.Drawing.Point(166, 28);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(259, 24);
+            this.dtpStart.TabIndex = 0;
             // 
             // frmLabEsc
             // 

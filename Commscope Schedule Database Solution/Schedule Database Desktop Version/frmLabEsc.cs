@@ -194,8 +194,8 @@ namespace Schedule_Database_Desktop_Version
                     {
                         whereClause = whereClause.Substring(0, whereClause.Length - 5); 
                     }
-                    
-                    if (ckFilter.Checked && whereClause.Length > 6)
+                    //added else here
+                    else if (ckFilter.Checked && whereClause.Length > 6)
                     {
                         whereClause = whereClause + " and (DateOpened between '" + dtpStart.Value.ToString("yyyy-MM-dd") + "' and '" + 
                             dtpEnd.Value.ToString("yyyy-MM-dd") + "')";
@@ -458,7 +458,7 @@ namespace Schedule_Database_Desktop_Version
             fillComboList<StatusModel>(cboStatus, "tblStatus", "Status", "Status");
             fillComboList<PersonModel>(cboLead, "tblEscLeads", "FullName", "LastName");
             fillComboList<ResolutionModel>(cboResolution, "tblResolutions", "ResolutionType", "ResolutionType");
-            fillComboList<ApplicationModel>(cboArchitecture, "tblApplication", "ApplicationName", "ApplicationName");
+            fillComboList<ArchitectureModel>(cboArchitecture, "tblArchitecture", "ApplicationName", "ApplicationName");
             fillComboList<ProdAppModel>(cboProdApp, "tblProdApp", "ProdApp", "ProdApp");
             cboRecType.Items.Add("AT Escalation");
             cboRecType.Items.Add("Lab Request");

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ScheduleDatabaseClassLibrary.Models
 {
-    public class ApplicationModel
+    public class ArchitectureModel  
     {
         public int ID { get; set; }
         public string ApplicationName { get; set; }

@@ -142,5 +142,6 @@ namespace Schedule_Database_Desktop_Version
             dgvHolidays.DataSource = null;
             dgvHolidays.DataSource = holidays;
         }
+
     }
 }
