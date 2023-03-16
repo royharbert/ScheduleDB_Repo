@@ -90,7 +90,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnNewProduct = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.tlpLeft = new System.Windows.Forms.TableLayoutPanel();
-            this.cboApplication = new System.Windows.Forms.ComboBox();
+            this.cboProdApp = new System.Windows.Forms.ComboBox();
             this.lblArch = new System.Windows.Forms.Label();
             this.cboArchitecture = new System.Windows.Forms.ComboBox();
             this.gbDateRange = new System.Windows.Forms.GroupBox();
@@ -878,7 +878,7 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.Controls.Add(this.cboCountry, 1, 5);
             this.tlpLeft.Controls.Add(this.cboSeverity, 1, 6);
             this.tlpLeft.Controls.Add(this.cboRequestor, 1, 7);
-            this.tlpLeft.Controls.Add(this.cboApplication, 1, 8);
+            this.tlpLeft.Controls.Add(this.cboProdApp, 1, 8);
             this.tlpLeft.Controls.Add(this.label15, 0, 19);
             this.tlpLeft.Controls.Add(this.label12, 0, 18);
             this.tlpLeft.Controls.Add(this.label13, 0, 17);
@@ -915,15 +915,15 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.Size = new System.Drawing.Size(407, 640);
             this.tlpLeft.TabIndex = 207;
             // 
-            // cboApplication
+            // cboProdApp
             // 
-            this.cboApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboApplication.FormattingEnabled = true;
-            this.cboApplication.Location = new System.Drawing.Point(133, 259);
-            this.cboApplication.Name = "cboApplication";
-            this.cboApplication.Size = new System.Drawing.Size(269, 26);
-            this.cboApplication.TabIndex = 210;
-            this.cboApplication.Tag = "Application";
+            this.cboProdApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboProdApp.FormattingEnabled = true;
+            this.cboProdApp.Location = new System.Drawing.Point(133, 259);
+            this.cboProdApp.Name = "cboProdApp";
+            this.cboProdApp.Size = new System.Drawing.Size(269, 26);
+            this.cboProdApp.TabIndex = 210;
+            this.cboProdApp.Tag = "ProdApp";
             // 
             // lblArch
             // 
@@ -946,6 +946,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboArchitecture.Name = "cboArchitecture";
             this.cboArchitecture.Size = new System.Drawing.Size(269, 26);
             this.cboArchitecture.TabIndex = 211;
+            this.cboArchitecture.Tag = "Architecture";
             // 
             // gbDateRange
             // 
@@ -1116,7 +1117,7 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Button btnNewProduct;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TableLayoutPanel tlpLeft;
-        private System.Windows.Forms.ComboBox cboApplication;
+        private System.Windows.Forms.ComboBox cboProdApp;
         private System.Windows.Forms.Label lblArch;
         private System.Windows.Forms.ComboBox cboArchitecture;
         private System.Windows.Forms.GroupBox gbDateRange;

@@ -190,11 +190,20 @@ namespace Schedule_Database_Desktop_Version
                         }
                     }
 
-                    whereClause = whereClause.Substring(0, whereClause.Length - 5);                    
-                    if (ckFilter.Checked)
+                    if (whereClause.Length > 6)
+                    {
+                        whereClause = whereClause.Substring(0, whereClause.Length - 5); 
+                    }
+                    
+                    if (ckFilter.Checked && whereClause.Length > 6)
                     {
                         whereClause = whereClause + " and (DateOpened between '" + dtpStart.Value.ToString("yyyy-MM-dd") + "' and '" + 
                             dtpEnd.Value.ToString("yyyy-MM-dd") + "')";
+                    }
+                    else
+                    {
+                        whereClause = whereClause + "(DateOpened between '" + dtpStart.Value.ToString("yyyy-MM-dd") + "' and '" +
+                           dtpEnd.Value.ToString("yyyy-MM-dd") + "')";
                     }
                     List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
                     displayResults(requests);
@@ -253,6 +262,8 @@ namespace Schedule_Database_Desktop_Version
             string resolution = cboResolution.Text;
             string recordType = cboRecType.Text;
             string escId = txtRecordID.Text;
+            string prodApp = cboProdApp.Text;
+            string architecture = cboArchitecture.Text;
 
             FieldSearchModel fsm = new FieldSearchModel();
             if (txtRecordID.Text != "")
@@ -353,6 +364,18 @@ namespace Schedule_Database_Desktop_Version
                 fsm = makeFSM(cboRecType);
                 fsmList.Add(fsm);
             }
+
+            if (architecture != "")
+            {
+                fsm = makeFSM(cboArchitecture);
+                fsmList.Add(fsm);
+            }
+
+            if (prodApp != "")
+            {
+                fsm = makeFSM(cboProdApp);
+                fsmList.Add(fsm);
+            }
             return fsmList;
         }
         private FieldSearchModel makeFSM(Control ctl)
@@ -435,7 +458,8 @@ namespace Schedule_Database_Desktop_Version
             fillComboList<StatusModel>(cboStatus, "tblStatus", "Status", "Status");
             fillComboList<PersonModel>(cboLead, "tblEscLeads", "FullName", "LastName");
             fillComboList<ResolutionModel>(cboResolution, "tblResolutions", "ResolutionType", "ResolutionType");
-            fillComboList<ApplicationModel>(cboApplication, "tblApplication", "ApplicationName", "ApplicationName");
+            fillComboList<ApplicationModel>(cboArchitecture, "tblApplication", "ApplicationName", "ApplicationName");
+            fillComboList<ProdAppModel>(cboProdApp, "tblProdApp", "ProdApp", "ProdApp");
             cboRecType.Items.Add("AT Escalation");
             cboRecType.Items.Add("Lab Request");
 
@@ -518,7 +542,7 @@ namespace Schedule_Database_Desktop_Version
             model.Description = rtxDescription.Text;
             model.Resolution = cboResolution.Text;
             model.RecordType = cboRecType.Text;
-            model.Application = cboApplication.Text;
+            model.ProdApp = cboProdApp.Text;
             model.Architecture = cboArchitecture.Text;
 
             if (lstProducts.SelectedIndex > -1)
@@ -575,7 +599,7 @@ namespace Schedule_Database_Desktop_Version
             txtPSNum.Text = model.PSNumber;
             txtID.Text = model.ID.ToString();
             txtEntryAdmin.Text = model.EntryAdmin;
-            cboApplication.Text = model.Application;
+            cboProdApp.Text = model.ProdApp;
             cboArchitecture.Text = model.Architecture;
 
             //highlight product
