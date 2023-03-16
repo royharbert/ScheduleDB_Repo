@@ -44,7 +44,8 @@ namespace Schedule_Database_Desktop_Version
                 GV.MODE = Mode.LabEscEdit;
                 loadBoxes(labEsc);
                 getAttachments(labEsc.EscID);
-                txtRecordID.ReadOnly = true;    
+                txtRecordID.ReadOnly = true;
+                gbDateRange.Visible = false;
                 this.BringToFront();
             }
         }
@@ -72,11 +73,13 @@ namespace Schedule_Database_Desktop_Version
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
                     txtEntryAdmin.Text = GV.USERMODEL.FullName;
                     btnSave.Text = "Save";
+                    gbDateRange.Visible = false;
                     formLoading = false;
                     cboStatus.SelectedIndex = 1;
                     break;
                 case Mode.LabEscEdit:
                     getAttachments(model.EscID);
+                    gbDateRange.Visible = false;
                     btnSave.Text = "Save";
                     break;
                 case Mode.LabEscDelete:
@@ -95,6 +98,7 @@ namespace Schedule_Database_Desktop_Version
                     dtpClosedDate.Enabled = false;
                     txtRecordID.ReadOnly= false;
                     btnSave.Text = "Search";
+                    gbDateRange.Visible = true;
                     txtRecordID.Focus();
                     break;
                 default:
@@ -185,7 +189,13 @@ namespace Schedule_Database_Desktop_Version
                             whereClause = whereClause + " upper(" + model.FieldName + ") like  upper('%" + model.FieldValue + "%') and ";
                         }
                     }
+
                     whereClause = whereClause.Substring(0, whereClause.Length - 5);                    
+                    if (ckFilter.Checked)
+                    {
+                        whereClause = whereClause + " and (DateOpened between '" + dtpStart.Value.ToString("yyyy-MM-dd") + "' and '" + 
+                            dtpEnd.Value.ToString("yyyy-MM-dd") + "')";
+                    }
                     List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
                     displayResults(requests);
                     formDirty = false;
@@ -195,6 +205,18 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 default:
                     break;
+            }
+        }
+
+        public void hideDateFilter(bool hidden)
+        {
+            if (hidden) 
+            {
+                gbDateRange.Visible=false;
+            }
+            else 
+            {
+                gbDateRange.Visible=true;
             }
         }
         private void btnSave_Click(object sender, EventArgs e)
@@ -357,10 +379,10 @@ namespace Schedule_Database_Desktop_Version
                     frmLabEsc escForm = new frmLabEsc();
                     escForm.Show();
                     escForm.loadBoxes(model);
+                    escForm.hideDateFilter(true);
                     escForm.setBtnSaveText("Save");
-                    //escForm.dtpDateCompleted.Focus();
                     escForm.txtRecordID.ReadOnly= true;
-                    escForm.BringToFront();
+                    escForm.txtRecordID.Focus();
                     break;
                 default:
                     frmMultiSelect displayForm = new frmMultiSelect();
@@ -497,6 +519,7 @@ namespace Schedule_Database_Desktop_Version
             model.Resolution = cboResolution.Text;
             model.RecordType = cboRecType.Text;
             model.Application = cboApplication.Text;
+            model.Architecture = cboArchitecture.Text;
 
             if (lstProducts.SelectedIndex > -1)
             {
@@ -553,6 +576,7 @@ namespace Schedule_Database_Desktop_Version
             txtID.Text = model.ID.ToString();
             txtEntryAdmin.Text = model.EntryAdmin;
             cboApplication.Text = model.Application;
+            cboArchitecture.Text = model.Architecture;
 
             //highlight product
             int idx = highlightProductList(model.Product);

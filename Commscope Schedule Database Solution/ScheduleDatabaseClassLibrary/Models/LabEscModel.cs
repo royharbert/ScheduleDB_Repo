@@ -59,5 +59,6 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string RecordType { get; set; }
         [ExcelExportProperty]
         public string Application { get; set; }
+        public string Architecture { get; set; }
     }
 }
