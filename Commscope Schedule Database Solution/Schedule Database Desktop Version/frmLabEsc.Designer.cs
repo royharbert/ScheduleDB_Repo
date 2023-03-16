@@ -91,11 +91,18 @@ namespace Schedule_Database_Desktop_Version
             this.label11 = new System.Windows.Forms.Label();
             this.tlpLeft = new System.Windows.Forms.TableLayoutPanel();
             this.cboProdApp = new System.Windows.Forms.ComboBox();
-            this.cboApplication = new System.Windows.Forms.ComboBox();
             this.lblArch = new System.Windows.Forms.Label();
+            this.cboArchitecture = new System.Windows.Forms.ComboBox();
+            this.gbDateRange = new System.Windows.Forms.GroupBox();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.ckFilter = new System.Windows.Forms.CheckBox();
             this.dtpContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
             this.tlpLeft.SuspendLayout();
+            this.gbDateRange.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtRecordID
@@ -115,6 +122,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.cboMSO.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboMSO.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboMSO.BackColor = System.Drawing.Color.Gold;
             this.cboMSO.Dock = System.Windows.Forms.DockStyle.Top;
             this.cboMSO.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboMSO.FormattingEnabled = true;
@@ -129,6 +137,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.cboSeverity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboSeverity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboSeverity.BackColor = System.Drawing.Color.Gold;
             this.cboSeverity.Dock = System.Windows.Forms.DockStyle.Top;
             this.cboSeverity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboSeverity.FormattingEnabled = true;
@@ -312,6 +321,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.cboRequestor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboRequestor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboRequestor.BackColor = System.Drawing.Color.Gold;
             this.cboRequestor.Dock = System.Windows.Forms.DockStyle.Top;
             this.cboRequestor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboRequestor.FormattingEnabled = true;
@@ -771,7 +781,7 @@ namespace Schedule_Database_Desktop_Version
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtID.Location = new System.Drawing.Point(625, 649);
+            this.txtID.Location = new System.Drawing.Point(56, 694);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(64, 24);
             this.txtID.TabIndex = 63;
@@ -782,6 +792,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.cboRecType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboRecType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboRecType.BackColor = System.Drawing.Color.Gold;
             this.cboRecType.Dock = System.Windows.Forms.DockStyle.Top;
             this.cboRecType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboRecType.FormattingEnabled = true;
@@ -837,7 +848,6 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.ColumnCount = 2;
             this.tlpLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.18673F));
             this.tlpLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.81327F));
-            this.tlpLeft.Controls.Add(this.cboProdApp, 1, 8);
             this.tlpLeft.Controls.Add(this.lblRecordType, 0, 0);
             this.tlpLeft.Controls.Add(this.label1, 0, 1);
             this.tlpLeft.Controls.Add(this.label5, 0, 2);
@@ -855,8 +865,6 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.Controls.Add(this.txtQty, 1, 11);
             this.tlpLeft.Controls.Add(this.label8, 0, 13);
             this.tlpLeft.Controls.Add(this.cboLead, 1, 10);
-            this.tlpLeft.Controls.Add(this.txtEntryAdmin, 1, 19);
-            this.tlpLeft.Controls.Add(this.cboApplication, 1, 15);
             this.tlpLeft.Controls.Add(this.lblArch, 0, 15);
             this.tlpLeft.Controls.Add(this.label11, 0, 8);
             this.tlpLeft.Controls.Add(this.label10, 0, 14);
@@ -870,15 +878,16 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.Controls.Add(this.cboCountry, 1, 5);
             this.tlpLeft.Controls.Add(this.cboSeverity, 1, 6);
             this.tlpLeft.Controls.Add(this.cboRequestor, 1, 7);
-            this.tlpLeft.Controls.Add(this.cboApplication, 1, 8);
-            this.tlpLeft.Location = new System.Drawing.Point(21, 33);
+            this.tlpLeft.Controls.Add(this.cboProdApp, 1, 8);
             this.tlpLeft.Controls.Add(this.label15, 0, 19);
-            this.tlpLeft.Controls.Add(this.dtpClosedDate, 1, 18);
-            this.tlpLeft.Controls.Add(this.dtpDueDate, 1, 17);
-            this.tlpLeft.Controls.Add(this.dtpStartDate, 1, 16);
             this.tlpLeft.Controls.Add(this.label12, 0, 18);
             this.tlpLeft.Controls.Add(this.label13, 0, 17);
             this.tlpLeft.Controls.Add(this.label14, 0, 16);
+            this.tlpLeft.Controls.Add(this.cboArchitecture, 1, 15);
+            this.tlpLeft.Controls.Add(this.dtpStartDate, 1, 16);
+            this.tlpLeft.Controls.Add(this.dtpDueDate, 1, 17);
+            this.tlpLeft.Controls.Add(this.dtpClosedDate, 1, 18);
+            this.tlpLeft.Controls.Add(this.txtEntryAdmin, 1, 19);
             this.tlpLeft.Location = new System.Drawing.Point(12, 33);
             this.tlpLeft.Name = "tlpLeft";
             this.tlpLeft.RowCount = 20;
@@ -902,21 +911,20 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpLeft.Size = new System.Drawing.Size(407, 640);
             this.tlpLeft.TabIndex = 207;
             // 
             // cboProdApp
             // 
-            this.cboProdApp.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cboProdApp.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboProdApp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cboProdApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.cboProdApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboProdApp.FormattingEnabled = true;
             this.cboProdApp.Location = new System.Drawing.Point(133, 259);
             this.cboProdApp.Name = "cboProdApp";
-            this.cboProdApp.Size = new System.Drawing.Size(271, 26);
+            this.cboProdApp.Size = new System.Drawing.Size(269, 26);
             this.cboProdApp.TabIndex = 210;
             this.cboProdApp.Tag = "Requestor";
+            this.cboProdApp.SelectedIndexChanged += new System.EventHandler(this.cboProdApp_SelectedIndexChanged);
             // 
             // cboApplication
             // 
@@ -941,6 +949,80 @@ namespace Schedule_Database_Desktop_Version
             this.lblArch.Text = "Architecture";
             this.lblArch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // cboArchitecture
+            // 
+            this.cboArchitecture.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboArchitecture.FormattingEnabled = true;
+            this.cboArchitecture.Location = new System.Drawing.Point(133, 483);
+            this.cboArchitecture.Name = "cboArchitecture";
+            this.cboArchitecture.Size = new System.Drawing.Size(269, 26);
+            this.cboArchitecture.TabIndex = 211;
+            this.cboArchitecture.Tag = "Architecture";
+            // 
+            // gbDateRange
+            // 
+            this.gbDateRange.Controls.Add(this.ckFilter);
+            this.gbDateRange.Controls.Add(this.label26);
+            this.gbDateRange.Controls.Add(this.label25);
+            this.gbDateRange.Controls.Add(this.dtpEnd);
+            this.gbDateRange.Controls.Add(this.dtpStart);
+            this.gbDateRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDateRange.Location = new System.Drawing.Point(439, 630);
+            this.gbDateRange.Name = "gbDateRange";
+            this.gbDateRange.Size = new System.Drawing.Size(437, 88);
+            this.gbDateRange.TabIndex = 208;
+            this.gbDateRange.TabStop = false;
+            this.gbDateRange.Text = "Optional Date Range Filter";
+            // 
+            // dtpStart
+            // 
+            this.dtpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStart.Location = new System.Drawing.Point(166, 28);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(259, 24);
+            this.dtpStart.TabIndex = 0;
+            // 
+            // dtpEnd
+            // 
+            this.dtpEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEnd.Location = new System.Drawing.Point(166, 58);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(259, 24);
+            this.dtpEnd.TabIndex = 1;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(88, 28);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(74, 18);
+            this.label25.TabIndex = 2;
+            this.label25.Text = "Start Date";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(93, 62);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(69, 18);
+            this.label26.TabIndex = 3;
+            this.label26.Text = "End Date";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ckFilter
+            // 
+            this.ckFilter.AutoSize = true;
+            this.ckFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckFilter.Location = new System.Drawing.Point(6, 37);
+            this.ckFilter.Name = "ckFilter";
+            this.ckFilter.Size = new System.Drawing.Size(83, 22);
+            this.ckFilter.TabIndex = 4;
+            this.ckFilter.Text = "Filter On";
+            this.ckFilter.UseVisualStyleBackColor = true;
+            // 
             // frmLabEsc
             // 
             this.AcceptButton = this.btnSave;
@@ -948,6 +1030,7 @@ namespace Schedule_Database_Desktop_Version
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(1409, 741);
+            this.Controls.Add(this.gbDateRange);
             this.Controls.Add(this.tlpLeft);
             this.Controls.Add(this.btnNewProduct);
             this.Controls.Add(this.txtID);
@@ -978,6 +1061,8 @@ namespace Schedule_Database_Desktop_Version
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).EndInit();
             this.tlpLeft.ResumeLayout(false);
             this.tlpLeft.PerformLayout();
+            this.gbDateRange.ResumeLayout(false);
+            this.gbDateRange.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1043,8 +1128,14 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Button btnNewProduct;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TableLayoutPanel tlpLeft;
-        private System.Windows.Forms.ComboBox cboApplication;
         private System.Windows.Forms.ComboBox cboProdApp;
         private System.Windows.Forms.Label lblArch;
+        private System.Windows.Forms.ComboBox cboArchitecture;
+        private System.Windows.Forms.GroupBox gbDateRange;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.DateTimePicker dtpEnd;
+        private System.Windows.Forms.DateTimePicker dtpStart;
+        private System.Windows.Forms.CheckBox ckFilter;
     }
 }
