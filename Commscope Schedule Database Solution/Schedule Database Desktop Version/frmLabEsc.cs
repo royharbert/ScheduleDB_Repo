@@ -200,7 +200,7 @@ namespace Schedule_Database_Desktop_Version
                         whereClause = whereClause + " and (DateOpened between '" + dtpStart.Value.ToString("yyyy-MM-dd") + "' and '" + 
                             dtpEnd.Value.ToString("yyyy-MM-dd") + "')";
                     }
-                    else
+                    if (ckFilter.Checked && whereClause.Length <= 6)
                     {
                         whereClause = whereClause + "(DateOpened between '" + dtpStart.Value.ToString("yyyy-MM-dd") + "' and '" +
                            dtpEnd.Value.ToString("yyyy-MM-dd") + "')";
@@ -991,6 +991,5 @@ namespace Schedule_Database_Desktop_Version
             setDTP_Format(sender);
         }
 
-        //comment
     }
 }
