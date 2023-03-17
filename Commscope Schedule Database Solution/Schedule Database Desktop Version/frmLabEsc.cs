@@ -46,6 +46,7 @@ namespace Schedule_Database_Desktop_Version
                 getAttachments(labEsc.EscID);
                 txtRecordID.ReadOnly = true;
                 gbDateRange.Visible = false;
+                dtpClosedDate.Enabled = true;
                 this.BringToFront();
             }
         }
@@ -80,6 +81,7 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscEdit:
                     getAttachments(model.EscID);
                     gbDateRange.Visible = false;
+                    dtpClosedDate.Enabled= true;
                     btnSave.Text = "Save";
                     break;
                 case Mode.LabEscDelete:
@@ -222,6 +224,7 @@ namespace Schedule_Database_Desktop_Version
             if (hidden) 
             {
                 gbDateRange.Visible=false;
+                dtpClosedDate.Enabled = true;
             }
             else 
             {
@@ -918,6 +921,7 @@ namespace Schedule_Database_Desktop_Version
                 cboStatus.SelectedIndex = 0;
             }
             setDTP_Format(sender);
+            cboStatus.Text = "Closed";
         }
 
         private void cboStatus_SelectedIndexChanged(object sender, EventArgs e)
