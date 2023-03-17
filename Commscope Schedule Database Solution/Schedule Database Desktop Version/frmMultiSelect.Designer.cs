@@ -43,32 +43,36 @@ namespace Schedule_Database_Desktop_Version
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResults.Location = new System.Drawing.Point(0, 0);
+            this.dgvResults.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvResults.Name = "dgvResults";
-            this.dgvResults.Size = new System.Drawing.Size(1879, 851);
+            this.dgvResults.Size = new System.Drawing.Size(2818, 1178);
             this.dgvResults.TabIndex = 0;
             this.dgvResults.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvResults_RowHeaderMouseClick);
             // 
             // txtCount
             // 
-            this.txtCount.Location = new System.Drawing.Point(63, 864);
+            this.txtCount.Location = new System.Drawing.Point(94, 1196);
+            this.txtCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCount.Name = "txtCount";
-            this.txtCount.Size = new System.Drawing.Size(67, 20);
+            this.txtCount.Size = new System.Drawing.Size(98, 24);
             this.txtCount.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(136, 867);
+            this.label1.Location = new System.Drawing.Point(204, 1200);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.Size = new System.Drawing.Size(106, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "Records found";
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(236, 857);
+            this.btnExport.Location = new System.Drawing.Point(354, 1187);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(130, 33);
+            this.btnExport.Size = new System.Drawing.Size(195, 46);
             this.btnExport.TabIndex = 3;
             this.btnExport.Text = "Export to Excel";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -76,14 +80,16 @@ namespace Schedule_Database_Desktop_Version
             // 
             // frmMultiSelect
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1880, 896);
+            this.ClientSize = new System.Drawing.Size(2820, 1181);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCount);
             this.Controls.Add(this.dgvResults);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMultiSelect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search Results";

@@ -121,7 +121,7 @@
             this.cboPriviledge.Location = new System.Drawing.Point(104, 127);
             this.cboPriviledge.Margin = new System.Windows.Forms.Padding(4);
             this.cboPriviledge.Name = "cboPriviledge";
-            this.cboPriviledge.Size = new System.Drawing.Size(180, 26);
+            this.cboPriviledge.Size = new System.Drawing.Size(271, 26);
             this.cboPriviledge.TabIndex = 19;
             // 
             // label3
@@ -217,7 +217,7 @@
             this.lblFunction.Name = "lblFunction";
             this.lblFunction.Size = new System.Drawing.Size(260, 43);
             this.lblFunction.TabIndex = 23;
-            this.lblFunction.Text = "Adding User";
+            this.lblFunction.Text = "Update User";
             this.lblFunction.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1

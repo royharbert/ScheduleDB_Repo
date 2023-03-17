@@ -149,7 +149,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void setDGV_EscalationHeaderText(DataGridView dgv)
         {
-            string[] headers = { "EscID", "MSO", "EndUser", "City", "State", "Country", "Severity", "Requestor", "CTRNum", "EscNum", "IsEsc", "EntryAdmin", "DateOpened", "DateDue", "DateCompleted", "EMail", "Product", "LeadAssigned", "Quantity", "Status", "Comments", "Description", "Resolution", "PSNumber" };
+            string[] headers = { "EscID", "MSO", "EndUser", "City", "State", "Country", "Severity", "Requestor", "CTRNum", "EscNum", "IsEsc", "EntryAdmin", "DateOpened", "DateDue", "DateCompleted", "Product", "LeadAssigned", "Quantity", "Status", "Comments", "Description", "Resolution", "PSNumber" };
 
             for (int i = 0; i < dgv.Columns.Count; i++)
             {

@@ -67,7 +67,6 @@ namespace Schedule_Database_Desktop_Version
         private void dgvAdmin_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             selRow = dgvAdmin.CurrentRow.Index;
-            lblFunction.Text = "Editing User";
             AddingUser = false;
             List<UserModel> admins = (List <UserModel>) dgvAdmin.DataSource;
             int curRow = dgvAdmin.CurrentRow.Index;
@@ -139,9 +138,12 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            lblFunction.Text= "Adding User";
+            frmAddAdmin addAdmin = new frmAddAdmin();
+            addAdmin.Show();
+            //lblFunction.Text= "Adding User";
             AddingUser = true;
             clearBoxes();
+            this.Close();
         }
 
         private void txtPassword_MouseDown(object sender, MouseEventArgs e)
