@@ -35,8 +35,6 @@ namespace Schedule_Database_Desktop_Version
             set
             {
                 locationData = value;
-                //displayList = null;
-                //retrieveList = null;
                 customerData = null;
                 dgvResults.DataSource = locationData;
                 txtCount.Text = locationData.Count.ToString();
@@ -53,7 +51,6 @@ namespace Schedule_Database_Desktop_Version
             set 
             {
                 customerData = value;
-                //retrieveList = null;
                 locationData = null;
                 dgvResults.DataSource = customerData;
                 txtCount.Text = customerData.Count.ToString();

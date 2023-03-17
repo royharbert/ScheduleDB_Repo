@@ -924,17 +924,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboProdApp.Size = new System.Drawing.Size(269, 26);
             this.cboProdApp.TabIndex = 210;
             this.cboProdApp.Tag = "Requestor";
-            this.cboProdApp.SelectedIndexChanged += new System.EventHandler(this.cboProdApp_SelectedIndexChanged);
-            // 
-            // cboApplication
-            // 
-            this.cboApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboApplication.FormattingEnabled = true;
-            this.cboApplication.Location = new System.Drawing.Point(100, 259);
-            this.cboApplication.Name = "cboApplication";
-            this.cboApplication.Size = new System.Drawing.Size(269, 26);
-            this.cboApplication.TabIndex = 210;
-            this.cboApplication.Tag = "Application";
+            
             // 
             // lblArch
             // 
