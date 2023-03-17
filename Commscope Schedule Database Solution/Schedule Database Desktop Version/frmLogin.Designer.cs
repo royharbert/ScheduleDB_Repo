@@ -43,26 +43,26 @@
             this.cboUser.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboUser.FormattingEnabled = true;
-            this.cboUser.Location = new System.Drawing.Point(113, 58);
+            this.cboUser.Location = new System.Drawing.Point(149, 53);
             this.cboUser.Margin = new System.Windows.Forms.Padding(4);
             this.cboUser.Name = "cboUser";
-            this.cboUser.Size = new System.Drawing.Size(301, 26);
+            this.cboUser.Size = new System.Drawing.Size(259, 26);
             this.cboUser.TabIndex = 0;
             this.cboUser.SelectedIndexChanged += new System.EventHandler(this.cboUser_SelectedIndexChanged);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(113, 112);
+            this.txtPassword.Location = new System.Drawing.Point(149, 107);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(301, 24);
+            this.txtPassword.Size = new System.Drawing.Size(259, 24);
             this.txtPassword.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(61, 62);
+            this.label1.Location = new System.Drawing.Point(97, 57);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 18);
@@ -72,7 +72,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 116);
+            this.label2.Location = new System.Drawing.Point(61, 111);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 18);
@@ -81,7 +81,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(140, 176);
+            this.btnLogin.Location = new System.Drawing.Point(134, 172);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(112, 32);
@@ -93,7 +93,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(302, 176);
+            this.btnCancel.Location = new System.Drawing.Point(296, 172);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 32);
@@ -108,7 +108,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(489, 254);
+            this.ClientSize = new System.Drawing.Size(478, 231);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label2);

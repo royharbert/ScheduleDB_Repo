@@ -133,7 +133,6 @@ namespace Schedule_Database_Desktop_Version
                     break;
             }
         }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscDelete;

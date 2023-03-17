@@ -68,7 +68,14 @@ namespace Schedule_Database_Desktop_Version
             MessageBox.Show(model.FullName + " added");
             this.Close();
             frmAdminMaint adminMaint = new frmAdminMaint();
-            adminMaint.ShowDialog();
+            adminMaint.Show();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            frmAdminMaint adminMaint1 = new frmAdminMaint();
+            adminMaint1.Show();
+            this.Close();
         }
     }
 }

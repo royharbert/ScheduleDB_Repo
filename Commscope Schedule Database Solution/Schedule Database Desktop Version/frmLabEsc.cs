@@ -230,7 +230,8 @@ namespace Schedule_Database_Desktop_Version
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            saveData();            
+            saveData();       
+            
         }
 
         public void setBtnSaveText(string text)
@@ -906,16 +907,16 @@ namespace Schedule_Database_Desktop_Version
         private void dtpClosedDate_ValueChanged(object sender, EventArgs e)
         {
             //changes status apporopriately with closed date change
-            //if (model.DateCompleted == emptyDate)
-            //{
-            //    dtpClosedDate.Format = DateTimePickerFormat.Custom;
-            //    cboStatus.SelectedIndex = 1;
-            //}
-            //else
-            //{
-            //    dtpClosedDate.Format = DateTimePickerFormat.Long;
-            //    cboStatus.SelectedIndex = 0;
-            //}
+            if (model.DateCompleted == emptyDate)
+            {
+                dtpClosedDate.Format = DateTimePickerFormat.Custom;
+                cboStatus.SelectedIndex = 1;
+            }
+            else
+            {
+                dtpClosedDate.Format = DateTimePickerFormat.Long;
+                cboStatus.SelectedIndex = 0;
+            }
             setDTP_Format(sender);
         }
 

@@ -253,7 +253,8 @@ namespace Schedule_Database_Desktop_Version
             GetModels("E", true);
         }
 
-        private void closedToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 
+            ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
             GetModels("E", false);
@@ -265,7 +266,8 @@ namespace Schedule_Database_Desktop_Version
             GetModels("L", true);
         }
 
-        private void closedToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void 
+            ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
             GetModels("L", false);

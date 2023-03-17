@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScheduleDatabaseClassLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,9 +17,24 @@ namespace Schedule_Database_Desktop_Version
 
         public frmInput()
         {
+            LabEscModel model = new LabEscModel();
             InitializeComponent();
             this.AcceptButton = btnGo;
             this.CancelButton = btnCancel;
+            switch (GV.MODE)
+            {
+                case Mode.LabEscEdit:
+
+                    break;
+                case Mode.LabEscDelete:
+
+                    break;
+                case Mode.LabEscSearch:
+
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

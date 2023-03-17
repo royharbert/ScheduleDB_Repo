@@ -230,7 +230,6 @@ namespace Schedule_Database_Desktop_Version
             this.closedToolStripMenuItem.Name = "closedToolStripMenuItem";
             this.closedToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
             this.closedToolStripMenuItem.Text = "Closed";
-            this.closedToolStripMenuItem.Click += new System.EventHandler(this.closedToolStripMenuItem_Click);
             // 
             // requestsByDueDateToolStripMenuItem
             // 
@@ -256,7 +255,6 @@ namespace Schedule_Database_Desktop_Version
             this.closedToolStripMenuItem1.Size = new System.Drawing.Size(123, 24);
             this.closedToolStripMenuItem1.Tag = "3";
             this.closedToolStripMenuItem1.Text = "Closed";
-            this.closedToolStripMenuItem1.Click += new System.EventHandler(this.closedToolStripMenuItem1_Click);
             // 
             // maintenanceToolStripMenuItem
             // 
