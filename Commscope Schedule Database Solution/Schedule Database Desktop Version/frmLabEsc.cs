@@ -62,6 +62,8 @@ namespace Schedule_Database_Desktop_Version
             dtpClosedDate.CustomFormat = dtpCustomFormat;
             dtpDueDate.CustomFormat = dtpCustomFormat;
             dtpStartDate.CustomFormat = dtpCustomFormat;
+            GV.inputForm = new frmInput();
+            GV.inputForm.InputDataReady += InputForm_InputDataReady;
 
             switch (GV.MODE)
             {
@@ -107,7 +109,13 @@ namespace Schedule_Database_Desktop_Version
                     break;
             }
         }
-            private void clearDateToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void InputForm_InputDataReady(object sender, InputDataReadyEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void clearDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Try to cast the sender to a ToolStripItem
             ToolStripItem menuItem = sender as ToolStripItem;
@@ -192,26 +200,38 @@ namespace Schedule_Database_Desktop_Version
                         }
                     }
 
-                    if (whereClause.Length > 6)
+                    bool goodSearch = false;
+                    
+                    if (ckFilter.Checked && whereClause.Length > 6)
                     {
-                        whereClause = whereClause.Substring(0, whereClause.Length - 5); 
-                    }
-                    //added else here
-                    else if (ckFilter.Checked && whereClause.Length > 6)
-                    {
-                        whereClause = whereClause + " and (DateOpened between '" + dtpStart.Value.ToString("yyyy-MM-dd") + "' and '" + 
+                        whereClause = whereClause + " (DateOpened between '" + dtpStart.Value.ToString("yyyy-MM-dd") + "' and '" + 
                             dtpEnd.Value.ToString("yyyy-MM-dd") + "')";
+                        goodSearch = true;
                     }
                     if (ckFilter.Checked && whereClause.Length <= 6)
                     {
                         whereClause = whereClause + "(DateOpened between '" + dtpStart.Value.ToString("yyyy-MM-dd") + "' and '" +
                            dtpEnd.Value.ToString("yyyy-MM-dd") + "')";
+                        goodSearch  = true;
                     }
-                    List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
-                    displayResults(requests);
-                    formDirty = false;
-                    txtRecordID.ReadOnly = true;
-                    this.Close();
+                    if (whereClause.Length > 6 && !ckFilter.Checked)
+                    {
+                        whereClause = whereClause.Substring(0, whereClause.Length - 5);
+                        goodSearch = true;
+                    }
+                    if (whereClause.Length <= 6 && !ckFilter.Checked)
+                    {
+                        MessageBox.Show("Please provide search criteria");
+                    }
+
+                    if (goodSearch)
+                    {
+                        List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
+                        displayResults(requests);
+                        formDirty = false;
+                        txtRecordID.ReadOnly = true;
+                        this.Close(); 
+                    }
 
                     break;
                 default:
@@ -622,18 +642,21 @@ namespace Schedule_Database_Desktop_Version
         private int highlightProductList(string selectedProduct)
         {
             int idx = -1;
-            foreach (var model in lstProducts.Items)
+            if (selectedProduct != null)
             {
-                idx++;
-                ProductModel product = model as ProductModel;
-                if (product != null) 
+                foreach (var model in lstProducts.Items)
                 {
-                    if (selectedProduct == product.Product)
+                    idx++;
+                    ProductModel product = model as ProductModel;
+                    if (product != null)
                     {
-                        break;
+                        if (selectedProduct == product.Product)
+                        {
+                            break;
+                        }
                     }
-                }
 
+                } 
             }
             return idx;
         }

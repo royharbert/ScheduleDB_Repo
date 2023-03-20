@@ -16,8 +16,6 @@ namespace Schedule_Database_Desktop_Version
     //git test
     public partial class frmMultiSelect : Form
     {
-        //private List<AssignmentTableModel> retrieveList;
-        //private List<AssignmentDisplayModel> displayList;
         private List<ATEscalationsDisplayModel> escalationList;
         private List<CustomerModel> customerData;
         private List<LocationModel> locationData;
