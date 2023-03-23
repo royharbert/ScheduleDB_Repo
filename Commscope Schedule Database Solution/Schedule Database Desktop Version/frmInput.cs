@@ -45,7 +45,7 @@ namespace Schedule_Database_Desktop_Version
         private void btnGo_Click(object sender, EventArgs e)        
         {
             InputDataReadyEventArgs args = new InputDataReadyEventArgs();
-            args.SearchString = txtInput.Text.Trim().ToUpper();
+            args.SearchString = "%" + txtInput.Text.Trim().ToUpper() + "%";
             InputDataReady?.Invoke(this, args);
             this.Close();
         }
