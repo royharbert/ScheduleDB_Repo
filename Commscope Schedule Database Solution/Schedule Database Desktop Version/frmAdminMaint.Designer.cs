@@ -55,6 +55,7 @@
             this.dgvAdmin.Location = new System.Drawing.Point(48, 26);
             this.dgvAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAdmin.Name = "dgvAdmin";
+            this.dgvAdmin.RowHeadersWidth = 51;
             this.dgvAdmin.Size = new System.Drawing.Size(426, 411);
             this.dgvAdmin.TabIndex = 0;
             this.dgvAdmin.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAdmin_CellClick);
@@ -102,10 +103,10 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label4.Location = new System.Drawing.Point(25, 123);
+            this.label4.Location = new System.Drawing.Point(36, 123);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 41);
+            this.label4.Size = new System.Drawing.Size(93, 41);
             this.label4.TabIndex = 20;
             this.label4.Text = "Priviledge";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -118,20 +119,20 @@
             "2",
             "3",
             "4"});
-            this.cboPriviledge.Location = new System.Drawing.Point(104, 127);
+            this.cboPriviledge.Location = new System.Drawing.Point(137, 127);
             this.cboPriviledge.Margin = new System.Windows.Forms.Padding(4);
             this.cboPriviledge.Name = "cboPriviledge";
-            this.cboPriviledge.Size = new System.Drawing.Size(271, 26);
+            this.cboPriviledge.Size = new System.Drawing.Size(271, 30);
             this.cboPriviledge.TabIndex = 19;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Location = new System.Drawing.Point(21, 82);
+            this.label3.Location = new System.Drawing.Point(37, 82);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 41);
+            this.label3.Size = new System.Drawing.Size(92, 41);
             this.label3.TabIndex = 18;
             this.label3.Text = "Password";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -141,10 +142,10 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Location = new System.Drawing.Point(16, 41);
+            this.label2.Location = new System.Drawing.Point(30, 41);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 41);
+            this.label2.Size = new System.Drawing.Size(99, 41);
             this.label2.TabIndex = 17;
             this.label2.Text = "Last Name";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -154,39 +155,39 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Location = new System.Drawing.Point(15, 0);
+            this.label1.Location = new System.Drawing.Point(28, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 41);
+            this.label1.Size = new System.Drawing.Size(101, 41);
             this.label1.TabIndex = 16;
             this.label1.Text = "First Name";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(106, 89);
+            this.txtPassword.Location = new System.Drawing.Point(139, 89);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(269, 24);
+            this.txtPassword.Size = new System.Drawing.Size(269, 28);
             this.txtPassword.TabIndex = 14;
             this.txtPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txtPassword_MouseDown);
             this.txtPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.txtPassword_MouseUp);
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(106, 48);
+            this.txtLastName.Location = new System.Drawing.Point(139, 48);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(269, 24);
+            this.txtLastName.Size = new System.Drawing.Size(269, 28);
             this.txtLastName.TabIndex = 13;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(106, 7);
+            this.txtFirstName.Location = new System.Drawing.Point(139, 7);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(269, 24);
+            this.txtFirstName.Size = new System.Drawing.Size(269, 28);
             this.txtFirstName.TabIndex = 12;
             // 
             // txtID
@@ -194,17 +195,17 @@
             this.txtID.Location = new System.Drawing.Point(533, 35);
             this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(54, 24);
+            this.txtID.Size = new System.Drawing.Size(54, 28);
             this.txtID.TabIndex = 21;
             this.txtID.Visible = false;
             // 
             // rdoActive
             // 
             this.rdoActive.AutoSize = true;
-            this.rdoActive.Location = new System.Drawing.Point(104, 168);
+            this.rdoActive.Location = new System.Drawing.Point(137, 168);
             this.rdoActive.Margin = new System.Windows.Forms.Padding(4);
             this.rdoActive.Name = "rdoActive";
-            this.rdoActive.Size = new System.Drawing.Size(66, 22);
+            this.rdoActive.Size = new System.Drawing.Size(83, 28);
             this.rdoActive.TabIndex = 22;
             this.rdoActive.Text = "Active";
             this.rdoActive.UseVisualStyleBackColor = true;
@@ -224,8 +225,8 @@
             // 
             this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.33517F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.66483F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.35821F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.64179F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtFirstName, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtLastName, 1, 1);
@@ -235,7 +236,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.rdoActive, 1, 4);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(492, 121);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(495, 121);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -243,16 +244,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(381, 208);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(469, 208);
             this.tableLayoutPanel1.TabIndex = 24;
             // 
             // frmAdminMaint
             // 
             this.AcceptButton = this.btnSave;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(895, 542);
+            this.ClientSize = new System.Drawing.Size(1001, 542);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lblFunction);
             this.Controls.Add(this.txtID);

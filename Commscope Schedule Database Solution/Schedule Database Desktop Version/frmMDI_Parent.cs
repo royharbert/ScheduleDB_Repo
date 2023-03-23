@@ -43,6 +43,10 @@ namespace Schedule_Database_Desktop_Version
             setDBConfigProperty();
             SetMenuAccess();
         }
+        private void frmInput_InputDataReady(object sender, InputDataReadyEventArgs e)
+        {
+            List<LabEscModel> labEsc = new List<LabEscModel>();
+        }
         private void setFormText()
         {
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();

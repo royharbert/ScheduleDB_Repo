@@ -692,7 +692,6 @@ namespace Schedule_Database_Desktop_Version
                 dtp.Format = DateTimePickerFormat.Long;
             }
         }
-
         private void controlTextChangedSharedEvent(object sender, EventArgs e)
         {
             if (!formLoading)

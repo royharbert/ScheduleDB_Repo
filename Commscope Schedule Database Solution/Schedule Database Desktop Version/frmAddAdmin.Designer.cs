@@ -50,7 +50,7 @@
             this.txtFirstName.Location = new System.Drawing.Point(96, 5);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(297, 26);
+            this.txtFirstName.Size = new System.Drawing.Size(297, 30);
             this.txtFirstName.TabIndex = 0;
             // 
             // txtLastName
@@ -58,7 +58,7 @@
             this.txtLastName.Location = new System.Drawing.Point(96, 39);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(297, 26);
+            this.txtLastName.Size = new System.Drawing.Size(297, 30);
             this.txtLastName.TabIndex = 1;
             // 
             // txtPassword
@@ -67,7 +67,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(297, 26);
+            this.txtPassword.Size = new System.Drawing.Size(297, 30);
             this.txtPassword.TabIndex = 2;
             // 
             // rdoActive
@@ -75,7 +75,7 @@
             this.rdoActive.AutoSize = true;
             this.rdoActive.Location = new System.Drawing.Point(95, 139);
             this.rdoActive.Name = "rdoActive";
-            this.rdoActive.Size = new System.Drawing.Size(70, 24);
+            this.rdoActive.Size = new System.Drawing.Size(87, 29);
             this.rdoActive.TabIndex = 3;
             this.rdoActive.TabStop = true;
             this.rdoActive.Text = "Active";
@@ -85,9 +85,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(25, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 34);
+            this.label1.Size = new System.Drawing.Size(64, 34);
             this.label1.TabIndex = 5;
             this.label1.Text = "First Name";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -96,9 +96,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(3, 34);
+            this.label2.Location = new System.Drawing.Point(25, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 34);
+            this.label2.Size = new System.Drawing.Size(64, 34);
             this.label2.TabIndex = 6;
             this.label2.Text = "Last Name";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -107,9 +107,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Location = new System.Drawing.Point(11, 68);
+            this.label3.Location = new System.Drawing.Point(8, 68);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 34);
+            this.label3.Size = new System.Drawing.Size(81, 34);
             this.label3.TabIndex = 7;
             this.label3.Text = "Password";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -124,16 +124,16 @@
             "4"});
             this.cboPriviledge.Location = new System.Drawing.Point(95, 105);
             this.cboPriviledge.Name = "cboPriviledge";
-            this.cboPriviledge.Size = new System.Drawing.Size(298, 28);
+            this.cboPriviledge.Size = new System.Drawing.Size(298, 33);
             this.cboPriviledge.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(13, 102);
+            this.label4.Location = new System.Drawing.Point(3, 102);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 34);
+            this.label4.Size = new System.Drawing.Size(86, 34);
             this.label4.TabIndex = 9;
             this.label4.Text = "Priviledge";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -188,13 +188,13 @@
             // 
             this.txtID.Location = new System.Drawing.Point(403, 233);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(29, 26);
+            this.txtID.Size = new System.Drawing.Size(29, 30);
             this.txtID.TabIndex = 13;
             // 
             // frmAddAdmin
             // 
             this.AcceptButton = this.btnSave;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(474, 292);
