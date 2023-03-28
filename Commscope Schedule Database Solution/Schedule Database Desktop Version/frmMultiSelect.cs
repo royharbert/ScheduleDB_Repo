@@ -99,7 +99,7 @@ namespace Schedule_Database_Desktop_Version
                 col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
             }
-            string[] headers = {"Escalation ID", "MSO", "End User", "City", "State", "Country", "Severity", "Requestor", "CTR Number", "Escalatioin Number", "Entry Admin", "Date Opened",
+            string[] headers = {"Escalation ID", "MSO", "End User", "City", "State", "Country", "Severity", "Requestor", "CTR Number", "Escalation Number", "Entry Admin", "Date Opened",
                                 "Date Due", "Date Completed", "E-Mail","Product", "Lead Assigned", "Quantity", "Status", "Comments", "Description", "Resolution", "MS 365 Number",
                                 "Record Type"};
             int[] widths = {145, 140, 150, 125, 120, 125, 60, 140, 115, 115, 115, 100, 100, 100, 180, 90, 115, 60, 125, 150, 150, 130, 100, 100};
@@ -183,6 +183,7 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscSearch:
                 case Mode.OpenEscByDate:
                 case Mode.LabEscReport:
+                case Mode.LabEscDelete:
                     LabEscModel request = requests[selectedRow];
                     frmLabEsc escForm = new frmLabEsc();
                     escForm.Show();

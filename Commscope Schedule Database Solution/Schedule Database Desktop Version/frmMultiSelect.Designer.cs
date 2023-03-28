@@ -46,13 +46,14 @@ namespace Schedule_Database_Desktop_Version
             this.dgvResults.Location = new System.Drawing.Point(29, 3);
             this.dgvResults.Margin = new System.Windows.Forms.Padding(4);
             this.dgvResults.Name = "dgvResults";
-            this.dgvResults.Size = new System.Drawing.Size(1904, 879);
+            this.dgvResults.RowHeadersWidth = 51;
+            this.dgvResults.Size = new System.Drawing.Size(1850, 650);
             this.dgvResults.TabIndex = 0;
             this.dgvResults.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvResults_RowHeaderMouseClick);
             // 
             // txtCount
             // 
-            this.txtCount.Location = new System.Drawing.Point(197, 913);
+            this.txtCount.Location = new System.Drawing.Point(188, 680);
             this.txtCount.Margin = new System.Windows.Forms.Padding(4);
             this.txtCount.Name = "txtCount";
             this.txtCount.Size = new System.Drawing.Size(79, 23);
@@ -61,7 +62,7 @@ namespace Schedule_Database_Desktop_Version
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(83, 916);
+            this.label1.Location = new System.Drawing.Point(62, 683);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 17);
@@ -70,7 +71,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(470, 902);
+            this.btnExport.Location = new System.Drawing.Point(470, 680);
             this.btnExport.Margin = new System.Windows.Forms.Padding(4);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(156, 36);
@@ -83,7 +84,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1914, 961);
+            this.ClientSize = new System.Drawing.Size(1914, 753);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCount);

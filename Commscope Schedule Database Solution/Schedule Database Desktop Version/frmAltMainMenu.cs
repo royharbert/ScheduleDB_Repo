@@ -151,6 +151,7 @@ namespace Schedule_Database_Desktop_Version
             inputID.Show();
             GV.inputForm = inputID;
             inputID.InputDataReady += InputID_InputDataReady;
+
         }
 
         private void btnRptAllOpen_Click(object sender, EventArgs e)

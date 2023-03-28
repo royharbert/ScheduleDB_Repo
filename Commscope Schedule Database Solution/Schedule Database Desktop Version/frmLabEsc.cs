@@ -90,7 +90,10 @@ namespace Schedule_Database_Desktop_Version
                     CommonOps.lockControls(true, this, "");
                     btnSave.Text = "Delete";
                     getAttachments(model.EscID);
-
+                    loadModel(model);
+                    //TODO write stored procedure to add model to escalations delete
+                    //TODO delete record from table escalations
+                    //TODO Undelete/restore 
                     break;
                 case Mode.LabEscSearch:
                     CommonOps.lockControls(false, this, "");

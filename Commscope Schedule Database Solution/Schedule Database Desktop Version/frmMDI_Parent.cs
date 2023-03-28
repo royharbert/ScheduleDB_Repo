@@ -299,7 +299,31 @@ namespace Schedule_Database_Desktop_Version
             GV.MODE = Mode.LabEscDelete;
             frmInput inputfrm = new frmInput();
             inputfrm.Show();
+            GV.inputForm = inputfrm;
+            inputfrm.InputDataReady += Inputfrm_InputDataReady;
 
+
+        }
+        private void Inputfrm_InputDataReady(object sender, InputDataReadyEventArgs e)
+        {
+            string pid = e.SearchString.ToString();
+            List<LabEscModel> results = GlobalConfig.Connection.LabEscGetByPID("%" + pid + "%");
+            switch (results.Count)
+            {
+                case 0:
+                    MessageBox.Show("No matching records found");
+                    break;
+                case 1:
+                    frmLabEsc resultsForm = new frmLabEsc();
+                    resultsForm.LabEsc = results[0];
+                    resultsForm.Show();
+                    break;
+                default:
+                    frmMultiSelect frmMultiSelect = new frmMultiSelect();
+                    frmMultiSelect.LabRequests = results;
+                    frmMultiSelect.Show();
+                    break;
+            }
         }
     }
 }
