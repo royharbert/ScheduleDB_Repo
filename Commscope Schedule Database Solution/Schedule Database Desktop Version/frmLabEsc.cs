@@ -41,7 +41,10 @@ namespace Schedule_Database_Desktop_Version
             {
                 labEsc = value;
                 btnSave.Text = "Save";
-                GV.MODE = Mode.LabEscEdit;
+                if (GV.MODE != Mode.LabEscDelete)
+                {
+                    GV.MODE = Mode.LabEscEdit; 
+                }
                 loadBoxes(labEsc);
                 getAttachments(labEsc.EscID);
                 txtRecordID.ReadOnly = true;
@@ -91,8 +94,6 @@ namespace Schedule_Database_Desktop_Version
                     btnSave.Text = "Delete";
                     getAttachments(model.EscID);
                     loadModel(model);
-                    //TODO write stored procedure to add model to escalations delete
-                    //TODO delete record from table escalations
                     //TODO Undelete/restore 
                     break;
                 case Mode.LabEscSearch:
@@ -149,8 +150,7 @@ namespace Schedule_Database_Desktop_Version
             errorList = auditData();
             switch (GV.MODE)
             {
-                case Mode.LabEscAdd:
-                case Mode.LabEscEdit:
+                //case Mode.LabEscAdd:
 
                     if (errorList.Length == 0)
                     {
@@ -164,24 +164,29 @@ namespace Schedule_Database_Desktop_Version
                                 cboMSO.Enabled = false;
                                 break;
                             case Mode.LabEscEdit:
+                                loadModel(model);
                                 GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
                                 break;
                             case Mode.LabEscDelete:
-                                model = GlobalConfig.Connection.LabEsc_CRUD(model, 'D');
+                                model = GlobalConfig.Connection.LabEscDeleted_CRUD(model, 'C');
+                                GlobalConfig.Connection.LabEsc_CRUD(model, 'D');
                                 break;
 
                         }
 
                         MessageBox.Show(txtRecordID.Text + " has been saved");
                         formDirty = false;
-                        GV.MODE = Mode.LabEscEdit;
+                        if (GV.MODE != Mode.LabEscDelete)
+                        {
+                            GV.MODE = Mode.LabEscEdit; 
+                        }
                     }
                     else
                     {
                         errorList = errorList + "\r\n\r\n Project not saved.";
                         MessageBox.Show(errorList);
                     }
-                    break;
+                    //break;
 
                 case Mode.LabEscSearch:
                     List<FieldSearchModel> models = collectData();

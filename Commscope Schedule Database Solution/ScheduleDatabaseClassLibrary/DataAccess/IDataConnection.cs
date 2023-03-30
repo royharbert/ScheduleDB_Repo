@@ -11,6 +11,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
+        LabEscModel LabEscDeleted_CRUD(LabEscModel model, char action);
         List<LabEscModel>  labEscSearchDateRange(DateTime startDate, DateTime endDate);
         List<LabEscModel> LabEscGetByPID(string PID);
         void HolidayAdd(string holiday, DateTime holidayDate);
