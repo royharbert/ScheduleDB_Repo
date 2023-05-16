@@ -13,13 +13,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace Schedule_Database_Desktop_Version
 {
     public partial class frmAltMainMenu : Form
     {
         frmAMDI_Parent Parent = new frmAMDI_Parent();
-        
         frmInput inputID = new frmInput();
         public frmAltMainMenu()
         {

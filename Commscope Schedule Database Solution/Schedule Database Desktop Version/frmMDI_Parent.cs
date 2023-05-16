@@ -29,7 +29,10 @@ namespace Schedule_Database_Desktop_Version
             GV.MAINMENU = this;
             frmLogin LoginForm = new frmLogin();
 
-            LoginForm.ShowDialog();
+            if (GV.MODE != Mode.Dashboard)
+            {
+                LoginForm.ShowDialog();
+            }
             int configMode = Properties.Settings.Default.DatabaseMode;
             if (configMode == 1)
             {
@@ -291,6 +294,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            GV.MODE = Mode.Dashboard;
             frmAltMainMenu altMainMenu = new frmAltMainMenu();
             altMainMenu.Show();
         }
