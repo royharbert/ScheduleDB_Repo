@@ -225,6 +225,7 @@ namespace Schedule_Database_Desktop_Version
                         GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
                         GlobalConfig.Connection.LabEscDeleted_CRUD(model, 'D');
                         MessageBox.Show(txtRecordID.Text + " has been restored");
+                        this.Close();
                         break;
                     case Mode.LabEscSearch:
                         List<FieldSearchModel> models = collectData();
