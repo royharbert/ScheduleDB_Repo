@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +23,7 @@ namespace Schedule_Database_Desktop_Version
         bool formDirty = false;
         bool formLoading = false;
         LabEscModel labEsc;
+        frmAMDI_Parent Parent = GV.MAINMENU;
 
         DateTime emptyDate = new DateTime(1900, 1, 1);
         DateTime nullDate = new DateTime(0001, 1, 1);
@@ -72,7 +74,7 @@ namespace Schedule_Database_Desktop_Version
         }
         private void frmLabEsc_Load(object sender, EventArgs e)
         {
-            if (GV.MODE != Mode.Delete_Attachment & GV.MODE != Mode.LabEscDelete & GV.MODE != Mode.LabEscRestore)
+            if (GV.MODE == Mode.LabEscAdd)
             {
                 fillComboBoxes(); 
             }
@@ -666,7 +668,6 @@ namespace Schedule_Database_Desktop_Version
                 dtpClosedDate.Format = DateTimePickerFormat.Long;
                 dtpClosedDate.Value= model.DateCompleted;
             }
-            txtEntryAdmin.Text = model.EntryAdmin;
             cboLead.Text = model.LeadAssigned;
             txtQty.Text = model.Quantity.ToString(); 
             cboStatus.Text = model.Status;
@@ -676,7 +677,6 @@ namespace Schedule_Database_Desktop_Version
             cboResolution.Text = model.Resolution;
             txtPSNum.Text = model.PSNumber;
             txtID.Text = model.ID.ToString();
-            txtEntryAdmin.Text = model.EntryAdmin;
             cboProdApp.Text = model.ProdApp;
             cboArchitecture.Text = model.Architecture;
 
@@ -997,7 +997,7 @@ namespace Schedule_Database_Desktop_Version
             else
             {
                 dtpClosedDate.Format = DateTimePickerFormat.Long;
-                cboStatus.SelectedIndex = 0;
+                //cboStatus.SelectedIndex = 0;
             }
             setDTP_Format(sender);
             cboStatus.Text = "Closed";
