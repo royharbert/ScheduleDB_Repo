@@ -161,6 +161,7 @@ namespace Schedule_Database_Desktop_Version
         {
             Mode curMode= GV.MODE;
             frmLabEsc EscalationsForm = new frmLabEsc();
+            GV.ESCALATIONFORM= EscalationsForm;
             EscalationsForm.StartPosition = FormStartPosition.CenterScreen;
             EscalationsForm.Show();
             GV.MODE = curMode;
@@ -297,17 +298,29 @@ namespace Schedule_Database_Desktop_Version
         private void deleteRecordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscDelete;
+            prepareDeleteRestore();
+        }
+
+        public void prepareDeleteRestore()
+        {
+            //GV.MODE = Mode.LabEscDelete;
             frmInput inputfrm = new frmInput();
             inputfrm.Show();
             GV.inputForm = inputfrm;
             inputfrm.InputDataReady += Inputfrm_InputDataReady;
-
-
         }
         private void Inputfrm_InputDataReady(object sender, InputDataReadyEventArgs e)
         {
             string pid = e.SearchString.ToString();
-            List<LabEscModel> results = GlobalConfig.Connection.LabEscGetByPID("%" + pid + "%");
+            List<LabEscModel> results= new List<LabEscModel>();
+            if (GV.MODE != Mode.LabEscRestore)
+            {
+                results = GlobalConfig.Connection.LabEscGetByPID("%" + pid + "%", false); 
+            }
+            else
+            {
+                results = GlobalConfig.Connection.LabEscGetByPID("%" + pid + "%", true);
+            }
             switch (results.Count)
             {
                 case 0:
@@ -324,6 +337,12 @@ namespace Schedule_Database_Desktop_Version
                     frmMultiSelect.Show();
                     break;
             }
+        }
+
+        private void restoreRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscRestore;
+            prepareDeleteRestore();
         }
     }
 }

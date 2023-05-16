@@ -61,6 +61,7 @@ namespace Schedule_Database_Desktop_Version
             this.incompleteByDateDueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbLive = new System.Windows.Forms.PictureBox();
             this.pbSandbox = new System.Windows.Forms.PictureBox();
+            this.restoreRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSandbox)).BeginInit();
@@ -150,7 +151,8 @@ namespace Schedule_Database_Desktop_Version
             this.aTEscalationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addEscalationToolStripMenuItem,
             this.searchEscalationToolStripMenuItem,
-            this.deleteRecordToolStripMenuItem});
+            this.deleteRecordToolStripMenuItem,
+            this.restoreRecordToolStripMenuItem});
             this.aTEscalationsToolStripMenuItem.Name = "aTEscalationsToolStripMenuItem";
             this.aTEscalationsToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
             this.aTEscalationsToolStripMenuItem.Tag = "2";
@@ -159,7 +161,7 @@ namespace Schedule_Database_Desktop_Version
             // addEscalationToolStripMenuItem
             // 
             this.addEscalationToolStripMenuItem.Name = "addEscalationToolStripMenuItem";
-            this.addEscalationToolStripMenuItem.Size = new System.Drawing.Size(173, 24);
+            this.addEscalationToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.addEscalationToolStripMenuItem.Tag = "2";
             this.addEscalationToolStripMenuItem.Text = "Add New";
             this.addEscalationToolStripMenuItem.Click += new System.EventHandler(this.addEscalationToolStripMenuItem_Click);
@@ -169,7 +171,7 @@ namespace Schedule_Database_Desktop_Version
             this.searchEscalationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.generalToolStripMenuItem});
             this.searchEscalationToolStripMenuItem.Name = "searchEscalationToolStripMenuItem";
-            this.searchEscalationToolStripMenuItem.Size = new System.Drawing.Size(173, 24);
+            this.searchEscalationToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.searchEscalationToolStripMenuItem.Tag = "1";
             this.searchEscalationToolStripMenuItem.Text = "Search";
             // 
@@ -183,7 +185,7 @@ namespace Schedule_Database_Desktop_Version
             // deleteRecordToolStripMenuItem
             // 
             this.deleteRecordToolStripMenuItem.Name = "deleteRecordToolStripMenuItem";
-            this.deleteRecordToolStripMenuItem.Size = new System.Drawing.Size(173, 24);
+            this.deleteRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.deleteRecordToolStripMenuItem.Tag = "1";
             this.deleteRecordToolStripMenuItem.Text = "Delete Record";
             this.deleteRecordToolStripMenuItem.Click += new System.EventHandler(this.deleteRecordToolStripMenuItem_Click);
@@ -327,7 +329,7 @@ namespace Schedule_Database_Desktop_Version
             this.pbLive.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbLive.Image = global::Schedule_Database_Desktop_Version.Properties.Resources.LiveImg;
             this.pbLive.Location = new System.Drawing.Point(0, 28);
-            this.pbLive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbLive.Margin = new System.Windows.Forms.Padding(2);
             this.pbLive.Name = "pbLive";
             this.pbLive.Size = new System.Drawing.Size(1234, 658);
             this.pbLive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -339,12 +341,20 @@ namespace Schedule_Database_Desktop_Version
             this.pbSandbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbSandbox.Image = global::Schedule_Database_Desktop_Version.Properties.Resources.childhood_gdc5593de0_1280;
             this.pbSandbox.Location = new System.Drawing.Point(0, 28);
-            this.pbSandbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbSandbox.Margin = new System.Windows.Forms.Padding(2);
             this.pbSandbox.Name = "pbSandbox";
             this.pbSandbox.Size = new System.Drawing.Size(1234, 658);
             this.pbSandbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSandbox.TabIndex = 4;
             this.pbSandbox.TabStop = false;
+            // 
+            // restoreRecordToolStripMenuItem
+            // 
+            this.restoreRecordToolStripMenuItem.Name = "restoreRecordToolStripMenuItem";
+            this.restoreRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.restoreRecordToolStripMenuItem.Tag = "4";
+            this.restoreRecordToolStripMenuItem.Text = "Restore Record";
+            this.restoreRecordToolStripMenuItem.Click += new System.EventHandler(this.restoreRecordToolStripMenuItem_Click);
             // 
             // frmAMDI_Parent
             // 
@@ -361,7 +371,7 @@ namespace Schedule_Database_Desktop_Version
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mnuMain;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAMDI_Parent";
             this.RightToLeftLayout = true;
             this.Text = "Commscope Lab Database";
@@ -408,5 +418,6 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteRecordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restoreRecordToolStripMenuItem;
     }
 }

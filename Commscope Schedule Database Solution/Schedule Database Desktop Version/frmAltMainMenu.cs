@@ -18,6 +18,7 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmAltMainMenu : Form
     {
+        frmAMDI_Parent Parent = new frmAMDI_Parent();
         public frmAltMainMenu()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmAltMainMenu_Load(object sender, EventArgs e)
         {
-            FC.SetFormPosition(this);
+            FC.SetFormPosition(this);            
         }
 
         private void btnNewRecord_Click(object sender, EventArgs e)
@@ -126,7 +127,7 @@ namespace Schedule_Database_Desktop_Version
         private void InputID_InputDataReady(object sender, InputDataReadyEventArgs e)
         {
             string pid = e.SearchString.ToString();
-            List<LabEscModel> results = GlobalConfig.Connection.LabEscGetByPID("%" + pid + "%");
+            List<LabEscModel> results = GlobalConfig.Connection.LabEscGetByPID("%" + pid + "%", false);
             switch (results.Count)
             {
                 case 0:
@@ -147,11 +148,7 @@ namespace Schedule_Database_Desktop_Version
         private void btnDelete_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscDelete;
-            frmInput inputID = new frmInput();
-            inputID.Show();
-            GV.inputForm = inputID;
-            inputID.InputDataReady += InputID_InputDataReady;
-
+            Parent.prepareDeleteRestore();
         }
 
         private void btnRptAllOpen_Click(object sender, EventArgs e)
@@ -250,6 +247,12 @@ namespace Schedule_Database_Desktop_Version
         {
             frmAdminMaint adminMaint = new frmAdminMaint();
             adminMaint.Show();
+        }
+
+        private void btnRestore_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscRestore;
+            Parent.prepareDeleteRestore();
         }
     }
 }

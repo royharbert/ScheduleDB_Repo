@@ -75,14 +75,16 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
         }
 
-        public List<LabEscModel> LabEscGetByPID(string PID)
+        public List<LabEscModel> LabEscGetByPID(string PID, bool restore)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@PID", PID, DbType.String);
+                p.Add("@Restore", restore, DbType.Boolean);
 
-                List<LabEscModel> output = connection.Query<LabEscModel>("dbo.spLabEscGetByPID", p, commandType: CommandType.StoredProcedure).ToList();
+                List<LabEscModel> output = connection.Query<LabEscModel>("dbo.spLabEscGetByPID", p, commandType: CommandType.StoredProcedure).ToList(); 
+               
                 return output;
             }
         }

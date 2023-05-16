@@ -40,10 +40,22 @@ namespace Schedule_Database_Desktop_Version
             set
             {
                 labEsc = value;
-                btnSave.Text = "Save";
-                if (GV.MODE != Mode.LabEscDelete)
+                //btnSave.Text = "Save";
+                if (GV.MODE == Mode.LabEscDelete | GV.MODE == Mode.LabEscRestore)
                 {
-                    GV.MODE = Mode.LabEscEdit; 
+                    if (GV.MODE == Mode.LabEscDelete)
+                    {
+                        btnSave.Text = "Delete"; 
+                    }
+                    else
+                    {
+                        btnSave.Text = "Restore";
+                    }
+                }
+                else
+                {
+                    GV.MODE = Mode.LabEscEdit;
+                    btnSave.Text = "Save";
                 }
                 loadBoxes(labEsc);
                 getAttachments(labEsc.EscID);
@@ -60,7 +72,10 @@ namespace Schedule_Database_Desktop_Version
         }
         private void frmLabEsc_Load(object sender, EventArgs e)
         {
-            fillComboBoxes();
+            if (GV.MODE != Mode.Delete_Attachment & GV.MODE != Mode.LabEscDelete & GV.MODE != Mode.LabEscRestore)
+            {
+                fillComboBoxes(); 
+            }
             FC.SetFormPosition(this);
             dtpClosedDate.CustomFormat = dtpCustomFormat;
             dtpDueDate.CustomFormat = dtpCustomFormat;
@@ -90,11 +105,13 @@ namespace Schedule_Database_Desktop_Version
                     btnSave.Text = "Save";
                     break;
                 case Mode.LabEscDelete:
-                    CommonOps.lockControls(true, this, "");
+                    CommonOps.lockControls(false, this, "");
                     btnSave.Text = "Delete";
-                    getAttachments(model.EscID);
-                    loadModel(model);
                     //TODO Undelete/restore 
+                    break;
+                case Mode.LabEscRestore:
+                    CommonOps.lockControls(false, this, "");
+                    btnSave.Text = "Restore";
                     break;
                 case Mode.LabEscSearch:
                     CommonOps.lockControls(false, this, "");
@@ -147,104 +164,123 @@ namespace Schedule_Database_Desktop_Version
         {
             string errorList = "";
             loadModel(model);
-            errorList = auditData();
-            switch (GV.MODE)
+            
+
+            if (errorList.Length == 0)
             {
-                //case Mode.LabEscAdd:
-
-                    if (errorList.Length == 0)
-                    {
-                        switch (GV.MODE)
+                switch (GV.MODE)
+                {
+                    case Mode.LabEscAdd:
+                        model = GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
+                        loadModel(model);
+                        errorList = auditData();
+                        if (errorList.Length == 0)
                         {
-                            case Mode.LabEscAdd:
-                                model = GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
-                                loadBoxes(model);
-                                txtID.Text = model.ID.ToString();
-                                cboRecType.Enabled = false;
-                                cboMSO.Enabled = false;
-                                break;
-                            case Mode.LabEscEdit:
-                                loadModel(model);
-                                GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
-                                break;
-                            case Mode.LabEscDelete:
-                                model = GlobalConfig.Connection.LabEscDeleted_CRUD(model, 'C');
-                                GlobalConfig.Connection.LabEsc_CRUD(model, 'D');
-                                break;
-
+                            txtID.Text = model.ID.ToString();
+                            cboRecType.Enabled = false;
+                            cboMSO.Enabled = false;
+                            MessageBox.Show(txtRecordID.Text + " has been saved");
+                            formDirty = false;
+                            if (GV.MODE != Mode.LabEscDelete & GV.MODE != Mode.LabEscRestore)
+                            {
+                                GV.MODE = Mode.LabEscEdit;
+                            }
                         }
-
+                        break;
+                    case Mode.LabEscEdit:
+                        loadModel(model);
+                        if (errorList.Length == 0)
+                        {
+                            txtID.Text = model.ID.ToString();
+                            cboRecType.Enabled = false;
+                            cboMSO.Enabled = false;
+                            MessageBox.Show(txtRecordID.Text + " has been saved");
+                            formDirty = false;
+                            if (GV.MODE != Mode.LabEscDelete & GV.MODE != Mode.LabEscRestore)
+                            {
+                                GV.MODE = Mode.LabEscEdit;
+                            }
+                        }
+                        GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
                         MessageBox.Show(txtRecordID.Text + " has been saved");
                         formDirty = false;
-                        if (GV.MODE != Mode.LabEscDelete)
+                        if (GV.MODE != Mode.LabEscDelete & GV.MODE != Mode.LabEscRestore)
                         {
-                            GV.MODE = Mode.LabEscEdit; 
+                            GV.MODE = Mode.LabEscEdit;
                         }
-                    }
-                    else
-                    {
-                        errorList = errorList + "\r\n\r\n Project not saved.";
-                        MessageBox.Show(errorList);
-                    }
-                    //break;
-
-                case Mode.LabEscSearch:
-                    List<FieldSearchModel> models = collectData();
-                    string whereClause = "where ";
-                    foreach (var model in models)
-                    {
-                        if (model.FieldName == "Comments" | model.FieldName == "Description" | model.FieldName == "PSNumber" | model.FieldName == "Resolution"
-                            | model.FieldName == "CTRNum" | model.FieldName == "EscNum" | model.FieldName == "EscID")
+                        break;
+                    case Mode.LabEscDelete:
+                        model = GlobalConfig.Connection.LabEscDeleted_CRUD(model, 'C');
+                        GlobalConfig.Connection.LabEsc_CRUD(model, 'D');
+                        break;
+                    case Mode.LabEscRestore:
+                        GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
+                        GlobalConfig.Connection.LabEscDeleted_CRUD(model, 'D');
+                        break;
+                    case Mode.LabEscSearch:
+                        List<FieldSearchModel> models = collectData();
+                        string whereClause = "where ";
+                        foreach (var model in models)
                         {
-                            whereClause = whereClause + " upper(" + model.FieldName + ") like  upper('%" + model.FieldValue + "%') and ";
+                            if (model.FieldName == "Comments" | model.FieldName == "Description" | model.FieldName == "PSNumber" | model.FieldName == "Resolution"
+                                | model.FieldName == "CTRNum" | model.FieldName == "EscNum" | model.FieldName == "EscID")
+                            {
+                                whereClause = whereClause + " upper(" + model.FieldName + ") like  upper('%" + model.FieldValue + "%') and ";
+                            }
+                            else if (model.FieldName == "Products")
+                            {
+                                whereClause = whereClause + " upper(" + model.FieldName + ") like  upper('%" + lstProducts.SelectedItem.ToString() + "%') and ";
+                            }
+                            else
+                            {
+                                whereClause = whereClause + " upper(" + model.FieldName + ") like  upper('%" + model.FieldValue + "%') and ";
+                            }
                         }
-                        else if(model.FieldName == "Products")
+
+                        bool goodSearch = false;
+
+                        if (ckFilter.Checked && whereClause.Length > 6)
                         {
-                            whereClause = whereClause + " upper(" + model.FieldName + ") like  upper('%" + lstProducts.SelectedItem.ToString() + "%') and ";
+                            whereClause = whereClause + " (DateOpened between '" + dtpStart.Value.ToString("yyyy-MM-dd") + "' and '" +
+                                dtpEnd.Value.ToString("yyyy-MM-dd") + "')";
+                            goodSearch = true;
                         }
-                        else
+                        if (ckFilter.Checked && whereClause.Length <= 6)
                         {
-                            whereClause = whereClause + " upper(" + model.FieldName + ") like  upper('%" + model.FieldValue + "%') and ";
+                            whereClause = whereClause + "(DateOpened between '" + dtpStart.Value.ToString("yyyy-MM-dd") + "' and '" +
+                               dtpEnd.Value.ToString("yyyy-MM-dd") + "')";
+                            goodSearch = true;
                         }
-                    }
+                        if (whereClause.Length > 6 && !ckFilter.Checked)
+                        {
+                            whereClause = whereClause.Substring(0, whereClause.Length - 5);
+                            goodSearch = true;
+                        }
+                        if (whereClause.Length <= 6 && !ckFilter.Checked)
+                        {
+                            MessageBox.Show("Please provide search criteria");
+                        }
 
-                    bool goodSearch = false;
-                    
-                    if (ckFilter.Checked && whereClause.Length > 6)
-                    {
-                        whereClause = whereClause + " (DateOpened between '" + dtpStart.Value.ToString("yyyy-MM-dd") + "' and '" + 
-                            dtpEnd.Value.ToString("yyyy-MM-dd") + "')";
-                        goodSearch = true;
-                    }
-                    if (ckFilter.Checked && whereClause.Length <= 6)
-                    {
-                        whereClause = whereClause + "(DateOpened between '" + dtpStart.Value.ToString("yyyy-MM-dd") + "' and '" +
-                           dtpEnd.Value.ToString("yyyy-MM-dd") + "')";
-                        goodSearch  = true;
-                    }
-                    if (whereClause.Length > 6 && !ckFilter.Checked)
-                    {
-                        whereClause = whereClause.Substring(0, whereClause.Length - 5);
-                        goodSearch = true;
-                    }
-                    if (whereClause.Length <= 6 && !ckFilter.Checked)
-                    {
-                        MessageBox.Show("Please provide search criteria");
-                    }
+                        if (goodSearch)
+                        {
+                            List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
+                            displayResults(requests);
+                            formDirty = false;
+                            txtRecordID.ReadOnly = true;
+                            this.Close();
+                        }
 
-                    if (goodSearch)
-                    {
-                        List<LabEscModel> requests = GlobalConfig.Connection.LabEscSearchGen(whereClause);
-                        displayResults(requests);
-                        formDirty = false;
-                        txtRecordID.ReadOnly = true;
-                        this.Close(); 
-                    }
-
-                    break;
-                default:
-                    break;
+                        break;            
+                }
             }
+            else
+            {
+                errorList = errorList + "\r\n\r\n Project not saved.";
+                MessageBox.Show(errorList);
+            }
+            //            //break;
+
+            
         }
 
         public void hideDateFilter(bool hidden)
@@ -643,7 +679,10 @@ namespace Schedule_Database_Desktop_Version
             dgvAttachments.DataSource = null;
             dgvAttachments.DataSource = aList;
             formatAttGrid();
-            GV.MODE = Mode.LabEscEdit;
+            if (GV.MODE != Mode.LabEscDelete && GV.MODE != Mode.LabEscRestore)
+            {
+                GV.MODE = Mode.LabEscEdit;
+            }
             formLoading = false;
             formDirty = false;
         }

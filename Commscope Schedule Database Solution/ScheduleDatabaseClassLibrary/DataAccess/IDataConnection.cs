@@ -13,7 +13,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
     {
         LabEscModel LabEscDeleted_CRUD(LabEscModel model, char action);
         List<LabEscModel>  labEscSearchDateRange(DateTime startDate, DateTime endDate);
-        List<LabEscModel> LabEscGetByPID(string PID);
+        List<LabEscModel> LabEscGetByPID(string PID, bool restore);
         void HolidayAdd(string holiday, DateTime holidayDate);
         void UpdateHolidays(string holiday, DateTime holidayDate, int idx);
         List<LabEscModel> GetLabEscByStatus(string type, bool status);

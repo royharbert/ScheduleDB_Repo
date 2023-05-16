@@ -13,6 +13,7 @@ namespace Schedule_Database_Desktop_Version
         LabEscAdd,
         LabEscEdit,
         LabEscDelete,
+        LabEscRestore,
         LabEscSearch,
         LabEscDateRange,
         OpenEscByDate,

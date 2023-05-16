@@ -48,6 +48,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnExit = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnChangePW = new System.Windows.Forms.Button();
+            this.btnRestore = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSearchByID
@@ -256,11 +257,23 @@ namespace Schedule_Database_Desktop_Version
             this.btnChangePW.UseVisualStyleBackColor = true;
             this.btnChangePW.Click += new System.EventHandler(this.btnChangePW_Click);
             // 
+            // btnRestore
+            // 
+            this.btnRestore.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestore.Location = new System.Drawing.Point(302, 367);
+            this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Size = new System.Drawing.Size(226, 36);
+            this.btnRestore.TabIndex = 22;
+            this.btnRestore.Text = "Restore Record";
+            this.btnRestore.UseVisualStyleBackColor = true;
+            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
+            // 
             // frmAltMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 480);
+            this.Controls.Add(this.btnRestore);
             this.Controls.Add(this.btnChangePW);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnExit);
@@ -308,5 +321,6 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnChangePW;
+        private System.Windows.Forms.Button btnRestore;
     }
 }

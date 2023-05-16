@@ -32,6 +32,9 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscSearch:
 
                     break;
+                case Mode.LabEscRestore:
+
+                    break;
                 default:
                     break;
             }
