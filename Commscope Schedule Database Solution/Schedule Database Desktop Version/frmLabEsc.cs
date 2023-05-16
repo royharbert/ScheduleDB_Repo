@@ -210,12 +210,21 @@ namespace Schedule_Database_Desktop_Version
                         }
                         break;
                     case Mode.LabEscDelete:
-                        model = GlobalConfig.Connection.LabEscDeleted_CRUD(model, 'C');
-                        GlobalConfig.Connection.LabEsc_CRUD(model, 'D');
+                       
+                            DialogResult reply = MessageBox.Show("Are you sure you want to delete " + txtRecordID.Text, "Save Changes", MessageBoxButtons.YesNoCancel);
+                            if (reply == DialogResult.Yes)
+                            {
+                                 GlobalConfig.Connection.LabEsc_CRUD(model, 'D');
+                                 model = GlobalConfig.Connection.LabEscDeleted_CRUD(model, 'C');  
+                                 MessageBox.Show(txtRecordID.Text + " has been deleted");
+                                 this.Close();
+                           
+                            }
                         break;
                     case Mode.LabEscRestore:
                         GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
                         GlobalConfig.Connection.LabEscDeleted_CRUD(model, 'D');
+                        MessageBox.Show(txtRecordID.Text + " has been restored");
                         break;
                     case Mode.LabEscSearch:
                         List<FieldSearchModel> models = collectData();

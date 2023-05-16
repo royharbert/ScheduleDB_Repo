@@ -43,6 +43,7 @@ namespace Schedule_Database_Desktop_Version
             this.searchEscalationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restoreRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openItemsByDateDueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openEscalationsByDueDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +62,7 @@ namespace Schedule_Database_Desktop_Version
             this.incompleteByDateDueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbLive = new System.Windows.Forms.PictureBox();
             this.pbSandbox = new System.Windows.Forms.PictureBox();
-            this.restoreRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSandbox)).BeginInit();
@@ -169,7 +170,8 @@ namespace Schedule_Database_Desktop_Version
             // searchEscalationToolStripMenuItem
             // 
             this.searchEscalationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.generalToolStripMenuItem});
+            this.generalToolStripMenuItem,
+            this.byIDToolStripMenuItem});
             this.searchEscalationToolStripMenuItem.Name = "searchEscalationToolStripMenuItem";
             this.searchEscalationToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.searchEscalationToolStripMenuItem.Tag = "1";
@@ -178,7 +180,7 @@ namespace Schedule_Database_Desktop_Version
             // generalToolStripMenuItem
             // 
             this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
-            this.generalToolStripMenuItem.Size = new System.Drawing.Size(129, 24);
+            this.generalToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.generalToolStripMenuItem.Text = "General";
             this.generalToolStripMenuItem.Click += new System.EventHandler(this.generalToolStripMenuItem_Click);
             // 
@@ -189,6 +191,14 @@ namespace Schedule_Database_Desktop_Version
             this.deleteRecordToolStripMenuItem.Tag = "1";
             this.deleteRecordToolStripMenuItem.Text = "Delete Record";
             this.deleteRecordToolStripMenuItem.Click += new System.EventHandler(this.deleteRecordToolStripMenuItem_Click);
+            // 
+            // restoreRecordToolStripMenuItem
+            // 
+            this.restoreRecordToolStripMenuItem.Name = "restoreRecordToolStripMenuItem";
+            this.restoreRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.restoreRecordToolStripMenuItem.Tag = "4";
+            this.restoreRecordToolStripMenuItem.Text = "Restore Record";
+            this.restoreRecordToolStripMenuItem.Click += new System.EventHandler(this.restoreRecordToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
@@ -348,13 +358,12 @@ namespace Schedule_Database_Desktop_Version
             this.pbSandbox.TabIndex = 4;
             this.pbSandbox.TabStop = false;
             // 
-            // restoreRecordToolStripMenuItem
+            // byIDToolStripMenuItem
             // 
-            this.restoreRecordToolStripMenuItem.Name = "restoreRecordToolStripMenuItem";
-            this.restoreRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.restoreRecordToolStripMenuItem.Tag = "4";
-            this.restoreRecordToolStripMenuItem.Text = "Restore Record";
-            this.restoreRecordToolStripMenuItem.Click += new System.EventHandler(this.restoreRecordToolStripMenuItem_Click);
+            this.byIDToolStripMenuItem.Name = "byIDToolStripMenuItem";
+            this.byIDToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.byIDToolStripMenuItem.Text = "By ID";
+            this.byIDToolStripMenuItem.Click += new System.EventHandler(this.byIDToolStripMenuItem_Click);
             // 
             // frmAMDI_Parent
             // 
@@ -419,5 +428,6 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.ToolStripMenuItem deleteRecordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restoreRecordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem byIDToolStripMenuItem;
     }
 }
