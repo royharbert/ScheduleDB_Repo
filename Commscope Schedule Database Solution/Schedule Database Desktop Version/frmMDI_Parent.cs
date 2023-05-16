@@ -344,6 +344,37 @@ namespace Schedule_Database_Desktop_Version
             GV.MODE = Mode.LabEscRestore;
             prepareDeleteRestore();
         }
+
+        private void byIDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscSearch;
+            frmInput inputID = new frmInput();
+            inputID.Show();
+            GV.inputForm = inputID;
+            inputID.InputDataReady += InputID_InputDataReady;
+
+        }
+        private void InputID_InputDataReady(object sender, InputDataReadyEventArgs e)
+        {
+            string pid = e.SearchString.ToString();
+            List<LabEscModel> results = GlobalConfig.Connection.LabEscGetByPID("%" + pid + "%", false);
+            switch (results.Count)
+            {
+                case 0:
+                    MessageBox.Show("No matching records found");
+                    break;
+                case 1:
+                    frmLabEsc resultsForm = new frmLabEsc();
+                    resultsForm.LabEsc = results[0];
+                    resultsForm.Show();
+                    break;
+                default:
+                    frmMultiSelect frmMultiSelect = new frmMultiSelect();
+                    frmMultiSelect.LabRequests = results;
+                    frmMultiSelect.Show();
+                    break;
+            }
+        }
     }
 }
  
