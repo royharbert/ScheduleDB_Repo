@@ -50,7 +50,7 @@ namespace Schedule_Database_Desktop_Version
             InputDataReadyEventArgs args = new InputDataReadyEventArgs();
             args.SearchString = "%" + txtInput.Text.Trim().ToUpper() + "%";
             InputDataReady?.Invoke(this, args);
-            this.Close();
+            this.Hide();
         }
 
         private void frmInput_Activated(object sender, EventArgs e)

@@ -19,6 +19,8 @@ namespace Schedule_Database_Desktop_Version
     public partial class frmAltMainMenu : Form
     {
         frmAMDI_Parent Parent = new frmAMDI_Parent();
+        
+        frmInput inputID = new frmInput();
         public frmAltMainMenu()
         {
             InitializeComponent();
@@ -116,7 +118,7 @@ namespace Schedule_Database_Desktop_Version
         private void btnSearchByID_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscSearch;
-            frmInput inputID = new frmInput();
+            //frmInput inputID = new frmInput();
             inputID.Show();
             GV.inputForm = inputID;
             inputID.InputDataReady += InputID_InputDataReady;

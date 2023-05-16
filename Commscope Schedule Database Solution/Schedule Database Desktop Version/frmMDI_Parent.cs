@@ -28,7 +28,7 @@ namespace Schedule_Database_Desktop_Version
             //Color defaultBackColor = this.BackColor;
             GV.MAINMENU = this;
             frmLogin LoginForm = new frmLogin();
-            
+
             LoginForm.ShowDialog();
             int configMode = Properties.Settings.Default.DatabaseMode;
             if (configMode == 1)
