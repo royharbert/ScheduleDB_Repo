@@ -42,7 +42,6 @@ namespace Schedule_Database_Desktop_Version
             set
             {
                 labEsc = value;
-                //btnSave.Text = "Save";
                 if (GV.MODE == Mode.LabEscDelete | GV.MODE == Mode.LabEscRestore)
                 {
                     if (GV.MODE == Mode.LabEscDelete)
@@ -59,11 +58,9 @@ namespace Schedule_Database_Desktop_Version
                     GV.MODE = Mode.LabEscEdit;
                     btnSave.Text = "Save";
                 }
-                loadBoxes(labEsc);
-                getAttachments(labEsc.EscID);
-                txtRecordID.ReadOnly = true;
-                gbDateRange.Visible = false;
-                dtpClosedDate.Enabled = true;
+                List<LabEscModel> escList = new List<LabEscModel>();
+                escList.Add(labEsc);
+                displayResults(escList);
                 this.BringToFront();
             }
         }
@@ -74,10 +71,7 @@ namespace Schedule_Database_Desktop_Version
         }
         private void frmLabEsc_Load(object sender, EventArgs e)
         {
-            if (GV.MODE == Mode.LabEscAdd)
-            {
-                fillComboBoxes(); 
-            }
+            fillListList<ProductModel>(lstProducts, "tblProducts", "Product", "Product");
             FC.SetFormPosition(this);
             dtpClosedDate.CustomFormat = dtpCustomFormat;
             dtpDueDate.CustomFormat = dtpCustomFormat;
@@ -89,6 +83,7 @@ namespace Schedule_Database_Desktop_Version
             {
                 case Mode.LabEscAdd:
                     txtRecordID.Clear();
+                    fillComboBoxes();
                     cboRecType.Enabled = true;
                     cboMSO.Enabled = true;
                     CommonOps.lockControls(true, tlpLeft, "cboRecType");
@@ -525,7 +520,7 @@ namespace Schedule_Database_Desktop_Version
             this.Close();
         }
 
-        private void fillComboBoxes()
+        public void fillComboBoxes()
         {
             formLoading = true;
             fillComboList<MSO_Model>(cboMSO, "tblMSO", "MSO", "MSO");
@@ -560,7 +555,10 @@ namespace Schedule_Database_Desktop_Version
             cbo.SelectedIndex = -1;
         }
 
-
+        public void FillProductList()
+        {
+            fillListList<ProductModel>(lstProducts, "tblProducts", "Product", "Product");
+        }
         private void fillListList<T>(System.Windows.Forms.ListBox cbo, string table, string displayField, string orderByField)
         {
             List<T> data = GlobalConfig.Connection.GenericGetAll<T>(table, orderByField);
@@ -1075,5 +1073,12 @@ namespace Schedule_Database_Desktop_Version
             setDTP_Format(sender);
         }
 
+        //private void frmLabEsc_Activated(object sender, EventArgs e)
+        //{
+        //    if (GV.MODE != Mode.LabEscAdd)
+        //    {
+        //        getAttachments(txtRecordID.Text); 
+        //    }
+        //}
     }
 }

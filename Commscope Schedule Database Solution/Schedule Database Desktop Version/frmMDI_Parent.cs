@@ -25,7 +25,6 @@ namespace Schedule_Database_Desktop_Version
             InitializeComponent();
             GV.ActiveScreen = Properties.Settings.Default.ActiveScreen;
             FC.SetFormPosition(this);
-            //Color defaultBackColor = this.BackColor;
             GV.MAINMENU = this;
             frmLogin LoginForm = new frmLogin();
 
@@ -164,7 +163,7 @@ namespace Schedule_Database_Desktop_Version
         {
             Mode curMode= GV.MODE;
             frmLabEsc EscalationsForm = new frmLabEsc();
-            GV.ESCALATIONFORM= EscalationsForm;
+            GV.LABESCFORM = EscalationsForm;
             EscalationsForm.StartPosition = FormStartPosition.CenterScreen;
             EscalationsForm.Show();
             GV.MODE = curMode;
@@ -242,6 +241,11 @@ namespace Schedule_Database_Desktop_Version
         private void frmAMDI_Parent_Load(object sender, EventArgs e)
         {
             checkHolidaySched();
+            frmLabEsc escForm = new frmLabEsc();
+            escForm.fillComboBoxes();
+            escForm.FillProductList();
+
+            GV.LABESCFORM = escForm;
         }
 
         private void holidaysListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -368,9 +372,10 @@ namespace Schedule_Database_Desktop_Version
                     MessageBox.Show("No matching records found");
                     break;
                 case 1:
-                    frmLabEsc resultsForm = new frmLabEsc();
-                    resultsForm.LabEsc = results[0];
-                    resultsForm.Show();
+                    GV.LABESCFORM.LabEsc = results[0];
+                    //frmLabEsc resultsForm = new frmLabEsc();
+                    //resultsForm.LabEsc = results[0];
+                    //resultsForm.Show();
                     break;
                 default:
                     frmMultiSelect frmMultiSelect = new frmMultiSelect();
