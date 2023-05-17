@@ -42,6 +42,7 @@ namespace Schedule_Database_Desktop_Version
             this.addEscalationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchEscalationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restoreRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +63,6 @@ namespace Schedule_Database_Desktop_Version
             this.incompleteByDateDueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbLive = new System.Windows.Forms.PictureBox();
             this.pbSandbox = new System.Windows.Forms.PictureBox();
-            this.byIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSandbox)).BeginInit();
@@ -181,14 +181,23 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
             this.generalToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.generalToolStripMenuItem.Tag = "1";
             this.generalToolStripMenuItem.Text = "General";
             this.generalToolStripMenuItem.Click += new System.EventHandler(this.generalToolStripMenuItem_Click);
+            // 
+            // byIDToolStripMenuItem
+            // 
+            this.byIDToolStripMenuItem.Name = "byIDToolStripMenuItem";
+            this.byIDToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.byIDToolStripMenuItem.Tag = "1";
+            this.byIDToolStripMenuItem.Text = "By ID";
+            this.byIDToolStripMenuItem.Click += new System.EventHandler(this.byIDToolStripMenuItem_Click);
             // 
             // deleteRecordToolStripMenuItem
             // 
             this.deleteRecordToolStripMenuItem.Name = "deleteRecordToolStripMenuItem";
             this.deleteRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.deleteRecordToolStripMenuItem.Tag = "1";
+            this.deleteRecordToolStripMenuItem.Tag = "4";
             this.deleteRecordToolStripMenuItem.Text = "Delete Record";
             this.deleteRecordToolStripMenuItem.Click += new System.EventHandler(this.deleteRecordToolStripMenuItem_Click);
             // 
@@ -208,14 +217,14 @@ namespace Schedule_Database_Desktop_Version
             this.requestsByDueDateToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
-            this.reportsToolStripMenuItem.Tag = "3";
+            this.reportsToolStripMenuItem.Tag = "2";
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
             // openItemsByDateDueToolStripMenuItem
             // 
             this.openItemsByDateDueToolStripMenuItem.Name = "openItemsByDateDueToolStripMenuItem";
             this.openItemsByDateDueToolStripMenuItem.Size = new System.Drawing.Size(263, 24);
-            this.openItemsByDateDueToolStripMenuItem.Tag = "3";
+            this.openItemsByDateDueToolStripMenuItem.Tag = "2";
             this.openItemsByDateDueToolStripMenuItem.Text = "All Open Items by Date Due";
             this.openItemsByDateDueToolStripMenuItem.Click += new System.EventHandler(this.openItemsByDateDueToolStripMenuItem_Click);
             // 
@@ -226,21 +235,22 @@ namespace Schedule_Database_Desktop_Version
             this.closedToolStripMenuItem});
             this.openEscalationsByDueDateToolStripMenuItem.Name = "openEscalationsByDueDateToolStripMenuItem";
             this.openEscalationsByDueDateToolStripMenuItem.Size = new System.Drawing.Size(263, 24);
-            this.openEscalationsByDueDateToolStripMenuItem.Tag = "3";
+            this.openEscalationsByDueDateToolStripMenuItem.Tag = "2";
             this.openEscalationsByDueDateToolStripMenuItem.Text = "Escalations by Due Date";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
-            this.openToolStripMenuItem.Tag = "3";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.openToolStripMenuItem.Tag = "2";
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // closedToolStripMenuItem
             // 
             this.closedToolStripMenuItem.Name = "closedToolStripMenuItem";
-            this.closedToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.closedToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.closedToolStripMenuItem.Tag = "2";
             this.closedToolStripMenuItem.Text = "Closed";
             // 
             // requestsByDueDateToolStripMenuItem
@@ -250,22 +260,22 @@ namespace Schedule_Database_Desktop_Version
             this.closedToolStripMenuItem1});
             this.requestsByDueDateToolStripMenuItem.Name = "requestsByDueDateToolStripMenuItem";
             this.requestsByDueDateToolStripMenuItem.Size = new System.Drawing.Size(263, 24);
-            this.requestsByDueDateToolStripMenuItem.Tag = "3";
+            this.requestsByDueDateToolStripMenuItem.Tag = "2";
             this.requestsByDueDateToolStripMenuItem.Text = "Requests by Due Date";
             // 
             // openToolStripMenuItem1
             // 
             this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(123, 24);
-            this.openToolStripMenuItem1.Tag = "3";
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
+            this.openToolStripMenuItem1.Tag = "2";
             this.openToolStripMenuItem1.Text = "Open";
             this.openToolStripMenuItem1.Click += new System.EventHandler(this.openToolStripMenuItem1_Click);
             // 
             // closedToolStripMenuItem1
             // 
             this.closedToolStripMenuItem1.Name = "closedToolStripMenuItem1";
-            this.closedToolStripMenuItem1.Size = new System.Drawing.Size(123, 24);
-            this.closedToolStripMenuItem1.Tag = "3";
+            this.closedToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
+            this.closedToolStripMenuItem1.Tag = "2";
             this.closedToolStripMenuItem1.Text = "Closed";
             // 
             // maintenanceToolStripMenuItem
@@ -301,22 +311,22 @@ namespace Schedule_Database_Desktop_Version
             this.sandboxToolStripMenuItem});
             this.databaseModeToolStripMenuItem.Name = "databaseModeToolStripMenuItem";
             this.databaseModeToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
-            this.databaseModeToolStripMenuItem.Tag = "3";
+            this.databaseModeToolStripMenuItem.Tag = "2";
             this.databaseModeToolStripMenuItem.Text = "Database Mode";
             // 
             // liveToolStripMenuItem
             // 
             this.liveToolStripMenuItem.Name = "liveToolStripMenuItem";
-            this.liveToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
-            this.liveToolStripMenuItem.Tag = "3";
+            this.liveToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.liveToolStripMenuItem.Tag = "2";
             this.liveToolStripMenuItem.Text = "Live";
             this.liveToolStripMenuItem.Click += new System.EventHandler(this.liveToolStripMenuItem_Click);
             // 
             // sandboxToolStripMenuItem
             // 
             this.sandboxToolStripMenuItem.Name = "sandboxToolStripMenuItem";
-            this.sandboxToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
-            this.sandboxToolStripMenuItem.Tag = "3";
+            this.sandboxToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.sandboxToolStripMenuItem.Tag = "2";
             this.sandboxToolStripMenuItem.Text = "Sandbox";
             this.sandboxToolStripMenuItem.Click += new System.EventHandler(this.sandboxToolStripMenuItem_Click);
             // 
@@ -357,13 +367,6 @@ namespace Schedule_Database_Desktop_Version
             this.pbSandbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSandbox.TabIndex = 4;
             this.pbSandbox.TabStop = false;
-            // 
-            // byIDToolStripMenuItem
-            // 
-            this.byIDToolStripMenuItem.Name = "byIDToolStripMenuItem";
-            this.byIDToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.byIDToolStripMenuItem.Text = "By ID";
-            this.byIDToolStripMenuItem.Click += new System.EventHandler(this.byIDToolStripMenuItem_Click);
             // 
             // frmAMDI_Parent
             // 

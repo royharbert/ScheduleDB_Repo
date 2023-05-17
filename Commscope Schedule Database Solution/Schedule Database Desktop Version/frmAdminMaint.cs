@@ -139,7 +139,7 @@ namespace Schedule_Database_Desktop_Version
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmAddAdmin addAdmin = new frmAddAdmin();
-            addAdmin.Show();
+            addAdmin.ShowDialog();
             //lblFunction.Text= "Adding User";
             AddingUser = true;
             clearBoxes();

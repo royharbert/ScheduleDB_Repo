@@ -78,6 +78,7 @@ namespace Schedule_Database_Desktop_Version
             {
                 model.Active = false;
             }
+            this.BringToFront();
             return model;
         }
     }

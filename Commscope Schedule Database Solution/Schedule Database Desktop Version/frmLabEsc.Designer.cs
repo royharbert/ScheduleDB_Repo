@@ -1014,6 +1014,7 @@ namespace Schedule_Database_Desktop_Version
             this.Name = "frmLabEsc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Lab Requests/Escalation";
+            //this.Activated += new System.EventHandler(this.frmLabEsc_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLabEsc_FormClosing);
             this.Load += new System.EventHandler(this.frmLabEsc_Load);
             this.dtpContextMenu.ResumeLayout(false);
