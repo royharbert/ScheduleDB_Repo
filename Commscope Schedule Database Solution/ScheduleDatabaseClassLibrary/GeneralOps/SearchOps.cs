@@ -4,11 +4,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ScheduleDatabaseClassLibrary.GeneralOps
 { 
-    public class SearchOps
+    public  class SearchOps
     {
+        public static void SetMenuAccess(Form frm, UserModel user)
+        {
+            foreach (Control ctl  in frm.Controls)
+            {
+                if (ctl is Button)
+                {
+                    ctl.Visible = false;
+                    int minimumPriviledge = int.Parse(ctl.Tag.ToString());
+                    if (user.Priviledge >= minimumPriviledge)
+                    {
+                        ctl.Visible = true;
+                    } 
+                }
+
+            }
+        }
         /// <summary>
         /// takes a list of search terms (field name/value) and builds a where clause to append to dynamic query.
         /// case sensitive

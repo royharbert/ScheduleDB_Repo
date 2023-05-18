@@ -163,7 +163,6 @@ namespace Schedule_Database_Desktop_Version
         {
             Mode curMode= GV.MODE;
             frmLabEsc EscalationsForm = new frmLabEsc();
-            GV.LABESCFORM = EscalationsForm;
             EscalationsForm.StartPosition = FormStartPosition.CenterScreen;
             EscalationsForm.Show();
             GV.MODE = curMode;
@@ -173,7 +172,10 @@ namespace Schedule_Database_Desktop_Version
         private void generalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscSearch;
-            frmLabEsc escForm = showLabEscForm();            
+            //frmLabEsc escForm = new frmLabEsc();
+            //escForm = showLabEscForm();
+            //escForm.ShowDialog();
+            showLabEscForm();
         }
        private void openItemsByDateDueToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -242,10 +244,12 @@ namespace Schedule_Database_Desktop_Version
         {
             checkHolidaySched();
             frmLabEsc escForm = new frmLabEsc();
-            escForm.fillComboBoxes();
-            escForm.FillProductList();
-
-            GV.LABESCFORM = escForm;
+            frmInput inputForm = new frmInput();
+            //GV.inputForm = inputForm;
+            //GV.inputForm.InputDataReady += InputID_InputDataReady;
+            //GV.LABESCFORM = escForm;
+            //GV.LABESCFORM.fillComboBoxes();
+            //GV.LABESCFORM.FillProductList();
         }
 
         private void holidaysListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -359,7 +363,7 @@ namespace Schedule_Database_Desktop_Version
             frmInput inputID = new frmInput();
             inputID.Show();
             GV.inputForm = inputID;
-            inputID.InputDataReady += InputID_InputDataReady;
+            GV.inputForm.InputDataReady += InputID_InputDataReady;
 
         }
         private void InputID_InputDataReady(object sender, InputDataReadyEventArgs e)
@@ -372,10 +376,9 @@ namespace Schedule_Database_Desktop_Version
                     MessageBox.Show("No matching records found");
                     break;
                 case 1:
-                    GV.LABESCFORM.LabEsc = results[0];
-                    //frmLabEsc resultsForm = new frmLabEsc();
-                    //resultsForm.LabEsc = results[0];
-                    //resultsForm.Show();
+                    frmLabEsc escForm = new frmLabEsc();
+                    escForm.LabEsc = results[0];
+                    //escForm.ShowDialog();
                     break;
                 default:
                     frmMultiSelect frmMultiSelect = new frmMultiSelect();

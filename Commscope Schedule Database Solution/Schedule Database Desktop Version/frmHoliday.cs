@@ -1,4 +1,5 @@
 ﻿using ScheduleDatabaseClassLibrary;
+using ScheduleDatabaseClassLibrary.GeneralOps;
 using ScheduleDatabaseClassLibrary.Models;
 using ScheduleDatabaseClassLibrary.Operations;
 using System;
@@ -78,6 +79,8 @@ namespace Schedule_Database_Desktop_Version
         private void frmHoliday_Load(object sender, EventArgs e)
         {
             FC.SetFormPosition(this);
+
+            SearchOps.SetMenuAccess(this, GV.USERMODEL);
             List<HolidaysModel> HolidayList = GetHolidays();
             dgvHolidays.DataSource = HolidayList;
             dgvHolidays.Refresh();

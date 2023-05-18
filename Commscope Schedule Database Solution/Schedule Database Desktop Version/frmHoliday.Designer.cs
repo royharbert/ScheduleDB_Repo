@@ -64,6 +64,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(236, 45);
             this.btnSave.TabIndex = 1;
+            this.btnSave.Tag = "3";
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -76,6 +77,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(236, 45);
             this.btnClose.TabIndex = 2;
+            this.btnClose.Tag = "3";
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -132,6 +134,7 @@
             this.btnNewHoliday.Name = "btnNewHoliday";
             this.btnNewHoliday.Size = new System.Drawing.Size(215, 48);
             this.btnNewHoliday.TabIndex = 7;
+            this.btnNewHoliday.Tag = "3";
             this.btnNewHoliday.Text = "Save New Holiday";
             this.btnNewHoliday.UseVisualStyleBackColor = true;
             this.btnNewHoliday.Click += new System.EventHandler(this.btnNewHoliday_Click);
@@ -144,6 +147,7 @@
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(236, 45);
             this.btnAddNew.TabIndex = 8;
+            this.btnAddNew.Tag = "3";
             this.btnAddNew.Text = "Add New Holiday";
             this.btnAddNew.UseVisualStyleBackColor = true;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
@@ -173,6 +177,7 @@
             this.btnDeleteHol.Name = "btnDeleteHol";
             this.btnDeleteHol.Size = new System.Drawing.Size(236, 45);
             this.btnDeleteHol.TabIndex = 10;
+            this.btnDeleteHol.Tag = "4";
             this.btnDeleteHol.Text = "Delete Holiday";
             this.btnDeleteHol.UseVisualStyleBackColor = true;
             // 
