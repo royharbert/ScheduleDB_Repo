@@ -387,6 +387,18 @@ namespace Schedule_Database_Desktop_Version
                     break;
             }
         }
+
+        private void closedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscReport;
+            GetModels("E", false);
+        }
+
+        private void closedToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscReport;
+            GetModels("L", false);
+        }
     }
 }
  
