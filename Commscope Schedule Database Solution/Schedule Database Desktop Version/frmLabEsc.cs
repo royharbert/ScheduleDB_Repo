@@ -25,13 +25,24 @@ namespace Schedule_Database_Desktop_Version
         bool formLoading = false;
         LabEscModel labEsc;
         //frmAMDI_Parent Parent = GV.MAINMENU;
-
+        private frmLabEsc displayForm;
         DateTime emptyDate = new DateTime(1900, 1, 1);
         DateTime nullDate = new DateTime(0001, 1, 1);
         LabEscModel model = new LabEscModel();
         frmInput inputForm = new frmInput();
 
         string dtpCustomFormat = " ";
+        public frmLabEsc DisplayForm
+        {
+            get
+            {
+                return displayForm ;
+            }
+            set
+            {
+                displayForm = value;
+            }
+}
 
         public LabEscModel LabEsc
         {
@@ -475,13 +486,13 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case 1:
                     LabEscModel model = models[0];
-                    frmLabEsc escForm = new frmLabEsc();
-                    escForm.Show();
-                    escForm.loadBoxes(model);
-                    escForm.hideDateFilter(true);
-                    escForm.setBtnSaveText("Save");
-                    escForm.txtRecordID.ReadOnly= true;
-                    escForm.txtRecordID.Focus();
+                    //frmLabEsc escForm = new frmLabEsc();
+                    DisplayForm.Show();
+                    DisplayForm.loadBoxes(model);
+                    DisplayForm.hideDateFilter(true);
+                    DisplayForm.setBtnSaveText("Save");
+                    DisplayForm.txtRecordID.ReadOnly= true;
+                    DisplayForm.txtRecordID.Focus();
                     break;
                 default:
                     frmMultiSelect displayForm = new frmMultiSelect();

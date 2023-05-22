@@ -186,6 +186,9 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscDelete:
                     LabEscModel request = requests[selectedRow];
                     frmLabEsc escForm = new frmLabEsc();
+                    escForm.fillComboBoxes();
+                    escForm.FillProductList();
+                    escForm.DisplayForm = escForm;
                     escForm.Show();
                     escForm.LabEsc = request;
                     break;
