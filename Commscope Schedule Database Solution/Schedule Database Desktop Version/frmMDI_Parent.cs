@@ -164,6 +164,8 @@ namespace Schedule_Database_Desktop_Version
             Mode curMode= GV.MODE;
             frmLabEsc EscalationsForm = new frmLabEsc();
             EscalationsForm.StartPosition = FormStartPosition.CenterScreen;
+            EscalationsForm.fillComboBoxes();
+            EscalationsForm.FillProductList();
             EscalationsForm.Show();
             GV.MODE = curMode;
             return EscalationsForm;
@@ -172,9 +174,6 @@ namespace Schedule_Database_Desktop_Version
         private void generalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscSearch;
-            //frmLabEsc escForm = new frmLabEsc();
-            //escForm = showLabEscForm();
-            //escForm.ShowDialog();
             showLabEscForm();
         }
        private void openItemsByDateDueToolStripMenuItem_Click(object sender, EventArgs e)
@@ -243,7 +242,7 @@ namespace Schedule_Database_Desktop_Version
         private void frmAMDI_Parent_Load(object sender, EventArgs e)
         {
             checkHolidaySched();
-            frmLabEsc escForm = new frmLabEsc();
+            //frmLabEsc escForm = new frmLabEsc();
             frmInput inputForm = new frmInput();
             //GV.inputForm = inputForm;
             //GV.inputForm.InputDataReady += InputID_InputDataReady;
@@ -340,6 +339,8 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case 1:
                     frmLabEsc resultsForm = new frmLabEsc();
+                    resultsForm.fillComboBoxes();
+                    resultsForm.FillProductList();
                     resultsForm.LabEsc = results[0];
                     resultsForm.Show();
                     break;

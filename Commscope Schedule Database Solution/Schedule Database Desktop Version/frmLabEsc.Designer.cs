@@ -99,10 +99,15 @@ namespace Schedule_Database_Desktop_Version
             this.label25 = new System.Windows.Forms.Label();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
+            this.rtbContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiPaste = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiCut = new System.Windows.Forms.ToolStripMenuItem();
             this.dtpContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
             this.tlpLeft.SuspendLayout();
             this.gbDateRange.SuspendLayout();
+            this.rtbContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtRecordID
@@ -597,6 +602,7 @@ namespace Schedule_Database_Desktop_Version
             // rtxDescription
             // 
             this.rtxDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rtxDescription.ContextMenuStrip = this.rtbContextMenu;
             this.rtxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.rtxDescription.Location = new System.Drawing.Point(879, 47);
             this.rtxDescription.Name = "rtxDescription";
@@ -611,6 +617,7 @@ namespace Schedule_Database_Desktop_Version
             // rtxComments
             // 
             this.rtxComments.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rtxComments.ContextMenuStrip = this.rtbContextMenu;
             this.rtxComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.rtxComments.Location = new System.Drawing.Point(879, 340);
             this.rtxComments.Name = "rtxComments";
@@ -982,6 +989,36 @@ namespace Schedule_Database_Desktop_Version
             this.dtpStart.Size = new System.Drawing.Size(259, 24);
             this.dtpStart.TabIndex = 0;
             // 
+            // rtbContextMenu
+            // 
+            this.rtbContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiCopy,
+            this.tsmiCut,
+            this.tsmiPaste});
+            this.rtbContextMenu.Name = "rtbContextMenu";
+            this.rtbContextMenu.Size = new System.Drawing.Size(181, 92);
+            // 
+            // tsmiPaste
+            // 
+            this.tsmiPaste.Name = "tsmiPaste";
+            this.tsmiPaste.Size = new System.Drawing.Size(180, 22);
+            this.tsmiPaste.Text = "Paste";
+            this.tsmiPaste.Click += new System.EventHandler(this.tsmiPaste_Click);
+            // 
+            // tsmiCopy
+            // 
+            this.tsmiCopy.Name = "tsmiCopy";
+            this.tsmiCopy.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCopy.Text = "Copy";
+            this.tsmiCopy.Click += new System.EventHandler(this.tsmiCopy_Click);
+            // 
+            // tsmiCut
+            // 
+            this.tsmiCut.Name = "tsmiCut";
+            this.tsmiCut.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCut.Text = "Cut";
+            this.tsmiCut.Click += new System.EventHandler(this.tsmiCut_Click);
+            // 
             // frmLabEsc
             // 
             this.AcceptButton = this.btnSave;
@@ -1014,7 +1051,6 @@ namespace Schedule_Database_Desktop_Version
             this.Name = "frmLabEsc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Lab Requests/Escalation";
-            //this.Activated += new System.EventHandler(this.frmLabEsc_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLabEsc_FormClosing);
             this.Load += new System.EventHandler(this.frmLabEsc_Load);
             this.dtpContextMenu.ResumeLayout(false);
@@ -1023,6 +1059,7 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.PerformLayout();
             this.gbDateRange.ResumeLayout(false);
             this.gbDateRange.PerformLayout();
+            this.rtbContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1097,5 +1134,9 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.DateTimePicker dtpEnd;
         private System.Windows.Forms.DateTimePicker dtpStart;
         private System.Windows.Forms.CheckBox ckFilter;
+        private System.Windows.Forms.ContextMenuStrip rtbContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem tsmiPaste;
+        private System.Windows.Forms.ToolStripMenuItem tsmiCopy;
+        private System.Windows.Forms.ToolStripMenuItem tsmiCut;
     }
 }
