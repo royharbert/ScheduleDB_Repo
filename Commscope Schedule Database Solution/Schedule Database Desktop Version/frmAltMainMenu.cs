@@ -33,6 +33,7 @@ namespace Schedule_Database_Desktop_Version
         {
             Mode curMode = GV.MODE;
             frmLabEsc EscalationsForm = new frmLabEsc();
+            EscalationsForm.DisplayForm = EscalationsForm;
             EscalationsForm.StartPosition = FormStartPosition.CenterScreen;
             EscalationsForm.Show();
             GV.MODE = curMode;

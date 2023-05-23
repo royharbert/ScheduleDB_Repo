@@ -166,6 +166,7 @@ namespace Schedule_Database_Desktop_Version
             EscalationsForm.StartPosition = FormStartPosition.CenterScreen;
             EscalationsForm.fillComboBoxes();
             EscalationsForm.FillProductList();
+            EscalationsForm.DisplayForm = EscalationsForm;
             EscalationsForm.Show();
             GV.MODE = curMode;
             return EscalationsForm;
