@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,9 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            
             int UserID = -1;
+            setFormText();
             formLoading = true;
             GV.LOGIN = this;
             FC.SetFormPosition(this);
@@ -41,6 +44,13 @@ namespace Schedule_Database_Desktop_Version
             cboUser.SelectedIndex = -1;
             formLoading = false;
             SelectUser(UserID);
+        }
+        private void setFormText()
+        {
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+
+            this.Text = $"     V.{versionInfo.FileVersion}" + "  Login";
         }
 
         private void SelectUser(int user)

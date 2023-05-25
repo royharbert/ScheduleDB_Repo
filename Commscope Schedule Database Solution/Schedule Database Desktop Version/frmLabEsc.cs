@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,14 +24,25 @@ namespace Schedule_Database_Desktop_Version
         bool formDirty = false;
         bool formLoading = false;
         LabEscModel labEsc;
-        frmAMDI_Parent Parent = GV.MAINMENU;
-
+        //frmAMDI_Parent Parent = GV.MAINMENU;
+        private frmLabEsc displayForm;
         DateTime emptyDate = new DateTime(1900, 1, 1);
         DateTime nullDate = new DateTime(0001, 1, 1);
         LabEscModel model = new LabEscModel();
         frmInput inputForm = new frmInput();
 
         string dtpCustomFormat = " ";
+        public frmLabEsc DisplayForm
+        {
+            get
+            {
+                return displayForm ;
+            }
+            set
+            {
+                displayForm = value;
+            }
+}
 
         public LabEscModel LabEsc
         {
@@ -76,8 +88,8 @@ namespace Schedule_Database_Desktop_Version
             dtpClosedDate.CustomFormat = dtpCustomFormat;
             dtpDueDate.CustomFormat = dtpCustomFormat;
             dtpStartDate.CustomFormat = dtpCustomFormat;
-            GV.inputForm = new frmInput();
-            GV.inputForm.InputDataReady += InputForm_InputDataReady;
+            //GV.inputForm = new frmInput();
+            //GV.inputForm.InputDataReady += InputForm_InputDataReady;
 
             switch (GV.MODE)
             {
@@ -157,6 +169,16 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
+        private void confirmSave(string errorList)
+        {
+            txtID.Text = model.ID.ToString();
+            cboRecType.Enabled = false;
+            cboMSO.Enabled = false;
+            MessageBox.Show(txtRecordID.Text + " has been saved");
+            formDirty = false;
+            GV.MODE = Mode.LabEscEdit;
+        }
+
         private void saveData()
         {
             string errorList = "";
@@ -168,44 +190,35 @@ namespace Schedule_Database_Desktop_Version
                 switch (GV.MODE)
                 {
                     case Mode.LabEscAdd:
-                        model = GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
-                        loadModel(model);
+                    case Mode.LabEscEdit:
                         errorList = auditData();
                         if (errorList.Length == 0)
                         {
-                            txtID.Text = model.ID.ToString();
-                            cboRecType.Enabled = false;
-                            cboMSO.Enabled = false;
-                            MessageBox.Show(txtRecordID.Text + " has been saved");
-                            formDirty = false;
-                            if (GV.MODE != Mode.LabEscDelete & GV.MODE != Mode.LabEscRestore)
+                            if (GV.MODE == Mode.LabEscAdd)
                             {
-                                GV.MODE = Mode.LabEscEdit;
+                                model = GlobalConfig.Connection.LabEsc_CRUD(model, 'C'); 
                             }
+                            else
+                            {
+                                model = GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
+                            }
+                            confirmSave(errorList);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Required information not provided. " + errorList);
                         }
                         break;
-                    case Mode.LabEscEdit:
-                        loadModel(model);
-                        if (errorList.Length == 0)
-                        {
-                            txtID.Text = model.ID.ToString();
-                            cboRecType.Enabled = false;
-                            cboMSO.Enabled = false;
-                            MessageBox.Show(txtRecordID.Text + " has been saved");
-                            formDirty = false;
-                            if (GV.MODE != Mode.LabEscDelete & GV.MODE != Mode.LabEscRestore)
-                            {
-                                GV.MODE = Mode.LabEscEdit;
-                            }
-                        }
-                        GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
-                        MessageBox.Show(txtRecordID.Text + " has been saved");
-                        formDirty = false;
-                        if (GV.MODE != Mode.LabEscDelete & GV.MODE != Mode.LabEscRestore)
-                        {
-                            GV.MODE = Mode.LabEscEdit;
-                        }
-                        break;
+                        //loadModel(model);
+                        //errorList = auditData();
+                        //GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
+                        //MessageBox.Show(txtRecordID.Text + " has been saved");
+                        //formDirty = false;
+                        //if (GV.MODE != Mode.LabEscDelete & GV.MODE != Mode.LabEscRestore)
+                        //{
+                        //    GV.MODE = Mode.LabEscEdit;
+                        //}
+                        //break;
                     case Mode.LabEscDelete:
                        
                             DialogResult reply = MessageBox.Show("Are you sure you want to delete " + txtRecordID.Text, "Save Changes", MessageBoxButtons.YesNoCancel);
@@ -474,13 +487,13 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case 1:
                     LabEscModel model = models[0];
-                    frmLabEsc escForm = new frmLabEsc();
-                    escForm.Show();
-                    escForm.loadBoxes(model);
-                    escForm.hideDateFilter(true);
-                    escForm.setBtnSaveText("Save");
-                    escForm.txtRecordID.ReadOnly= true;
-                    escForm.txtRecordID.Focus();
+                    //frmLabEsc escForm = new frmLabEsc();
+                    DisplayForm.Show();
+                    DisplayForm.loadBoxes(model);
+                    DisplayForm.hideDateFilter(true);
+                    DisplayForm.setBtnSaveText("Save");
+                    DisplayForm.txtRecordID.ReadOnly= true;
+                    DisplayForm.txtRecordID.Focus();
                     break;
                 default:
                     frmMultiSelect displayForm = new frmMultiSelect();
@@ -514,10 +527,9 @@ namespace Schedule_Database_Desktop_Version
 
             return errorList;
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+           Close();
         }
 
         public void fillComboBoxes()
@@ -591,28 +603,11 @@ namespace Schedule_Database_Desktop_Version
             model.Quantity = quantity;
             model.Requestor = cboRequestor.Text;
             model.CTRNum = txtCTRNum.Text;
-            model.EscNum = txtEscNum.Text;
-            if (GV.MODE == Mode.LabEscAdd | GV.MODE == Mode.LabEscEdit) 
-            {
-                model.EntryAdmin = GV.USERMODEL.FullName;
-                model.DateOpened = dtpStartDate.Value;
-                model.DateDue = dtpDueDate.Value;
-                model.DateCompleted = emptyDate;
-            }
-            else
-            {
-                model.DateOpened = dtpStartDate.Value;
-                model.DateDue = dtpDueDate.Value;
-                if (dtpClosedDate.Format == DateTimePickerFormat.Custom)
-                {
-                    model.DateCompleted = emptyDate;
-                }
-                else
-                { 
-                    model.DateCompleted = dtpClosedDate.Value; 
-
-                }
-            }
+            model.EscNum = txtEscNum.Text;            
+            model.EntryAdmin = GV.USERMODEL.FullName;
+            model.DateOpened = dtpStartDate.Value;
+            model.DateDue = dtpDueDate.Value;
+            model.DateCompleted = dtpClosedDate.Value;
             model.PSNumber = txtPSNum.Text;
             model.LeadAssigned = cboLead.Text;
             model.Status = cboStatus.Text;
@@ -949,6 +944,7 @@ namespace Schedule_Database_Desktop_Version
                 }
                 
             }
+            //MessageBox.Show("Form Closing");
         }
 
         private void calculateDateDue()
@@ -1072,6 +1068,61 @@ namespace Schedule_Database_Desktop_Version
         {
             setDTP_Format(sender);
         }
+
+        private void tsmiPaste_Click(object sender, EventArgs e)
+        {
+            // Try to cast the sender to a ToolStripItem
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                // Retrieve the ContextMenuStrip that owns this ToolStripItem
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    // Get the control that is displaying this context menu
+                    Control sourceControl = owner.SourceControl;
+                    RichTextBox rtb = (RichTextBox)sourceControl;
+                    rtb.Paste();
+                }
+            }
+        }
+
+        private void tsmiCopy_Click(object sender, EventArgs e)
+        {
+            // Try to cast the sender to a ToolStripItem
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                // Retrieve the ContextMenuStrip that owns this ToolStripItem
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    // Get the control that is displaying this context menu
+                    Control sourceControl = owner.SourceControl;
+                    RichTextBox rtb = (RichTextBox)sourceControl;
+                    rtb.Copy();
+                }
+            }
+        }
+
+        private void tsmiCut_Click(object sender, EventArgs e)
+        {
+            // Try to cast the sender to a ToolStripItem
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                // Retrieve the ContextMenuStrip that owns this ToolStripItem
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    // Get the control that is displaying this context menu
+                    Control sourceControl = owner.SourceControl;
+                    RichTextBox rtb = (RichTextBox)sourceControl;
+                    rtb.Cut();
+                }
+            }
+        }
+
 
         //private void frmLabEsc_Activated(object sender, EventArgs e)
         //{
