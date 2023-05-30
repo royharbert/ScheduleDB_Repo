@@ -94,6 +94,7 @@ namespace Schedule_Database_Desktop_Version
             switch (GV.MODE)
             {
                 case Mode.LabEscAdd:
+                    dtpClosedDate.Value = new DateTime(1900, 1, 1);
                     txtRecordID.Clear();
                     fillComboBoxes();
                     cboRecType.Enabled = true;
@@ -105,7 +106,7 @@ namespace Schedule_Database_Desktop_Version
                     btnSave.Text = "Save";
                     gbDateRange.Visible = false;
                     formLoading = false;
-                    cboStatus.SelectedIndex = 1;
+                    cboStatus.SelectedIndex = 2;
                     break;
                 case Mode.LabEscEdit:
                     getAttachments(model.EscID);
@@ -164,7 +165,7 @@ namespace Schedule_Database_Desktop_Version
                 //changes status back to open if date completed is cleared LMD 2-21-23
                 if (dtpClosedDate.Value == emptyDate)
                 {
-                    cboStatus.SelectedIndex = 1;
+                    cboStatus.SelectedIndex = 2;
                 }
             }
         }
@@ -546,8 +547,11 @@ namespace Schedule_Database_Desktop_Version
             fillComboList<ResolutionModel>(cboResolution, "tblResolutions", "ResolutionType", "ResolutionType");
             fillComboList<ArchitectureModel>(cboArchitecture, "tblArchitecture", "ApplicationName", "ApplicationName");
             fillComboList<ProdAppModel>(cboProdApp, "tblProdApp", "ProdApp", "ProdApp");
-            cboRecType.Items.Add("AT Escalation");
-            cboRecType.Items.Add("Lab Request");
+            if (cboRecType.Items.Count == 0)
+            {
+                cboRecType.Items.Add("AT Escalation");
+                cboRecType.Items.Add("Lab Request"); 
+            }
 
         }
 
@@ -985,7 +989,7 @@ namespace Schedule_Database_Desktop_Version
             if (model.DateCompleted == emptyDate)
             {
                 dtpClosedDate.Format = DateTimePickerFormat.Custom;
-                cboStatus.SelectedIndex = 1;
+                cboStatus.SelectedIndex = 2;
             }
             else
             {
