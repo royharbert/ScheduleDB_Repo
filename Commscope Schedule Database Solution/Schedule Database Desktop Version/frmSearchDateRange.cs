@@ -14,6 +14,7 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmSearchDateRange : Form
     {
+        private string searchTerm = "";
         public frmSearchDateRange()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnSearchDateRange_Click(object sender, EventArgs e)
         {
-            List<LabEscModel> model  = GlobalConfig.Connection.labEscSearchDateRange(dtpStartDateRange.Value, dtpEndDateRange.Value);
+            List<LabEscModel> model  = GlobalConfig.Connection.DateRangeSearch(dtpStartDateRange.Value, dtpEndDateRange.Value, searchTerm);
             switch (model.Count)
             {
                 case 0:
@@ -47,10 +48,42 @@ namespace Schedule_Database_Desktop_Version
 
         }
 
+        private void getSearchTerm()
+        {
+            if (rdoDateCreated.Checked)
+            {
+                searchTerm = "DateOpened";
+            }
+            else
+            if (rdoDateDue.Checked)
+            {
+                searchTerm = "DateDue";
+            }
+            else
+            {
+                searchTerm = "DateCompleted";
+            }
+        }
+
         private void frmSearchDateRange_Load(object sender, EventArgs e)
         {
+            rdoDateCreated.Checked = true;
             FC.SetFormPosition(this);
         }
 
+        private void rdoDateCreated_CheckedChanged(object sender, EventArgs e)
+        {
+            getSearchTerm();
+        }
+
+        private void rdoDateDue_CheckedChanged(object sender, EventArgs e)
+        {
+            getSearchTerm();
+        }
+
+        private void rdoDateClosed_CheckedChanged(object sender, EventArgs e)
+        {
+            getSearchTerm();
+        }
     }
 }
