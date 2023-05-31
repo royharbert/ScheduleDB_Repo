@@ -180,6 +180,7 @@
             this.btnDeleteHol.Tag = "4";
             this.btnDeleteHol.Text = "Delete Holiday";
             this.btnDeleteHol.UseVisualStyleBackColor = true;
+            this.btnDeleteHol.Click += new System.EventHandler(this.btnDeleteHol_Click);
             // 
             // frmHoliday
             // 

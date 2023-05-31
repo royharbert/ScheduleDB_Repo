@@ -22,7 +22,6 @@ namespace Schedule_Database_Desktop_Version
         public frmHoliday()
         {
             InitializeComponent();
-            
         }
         private List<HolidaysModel> GetHolidays()
         {
@@ -146,5 +145,9 @@ namespace Schedule_Database_Desktop_Version
             dgvHolidays.DataSource = holidays;
         }
 
+        private void btnDeleteHol_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

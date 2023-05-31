@@ -26,10 +26,26 @@ namespace Schedule_Database_Desktop_Version
             InitializeComponent();
             setFormText();
             setDBConfigProperty();
+            SetMenuAccess();
         }
 
+        public void SetMenuAccess()
+        {
+            foreach (Control ctl in this.Controls)
+            {
+                if (ctl is Button)
+                {
+                    ctl.Visible = false;
+                    int minimumPriviledge = int.Parse(ctl.Tag.ToString());
+                    if (GV.Priviledge >= minimumPriviledge)
+                    {
+                        ctl.Visible = true;
+                    }
+                }
 
-        private frmLabEsc showLabEscForm()
+            }
+        }
+            private frmLabEsc showLabEscForm()
         {
             Mode curMode = GV.MODE;
             frmLabEsc EscalationsForm = new frmLabEsc();
