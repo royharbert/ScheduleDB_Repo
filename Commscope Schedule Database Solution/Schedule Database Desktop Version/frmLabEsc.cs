@@ -487,13 +487,21 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case 1:
                     LabEscModel model = models[0];
-                    //frmLabEsc escForm = new frmLabEsc();
-                    DisplayForm.Show();
-                    DisplayForm.loadBoxes(model);
-                    DisplayForm.hideDateFilter(true);
-                    DisplayForm.setBtnSaveText("Save");
-                    DisplayForm.txtRecordID.ReadOnly= true;
-                    DisplayForm.txtRecordID.Focus();
+                    frmLabEsc escForm = new frmLabEsc();
+                    escForm.DisplayForm = escForm;
+                    //DisplayForm.Show();
+                    //DisplayForm.loadBoxes(model);
+                    //DisplayForm.hideDateFilter(true);
+                    //DisplayForm.setBtnSaveText("Save");
+                    //DisplayForm.txtRecordID.ReadOnly= true;
+                    //DisplayForm.txtRecordID.Focus();
+
+                    escForm.Show();
+                    escForm.loadBoxes(model);
+                    escForm.hideDateFilter(true);
+                    escForm.setBtnSaveText("Save");
+                    escForm.txtRecordID.ReadOnly = true;
+                    escForm.txtRecordID.Focus();
                     break;
                 default:
                     frmMultiSelect displayForm = new frmMultiSelect();

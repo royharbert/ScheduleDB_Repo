@@ -15,9 +15,22 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Runtime.InteropServices.ComTypes;
 
 namespace ScheduleDatabaseClassLibrary.DataAccess
-{
+{  
     public class SqlConnector : IDataConnection
     {
+        public List<LabEscModel> DateRangeSearch(DateTime start, DateTime end, string SearchTerm)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@StartDate", start, DbType.DateTime);
+                p.Add("@EndDate", end, DbType.DateTime);
+                p.Add("@SearchTerm", SearchTerm, DbType.String);
+
+                List<LabEscModel> output = connection.Query<LabEscModel>("dbo.spLabEsc_DateRange", p, commandType: CommandType.StoredProcedure).ToList();
+                return output;
+            }
+        }
         public List<LabEscModel> GetReportModel(string status = "", string recType = "")
         {
 

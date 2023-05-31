@@ -380,6 +380,7 @@ namespace Schedule_Database_Desktop_Version
                 case 1:
                     frmLabEsc escForm = new frmLabEsc();
                     escForm.LabEsc = results[0];
+                    //escForm.DisplayForm = escForm;
                     //escForm.ShowDialog();
                     break;
                 default:
@@ -417,6 +418,12 @@ namespace Schedule_Database_Desktop_Version
         {
             GV.MODE = Mode.LabEscReport;
             GetModels("Canceled", "AT Escalation");
+        }
+
+        private void dateRangeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSearchDateRange dateRange = new frmSearchDateRange();
+            dateRange.ShowDialog();
         }
     }
 }

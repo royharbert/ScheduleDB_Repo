@@ -11,6 +11,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
+        List<LabEscModel> DateRangeSearch(DateTime start, DateTime end, string SearchTerm);
         List<LabEscModel> GetReportModel(string status = "", string recType = "");
         LabEscModel LabEscDeleted_CRUD(LabEscModel model, char action);
         List<LabEscModel>  labEscSearchDateRange(DateTime startDate, DateTime endDate);
