@@ -50,7 +50,6 @@ namespace Schedule_Database_Desktop_Version
             this.btnChangePW = new System.Windows.Forms.Button();
             this.btnRestore = new System.Windows.Forms.Button();
             this.btnDateRangeRep = new System.Windows.Forms.Button();
-            this.btnCanceledReqAll = new System.Windows.Forms.Button();
             this.btnCanceledLabReq = new System.Windows.Forms.Button();
             this.btnCanceledEscalations = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -58,9 +57,9 @@ namespace Schedule_Database_Desktop_Version
             // btnSearchByID
             // 
             this.btnSearchByID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchByID.Location = new System.Drawing.Point(217, 158);
+            this.btnSearchByID.Location = new System.Drawing.Point(256, 158);
             this.btnSearchByID.Name = "btnSearchByID";
-            this.btnSearchByID.Size = new System.Drawing.Size(185, 36);
+            this.btnSearchByID.Size = new System.Drawing.Size(197, 36);
             this.btnSearchByID.TabIndex = 1;
             this.btnSearchByID.Tag = "1";
             this.btnSearchByID.Text = "Search by ID";
@@ -70,9 +69,9 @@ namespace Schedule_Database_Desktop_Version
             // btnDateRange
             // 
             this.btnDateRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDateRange.Location = new System.Drawing.Point(217, 116);
+            this.btnDateRange.Location = new System.Drawing.Point(256, 116);
             this.btnDateRange.Name = "btnDateRange";
-            this.btnDateRange.Size = new System.Drawing.Size(185, 36);
+            this.btnDateRange.Size = new System.Drawing.Size(197, 36);
             this.btnDateRange.TabIndex = 2;
             this.btnDateRange.Tag = "1";
             this.btnDateRange.Text = "Search Date Range";
@@ -82,9 +81,9 @@ namespace Schedule_Database_Desktop_Version
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(217, 74);
+            this.btnSearch.Location = new System.Drawing.Point(256, 74);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(185, 36);
+            this.btnSearch.Size = new System.Drawing.Size(197, 36);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Tag = "1";
             this.btnSearch.Text = "Search";
@@ -94,9 +93,9 @@ namespace Schedule_Database_Desktop_Version
             // btnNewRecord
             // 
             this.btnNewRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewRecord.Location = new System.Drawing.Point(217, 32);
+            this.btnNewRecord.Location = new System.Drawing.Point(256, 32);
             this.btnNewRecord.Name = "btnNewRecord";
-            this.btnNewRecord.Size = new System.Drawing.Size(185, 36);
+            this.btnNewRecord.Size = new System.Drawing.Size(197, 36);
             this.btnNewRecord.TabIndex = 4;
             this.btnNewRecord.Tag = "2";
             this.btnNewRecord.Text = "Add New";
@@ -106,9 +105,9 @@ namespace Schedule_Database_Desktop_Version
             // btnHolidayMaint
             // 
             this.btnHolidayMaint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHolidayMaint.Location = new System.Drawing.Point(11, 158);
+            this.btnHolidayMaint.Location = new System.Drawing.Point(36, 158);
             this.btnHolidayMaint.Name = "btnHolidayMaint";
-            this.btnHolidayMaint.Size = new System.Drawing.Size(185, 36);
+            this.btnHolidayMaint.Size = new System.Drawing.Size(197, 36);
             this.btnHolidayMaint.TabIndex = 6;
             this.btnHolidayMaint.Tag = "3";
             this.btnHolidayMaint.Text = "Holiday Maintenance";
@@ -118,9 +117,9 @@ namespace Schedule_Database_Desktop_Version
             // btnPreferredScreen
             // 
             this.btnPreferredScreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPreferredScreen.Location = new System.Drawing.Point(11, 116);
+            this.btnPreferredScreen.Location = new System.Drawing.Point(36, 116);
             this.btnPreferredScreen.Name = "btnPreferredScreen";
-            this.btnPreferredScreen.Size = new System.Drawing.Size(185, 36);
+            this.btnPreferredScreen.Size = new System.Drawing.Size(197, 36);
             this.btnPreferredScreen.TabIndex = 7;
             this.btnPreferredScreen.Tag = "1";
             this.btnPreferredScreen.Text = "Set Preferred Screen";
@@ -130,9 +129,9 @@ namespace Schedule_Database_Desktop_Version
             // btnUserMaint
             // 
             this.btnUserMaint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserMaint.Location = new System.Drawing.Point(11, 200);
+            this.btnUserMaint.Location = new System.Drawing.Point(36, 200);
             this.btnUserMaint.Name = "btnUserMaint";
-            this.btnUserMaint.Size = new System.Drawing.Size(185, 36);
+            this.btnUserMaint.Size = new System.Drawing.Size(197, 36);
             this.btnUserMaint.TabIndex = 8;
             this.btnUserMaint.Tag = "4";
             this.btnUserMaint.Text = "User Maintenance";
@@ -142,9 +141,9 @@ namespace Schedule_Database_Desktop_Version
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(217, 242);
+            this.btnDelete.Location = new System.Drawing.Point(256, 242);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(185, 36);
+            this.btnDelete.Size = new System.Drawing.Size(197, 36);
             this.btnDelete.TabIndex = 10;
             this.btnDelete.Tag = "4";
             this.btnDelete.Text = "Delete Record";
@@ -154,9 +153,9 @@ namespace Schedule_Database_Desktop_Version
             // btnRptOpenReq
             // 
             this.btnRptOpenReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRptOpenReq.Location = new System.Drawing.Point(617, 74);
+            this.btnRptOpenReq.Location = new System.Drawing.Point(475, 200);
             this.btnRptOpenReq.Name = "btnRptOpenReq";
-            this.btnRptOpenReq.Size = new System.Drawing.Size(185, 36);
+            this.btnRptOpenReq.Size = new System.Drawing.Size(197, 36);
             this.btnRptOpenReq.TabIndex = 11;
             this.btnRptOpenReq.Tag = "1";
             this.btnRptOpenReq.Text = "Open Lab Requests";
@@ -166,9 +165,9 @@ namespace Schedule_Database_Desktop_Version
             // btnRptClosedEsc
             // 
             this.btnRptClosedEsc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRptClosedEsc.Location = new System.Drawing.Point(426, 116);
+            this.btnRptClosedEsc.Location = new System.Drawing.Point(475, 116);
             this.btnRptClosedEsc.Name = "btnRptClosedEsc";
-            this.btnRptClosedEsc.Size = new System.Drawing.Size(185, 36);
+            this.btnRptClosedEsc.Size = new System.Drawing.Size(197, 36);
             this.btnRptClosedEsc.TabIndex = 12;
             this.btnRptClosedEsc.Tag = "1";
             this.btnRptClosedEsc.Text = "Closed AT Escalations";
@@ -178,9 +177,9 @@ namespace Schedule_Database_Desktop_Version
             // btnRptOpenEsc
             // 
             this.btnRptOpenEsc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRptOpenEsc.Location = new System.Drawing.Point(426, 74);
+            this.btnRptOpenEsc.Location = new System.Drawing.Point(475, 74);
             this.btnRptOpenEsc.Name = "btnRptOpenEsc";
-            this.btnRptOpenEsc.Size = new System.Drawing.Size(185, 36);
+            this.btnRptOpenEsc.Size = new System.Drawing.Size(197, 36);
             this.btnRptOpenEsc.TabIndex = 13;
             this.btnRptOpenEsc.Tag = "1";
             this.btnRptOpenEsc.Text = "Open AT Escalations";
@@ -190,9 +189,9 @@ namespace Schedule_Database_Desktop_Version
             // btnRptAllOpen
             // 
             this.btnRptAllOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRptAllOpen.Location = new System.Drawing.Point(426, 32);
+            this.btnRptAllOpen.Location = new System.Drawing.Point(475, 32);
             this.btnRptAllOpen.Name = "btnRptAllOpen";
-            this.btnRptAllOpen.Size = new System.Drawing.Size(185, 36);
+            this.btnRptAllOpen.Size = new System.Drawing.Size(197, 36);
             this.btnRptAllOpen.TabIndex = 14;
             this.btnRptAllOpen.Tag = "1";
             this.btnRptAllOpen.Text = "All Open Items";
@@ -202,9 +201,9 @@ namespace Schedule_Database_Desktop_Version
             // btnRpeClosedReq
             // 
             this.btnRpeClosedReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRpeClosedReq.Location = new System.Drawing.Point(617, 116);
+            this.btnRpeClosedReq.Location = new System.Drawing.Point(475, 242);
             this.btnRpeClosedReq.Name = "btnRpeClosedReq";
-            this.btnRpeClosedReq.Size = new System.Drawing.Size(185, 36);
+            this.btnRpeClosedReq.Size = new System.Drawing.Size(197, 36);
             this.btnRpeClosedReq.TabIndex = 15;
             this.btnRpeClosedReq.Tag = "1";
             this.btnRpeClosedReq.Text = "Closed Lab Requests";
@@ -215,7 +214,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(47, 9);
+            this.label1.Location = new System.Drawing.Point(72, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(122, 20);
             this.label1.TabIndex = 16;
@@ -225,7 +224,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(226, 9);
+            this.label2.Location = new System.Drawing.Point(265, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(176, 20);
             this.label2.TabIndex = 17;
@@ -235,7 +234,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(583, 9);
+            this.label3.Location = new System.Drawing.Point(531, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 20);
             this.label3.TabIndex = 18;
@@ -244,9 +243,9 @@ namespace Schedule_Database_Desktop_Version
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(617, 284);
+            this.btnExit.Location = new System.Drawing.Point(475, 355);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(185, 36);
+            this.btnExit.Size = new System.Drawing.Size(197, 36);
             this.btnExit.TabIndex = 19;
             this.btnExit.Tag = "1";
             this.btnExit.Text = "Exit Screen";
@@ -256,9 +255,9 @@ namespace Schedule_Database_Desktop_Version
             // btnLogout
             // 
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(11, 32);
+            this.btnLogout.Location = new System.Drawing.Point(36, 32);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(185, 36);
+            this.btnLogout.Size = new System.Drawing.Size(197, 36);
             this.btnLogout.TabIndex = 20;
             this.btnLogout.Tag = "1";
             this.btnLogout.Text = "Logout";
@@ -268,9 +267,9 @@ namespace Schedule_Database_Desktop_Version
             // btnChangePW
             // 
             this.btnChangePW.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePW.Location = new System.Drawing.Point(11, 74);
+            this.btnChangePW.Location = new System.Drawing.Point(36, 74);
             this.btnChangePW.Name = "btnChangePW";
-            this.btnChangePW.Size = new System.Drawing.Size(185, 36);
+            this.btnChangePW.Size = new System.Drawing.Size(197, 36);
             this.btnChangePW.TabIndex = 21;
             this.btnChangePW.Tag = "1";
             this.btnChangePW.Text = "Change Password";
@@ -280,9 +279,9 @@ namespace Schedule_Database_Desktop_Version
             // btnRestore
             // 
             this.btnRestore.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestore.Location = new System.Drawing.Point(217, 284);
+            this.btnRestore.Location = new System.Drawing.Point(256, 284);
             this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(185, 36);
+            this.btnRestore.Size = new System.Drawing.Size(197, 36);
             this.btnRestore.TabIndex = 22;
             this.btnRestore.Tag = "4";
             this.btnRestore.Text = "Restore Record";
@@ -292,31 +291,21 @@ namespace Schedule_Database_Desktop_Version
             // btnDateRangeRep
             // 
             this.btnDateRangeRep.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDateRangeRep.Location = new System.Drawing.Point(217, 200);
+            this.btnDateRangeRep.Location = new System.Drawing.Point(256, 200);
             this.btnDateRangeRep.Name = "btnDateRangeRep";
-            this.btnDateRangeRep.Size = new System.Drawing.Size(185, 36);
+            this.btnDateRangeRep.Size = new System.Drawing.Size(197, 36);
             this.btnDateRangeRep.TabIndex = 23;
             this.btnDateRangeRep.Tag = "1";
             this.btnDateRangeRep.Text = "Date Range Search";
             this.btnDateRangeRep.UseVisualStyleBackColor = true;
-            // 
-            // btnCanceledReqAll
-            // 
-            this.btnCanceledReqAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCanceledReqAll.Location = new System.Drawing.Point(617, 32);
-            this.btnCanceledReqAll.Name = "btnCanceledReqAll";
-            this.btnCanceledReqAll.Size = new System.Drawing.Size(185, 36);
-            this.btnCanceledReqAll.TabIndex = 24;
-            this.btnCanceledReqAll.Tag = "1";
-            this.btnCanceledReqAll.Text = "All Canceled Requests";
-            this.btnCanceledReqAll.UseVisualStyleBackColor = true;
+            this.btnDateRangeRep.Click += new System.EventHandler(this.btnDateRangeRep_Click);
             // 
             // btnCanceledLabReq
             // 
             this.btnCanceledLabReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCanceledLabReq.Location = new System.Drawing.Point(617, 158);
+            this.btnCanceledLabReq.Location = new System.Drawing.Point(475, 284);
             this.btnCanceledLabReq.Name = "btnCanceledLabReq";
-            this.btnCanceledLabReq.Size = new System.Drawing.Size(185, 36);
+            this.btnCanceledLabReq.Size = new System.Drawing.Size(197, 36);
             this.btnCanceledLabReq.TabIndex = 25;
             this.btnCanceledLabReq.Tag = "1";
             this.btnCanceledLabReq.Text = "Canceled Lab Requests";
@@ -326,9 +315,9 @@ namespace Schedule_Database_Desktop_Version
             // btnCanceledEscalations
             // 
             this.btnCanceledEscalations.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCanceledEscalations.Location = new System.Drawing.Point(426, 158);
+            this.btnCanceledEscalations.Location = new System.Drawing.Point(475, 158);
             this.btnCanceledEscalations.Name = "btnCanceledEscalations";
-            this.btnCanceledEscalations.Size = new System.Drawing.Size(185, 36);
+            this.btnCanceledEscalations.Size = new System.Drawing.Size(197, 36);
             this.btnCanceledEscalations.TabIndex = 26;
             this.btnCanceledEscalations.Tag = "1";
             this.btnCanceledEscalations.Text = "Canceled Escalations";
@@ -339,10 +328,9 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 333);
+            this.ClientSize = new System.Drawing.Size(716, 414);
             this.Controls.Add(this.btnCanceledEscalations);
             this.Controls.Add(this.btnCanceledLabReq);
-            this.Controls.Add(this.btnCanceledReqAll);
             this.Controls.Add(this.btnDateRangeRep);
             this.Controls.Add(this.btnRestore);
             this.Controls.Add(this.btnChangePW);
@@ -394,7 +382,6 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Button btnChangePW;
         private System.Windows.Forms.Button btnRestore;
         private System.Windows.Forms.Button btnDateRangeRep;
-        private System.Windows.Forms.Button btnCanceledReqAll;
         private System.Windows.Forms.Button btnCanceledLabReq;
         private System.Windows.Forms.Button btnCanceledEscalations;
     }

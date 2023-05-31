@@ -43,8 +43,16 @@ namespace Schedule_Database_Desktop_Version
             this.searchEscalationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.byIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dateRangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restoreRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.holidaysListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.databaseModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.liveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sandboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openItemsByDateDueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openEscalationsByDueDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,17 +63,9 @@ namespace Schedule_Database_Desktop_Version
             this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.closedToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.canceledToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.holidaysListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adminMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.databaseModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.liveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sandboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incompleteByDateDueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbLive = new System.Windows.Forms.PictureBox();
             this.pbSandbox = new System.Windows.Forms.PictureBox();
-            this.dateRangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSandbox)).BeginInit();
@@ -80,8 +80,8 @@ namespace Schedule_Database_Desktop_Version
             this.aTEscalationsToolStripMenuItem,
             this.maintenanceToolStripMenuItem,
             this.databaseModeToolStripMenuItem,
-            this.dashboardToolStripMenuItem,
-            this.reportsToolStripMenuItem});
+            this.reportsToolStripMenuItem,
+            this.dashboardToolStripMenuItem});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
             this.mnuMain.Size = new System.Drawing.Size(1234, 28);
@@ -197,6 +197,13 @@ namespace Schedule_Database_Desktop_Version
             this.byIDToolStripMenuItem.Text = "By ID";
             this.byIDToolStripMenuItem.Click += new System.EventHandler(this.byIDToolStripMenuItem_Click);
             // 
+            // dateRangeToolStripMenuItem
+            // 
+            this.dateRangeToolStripMenuItem.Name = "dateRangeToolStripMenuItem";
+            this.dateRangeToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.dateRangeToolStripMenuItem.Text = "Date Range";
+            this.dateRangeToolStripMenuItem.Click += new System.EventHandler(this.dateRangeToolStripMenuItem_Click);
+            // 
             // deleteRecordToolStripMenuItem
             // 
             this.deleteRecordToolStripMenuItem.Name = "deleteRecordToolStripMenuItem";
@@ -212,6 +219,66 @@ namespace Schedule_Database_Desktop_Version
             this.restoreRecordToolStripMenuItem.Tag = "4";
             this.restoreRecordToolStripMenuItem.Text = "Restore Record";
             this.restoreRecordToolStripMenuItem.Click += new System.EventHandler(this.restoreRecordToolStripMenuItem_Click);
+            // 
+            // maintenanceToolStripMenuItem
+            // 
+            this.maintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.holidaysListToolStripMenuItem,
+            this.adminMaintenanceToolStripMenuItem});
+            this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
+            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
+            this.maintenanceToolStripMenuItem.Tag = "3";
+            this.maintenanceToolStripMenuItem.Text = "Maintenance";
+            // 
+            // holidaysListToolStripMenuItem
+            // 
+            this.holidaysListToolStripMenuItem.Name = "holidaysListToolStripMenuItem";
+            this.holidaysListToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
+            this.holidaysListToolStripMenuItem.Tag = "3";
+            this.holidaysListToolStripMenuItem.Text = "Holidays List";
+            this.holidaysListToolStripMenuItem.Click += new System.EventHandler(this.holidaysListToolStripMenuItem_Click);
+            // 
+            // adminMaintenanceToolStripMenuItem
+            // 
+            this.adminMaintenanceToolStripMenuItem.Name = "adminMaintenanceToolStripMenuItem";
+            this.adminMaintenanceToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
+            this.adminMaintenanceToolStripMenuItem.Tag = "3";
+            this.adminMaintenanceToolStripMenuItem.Text = "User Maintenance";
+            this.adminMaintenanceToolStripMenuItem.Click += new System.EventHandler(this.adminMaintenanceToolStripMenuItem_Click);
+            // 
+            // databaseModeToolStripMenuItem
+            // 
+            this.databaseModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.liveToolStripMenuItem,
+            this.sandboxToolStripMenuItem});
+            this.databaseModeToolStripMenuItem.Name = "databaseModeToolStripMenuItem";
+            this.databaseModeToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
+            this.databaseModeToolStripMenuItem.Tag = "2";
+            this.databaseModeToolStripMenuItem.Text = "Database Mode";
+            // 
+            // liveToolStripMenuItem
+            // 
+            this.liveToolStripMenuItem.Name = "liveToolStripMenuItem";
+            this.liveToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.liveToolStripMenuItem.Tag = "2";
+            this.liveToolStripMenuItem.Text = "Live";
+            this.liveToolStripMenuItem.Click += new System.EventHandler(this.liveToolStripMenuItem_Click);
+            // 
+            // sandboxToolStripMenuItem
+            // 
+            this.sandboxToolStripMenuItem.Name = "sandboxToolStripMenuItem";
+            this.sandboxToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.sandboxToolStripMenuItem.Tag = "2";
+            this.sandboxToolStripMenuItem.Text = "Sandbox";
+            this.sandboxToolStripMenuItem.Click += new System.EventHandler(this.sandboxToolStripMenuItem_Click);
+            // 
+            // dashboardToolStripMenuItem
+            // 
+            this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
+            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
+            this.dashboardToolStripMenuItem.Tag = "1";
+            this.dashboardToolStripMenuItem.Text = "Dashboard";
+            this.dashboardToolStripMenuItem.Click += new System.EventHandler(this.dashboardToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
@@ -301,66 +368,6 @@ namespace Schedule_Database_Desktop_Version
             this.canceledToolStripMenuItem1.Text = "Canceled";
             this.canceledToolStripMenuItem1.Click += new System.EventHandler(this.canceledToolStripMenuItem1_Click);
             // 
-            // maintenanceToolStripMenuItem
-            // 
-            this.maintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.holidaysListToolStripMenuItem,
-            this.adminMaintenanceToolStripMenuItem});
-            this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
-            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
-            this.maintenanceToolStripMenuItem.Tag = "3";
-            this.maintenanceToolStripMenuItem.Text = "Maintenance";
-            // 
-            // holidaysListToolStripMenuItem
-            // 
-            this.holidaysListToolStripMenuItem.Name = "holidaysListToolStripMenuItem";
-            this.holidaysListToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
-            this.holidaysListToolStripMenuItem.Tag = "3";
-            this.holidaysListToolStripMenuItem.Text = "Holidays List";
-            this.holidaysListToolStripMenuItem.Click += new System.EventHandler(this.holidaysListToolStripMenuItem_Click);
-            // 
-            // adminMaintenanceToolStripMenuItem
-            // 
-            this.adminMaintenanceToolStripMenuItem.Name = "adminMaintenanceToolStripMenuItem";
-            this.adminMaintenanceToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
-            this.adminMaintenanceToolStripMenuItem.Tag = "3";
-            this.adminMaintenanceToolStripMenuItem.Text = "User Maintenance";
-            this.adminMaintenanceToolStripMenuItem.Click += new System.EventHandler(this.adminMaintenanceToolStripMenuItem_Click);
-            // 
-            // databaseModeToolStripMenuItem
-            // 
-            this.databaseModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.liveToolStripMenuItem,
-            this.sandboxToolStripMenuItem});
-            this.databaseModeToolStripMenuItem.Name = "databaseModeToolStripMenuItem";
-            this.databaseModeToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
-            this.databaseModeToolStripMenuItem.Tag = "2";
-            this.databaseModeToolStripMenuItem.Text = "Database Mode";
-            // 
-            // liveToolStripMenuItem
-            // 
-            this.liveToolStripMenuItem.Name = "liveToolStripMenuItem";
-            this.liveToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
-            this.liveToolStripMenuItem.Tag = "2";
-            this.liveToolStripMenuItem.Text = "Live";
-            this.liveToolStripMenuItem.Click += new System.EventHandler(this.liveToolStripMenuItem_Click);
-            // 
-            // sandboxToolStripMenuItem
-            // 
-            this.sandboxToolStripMenuItem.Name = "sandboxToolStripMenuItem";
-            this.sandboxToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
-            this.sandboxToolStripMenuItem.Tag = "2";
-            this.sandboxToolStripMenuItem.Text = "Sandbox";
-            this.sandboxToolStripMenuItem.Click += new System.EventHandler(this.sandboxToolStripMenuItem_Click);
-            // 
-            // dashboardToolStripMenuItem
-            // 
-            this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
-            this.dashboardToolStripMenuItem.Tag = "1";
-            this.dashboardToolStripMenuItem.Text = "Dashboard";
-            this.dashboardToolStripMenuItem.Click += new System.EventHandler(this.dashboardToolStripMenuItem_Click);
-            // 
             // incompleteByDateDueToolStripMenuItem
             // 
             this.incompleteByDateDueToolStripMenuItem.Name = "incompleteByDateDueToolStripMenuItem";
@@ -390,13 +397,6 @@ namespace Schedule_Database_Desktop_Version
             this.pbSandbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSandbox.TabIndex = 4;
             this.pbSandbox.TabStop = false;
-            // 
-            // dateRangeToolStripMenuItem
-            // 
-            this.dateRangeToolStripMenuItem.Name = "dateRangeToolStripMenuItem";
-            this.dateRangeToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.dateRangeToolStripMenuItem.Text = "Date Range";
-            this.dateRangeToolStripMenuItem.Click += new System.EventHandler(this.dateRangeToolStripMenuItem_Click);
             // 
             // frmAMDI_Parent
             // 

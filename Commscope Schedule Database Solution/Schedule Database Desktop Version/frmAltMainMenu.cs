@@ -317,5 +317,11 @@ namespace Schedule_Database_Desktop_Version
             GV.MODE = Mode.LabEscReport;
             GetModels("Canceled", "Lab Request");
         }
+
+        private void btnDateRangeRep_Click(object sender, EventArgs e)
+        {
+            frmSearchDateRange dateRange = new frmSearchDateRange();
+            dateRange.ShowDialog();
+        }
     }
 }
