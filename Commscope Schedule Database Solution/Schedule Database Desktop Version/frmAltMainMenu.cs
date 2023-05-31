@@ -273,5 +273,49 @@ namespace Schedule_Database_Desktop_Version
             GV.MODE = Mode.LabEscRestore;
             Parent.prepareDeleteRestore();
         }
+        private List<LabEscModel> GetModels(string status, string recType)
+        {
+            List<LabEscModel> models = new List<LabEscModel>();
+            if (GV.MODE == Mode.OpenEscByDate)
+            {
+                models = ReportOps.GetOpenEscByDateDue();
+            }
+            else
+            {
+                models = GlobalConfig.Connection.GetReportModel(status, recType);
+            }
+            DateTime emptyDate = new DateTime(1900, 1, 1);
+            switch (models.Count)
+            {
+                case 0:
+                    MessageBox.Show("No matching escalations/requests");
+                    break;
+                case 1:
+                    frmLabEsc escForm = showLabEscForm();
+                    escForm.LabEsc = models[0];
+                    break;
+
+                default:
+                    frmMultiSelect results = new frmMultiSelect();
+
+                    results.LabRequests = models;
+                    results.Show();
+
+                    break;
+            }
+
+            return models;
+        }
+        private void btnCanceledEscalations_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscReport;
+            GetModels("Canceled", "AT Escalation");
+        }
+
+        private void btnCanceledLabReq_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscReport;
+            GetModels("Canceled", "Lab Request");
+        }
     }
 }
