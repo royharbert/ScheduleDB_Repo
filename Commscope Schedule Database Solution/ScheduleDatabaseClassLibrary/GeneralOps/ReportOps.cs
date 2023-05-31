@@ -5,11 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Office.Interop.Excel;
+using ScheduleDatabaseClassLibrary.Models;
 
 namespace ScheduleDatabaseClassLibrary.GeneralOps
 {
     public static class ReportOps
     {
+        public static List<LabEscModel> GetOpenEscByDateDue()
+        {
+            return GlobalConfig.Connection.GetOpenEscSortedByDateDue();
+        }
         public static void FormatMultiResultExport(Excel.Worksheet wks)
         {
             string[] headers = new string[]

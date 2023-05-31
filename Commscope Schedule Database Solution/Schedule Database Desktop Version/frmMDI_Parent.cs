@@ -188,7 +188,7 @@ namespace Schedule_Database_Desktop_Version
             List<LabEscModel> models = new List<LabEscModel>();
             if (GV.MODE == Mode.OpenEscByDate)
             {
-                models = ReportOps.GetOpenEscByDateDue();
+                models = ScheduleDatabaseClassLibrary.GeneralOps.ReportOps.GetOpenEscByDateDue();
             }
             else
             {
