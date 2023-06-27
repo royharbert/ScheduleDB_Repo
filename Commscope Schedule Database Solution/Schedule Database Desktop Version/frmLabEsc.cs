@@ -1135,13 +1135,23 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
+        private void rtxComments_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.LinkText);
+        }
 
-        //private void frmLabEsc_Activated(object sender, EventArgs e)
-        //{
-        //    if (GV.MODE != Mode.LabEscAdd)
-        //    {
-        //        getAttachments(txtRecordID.Text); 
-        //    }
-        //}
+
+        private void frmLabEsc_Activated(object sender, EventArgs e)
+        {
+            if (GV.MODE != Mode.LabEscAdd)
+            {
+                getAttachments(txtRecordID.Text);
+            }
+        }
+
+        private void rtxDescription_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.LinkText);
+        }
     }
 }

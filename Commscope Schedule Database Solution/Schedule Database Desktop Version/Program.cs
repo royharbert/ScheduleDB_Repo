@@ -26,6 +26,7 @@ namespace Schedule_Database_Desktop_Version
                 GlobalConfig.SetDatabaseMode(DatabaseType.Sandbox);
             }
             Application.Run(new frmAMDI_Parent());
+            //Application.Run(new frmLink());
         }
     }
 }
