@@ -10,3 +10,7 @@
 **/.vs
 **/packages
 
+*.nupkg
+/Commscope Schedule Database Solution/Releases/RELEASES
+/Commscope Schedule Database Solution/Releases/Setup.exe
+/Commscope Schedule Database Solution/Releases/Setup.msi
