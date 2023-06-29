@@ -47,6 +47,7 @@ namespace Schedule_Database_Desktop_Version
             "Coaxial Amps",
             "Headend Optics",
             "Node",
+            "Passives",
             "RFoG",
             "Software"});
             this.cboCategory.Location = new System.Drawing.Point(331, 68);

@@ -33,7 +33,6 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
         }
         public List<LabEscModel> GetReportModel(string status = "", string recType = "")
         {
-
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
