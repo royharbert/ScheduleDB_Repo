@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using ScheduleDatabaseClassLibrary.Operations;
 
 namespace Schedule_Database_Desktop_Version
 {
@@ -92,38 +93,38 @@ namespace Schedule_Database_Desktop_Version
             GV.MODE = Mode.LabEscSearch;
             showLabEscForm();
         }
-        private List<LabEscModel> GetModels(string type = "", bool isOpen = false)
-        {
-            List<LabEscModel> models = new List<LabEscModel>();
-            if (GV.MODE == Mode.OpenEscByDate)
-            {
-                models = ScheduleDatabaseClassLibrary.GeneralOps.ReportOps.GetOpenEscByDateDue();
-            }
-            else
-            {
-                models = GlobalConfig.Connection.GetLabEscByStatus(type, isOpen);
-            }
+        //private List<LabEscModel> ListModels(List<LabEscModel> models)
+        //{
+            //List<LabEscModel> models = new List<LabEscModel>();
+            //if (GV.MODE == Mode.OpenEscByDate)
+            //{
+            //    models = ScheduleDatabaseClassLibrary.GeneralOps.ReportOps.GetOpenEscByDateDue();
+            //}
+            //else
+            //{
+            //    models = GlobalConfig.Connection.GetLabEscByStatus(type, isOpen);
+            //}
 
-            switch (models.Count)
-            {
-                case 0:
-                    MessageBox.Show("No matching escalations/requests");
-                    break;
-                case 1:
-                    frmLabEsc escForm = showLabEscForm();
-                    escForm.LabEsc = models[0];
-                    break;
+        //    switch (models.Count)
+        //    {
+        //        case 0:
+        //            MessageBox.Show("No matching escalations/requests");
+        //            break;
+        //        case 1:
+        //            frmLabEsc escForm = showLabEscForm();
+        //            escForm.LabEsc = models[0];
+        //            break;
 
-                default:
-                    frmMultiSelect results = new frmMultiSelect();
-                    results.LabRequests = models;
-                    results.Show();
+        //        default:
+        //            frmMultiSelect results = new frmMultiSelect();
+        //            results.LabRequests = models;
+        //            results.Show();
 
-                    break;
-            }
+        //            break;
+        //    }
 
-            return models;
-        }
+        //    return models;
+        //}
         private void btnDateRange_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscSearch;
@@ -172,33 +173,62 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnRptAllOpen_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.OpenEscByDate;
+            GV.MODE = Mode.OpenEscByDate; 
+            List<LabEscModel> models = CommonOps.GetReportData("", "");
+            ListModels(models);
+        }
 
-            GetModels();
+        private List<LabEscModel> ListModels(List<LabEscModel> models)
+        {
+            DateTime emptyDate = new DateTime(1900, 1, 1);
+            switch (models.Count)
+            {
+                case 0:
+                    MessageBox.Show("No matching escalations/requests");
+                    break;
+                case 1:
+                    frmLabEsc escForm = showLabEscForm();
+                    escForm.LabEsc = models[0];
+                    break;
+                default:
+                    frmMultiSelect results = new frmMultiSelect();
+                    results.LabRequests = models;
+                    results.Show();
+                    break;
+            }
+
+            return models;
         }
 
         private void btnRptOpenEsc_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabEscReport;
-            GetModels("E", true);
+            GV.MODE = Mode.LabEscReport; GV.MODE = Mode.LabEscReport;
+            List<LabEscModel> models = CommonOps.GetReportData("E", "I");
+            ListModels(models);
         }
 
         private void btnRptClosedEsc_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
-            GetModels("E", false);
+            GV.MODE = Mode.LabEscReport;
+            List<LabEscModel> models = CommonOps.GetReportData("E", "C");
+            ListModels(models);
         }
 
         private void btnRptOpenReq_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
-            GetModels("L", true);
+            GV.MODE = Mode.LabEscReport;
+            List<LabEscModel> models = CommonOps.GetReportData("L", "I");
+            ListModels(models);
         }
 
         private void btnRpeClosedReq_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
-            GetModels("L", false);
+            GV.MODE = Mode.LabEscReport;
+            List<LabEscModel> models = CommonOps.GetReportData("L", "C");
+            ListModels(models);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -309,13 +339,17 @@ namespace Schedule_Database_Desktop_Version
         private void btnCanceledEscalations_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
-            GetModels("Canceled", "AT Escalation");
+            GV.MODE = Mode.LabEscReport;
+            List<LabEscModel> models = CommonOps.GetReportData("E", "X");
+            ListModels(models);
         }
 
         private void btnCanceledLabReq_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
-            GetModels("Canceled", "Lab Request");
+            GV.MODE = Mode.LabEscReport;
+            List<LabEscModel> models = CommonOps.GetReportData("L", "X");
+            ListModels(models);
         }
 
         private void btnDateRangeRep_Click(object sender, EventArgs e)

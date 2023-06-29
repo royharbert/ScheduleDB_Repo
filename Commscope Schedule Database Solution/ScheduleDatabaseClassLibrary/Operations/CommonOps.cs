@@ -1,15 +1,20 @@
-﻿using ScheduleDatabaseClassLibrary;
+﻿using Microsoft.Office.Interop.Excel;
+using ScheduleDatabaseClassLibrary;
 using ScheduleDatabaseClassLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ScheduleDatabaseClassLibrary.Operations
 {
+    
+
     public static class CommonOps
     { 
          /// <summary>
@@ -22,7 +27,7 @@ namespace ScheduleDatabaseClassLibrary.Operations
         {
             foreach (Control control in frm.Controls)
             {
-                if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox
+                if (control is System.Windows.Forms.TextBox | control is System.Windows.Forms.ComboBox | control is RichTextBox | control is System.Windows.Forms.ListBox
                      | control is DateTimePicker)
                 {
                     int idx = skipList.IndexOf(control.Name);
@@ -34,11 +39,56 @@ namespace ScheduleDatabaseClassLibrary.Operations
             }
         }
 
+        
+
+        public static List<LabEscModel> GetReportData(string RecordType = "", string RecordStatus = "")
+        {
+            List<LabEscModel> models = new List<LabEscModel>();
+            string status = "";
+            switch (RecordType)
+            {
+                case "E":
+                    RecordType = "AT Escalation";
+                    status = GetStatusString(RecordStatus);
+                    models = GlobalConfig.Connection.GetReportModel(status, RecordType);
+                    break;
+                case "L":
+                    RecordType = "Lab Request";
+                    status = GetStatusString(RecordStatus);
+                    models = GlobalConfig.Connection.GetReportModel(status, RecordType);
+                    break;
+                case "":
+                    models = GlobalConfig.Connection.GetOpenEscSortedByDateDue();
+                    break;
+
+            }
+
+            return models;
+        }
+
+        private static string GetStatusString(string recStatus)
+        {
+            string status = "";
+            switch (recStatus)
+            {
+                case "I":
+                    status = "In process";
+                    break;
+                case "C":
+                    status = "Closed";
+                    break;
+                case "X":
+                    status = "Canceled";
+                    break;
+            }
+            return status;
+        }
+
         public static void lockControls(bool lockControl, TableLayoutPanel frm, string skipList)
         {
             foreach (Control control in frm.Controls)
             {
-                if (control is TextBox | control is ComboBox | control is RichTextBox | control is ListBox
+                if (control is System.Windows.Forms.TextBox | control is System.Windows.Forms.ComboBox | control is RichTextBox | control is System.Windows.Forms.ListBox
                      | control is DateTimePicker)
                 {
                     int idx = skipList.IndexOf(control.Name);
@@ -63,7 +113,7 @@ namespace ScheduleDatabaseClassLibrary.Operations
             if (dtp.Value <= Globals.nullDate)
             {
                 dtp.Value = new DateTime(1900, 1, 1);
-                Application.DoEvents();
+                System.Windows.Forms.Application.DoEvents();
                 dtp.CustomFormat = " ";
                 dtp.Format = DateTimePickerFormat.Custom;
             }
@@ -75,14 +125,14 @@ namespace ScheduleDatabaseClassLibrary.Operations
         {
             
             dtp.Value = new DateTime(1900, 1, 1);
-            Application.DoEvents();
+            System.Windows.Forms.Application.DoEvents();
             dtp.CustomFormat = " ";
             dtp.Format = DateTimePickerFormat.Custom;
             
             return dtp.Value;
         }
 
-        public static  void loadComboList<T>(ComboBox cbo)
+        public static  void loadComboList<T>(System.Windows.Forms.ComboBox cbo)
         {
             string tagString = cbo.Tag.ToString();
             string[] tagArray = tagString.Split('|');

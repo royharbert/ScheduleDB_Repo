@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Drawing.Imaging;
+using ScheduleDatabaseClassLibrary.Operations;
 
 namespace Schedule_Database_Desktop_Version
 {
@@ -179,22 +180,14 @@ namespace Schedule_Database_Desktop_Version
         }
        private void openItemsByDateDueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.OpenEscByDate;
-            GetModels();
+            GV.MODE = Mode.OpenEscByDate; 
+            List<LabEscModel> models = CommonOps.GetReportData("", "");
+            ListModels(models);
         }
 
-        private List<LabEscModel> GetModels(string type = "", bool isOpen = false)
-        {
-            List<LabEscModel> models = new List<LabEscModel>();
-            if (GV.MODE == Mode.OpenEscByDate)
-            {
-                models = ScheduleDatabaseClassLibrary.GeneralOps.ReportOps.GetOpenEscByDateDue();
-            }
-            else
-            {
-                models = GlobalConfig.Connection.GetLabEscByStatus(type, isOpen);
-            }
-
+        private List<LabEscModel> ListModels(List<LabEscModel> models)
+        {            
+            //DateTime emptyDate = new DateTime(1900, 1, 1);
             switch (models.Count)
             {
                 case 0:
@@ -204,18 +197,15 @@ namespace Schedule_Database_Desktop_Version
                     frmLabEsc escForm = showLabEscForm();
                     escForm.LabEsc = models[0];
                     break;
-
                 default:
-                    frmMultiSelect results = new frmMultiSelect();
+                    frmMultiSelect results = new frmMultiSelect();                    
                     results.LabRequests = models;
                     results.Show();
-
                     break;
             }
 
             return models;
         }
-
 
         private void updateHolidays()
         {
@@ -266,28 +256,24 @@ namespace Schedule_Database_Desktop_Version
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
-            GetModels("E", true);
+            List<LabEscModel> models = CommonOps.GetReportData("E", "I");
+            ListModels(models);
         }
 
         private void 
-            ToolStripMenuItem_Click(object sender, EventArgs e)
+        ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
-            GetModels("E", false);
+            List<LabEscModel> models = CommonOps.GetReportData("L", "I");
+            ListModels(models);
         }
 
         private void openToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
-            GetModels("L", true);
+            List<LabEscModel> models = CommonOps.GetReportData("L", "I");
+            ListModels(models);
         }
-
-        //private void 
-        //    ToolStripMenuItem1_Click(object sender, EventArgs e)
-        //{
-        //    GV.MODE = Mode.LabEscReport;
-        //    GetModels("Closed","AT Escalation");
-        //}
 
         private void dashboardViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -394,13 +380,15 @@ namespace Schedule_Database_Desktop_Version
         private void closedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
-            GetModels("E", false);
+            List<LabEscModel> models =  CommonOps.GetReportData("E", "C");
+            ListModels(models);
         }
 
         private void closedToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
-            GetModels("L", false);
+            List<LabEscModel> models = CommonOps.GetReportData("L", "C");
+            ListModels(models);
         }
 
         private void requestsByDueDateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -408,17 +396,19 @@ namespace Schedule_Database_Desktop_Version
 
         }
 
-        //private void canceledToolStripMenuItem1_Click(object sender, EventArgs e)
-        //{
-        //    GV.MODE = Mode.LabEscReport;
-        //    GetModels("Canceled", "Lab Request");
-        //}
+        private void canceledToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscReport;
+            List<LabEscModel> models =  CommonOps.GetReportData("E", "X");
+            ListModels(models);
+        }
 
-        //private void canceledToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    GV.MODE = Mode.LabEscReport;
-        //    GetModels("Canceled", "AT Escalation");
-        //}
+        private void canceledToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscReport; 
+            List<LabEscModel> models = CommonOps.GetReportData("E", "X");
+            ListModels(models);
+        }
 
         private void dateRangeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -430,11 +420,6 @@ namespace Schedule_Database_Desktop_Version
         {
 
         }
-
-        //private void canceledToolStripMenuItem1_Click(object sender, EventArgs e)
-        //{
-
-        //}
     }
 }
  
