@@ -84,6 +84,7 @@ namespace Schedule_Database_Desktop_Version
         private void frmLabEsc_Load(object sender, EventArgs e)
         {
             fillListList<ProductModel>(lstProducts, "tblProducts", "Product", "Product");
+            fillComboBoxes();
             FC.SetFormPosition(this);
             dtpClosedDate.CustomFormat = dtpCustomFormat;
             dtpDueDate.CustomFormat = dtpCustomFormat;
@@ -288,7 +289,7 @@ namespace Schedule_Database_Desktop_Version
                             displayResults(requests);
                             formDirty = false;
                             txtRecordID.ReadOnly = true;
-                            this.Close();
+                            //this.Close();
                         }
 
                         break;            
@@ -488,8 +489,8 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case 1:
                     LabEscModel model = models[0];
-                    frmLabEsc escForm = new frmLabEsc();
-                    escForm.DisplayForm = escForm;
+                    //frmLabEsc escForm = new frmLabEsc();
+                    this.DisplayForm = this;
                     //DisplayForm.Show();
                     //DisplayForm.loadBoxes(model);
                     //DisplayForm.hideDateFilter(true);
@@ -497,12 +498,12 @@ namespace Schedule_Database_Desktop_Version
                     //DisplayForm.txtRecordID.ReadOnly= true;
                     //DisplayForm.txtRecordID.Focus();
 
-                    escForm.Show();
-                    escForm.loadBoxes(model);
-                    escForm.hideDateFilter(true);
-                    escForm.setBtnSaveText("Save");
-                    escForm.txtRecordID.ReadOnly = true;
-                    escForm.txtRecordID.Focus();
+                    DisplayForm.Show();
+                    this.loadBoxes(model);
+                    this.hideDateFilter(true);
+                    this.setBtnSaveText("Save");
+                    this.txtRecordID.ReadOnly = true;
+                    this.txtRecordID.Focus();
                     break;
                 default:
                     frmMultiSelect displayForm = new frmMultiSelect();
@@ -1006,12 +1007,16 @@ namespace Schedule_Database_Desktop_Version
                 //cboStatus.SelectedIndex = 0;
             }
             setDTP_Format(sender);
-            cboStatus.Text = "Closed";
+            //cboStatus.Text = "Closed";
         }
 
         private void cboStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (cboStatus.Text == "Closed")
+            {
+                dtpClosedDate.Value = DateTime.Now.Date;
+                dtpClosedDate.Format = DateTimePickerFormat.Long;
+            }
         }
 
         private void txtRecordID_TextChanged(object sender, EventArgs e)

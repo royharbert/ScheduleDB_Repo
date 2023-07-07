@@ -1,4 +1,5 @@
 ﻿using ScheduleDatabaseClassLibrary;
+using ScheduleDatabaseClassLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,10 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmAddProduct_Load(object sender, EventArgs e)
         {
+            List<ProductCategoryModel> categories = GlobalConfig.Connection.GenericGetAll<ProductCategoryModel>("tblProductCategories", "Category");
+            cboCategory.DataSource = categories;
+            cboCategory.DisplayMember = "Category";
+            cboCategory.DataSource = categories;
             txtProduct.Clear();
             cboCategory.SelectedIndex = -1;
             FC.SetFormPosition(this);

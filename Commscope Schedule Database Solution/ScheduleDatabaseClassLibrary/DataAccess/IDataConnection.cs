@@ -11,6 +11,8 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
+        void ProductCategoryUpdate(ProductCategoryModel model);
+        void ProductCategoryAdd(ProductCategoryModel model);
         List<LabEscModel> DateRangeSearch(DateTime start, DateTime end, string SearchTerm);
         List<LabEscModel> GetReportModel(string status = "", string recType = "");
         LabEscModel LabEscDeleted_CRUD(LabEscModel model, char action);

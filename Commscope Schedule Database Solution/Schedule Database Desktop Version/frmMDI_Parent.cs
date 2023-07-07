@@ -364,7 +364,7 @@ namespace Schedule_Database_Desktop_Version
                     MessageBox.Show("No matching records found");
                     break;
                 case 1:
-                    frmLabEsc escForm = new frmLabEsc();
+                    frmLabEsc escForm = new frmLabEsc();                    
                     escForm.LabEsc = results[0];
                     //escForm.DisplayForm = escForm;
                     //escForm.ShowDialog();
@@ -419,6 +419,17 @@ namespace Schedule_Database_Desktop_Version
         private void openEscalationsByDueDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void searchEscalationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void productCategoryMaintenanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProductCategoryMaint mForm = new frmProductCategoryMaint();
+            mForm.ShowDialog();
         }
     }
 }

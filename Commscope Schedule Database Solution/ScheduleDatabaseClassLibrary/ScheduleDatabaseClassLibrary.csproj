@@ -108,6 +108,7 @@
     <Compile Include="Models\CityModel.cs" />
     <Compile Include="Models\LabEscDelRecsModel .cs" />
     <Compile Include="Models\ProdAppModel.cs" />
+    <Compile Include="Models\ProductCategoryModel.cs" />
     <Compile Include="Models\ResolutionModel.cs" />
     <Compile Include="Models\HolidaysModel.cs" />
     <Compile Include="Models\PersonModel.cs" />

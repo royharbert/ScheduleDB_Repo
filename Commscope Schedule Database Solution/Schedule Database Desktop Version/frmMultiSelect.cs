@@ -181,6 +181,7 @@ namespace Schedule_Database_Desktop_Version
             switch (GV.MODE)
             {
                 case Mode.LabEscSearch:
+                case Mode.LabEscEdit:
                 case Mode.OpenEscByDate:
                 case Mode.LabEscReport:
                 case Mode.LabEscDelete:

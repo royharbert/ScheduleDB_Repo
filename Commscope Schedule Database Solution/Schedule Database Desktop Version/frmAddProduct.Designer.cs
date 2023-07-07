@@ -43,13 +43,6 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.cboCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Items.AddRange(new object[] {
-            "Coaxial Amps",
-            "Headend Optics",
-            "Node",
-            "Passives",
-            "RFoG",
-            "Software"});
             this.cboCategory.Location = new System.Drawing.Point(331, 68);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(232, 28);

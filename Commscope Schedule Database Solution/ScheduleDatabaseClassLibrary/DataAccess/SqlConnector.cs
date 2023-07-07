@@ -18,6 +18,26 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 {  
     public class SqlConnector : IDataConnection
     {
+        public void ProductCategoryUpdate(ProductCategoryModel model)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@ID", model.ID, DbType.Int64);
+                p.Add("@Category", model.Category, DbType.String);
+
+                connection.Execute("dbo.spProductCategoriesUpdate", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+        public void ProductCategoryAdd(ProductCategoryModel model)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Category", model.Category, DbType.String);
+                connection.Execute("dbo.spProductCategoryAdd", p, commandType: CommandType.StoredProcedure);                 
+            }
+        }
         public List<LabEscModel> DateRangeSearch(DateTime start, DateTime end, string SearchTerm)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
