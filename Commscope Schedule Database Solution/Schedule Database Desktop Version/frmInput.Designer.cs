@@ -88,7 +88,7 @@ namespace Schedule_Database_Desktop_Version
             this.Name = "frmInput";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Input Form";
-            this.Activated += new System.EventHandler(this.frmInput_Activated);
+            //this.Activated += new System.EventHandler(this.frmInput_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();
 

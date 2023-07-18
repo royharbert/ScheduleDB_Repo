@@ -368,14 +368,6 @@ namespace Schedule_Database_Desktop_Version
             this.dashboardToolStripMenuItem.Text = "Dashboard";
             this.dashboardToolStripMenuItem.Click += new System.EventHandler(this.dashboardToolStripMenuItem_Click);
             // 
-            // dashboardToolStripMenuItem
-            // 
-            this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
-            this.dashboardToolStripMenuItem.Tag = "1";
-            this.dashboardToolStripMenuItem.Text = "Dashboard";
-            this.dashboardToolStripMenuItem.Click += new System.EventHandler(this.dashboardToolStripMenuItem_Click);
-            // 
             // incompleteByDateDueToolStripMenuItem
             // 
             this.incompleteByDateDueToolStripMenuItem.Name = "incompleteByDateDueToolStripMenuItem";
