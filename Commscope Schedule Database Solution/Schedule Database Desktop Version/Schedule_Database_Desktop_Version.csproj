@@ -308,6 +308,12 @@
     <Compile Include="frmPassword.Designer.cs">
       <DependentUpon>frmPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmProductCategoryMaint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProductCategoryMaint.Designer.cs">
+      <DependentUpon>frmProductCategoryMaint.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmScreens.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -368,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPassword.resx">
       <DependentUpon>frmPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProductCategoryMaint.resx">
+      <DependentUpon>frmProductCategoryMaint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmScreens.resx">
       <DependentUpon>frmScreens.cs</DependentUpon>

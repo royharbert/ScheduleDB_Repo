@@ -622,26 +622,27 @@ namespace Schedule_Database_Desktop_Version
             this.tsmiCut,
             this.tsmiPaste});
             this.rtbContextMenu.Name = "rtbContextMenu";
-            this.rtbContextMenu.Size = new System.Drawing.Size(103, 70);
+            this.rtbContextMenu.Size = new System.Drawing.Size(181, 92);
+            this.rtbContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.rtbContextMenu_Opening);
             // 
             // tsmiCopy
             // 
             this.tsmiCopy.Name = "tsmiCopy";
-            this.tsmiCopy.Size = new System.Drawing.Size(102, 22);
+            this.tsmiCopy.Size = new System.Drawing.Size(180, 22);
             this.tsmiCopy.Text = "Copy";
             this.tsmiCopy.Click += new System.EventHandler(this.tsmiCopy_Click);
             // 
             // tsmiCut
             // 
             this.tsmiCut.Name = "tsmiCut";
-            this.tsmiCut.Size = new System.Drawing.Size(102, 22);
+            this.tsmiCut.Size = new System.Drawing.Size(180, 22);
             this.tsmiCut.Text = "Cut";
             this.tsmiCut.Click += new System.EventHandler(this.tsmiCut_Click);
             // 
             // tsmiPaste
             // 
             this.tsmiPaste.Name = "tsmiPaste";
-            this.tsmiPaste.Size = new System.Drawing.Size(102, 22);
+            this.tsmiPaste.Size = new System.Drawing.Size(180, 22);
             this.tsmiPaste.Text = "Paste";
             this.tsmiPaste.Click += new System.EventHandler(this.tsmiPaste_Click);
             // 

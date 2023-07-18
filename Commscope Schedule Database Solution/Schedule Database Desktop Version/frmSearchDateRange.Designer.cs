@@ -36,9 +36,9 @@
             this.btnCloseForm = new System.Windows.Forms.Button();
             this.btnSearchDateRange = new System.Windows.Forms.Button();
             this.gbDate = new System.Windows.Forms.GroupBox();
+            this.rdoDateClosed = new System.Windows.Forms.RadioButton();
             this.rdoDateDue = new System.Windows.Forms.RadioButton();
             this.rdoDateCreated = new System.Windows.Forms.RadioButton();
-            this.rdoDateClosed = new System.Windows.Forms.RadioButton();
             this.gbDate.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,6 +97,7 @@
             this.btnCloseForm.TabIndex = 22;
             this.btnCloseForm.Text = "Close";
             this.btnCloseForm.UseVisualStyleBackColor = true;
+            this.btnCloseForm.Click += new System.EventHandler(this.btnCloseForm_Click_1);
             // 
             // btnSearchDateRange
             // 
@@ -121,6 +122,18 @@
             this.gbDate.TabStop = false;
             this.gbDate.Text = "Date Type";
             // 
+            // rdoDateClosed
+            // 
+            this.rdoDateClosed.AutoSize = true;
+            this.rdoDateClosed.Location = new System.Drawing.Point(11, 145);
+            this.rdoDateClosed.Name = "rdoDateClosed";
+            this.rdoDateClosed.Size = new System.Drawing.Size(108, 22);
+            this.rdoDateClosed.TabIndex = 2;
+            this.rdoDateClosed.TabStop = true;
+            this.rdoDateClosed.Text = "Date Closed";
+            this.rdoDateClosed.UseVisualStyleBackColor = true;
+            this.rdoDateClosed.CheckedChanged += new System.EventHandler(this.rdoDateClosed_CheckedChanged);
+            // 
             // rdoDateDue
             // 
             this.rdoDateDue.AutoSize = true;
@@ -144,18 +157,6 @@
             this.rdoDateCreated.Text = "Date Created";
             this.rdoDateCreated.UseVisualStyleBackColor = true;
             this.rdoDateCreated.CheckedChanged += new System.EventHandler(this.rdoDateCreated_CheckedChanged);
-            // 
-            // rdoDateClosed
-            // 
-            this.rdoDateClosed.AutoSize = true;
-            this.rdoDateClosed.Location = new System.Drawing.Point(11, 145);
-            this.rdoDateClosed.Name = "rdoDateClosed";
-            this.rdoDateClosed.Size = new System.Drawing.Size(108, 22);
-            this.rdoDateClosed.TabIndex = 2;
-            this.rdoDateClosed.TabStop = true;
-            this.rdoDateClosed.Text = "Date Closed";
-            this.rdoDateClosed.UseVisualStyleBackColor = true;
-            this.rdoDateClosed.CheckedChanged += new System.EventHandler(this.rdoDateClosed_CheckedChanged);
             // 
             // frmSearchDateRange
             // 

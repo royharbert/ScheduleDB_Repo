@@ -41,7 +41,7 @@ namespace Schedule_Database_Desktop_Version
                 default:
                     frmMultiSelect records = new frmMultiSelect();
                     records.LabRequests = model;
-                    //GV.MODE = Mode.LabEscEdit;
+                    GV.MODE = Mode.LabEscEdit;
                     records.Show();
                     break;
             }
@@ -84,6 +84,11 @@ namespace Schedule_Database_Desktop_Version
         private void rdoDateClosed_CheckedChanged(object sender, EventArgs e)
         {
             getSearchTerm();
+        }
+
+        private void btnCloseForm_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

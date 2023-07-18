@@ -19,6 +19,8 @@ namespace Schedule_Database_Desktop_Version
         OpenEscByDate,
         LabEscReport,
         Dashboard,
+        ProductCategoryAdd, 
+        ProductCategoryEdit,
         None
     }
 }
