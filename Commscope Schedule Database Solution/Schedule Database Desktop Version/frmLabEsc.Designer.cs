@@ -623,7 +623,7 @@ namespace Schedule_Database_Desktop_Version
             this.tsmiPaste});
             this.rtbContextMenu.Name = "rtbContextMenu";
             this.rtbContextMenu.Size = new System.Drawing.Size(181, 92);
-            this.rtbContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.rtbContextMenu_Opening);
+          
             // 
             // tsmiCopy
             // 

@@ -86,7 +86,7 @@ namespace Schedule_Database_Desktop_Version
             switch (GV.MODE)
             {
                 case Mode.LabEscAdd:
-                    dtpClosedDate.Value = new DateTime(1900, 1, 1);
+                    //dtpClosedDate.Value = new DateTime(1900, 1, 1);
                     txtRecordID.Clear();
                     fillComboBoxes();
                     cboRecType.Enabled = true;
@@ -650,11 +650,11 @@ namespace Schedule_Database_Desktop_Version
             txtEscNum.Text = model.EscNum;
             txtEntryAdmin.Text = model.EntryAdmin;
             dtpStartDate.Value = model.DateOpened;
-            if (model.DateDue != emptyDate)
-            {
-                dtpDueDate.Format = DateTimePickerFormat.Long;
-                dtpDueDate.Value = model.DateDue;
-            }
+            //if (model.DateDue != emptyDate)
+            //{
+            //    dtpDueDate.Format = DateTimePickerFormat.Long;
+            //    dtpDueDate.Value = model.DateDue;
+            //}
             //fixes date closed note populating in report 2-21-23 LMD
             if (model.DateCompleted == emptyDate | model.DateCompleted == nullDate)
             {
@@ -662,8 +662,10 @@ namespace Schedule_Database_Desktop_Version
             }
             else
             {
-                dtpClosedDate.Format = DateTimePickerFormat.Long;
-                dtpClosedDate.Value = model.DateCompleted;
+                //dtpClosedDate.Format = DateTimePickerFormat.Long;
+                //dtpClosedDate.Value = model.DateCompleted;
+                                dtpDueDate.Format = DateTimePickerFormat.Long;
+                dtpDueDate.Value = model.DateDue;
             }
             cboLead.Text = model.LeadAssigned;
             txtQty.Text = model.Quantity.ToString();
@@ -995,7 +997,7 @@ namespace Schedule_Database_Desktop_Version
             else
             {
                 dtpClosedDate.Format = DateTimePickerFormat.Long;
-                //cboStatus.SelectedIndex = 0;
+                cboStatus.SelectedIndex = 1;
             }
             setDTP_Format(sender);
             //cboStatus.Text = "Closed";
@@ -1003,10 +1005,14 @@ namespace Schedule_Database_Desktop_Version
 
         private void cboStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboStatus.Text == "Closed")
+            if (cboStatus.SelectedIndex == 1)
             {
                 dtpClosedDate.Value = DateTime.Now.Date;
                 dtpClosedDate.Format = DateTimePickerFormat.Long;
+            }
+            else
+            {
+                dtpClosedDate.Format = DateTimePickerFormat.Custom;
             }
         }
 
