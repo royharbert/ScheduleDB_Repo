@@ -390,7 +390,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtpClosedDate.TabIndex = 19;
             this.dtpClosedDate.Tag = "DateCompleted";
             this.dtpClosedDate.TextChanged += new System.EventHandler(this.txtRecordID_TextChanged);
-            this.dtpClosedDate.ValueChanged += new System.EventHandler(this.dtpClosedDate_ValueChanged);
+            this.dtpClosedDate.CloseUp += new System.EventHandler(this.dtpClosedDate_CloseUp);
             // 
             // dtpDueDate
             // 
@@ -622,26 +622,26 @@ namespace Schedule_Database_Desktop_Version
             this.tsmiCut,
             this.tsmiPaste});
             this.rtbContextMenu.Name = "rtbContextMenu";
-            this.rtbContextMenu.Size = new System.Drawing.Size(181, 92);
+            this.rtbContextMenu.Size = new System.Drawing.Size(103, 70);
             // 
             // tsmiCopy
             // 
             this.tsmiCopy.Name = "tsmiCopy";
-            this.tsmiCopy.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCopy.Size = new System.Drawing.Size(102, 22);
             this.tsmiCopy.Text = "Copy";
             this.tsmiCopy.Click += new System.EventHandler(this.tsmiCopy_Click);
             // 
             // tsmiCut
             // 
             this.tsmiCut.Name = "tsmiCut";
-            this.tsmiCut.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCut.Size = new System.Drawing.Size(102, 22);
             this.tsmiCut.Text = "Cut";
             this.tsmiCut.Click += new System.EventHandler(this.tsmiCut_Click);
             // 
             // tsmiPaste
             // 
             this.tsmiPaste.Name = "tsmiPaste";
-            this.tsmiPaste.Size = new System.Drawing.Size(180, 22);
+            this.tsmiPaste.Size = new System.Drawing.Size(102, 22);
             this.tsmiPaste.Text = "Paste";
             this.tsmiPaste.Click += new System.EventHandler(this.tsmiPaste_Click);
             // 

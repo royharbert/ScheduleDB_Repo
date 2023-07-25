@@ -664,7 +664,7 @@ namespace Schedule_Database_Desktop_Version
             {
                 //dtpClosedDate.Format = DateTimePickerFormat.Long;
                 //dtpClosedDate.Value = model.DateCompleted;
-                                dtpDueDate.Format = DateTimePickerFormat.Long;
+                dtpDueDate.Format = DateTimePickerFormat.Long;
                 dtpDueDate.Value = model.DateDue;
             }
             cboLead.Text = model.LeadAssigned;
@@ -986,23 +986,6 @@ namespace Schedule_Database_Desktop_Version
             lstProducts.DisplayMember = "Product";
         }
 
-        private void dtpClosedDate_ValueChanged(object sender, EventArgs e)
-        {
-            //changes status apporopriately with closed date change
-            if (model.DateCompleted == emptyDate)
-            {
-                dtpClosedDate.Format = DateTimePickerFormat.Custom;
-                cboStatus.SelectedIndex = 2;
-            }
-            else
-            {
-                dtpClosedDate.Format = DateTimePickerFormat.Long;
-                cboStatus.SelectedIndex = 1;
-            }
-            setDTP_Format(sender);
-            //cboStatus.Text = "Closed";
-        }
-
         private void cboStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboStatus.SelectedIndex == 1)
@@ -1012,6 +995,7 @@ namespace Schedule_Database_Desktop_Version
             }
             else
             {
+                dtpClosedDate.Value = emptyDate;
                 dtpClosedDate.Format = DateTimePickerFormat.Custom;
             }
         }
@@ -1154,6 +1138,20 @@ namespace Schedule_Database_Desktop_Version
         private void rtxDescription_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(e.LinkText);
+        }
+
+        private void dtpClosedDate_CloseUp(object sender, EventArgs e)
+        {
+            if (dtpClosedDate .Value.Year >= 1900)
+            {
+                cboStatus.SelectedIndex = 1;
+            }
+            else
+            {
+                dtpClosedDate.Value = emptyDate;
+                cboStatus.SelectedIndex = 2;
+            }
+            setDTP_Format(sender);
         }
     }
 }
