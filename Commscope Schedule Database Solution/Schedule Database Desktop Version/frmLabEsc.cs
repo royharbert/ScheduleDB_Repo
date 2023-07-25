@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using ScheduleDatabaseClassLibrary;
+﻿using ScheduleDatabaseClassLibrary;
 using ScheduleDatabaseClassLibrary.GeneralOps;
 using ScheduleDatabaseClassLibrary.Models;
 using ScheduleDatabaseClassLibrary.Operations;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Schedule_Database_Desktop_Version
 {
@@ -36,13 +27,13 @@ namespace Schedule_Database_Desktop_Version
         {
             get
             {
-                return displayForm ;
+                return displayForm;
             }
             set
             {
                 displayForm = value;
             }
-}
+        }
 
         public LabEscModel LabEsc
         {
@@ -58,7 +49,7 @@ namespace Schedule_Database_Desktop_Version
                 {
                     if (GV.MODE == Mode.LabEscDelete)
                     {
-                        btnSave.Text = "Delete"; 
+                        btnSave.Text = "Delete";
                     }
                     else
                     {
@@ -95,7 +86,7 @@ namespace Schedule_Database_Desktop_Version
             switch (GV.MODE)
             {
                 case Mode.LabEscAdd:
-                    dtpClosedDate.Value = new DateTime(1900, 1, 1);
+                    //dtpClosedDate.Value = new DateTime(1900, 1, 1);
                     txtRecordID.Clear();
                     fillComboBoxes();
                     cboRecType.Enabled = true;
@@ -112,7 +103,7 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscEdit:
                     getAttachments(model.EscID);
                     gbDateRange.Visible = false;
-                    dtpClosedDate.Enabled= true;
+                    dtpClosedDate.Enabled = true;
                     btnSave.Text = "Save";
                     break;
                 case Mode.LabEscDelete:
@@ -132,7 +123,7 @@ namespace Schedule_Database_Desktop_Version
                     dtpStartDate.Enabled = false;
                     dtpDueDate.Enabled = false;
                     dtpClosedDate.Enabled = false;
-                    txtRecordID.ReadOnly= false;
+                    txtRecordID.ReadOnly = false;
                     btnSave.Text = "Search";
                     gbDateRange.Visible = true;
                     txtRecordID.Focus();
@@ -185,7 +176,7 @@ namespace Schedule_Database_Desktop_Version
         {
             string errorList = "";
             loadModel(model);
-            
+
 
             if (errorList.Length == 0)
             {
@@ -198,7 +189,7 @@ namespace Schedule_Database_Desktop_Version
                         {
                             if (GV.MODE == Mode.LabEscAdd)
                             {
-                                model = GlobalConfig.Connection.LabEsc_CRUD(model, 'C'); 
+                                model = GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
                             }
                             else
                             {
@@ -211,27 +202,27 @@ namespace Schedule_Database_Desktop_Version
                             MessageBox.Show("Required information not provided. " + errorList);
                         }
                         break;
-                        //loadModel(model);
-                        //errorList = auditData();
-                        //GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
-                        //MessageBox.Show(txtRecordID.Text + " has been saved");
-                        //formDirty = false;
-                        //if (GV.MODE != Mode.LabEscDelete & GV.MODE != Mode.LabEscRestore)
-                        //{
-                        //    GV.MODE = Mode.LabEscEdit;
-                        //}
-                        //break;
+                    //loadModel(model);
+                    //errorList = auditData();
+                    //GlobalConfig.Connection.LabEsc_CRUD(model, 'U');
+                    //MessageBox.Show(txtRecordID.Text + " has been saved");
+                    //formDirty = false;
+                    //if (GV.MODE != Mode.LabEscDelete & GV.MODE != Mode.LabEscRestore)
+                    //{
+                    //    GV.MODE = Mode.LabEscEdit;
+                    //}
+                    //break;
                     case Mode.LabEscDelete:
-                       
-                            DialogResult reply = MessageBox.Show("Are you sure you want to delete " + txtRecordID.Text, "Save Changes", MessageBoxButtons.YesNoCancel);
-                            if (reply == DialogResult.Yes)
-                            {
-                                 GlobalConfig.Connection.LabEsc_CRUD(model, 'D');
-                                 model = GlobalConfig.Connection.LabEscDeleted_CRUD(model, 'C');  
-                                 MessageBox.Show(txtRecordID.Text + " has been deleted");
-                                 this.Close();
-                           
-                            }
+
+                        DialogResult reply = MessageBox.Show("Are you sure you want to delete " + txtRecordID.Text, "Save Changes", MessageBoxButtons.YesNoCancel);
+                        if (reply == DialogResult.Yes)
+                        {
+                            GlobalConfig.Connection.LabEsc_CRUD(model, 'D');
+                            model = GlobalConfig.Connection.LabEscDeleted_CRUD(model, 'C');
+                            MessageBox.Show(txtRecordID.Text + " has been deleted");
+                            this.Close();
+
+                        }
                         break;
                     case Mode.LabEscRestore:
                         GlobalConfig.Connection.LabEsc_CRUD(model, 'C');
@@ -292,7 +283,7 @@ namespace Schedule_Database_Desktop_Version
                             //this.Close();
                         }
 
-                        break;            
+                        break;
                 }
             }
             else
@@ -302,25 +293,25 @@ namespace Schedule_Database_Desktop_Version
             }
             //            //break;
 
-            
+
         }
 
         public void hideDateFilter(bool hidden)
         {
-            if (hidden) 
+            if (hidden)
             {
-                gbDateRange.Visible=false;
+                gbDateRange.Visible = false;
                 dtpClosedDate.Enabled = true;
             }
-            else 
+            else
             {
-                gbDateRange.Visible=true;
+                gbDateRange.Visible = true;
             }
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            saveData();       
-            
+            saveData();
+
         }
 
         public void setBtnSaveText(string text)
@@ -511,7 +502,7 @@ namespace Schedule_Database_Desktop_Version
                     displayForm.Show();
                     break;
             }
-       }
+        }
 
         private string auditData()
         {
@@ -539,7 +530,7 @@ namespace Schedule_Database_Desktop_Version
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
-           Close();
+            Close();
         }
 
         public void fillComboBoxes()
@@ -560,7 +551,7 @@ namespace Schedule_Database_Desktop_Version
             if (cboRecType.Items.Count == 0)
             {
                 cboRecType.Items.Add("AT Escalation");
-                cboRecType.Items.Add("Lab Request"); 
+                cboRecType.Items.Add("Lab Request");
             }
 
         }
@@ -571,7 +562,7 @@ namespace Schedule_Database_Desktop_Version
             cbo.DataSource = data;
             if (displayField != "LastName")
             {
-                cbo.DisplayMember = displayField; 
+                cbo.DisplayMember = displayField;
             }
             else
             {
@@ -616,7 +607,7 @@ namespace Schedule_Database_Desktop_Version
             model.Quantity = quantity;
             model.Requestor = cboRequestor.Text;
             model.CTRNum = txtCTRNum.Text;
-            model.EscNum = txtEscNum.Text;            
+            model.EscNum = txtEscNum.Text;
             model.EntryAdmin = GV.USERMODEL.FullName;
             model.DateOpened = dtpStartDate.Value;
             model.DateDue = dtpDueDate.Value;
@@ -634,7 +625,7 @@ namespace Schedule_Database_Desktop_Version
             if (lstProducts.SelectedIndex > -1)
             {
                 ProductModel product = (ProductModel)lstProducts.SelectedItems[0];
-                model.Product = product.Product; 
+                model.Product = product.Product;
             }
 
             return model;
@@ -659,11 +650,11 @@ namespace Schedule_Database_Desktop_Version
             txtEscNum.Text = model.EscNum;
             txtEntryAdmin.Text = model.EntryAdmin;
             dtpStartDate.Value = model.DateOpened;
-            if (model.DateDue != emptyDate)
-            {
-                dtpDueDate.Format = DateTimePickerFormat.Long;
-                dtpDueDate.Value = model.DateDue; 
-            }
+            //if (model.DateDue != emptyDate)
+            //{
+            //    dtpDueDate.Format = DateTimePickerFormat.Long;
+            //    dtpDueDate.Value = model.DateDue;
+            //}
             //fixes date closed note populating in report 2-21-23 LMD
             if (model.DateCompleted == emptyDate | model.DateCompleted == nullDate)
             {
@@ -671,11 +662,13 @@ namespace Schedule_Database_Desktop_Version
             }
             else
             {
-                dtpClosedDate.Format = DateTimePickerFormat.Long;
-                dtpClosedDate.Value= model.DateCompleted;
+                //dtpClosedDate.Format = DateTimePickerFormat.Long;
+                //dtpClosedDate.Value = model.DateCompleted;
+                                dtpDueDate.Format = DateTimePickerFormat.Long;
+                dtpDueDate.Value = model.DateDue;
             }
             cboLead.Text = model.LeadAssigned;
-            txtQty.Text = model.Quantity.ToString(); 
+            txtQty.Text = model.Quantity.ToString();
             cboStatus.Text = model.Status;
             rtxComments.Text = model.Comments;
             rtxDescription.Text = model.Description;
@@ -719,7 +712,7 @@ namespace Schedule_Database_Desktop_Version
                         }
                     }
 
-                } 
+                }
             }
             return idx;
         }
@@ -756,7 +749,7 @@ namespace Schedule_Database_Desktop_Version
                 CommonOps.lockControls(false, tlpLeft, "");
                 //txtRecordID.Enabled = false;
                 cboRecType.Enabled = false;
-                cboMSO.Enabled= false;
+                cboMSO.Enabled = false;
                 GV.MODE = Mode.LabEscAdd;
             }
         }
@@ -814,7 +807,7 @@ namespace Schedule_Database_Desktop_Version
             if (name != "" && cbo.SelectedIndex == -1)
             {
                 PersonModel model = new PersonModel();
-                
+
                 addPerson(cbo, tableName);
                 fillComboList<PersonModel>(cbo, tableName, "FullName", "LastName");
             }
@@ -897,7 +890,7 @@ namespace Schedule_Database_Desktop_Version
                 this.BringToFront();
                 frm.ShowDialog();
             }
-            GV.MODE= origMode;
+            GV.MODE = origMode;
             frm.TypeReadyEvent -= Frm_TypeReadyEvent;
         }
 
@@ -933,7 +926,7 @@ namespace Schedule_Database_Desktop_Version
             if (txtRecordID.Text != "")
             {
                 string EID = txtRecordID.Text;
-                if (EID.Substring(0,3) == "LAB" & !formLoading)
+                if (EID.Substring(0, 3) == "LAB" & !formLoading)
                 {
                     txtRecordID.Text = EID.Replace("LAB", "ESC");
                     model.RecordType = "AT Escalation";
@@ -955,7 +948,7 @@ namespace Schedule_Database_Desktop_Version
                 {
                     saveData();
                 }
-                
+
             }
             //MessageBox.Show("Form Closing");
         }
@@ -985,7 +978,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnNewProduct_Click(object sender, EventArgs e)
         {
-            frmAddProduct npForm= new frmAddProduct();
+            frmAddProduct npForm = new frmAddProduct();
             npForm.StartPosition = FormStartPosition.CenterScreen;
             npForm.ShowDialog();
             List<ProductModel> products = GlobalConfig.Connection.GenericGetAll<ProductModel>("tblProducts", "Product");
@@ -1004,7 +997,7 @@ namespace Schedule_Database_Desktop_Version
             else
             {
                 dtpClosedDate.Format = DateTimePickerFormat.Long;
-                //cboStatus.SelectedIndex = 0;
+                cboStatus.SelectedIndex = 1;
             }
             setDTP_Format(sender);
             //cboStatus.Text = "Closed";
@@ -1012,16 +1005,20 @@ namespace Schedule_Database_Desktop_Version
 
         private void cboStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboStatus.Text == "Closed")
+            if (cboStatus.SelectedIndex == 1)
             {
                 dtpClosedDate.Value = DateTime.Now.Date;
                 dtpClosedDate.Format = DateTimePickerFormat.Long;
+            }
+            else
+            {
+                dtpClosedDate.Format = DateTimePickerFormat.Custom;
             }
         }
 
         private void txtRecordID_TextChanged(object sender, EventArgs e)
         {
-            if (! formLoading)
+            if (!formLoading)
             {
                 formDirty = true;
             }
@@ -1029,7 +1026,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void cboRecType_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            cboMSO.Enabled= true;
+            cboMSO.Enabled = true;
         }
 
         private void rtxDescription_Enter(object sender, EventArgs e)
@@ -1044,7 +1041,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void setDefaultButton(bool set)
         {
-            if(set)
+            if (set)
             {
                 this.AcceptButton = btnSave;
                 this.CancelButton = btnClose;
@@ -1069,7 +1066,7 @@ namespace Schedule_Database_Desktop_Version
         private void setDTP_Format(object sndr)
         {
             DateTimePicker dtp = (DateTimePicker)sndr;
-            if(dtp.Value != emptyDate)
+            if (dtp.Value != emptyDate)
             {
                 dtp.Format = DateTimePickerFormat.Long;
                 dtp.Enabled = true;

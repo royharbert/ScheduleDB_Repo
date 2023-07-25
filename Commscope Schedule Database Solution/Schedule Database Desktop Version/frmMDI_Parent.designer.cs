@@ -327,7 +327,6 @@ namespace Schedule_Database_Desktop_Version
             this.canceledToolStripMenuItem.Name = "canceledToolStripMenuItem";
             this.canceledToolStripMenuItem.Size = new System.Drawing.Size(144, 24);
             this.canceledToolStripMenuItem.Text = "Canceled";
-            this.canceledToolStripMenuItem.Click += new System.EventHandler(this.canceledToolStripMenuItem_Click);
             // 
             // requestsByDueDateToolStripMenuItem
             // 
@@ -362,7 +361,7 @@ namespace Schedule_Database_Desktop_Version
             this.canceledToolStripMenuItem1.Name = "canceledToolStripMenuItem1";
             this.canceledToolStripMenuItem1.Size = new System.Drawing.Size(144, 24);
             this.canceledToolStripMenuItem1.Text = "Canceled";
-            this.canceledToolStripMenuItem1.Click += new System.EventHandler(this.canceledToolStripMenuItem1_Click);
+            //this.canceledToolStripMenuItem1.Click += new System.EventHandler(this.canceledToolStripMenuItem1_Click);
             // 
             // dashboardToolStripMenuItem
             // 

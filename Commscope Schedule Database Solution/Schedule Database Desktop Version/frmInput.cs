@@ -53,11 +53,11 @@ namespace Schedule_Database_Desktop_Version
             this.Hide();
         }
 
-        private void frmInput_Activated(object sender, EventArgs e)
-        {
-            txtInput.Clear();
-            this.BringToFront();
-        }
+        //private void frmInput_Activated(object sender, EventArgs e)
+        //{
+        //    txtInput.Clear();
+        //    this.BringToFront();
+        //}
     }
 
     public class InputDataReadyEventArgs : EventArgs
