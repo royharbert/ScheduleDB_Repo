@@ -510,7 +510,7 @@ namespace Schedule_Database_Desktop_Version
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label17.Location = new System.Drawing.Point(766, 233);
+            this.label17.Location = new System.Drawing.Point(581, 83);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(78, 18);
@@ -548,7 +548,7 @@ namespace Schedule_Database_Desktop_Version
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label20.Location = new System.Drawing.Point(1359, 552);
+            this.label20.Location = new System.Drawing.Point(1174, 402);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(174, 20);
@@ -560,7 +560,7 @@ namespace Schedule_Database_Desktop_Version
             this.label21.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label21.Location = new System.Drawing.Point(1359, 188);
+            this.label21.Location = new System.Drawing.Point(1174, 38);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(89, 20);
@@ -572,7 +572,7 @@ namespace Schedule_Database_Desktop_Version
             this.label22.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label22.Location = new System.Drawing.Point(1361, 931);
+            this.label22.Location = new System.Drawing.Point(1176, 781);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(115, 18);
@@ -629,7 +629,7 @@ namespace Schedule_Database_Desktop_Version
             this.lstProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.lstProducts.FormattingEnabled = true;
             this.lstProducts.ItemHeight = 18;
-            this.lstProducts.Location = new System.Drawing.Point(743, 264);
+            this.lstProducts.Location = new System.Drawing.Point(558, 114);
             this.lstProducts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lstProducts.Name = "lstProducts";
             this.lstProducts.Size = new System.Drawing.Size(593, 220);
@@ -642,7 +642,7 @@ namespace Schedule_Database_Desktop_Version
             this.rtxDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxDescription.ContextMenuStrip = this.rtbContextMenu;
             this.rtxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.rtxDescription.Location = new System.Drawing.Point(1354, 216);
+            this.rtxDescription.Location = new System.Drawing.Point(1169, 66);
             this.rtxDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rtxDescription.Name = "rtxDescription";
             this.rtxDescription.Size = new System.Drawing.Size(637, 318);
@@ -690,7 +690,7 @@ namespace Schedule_Database_Desktop_Version
             this.rtxComments.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxComments.ContextMenuStrip = this.rtbContextMenu;
             this.rtxComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.rtxComments.Location = new System.Drawing.Point(1354, 576);
+            this.rtxComments.Location = new System.Drawing.Point(1169, 426);
             this.rtxComments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rtxComments.Name = "rtxComments";
             this.rtxComments.Size = new System.Drawing.Size(637, 349);
@@ -731,7 +731,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnSave.Location = new System.Drawing.Point(1497, 1017);
+            this.btnSave.Location = new System.Drawing.Point(1312, 867);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(204, 55);
@@ -745,7 +745,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnClose.Location = new System.Drawing.Point(1758, 1017);
+            this.btnClose.Location = new System.Drawing.Point(1573, 867);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(204, 55);
@@ -759,7 +759,7 @@ namespace Schedule_Database_Desktop_Version
             this.dgvAttachments.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvAttachments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAttachments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAttachments.Location = new System.Drawing.Point(743, 581);
+            this.dgvAttachments.Location = new System.Drawing.Point(558, 431);
             this.dgvAttachments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvAttachments.Name = "dgvAttachments";
             this.dgvAttachments.RowHeadersWidth = 62;
@@ -772,7 +772,7 @@ namespace Schedule_Database_Desktop_Version
             this.label24.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label24.Location = new System.Drawing.Point(763, 553);
+            this.label24.Location = new System.Drawing.Point(578, 403);
             this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(90, 18);
@@ -783,7 +783,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.btnRemoveAttach.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRemoveAttach.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnRemoveAttach.Location = new System.Drawing.Point(1063, 888);
+            this.btnRemoveAttach.Location = new System.Drawing.Point(878, 738);
             this.btnRemoveAttach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRemoveAttach.Name = "btnRemoveAttach";
             this.btnRemoveAttach.Size = new System.Drawing.Size(193, 36);
@@ -796,7 +796,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.btnAddAttach.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAddAttach.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnAddAttach.Location = new System.Drawing.Point(827, 888);
+            this.btnAddAttach.Location = new System.Drawing.Point(642, 738);
             this.btnAddAttach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddAttach.Name = "btnAddAttach";
             this.btnAddAttach.Size = new System.Drawing.Size(193, 36);
@@ -825,7 +825,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboResolution.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboResolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboResolution.FormattingEnabled = true;
-            this.cboResolution.Location = new System.Drawing.Point(1354, 957);
+            this.cboResolution.Location = new System.Drawing.Point(1169, 807);
             this.cboResolution.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboResolution.Name = "cboResolution";
             this.cboResolution.Size = new System.Drawing.Size(637, 26);
@@ -842,7 +842,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtID.Location = new System.Drawing.Point(16, 868);
             this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(408, 24);
+            this.txtID.Size = new System.Drawing.Size(38, 24);
             this.txtID.TabIndex = 63;
             this.txtID.TabStop = false;
             this.txtID.Visible = false;
@@ -880,7 +880,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.btnNewProduct.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnNewProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnNewProduct.Location = new System.Drawing.Point(938, 520);
+            this.btnNewProduct.Location = new System.Drawing.Point(753, 370);
             this.btnNewProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNewProduct.Name = "btnNewProduct";
             this.btnNewProduct.Size = new System.Drawing.Size(201, 36);
@@ -948,7 +948,7 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.Controls.Add(this.dtpClosedDate, 1, 18);
             this.tlpLeft.Controls.Add(this.txtEntryAdmin, 1, 19);
             this.tlpLeft.Controls.Add(this.label9, 0, 7);
-            this.tlpLeft.Location = new System.Drawing.Point(171, 190);
+            this.tlpLeft.Location = new System.Drawing.Point(-14, 40);
             this.tlpLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlpLeft.Name = "tlpLeft";
             this.tlpLeft.RowCount = 20;
@@ -1025,7 +1025,7 @@ namespace Schedule_Database_Desktop_Version
             this.gbDateRange.Controls.Add(this.dtpEnd);
             this.gbDateRange.Controls.Add(this.dtpStart);
             this.gbDateRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbDateRange.Location = new System.Drawing.Point(753, 931);
+            this.gbDateRange.Location = new System.Drawing.Point(568, 781);
             this.gbDateRange.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbDateRange.Name = "gbDateRange";
             this.gbDateRange.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -1094,7 +1094,7 @@ namespace Schedule_Database_Desktop_Version
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(1904, 1161);
+            this.ClientSize = new System.Drawing.Size(1534, 861);
             this.Controls.Add(this.gbDateRange);
             this.Controls.Add(this.tlpLeft);
             this.Controls.Add(this.btnNewProduct);
