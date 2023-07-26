@@ -650,11 +650,11 @@ namespace Schedule_Database_Desktop_Version
             txtEscNum.Text = model.EscNum;
             txtEntryAdmin.Text = model.EntryAdmin;
             dtpStartDate.Value = model.DateOpened;
-            //if (model.DateDue != emptyDate)
-            //{
-            //    dtpDueDate.Format = DateTimePickerFormat.Long;
-            //    dtpDueDate.Value = model.DateDue;
-            //}
+            if (model.DateDue != emptyDate)
+            {
+                dtpDueDate.Format = DateTimePickerFormat.Long;
+                dtpDueDate.Value = model.DateDue;
+            }
             //fixes date closed note populating in report 2-21-23 LMD
             if (model.DateCompleted == emptyDate | model.DateCompleted == nullDate)
             {
