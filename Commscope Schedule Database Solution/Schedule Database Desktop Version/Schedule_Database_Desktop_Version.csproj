@@ -326,6 +326,12 @@
     <Compile Include="frmSearchDateRange.Designer.cs">
       <DependentUpon>frmSearchDateRange.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmShippingInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShippingInfo.Designer.cs">
+      <DependentUpon>frmShippingInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -383,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSearchDateRange.resx">
       <DependentUpon>frmSearchDateRange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShippingInfo.resx">
+      <DependentUpon>frmShippingInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
