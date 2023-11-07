@@ -36,7 +36,7 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
             //FormatExcelColumnsAsCurrency(wks, currencyCols);
             setExcelExportColumnWidths(wks, widths);
 
-            int[] cols = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 };
+            int[] cols = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 22, 23, 24, 25 };
             CenterSpecificExcelColumns(wks, cols);
         }
 
@@ -91,14 +91,14 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
             int[] widths = new int[]
             {
             //  A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  AA AB  
-                25,15,20,10,20,30,10,16,16,30,30,15,15,10
+                22,25,35,22,16,20,10,16,10,10,15,15,15,15,20,20,10,15,50,80,30,10,15,15,20,30
             };
 
             string[] currencyCols = { "" };
             //FormatExcelColumnsAsCurrency(wks, currencyCols);
             setExcelExportColumnWidths(wks, widths);
 
-            int[] cols = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 };
+            int[] cols = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 23, 24, 25 };
             CenterSpecificExcelColumns(wks, cols);
         }
     }    

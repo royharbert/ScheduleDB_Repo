@@ -202,7 +202,8 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                     if (prop.PropertyType == typeof(DateTime))
                     {
                         DateTime date = (DateTime)prop.GetValue(request);
-                        if (date.Year == 1900)
+                        DateTime emptyDate = new DateTime(year:1900,month:1, day:1);
+                        if (date.Year == 1900 || date == DateTime.MinValue)
                         {
                             wks.Cells[row, col].Value = "";
                         }
