@@ -95,7 +95,7 @@ namespace Schedule_Database_Desktop_Version
 
         private async Task CheckForUpdates()
         {
-            using (var manager = new UpdateManager(@"\\usca5pdbatdgs01\Databases\LabProgramUpadtes"))
+            using (var manager = new UpdateManager(@"\\rdcpstntapfil01\ANS_Design\LabProgramUpadtes"))
             {
                 await manager.UpdateApp();
             }

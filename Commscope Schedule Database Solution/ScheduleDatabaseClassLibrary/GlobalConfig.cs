@@ -24,14 +24,14 @@ namespace ScheduleDatabaseClassLibrary
                 SqlConnector.db = "Live";
                 SqlConnector LiveConnection = new SqlConnector();
                 Connection = LiveConnection;
-                AttachmentPath = "\\" + "\\USCA5PDBATDGS01\\Databases\\AttcacmentsSchedule";
+                AttachmentPath = @"\\rdcpstntapfil01\ANS_Design\AttachmentsSchedule";
             }
             else if (db == DatabaseType.Sandbox)
             {
                 SqlConnector.db = "Sandbox";
                 SqlConnector SandboxConnection = new SqlConnector();
                 Connection = SandboxConnection;
-                AttachmentPath = "\\" + "\\USCA5PDBATDGS01\\Databases\\Sandbox\\AttachmentsSchedule";
+                AttachmentPath = @"\\rdcpstntapfil01\ANS_Design\AttachmentsSchedule\Sandbox\AttachmentsSchedule";
             }
         }
 
@@ -40,13 +40,13 @@ namespace ScheduleDatabaseClassLibrary
             if (mode == DatabaseType.Live)
             {
                 GlobalConfig.InitializeConnection(DatabaseType.Live);
-                GlobalConfig.AttachmentPath = "\\" + "\\USCA5PDBATDGS01\\Databases\\AttachmentsSchedule";
+                GlobalConfig.AttachmentPath = @"\\rdcpstntapfil01\ANS_Design\AttachmentsSchedule";
                 DatabaseMode = DatabaseType.Live;
             }
             else
             {
                 GlobalConfig.InitializeConnection(DatabaseType.Sandbox);
-                GlobalConfig.AttachmentPath = "\\" + "\\USCA5PDBATDGS01\\Databases\\Sandbox\\AttachmentsSchedule";
+                GlobalConfig.AttachmentPath = @"\\rdcpstntapfil01\ANS_Design\Sandbox\AttachmentsSchedule";
                 DatabaseMode = DatabaseType.Sandbox;
             }
         }
