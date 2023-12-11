@@ -253,18 +253,18 @@ namespace Schedule_Database_Desktop_Version
            
         }
 
-        private void excelExportFormatLabRequest(Excel.Worksheet wks)
-        {
-            wks.get_Range("1:1").HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-            wks.Columns[1].Columnwidth = 26;
-            wks.Columns[2].Columnwidth = 26;
-            wks.Columns[3].Columnwidth = 15;
-            wks.Columns[4].Columnwidth = 15;
-            wks.Columns[5].Columnwidth = 15;
-            wks.Columns[6].Columnwidth = 50;
-            wks.Columns[7].Columnwidth = 50;
+        //private void excelExportFormatLabRequest(Excel.Worksheet wks)
+        //{
+        //    wks.get_Range("1:1").HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+        //    wks.Columns[1].Columnwidth = 26;
+        //    wks.Columns[2].Columnwidth = 26;
+        //    wks.Columns[3].Columnwidth = 15;
+        //    wks.Columns[4].Columnwidth = 15;
+        //    wks.Columns[5].Columnwidth = 15;
+        //    wks.Columns[6].Columnwidth = 50;
+        //    wks.Columns[7].Columnwidth = 50;
           
-        }
+        //}
 
         private void frmMultiSelect_Load(object sender, EventArgs e)
         {

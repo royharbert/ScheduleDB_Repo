@@ -199,14 +199,14 @@ namespace ScheduleDatabaseClassLibrary.GeneralOps
                 {
                     foreach (var prop in props)
                     {
-                        DateTime emptyDate = new DateTime(1900,1,1);
-                        if (prop.PropertyType == typeof(DateTime))
+                    if (prop.PropertyType == typeof(DateTime))
+                    {
+                        DateTime date = (DateTime)prop.GetValue(request);
+                        DateTime emptyDate = new DateTime(year:1900,month:1, day:1);
+                        if (date.Year == 1900 || date == DateTime.MinValue)
                         {
-                            DateTime date = (DateTime)prop.GetValue(request);
-                            if (date == emptyDate || date == DateTime.MinValue)
-                            {
-                                wks.Cells[row, col].Value = "";
-                            }
+                            wks.Cells[row, col].Value = "";
+                        }
 
                             else
                             {
