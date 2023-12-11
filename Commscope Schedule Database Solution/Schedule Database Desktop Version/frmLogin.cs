@@ -30,7 +30,7 @@ namespace Schedule_Database_Desktop_Version
             setFormText();
             formLoading = true;
             GV.LOGIN = this;
-            FC.SetFormPosition(this);
+            FC.SetFormPosition(this,-1, -1,false);
             List<UserModel> users = GlobalConfig.Connection.GenericGetAll<UserModel>("tblUsers","LastName");
             cboUser.DataSource = users;
             cboUser.DisplayMember = "FullName";
