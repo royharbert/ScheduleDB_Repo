@@ -23,7 +23,7 @@ namespace Schedule_Database_Desktop_Version
         private void frmProductCategoryMaint_Load(object sender, EventArgs e)
         {
             loadListbox();
-
+            FC.SetFormPosition(this);
             formLoading = false;
         }
 

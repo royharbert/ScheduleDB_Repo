@@ -19,6 +19,7 @@ namespace Schedule_Database_Desktop_Version
             List<UserModel> userModel = new List<UserModel>();
             InitializeComponent();
             txtUsername.Text = GV.USERMODEL.FullName;
+            FC.SetFormPosition(this);
         }
         private void btnClose_Click(object sender, EventArgs e)
         {

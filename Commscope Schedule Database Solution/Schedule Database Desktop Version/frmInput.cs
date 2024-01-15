@@ -21,6 +21,7 @@ namespace Schedule_Database_Desktop_Version
             InitializeComponent();
             this.AcceptButton = btnGo;
             this.CancelButton = btnCancel;
+            FC.SetFormPosition(this);
             switch (GV.MODE)
             {
                 case Mode.LabEscEdit:
