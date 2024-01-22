@@ -15,6 +15,7 @@ namespace Schedule_Database_Desktop_Version
         public List<ProductModel> ProductsList { get; set; }
         public static UserModel USERMODEL { get; set; }
         public static frmAMDI_Parent MAINMENU { get; set; }
+        public static frmAltMainMenu ALTMENU { get; set; }  
         public static frmLogin LOGIN { get; set; }
         public static int Priviledge { get; set; }
         public static List<ScreenModel> ScreenList { get; set; }

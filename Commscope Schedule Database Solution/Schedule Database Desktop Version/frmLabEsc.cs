@@ -1153,5 +1153,10 @@ namespace Schedule_Database_Desktop_Version
             }
             setDTP_Format(sender);
         }
+
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

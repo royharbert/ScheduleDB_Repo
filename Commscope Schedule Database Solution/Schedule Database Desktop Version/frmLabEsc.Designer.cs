@@ -77,7 +77,6 @@ namespace Schedule_Database_Desktop_Version
             this.label23 = new System.Windows.Forms.Label();
             this.txtCTRNum = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.dgvAttachments = new System.Windows.Forms.DataGridView();
             this.label24 = new System.Windows.Forms.Label();
             this.btnRemoveAttach = new System.Windows.Forms.Button();
@@ -106,6 +105,7 @@ namespace Schedule_Database_Desktop_Version
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label21 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             this.dtpContextMenu.SuspendLayout();
             this.rtbContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
@@ -641,7 +641,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnSave.Location = new System.Drawing.Point(1031, 796);
+            this.btnSave.Location = new System.Drawing.Point(1076, 760);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(153, 45);
             this.btnSave.TabIndex = 34;
@@ -649,24 +649,12 @@ namespace Schedule_Database_Desktop_Version
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnClose
-            // 
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnClose.Location = new System.Drawing.Point(1439, 785);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(153, 45);
-            this.btnClose.TabIndex = 40;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // dgvAttachments
             // 
             this.dgvAttachments.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvAttachments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAttachments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAttachments.Location = new System.Drawing.Point(401, 417);
+            this.dgvAttachments.Location = new System.Drawing.Point(401, 410);
             this.dgvAttachments.Name = "dgvAttachments";
             this.dgvAttachments.RowHeadersWidth = 62;
             this.dgvAttachments.Size = new System.Drawing.Size(808, 243);
@@ -688,7 +676,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.btnRemoveAttach.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRemoveAttach.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnRemoveAttach.Location = new System.Drawing.Point(757, 677);
+            this.btnRemoveAttach.Location = new System.Drawing.Point(855, 693);
             this.btnRemoveAttach.Name = "btnRemoveAttach";
             this.btnRemoveAttach.Size = new System.Drawing.Size(145, 29);
             this.btnRemoveAttach.TabIndex = 58;
@@ -700,7 +688,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.btnAddAttach.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAddAttach.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnAddAttach.Location = new System.Drawing.Point(582, 677);
+            this.btnAddAttach.Location = new System.Drawing.Point(680, 693);
             this.btnAddAttach.Name = "btnAddAttach";
             this.btnAddAttach.Size = new System.Drawing.Size(145, 29);
             this.btnAddAttach.TabIndex = 24;
@@ -742,7 +730,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtID.Location = new System.Drawing.Point(6, 34);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(0, 24);
+            this.txtID.Size = new System.Drawing.Size(270, 24);
             this.txtID.TabIndex = 63;
             this.txtID.TabStop = false;
             this.txtID.Visible = false;
@@ -917,7 +905,7 @@ namespace Schedule_Database_Desktop_Version
             this.gbDateRange.Controls.Add(this.dtpEnd);
             this.gbDateRange.Controls.Add(this.dtpStart);
             this.gbDateRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbDateRange.Location = new System.Drawing.Point(368, 753);
+            this.gbDateRange.Location = new System.Drawing.Point(514, 760);
             this.gbDateRange.Name = "gbDateRange";
             this.gbDateRange.Size = new System.Drawing.Size(446, 88);
             this.gbDateRange.TabIndex = 208;
@@ -978,7 +966,7 @@ namespace Schedule_Database_Desktop_Version
             this.rtxComments.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxComments.ContextMenuStrip = this.rtbContextMenu;
             this.rtxComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.rtxComments.Location = new System.Drawing.Point(115, 438);
+            this.rtxComments.Location = new System.Drawing.Point(-20, 346);
             this.rtxComments.Name = "rtxComments";
             this.rtxComments.Size = new System.Drawing.Size(1035, 396);
             this.rtxComments.TabIndex = 211;
@@ -990,7 +978,7 @@ namespace Schedule_Database_Desktop_Version
             this.rtxDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxDescription.ContextMenuStrip = this.rtbContextMenu;
             this.rtxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.rtxDescription.Location = new System.Drawing.Point(115, 50);
+            this.rtxDescription.Location = new System.Drawing.Point(-20, -42);
             this.rtxDescription.Name = "rtxDescription";
             this.rtxDescription.Size = new System.Drawing.Size(1035, 344);
             this.rtxDescription.TabIndex = 210;
@@ -1002,7 +990,7 @@ namespace Schedule_Database_Desktop_Version
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label20.Location = new System.Drawing.Point(123, 412);
+            this.label20.Location = new System.Drawing.Point(-12, 320);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(174, 20);
             this.label20.TabIndex = 212;
@@ -1021,12 +1009,12 @@ namespace Schedule_Database_Desktop_Version
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnClose);
             this.tabPage1.Controls.Add(this.tlpLeft);
             this.tabPage1.Controls.Add(this.txtID);
             this.tabPage1.Controls.Add(this.lstProducts);
             this.tabPage1.Controls.Add(this.dgvAttachments);
             this.tabPage1.Controls.Add(this.txtRecordID);
-            this.tabPage1.Controls.Add(this.btnClose);
             this.tabPage1.Controls.Add(this.gbDateRange);
             this.tabPage1.Controls.Add(this.btnNewProduct);
             this.tabPage1.Controls.Add(this.cboResolution);
@@ -1053,7 +1041,7 @@ namespace Schedule_Database_Desktop_Version
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1256, 895);
+            this.tabPage2.Size = new System.Drawing.Size(986, 710);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Free Form Entry";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1063,18 +1051,29 @@ namespace Schedule_Database_Desktop_Version
             this.label21.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label21.Location = new System.Drawing.Point(123, 27);
+            this.label21.Location = new System.Drawing.Point(-12, -65);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(89, 20);
             this.label21.TabIndex = 213;
             this.label21.Text = "Description";
+            // 
+            // btnClose
+            // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnClose.Location = new System.Drawing.Point(1076, 815);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(153, 45);
+            this.btnClose.TabIndex = 209;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
             // 
             // frmLabEsc
             // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(1264, 921);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label4);
@@ -1143,7 +1142,6 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox txtCTRNum;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DataGridView dgvAttachments;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Button btnRemoveAttach;
@@ -1178,5 +1176,6 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button btnClose;
     }
 }

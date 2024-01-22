@@ -103,6 +103,7 @@ namespace Schedule_Database_Desktop_Version
                     dtp.Size = new Size(rect.Width, rect.Height);
                     dtp.Location = new Point(rect.X, rect.Y);
                     dtp.CloseUp += new EventHandler(dtp_CloseUp);
+                    dtp.Format = DateTimePickerFormat.Short;
                     dtp.Visible = true;
                     break;
             }

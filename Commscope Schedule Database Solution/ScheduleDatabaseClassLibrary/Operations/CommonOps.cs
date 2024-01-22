@@ -39,7 +39,21 @@ namespace ScheduleDatabaseClassLibrary.Operations
             }
         }
 
-        
+        public static bool IfFormIsOpenHideIt(string formName, bool hideForm)
+        {
+            bool formOpen = System.Windows.Forms.Application.OpenForms.Cast<Form>().Any(form => form.Name == formName);
+
+            FormCollection fc = System.Windows.Forms.Application.OpenForms;
+            foreach (Form frm in fc)
+            {
+                if (frm.Name == formName)
+                {
+                    if (hideForm) frm.Hide();   
+                    return true;
+                }
+            }
+            return false;
+        }
 
         public static List<LabEscModel> GetReportData(string RecordType = "", string RecordStatus = "")
         {

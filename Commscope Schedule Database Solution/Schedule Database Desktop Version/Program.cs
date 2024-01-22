@@ -1,4 +1,5 @@
 ﻿using ScheduleDatabaseClassLibrary;
+using ScheduleDatabaseClassLibrary.Operations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +26,9 @@ namespace Schedule_Database_Desktop_Version
             {
                 GlobalConfig.SetDatabaseMode(DatabaseType.Sandbox);
             }
-            Application.Run(new frmAMDI_Parent());
-            //Application.Run(new frmLink());
+            //Application.Run(new frmAMDI_Parent());
+            bool useDefaultMenu = Properties.Settings.Default.UseDefaultMenu;
+            Application.Run(new frmLogin());
         }
     }
 }

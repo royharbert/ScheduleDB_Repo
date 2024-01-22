@@ -25,7 +25,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            
+            GV.ActiveScreen = Properties.Settings.Default.ActiveScreen;
             int UserID = -1;
             setFormText();
             formLoading = true;
@@ -44,6 +44,28 @@ namespace Schedule_Database_Desktop_Version
             cboUser.SelectedIndex = -1;
             formLoading = false;
             SelectUser(UserID);
+            frmAMDI_Parent frmMDI_Parent = new frmAMDI_Parent();
+            GV.MAINMENU = frmMDI_Parent;
+            frmAltMainMenu frmAltMainMenu = new frmAltMainMenu();
+            GV.ALTMENU = frmAltMainMenu;
+            GV.USERMODEL = (UserModel)cboUser.Items[cboUser.SelectedIndex];
+            GV.LOGIN = this;
+            //GV.LOGIN.ShowDialog();
+            //ShowSelectedMenu();
+        }
+
+        private void ShowSelectedMenu()
+        {
+            GV.LOGIN.Hide();
+            bool usingDefaultMenu = Properties.Settings.Default.UseDefaultMenu;
+            if (usingDefaultMenu) 
+            {
+                ScheduleDatabaseClassLibrary.GeneralOps.MenuDisplay.DisplaySelectedMenu(GV.MAINMENU, GV.ALTMENU);
+            }
+            else
+            {
+                ScheduleDatabaseClassLibrary.GeneralOps.MenuDisplay.DisplaySelectedMenu(GV.ALTMENU, GV.MAINMENU);
+            }
         }
         private void setFormText()
         {
@@ -102,7 +124,8 @@ namespace Schedule_Database_Desktop_Version
             {
                 loginSuccess = true;
                 UserModel user = (UserModel)cboUser.SelectedItem;
-                GV.USERMODEL= user;
+                //GV.USERMODEL= user;
+                ShowSelectedMenu();
                 this.Close();
             }
             else
@@ -132,14 +155,6 @@ namespace Schedule_Database_Desktop_Version
             {
                 GV.USERMODEL = currentUser;
                 txtPassword.Focus();
-            }
-        }
-
-        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (! loginSuccess)
-            {
-                Application.Exit();
             }
         }
     }

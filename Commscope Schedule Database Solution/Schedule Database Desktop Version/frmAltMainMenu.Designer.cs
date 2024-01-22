@@ -52,6 +52,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnDateRangeRep = new System.Windows.Forms.Button();
             this.btnCanceledLabReq = new System.Windows.Forms.Button();
             this.btnCanceledEscalations = new System.Windows.Forms.Button();
+            this.btnSwitchMenu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSearchByID
@@ -324,11 +325,24 @@ namespace Schedule_Database_Desktop_Version
             this.btnCanceledEscalations.UseVisualStyleBackColor = true;
             this.btnCanceledEscalations.Click += new System.EventHandler(this.btnCanceledEscalations_Click);
             // 
+            // btnSwitchMenu
+            // 
+            this.btnSwitchMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSwitchMenu.Location = new System.Drawing.Point(256, 355);
+            this.btnSwitchMenu.Name = "btnSwitchMenu";
+            this.btnSwitchMenu.Size = new System.Drawing.Size(197, 36);
+            this.btnSwitchMenu.TabIndex = 27;
+            this.btnSwitchMenu.Tag = "4";
+            this.btnSwitchMenu.Text = "Switch to Windows Menu";
+            this.btnSwitchMenu.UseVisualStyleBackColor = true;
+            this.btnSwitchMenu.Click += new System.EventHandler(this.btnSwitchMenu_Click);
+            // 
             // frmAltMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 414);
+            this.Controls.Add(this.btnSwitchMenu);
             this.Controls.Add(this.btnCanceledEscalations);
             this.Controls.Add(this.btnCanceledLabReq);
             this.Controls.Add(this.btnDateRangeRep);
@@ -384,5 +398,6 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Button btnDateRangeRep;
         private System.Windows.Forms.Button btnCanceledLabReq;
         private System.Windows.Forms.Button btnCanceledEscalations;
+        private System.Windows.Forms.Button btnSwitchMenu;
     }
 }

@@ -20,7 +20,7 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmAltMainMenu : Form
     {
-        frmAMDI_Parent Parent = new frmAMDI_Parent();
+        //frmAMDI_Parent Parent = new frmAMDI_Parent();
         //frmInput inputID = new frmInput();
         public frmAltMainMenu()
         {
@@ -59,6 +59,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmAltMainMenu_Load(object sender, EventArgs e)
         {
+            //frmAMDI_Parent frmMDI_Parent = new frmAMDI_Parent();
             FC.SetFormPosition(this);            
         }
 
@@ -166,7 +167,7 @@ namespace Schedule_Database_Desktop_Version
         private void btnDelete_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscDelete;
-            Parent.prepareDeleteRestore();
+            GV.MAINMENU.prepareDeleteRestore();
         }
 
         private void btnRptAllOpen_Click(object sender, EventArgs e)
@@ -299,7 +300,7 @@ namespace Schedule_Database_Desktop_Version
         private void btnRestore_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscRestore;
-            Parent.prepareDeleteRestore();
+            GV.MAINMENU.prepareDeleteRestore();
         }
         private List<LabEscModel> GetModels(string status, string recType)
         {
@@ -354,6 +355,13 @@ namespace Schedule_Database_Desktop_Version
         {
             frmSearchDateRange dateRange = new frmSearchDateRange();
             dateRange.ShowDialog();
+        }
+
+        private void btnSwitchMenu_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.UseDefaultMenu = true;
+            Properties.Settings.Default.Save();
+            CommonOps.IfFormIsOpenHideIt("frmAltMainMenu", true);
         }
     }
 }

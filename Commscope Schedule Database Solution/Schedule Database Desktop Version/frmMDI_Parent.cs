@@ -27,12 +27,12 @@ namespace Schedule_Database_Desktop_Version
             GV.ActiveScreen = Properties.Settings.Default.ActiveScreen;
             FC.SetFormPosition(this);
             GV.MAINMENU = this;
-            frmLogin LoginForm = new frmLogin();
+            //frmLogin LoginForm = new frmLogin();
 
-            if (GV.MODE != Mode.Dashboard)
-            {
-                LoginForm.ShowDialog();
-            }
+            //if (GV.MODE != Mode.Dashboard)
+            //{
+            //    LoginForm.ShowDialog();
+            //}
             int configMode = Properties.Settings.Default.DatabaseMode;
             if (configMode == 1)
             {
@@ -143,8 +143,8 @@ namespace Schedule_Database_Desktop_Version
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmLogin LoginForm = new frmLogin();
-            LoginForm.ShowDialog();
+            //frmLogin LoginForm = new frmLogin();
+            GV.LOGIN.ShowDialog();
             SetMenuAccess();
         }
 
@@ -241,7 +241,21 @@ namespace Schedule_Database_Desktop_Version
             //GV.LABESCFORM = escForm;
             //GV.LABESCFORM.fillComboBoxes();
             //GV.LABESCFORM.FillProductList();
+            //frmAltMainMenu frmAltMainMenu = new frmAltMainMenu();
+            //ShowSelectedMenu();
         }
+
+        //private void ShowSelectedMenu()
+        //{
+        //    if (Properties.Settings.Default.UseDefaultMenu)
+        //    {
+        //        CommonOps.IfFormIsOpenHideIt("frmAltMainMenu", true);
+        //    }
+        //    else
+        //    {
+        //        CommonOps.IfFormIsOpenHideIt("frmMDI_Parent", true);
+        //    }
+        //}
 
         private void holidaysListToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -287,11 +301,11 @@ namespace Schedule_Database_Desktop_Version
             passwordForm.Show();
         }
 
-        private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
+        private void showAltMenu()
         {
             GV.MODE = Mode.Dashboard;
-            frmAltMainMenu altMainMenu = new frmAltMainMenu();
-            altMainMenu.Show();
+            //frmAltMainMenu altMainMenu = new frmAltMainMenu();
+            //frmAltMainMenu.Show();
         }
 
         private void deleteRecordToolStripMenuItem_Click(object sender, EventArgs e)
@@ -431,6 +445,22 @@ namespace Schedule_Database_Desktop_Version
         {
             frmProductCategoryMaint mForm = new frmProductCategoryMaint();
             mForm.ShowDialog();
+        }
+
+        private void windowsStyleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.UseDefaultMenu = true;
+            Properties.Settings.Default.Save();
+            CommonOps.IfFormIsOpenHideIt("frmAltMainMenu", true);
+        }
+
+        private void buttonMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.UseDefaultMenu = false;
+            Properties.Settings.Default.Save();
+            CommonOps.IfFormIsOpenHideIt("frmAMDI_Parent", true);
+            //frmAltMainMenu menu = new frmAltMainMenu();
+            GV.ALTMENU.Show();
         }
     }
 }

@@ -70,6 +70,7 @@
     <Compile Include="AssignmentsProcesses\ListDeepCopy.cs" />
     <Compile Include="Attributes\ExcelExportProperty.cs" />
     <Compile Include="GeneralOps\ControlResize.cs" />
+    <Compile Include="GeneralOps\MenuDisplay.cs" />
     <Compile Include="Holiday_Update.cs" />
     <Compile Include="CtlTag.cs" />
     <Compile Include="DataAccess\IDataConnection.cs" />
