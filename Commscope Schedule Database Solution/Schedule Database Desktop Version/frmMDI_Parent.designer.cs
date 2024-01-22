@@ -49,6 +49,7 @@ namespace Schedule_Database_Desktop_Version
             this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.holidaysListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productCategoryMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.liveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sandboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,10 +67,19 @@ namespace Schedule_Database_Desktop_Version
             this.incompleteByDateDueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbLive = new System.Windows.Forms.PictureBox();
             this.pbSandbox = new System.Windows.Forms.PictureBox();
-            this.productCategoryMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.mnuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSandbox)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuMain
@@ -249,6 +259,14 @@ namespace Schedule_Database_Desktop_Version
             this.adminMaintenanceToolStripMenuItem.Text = "User Maintenance";
             this.adminMaintenanceToolStripMenuItem.Click += new System.EventHandler(this.adminMaintenanceToolStripMenuItem_Click);
             // 
+            // productCategoryMaintenanceToolStripMenuItem
+            // 
+            this.productCategoryMaintenanceToolStripMenuItem.Name = "productCategoryMaintenanceToolStripMenuItem";
+            this.productCategoryMaintenanceToolStripMenuItem.Size = new System.Drawing.Size(282, 24);
+            this.productCategoryMaintenanceToolStripMenuItem.Tag = "3";
+            this.productCategoryMaintenanceToolStripMenuItem.Text = "Product Category Maintenance";
+            this.productCategoryMaintenanceToolStripMenuItem.Click += new System.EventHandler(this.productCategoryMaintenanceToolStripMenuItem_Click);
+            // 
             // databaseModeToolStripMenuItem
             // 
             this.databaseModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -361,7 +379,6 @@ namespace Schedule_Database_Desktop_Version
             this.canceledToolStripMenuItem1.Name = "canceledToolStripMenuItem1";
             this.canceledToolStripMenuItem1.Size = new System.Drawing.Size(144, 24);
             this.canceledToolStripMenuItem1.Text = "Canceled";
-            //this.canceledToolStripMenuItem1.Click += new System.EventHandler(this.canceledToolStripMenuItem1_Click);
             // 
             // dashboardToolStripMenuItem
             // 
@@ -401,13 +418,88 @@ namespace Schedule_Database_Desktop_Version
             this.pbSandbox.TabIndex = 4;
             this.pbSandbox.TabStop = false;
             // 
-            // productCategoryMaintenanceToolStripMenuItem
+            // groupBox1
             // 
-            this.productCategoryMaintenanceToolStripMenuItem.Name = "productCategoryMaintenanceToolStripMenuItem";
-            this.productCategoryMaintenanceToolStripMenuItem.Size = new System.Drawing.Size(282, 24);
-            this.productCategoryMaintenanceToolStripMenuItem.Tag = "3";
-            this.productCategoryMaintenanceToolStripMenuItem.Text = "Product Category Maintenance";
-            this.productCategoryMaintenanceToolStripMenuItem.Click += new System.EventHandler(this.productCategoryMaintenanceToolStripMenuItem_Click);
+            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Location = new System.Drawing.Point(478, 475);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(465, 169);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(132, 14);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 141);
+            this.panel1.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(130, 18);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Closed This Week";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 82);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(135, 18);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Opened This Week";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 18);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Currently Open";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 18);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Closed YTD";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 18);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Opened YTD";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(63, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 18);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Escalations";
             // 
             // frmAMDI_Parent
             // 
@@ -416,6 +508,7 @@ namespace Schedule_Database_Desktop_Version
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1234, 686);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pbLive);
             this.Controls.Add(this.pbSandbox);
             this.Controls.Add(this.mnuMain);
@@ -434,6 +527,9 @@ namespace Schedule_Database_Desktop_Version
             this.mnuMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSandbox)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,5 +573,13 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.ToolStripMenuItem canceledToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem dateRangeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productCategoryMaintenanceToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
     }
 }
