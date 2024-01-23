@@ -11,6 +11,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
+        List<LabEscModel> GetDashboardData(DateTime start, DateTime end, string DateTerm, string Status);
         void ProductCategoryUpdate(ProductCategoryModel model);
         void ProductCategoryAdd(ProductCategoryModel model);
         List<LabEscModel> DateRangeSearch(DateTime start, DateTime end, string SearchTerm);

@@ -18,6 +18,20 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 {  
     public class SqlConnector : IDataConnection
     {
+        public List<LabEscModel> GetDashboardData(DateTime start, DateTime end, string DateTerm, string Status)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Status", Status, DbType.String);
+                p.Add("@DateTerm", DateTerm, DbType.String);
+                p.Add("@StartDate", start, DbType.DateTime);
+                p.Add("@EndDate", end, DbType.DateTime);
+
+                List<LabEscModel> output = connection.Query<LabEscModel>("dbo.spGetDashboardInfo", p, commandType: CommandType.StoredProcedure).ToList();
+                return output;
+            }
+        }
         public void ProductCategoryUpdate(ProductCategoryModel model)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
