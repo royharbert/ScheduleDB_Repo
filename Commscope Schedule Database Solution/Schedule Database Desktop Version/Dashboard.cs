@@ -24,8 +24,14 @@ namespace Schedule_Database_Desktop_Version
             int thisYear = DateTime.Now.Year;
             DateTime newYearsDay = new DateTime(thisYear, 1, 1);
             DateTime today = DateTime.Now;
-            List<LabEscModel> labEscModelYTD = GlobalConfig.Connection.GetDashboardData(newYearsDay, today, "DateOpened"
-                )
+            List<LabEscModel> escalationsYTD = GlobalConfig.Connection.DateRangeSearch(newYearsDay, today, "DateOpened"); 
+            int escalationsYTDCount = escalationsYTD.Count;
+            txtLEOpenedYTD.Text = escalationsYTDCount.ToString();
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            RefreshDashboard();
         }
     }
 }

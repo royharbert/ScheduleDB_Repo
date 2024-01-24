@@ -228,12 +228,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttachmentProcs.cs" />
-    <Compile Include="Dashboard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Dashboard.Designer.cs">
-      <DependentUpon>Dashboard.cs</DependentUpon>
-    </Compile>
     <Compile Include="Enums.cs" />
     <Compile Include="FC.cs" />
     <Compile Include="frmAltMainMenu.cs">
@@ -347,9 +341,6 @@
     <Compile Include="GV.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmAltMainMenu.resx">
       <DependentUpon>frmAltMainMenu.cs</DependentUpon>
     </EmbeddedResource>

@@ -52,14 +52,32 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 connection.Execute("dbo.spProductCategoryAdd", p, commandType: CommandType.StoredProcedure);                 
             }
         }
-        public List<LabEscModel> DateRangeSearch(DateTime start, DateTime end, string SearchTerm)
+        public List<LabEscModel> DateRangeSearchAndStatus(DateTime start, DateTime end, 
+            string searchTerm, string recordType, string status)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@StartDate", start, DbType.DateTime);
                 p.Add("@EndDate", end, DbType.DateTime);
-                p.Add("@SearchTerm", SearchTerm, DbType.String);
+                p.Add("@Status", status, DbType.String);
+                p.Add("@RecordType", recordType, DbType.String);
+                p.Add("@Term", searchTerm, DbType.String);
+
+                List<LabEscModel> output = connection.Query<LabEscModel>("dbo.spLabEsc_DateRangeAndStatus", 
+                    p, commandType: CommandType.StoredProcedure).ToList();
+                return output;
+            }
+        }
+        public List<LabEscModel> DateRangeSearch(DateTime start, DateTime end, string searchTerm, string recordType)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@StartDate", start, DbType.DateTime);
+                p.Add("@EndDate", end, DbType.DateTime);
+                p.Add("@SearchTerm", searchTerm, DbType.String);
+                p.Add("@RecordType", recordType, DbType.String);
 
                 List<LabEscModel> output = connection.Query<LabEscModel>("dbo.spLabEsc_DateRange", p, commandType: CommandType.StoredProcedure).ToList();
                 return output;
@@ -78,18 +96,7 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
             }
 
         }
-        public List<LabEscModel> labEscSearchDateRange(DateTime startDate, DateTime endDate)
-        {
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))
-            {
-                var p = new DynamicParameters();
-                p.Add("@start", startDate, DbType.DateTime);
-                p.Add("@end", endDate, DbType.DateTime);
-
-                List<LabEscModel> output = connection.Query<LabEscModel>("dbo.spLabEsc_DateRange", p, commandType: CommandType.StoredProcedure).ToList();
-                return output;
-            }
-        }
+        
         public LabEscModel LabEscDeleted_CRUD(LabEscModel model, char action)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnString(db)))

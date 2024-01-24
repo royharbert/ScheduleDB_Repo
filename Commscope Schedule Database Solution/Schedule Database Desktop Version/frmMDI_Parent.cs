@@ -67,7 +67,55 @@ namespace Schedule_Database_Desktop_Version
                 pbSandbox.Visible = true;
                 pbLive.Visible = false;
             }
-            this.Text = $"     V.{ versionInfo.FileVersion }" + "     " + dbMode;
+            this.Text = $"     V.{versionInfo.FileVersion}" + "     " + dbMode;
+        }
+
+        public void RefreshDashboard()
+        {
+            int thisYear = DateTime.Now.Year;
+            DateTime newYearsDay = new DateTime(thisYear, 1, 1);
+            DateTime today = DateTime.Now;
+            int weekDay = (int)today.DayOfWeek;
+            int daysToMonday = weekDay - 1;
+            DateTime monday = today.AddDays(-daysToMonday);
+            DateTime sunday = monday.AddDays(6);
+            List<LabEscModel> escalationsYTD = GlobalConfig.Connection.DateRangeSearch(newYearsDay, today, "DateOpened",
+                "AT Escalation");
+            txtEscOpenedYTD.Text = escalationsYTD.Count.ToString();
+
+            List<LabEscModel> labRequestsYTD = GlobalConfig.Connection.DateRangeSearch(newYearsDay, today, "DateOpened",
+                "Lab Request");
+            txtLROpenedYTD.Text = labRequestsYTD.Count.ToString();
+
+            List<LabEscModel> labRequestsClosedYTD = GlobalConfig.Connection.DateRangeSearch(newYearsDay, today, "DateCompleted",
+               "Lab Request");
+            txtLRClosedYTD.Text = labRequestsClosedYTD.Count.ToString();
+
+            List<LabEscModel> escalationsClosedYTD = GlobalConfig.Connection.DateRangeSearch(newYearsDay, today,
+                "DateCompleted", "AT Escalation");
+            txtEscClosedYTD.Text = escalationsClosedYTD.Count.ToString();
+
+            List<LabEscModel> escalationsOpenedThisWeek = GlobalConfig.Connection.DateRangeSearch(monday, sunday,
+                 "DateOpened", "AT Escalation");
+            txtEscOpenedThisWeek.Text = escalationsOpenedThisWeek.Count.ToString();
+
+            List<LabEscModel> LabRequestsOpenedThisWeek = GlobalConfig.Connection.DateRangeSearch(monday, sunday,
+                "DateOpened", "Lab Request");
+            txtLRCOpenedThisWeek.Text = LabRequestsOpenedThisWeek.Count.ToString();
+
+            List<LabEscModel> escalationsClosedThisWeek = GlobalConfig.Connection.DateRangeSearch(monday, sunday,
+                 "DateCompleted", "AT Escalation");
+            txtEscClosedThisWeek.Text = escalationsClosedThisWeek.Count.ToString();
+
+            List<LabEscModel> LabRequestsClosedThisWeek = GlobalConfig.Connection.DateRangeSearch(monday, sunday,
+                "DateCompleted", "Lab Request");
+            txtLRClosedThisWeek.Text = LabRequestsClosedThisWeek.Count.ToString();
+
+            List<LabEscModel> openEscalations = CommonOps.GetReportData("E", "I");
+            txtEscCurrentlyOpen.Text = openEscalations.Count.ToString();
+
+            List<LabEscModel> openELabRequests = CommonOps.GetReportData("L", "I");
+            txtLRCurrentlyOpen.Text = openELabRequests.Count.ToString();
         }
 
         public void SetMenuAccess()
@@ -104,7 +152,7 @@ namespace Schedule_Database_Desktop_Version
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }       
+        }
 
         private void liveToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -162,7 +210,7 @@ namespace Schedule_Database_Desktop_Version
 
         private frmLabEsc showLabEscForm()
         {
-            Mode curMode= GV.MODE;
+            Mode curMode = GV.MODE;
             frmLabEsc EscalationsForm = new frmLabEsc();
             EscalationsForm.StartPosition = FormStartPosition.CenterScreen;
             EscalationsForm.fillComboBoxes();
@@ -178,15 +226,15 @@ namespace Schedule_Database_Desktop_Version
             GV.MODE = Mode.LabEscSearch;
             showLabEscForm();
         }
-       private void openItemsByDateDueToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openItemsByDateDueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.OpenEscByDate; 
+            GV.MODE = Mode.OpenEscByDate;
             List<LabEscModel> models = CommonOps.GetReportData("", "");
             ListModels(models);
         }
 
         private List<LabEscModel> ListModels(List<LabEscModel> models)
-        {            
+        {
             //DateTime emptyDate = new DateTime(1900, 1, 1);
             switch (models.Count)
             {
@@ -198,7 +246,7 @@ namespace Schedule_Database_Desktop_Version
                     escForm.LabEsc = models[0];
                     break;
                 default:
-                    frmMultiSelect results = new frmMultiSelect();                    
+                    frmMultiSelect results = new frmMultiSelect();
                     results.LabRequests = models;
                     results.Show();
                     break;
@@ -236,6 +284,7 @@ namespace Schedule_Database_Desktop_Version
             checkHolidaySched();
             //frmLabEsc escForm = new frmLabEsc();
             frmInput inputForm = new frmInput();
+            RefreshDashboard();
             //GV.inputForm = inputForm;
             //GV.inputForm.InputDataReady += InputID_InputDataReady;
             //GV.LABESCFORM = escForm;
@@ -261,7 +310,7 @@ namespace Schedule_Database_Desktop_Version
             ListModels(models);
         }
 
-        private void 
+        private void
         ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
@@ -311,10 +360,10 @@ namespace Schedule_Database_Desktop_Version
         private void Inputfrm_InputDataReady(object sender, InputDataReadyEventArgs e)
         {
             string pid = e.SearchString.ToString();
-            List<LabEscModel> results= new List<LabEscModel>();
+            List<LabEscModel> results = new List<LabEscModel>();
             if (GV.MODE != Mode.LabEscRestore)
             {
-                results = GlobalConfig.Connection.LabEscGetByPID("%" + pid + "%", false); 
+                results = GlobalConfig.Connection.LabEscGetByPID("%" + pid + "%", false);
             }
             else
             {
@@ -365,7 +414,7 @@ namespace Schedule_Database_Desktop_Version
                     MessageBox.Show("No matching records found");
                     break;
                 case 1:
-                    frmLabEsc escForm = new frmLabEsc();                    
+                    frmLabEsc escForm = new frmLabEsc();
                     escForm.LabEsc = results[0];
                     //escForm.DisplayForm = escForm;
                     //escForm.ShowDialog();
@@ -381,7 +430,7 @@ namespace Schedule_Database_Desktop_Version
         private void closedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
-            List<LabEscModel> models =  CommonOps.GetReportData("E", "C");
+            List<LabEscModel> models = CommonOps.GetReportData("E", "C");
             ListModels(models);
         }
 
@@ -400,13 +449,13 @@ namespace Schedule_Database_Desktop_Version
         private void canceledToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
-            List<LabEscModel> models =  CommonOps.GetReportData("E", "X");
+            List<LabEscModel> models = CommonOps.GetReportData("E", "X");
             ListModels(models);
         }
 
         private void canceledToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabEscReport; 
+            GV.MODE = Mode.LabEscReport;
             List<LabEscModel> models = CommonOps.GetReportData("E", "X");
             ListModels(models);
         }
@@ -432,6 +481,10 @@ namespace Schedule_Database_Desktop_Version
             frmProductCategoryMaint mForm = new frmProductCategoryMaint();
             mForm.ShowDialog();
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshDashboard();
+        }
     }
 }
- 

@@ -11,13 +11,15 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
 { 
     public interface IDataConnection
     {
+        List<LabEscModel> DateRangeSearchAndStatus(DateTime start, DateTime end,
+            string searchTerm, string recordType, string dateField);
         List<LabEscModel> GetDashboardData(DateTime start, DateTime end, string DateTerm, string Status);
         void ProductCategoryUpdate(ProductCategoryModel model);
         void ProductCategoryAdd(ProductCategoryModel model);
-        List<LabEscModel> DateRangeSearch(DateTime start, DateTime end, string SearchTerm);
+        List<LabEscModel> DateRangeSearch(DateTime start, DateTime end, string SearchTerm, string recordType);
         List<LabEscModel> GetReportModel(string status = "", string recType = "");
         LabEscModel LabEscDeleted_CRUD(LabEscModel model, char action);
-        List<LabEscModel>  labEscSearchDateRange(DateTime startDate, DateTime endDate);
+        //List<LabEscModel>  labEscSearchDateRange(DateTime startDate, DateTime endDate, string searchTerm, string recordType);
         List<LabEscModel> LabEscGetByPID(string PID, bool restore);
         void HolidayAdd(string holiday, DateTime holidayDate);
         void UpdateHolidays(string holiday, DateTime holidayDate, int idx);

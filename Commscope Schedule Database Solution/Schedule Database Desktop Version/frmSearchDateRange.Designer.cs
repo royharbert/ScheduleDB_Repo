@@ -39,7 +39,11 @@
             this.rdoDateClosed = new System.Windows.Forms.RadioButton();
             this.rdoDateDue = new System.Windows.Forms.RadioButton();
             this.rdoDateCreated = new System.Windows.Forms.RadioButton();
+            this.gpType = new System.Windows.Forms.GroupBox();
+            this.rdoLabRequest = new System.Windows.Forms.RadioButton();
+            this.rdoEscalation = new System.Windows.Forms.RadioButton();
             this.gbDate.SuspendLayout();
+            this.gpType.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblSelectDateRange
@@ -117,7 +121,7 @@
             this.gbDate.Controls.Add(this.rdoDateCreated);
             this.gbDate.Location = new System.Drawing.Point(520, 50);
             this.gbDate.Name = "gbDate";
-            this.gbDate.Size = new System.Drawing.Size(263, 200);
+            this.gbDate.Size = new System.Drawing.Size(263, 114);
             this.gbDate.TabIndex = 29;
             this.gbDate.TabStop = false;
             this.gbDate.Text = "Date Type";
@@ -125,7 +129,7 @@
             // rdoDateClosed
             // 
             this.rdoDateClosed.AutoSize = true;
-            this.rdoDateClosed.Location = new System.Drawing.Point(11, 145);
+            this.rdoDateClosed.Location = new System.Drawing.Point(11, 79);
             this.rdoDateClosed.Name = "rdoDateClosed";
             this.rdoDateClosed.Size = new System.Drawing.Size(108, 22);
             this.rdoDateClosed.TabIndex = 2;
@@ -137,7 +141,7 @@
             // rdoDateDue
             // 
             this.rdoDateDue.AutoSize = true;
-            this.rdoDateDue.Location = new System.Drawing.Point(11, 81);
+            this.rdoDateDue.Location = new System.Drawing.Point(11, 51);
             this.rdoDateDue.Name = "rdoDateDue";
             this.rdoDateDue.Size = new System.Drawing.Size(88, 22);
             this.rdoDateDue.TabIndex = 1;
@@ -158,11 +162,50 @@
             this.rdoDateCreated.UseVisualStyleBackColor = true;
             this.rdoDateCreated.CheckedChanged += new System.EventHandler(this.rdoDateCreated_CheckedChanged);
             // 
+            // gpType
+            // 
+            this.gpType.Controls.Add(this.rdoLabRequest);
+            this.gpType.Controls.Add(this.rdoEscalation);
+            this.gpType.Location = new System.Drawing.Point(520, 181);
+            this.gpType.Name = "gpType";
+            this.gpType.Size = new System.Drawing.Size(262, 91);
+            this.gpType.TabIndex = 30;
+            this.gpType.TabStop = false;
+            this.gpType.Text = "Record Type";
+            // 
+            // rdoLabRequest
+            // 
+            this.rdoLabRequest.AutoSize = true;
+            this.rdoLabRequest.Location = new System.Drawing.Point(11, 52);
+            this.rdoLabRequest.Name = "rdoLabRequest";
+            this.rdoLabRequest.Size = new System.Drawing.Size(109, 22);
+            this.rdoLabRequest.TabIndex = 3;
+            this.rdoLabRequest.TabStop = true;
+            this.rdoLabRequest.Tag = "Lab Request";
+            this.rdoLabRequest.Text = "Lab Request";
+            this.rdoLabRequest.UseVisualStyleBackColor = true;
+            this.rdoLabRequest.CheckedChanged += new System.EventHandler(this.rdoEscalation_CheckedChanged);
+            // 
+            // rdoEscalation
+            // 
+            this.rdoEscalation.AutoSize = true;
+            this.rdoEscalation.Checked = true;
+            this.rdoEscalation.Location = new System.Drawing.Point(11, 24);
+            this.rdoEscalation.Name = "rdoEscalation";
+            this.rdoEscalation.Size = new System.Drawing.Size(95, 22);
+            this.rdoEscalation.TabIndex = 2;
+            this.rdoEscalation.TabStop = true;
+            this.rdoEscalation.Tag = "AT Escalation";
+            this.rdoEscalation.Text = "Escalation";
+            this.rdoEscalation.UseVisualStyleBackColor = true;
+            this.rdoEscalation.CheckedChanged += new System.EventHandler(this.rdoEscalation_CheckedChanged);
+            // 
             // frmSearchDateRange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 292);
+            this.Controls.Add(this.gpType);
             this.Controls.Add(this.gbDate);
             this.Controls.Add(this.lblSelectDateRange);
             this.Controls.Add(this.lblEndDate);
@@ -178,6 +221,8 @@
             this.Load += new System.EventHandler(this.frmSearchDateRange_Load);
             this.gbDate.ResumeLayout(false);
             this.gbDate.PerformLayout();
+            this.gpType.ResumeLayout(false);
+            this.gpType.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +240,8 @@
         private System.Windows.Forms.RadioButton rdoDateDue;
         private System.Windows.Forms.RadioButton rdoDateCreated;
         private System.Windows.Forms.RadioButton rdoDateClosed;
+        private System.Windows.Forms.GroupBox gpType;
+        private System.Windows.Forms.RadioButton rdoLabRequest;
+        private System.Windows.Forms.RadioButton rdoEscalation;
     }
 }

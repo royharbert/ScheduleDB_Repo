@@ -63,13 +63,42 @@ namespace Schedule_Database_Desktop_Version
             this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.closedToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.canceledToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incompleteByDateDueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbLive = new System.Windows.Forms.PictureBox();
             this.pbSandbox = new System.Windows.Forms.PictureBox();
+            this.gpDashboard = new System.Windows.Forms.GroupBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtLRClosedThisWeek = new System.Windows.Forms.TextBox();
+            this.txtLRCOpenedThisWeek = new System.Windows.Forms.TextBox();
+            this.txtLRCurrentlyOpen = new System.Windows.Forms.TextBox();
+            this.txtLRClosedYTD = new System.Windows.Forms.TextBox();
+            this.txtLROpenedYTD = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtEscClosedThisWeek = new System.Windows.Forms.TextBox();
+            this.txtEscOpenedThisWeek = new System.Windows.Forms.TextBox();
+            this.txtEscCurrentlyOpen = new System.Windows.Forms.TextBox();
+            this.txtEscClosedYTD = new System.Windows.Forms.TextBox();
+            this.txtEscOpenedYTD = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.altMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSandbox)).BeginInit();
+            this.gpDashboard.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuMain
@@ -82,7 +111,7 @@ namespace Schedule_Database_Desktop_Version
             this.maintenanceToolStripMenuItem,
             this.databaseModeToolStripMenuItem,
             this.reportsToolStripMenuItem,
-            this.dashboardToolStripMenuItem});
+            this.altMenuToolStripMenuItem});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
             this.mnuMain.Size = new System.Drawing.Size(1234, 28);
@@ -370,14 +399,6 @@ namespace Schedule_Database_Desktop_Version
             this.canceledToolStripMenuItem1.Size = new System.Drawing.Size(144, 24);
             this.canceledToolStripMenuItem1.Text = "Canceled";
             // 
-            // dashboardToolStripMenuItem
-            // 
-            this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
-            this.dashboardToolStripMenuItem.Tag = "1";
-            this.dashboardToolStripMenuItem.Text = "Dashboard";
-            this.dashboardToolStripMenuItem.Click += new System.EventHandler(this.dashboardToolStripMenuItem_Click);
-            // 
             // incompleteByDateDueToolStripMenuItem
             // 
             this.incompleteByDateDueToolStripMenuItem.Name = "incompleteByDateDueToolStripMenuItem";
@@ -408,6 +429,262 @@ namespace Schedule_Database_Desktop_Version
             this.pbSandbox.TabIndex = 4;
             this.pbSandbox.TabStop = false;
             // 
+            // gpDashboard
+            // 
+            this.gpDashboard.Controls.Add(this.btnRefresh);
+            this.gpDashboard.Controls.Add(this.panel2);
+            this.gpDashboard.Controls.Add(this.panel1);
+            this.gpDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpDashboard.Location = new System.Drawing.Point(0, 31);
+            this.gpDashboard.Name = "gpDashboard";
+            this.gpDashboard.Size = new System.Drawing.Size(618, 208);
+            this.gpDashboard.TabIndex = 11;
+            this.gpDashboard.TabStop = false;
+            this.gpDashboard.Text = "Dashboard";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnRefresh.Location = new System.Drawing.Point(273, 99);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 33);
+            this.btnRefresh.TabIndex = 12;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel2.Controls.Add(this.txtLRClosedThisWeek);
+            this.panel2.Controls.Add(this.txtLRCOpenedThisWeek);
+            this.panel2.Controls.Add(this.txtLRCurrentlyOpen);
+            this.panel2.Controls.Add(this.txtLRClosedYTD);
+            this.panel2.Controls.Add(this.txtLROpenedYTD);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Location = new System.Drawing.Point(368, 30);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(227, 168);
+            this.panel2.TabIndex = 11;
+            // 
+            // txtLRClosedThisWeek
+            // 
+            this.txtLRClosedThisWeek.Location = new System.Drawing.Point(163, 131);
+            this.txtLRClosedThisWeek.Name = "txtLRClosedThisWeek";
+            this.txtLRClosedThisWeek.Size = new System.Drawing.Size(51, 26);
+            this.txtLRClosedThisWeek.TabIndex = 10;
+            // 
+            // txtLRCOpenedThisWeek
+            // 
+            this.txtLRCOpenedThisWeek.Location = new System.Drawing.Point(163, 105);
+            this.txtLRCOpenedThisWeek.Name = "txtLRCOpenedThisWeek";
+            this.txtLRCOpenedThisWeek.Size = new System.Drawing.Size(51, 26);
+            this.txtLRCOpenedThisWeek.TabIndex = 9;
+            // 
+            // txtLRCurrentlyOpen
+            // 
+            this.txtLRCurrentlyOpen.Location = new System.Drawing.Point(163, 79);
+            this.txtLRCurrentlyOpen.Name = "txtLRCurrentlyOpen";
+            this.txtLRCurrentlyOpen.Size = new System.Drawing.Size(51, 26);
+            this.txtLRCurrentlyOpen.TabIndex = 8;
+            // 
+            // txtLRClosedYTD
+            // 
+            this.txtLRClosedYTD.Location = new System.Drawing.Point(163, 53);
+            this.txtLRClosedYTD.Name = "txtLRClosedYTD";
+            this.txtLRClosedYTD.Size = new System.Drawing.Size(51, 26);
+            this.txtLRClosedYTD.TabIndex = 7;
+            // 
+            // txtLROpenedYTD
+            // 
+            this.txtLROpenedYTD.Location = new System.Drawing.Point(163, 27);
+            this.txtLROpenedYTD.Name = "txtLROpenedYTD";
+            this.txtLROpenedYTD.Size = new System.Drawing.Size(51, 26);
+            this.txtLROpenedYTD.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 134);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(136, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Closed This Week";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 108);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(144, 20);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Opened This Week";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(37, 82);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(115, 20);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Currently Open";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(50, 56);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(94, 20);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Closed YTD";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(44, 30);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(102, 20);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Opened YTD";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(79, 6);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(109, 20);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Lab Requests";
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel1.Controls.Add(this.txtEscClosedThisWeek);
+            this.panel1.Controls.Add(this.txtEscOpenedThisWeek);
+            this.panel1.Controls.Add(this.txtEscCurrentlyOpen);
+            this.panel1.Controls.Add(this.txtEscClosedYTD);
+            this.panel1.Controls.Add(this.txtEscOpenedYTD);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(24, 30);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(228, 168);
+            this.panel1.TabIndex = 9;
+            // 
+            // txtEscClosedThisWeek
+            // 
+            this.txtEscClosedThisWeek.Location = new System.Drawing.Point(166, 131);
+            this.txtEscClosedThisWeek.Name = "txtEscClosedThisWeek";
+            this.txtEscClosedThisWeek.Size = new System.Drawing.Size(51, 26);
+            this.txtEscClosedThisWeek.TabIndex = 10;
+            // 
+            // txtEscOpenedThisWeek
+            // 
+            this.txtEscOpenedThisWeek.Location = new System.Drawing.Point(166, 105);
+            this.txtEscOpenedThisWeek.Name = "txtEscOpenedThisWeek";
+            this.txtEscOpenedThisWeek.Size = new System.Drawing.Size(51, 26);
+            this.txtEscOpenedThisWeek.TabIndex = 9;
+            // 
+            // txtEscCurrentlyOpen
+            // 
+            this.txtEscCurrentlyOpen.Location = new System.Drawing.Point(166, 79);
+            this.txtEscCurrentlyOpen.Name = "txtEscCurrentlyOpen";
+            this.txtEscCurrentlyOpen.Size = new System.Drawing.Size(51, 26);
+            this.txtEscCurrentlyOpen.TabIndex = 8;
+            // 
+            // txtEscClosedYTD
+            // 
+            this.txtEscClosedYTD.Location = new System.Drawing.Point(166, 53);
+            this.txtEscClosedYTD.Name = "txtEscClosedYTD";
+            this.txtEscClosedYTD.Size = new System.Drawing.Size(51, 26);
+            this.txtEscClosedYTD.TabIndex = 7;
+            // 
+            // txtEscOpenedYTD
+            // 
+            this.txtEscOpenedYTD.Location = new System.Drawing.Point(166, 27);
+            this.txtEscOpenedYTD.Name = "txtEscOpenedYTD";
+            this.txtEscOpenedYTD.Size = new System.Drawing.Size(51, 26);
+            this.txtEscOpenedYTD.TabIndex = 6;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(20, 134);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(136, 20);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Closed This Week";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 108);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(144, 20);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Opened This Week";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(37, 82);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 20);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Currently Open";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(50, 56);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 20);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Closed YTD";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(44, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 20);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Opened YTD";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(79, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Escalations";
+            // 
+            // altMenuToolStripMenuItem
+            // 
+            this.altMenuToolStripMenuItem.Name = "altMenuToolStripMenuItem";
+            this.altMenuToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.altMenuToolStripMenuItem.Text = "Alt.Menu";
+            // 
             // frmAMDI_Parent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -415,6 +692,7 @@ namespace Schedule_Database_Desktop_Version
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1234, 686);
+            this.Controls.Add(this.gpDashboard);
             this.Controls.Add(this.pbLive);
             this.Controls.Add(this.pbSandbox);
             this.Controls.Add(this.mnuMain);
@@ -433,6 +711,11 @@ namespace Schedule_Database_Desktop_Version
             this.mnuMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSandbox)).EndInit();
+            this.gpDashboard.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,12 +752,38 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.ToolStripMenuItem closedToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteRecordToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restoreRecordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem byIDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem canceledToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem canceledToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem dateRangeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productCategoryMaintenanceToolStripMenuItem;
+        private System.Windows.Forms.GroupBox gpDashboard;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtLRClosedThisWeek;
+        private System.Windows.Forms.TextBox txtLRCOpenedThisWeek;
+        private System.Windows.Forms.TextBox txtLRCurrentlyOpen;
+        private System.Windows.Forms.TextBox txtLRClosedYTD;
+        private System.Windows.Forms.TextBox txtLROpenedYTD;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtEscClosedThisWeek;
+        private System.Windows.Forms.TextBox txtEscOpenedThisWeek;
+        private System.Windows.Forms.TextBox txtEscCurrentlyOpen;
+        private System.Windows.Forms.TextBox txtEscClosedYTD;
+        private System.Windows.Forms.TextBox txtEscOpenedYTD;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.ToolStripMenuItem altMenuToolStripMenuItem;
     }
 }
