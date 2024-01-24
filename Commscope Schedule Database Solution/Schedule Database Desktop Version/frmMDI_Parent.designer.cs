@@ -63,6 +63,7 @@ namespace Schedule_Database_Desktop_Version
             this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.closedToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.canceledToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.altMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incompleteByDateDueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbLive = new System.Windows.Forms.PictureBox();
             this.pbSandbox = new System.Windows.Forms.PictureBox();
@@ -92,7 +93,6 @@ namespace Schedule_Database_Desktop_Version
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.altMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSandbox)).BeginInit();
@@ -399,6 +399,13 @@ namespace Schedule_Database_Desktop_Version
             this.canceledToolStripMenuItem1.Size = new System.Drawing.Size(144, 24);
             this.canceledToolStripMenuItem1.Text = "Canceled";
             // 
+            // altMenuToolStripMenuItem
+            // 
+            this.altMenuToolStripMenuItem.Name = "altMenuToolStripMenuItem";
+            this.altMenuToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.altMenuToolStripMenuItem.Tag = "1";
+            this.altMenuToolStripMenuItem.Text = "Alt.Menu";
+            // 
             // incompleteByDateDueToolStripMenuItem
             // 
             this.incompleteByDateDueToolStripMenuItem.Name = "incompleteByDateDueToolStripMenuItem";
@@ -678,12 +685,6 @@ namespace Schedule_Database_Desktop_Version
             this.label1.Size = new System.Drawing.Size(91, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Escalations";
-            // 
-            // altMenuToolStripMenuItem
-            // 
-            this.altMenuToolStripMenuItem.Name = "altMenuToolStripMenuItem";
-            this.altMenuToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
-            this.altMenuToolStripMenuItem.Text = "Alt.Menu";
             // 
             // frmAMDI_Parent
             // 
