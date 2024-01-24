@@ -70,53 +70,7 @@ namespace Schedule_Database_Desktop_Version
             this.Text = $"     V.{versionInfo.FileVersion}" + "     " + dbMode;
         }
 
-        public void RefreshDashboard()
-        {
-            int thisYear = DateTime.Now.Year;
-            DateTime newYearsDay = new DateTime(thisYear, 1, 1);
-            DateTime today = DateTime.Now;
-            int weekDay = (int)today.DayOfWeek;
-            int daysToMonday = weekDay - 1;
-            DateTime monday = today.AddDays(-daysToMonday);
-            DateTime sunday = monday.AddDays(6);
-            List<LabEscModel> escalationsYTD = GlobalConfig.Connection.DateRangeSearch(newYearsDay, today, "DateOpened",
-                "AT Escalation");
-            txtEscOpenedYTD.Text = escalationsYTD.Count.ToString();
-
-            List<LabEscModel> labRequestsYTD = GlobalConfig.Connection.DateRangeSearch(newYearsDay, today, "DateOpened",
-                "Lab Request");
-            txtLROpenedYTD.Text = labRequestsYTD.Count.ToString();
-
-            List<LabEscModel> labRequestsClosedYTD = GlobalConfig.Connection.DateRangeSearch(newYearsDay, today, "DateCompleted",
-               "Lab Request");
-            txtLRClosedYTD.Text = labRequestsClosedYTD.Count.ToString();
-
-            List<LabEscModel> escalationsClosedYTD = GlobalConfig.Connection.DateRangeSearch(newYearsDay, today,
-                "DateCompleted", "AT Escalation");
-            txtEscClosedYTD.Text = escalationsClosedYTD.Count.ToString();
-
-            List<LabEscModel> escalationsOpenedThisWeek = GlobalConfig.Connection.DateRangeSearch(monday, sunday,
-                 "DateOpened", "AT Escalation");
-            txtEscOpenedThisWeek.Text = escalationsOpenedThisWeek.Count.ToString();
-
-            List<LabEscModel> LabRequestsOpenedThisWeek = GlobalConfig.Connection.DateRangeSearch(monday, sunday,
-                "DateOpened", "Lab Request");
-            txtLRCOpenedThisWeek.Text = LabRequestsOpenedThisWeek.Count.ToString();
-
-            List<LabEscModel> escalationsClosedThisWeek = GlobalConfig.Connection.DateRangeSearch(monday, sunday,
-                 "DateCompleted", "AT Escalation");
-            txtEscClosedThisWeek.Text = escalationsClosedThisWeek.Count.ToString();
-
-            List<LabEscModel> LabRequestsClosedThisWeek = GlobalConfig.Connection.DateRangeSearch(monday, sunday,
-                "DateCompleted", "Lab Request");
-            txtLRClosedThisWeek.Text = LabRequestsClosedThisWeek.Count.ToString();
-
-            List<LabEscModel> openEscalations = CommonOps.GetReportData("E", "I");
-            txtEscCurrentlyOpen.Text = openEscalations.Count.ToString();
-
-            List<LabEscModel> openELabRequests = CommonOps.GetReportData("L", "I");
-            txtLRCurrentlyOpen.Text = openELabRequests.Count.ToString();
-        }
+        
 
         public void SetMenuAccess()
         {
@@ -485,6 +439,12 @@ namespace Schedule_Database_Desktop_Version
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RefreshDashboard();
+        }
+
+        private void altMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltMainMenu alternativeMenu = new frmAltMainMenu();
+            alternativeMenu.ShowDialog();
         }
     }
 }

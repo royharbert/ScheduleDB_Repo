@@ -405,6 +405,7 @@ namespace Schedule_Database_Desktop_Version
             this.altMenuToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.altMenuToolStripMenuItem.Tag = "1";
             this.altMenuToolStripMenuItem.Text = "Alt.Menu";
+            this.altMenuToolStripMenuItem.Click += new System.EventHandler(this.altMenuToolStripMenuItem_Click);
             // 
             // incompleteByDateDueToolStripMenuItem
             // 

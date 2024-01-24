@@ -20,7 +20,7 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmAltMainMenu : Form
     {
-        frmAMDI_Parent Parent = new frmAMDI_Parent();
+        frmAMDI_Parent Parent = GV.MAINMENU;
         //frmInput inputID = new frmInput();
         public frmAltMainMenu()
         {

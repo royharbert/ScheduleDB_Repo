@@ -84,6 +84,8 @@ namespace ScheduleDatabaseClassLibrary.Operations
             return status;
         }
 
+        
+
         public static void lockControls(bool lockControl, TableLayoutPanel frm, string skipList)
         {
             foreach (Control control in frm.Controls)
