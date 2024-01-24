@@ -70,7 +70,22 @@ namespace Schedule_Database_Desktop_Version
             this.Text = $"     V.{versionInfo.FileVersion}" + "     " + dbMode;
         }
 
-        
+        private void DashboardRefresh()
+        {
+            DashboardData data = new DashboardData();
+            data = data.RefreshDashboard();
+
+            txtEscClosedThisWeek.Text = data.EscalationsClosedThisWeek.ToString();
+            txtEscClosedYTD.Text = data.EscalationsClosedYTD.ToString();
+            txtEscCurrentlyOpen.Text = data.EscalationsCurrentlyOpen.ToString();
+            txtEscOpenedThisWeek.Text = data.EscalationsOpenedThisWeek.ToString();
+            txtEscOpenedYTD.Text = data.EscalationsOpenedYTD.ToString();
+            txtLRClosedThisWeek.Text = data.LabRequestsClosedThisWeek.ToString();
+            txtLRClosedYTD.Text = data.LabRequestsClosedYTD.ToString();
+            txtLRCOpenedThisWeek.Text = data.LabRequestsOpenedThisWeek.ToString();
+            txtLRCurrentlyOpen.Text = data.LabRequestsCurrentlyOpen.ToString();
+            txtLROpenedYTD.Text = data.LabRequestsOpenedYTD.ToString();
+        }
 
         public void SetMenuAccess()
         {
@@ -238,7 +253,7 @@ namespace Schedule_Database_Desktop_Version
             checkHolidaySched();
             //frmLabEsc escForm = new frmLabEsc();
             frmInput inputForm = new frmInput();
-            RefreshDashboard();
+            DashboardRefresh();
             //GV.inputForm = inputForm;
             //GV.inputForm.InputDataReady += InputID_InputDataReady;
             //GV.LABESCFORM = escForm;
@@ -277,11 +292,6 @@ namespace Schedule_Database_Desktop_Version
             GV.MODE = Mode.LabEscReport;
             List<LabEscModel> models = CommonOps.GetReportData("L", "I");
             ListModels(models);
-        }
-
-        private void dashboardViewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
@@ -438,7 +448,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            RefreshDashboard();
+            DashboardRefresh();
         }
 
         private void altMenuToolStripMenuItem_Click(object sender, EventArgs e)

@@ -59,7 +59,8 @@ namespace Schedule_Database_Desktop_Version
 
         private void frmAltMainMenu_Load(object sender, EventArgs e)
         {
-            FC.SetFormPosition(this);            
+            FC.SetFormPosition(this);
+            DashboardRefresh();
         }
 
         private void btnNewRecord_Click(object sender, EventArgs e)
@@ -141,6 +142,23 @@ namespace Schedule_Database_Desktop_Version
             GV.inputForm = inputID;
             GV.inputForm.InputDataReady += InputID_InputDataReady;
 
+        }
+
+        private void DashboardRefresh()
+        {
+            DashboardData data = new DashboardData();
+            data = data.RefreshDashboard();
+
+            txtEscClosedThisWeek.Text = data.EscalationsClosedThisWeek.ToString();
+            txtEscClosedYTD.Text = data.EscalationsClosedYTD.ToString();
+            txtEscCurrentlyOpen.Text = data.EscalationsCurrentlyOpen.ToString();
+            txtEscOpenedThisWeek.Text = data.EscalationsOpenedThisWeek.ToString();
+            txtEscOpenedYTD.Text = data.EscalationsOpenedYTD.ToString();
+            txtLRClosedThisWeek.Text = data.LabRequestsClosedThisWeek.ToString();
+            txtLRClosedYTD.Text = data.LabRequestsClosedYTD.ToString();
+            txtLRCOpenedThisWeek.Text = data.LabRequestsOpenedThisWeek.ToString();
+            txtLRCurrentlyOpen.Text = data.LabRequestsCurrentlyOpen.ToString();
+            txtLROpenedYTD.Text = data.LabRequestsOpenedYTD.ToString();
         }
 
         private void InputID_InputDataReady(object sender, InputDataReadyEventArgs e)
@@ -354,6 +372,11 @@ namespace Schedule_Database_Desktop_Version
         {
             frmSearchDateRange dateRange = new frmSearchDateRange();
             dateRange.ShowDialog();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            DashboardRefresh();
         }
     }
 }

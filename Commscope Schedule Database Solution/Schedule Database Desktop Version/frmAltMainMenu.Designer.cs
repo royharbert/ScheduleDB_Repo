@@ -355,11 +355,12 @@ namespace Schedule_Database_Desktop_Version
             // 
             // gpDashboard
             // 
+            this.gpDashboard.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.gpDashboard.Controls.Add(this.btnRefresh);
             this.gpDashboard.Controls.Add(this.panel2);
             this.gpDashboard.Controls.Add(this.panel1);
             this.gpDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpDashboard.Location = new System.Drawing.Point(36, 355);
+            this.gpDashboard.Location = new System.Drawing.Point(20, 356);
             this.gpDashboard.Name = "gpDashboard";
             this.gpDashboard.Size = new System.Drawing.Size(618, 208);
             this.gpDashboard.TabIndex = 27;
@@ -375,6 +376,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnRefresh.TabIndex = 12;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // panel2
             // 
