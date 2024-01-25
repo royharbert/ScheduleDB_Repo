@@ -41,6 +41,10 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string ATEStatus { get; set; }
         [ExcelExportProperty]           //added this because missing 10-27-22 LMD        
         public string EndUser { get; set; }
+        [ExcelExportProperty]
+        public string TimeSpent { get; set; }
+        [ExcelExportProperty]
+        public string SerialNumbers { get; set; }
 
         public ATEscalationsDisplayModel(){}
         public ATEscalationsDisplayModel(ATEscalationsModel model)
@@ -60,6 +64,9 @@ namespace ScheduleDatabaseClassLibrary.Models
             this.Resolution = model.Resolution;
             this.ResolvedDate = model.ResolvedDate;
             this.EndUser = model.EndUser;
+            this.TimeSpent = model.TimeSpent;
+            this.SerialNumbers = model.SerialNumbers;
+
         }
 
         private string deserializeProducts(string partNumberXML)

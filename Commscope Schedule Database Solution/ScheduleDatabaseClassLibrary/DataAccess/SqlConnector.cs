@@ -109,6 +109,8 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@RecordType", model.RecordType, DbType.String);
                 p.Add("@ProdApp", model.ProdApp, DbType.String);
                 p.Add("@Architecture", model.Architecture, DbType.String);
+                p.Add("@TimeSpent", model.TimeSpent, DbType.String);
+                p.Add("@SerialNumbers", model.SerialNumbers, DbType.String);
 
                 connection.Execute("spLabEscDeleted_CRUD", p, commandType: CommandType.StoredProcedure);
 
@@ -266,6 +268,8 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@RecordType", model.RecordType, DbType.String);
                 p.Add("@ProdApp", model.ProdApp, DbType.String);
                 p.Add("@Architecture", model.Architecture, DbType.String);
+                p.Add("@TimeSpent", model.TimeSpent, DbType.String);
+                p.Add("@SerialNumbers", model.SerialNumbers, DbType.String);
 
                 connection.Execute("dbo.spLabEsc_CRUD", p, commandType: CommandType.StoredProcedure);
 

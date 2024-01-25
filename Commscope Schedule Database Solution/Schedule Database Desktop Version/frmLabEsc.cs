@@ -236,7 +236,7 @@ namespace Schedule_Database_Desktop_Version
                         foreach (var model in models)
                         {
                             if (model.FieldName == "Comments" | model.FieldName == "Description" | model.FieldName == "PSNumber" | model.FieldName == "Resolution"
-                                | model.FieldName == "CTRNum" | model.FieldName == "EscNum" | model.FieldName == "EscID")
+                                | model.FieldName == "CTRNum" | model.FieldName == "EscNum" | model.FieldName == "EscID" | model.TimeSpent == "TimeSpent" | model.SerialNumbers == "SerialNumbers")
                             {
                                 whereClause = whereClause + " upper(" + model.FieldName + ") like  upper('%" + model.FieldValue + "%') and ";
                             }
@@ -345,6 +345,8 @@ namespace Schedule_Database_Desktop_Version
             string escId = txtRecordID.Text;
             string prodApp = cboProdApp.Text;
             string architecture = cboArchitecture.Text;
+            string timeSpent = txtTimeSpent.Text;
+            string serialNumbers = rtxSerialNumbers.Text;
 
             FieldSearchModel fsm = new FieldSearchModel();
             if (txtRecordID.Text != "")
@@ -455,6 +457,17 @@ namespace Schedule_Database_Desktop_Version
             if (prodApp != "")
             {
                 fsm = makeFSM(cboProdApp);
+                fsmList.Add(fsm);
+            }
+
+            if (timeSpent != "")
+            {
+                fsm = makeFSM(txtTimeSpent);
+                fsmList.Add(fsm);
+            }
+            if(serialNumbers != "")
+            {
+                fsm = makeFSM(rtxSerialNumbers);
                 fsmList.Add(fsm);
             }
             return fsmList;
@@ -621,6 +634,8 @@ namespace Schedule_Database_Desktop_Version
             model.RecordType = cboRecType.Text;
             model.ProdApp = cboProdApp.Text;
             model.Architecture = cboArchitecture.Text;
+            model.TimeSpent = txtTimeSpent.Text;
+            model.SerialNumbers = rtxSerialNumbers.Text;
 
             if (lstProducts.SelectedIndex > -1)
             {
@@ -678,6 +693,8 @@ namespace Schedule_Database_Desktop_Version
             txtID.Text = model.ID.ToString();
             cboProdApp.Text = model.ProdApp;
             cboArchitecture.Text = model.Architecture;
+            txtTimeSpent.Text = model.TimeSpent;
+            rtxSerialNumbers.Text = model.SerialNumbers;
 
             //highlight product
             int idx = highlightProductList(model.Product);

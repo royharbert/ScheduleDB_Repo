@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ScheduleDatabaseClassLibrary.Models
 {
-    public class LabEscModel    
+    public class LabEscModel
     {
         public int ID { get; set; }
         [ExcelExportProperty]
@@ -61,5 +61,10 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string ProdApp { get; set; }
         [ExcelExportProperty]
         public string Architecture { get; set; }
+        [ExcelExportProperty]
+        public string TimeSpent {get; set; }
+        [ExcelExportProperty]
+        public string SerialNumbers { get; set; }
+        
     }
 }

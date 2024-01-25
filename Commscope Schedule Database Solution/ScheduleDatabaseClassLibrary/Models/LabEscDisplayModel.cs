@@ -60,7 +60,14 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string PSNumber { get; set; }
         [ExcelExportProperty]
         public string RecordType { get; set; }
-        
+        [ExcelExportProperty]
+        public string TimeSpent { get; set; }
+        [ExcelExportProperty]
+        public string Architecture { get; set; }
+        [ExcelExportProperty]
+        public string SerialNumbers { get; set; }
+
+    
 
         public LabEscDisplayModel(LabEscModel model)
         {
@@ -87,6 +94,9 @@ namespace ScheduleDatabaseClassLibrary.Models
             this.Resolution = model.Resolution;
             this.PSNumber = model.PSNumber;
             this.RecordType = model.RecordType;
+            this.Architecture = model.Architecture;
+            this.TimeSpent = model.TimeSpent;
+            this.SerialNumbers = model.SerialNumbers;
         }
     }
 

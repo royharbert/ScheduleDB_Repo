@@ -61,5 +61,10 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string ProdApp { get; set; }
         [ExcelExportProperty]
         public string Architecture { get; set; }
+        [ExcelExportProperty]
+        public string TimeSpent { get; set; }
+        [ExcelExportProperty]
+        public string SerialNumbers { get; set; }
+        
     }
 }

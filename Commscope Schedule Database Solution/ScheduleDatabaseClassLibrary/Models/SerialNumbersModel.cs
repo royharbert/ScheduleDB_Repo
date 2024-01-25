@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace ScheduleDatabaseClassLibrary.Models
 {
-    public class FieldSearchModel
+    internal class SerialNumbersModel
     {
-        public string FieldName { get; set; }
-        public string FieldValue { get; set; }
+        public int ID { get; set; }
         public string SerialNumbers { get; set; }
-        public string TimeSpent { get; set; }
-       
     }
 }
