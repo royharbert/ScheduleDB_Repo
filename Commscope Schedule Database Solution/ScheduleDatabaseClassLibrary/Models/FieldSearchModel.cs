@@ -10,8 +10,6 @@ namespace ScheduleDatabaseClassLibrary.Models
     {
         public string FieldName { get; set; }
         public string FieldValue { get; set; }
-        public string SerialNumbers { get; set; }
-        public string TimeSpent { get; set; }
        
     }
 }

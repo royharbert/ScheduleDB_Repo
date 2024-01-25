@@ -236,7 +236,7 @@ namespace Schedule_Database_Desktop_Version
                         foreach (var model in models)
                         {
                             if (model.FieldName == "Comments" | model.FieldName == "Description" | model.FieldName == "PSNumber" | model.FieldName == "Resolution"
-                                | model.FieldName == "CTRNum" | model.FieldName == "EscNum" | model.FieldName == "EscID" | model.TimeSpent == "TimeSpent" | model.SerialNumbers == "SerialNumbers")
+                                | model.FieldName == "CTRNum" | model.FieldName == "EscNum" | model.FieldName == "EscID" | model.FieldName == "TimeSpent" | model.FieldName == "SerialNumbers")
                             {
                                 whereClause = whereClause + " upper(" + model.FieldName + ") like  upper('%" + model.FieldValue + "%') and ";
                             }
@@ -1170,5 +1170,11 @@ namespace Schedule_Database_Desktop_Version
             }
             setDTP_Format(sender);
         }
+
+        private void btnTabSave_Click(object sender, EventArgs e)
+        {
+            saveData();
+        }
+
     }
 }
