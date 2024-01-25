@@ -1170,5 +1170,11 @@ namespace Schedule_Database_Desktop_Version
             }
             setDTP_Format(sender);
         }
+
+        private void btnTabSave_Click(object sender, EventArgs e)
+        {
+            saveData();
+        }
+
     }
 }
