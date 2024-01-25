@@ -52,12 +52,41 @@ namespace Schedule_Database_Desktop_Version
             this.btnDateRangeRep = new System.Windows.Forms.Button();
             this.btnCanceledLabReq = new System.Windows.Forms.Button();
             this.btnCanceledEscalations = new System.Windows.Forms.Button();
+            this.gpDashboard = new System.Windows.Forms.GroupBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtLRClosedThisWeek = new System.Windows.Forms.TextBox();
+            this.txtLRCOpenedThisWeek = new System.Windows.Forms.TextBox();
+            this.txtLRCurrentlyOpen = new System.Windows.Forms.TextBox();
+            this.txtLRClosedYTD = new System.Windows.Forms.TextBox();
+            this.txtLROpenedYTD = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtEscClosedThisWeek = new System.Windows.Forms.TextBox();
+            this.txtEscOpenedThisWeek = new System.Windows.Forms.TextBox();
+            this.txtEscCurrentlyOpen = new System.Windows.Forms.TextBox();
+            this.txtEscClosedYTD = new System.Windows.Forms.TextBox();
+            this.txtEscOpenedYTD = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.gpDashboard.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSearchByID
             // 
             this.btnSearchByID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchByID.Location = new System.Drawing.Point(256, 158);
+            this.btnSearchByID.Location = new System.Drawing.Point(324, 158);
             this.btnSearchByID.Name = "btnSearchByID";
             this.btnSearchByID.Size = new System.Drawing.Size(197, 36);
             this.btnSearchByID.TabIndex = 1;
@@ -69,7 +98,7 @@ namespace Schedule_Database_Desktop_Version
             // btnDateRange
             // 
             this.btnDateRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDateRange.Location = new System.Drawing.Point(256, 116);
+            this.btnDateRange.Location = new System.Drawing.Point(324, 116);
             this.btnDateRange.Name = "btnDateRange";
             this.btnDateRange.Size = new System.Drawing.Size(197, 36);
             this.btnDateRange.TabIndex = 2;
@@ -81,7 +110,7 @@ namespace Schedule_Database_Desktop_Version
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(256, 74);
+            this.btnSearch.Location = new System.Drawing.Point(324, 74);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(197, 36);
             this.btnSearch.TabIndex = 3;
@@ -93,7 +122,7 @@ namespace Schedule_Database_Desktop_Version
             // btnNewRecord
             // 
             this.btnNewRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewRecord.Location = new System.Drawing.Point(256, 32);
+            this.btnNewRecord.Location = new System.Drawing.Point(324, 32);
             this.btnNewRecord.Name = "btnNewRecord";
             this.btnNewRecord.Size = new System.Drawing.Size(197, 36);
             this.btnNewRecord.TabIndex = 4;
@@ -141,7 +170,7 @@ namespace Schedule_Database_Desktop_Version
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(256, 242);
+            this.btnDelete.Location = new System.Drawing.Point(324, 242);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(197, 36);
             this.btnDelete.TabIndex = 10;
@@ -153,7 +182,7 @@ namespace Schedule_Database_Desktop_Version
             // btnRptOpenReq
             // 
             this.btnRptOpenReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRptOpenReq.Location = new System.Drawing.Point(475, 200);
+            this.btnRptOpenReq.Location = new System.Drawing.Point(603, 200);
             this.btnRptOpenReq.Name = "btnRptOpenReq";
             this.btnRptOpenReq.Size = new System.Drawing.Size(197, 36);
             this.btnRptOpenReq.TabIndex = 11;
@@ -165,7 +194,7 @@ namespace Schedule_Database_Desktop_Version
             // btnRptClosedEsc
             // 
             this.btnRptClosedEsc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRptClosedEsc.Location = new System.Drawing.Point(475, 116);
+            this.btnRptClosedEsc.Location = new System.Drawing.Point(603, 116);
             this.btnRptClosedEsc.Name = "btnRptClosedEsc";
             this.btnRptClosedEsc.Size = new System.Drawing.Size(197, 36);
             this.btnRptClosedEsc.TabIndex = 12;
@@ -177,7 +206,7 @@ namespace Schedule_Database_Desktop_Version
             // btnRptOpenEsc
             // 
             this.btnRptOpenEsc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRptOpenEsc.Location = new System.Drawing.Point(475, 74);
+            this.btnRptOpenEsc.Location = new System.Drawing.Point(603, 74);
             this.btnRptOpenEsc.Name = "btnRptOpenEsc";
             this.btnRptOpenEsc.Size = new System.Drawing.Size(197, 36);
             this.btnRptOpenEsc.TabIndex = 13;
@@ -189,7 +218,7 @@ namespace Schedule_Database_Desktop_Version
             // btnRptAllOpen
             // 
             this.btnRptAllOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRptAllOpen.Location = new System.Drawing.Point(475, 32);
+            this.btnRptAllOpen.Location = new System.Drawing.Point(603, 32);
             this.btnRptAllOpen.Name = "btnRptAllOpen";
             this.btnRptAllOpen.Size = new System.Drawing.Size(197, 36);
             this.btnRptAllOpen.TabIndex = 14;
@@ -201,7 +230,7 @@ namespace Schedule_Database_Desktop_Version
             // btnRpeClosedReq
             // 
             this.btnRpeClosedReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRpeClosedReq.Location = new System.Drawing.Point(475, 242);
+            this.btnRpeClosedReq.Location = new System.Drawing.Point(603, 242);
             this.btnRpeClosedReq.Name = "btnRpeClosedReq";
             this.btnRpeClosedReq.Size = new System.Drawing.Size(197, 36);
             this.btnRpeClosedReq.TabIndex = 15;
@@ -224,7 +253,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(265, 9);
+            this.label2.Location = new System.Drawing.Point(333, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(176, 20);
             this.label2.TabIndex = 17;
@@ -234,7 +263,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(531, 9);
+            this.label3.Location = new System.Drawing.Point(659, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 20);
             this.label3.TabIndex = 18;
@@ -243,7 +272,7 @@ namespace Schedule_Database_Desktop_Version
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(475, 355);
+            this.btnExit.Location = new System.Drawing.Point(660, 464);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(197, 36);
             this.btnExit.TabIndex = 19;
@@ -279,7 +308,7 @@ namespace Schedule_Database_Desktop_Version
             // btnRestore
             // 
             this.btnRestore.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestore.Location = new System.Drawing.Point(256, 284);
+            this.btnRestore.Location = new System.Drawing.Point(324, 284);
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(197, 36);
             this.btnRestore.TabIndex = 22;
@@ -291,7 +320,7 @@ namespace Schedule_Database_Desktop_Version
             // btnDateRangeRep
             // 
             this.btnDateRangeRep.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDateRangeRep.Location = new System.Drawing.Point(256, 200);
+            this.btnDateRangeRep.Location = new System.Drawing.Point(324, 200);
             this.btnDateRangeRep.Name = "btnDateRangeRep";
             this.btnDateRangeRep.Size = new System.Drawing.Size(197, 36);
             this.btnDateRangeRep.TabIndex = 23;
@@ -303,7 +332,7 @@ namespace Schedule_Database_Desktop_Version
             // btnCanceledLabReq
             // 
             this.btnCanceledLabReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCanceledLabReq.Location = new System.Drawing.Point(475, 284);
+            this.btnCanceledLabReq.Location = new System.Drawing.Point(603, 284);
             this.btnCanceledLabReq.Name = "btnCanceledLabReq";
             this.btnCanceledLabReq.Size = new System.Drawing.Size(197, 36);
             this.btnCanceledLabReq.TabIndex = 25;
@@ -315,7 +344,7 @@ namespace Schedule_Database_Desktop_Version
             // btnCanceledEscalations
             // 
             this.btnCanceledEscalations.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCanceledEscalations.Location = new System.Drawing.Point(475, 158);
+            this.btnCanceledEscalations.Location = new System.Drawing.Point(603, 158);
             this.btnCanceledEscalations.Name = "btnCanceledEscalations";
             this.btnCanceledEscalations.Size = new System.Drawing.Size(197, 36);
             this.btnCanceledEscalations.TabIndex = 26;
@@ -324,11 +353,263 @@ namespace Schedule_Database_Desktop_Version
             this.btnCanceledEscalations.UseVisualStyleBackColor = true;
             this.btnCanceledEscalations.Click += new System.EventHandler(this.btnCanceledEscalations_Click);
             // 
+            // gpDashboard
+            // 
+            this.gpDashboard.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gpDashboard.Controls.Add(this.btnRefresh);
+            this.gpDashboard.Controls.Add(this.panel2);
+            this.gpDashboard.Controls.Add(this.panel1);
+            this.gpDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpDashboard.Location = new System.Drawing.Point(20, 356);
+            this.gpDashboard.Name = "gpDashboard";
+            this.gpDashboard.Size = new System.Drawing.Size(618, 208);
+            this.gpDashboard.TabIndex = 27;
+            this.gpDashboard.TabStop = false;
+            this.gpDashboard.Text = "Dashboard";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnRefresh.Location = new System.Drawing.Point(273, 99);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 33);
+            this.btnRefresh.TabIndex = 12;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel2.Controls.Add(this.txtLRClosedThisWeek);
+            this.panel2.Controls.Add(this.txtLRCOpenedThisWeek);
+            this.panel2.Controls.Add(this.txtLRCurrentlyOpen);
+            this.panel2.Controls.Add(this.txtLRClosedYTD);
+            this.panel2.Controls.Add(this.txtLROpenedYTD);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Location = new System.Drawing.Point(368, 30);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(227, 168);
+            this.panel2.TabIndex = 11;
+            // 
+            // txtLRClosedThisWeek
+            // 
+            this.txtLRClosedThisWeek.Location = new System.Drawing.Point(163, 131);
+            this.txtLRClosedThisWeek.Name = "txtLRClosedThisWeek";
+            this.txtLRClosedThisWeek.Size = new System.Drawing.Size(51, 26);
+            this.txtLRClosedThisWeek.TabIndex = 10;
+            // 
+            // txtLRCOpenedThisWeek
+            // 
+            this.txtLRCOpenedThisWeek.Location = new System.Drawing.Point(163, 105);
+            this.txtLRCOpenedThisWeek.Name = "txtLRCOpenedThisWeek";
+            this.txtLRCOpenedThisWeek.Size = new System.Drawing.Size(51, 26);
+            this.txtLRCOpenedThisWeek.TabIndex = 9;
+            // 
+            // txtLRCurrentlyOpen
+            // 
+            this.txtLRCurrentlyOpen.Location = new System.Drawing.Point(163, 79);
+            this.txtLRCurrentlyOpen.Name = "txtLRCurrentlyOpen";
+            this.txtLRCurrentlyOpen.Size = new System.Drawing.Size(51, 26);
+            this.txtLRCurrentlyOpen.TabIndex = 8;
+            // 
+            // txtLRClosedYTD
+            // 
+            this.txtLRClosedYTD.Location = new System.Drawing.Point(163, 53);
+            this.txtLRClosedYTD.Name = "txtLRClosedYTD";
+            this.txtLRClosedYTD.Size = new System.Drawing.Size(51, 26);
+            this.txtLRClosedYTD.TabIndex = 7;
+            // 
+            // txtLROpenedYTD
+            // 
+            this.txtLROpenedYTD.Location = new System.Drawing.Point(163, 27);
+            this.txtLROpenedYTD.Name = "txtLROpenedYTD";
+            this.txtLROpenedYTD.Size = new System.Drawing.Size(51, 26);
+            this.txtLROpenedYTD.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(20, 134);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(136, 20);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Closed This Week";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 108);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(144, 20);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Opened This Week";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(37, 82);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(115, 20);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Currently Open";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(50, 56);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(94, 20);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Closed YTD";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(44, 30);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(102, 20);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Opened YTD";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(79, 6);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(109, 20);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Lab Requests";
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel1.Controls.Add(this.txtEscClosedThisWeek);
+            this.panel1.Controls.Add(this.txtEscOpenedThisWeek);
+            this.panel1.Controls.Add(this.txtEscCurrentlyOpen);
+            this.panel1.Controls.Add(this.txtEscClosedYTD);
+            this.panel1.Controls.Add(this.txtEscOpenedYTD);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Location = new System.Drawing.Point(24, 30);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(228, 168);
+            this.panel1.TabIndex = 9;
+            // 
+            // txtEscClosedThisWeek
+            // 
+            this.txtEscClosedThisWeek.Location = new System.Drawing.Point(166, 131);
+            this.txtEscClosedThisWeek.Name = "txtEscClosedThisWeek";
+            this.txtEscClosedThisWeek.Size = new System.Drawing.Size(51, 26);
+            this.txtEscClosedThisWeek.TabIndex = 10;
+            // 
+            // txtEscOpenedThisWeek
+            // 
+            this.txtEscOpenedThisWeek.Location = new System.Drawing.Point(166, 105);
+            this.txtEscOpenedThisWeek.Name = "txtEscOpenedThisWeek";
+            this.txtEscOpenedThisWeek.Size = new System.Drawing.Size(51, 26);
+            this.txtEscOpenedThisWeek.TabIndex = 9;
+            // 
+            // txtEscCurrentlyOpen
+            // 
+            this.txtEscCurrentlyOpen.Location = new System.Drawing.Point(166, 79);
+            this.txtEscCurrentlyOpen.Name = "txtEscCurrentlyOpen";
+            this.txtEscCurrentlyOpen.Size = new System.Drawing.Size(51, 26);
+            this.txtEscCurrentlyOpen.TabIndex = 8;
+            // 
+            // txtEscClosedYTD
+            // 
+            this.txtEscClosedYTD.Location = new System.Drawing.Point(166, 53);
+            this.txtEscClosedYTD.Name = "txtEscClosedYTD";
+            this.txtEscClosedYTD.Size = new System.Drawing.Size(51, 26);
+            this.txtEscClosedYTD.TabIndex = 7;
+            // 
+            // txtEscOpenedYTD
+            // 
+            this.txtEscOpenedYTD.Location = new System.Drawing.Point(166, 27);
+            this.txtEscOpenedYTD.Name = "txtEscOpenedYTD";
+            this.txtEscOpenedYTD.Size = new System.Drawing.Size(51, 26);
+            this.txtEscOpenedYTD.TabIndex = 6;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(20, 134);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(136, 20);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Closed This Week";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 108);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(144, 20);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Opened This Week";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(37, 82);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 20);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Currently Open";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(50, 56);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(94, 20);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Closed YTD";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(44, 30);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(102, 20);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Opened YTD";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(79, 6);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(91, 20);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Escalations";
+            // 
             // frmAltMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 414);
+            this.ClientSize = new System.Drawing.Size(872, 572);
+            this.Controls.Add(this.gpDashboard);
             this.Controls.Add(this.btnCanceledEscalations);
             this.Controls.Add(this.btnCanceledLabReq);
             this.Controls.Add(this.btnDateRangeRep);
@@ -355,6 +636,11 @@ namespace Schedule_Database_Desktop_Version
             this.Name = "frmAltMainMenu";
             this.Text = "Main Menu";
             this.Load += new System.EventHandler(this.frmAltMainMenu_Load);
+            this.gpDashboard.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,5 +670,31 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Button btnDateRangeRep;
         private System.Windows.Forms.Button btnCanceledLabReq;
         private System.Windows.Forms.Button btnCanceledEscalations;
+        private System.Windows.Forms.GroupBox gpDashboard;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtLRClosedThisWeek;
+        private System.Windows.Forms.TextBox txtLRCOpenedThisWeek;
+        private System.Windows.Forms.TextBox txtLRCurrentlyOpen;
+        private System.Windows.Forms.TextBox txtLRClosedYTD;
+        private System.Windows.Forms.TextBox txtLROpenedYTD;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtEscClosedThisWeek;
+        private System.Windows.Forms.TextBox txtEscOpenedThisWeek;
+        private System.Windows.Forms.TextBox txtEscCurrentlyOpen;
+        private System.Windows.Forms.TextBox txtEscClosedYTD;
+        private System.Windows.Forms.TextBox txtEscOpenedYTD;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
     }
 }

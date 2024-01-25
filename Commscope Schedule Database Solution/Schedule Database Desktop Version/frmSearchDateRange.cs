@@ -14,6 +14,7 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmSearchDateRange : Form
     {
+        private string recordType = "";
         private string searchTerm = "";
         public frmSearchDateRange()
         {
@@ -26,7 +27,8 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnSearchDateRange_Click(object sender, EventArgs e)
         {
-            List<LabEscModel> model  = GlobalConfig.Connection.DateRangeSearch(dtpStartDateRange.Value, dtpEndDateRange.Value, searchTerm);
+            List<LabEscModel> model  = GlobalConfig.Connection.DateRangeSearch(dtpStartDateRange.Value, dtpEndDateRange.Value, 
+                searchTerm, recordType);
             switch (model.Count)
             {
                 case 0:
@@ -89,6 +91,12 @@ namespace Schedule_Database_Desktop_Version
         private void btnCloseForm_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void rdoEscalation_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton radioButton = (RadioButton)sender;
+            recordType = radioButton.Tag.ToString();
         }
     }
 }
