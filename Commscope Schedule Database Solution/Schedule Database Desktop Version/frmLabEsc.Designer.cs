@@ -107,10 +107,10 @@ namespace Schedule_Database_Desktop_Version
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnTabSave = new System.Windows.Forms.Button();
             this.rtxSerialNumbers = new System.Windows.Forms.RichTextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.btnTabSave = new System.Windows.Forms.Button();
             this.dtpContextMenu.SuspendLayout();
             this.rtbContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
@@ -646,9 +646,9 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnSave.Location = new System.Drawing.Point(898, 803);
+            this.btnSave.Location = new System.Drawing.Point(937, 802);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(197, 45);
+            this.btnSave.Size = new System.Drawing.Size(136, 45);
             this.btnSave.TabIndex = 34;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -658,9 +658,9 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnClose.Location = new System.Drawing.Point(1079, 802);
+            this.btnClose.Location = new System.Drawing.Point(1103, 801);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(153, 45);
+            this.btnClose.Size = new System.Drawing.Size(129, 45);
             this.btnClose.TabIndex = 40;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -1091,6 +1091,18 @@ namespace Schedule_Database_Desktop_Version
             this.tabPage2.Text = "Additional Fields";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnTabSave
+            // 
+            this.btnTabSave.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnTabSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnTabSave.Location = new System.Drawing.Point(1022, 814);
+            this.btnTabSave.Name = "btnTabSave";
+            this.btnTabSave.Size = new System.Drawing.Size(153, 45);
+            this.btnTabSave.TabIndex = 216;
+            this.btnTabSave.Text = "Save";
+            this.btnTabSave.UseVisualStyleBackColor = true;
+            this.btnTabSave.Click += new System.EventHandler(this.btnTabSave_Click);
+            // 
             // rtxSerialNumbers
             // 
             this.rtxSerialNumbers.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1124,18 +1136,6 @@ namespace Schedule_Database_Desktop_Version
             this.label21.Size = new System.Drawing.Size(89, 20);
             this.label21.TabIndex = 213;
             this.label21.Text = "Description";
-            // 
-            // btnTabSave
-            // 
-            this.btnTabSave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnTabSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnTabSave.Location = new System.Drawing.Point(1022, 814);
-            this.btnTabSave.Name = "btnTabSave";
-            this.btnTabSave.Size = new System.Drawing.Size(153, 45);
-            this.btnTabSave.TabIndex = 216;
-            this.btnTabSave.Text = "Save";
-            this.btnTabSave.UseVisualStyleBackColor = true;
-            this.btnTabSave.Click += new System.EventHandler(this.btnTabSave_Click);
             // 
             // frmLabEsc
             // 
