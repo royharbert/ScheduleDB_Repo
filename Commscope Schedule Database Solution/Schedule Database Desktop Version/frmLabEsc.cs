@@ -869,6 +869,10 @@ namespace Schedule_Database_Desktop_Version
             dgvAttachments.Columns[3].HeaderText = "Item Type";
             dgvAttachments.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvAttachments.Columns[3].DefaultCellStyle.ForeColor = Color.Black;
+
+            dgvAttachments.Columns[5].HeaderText = "Date Added";
+            dgvAttachments.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvAttachments.Columns[5].DefaultCellStyle.ForeColor = Color.Black;
         }
 
         private List<AttachmentModel> getAttachments(string pid)
@@ -903,7 +907,7 @@ namespace Schedule_Database_Desktop_Version
                 string fileName = Path.GetFileName(fullFileName);
                 model.FileToSave = fullFileName;
                 model.DisplayText = fileName;
-                //FC.SetFormPosition(frm);
+                model.DateAdded = DateTime.Now.Date;
                 this.BringToFront();
                 frm.ShowDialog();
             }

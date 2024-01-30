@@ -28,6 +28,10 @@ namespace ScheduleDatabaseClassLibrary.Models
         /// Filename of file to save
         /// </summary>
         public string FileToSave { get; set; }
+        /// <summary>
+        /// Date attachment was added to database
+        /// </summary>
+        public DateTime DateAdded { get; set; }
 
 
         public AttachmentModel()
@@ -35,11 +39,13 @@ namespace ScheduleDatabaseClassLibrary.Models
 
         }
 
-        public AttachmentModel(string pID, string displayText, string itemType, string serverPath, string fileToSave)
+        public AttachmentModel(string pID, string displayText, string itemType, string serverPath, string fileToSave,
+            DateTime dateAdded)
         {
             PID = pID;
             DisplayText = displayText;
-            ItemType = itemType;            
+            ItemType = itemType;
+            DateAdded = dateAdded;
         }
     }
 }

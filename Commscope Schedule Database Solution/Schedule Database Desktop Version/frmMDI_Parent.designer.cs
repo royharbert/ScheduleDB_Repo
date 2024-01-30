@@ -443,7 +443,7 @@ namespace Schedule_Database_Desktop_Version
             this.gpDashboard.Controls.Add(this.panel2);
             this.gpDashboard.Controls.Add(this.panel1);
             this.gpDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpDashboard.Location = new System.Drawing.Point(0, 31);
+            this.gpDashboard.Location = new System.Drawing.Point(616, 28);
             this.gpDashboard.Name = "gpDashboard";
             this.gpDashboard.Size = new System.Drawing.Size(618, 208);
             this.gpDashboard.TabIndex = 11;

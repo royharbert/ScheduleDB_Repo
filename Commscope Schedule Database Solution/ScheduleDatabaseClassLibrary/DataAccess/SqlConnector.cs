@@ -608,6 +608,8 @@ namespace ScheduleDatabaseClassLibrary.DataAccess
                 p.Add("@ItemType", model.ItemType, DbType.String);
                 //Project ID
                 p.Add("@PID", model.PID, DbType.String);
+                //DateAdded
+                p.Add("@DateAdded", model.DateAdded, DbType.String);
                 connection.Execute("spAttachment_Insert", p, commandType: CommandType.StoredProcedure);
             }
             //System.Windows.Forms.MessageBox.Show("Operation Complete");
