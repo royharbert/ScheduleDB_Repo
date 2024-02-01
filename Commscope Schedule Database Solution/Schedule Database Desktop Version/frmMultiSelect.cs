@@ -253,22 +253,36 @@ namespace Schedule_Database_Desktop_Version
            
         }
 
-        //private void excelExportFormatLabRequest(Excel.Worksheet wks)
-        //{
-        //    wks.get_Range("1:1").HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-        //    wks.Columns[1].Columnwidth = 26;
-        //    wks.Columns[2].Columnwidth = 26;
-        //    wks.Columns[3].Columnwidth = 15;
-        //    wks.Columns[4].Columnwidth = 15;
-        //    wks.Columns[5].Columnwidth = 15;
-        //    wks.Columns[6].Columnwidth = 50;
-        //    wks.Columns[7].Columnwidth = 50;
-          
-        //}
-
         private void frmMultiSelect_Load(object sender, EventArgs e)
         {
             FC.SetFormPosition(this);
+        }
+
+        private void dgvResults_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int selectedRow = dgvResults.CurrentRow.Index;
+            //CustomerModel customer;
+            switch (GV.MODE)
+            {
+                case Mode.LabEscSearch:
+                case Mode.LabEscEdit:
+                case Mode.OpenEscByDate:
+                case Mode.LabEscReport:
+                case Mode.LabEscDelete:
+                    LabEscModel request = requests[selectedRow];
+                    frmLabEsc escForm = new frmLabEsc();
+                    escForm.fillComboBoxes();
+                    escForm.FillProductList();
+                    escForm.DisplayForm = escForm;
+                    escForm.Show();
+                    escForm.LabEsc = request;
+                    break;
+                case Mode.None:
+                    break;
+                default:
+                    break;
+            }
+            this.Close();
         }
     }
 }

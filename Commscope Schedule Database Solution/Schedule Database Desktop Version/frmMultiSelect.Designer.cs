@@ -46,9 +46,11 @@ namespace Schedule_Database_Desktop_Version
             this.dgvResults.Location = new System.Drawing.Point(29, 3);
             this.dgvResults.Margin = new System.Windows.Forms.Padding(4);
             this.dgvResults.Name = "dgvResults";
+            this.dgvResults.RowHeadersVisible = false;
             this.dgvResults.RowHeadersWidth = 51;
             this.dgvResults.Size = new System.Drawing.Size(1850, 650);
             this.dgvResults.TabIndex = 0;
+            this.dgvResults.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellContentDoubleClick);
             this.dgvResults.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvResults_RowHeaderMouseClick);
             // 
             // txtCount
@@ -56,7 +58,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtCount.Location = new System.Drawing.Point(188, 680);
             this.txtCount.Margin = new System.Windows.Forms.Padding(4);
             this.txtCount.Name = "txtCount";
-            this.txtCount.Size = new System.Drawing.Size(79, 23);
+            this.txtCount.Size = new System.Drawing.Size(79, 20);
             this.txtCount.TabIndex = 1;
             // 
             // label1
@@ -65,7 +67,7 @@ namespace Schedule_Database_Desktop_Version
             this.label1.Location = new System.Drawing.Point(62, 683);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 17);
+            this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Records found";
             // 
@@ -82,7 +84,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // frmMultiSelect
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1914, 753);
             this.Controls.Add(this.btnExport);

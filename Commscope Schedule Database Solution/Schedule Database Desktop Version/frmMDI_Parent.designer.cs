@@ -114,7 +114,7 @@ namespace Schedule_Database_Desktop_Version
             this.altMenuToolStripMenuItem});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(1234, 28);
+            this.mnuMain.Size = new System.Drawing.Size(1554, 28);
             this.mnuMain.TabIndex = 2;
             this.mnuMain.Text = "menuStrip1";
             // 
@@ -420,7 +420,7 @@ namespace Schedule_Database_Desktop_Version
             this.pbLive.Location = new System.Drawing.Point(0, 28);
             this.pbLive.Margin = new System.Windows.Forms.Padding(2);
             this.pbLive.Name = "pbLive";
-            this.pbLive.Size = new System.Drawing.Size(1234, 658);
+            this.pbLive.Size = new System.Drawing.Size(1554, 658);
             this.pbLive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLive.TabIndex = 6;
             this.pbLive.TabStop = false;
@@ -432,7 +432,7 @@ namespace Schedule_Database_Desktop_Version
             this.pbSandbox.Location = new System.Drawing.Point(0, 28);
             this.pbSandbox.Margin = new System.Windows.Forms.Padding(2);
             this.pbSandbox.Name = "pbSandbox";
-            this.pbSandbox.Size = new System.Drawing.Size(1234, 658);
+            this.pbSandbox.Size = new System.Drawing.Size(1554, 658);
             this.pbSandbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSandbox.TabIndex = 4;
             this.pbSandbox.TabStop = false;
@@ -693,7 +693,7 @@ namespace Schedule_Database_Desktop_Version
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1234, 686);
+            this.ClientSize = new System.Drawing.Size(1554, 686);
             this.Controls.Add(this.gpDashboard);
             this.Controls.Add(this.pbLive);
             this.Controls.Add(this.pbSandbox);

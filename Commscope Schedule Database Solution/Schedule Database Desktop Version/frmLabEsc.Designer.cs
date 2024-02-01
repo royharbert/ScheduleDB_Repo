@@ -124,11 +124,11 @@ namespace Schedule_Database_Desktop_Version
             // txtRecordID
             // 
             this.txtRecordID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtRecordID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.txtRecordID.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRecordID.Location = new System.Drawing.Point(530, 23);
             this.txtRecordID.Name = "txtRecordID";
             this.txtRecordID.ReadOnly = true;
-            this.txtRecordID.Size = new System.Drawing.Size(483, 22);
+            this.txtRecordID.Size = new System.Drawing.Size(483, 28);
             this.txtRecordID.TabIndex = 200;
             this.txtRecordID.TabStop = false;
             this.txtRecordID.Tag = "EscID";
@@ -673,10 +673,11 @@ namespace Schedule_Database_Desktop_Version
             this.dgvAttachments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAttachments.Location = new System.Drawing.Point(401, 414);
             this.dgvAttachments.Name = "dgvAttachments";
+            this.dgvAttachments.RowHeadersVisible = false;
             this.dgvAttachments.RowHeadersWidth = 62;
             this.dgvAttachments.Size = new System.Drawing.Size(808, 243);
             this.dgvAttachments.TabIndex = 23;
-            this.dgvAttachments.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAttachments_RowHeaderMouseClick);
+            this.dgvAttachments.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAttachments_CellContentDoubleClick);
             // 
             // label24
             // 
