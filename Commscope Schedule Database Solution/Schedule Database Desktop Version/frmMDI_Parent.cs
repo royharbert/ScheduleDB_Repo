@@ -18,11 +18,13 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmAMDI_Parent : Form
     {
+        DashboardData dashboardData = new DashboardData();
         public frmAMDI_Parent()
         {
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             CheckForUpdates();
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+
             InitializeComponent();
             GV.ActiveScreen = Properties.Settings.Default.ActiveScreen;
             FC.SetFormPosition(this);
@@ -72,19 +74,19 @@ namespace Schedule_Database_Desktop_Version
 
         private void DashboardRefresh()
         {
-            DashboardData data = new DashboardData();
-            data = data.RefreshDashboard();
+            //DashboardData data = new DashboardData();
+            dashboardData = dashboardData.RefreshDashboard();
 
-            txtEscClosedThisWeek.Text = data.EscalationsClosedThisWeek.ToString();
-            txtEscClosedYTD.Text = data.EscalationsClosedYTD.ToString();
-            txtEscCurrentlyOpen.Text = data.EscalationsCurrentlyOpen.ToString();
-            txtEscOpenedThisWeek.Text = data.EscalationsOpenedThisWeek.ToString();
-            txtEscOpenedYTD.Text = data.EscalationsOpenedYTD.ToString();
-            txtLRClosedThisWeek.Text = data.LabRequestsClosedThisWeek.ToString();
-            txtLRClosedYTD.Text = data.LabRequestsClosedYTD.ToString();
-            txtLRCOpenedThisWeek.Text = data.LabRequestsOpenedThisWeek.ToString();
-            txtLRCurrentlyOpen.Text = data.LabRequestsCurrentlyOpen.ToString();
-            txtLROpenedYTD.Text = data.LabRequestsOpenedYTD.ToString();
+            txtEscClosedThisWeek.Text = dashboardData.EscalationsClosedThisWeek.Count.ToString();
+            txtEscClosedYTD.Text = dashboardData.EscalationsClosedYTD.Count.ToString();
+            txtEscCurrentlyOpen.Text = dashboardData.EscalationsCurrentlyOpen.Count.ToString();
+            txtEscOpenedThisWeek.Text = dashboardData.EscalationsOpenedThisWeek.Count.ToString();
+            txtEscOpenedYTD.Text = dashboardData.EscalationsOpenedYTD.Count.ToString();
+            txtLRClosedThisWeek.Text = dashboardData.LabRequestsClosedThisWeek.Count.ToString();
+            txtLRClosedYTD.Text = dashboardData.LabRequestsClosedYTD.Count.ToString();
+            txtLRCOpenedThisWeek.Text = dashboardData.LabRequestsOpenedThisWeek.Count.ToString();
+            txtLRCurrentlyOpen.Text = dashboardData.LabRequestsCurrentlyOpen.Count.ToString();
+            txtLROpenedYTD.Text = dashboardData.LabRequestsOpenedYTD.Count.ToString();
         }
 
         public void SetMenuAccess()
@@ -455,6 +457,76 @@ namespace Schedule_Database_Desktop_Version
         {
             frmAltMainMenu alternativeMenu = new frmAltMainMenu();
             alternativeMenu.ShowDialog();
+        }
+
+        private void btnEscOpenedYTD_Click(object sender, EventArgs e)
+        {
+            frmMultiSelect listForm = new frmMultiSelect();
+            listForm.LabRequests = dashboardData.EscalationsOpenedYTD;
+            listForm.ShowDialog();
+        }
+
+        private void btnEscClosedYTD_Click(object sender, EventArgs e)
+        {
+            frmMultiSelect listForm = new frmMultiSelect();
+            listForm.LabRequests = dashboardData.EscalationsClosedYTD;
+            listForm.ShowDialog();
+        }
+
+        private void btnEscCurrentlyOpen_Click(object sender, EventArgs e)
+        {
+            frmMultiSelect listForm = new frmMultiSelect();
+            listForm.LabRequests = dashboardData.EscalationsCurrentlyOpen;
+            listForm.ShowDialog();
+        }
+
+        private void btnEscOpenedThisWeek_Click(object sender, EventArgs e)
+        {
+            frmMultiSelect listForm = new frmMultiSelect();
+            listForm.LabRequests = dashboardData.EscalationsOpenedThisWeek;
+            listForm.ShowDialog();
+        }
+
+        private void btnEscClosedThisWeek_Click(object sender, EventArgs e)
+        {
+            frmMultiSelect listForm = new frmMultiSelect();
+            listForm.LabRequests = dashboardData.EscalationsClosedThisWeek;
+            listForm.ShowDialog();
+        }
+
+        private void btnReqOpenedYTD_Click(object sender, EventArgs e)
+        {
+            frmMultiSelect listForm = new frmMultiSelect();
+            listForm.LabRequests = dashboardData.LabRequestsOpenedYTD;
+            listForm.ShowDialog();
+        }
+
+        private void btnReqClosedYTD_Click(object sender, EventArgs e)
+        {
+            frmMultiSelect listForm = new frmMultiSelect();
+            listForm.LabRequests = dashboardData.LabRequestsClosedYTD;
+            listForm.ShowDialog();
+        }
+
+        private void btnReqCurrentlyOpen_Click(object sender, EventArgs e)
+        {
+            frmMultiSelect listForm = new frmMultiSelect();
+            listForm.LabRequests = dashboardData.LabRequestsCurrentlyOpen;
+            listForm.ShowDialog();
+        }
+
+        private void btnReqOpenedThisWeek_Click(object sender, EventArgs e)
+        {
+            frmMultiSelect listForm = new frmMultiSelect();
+            listForm.LabRequests = dashboardData.LabRequestsOpenedThisWeek;
+            listForm.ShowDialog();
+        }
+
+        private void btnReqClosedThisWeek_Click(object sender, EventArgs e)
+        {
+            frmMultiSelect listForm = new frmMultiSelect();
+            listForm.LabRequests = dashboardData.LabRequestsClosedThisWeek;
+            listForm.ShowDialog();
         }
     }
 }

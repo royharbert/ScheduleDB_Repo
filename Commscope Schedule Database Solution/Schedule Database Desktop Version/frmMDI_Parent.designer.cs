@@ -70,6 +70,11 @@ namespace Schedule_Database_Desktop_Version
             this.gpDashboard = new System.Windows.Forms.GroupBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnReqClosedThisWeek = new System.Windows.Forms.Button();
+            this.btnReqOpenedThisWeek = new System.Windows.Forms.Button();
+            this.btnReqCurrentlyOpen = new System.Windows.Forms.Button();
+            this.btnReqClosedYTD = new System.Windows.Forms.Button();
+            this.btnReqOpenedYTD = new System.Windows.Forms.Button();
             this.txtLRClosedThisWeek = new System.Windows.Forms.TextBox();
             this.txtLRCOpenedThisWeek = new System.Windows.Forms.TextBox();
             this.txtLRCurrentlyOpen = new System.Windows.Forms.TextBox();
@@ -82,6 +87,11 @@ namespace Schedule_Database_Desktop_Version
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEscClosedThisWeek = new System.Windows.Forms.Button();
+            this.btnEscOpenedThisWeek = new System.Windows.Forms.Button();
+            this.btnEscCurrentlyOpen = new System.Windows.Forms.Button();
+            this.btnEscClosedYTD = new System.Windows.Forms.Button();
+            this.btnEscOpenedYTD = new System.Windows.Forms.Button();
             this.txtEscClosedThisWeek = new System.Windows.Forms.TextBox();
             this.txtEscOpenedThisWeek = new System.Windows.Forms.TextBox();
             this.txtEscCurrentlyOpen = new System.Windows.Forms.TextBox();
@@ -445,7 +455,7 @@ namespace Schedule_Database_Desktop_Version
             this.gpDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpDashboard.Location = new System.Drawing.Point(616, 28);
             this.gpDashboard.Name = "gpDashboard";
-            this.gpDashboard.Size = new System.Drawing.Size(618, 208);
+            this.gpDashboard.Size = new System.Drawing.Size(703, 208);
             this.gpDashboard.TabIndex = 11;
             this.gpDashboard.TabStop = false;
             this.gpDashboard.Text = "Dashboard";
@@ -453,7 +463,7 @@ namespace Schedule_Database_Desktop_Version
             // btnRefresh
             // 
             this.btnRefresh.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnRefresh.Location = new System.Drawing.Point(273, 99);
+            this.btnRefresh.Location = new System.Drawing.Point(315, 99);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 33);
             this.btnRefresh.TabIndex = 12;
@@ -464,6 +474,11 @@ namespace Schedule_Database_Desktop_Version
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel2.Controls.Add(this.btnReqClosedThisWeek);
+            this.panel2.Controls.Add(this.btnReqOpenedThisWeek);
+            this.panel2.Controls.Add(this.btnReqCurrentlyOpen);
+            this.panel2.Controls.Add(this.btnReqClosedYTD);
+            this.panel2.Controls.Add(this.btnReqOpenedYTD);
             this.panel2.Controls.Add(this.txtLRClosedThisWeek);
             this.panel2.Controls.Add(this.txtLRCOpenedThisWeek);
             this.panel2.Controls.Add(this.txtLRCurrentlyOpen);
@@ -475,10 +490,65 @@ namespace Schedule_Database_Desktop_Version
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label12);
-            this.panel2.Location = new System.Drawing.Point(368, 30);
+            this.panel2.Location = new System.Drawing.Point(410, 30);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(227, 168);
+            this.panel2.Size = new System.Drawing.Size(278, 168);
             this.panel2.TabIndex = 11;
+            // 
+            // btnReqClosedThisWeek
+            // 
+            this.btnReqClosedThisWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReqClosedThisWeek.Location = new System.Drawing.Point(220, 132);
+            this.btnReqClosedThisWeek.Name = "btnReqClosedThisWeek";
+            this.btnReqClosedThisWeek.Size = new System.Drawing.Size(51, 25);
+            this.btnReqClosedThisWeek.TabIndex = 20;
+            this.btnReqClosedThisWeek.Text = "List";
+            this.btnReqClosedThisWeek.UseVisualStyleBackColor = true;
+            this.btnReqClosedThisWeek.Click += new System.EventHandler(this.btnReqClosedThisWeek_Click);
+            // 
+            // btnReqOpenedThisWeek
+            // 
+            this.btnReqOpenedThisWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReqOpenedThisWeek.Location = new System.Drawing.Point(220, 106);
+            this.btnReqOpenedThisWeek.Name = "btnReqOpenedThisWeek";
+            this.btnReqOpenedThisWeek.Size = new System.Drawing.Size(51, 25);
+            this.btnReqOpenedThisWeek.TabIndex = 19;
+            this.btnReqOpenedThisWeek.Text = "List";
+            this.btnReqOpenedThisWeek.UseVisualStyleBackColor = true;
+            this.btnReqOpenedThisWeek.Click += new System.EventHandler(this.btnReqOpenedThisWeek_Click);
+            // 
+            // btnReqCurrentlyOpen
+            // 
+            this.btnReqCurrentlyOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReqCurrentlyOpen.Location = new System.Drawing.Point(220, 80);
+            this.btnReqCurrentlyOpen.Name = "btnReqCurrentlyOpen";
+            this.btnReqCurrentlyOpen.Size = new System.Drawing.Size(51, 25);
+            this.btnReqCurrentlyOpen.TabIndex = 18;
+            this.btnReqCurrentlyOpen.Text = "List";
+            this.btnReqCurrentlyOpen.UseVisualStyleBackColor = true;
+            this.btnReqCurrentlyOpen.Click += new System.EventHandler(this.btnReqCurrentlyOpen_Click);
+            // 
+            // btnReqClosedYTD
+            // 
+            this.btnReqClosedYTD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReqClosedYTD.Location = new System.Drawing.Point(220, 54);
+            this.btnReqClosedYTD.Name = "btnReqClosedYTD";
+            this.btnReqClosedYTD.Size = new System.Drawing.Size(51, 25);
+            this.btnReqClosedYTD.TabIndex = 17;
+            this.btnReqClosedYTD.Text = "List";
+            this.btnReqClosedYTD.UseVisualStyleBackColor = true;
+            this.btnReqClosedYTD.Click += new System.EventHandler(this.btnReqClosedYTD_Click);
+            // 
+            // btnReqOpenedYTD
+            // 
+            this.btnReqOpenedYTD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReqOpenedYTD.Location = new System.Drawing.Point(220, 28);
+            this.btnReqOpenedYTD.Name = "btnReqOpenedYTD";
+            this.btnReqOpenedYTD.Size = new System.Drawing.Size(51, 25);
+            this.btnReqOpenedYTD.TabIndex = 16;
+            this.btnReqOpenedYTD.Text = "List";
+            this.btnReqOpenedYTD.UseVisualStyleBackColor = true;
+            this.btnReqOpenedYTD.Click += new System.EventHandler(this.btnReqOpenedYTD_Click);
             // 
             // txtLRClosedThisWeek
             // 
@@ -577,6 +647,11 @@ namespace Schedule_Database_Desktop_Version
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel1.Controls.Add(this.btnEscClosedThisWeek);
+            this.panel1.Controls.Add(this.btnEscOpenedThisWeek);
+            this.panel1.Controls.Add(this.btnEscCurrentlyOpen);
+            this.panel1.Controls.Add(this.btnEscClosedYTD);
+            this.panel1.Controls.Add(this.btnEscOpenedYTD);
             this.panel1.Controls.Add(this.txtEscClosedThisWeek);
             this.panel1.Controls.Add(this.txtEscOpenedThisWeek);
             this.panel1.Controls.Add(this.txtEscCurrentlyOpen);
@@ -588,10 +663,65 @@ namespace Schedule_Database_Desktop_Version
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(24, 30);
+            this.panel1.Location = new System.Drawing.Point(22, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(228, 168);
+            this.panel1.Size = new System.Drawing.Size(278, 168);
             this.panel1.TabIndex = 9;
+            // 
+            // btnEscClosedThisWeek
+            // 
+            this.btnEscClosedThisWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEscClosedThisWeek.Location = new System.Drawing.Point(222, 131);
+            this.btnEscClosedThisWeek.Name = "btnEscClosedThisWeek";
+            this.btnEscClosedThisWeek.Size = new System.Drawing.Size(51, 25);
+            this.btnEscClosedThisWeek.TabIndex = 15;
+            this.btnEscClosedThisWeek.Text = "List";
+            this.btnEscClosedThisWeek.UseVisualStyleBackColor = true;
+            this.btnEscClosedThisWeek.Click += new System.EventHandler(this.btnEscClosedThisWeek_Click);
+            // 
+            // btnEscOpenedThisWeek
+            // 
+            this.btnEscOpenedThisWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEscOpenedThisWeek.Location = new System.Drawing.Point(222, 105);
+            this.btnEscOpenedThisWeek.Name = "btnEscOpenedThisWeek";
+            this.btnEscOpenedThisWeek.Size = new System.Drawing.Size(51, 25);
+            this.btnEscOpenedThisWeek.TabIndex = 14;
+            this.btnEscOpenedThisWeek.Text = "List";
+            this.btnEscOpenedThisWeek.UseVisualStyleBackColor = true;
+            this.btnEscOpenedThisWeek.Click += new System.EventHandler(this.btnEscOpenedThisWeek_Click);
+            // 
+            // btnEscCurrentlyOpen
+            // 
+            this.btnEscCurrentlyOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEscCurrentlyOpen.Location = new System.Drawing.Point(222, 79);
+            this.btnEscCurrentlyOpen.Name = "btnEscCurrentlyOpen";
+            this.btnEscCurrentlyOpen.Size = new System.Drawing.Size(51, 25);
+            this.btnEscCurrentlyOpen.TabIndex = 13;
+            this.btnEscCurrentlyOpen.Text = "List";
+            this.btnEscCurrentlyOpen.UseVisualStyleBackColor = true;
+            this.btnEscCurrentlyOpen.Click += new System.EventHandler(this.btnEscCurrentlyOpen_Click);
+            // 
+            // btnEscClosedYTD
+            // 
+            this.btnEscClosedYTD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEscClosedYTD.Location = new System.Drawing.Point(222, 53);
+            this.btnEscClosedYTD.Name = "btnEscClosedYTD";
+            this.btnEscClosedYTD.Size = new System.Drawing.Size(51, 25);
+            this.btnEscClosedYTD.TabIndex = 12;
+            this.btnEscClosedYTD.Text = "List";
+            this.btnEscClosedYTD.UseVisualStyleBackColor = true;
+            this.btnEscClosedYTD.Click += new System.EventHandler(this.btnEscClosedYTD_Click);
+            // 
+            // btnEscOpenedYTD
+            // 
+            this.btnEscOpenedYTD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEscOpenedYTD.Location = new System.Drawing.Point(222, 27);
+            this.btnEscOpenedYTD.Name = "btnEscOpenedYTD";
+            this.btnEscOpenedYTD.Size = new System.Drawing.Size(51, 25);
+            this.btnEscOpenedYTD.TabIndex = 11;
+            this.btnEscOpenedYTD.Text = "List";
+            this.btnEscOpenedYTD.UseVisualStyleBackColor = true;
+            this.btnEscOpenedYTD.Click += new System.EventHandler(this.btnEscOpenedYTD_Click);
             // 
             // txtEscClosedThisWeek
             // 
@@ -787,5 +917,15 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.ToolStripMenuItem altMenuToolStripMenuItem;
+        private System.Windows.Forms.Button btnEscOpenedYTD;
+        private System.Windows.Forms.Button btnReqClosedThisWeek;
+        private System.Windows.Forms.Button btnReqOpenedThisWeek;
+        private System.Windows.Forms.Button btnReqCurrentlyOpen;
+        private System.Windows.Forms.Button btnReqClosedYTD;
+        private System.Windows.Forms.Button btnReqOpenedYTD;
+        private System.Windows.Forms.Button btnEscClosedThisWeek;
+        private System.Windows.Forms.Button btnEscOpenedThisWeek;
+        private System.Windows.Forms.Button btnEscCurrentlyOpen;
+        private System.Windows.Forms.Button btnEscClosedYTD;
     }
 }

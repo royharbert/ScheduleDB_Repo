@@ -10,91 +10,49 @@ namespace ScheduleDatabaseClassLibrary
 {
     public class DashboardData
     {
-        int _escalationsOpenedYTD;
-        int _escalationsOpenedThisWeek;
-        int _escalationsClosedYTD;
-        int _escalationsClosedThisWeek;
-        int _escalationsCurrentlyOpen;
-        int _LabRequestsOpenedYTD;
-        int _LabRequestsOpenedThisWeek;
-        int _LabRequestsClosedYTD;
-        int _LabRequestsClosedThisWeek;
-        int _LabRequestsCurrentlyOpen;
-
-
-        public int EscalationsOpenedYTD { get; set; }
-        public int EscalationsOpenedThisWeek { get; set; }
-        public int EscalationsClosedYTD { get; set; }
-        public int EscalationsClosedThisWeek { get; set; }
-        public int EscalationsCurrentlyOpen { get; set; }
-        public int LabRequestsOpenedYTD { get; set; }
-        public int LabRequestsOpenedThisWeek { get; set; }
-        public int LabRequestsClosedYTD { get; set; }
-        public int LabRequestsClosedThisWeek { get; set; }
-        public int LabRequestsCurrentlyOpen { get; set; }
+        public List<LabEscModel> EscalationsOpenedYTD { get; set; }
+        public List<LabEscModel> EscalationsOpenedThisWeek { get; set; }
+        public List<LabEscModel> EscalationsClosedYTD { get; set; }
+        public List<LabEscModel> EscalationsClosedThisWeek { get; set; }
+        public List<LabEscModel> EscalationsCurrentlyOpen { get; set; }
+        public List<LabEscModel> LabRequestsOpenedYTD { get; set; }
+        public List<LabEscModel> LabRequestsOpenedThisWeek { get; set; }
+        public List<LabEscModel> LabRequestsClosedYTD { get; set; }
+        public List<LabEscModel> LabRequestsClosedThisWeek { get; set; }
+        public List<LabEscModel> LabRequestsCurrentlyOpen { get; set; }
 
         public DashboardData()
         {
-            RefreshDashboard();
-            //EscalationsOpenedYTD = _escalationsOpenedYTD;
-            //EscalationsOpenedThisWeek = _escalationsOpenedThisWeek;
-            //EscalationsClosedYTD = _escalationsClosedYTD;
-            //EscalationsClosedThisWeek = _escalationsClosedThisWeek;
-            //EscalationsCurrentlyOpen = _escalationsCurrentlyOpen;
-            //LabRequestsOpenedYTD = _LabRequestsOpenedYTD;
-            //LabRequestsOpenedThisWeek = _LabRequestsOpenedThisWeek;
-            //LabRequestsClosedYTD = _LabRequestsClosedYTD;
-            //LabRequestsClosedThisWeek = _LabRequestsClosedThisWeek;
-            //LabRequestsCurrentlyOpen = _LabRequestsCurrentlyOpen;
+            RefreshDashboard();   
         }
         public DashboardData RefreshDashboard()
         {
-            //DashboardData data = new DashboardData();
+            DateTime today = DateTime.Now.Date;
+            TimeFrameModel timeFrame = new TimeFrameModel();
+            List<LabEscModel> allItems = GlobalConfig.Connection.GenericGetAll<LabEscModel>("tblEscalations", "EscID");
+            List<LabEscModel> escalationsList = allItems.Where(x => x.RecordType == "AT Escalation").ToList();
+            List<LabEscModel> requestsList = allItems.Where(x => x.RecordType == "Lab Request").ToList();
+            allItems = null;
 
-            int thisYear = DateTime.Now.Year;
-            DateTime newYearsDay = new DateTime(thisYear, 1, 1);
-            DateTime today = DateTime.Now;
-            int weekDay = (int)today.DayOfWeek;
-            int daysToMonday = weekDay - 1;
-            DateTime monday = today.AddDays(-daysToMonday);
-            DateTime sunday = monday.AddDays(6);
-            List<LabEscModel> escalationsYTD = GlobalConfig.Connection.DateRangeSearch(newYearsDay, today, "DateOpened",
-                "AT Escalation");
-            this.EscalationsOpenedYTD = escalationsYTD.Count;
+            this.EscalationsOpenedYTD = escalationsList.Where(x => x.DateOpened >= timeFrame.NewYearsDay 
+                &&  x.DateOpened <= today).ToList();
+            this.EscalationsOpenedThisWeek = escalationsList.Where(x => x.DateOpened >= timeFrame.MondaysDate
+                && x.DateOpened <= timeFrame.SundaysDate).ToList();
+            this.EscalationsCurrentlyOpen = escalationsList.Where(x => x.Status == "In process").ToList();
+            this.EscalationsClosedYTD = escalationsList.Where(x => x.DateCompleted >= timeFrame.NewYearsDay 
+                && x.DateCompleted <= today).ToList();
+            this.EscalationsClosedThisWeek = escalationsList.Where(x => x.DateCompleted >= timeFrame.MondaysDate
+                && x.DateCompleted <= today).ToList();
 
-            List<LabEscModel> labRequestsYTD = GlobalConfig.Connection.DateRangeSearch(newYearsDay, today, "DateOpened",
-                "Lab Request");
-            this.LabRequestsOpenedYTD = labRequestsYTD.Count;
-
-            List<LabEscModel> labRequestsClosedYTD = GlobalConfig.Connection.DateRangeSearch(newYearsDay, today, "DateCompleted",
-               "Lab Request");
-            this.LabRequestsClosedYTD = labRequestsClosedYTD.Count;
-
-            List<LabEscModel> escalationsClosedYTD = GlobalConfig.Connection.DateRangeSearch(newYearsDay, today,
-                "DateCompleted", "AT Escalation");
-            this.EscalationsClosedYTD = escalationsClosedYTD.Count;
-
-            List<LabEscModel> escalationsOpenedThisWeek = GlobalConfig.Connection.DateRangeSearch(monday, sunday,
-                 "DateOpened", "AT Escalation");
-            this.EscalationsOpenedThisWeek = escalationsOpenedThisWeek.Count;
-
-            List<LabEscModel> LabRequestsOpenedThisWeek = GlobalConfig.Connection.DateRangeSearch(monday, sunday,
-                "DateOpened", "Lab Request");
-            this.LabRequestsOpenedThisWeek = LabRequestsOpenedThisWeek.Count;
-
-            List<LabEscModel> escalationsClosedThisWeek = GlobalConfig.Connection.DateRangeSearch(monday, sunday,
-                 "DateCompleted", "AT Escalation");
-            this.EscalationsClosedThisWeek= escalationsClosedThisWeek.Count;
-
-            List<LabEscModel> LabRequestsClosedThisWeek = GlobalConfig.Connection.DateRangeSearch(monday, sunday,
-                "DateCompleted", "Lab Request");
-            this.LabRequestsClosedThisWeek = LabRequestsClosedThisWeek.Count;
-
-            List<LabEscModel> openEscalations = CommonOps.GetReportData("E", "I");
-            this.EscalationsCurrentlyOpen = openEscalations.Count;
-
-            List<LabEscModel> openLabRequests = CommonOps.GetReportData("L", "I");
-            this.LabRequestsCurrentlyOpen = openLabRequests.Count;
+            this.LabRequestsOpenedYTD = requestsList.Where(x => x.DateOpened >= timeFrame.NewYearsDay
+                && x.DateOpened <= today).ToList();
+            this.LabRequestsOpenedThisWeek = requestsList.Where(x => x.DateOpened >= timeFrame.MondaysDate
+                && x.DateOpened <= timeFrame.SundaysDate).ToList();
+            this.LabRequestsCurrentlyOpen = requestsList.Where(x => x.Status == "In process").ToList();
+            this.LabRequestsClosedYTD = requestsList.Where(x => x.DateCompleted >= timeFrame.NewYearsDay
+                && x.DateCompleted <= today).ToList();
+            this.LabRequestsClosedThisWeek = requestsList.Where(x => x.DateCompleted >= timeFrame.MondaysDate
+                && x.DateCompleted <= today).ToList();
 
             return this;
         }
