@@ -149,16 +149,16 @@ namespace Schedule_Database_Desktop_Version
             DashboardData data = new DashboardData();
             data = data.RefreshDashboard();
 
-            txtEscClosedThisWeek.Text = data.EscalationsClosedThisWeek.ToString();
-            txtEscClosedYTD.Text = data.EscalationsClosedYTD.ToString();
-            txtEscCurrentlyOpen.Text = data.EscalationsCurrentlyOpen.ToString();
-            txtEscOpenedThisWeek.Text = data.EscalationsOpenedThisWeek.ToString();
-            txtEscOpenedYTD.Text = data.EscalationsOpenedYTD.ToString();
-            txtLRClosedThisWeek.Text = data.LabRequestsClosedThisWeek.ToString();
-            txtLRClosedYTD.Text = data.LabRequestsClosedYTD.ToString();
-            txtLRCOpenedThisWeek.Text = data.LabRequestsOpenedThisWeek.ToString();
-            txtLRCurrentlyOpen.Text = data.LabRequestsCurrentlyOpen.ToString();
-            txtLROpenedYTD.Text = data.LabRequestsOpenedYTD.ToString();
+            txtEscClosedThisWeek.Text = data.EscalationsClosedThisWeek.Count.ToString();
+            txtEscClosedYTD.Text = data.EscalationsClosedYTD.Count.ToString();
+            txtEscCurrentlyOpen.Text = data.EscalationsCurrentlyOpen.Count.ToString();
+            txtEscOpenedThisWeek.Text = data.EscalationsOpenedThisWeek.Count.ToString();
+            txtEscOpenedYTD.Text = data.EscalationsOpenedYTD.Count.ToString();
+            txtLRClosedThisWeek.Text = data.LabRequestsClosedThisWeek.Count.ToString();
+            txtLRClosedYTD.Text = data.LabRequestsClosedYTD.Count.ToString();
+            txtLRCOpenedThisWeek.Text = data.LabRequestsOpenedThisWeek.Count.ToString();
+            txtLRCurrentlyOpen.Text = data.LabRequestsCurrentlyOpen.Count.ToString();
+            txtLROpenedYTD.Text = data.LabRequestsOpenedYTD.Count.ToString();
         }
 
         private void InputID_InputDataReady(object sender, InputDataReadyEventArgs e)

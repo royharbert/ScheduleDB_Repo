@@ -74,7 +74,6 @@ namespace Schedule_Database_Desktop_Version
 
         private void DashboardRefresh()
         {
-            //DashboardData data = new DashboardData();
             dashboardData = dashboardData.RefreshDashboard();
 
             txtEscClosedThisWeek.Text = dashboardData.EscalationsClosedThisWeek.Count.ToString();
