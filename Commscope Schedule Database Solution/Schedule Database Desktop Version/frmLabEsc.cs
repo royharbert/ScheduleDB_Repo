@@ -236,7 +236,8 @@ namespace Schedule_Database_Desktop_Version
                         foreach (var model in models)
                         {
                             if (model.FieldName == "Comments" | model.FieldName == "Description" | model.FieldName == "PSNumber" | model.FieldName == "Resolution"
-                                | model.FieldName == "CTRNum" | model.FieldName == "EscNum" | model.FieldName == "EscID" | model.FieldName == "TimeSpent" | model.FieldName == "SerialNumbers")
+                                | model.FieldName == "CTRNum" | model.FieldName == "EscNum" | model.FieldName == "EscID" | model.FieldName == "TimeSpent" | model.FieldName == "SerialNumbers" 
+                                | model.FieldName == "TrackingIn" | model.FieldName == "TrackingOut")
                             {
                                 whereClause = whereClause + " upper(" + model.FieldName + ") like  upper('%" + model.FieldValue + "%') and ";
                             }
@@ -347,6 +348,8 @@ namespace Schedule_Database_Desktop_Version
             string architecture = cboArchitecture.Text;
             string timeSpent = txtTimeSpent.Text;
             string serialNumbers = rtxSerialNumbers.Text;
+            string trackingIn = txtTrackInc.Text;
+            string trackingOut = txtTrackOut.Text;
 
             FieldSearchModel fsm = new FieldSearchModel();
             if (txtRecordID.Text != "")
@@ -465,10 +468,21 @@ namespace Schedule_Database_Desktop_Version
                 fsm = makeFSM(txtTimeSpent);
                 fsmList.Add(fsm);
             }
-            if(serialNumbers != "")
+            if (serialNumbers != "")
             {
                 fsm = makeFSM(rtxSerialNumbers);
                 fsmList.Add(fsm);
+            }
+            if (trackingIn != "")
+            {
+                fsm = makeFSM(txtTrackInc);
+                fsmList.Add(fsm);
+            }
+            if (trackingOut != "")
+            {
+                fsm = makeFSM(txtTrackOut);
+                fsmList.Add(fsm);
+
             }
             return fsmList;
         }
@@ -636,6 +650,8 @@ namespace Schedule_Database_Desktop_Version
             model.Architecture = cboArchitecture.Text;
             model.TimeSpent = txtTimeSpent.Text;
             model.SerialNumbers = rtxSerialNumbers.Text;
+            model.TrackingIn = txtTrackInc.Text;
+            model.TrackingOut = txtTrackOut.Text;
 
             if (lstProducts.SelectedIndex > -1)
             {
@@ -695,6 +711,8 @@ namespace Schedule_Database_Desktop_Version
             cboArchitecture.Text = model.Architecture;
             txtTimeSpent.Text = model.TimeSpent;
             rtxSerialNumbers.Text = model.SerialNumbers;
+            txtTrackInc.Text = model.TrackingIn;
+            txtTrackOut.Text = model.TrackingOut;
 
             //highlight product
             int idx = highlightProductList(model.Product);

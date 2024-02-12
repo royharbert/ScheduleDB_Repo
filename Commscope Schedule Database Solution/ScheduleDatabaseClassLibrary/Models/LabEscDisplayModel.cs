@@ -66,6 +66,10 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string Architecture { get; set; }
         [ExcelExportProperty]
         public string SerialNumbers { get; set; }
+        [ExcelExportProperty]
+        public string TrackingIn { get; set; }
+        [ExcelExportProperty]
+        public string TrackingOut { get; set; }
 
     
 
@@ -97,6 +101,8 @@ namespace ScheduleDatabaseClassLibrary.Models
             this.Architecture = model.Architecture;
             this.TimeSpent = model.TimeSpent;
             this.SerialNumbers = model.SerialNumbers;
+            this.TrackingIn = model.TrackingIn;
+            this.TrackingOut = model.TrackingOut;
         }
     }
 
