@@ -107,14 +107,14 @@ namespace Schedule_Database_Desktop_Version
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label30 = new System.Windows.Forms.Label();
+            this.txtTrackOut = new System.Windows.Forms.TextBox();
+            this.txtTrackInc = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.btnTabSave = new System.Windows.Forms.Button();
             this.rtxSerialNumbers = new System.Windows.Forms.RichTextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.txtTrackInc = new System.Windows.Forms.TextBox();
-            this.txtTrackOut = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
             this.dtpContextMenu.SuspendLayout();
             this.rtbContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
@@ -1008,6 +1008,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // rtxComments
             // 
+            this.rtxComments.AcceptsTab = true;
             this.rtxComments.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxComments.ContextMenuStrip = this.rtbContextMenu;
             this.rtxComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
@@ -1020,6 +1021,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // rtxDescription
             // 
+            this.rtxDescription.AcceptsTab = true;
             this.rtxDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxDescription.ContextMenuStrip = this.rtbContextMenu;
             this.rtxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
@@ -1099,6 +1101,38 @@ namespace Schedule_Database_Desktop_Version
             this.tabPage2.Text = "Additional Fields";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(808, 727);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(205, 20);
+            this.label30.TabIndex = 220;
+            this.label30.Text = "Tracking Number (outgoing)";
+            // 
+            // txtTrackOut
+            // 
+            this.txtTrackOut.Location = new System.Drawing.Point(812, 750);
+            this.txtTrackOut.Name = "txtTrackOut";
+            this.txtTrackOut.Size = new System.Drawing.Size(363, 26);
+            this.txtTrackOut.TabIndex = 219;
+            // 
+            // txtTrackInc
+            // 
+            this.txtTrackInc.Location = new System.Drawing.Point(812, 689);
+            this.txtTrackInc.Name = "txtTrackInc";
+            this.txtTrackInc.Size = new System.Drawing.Size(363, 26);
+            this.txtTrackInc.TabIndex = 218;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(808, 666);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(206, 20);
+            this.label29.TabIndex = 217;
+            this.label29.Text = "Tracking Number (incoming)";
+            // 
             // btnTabSave
             // 
             this.btnTabSave.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1113,6 +1147,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // rtxSerialNumbers
             // 
+            this.rtxSerialNumbers.AcceptsTab = true;
             this.rtxSerialNumbers.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxSerialNumbers.ContextMenuStrip = this.rtbContextMenu;
             this.rtxSerialNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
@@ -1144,38 +1179,6 @@ namespace Schedule_Database_Desktop_Version
             this.label21.Size = new System.Drawing.Size(89, 20);
             this.label21.TabIndex = 213;
             this.label21.Text = "Description";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(808, 666);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(206, 20);
-            this.label29.TabIndex = 217;
-            this.label29.Text = "Tracking Number (incoming)";
-            // 
-            // txtTrackInc
-            // 
-            this.txtTrackInc.Location = new System.Drawing.Point(812, 689);
-            this.txtTrackInc.Name = "txtTrackInc";
-            this.txtTrackInc.Size = new System.Drawing.Size(363, 26);
-            this.txtTrackInc.TabIndex = 218;
-            // 
-            // txtTrackOut
-            // 
-            this.txtTrackOut.Location = new System.Drawing.Point(812, 750);
-            this.txtTrackOut.Name = "txtTrackOut";
-            this.txtTrackOut.Size = new System.Drawing.Size(363, 26);
-            this.txtTrackOut.TabIndex = 219;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(808, 727);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(205, 20);
-            this.label30.TabIndex = 220;
-            this.label30.Text = "Tracking Number (outgoing)";
             // 
             // frmLabEsc
             // 
