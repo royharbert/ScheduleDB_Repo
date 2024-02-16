@@ -107,10 +107,6 @@ namespace Schedule_Database_Desktop_Version
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label30 = new System.Windows.Forms.Label();
-            this.txtTrackOut = new System.Windows.Forms.TextBox();
-            this.txtTrackInc = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
             this.btnTabSave = new System.Windows.Forms.Button();
             this.rtxSerialNumbers = new System.Windows.Forms.RichTextBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -128,11 +124,11 @@ namespace Schedule_Database_Desktop_Version
             // txtRecordID
             // 
             this.txtRecordID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtRecordID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.txtRecordID.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRecordID.Location = new System.Drawing.Point(530, 23);
             this.txtRecordID.Name = "txtRecordID";
             this.txtRecordID.ReadOnly = true;
-            this.txtRecordID.Size = new System.Drawing.Size(483, 22);
+            this.txtRecordID.Size = new System.Drawing.Size(483, 28);
             this.txtRecordID.TabIndex = 200;
             this.txtRecordID.TabStop = false;
             this.txtRecordID.Tag = "EscID";
@@ -677,10 +673,11 @@ namespace Schedule_Database_Desktop_Version
             this.dgvAttachments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAttachments.Location = new System.Drawing.Point(401, 414);
             this.dgvAttachments.Name = "dgvAttachments";
+            this.dgvAttachments.RowHeadersVisible = false;
             this.dgvAttachments.RowHeadersWidth = 62;
             this.dgvAttachments.Size = new System.Drawing.Size(808, 243);
             this.dgvAttachments.TabIndex = 23;
-            this.dgvAttachments.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAttachments_RowHeaderMouseClick);
+            this.dgvAttachments.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAttachments_CellContentDoubleClick);
             // 
             // label24
             // 
@@ -1012,6 +1009,7 @@ namespace Schedule_Database_Desktop_Version
             this.rtxComments.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxComments.ContextMenuStrip = this.rtbContextMenu;
             this.rtxComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.rtxComments.HideSelection = false;
             this.rtxComments.Location = new System.Drawing.Point(31, 436);
             this.rtxComments.Name = "rtxComments";
             this.rtxComments.Size = new System.Drawing.Size(741, 344);
@@ -1021,7 +1019,6 @@ namespace Schedule_Database_Desktop_Version
             // 
             // rtxDescription
             // 
-            this.rtxDescription.AcceptsTab = true;
             this.rtxDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxDescription.ContextMenuStrip = this.rtbContextMenu;
             this.rtxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
@@ -1082,10 +1079,6 @@ namespace Schedule_Database_Desktop_Version
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.label30);
-            this.tabPage2.Controls.Add(this.txtTrackOut);
-            this.tabPage2.Controls.Add(this.txtTrackInc);
-            this.tabPage2.Controls.Add(this.label29);
             this.tabPage2.Controls.Add(this.btnTabSave);
             this.tabPage2.Controls.Add(this.rtxSerialNumbers);
             this.tabPage2.Controls.Add(this.label28);
@@ -1101,38 +1094,6 @@ namespace Schedule_Database_Desktop_Version
             this.tabPage2.Text = "Additional Fields";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(808, 727);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(205, 20);
-            this.label30.TabIndex = 220;
-            this.label30.Text = "Tracking Number (outgoing)";
-            // 
-            // txtTrackOut
-            // 
-            this.txtTrackOut.Location = new System.Drawing.Point(812, 750);
-            this.txtTrackOut.Name = "txtTrackOut";
-            this.txtTrackOut.Size = new System.Drawing.Size(363, 26);
-            this.txtTrackOut.TabIndex = 219;
-            // 
-            // txtTrackInc
-            // 
-            this.txtTrackInc.Location = new System.Drawing.Point(812, 689);
-            this.txtTrackInc.Name = "txtTrackInc";
-            this.txtTrackInc.Size = new System.Drawing.Size(363, 26);
-            this.txtTrackInc.TabIndex = 218;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(808, 666);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(206, 20);
-            this.label29.TabIndex = 217;
-            this.label29.Text = "Tracking Number (incoming)";
-            // 
             // btnTabSave
             // 
             this.btnTabSave.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1147,13 +1108,12 @@ namespace Schedule_Database_Desktop_Version
             // 
             // rtxSerialNumbers
             // 
-            this.rtxSerialNumbers.AcceptsTab = true;
             this.rtxSerialNumbers.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxSerialNumbers.ContextMenuStrip = this.rtbContextMenu;
             this.rtxSerialNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.rtxSerialNumbers.Location = new System.Drawing.Point(812, 47);
             this.rtxSerialNumbers.Name = "rtxSerialNumbers";
-            this.rtxSerialNumbers.Size = new System.Drawing.Size(363, 598);
+            this.rtxSerialNumbers.Size = new System.Drawing.Size(363, 733);
             this.rtxSerialNumbers.TabIndex = 215;
             this.rtxSerialNumbers.Tag = "SerialNumbers";
             this.rtxSerialNumbers.Text = "";
@@ -1294,9 +1254,5 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.RichTextBox rtxSerialNumbers;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Button btnTabSave;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox txtTrackOut;
-        private System.Windows.Forms.TextBox txtTrackInc;
-        private System.Windows.Forms.Label label29;
     }
 }
