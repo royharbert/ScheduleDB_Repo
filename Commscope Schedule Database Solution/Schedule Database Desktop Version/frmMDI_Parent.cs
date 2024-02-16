@@ -74,6 +74,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void DashboardRefresh()
         {
+            GV.MODE = Mode.Dashboard;
             dashboardData = dashboardData.RefreshDashboard();
 
             txtEscClosedThisWeek.Text = dashboardData.EscalationsClosedThisWeek.Count.ToString();

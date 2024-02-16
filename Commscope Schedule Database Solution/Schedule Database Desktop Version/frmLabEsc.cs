@@ -105,6 +105,7 @@ namespace Schedule_Database_Desktop_Version
                     gbDateRange.Visible = false;
                     dtpClosedDate.Enabled = true;
                     btnSave.Text = "Save";
+                    this.BringToFront();
                     break;
                 case Mode.LabEscDelete:
                     CommonOps.lockControls(false, this, "");
