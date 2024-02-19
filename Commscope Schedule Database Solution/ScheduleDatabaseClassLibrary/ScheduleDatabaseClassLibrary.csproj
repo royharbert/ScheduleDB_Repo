@@ -136,6 +136,8 @@
     <Compile Include="Models\StatusModel.cs" />
     <Compile Include="Models\TimeFrameModel.cs" />
     <Compile Include="Models\TimeSpentModel.cs" />
+    <Compile Include="Models\TrackingInModel.cs" />
+    <Compile Include="Models\TrackingOutModel.cs" />
     <Compile Include="Models\UpdaterModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="GeneralOps\PID_Generator.cs" />

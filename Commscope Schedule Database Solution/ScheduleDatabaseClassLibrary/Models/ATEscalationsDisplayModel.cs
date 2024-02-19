@@ -39,12 +39,16 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string PeopleSoftNumber { get; set; }
         [ExcelExportProperty]
         public string ATEStatus { get; set; }
-        [ExcelExportProperty]           //added this because missing 10-27-22 LMD        
+        [ExcelExportProperty]                 
         public string EndUser { get; set; }
         [ExcelExportProperty]
         public string TimeSpent { get; set; }
         [ExcelExportProperty]
         public string SerialNumbers { get; set; }
+        [ExcelExportProperty]
+        public string TrackingIn { get; set; }
+        [ExcelExportProperty]
+        public string TrackingOut { get; set; }
 
         public ATEscalationsDisplayModel(){}
         public ATEscalationsDisplayModel(ATEscalationsModel model)
@@ -66,6 +70,8 @@ namespace ScheduleDatabaseClassLibrary.Models
             this.EndUser = model.EndUser;
             this.TimeSpent = model.TimeSpent;
             this.SerialNumbers = model.SerialNumbers;
+            this.TrackingIn = model.TrackingIn;
+            this.TrackingOut = model.TrackingOut;
 
         }
 

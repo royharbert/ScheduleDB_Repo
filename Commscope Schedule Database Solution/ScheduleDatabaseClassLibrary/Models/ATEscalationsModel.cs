@@ -45,6 +45,10 @@ namespace ScheduleDatabaseClassLibrary.Models
         public string TimeSpent { get; set; }
         [ExcelExportProperty]
         public string SerialNumbers { get; set; }
+        [ExcelExportProperty]
+        public string TrackingIn { get; set; }
+        [ExcelExportProperty]
+        public string TrackingOut { get; set; }
         public ATEscalationsDisplayModel DisplayModel()
         {
             ATEscalationsDisplayModel displayModel = new ATEscalationsDisplayModel(this);
