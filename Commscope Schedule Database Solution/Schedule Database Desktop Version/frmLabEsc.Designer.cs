@@ -1005,6 +1005,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // rtxComments
             // 
+            this.rtxComments.AcceptsTab = true;
             this.rtxComments.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxComments.ContextMenuStrip = this.rtbContextMenu;
             this.rtxComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
@@ -1017,6 +1018,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // rtxDescription
             // 
+            this.rtxDescription.AcceptsTab = true;
             this.rtxDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxDescription.ContextMenuStrip = this.rtbContextMenu;
             this.rtxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
@@ -1106,6 +1108,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // rtxSerialNumbers
             // 
+            this.rtxSerialNumbers.AcceptsTab = true;
             this.rtxSerialNumbers.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxSerialNumbers.ContextMenuStrip = this.rtbContextMenu;
             this.rtxSerialNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
