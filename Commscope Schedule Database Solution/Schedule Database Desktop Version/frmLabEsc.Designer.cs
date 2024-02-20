@@ -130,7 +130,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtRecordID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRecordID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.txtRecordID.Location = new System.Drawing.Point(707, 28);
-            this.txtRecordID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRecordID.Margin = new System.Windows.Forms.Padding(4);
             this.txtRecordID.Name = "txtRecordID";
             this.txtRecordID.ReadOnly = true;
             this.txtRecordID.Size = new System.Drawing.Size(644, 27);
@@ -148,7 +148,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboMSO.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboMSO.FormattingEnabled = true;
             this.cboMSO.Location = new System.Drawing.Point(134, 42);
-            this.cboMSO.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboMSO.Margin = new System.Windows.Forms.Padding(4);
             this.cboMSO.Name = "cboMSO";
             this.cboMSO.Size = new System.Drawing.Size(269, 30);
             this.cboMSO.TabIndex = 2;
@@ -164,7 +164,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboSeverity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboSeverity.FormattingEnabled = true;
             this.cboSeverity.Location = new System.Drawing.Point(134, 232);
-            this.cboSeverity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboSeverity.Margin = new System.Windows.Forms.Padding(4);
             this.cboSeverity.Name = "cboSeverity";
             this.cboSeverity.Size = new System.Drawing.Size(269, 30);
             this.cboSeverity.TabIndex = 7;
@@ -177,7 +177,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtEndUser.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtEndUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtEndUser.Location = new System.Drawing.Point(134, 80);
-            this.txtEndUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEndUser.Margin = new System.Windows.Forms.Padding(4);
             this.txtEndUser.Name = "txtEndUser";
             this.txtEndUser.Size = new System.Drawing.Size(269, 28);
             this.txtEndUser.TabIndex = 3;
@@ -279,7 +279,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtEscNum.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtEscNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtEscNum.Location = new System.Drawing.Point(134, 536);
-            this.txtEscNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEscNum.Margin = new System.Windows.Forms.Padding(4);
             this.txtEscNum.Name = "txtEscNum";
             this.txtEscNum.Size = new System.Drawing.Size(269, 28);
             this.txtEscNum.TabIndex = 15;
@@ -291,7 +291,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtPSNum.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtPSNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtPSNum.Location = new System.Drawing.Point(134, 460);
-            this.txtPSNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPSNum.Margin = new System.Windows.Forms.Padding(4);
             this.txtPSNum.Name = "txtPSNum";
             this.txtPSNum.Size = new System.Drawing.Size(269, 28);
             this.txtPSNum.TabIndex = 13;
@@ -332,7 +332,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboCountry.FormattingEnabled = true;
             this.cboCountry.Location = new System.Drawing.Point(134, 194);
-            this.cboCountry.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboCountry.Margin = new System.Windows.Forms.Padding(4);
             this.cboCountry.Name = "cboCountry";
             this.cboCountry.Size = new System.Drawing.Size(269, 30);
             this.cboCountry.TabIndex = 6;
@@ -347,7 +347,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboState.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboState.FormattingEnabled = true;
             this.cboState.Location = new System.Drawing.Point(134, 156);
-            this.cboState.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboState.Margin = new System.Windows.Forms.Padding(4);
             this.cboState.Name = "cboState";
             this.cboState.Size = new System.Drawing.Size(269, 30);
             this.cboState.TabIndex = 5;
@@ -363,7 +363,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboRequestor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboRequestor.FormattingEnabled = true;
             this.cboRequestor.Location = new System.Drawing.Point(134, 270);
-            this.cboRequestor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboRequestor.Margin = new System.Windows.Forms.Padding(4);
             this.cboRequestor.Name = "cboRequestor";
             this.cboRequestor.Size = new System.Drawing.Size(269, 30);
             this.cboRequestor.TabIndex = 8;
@@ -390,7 +390,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dtpStartDate.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.dtpStartDate.Location = new System.Drawing.Point(134, 612);
-            this.dtpStartDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpStartDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dtpStartDate.Size = new System.Drawing.Size(267, 28);
@@ -419,7 +419,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtpClosedDate.ContextMenuStrip = this.dtpContextMenu;
             this.dtpClosedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dtpClosedDate.Location = new System.Drawing.Point(134, 688);
-            this.dtpClosedDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpClosedDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpClosedDate.Name = "dtpClosedDate";
             this.dtpClosedDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dtpClosedDate.Size = new System.Drawing.Size(267, 28);
@@ -433,7 +433,7 @@ namespace Schedule_Database_Desktop_Version
             this.dtpDueDate.ContextMenuStrip = this.dtpContextMenu;
             this.dtpDueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dtpDueDate.Location = new System.Drawing.Point(134, 650);
-            this.dtpDueDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDueDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dtpDueDate.Size = new System.Drawing.Size(267, 28);
@@ -486,7 +486,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtEntryAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEntryAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtEntryAdmin.Location = new System.Drawing.Point(136, 726);
-            this.txtEntryAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEntryAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.txtEntryAdmin.Name = "txtEntryAdmin";
             this.txtEntryAdmin.Size = new System.Drawing.Size(267, 28);
             this.txtEntryAdmin.TabIndex = 7;
@@ -578,7 +578,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboStatus.FormattingEnabled = true;
             this.cboStatus.Location = new System.Drawing.Point(134, 346);
-            this.cboStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboStatus.Margin = new System.Windows.Forms.Padding(4);
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(269, 30);
             this.cboStatus.TabIndex = 10;
@@ -594,7 +594,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboLead.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboLead.FormattingEnabled = true;
             this.cboLead.Location = new System.Drawing.Point(134, 384);
-            this.cboLead.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboLead.Margin = new System.Windows.Forms.Padding(4);
             this.cboLead.Name = "cboLead";
             this.cboLead.Size = new System.Drawing.Size(269, 30);
             this.cboLead.TabIndex = 11;
@@ -607,7 +607,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtQty.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtQty.Location = new System.Drawing.Point(134, 422);
-            this.txtQty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQty.Margin = new System.Windows.Forms.Padding(4);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(269, 28);
             this.txtQty.TabIndex = 12;
@@ -621,7 +621,7 @@ namespace Schedule_Database_Desktop_Version
             this.lstProducts.FormattingEnabled = true;
             this.lstProducts.ItemHeight = 22;
             this.lstProducts.Location = new System.Drawing.Point(535, 142);
-            this.lstProducts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstProducts.Margin = new System.Windows.Forms.Padding(4);
             this.lstProducts.Name = "lstProducts";
             this.lstProducts.Size = new System.Drawing.Size(1076, 180);
             this.lstProducts.TabIndex = 20;
@@ -677,7 +677,7 @@ namespace Schedule_Database_Desktop_Version
             this.txtCTRNum.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCTRNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtCTRNum.Location = new System.Drawing.Point(134, 498);
-            this.txtCTRNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCTRNum.Margin = new System.Windows.Forms.Padding(4);
             this.txtCTRNum.Name = "txtCTRNum";
             this.txtCTRNum.Size = new System.Drawing.Size(269, 28);
             this.txtCTRNum.TabIndex = 14;
@@ -689,7 +689,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnSave.Location = new System.Drawing.Point(1249, 940);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(181, 55);
             this.btnSave.TabIndex = 34;
@@ -702,7 +702,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnClose.Location = new System.Drawing.Point(1471, 986);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(172, 55);
             this.btnClose.TabIndex = 40;
@@ -716,7 +716,7 @@ namespace Schedule_Database_Desktop_Version
             this.dgvAttachments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAttachments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAttachments.Location = new System.Drawing.Point(535, 463);
-            this.dgvAttachments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvAttachments.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAttachments.Name = "dgvAttachments";
             this.dgvAttachments.RowHeadersWidth = 62;
             this.dgvAttachments.Size = new System.Drawing.Size(1077, 299);
@@ -740,7 +740,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnRemoveAttach.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRemoveAttach.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnRemoveAttach.Location = new System.Drawing.Point(1065, 779);
-            this.btnRemoveAttach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemoveAttach.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemoveAttach.Name = "btnRemoveAttach";
             this.btnRemoveAttach.Size = new System.Drawing.Size(193, 36);
             this.btnRemoveAttach.TabIndex = 58;
@@ -753,7 +753,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnAddAttach.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAddAttach.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnAddAttach.Location = new System.Drawing.Point(864, 779);
-            this.btnAddAttach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddAttach.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddAttach.Name = "btnAddAttach";
             this.btnAddAttach.Size = new System.Drawing.Size(193, 36);
             this.btnAddAttach.TabIndex = 24;
@@ -769,7 +769,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboCity.FormattingEnabled = true;
             this.cboCity.Location = new System.Drawing.Point(134, 118);
-            this.cboCity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboCity.Margin = new System.Windows.Forms.Padding(4);
             this.cboCity.Name = "cboCity";
             this.cboCity.Size = new System.Drawing.Size(269, 30);
             this.cboCity.TabIndex = 4;
@@ -782,7 +782,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboResolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboResolution.FormattingEnabled = true;
             this.cboResolution.Location = new System.Drawing.Point(1303, 849);
-            this.cboResolution.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboResolution.Margin = new System.Windows.Forms.Padding(4);
             this.cboResolution.Name = "cboResolution";
             this.cboResolution.Size = new System.Drawing.Size(308, 30);
             this.cboResolution.TabIndex = 61;
@@ -796,7 +796,7 @@ namespace Schedule_Database_Desktop_Version
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtID.Location = new System.Drawing.Point(8, 42);
-            this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(0, 28);
             this.txtID.TabIndex = 63;
@@ -813,7 +813,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboRecType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboRecType.FormattingEnabled = true;
             this.cboRecType.Location = new System.Drawing.Point(134, 4);
-            this.cboRecType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboRecType.Margin = new System.Windows.Forms.Padding(4);
             this.cboRecType.Name = "cboRecType";
             this.cboRecType.Size = new System.Drawing.Size(269, 30);
             this.cboRecType.TabIndex = 1;
@@ -837,7 +837,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnNewProduct.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnNewProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnNewProduct.Location = new System.Drawing.Point(973, 353);
-            this.btnNewProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNewProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewProduct.Name = "btnNewProduct";
             this.btnNewProduct.Size = new System.Drawing.Size(201, 36);
             this.btnNewProduct.TabIndex = 21;
@@ -907,7 +907,7 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.Controls.Add(this.label27, 0, 20);
             this.tlpLeft.Controls.Add(this.txtTimeSpent, 1, 20);
             this.tlpLeft.Location = new System.Drawing.Point(71, 107);
-            this.tlpLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tlpLeft.Margin = new System.Windows.Forms.Padding(4);
             this.tlpLeft.Name = "tlpLeft";
             this.tlpLeft.RowCount = 21;
             this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
@@ -955,7 +955,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboProdApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboProdApp.FormattingEnabled = true;
             this.cboProdApp.Location = new System.Drawing.Point(134, 308);
-            this.cboProdApp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboProdApp.Margin = new System.Windows.Forms.Padding(4);
             this.cboProdApp.Name = "cboProdApp";
             this.cboProdApp.Size = new System.Drawing.Size(267, 32);
             this.cboProdApp.TabIndex = 9;
@@ -968,7 +968,7 @@ namespace Schedule_Database_Desktop_Version
             this.cboArchitecture.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboArchitecture.FormattingEnabled = true;
             this.cboArchitecture.Location = new System.Drawing.Point(134, 574);
-            this.cboArchitecture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboArchitecture.Margin = new System.Windows.Forms.Padding(4);
             this.cboArchitecture.Name = "cboArchitecture";
             this.cboArchitecture.Size = new System.Drawing.Size(267, 32);
             this.cboArchitecture.TabIndex = 16;
@@ -992,7 +992,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.txtTimeSpent.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtTimeSpent.Location = new System.Drawing.Point(134, 764);
-            this.txtTimeSpent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTimeSpent.Margin = new System.Windows.Forms.Padding(4);
             this.txtTimeSpent.Name = "txtTimeSpent";
             this.txtTimeSpent.Size = new System.Drawing.Size(267, 28);
             this.txtTimeSpent.TabIndex = 210;
@@ -1008,9 +1008,9 @@ namespace Schedule_Database_Desktop_Version
             this.gbDateRange.Controls.Add(this.dtpStart);
             this.gbDateRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDateRange.Location = new System.Drawing.Point(565, 876);
-            this.gbDateRange.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbDateRange.Margin = new System.Windows.Forms.Padding(4);
             this.gbDateRange.Name = "gbDateRange";
-            this.gbDateRange.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbDateRange.Padding = new System.Windows.Forms.Padding(4);
             this.gbDateRange.Size = new System.Drawing.Size(595, 108);
             this.gbDateRange.TabIndex = 208;
             this.gbDateRange.TabStop = false;
@@ -1021,7 +1021,7 @@ namespace Schedule_Database_Desktop_Version
             this.ckFilter.AutoSize = true;
             this.ckFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckFilter.Location = new System.Drawing.Point(8, 46);
-            this.ckFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ckFilter.Margin = new System.Windows.Forms.Padding(4);
             this.ckFilter.Name = "ckFilter";
             this.ckFilter.Size = new System.Drawing.Size(104, 28);
             this.ckFilter.TabIndex = 4;
@@ -1056,7 +1056,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.dtpEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpEnd.Location = new System.Drawing.Point(221, 71);
-            this.dtpEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpEnd.Margin = new System.Windows.Forms.Padding(4);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(344, 29);
             this.dtpEnd.TabIndex = 1;
@@ -1065,7 +1065,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             this.dtpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpStart.Location = new System.Drawing.Point(221, 34);
-            this.dtpStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpStart.Margin = new System.Windows.Forms.Padding(4);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(344, 29);
             this.dtpStart.TabIndex = 0;
@@ -1077,7 +1077,7 @@ namespace Schedule_Database_Desktop_Version
             this.rtxComments.ContextMenuStrip = this.rtbContextMenu;
             this.rtxComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.rtxComments.Location = new System.Drawing.Point(41, 537);
-            this.rtxComments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtxComments.Margin = new System.Windows.Forms.Padding(4);
             this.rtxComments.Name = "rtxComments";
             this.rtxComments.Size = new System.Drawing.Size(987, 422);
             this.rtxComments.TabIndex = 211;
@@ -1091,7 +1091,7 @@ namespace Schedule_Database_Desktop_Version
             this.rtxDescription.ContextMenuStrip = this.rtbContextMenu;
             this.rtxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.rtxDescription.Location = new System.Drawing.Point(41, 58);
-            this.rtxDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtxDescription.Margin = new System.Windows.Forms.Padding(4);
             this.rtxDescription.Name = "rtxDescription";
             this.rtxDescription.Size = new System.Drawing.Size(987, 422);
             this.rtxDescription.TabIndex = 210;
@@ -1117,7 +1117,7 @@ namespace Schedule_Database_Desktop_Version
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1685, 1040);
@@ -1141,9 +1141,9 @@ namespace Schedule_Database_Desktop_Version
             this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.btnAddAttach);
             this.tabPage1.Location = new System.Drawing.Point(4, 34);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1677, 1002);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Details";
@@ -1163,9 +1163,9 @@ namespace Schedule_Database_Desktop_Version
             this.tabPage2.Controls.Add(this.rtxComments);
             this.tabPage2.Controls.Add(this.label20);
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1677, 1002);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Additional Fields";
@@ -1184,7 +1184,7 @@ namespace Schedule_Database_Desktop_Version
             // txtTrackOut
             // 
             this.txtTrackOut.Location = new System.Drawing.Point(1083, 923);
-            this.txtTrackOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTrackOut.Margin = new System.Windows.Forms.Padding(4);
             this.txtTrackOut.Name = "txtTrackOut";
             this.txtTrackOut.Size = new System.Drawing.Size(483, 30);
             this.txtTrackOut.TabIndex = 219;
@@ -1192,7 +1192,7 @@ namespace Schedule_Database_Desktop_Version
             // txtTrackInc
             // 
             this.txtTrackInc.Location = new System.Drawing.Point(1083, 848);
-            this.txtTrackInc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTrackInc.Margin = new System.Windows.Forms.Padding(4);
             this.txtTrackInc.Name = "txtTrackInc";
             this.txtTrackInc.Size = new System.Drawing.Size(483, 30);
             this.txtTrackInc.TabIndex = 218;
@@ -1212,7 +1212,7 @@ namespace Schedule_Database_Desktop_Version
             this.btnTabSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTabSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnTabSave.Location = new System.Drawing.Point(1363, 1002);
-            this.btnTabSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTabSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnTabSave.Name = "btnTabSave";
             this.btnTabSave.Size = new System.Drawing.Size(204, 55);
             this.btnTabSave.TabIndex = 216;
@@ -1227,7 +1227,7 @@ namespace Schedule_Database_Desktop_Version
             this.rtxSerialNumbers.ContextMenuStrip = this.rtbContextMenu;
             this.rtxSerialNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.rtxSerialNumbers.Location = new System.Drawing.Point(1083, 58);
-            this.rtxSerialNumbers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtxSerialNumbers.Margin = new System.Windows.Forms.Padding(4);
             this.rtxSerialNumbers.Name = "rtxSerialNumbers";
             this.rtxSerialNumbers.Size = new System.Drawing.Size(483, 735);
             this.rtxSerialNumbers.TabIndex = 215;
@@ -1268,7 +1268,7 @@ namespace Schedule_Database_Desktop_Version
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label4);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmLabEsc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
