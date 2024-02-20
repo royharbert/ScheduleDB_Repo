@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Schedule_Database_Desktop_Version
 {
+    //just a test note
     public partial class frmLabEsc : Form
     {
         bool formDirty = false;
