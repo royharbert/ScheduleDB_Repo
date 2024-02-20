@@ -1009,7 +1009,6 @@ namespace Schedule_Database_Desktop_Version
             // 
             // rtxComments
             // 
-            this.rtxComments.AcceptsTab = true;
             this.rtxComments.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxComments.ContextMenuStrip = this.rtbContextMenu;
             this.rtxComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);

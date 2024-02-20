@@ -277,6 +277,9 @@ namespace Schedule_Database_Desktop_Version
                     escForm.Show();
                     escForm.LabEsc = request;
                     break;
+                case Mode.Dashboard:
+                    GV.MODE = Mode.LabEscEdit;
+                    break;
                 case Mode.None:
                     break;
                 default:
