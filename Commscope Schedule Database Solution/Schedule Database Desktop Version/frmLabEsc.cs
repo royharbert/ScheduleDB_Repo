@@ -105,6 +105,7 @@ namespace Schedule_Database_Desktop_Version
                     gbDateRange.Visible = false;
                     dtpClosedDate.Enabled = true;
                     btnSave.Text = "Save";
+                    this.BringToFront();
                     break;
                 case Mode.LabEscDelete:
                     CommonOps.lockControls(false, this, "");
@@ -236,7 +237,8 @@ namespace Schedule_Database_Desktop_Version
                         foreach (var model in models)
                         {
                             if (model.FieldName == "Comments" | model.FieldName == "Description" | model.FieldName == "PSNumber" | model.FieldName == "Resolution"
-                                | model.FieldName == "CTRNum" | model.FieldName == "EscNum" | model.FieldName == "EscID" | model.FieldName == "TimeSpent" | model.FieldName == "SerialNumbers")
+                                | model.FieldName == "CTRNum" | model.FieldName == "EscNum" | model.FieldName == "EscID" | model.FieldName == "TimeSpent" | model.FieldName == "SerialNumbers" 
+                                | model.FieldName == "TrackingIn" | model.FieldName == "TrackingOut")
                             {
                                 whereClause = whereClause + " upper(" + model.FieldName + ") like  upper('%" + model.FieldValue + "%') and ";
                             }
@@ -347,6 +349,8 @@ namespace Schedule_Database_Desktop_Version
             string architecture = cboArchitecture.Text;
             string timeSpent = txtTimeSpent.Text;
             string serialNumbers = rtxSerialNumbers.Text;
+            string trackingIn = txtTrackInc.Text;
+            string trackingOut = txtTrackOut.Text;
 
             FieldSearchModel fsm = new FieldSearchModel();
             if (txtRecordID.Text != "")
@@ -465,10 +469,21 @@ namespace Schedule_Database_Desktop_Version
                 fsm = makeFSM(txtTimeSpent);
                 fsmList.Add(fsm);
             }
-            if(serialNumbers != "")
+            if (serialNumbers != "")
             {
                 fsm = makeFSM(rtxSerialNumbers);
                 fsmList.Add(fsm);
+            }
+            if (trackingIn != "")
+            {
+                fsm = makeFSM(txtTrackInc);
+                fsmList.Add(fsm);
+            }
+            if (trackingOut != "")
+            {
+                fsm = makeFSM(txtTrackOut);
+                fsmList.Add(fsm);
+
             }
             return fsmList;
         }
@@ -636,6 +651,8 @@ namespace Schedule_Database_Desktop_Version
             model.Architecture = cboArchitecture.Text;
             model.TimeSpent = txtTimeSpent.Text;
             model.SerialNumbers = rtxSerialNumbers.Text;
+            model.TrackingIn = txtTrackInc.Text;
+            model.TrackingOut = txtTrackOut.Text;
 
             if (lstProducts.SelectedIndex > -1)
             {
@@ -695,6 +712,8 @@ namespace Schedule_Database_Desktop_Version
             cboArchitecture.Text = model.Architecture;
             txtTimeSpent.Text = model.TimeSpent;
             rtxSerialNumbers.Text = model.SerialNumbers;
+            txtTrackInc.Text = model.TrackingIn;
+            txtTrackOut.Text = model.TrackingOut;
 
             //highlight product
             int idx = highlightProductList(model.Product);
@@ -863,25 +882,16 @@ namespace Schedule_Database_Desktop_Version
             dgvAttachments.Columns[4].Visible = false;
 
             dgvAttachments.Columns[2].HeaderText = "File Name";
-            dgvAttachments.Columns[2].Width = 450;
+            dgvAttachments.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvAttachments.Columns[2].DefaultCellStyle.ForeColor = Color.Blue;
 
             dgvAttachments.Columns[3].HeaderText = "Item Type";
-            dgvAttachments.Columns[3].Width = 200;
+            dgvAttachments.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvAttachments.Columns[3].DefaultCellStyle.ForeColor = Color.Black;
 
             dgvAttachments.Columns[5].HeaderText = "Date Added";
+            dgvAttachments.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvAttachments.Columns[5].DefaultCellStyle.ForeColor = Color.Black;
-
-
-            dgvAttachments.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvAttachments.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 11F, FontStyle.Bold);
-
-            foreach (DataGridViewColumn item in dgvAttachments.Columns)
-            {
-                item.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                item.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            }
         }
 
         private List<AttachmentModel> getAttachments(string pid)
@@ -944,6 +954,11 @@ namespace Schedule_Database_Desktop_Version
             {
                 MessageBox.Show("No row selected for deletion. \nPlease click left margin of desired row");
             }
+        }
+
+        private void dgvAttachments_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            AttachmentProcs.AttachmentsRowHeaderClick(dgvAttachments);
         }
 
         private void cboRecType_SelectedIndexChanged(object sender, EventArgs e)
@@ -1184,9 +1199,14 @@ namespace Schedule_Database_Desktop_Version
             saveData();
         }
 
-        private void dgvAttachments_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void btnSave2_Click(object sender, EventArgs e)
         {
-            AttachmentProcs.AttachmentsRowHeaderClick(dgvAttachments);
+            saveData();
+        }
+
+        private void btnClose2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
