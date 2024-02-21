@@ -107,6 +107,8 @@ namespace Schedule_Database_Desktop_Version
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnClose2 = new System.Windows.Forms.Button();
+            this.btnSave2 = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
             this.txtTrackOut = new System.Windows.Forms.TextBox();
             this.txtTrackInc = new System.Windows.Forms.TextBox();
@@ -115,8 +117,6 @@ namespace Schedule_Database_Desktop_Version
             this.rtxSerialNumbers = new System.Windows.Forms.RichTextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.btnSave2 = new System.Windows.Forms.Button();
-            this.btnClose2 = new System.Windows.Forms.Button();
             this.dtpContextMenu.SuspendLayout();
             this.rtbContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
@@ -678,9 +678,11 @@ namespace Schedule_Database_Desktop_Version
             this.dgvAttachments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAttachments.Location = new System.Drawing.Point(401, 376);
             this.dgvAttachments.Name = "dgvAttachments";
+            this.dgvAttachments.RowHeadersVisible = false;
             this.dgvAttachments.RowHeadersWidth = 62;
             this.dgvAttachments.Size = new System.Drawing.Size(808, 243);
             this.dgvAttachments.TabIndex = 23;
+            this.dgvAttachments.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAttachments_CellContentDoubleClick);
             this.dgvAttachments.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAttachments_RowHeaderMouseClick);
             // 
             // label24
@@ -1104,6 +1106,26 @@ namespace Schedule_Database_Desktop_Version
             this.tabPage2.Text = "Additional Fields";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnClose2
+            // 
+            this.btnClose2.Location = new System.Drawing.Point(1040, 727);
+            this.btnClose2.Name = "btnClose2";
+            this.btnClose2.Size = new System.Drawing.Size(118, 50);
+            this.btnClose2.TabIndex = 222;
+            this.btnClose2.Text = "Close";
+            this.btnClose2.UseVisualStyleBackColor = true;
+            this.btnClose2.Click += new System.EventHandler(this.btnClose2_Click);
+            // 
+            // btnSave2
+            // 
+            this.btnSave2.Location = new System.Drawing.Point(855, 727);
+            this.btnSave2.Name = "btnSave2";
+            this.btnSave2.Size = new System.Drawing.Size(118, 50);
+            this.btnSave2.TabIndex = 221;
+            this.btnSave2.Text = "Save";
+            this.btnSave2.UseVisualStyleBackColor = true;
+            this.btnSave2.Click += new System.EventHandler(this.btnSave2_Click);
+            // 
             // label30
             // 
             this.label30.AutoSize = true;
@@ -1182,26 +1204,6 @@ namespace Schedule_Database_Desktop_Version
             this.label21.Size = new System.Drawing.Size(89, 20);
             this.label21.TabIndex = 213;
             this.label21.Text = "Description";
-            // 
-            // btnSave2
-            // 
-            this.btnSave2.Location = new System.Drawing.Point(855, 727);
-            this.btnSave2.Name = "btnSave2";
-            this.btnSave2.Size = new System.Drawing.Size(118, 50);
-            this.btnSave2.TabIndex = 221;
-            this.btnSave2.Text = "Save";
-            this.btnSave2.UseVisualStyleBackColor = true;
-            this.btnSave2.Click += new System.EventHandler(this.btnSave2_Click);
-            // 
-            // btnClose2
-            // 
-            this.btnClose2.Location = new System.Drawing.Point(1040, 727);
-            this.btnClose2.Name = "btnClose2";
-            this.btnClose2.Size = new System.Drawing.Size(118, 50);
-            this.btnClose2.TabIndex = 222;
-            this.btnClose2.Text = "Close";
-            this.btnClose2.UseVisualStyleBackColor = true;
-            this.btnClose2.Click += new System.EventHandler(this.btnClose2_Click);
             // 
             // frmLabEsc
             // 

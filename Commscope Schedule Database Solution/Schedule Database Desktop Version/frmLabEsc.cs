@@ -1208,5 +1208,10 @@ namespace Schedule_Database_Desktop_Version
         {
             Close();
         }
+
+        private void dgvAttachments_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AttachmentProcs.AttachmentsRowHeaderClick(dgvAttachments);
+        }
     }
 }
