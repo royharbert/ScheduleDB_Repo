@@ -35,22 +35,22 @@ namespace ScheduleDatabaseClassLibrary
             allItems = null;
 
             this.EscalationsOpenedYTD = escalationsList.Where(x => x.DateOpened >= timeFrame.NewYearsDay 
-                &&  x.DateOpened <= today).ToList();
+                &&  x.DateOpened <= today && x.Status == "In process").ToList();
             this.EscalationsOpenedThisWeek = escalationsList.Where(x => x.DateOpened >= timeFrame.MondaysDate
                 && x.DateOpened <= timeFrame.SundaysDate).ToList();
             this.EscalationsCurrentlyOpen = escalationsList.Where(x => x.Status == "In process").ToList();
             this.EscalationsClosedYTD = escalationsList.Where(x => x.DateCompleted >= timeFrame.NewYearsDay 
-                && x.DateCompleted <= today).ToList();
+                && x.DateCompleted <= today && x.Status == "Closed").ToList();
             this.EscalationsClosedThisWeek = escalationsList.Where(x => x.DateCompleted >= timeFrame.MondaysDate
                 && x.DateCompleted <= today).ToList();
 
             this.LabRequestsOpenedYTD = requestsList.Where(x => x.DateOpened >= timeFrame.NewYearsDay
-                && x.DateOpened <= today).ToList();
+                && x.DateOpened <= today && x.Status == "In process").ToList();
             this.LabRequestsOpenedThisWeek = requestsList.Where(x => x.DateOpened >= timeFrame.MondaysDate
                 && x.DateOpened <= timeFrame.SundaysDate).ToList();
             this.LabRequestsCurrentlyOpen = requestsList.Where(x => x.Status == "In process").ToList();
             this.LabRequestsClosedYTD = requestsList.Where(x => x.DateCompleted >= timeFrame.NewYearsDay
-                && x.DateCompleted <= today).ToList();
+                && x.DateCompleted <= today && x.Status == "Closed").ToList();
             this.LabRequestsClosedThisWeek = requestsList.Where(x => x.DateCompleted >= timeFrame.MondaysDate
                 && x.DateCompleted <= today).ToList();
 
