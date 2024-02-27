@@ -23,38 +23,7 @@ namespace Schedule_Database_Desktop_Version
         private List<LabEscModel> labRequests;
         private List<LabEscModel> requests;
 
-        public List<LocationModel> LocationData  
-        {
-            get
-            {
-                return LocationData;
-            } 
-            
-            set
-            {
-                locationData = value;
-                customerData = null;
-                dgvResults.DataSource = locationData;
-                txtCount.Text = locationData.Count.ToString();
-                formatDGV_Location();
-            }
-        }
-
-        public List<CustomerModel> CustomerData
-        {
-            get
-            {
-                return customerData;
-            }
-            set 
-            {
-                customerData = value;
-                locationData = null;
-                dgvResults.DataSource = customerData;
-                txtCount.Text = customerData.Count.ToString();
-            }
-        }
-
+              
         public List<LabEscModel> LabRequests
         {
             get
@@ -109,25 +78,6 @@ namespace Schedule_Database_Desktop_Version
                 dgvResults.Columns[i + 1].Width = widths[i];
             }
         }
-        public List<ATEscalationsDisplayModel> Escalations
-        {
-            get
-            {
-                return escalations;
-            }
-            set
-            {
-                escalations = value;
-                escalationList = escalations;
-                customerData = null;
-                locationData = null;
-                dgvResults.DataSource = escalationList;
-                txtCount.Text = escalationList.Count.ToString();
-                formatDGV_Escalation();
-                setDGV_EscalationHeaderText(dgvResults);
-            }
-        }
-
 
         public List<LabEscModel> Requests
         {
@@ -174,33 +124,7 @@ namespace Schedule_Database_Desktop_Version
             InitializeComponent();
         }
 
-        private void dgvResults_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            int selectedRow = dgvResults.CurrentRow.Index;
-            //CustomerModel customer;
-            switch (GV.MODE)
-            {
-                case Mode.LabEscSearch:
-                case Mode.LabEscEdit:
-                case Mode.OpenEscByDate:
-                case Mode.LabEscReport:
-                case Mode.LabEscDelete:
-                    LabEscModel request = requests[selectedRow];
-                    frmLabEsc escForm = new frmLabEsc();
-                    escForm.fillComboBoxes();
-                    escForm.FillProductList();
-                    escForm.DisplayForm = escForm;
-                    escForm.Show();
-                    escForm.LabEsc = request;
-                    break;
-                case Mode.None:
-                    break;
-                default:
-                    break;
-            }
-            this.Close();
-        }
-
+        
         private void formatDGV_Assignment()
         {
             int[] widths = {    200,150,150,150,150,150,150,150,150,150,150,
@@ -261,7 +185,6 @@ namespace Schedule_Database_Desktop_Version
         private void dgvResults_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int selectedRow = dgvResults.CurrentRow.Index;
-            //CustomerModel customer;
             switch (GV.MODE)
             {
                 case Mode.LabEscSearch:
@@ -270,12 +193,8 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscReport:
                 case Mode.LabEscDelete:
                     LabEscModel request = requests[selectedRow];
-                    frmLabEsc escForm = new frmLabEsc();
-                    escForm.fillComboBoxes();
-                    escForm.FillProductList();
-                    escForm.DisplayForm = escForm;
-                    escForm.Show();
-                    escForm.LabEsc = request;
+                    GV.EscForm.Show();
+                    GV.EscForm.LabEsc = request;
                     break;
                 case Mode.Dashboard:
                     GV.MODE = Mode.LabEscEdit;
@@ -286,6 +205,7 @@ namespace Schedule_Database_Desktop_Version
                     break;
             }
             this.Close();
+            GV.EscForm.BringToFront();
         }
     }
 }

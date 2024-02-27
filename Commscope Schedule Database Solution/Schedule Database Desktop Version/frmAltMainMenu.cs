@@ -49,7 +49,7 @@ namespace Schedule_Database_Desktop_Version
             private frmLabEsc showLabEscForm()
         {
             Mode curMode = GV.MODE;
-            frmLabEsc EscalationsForm = new frmLabEsc();
+            frmLabEsc EscalationsForm = GV.EscForm;
             EscalationsForm.DisplayForm = EscalationsForm;
             EscalationsForm.StartPosition = FormStartPosition.CenterScreen;
             EscalationsForm.Show();
@@ -171,7 +171,7 @@ namespace Schedule_Database_Desktop_Version
                     MessageBox.Show("No matching records found");
                     break;
                 case 1:
-                    frmLabEsc escForm = new frmLabEsc();
+                    frmLabEsc escForm = GV.EscForm;
                     escForm.LabEsc = results[0];                    
                     break;
                 default:

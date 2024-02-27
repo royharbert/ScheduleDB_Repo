@@ -21,6 +21,7 @@ namespace Schedule_Database_Desktop_Version
         public static int ActiveScreen { get; set; }
         public static DateTime nullDate { get; set; } = new DateTime(1900, 1, 1);
         public static frmInput inputForm {get; set; }
+        public static frmLabEsc EscForm { get; set; }
 
         public static Mode MODE
         {

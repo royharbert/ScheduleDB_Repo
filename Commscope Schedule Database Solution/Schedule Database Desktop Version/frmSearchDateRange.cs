@@ -14,7 +14,7 @@ namespace Schedule_Database_Desktop_Version
 {
     public partial class frmSearchDateRange : Form
     {
-        private string recordType = "";
+        private string recordType = "AT Escalation";
         private string searchTerm = "";
         public frmSearchDateRange()
         {
@@ -35,7 +35,7 @@ namespace Schedule_Database_Desktop_Version
                     MessageBox.Show("No records found");
                     break;
                 case 1:
-                    frmLabEsc record = new frmLabEsc();
+                    frmLabEsc record = GV.EscForm;
                     record.LabEsc = model[0];
                     record.Show();
                     break;

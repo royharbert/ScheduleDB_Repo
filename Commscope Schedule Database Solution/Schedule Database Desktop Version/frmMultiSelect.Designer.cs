@@ -50,8 +50,7 @@ namespace Schedule_Database_Desktop_Version
             this.dgvResults.RowHeadersWidth = 51;
             this.dgvResults.Size = new System.Drawing.Size(1850, 650);
             this.dgvResults.TabIndex = 0;
-            this.dgvResults.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellContentDoubleClick);
-            this.dgvResults.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvResults_RowHeaderMouseClick);
+            this.dgvResults.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellContentDoubleClick);            
             // 
             // txtCount
             // 

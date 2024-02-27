@@ -104,9 +104,9 @@ namespace Schedule_Database_Desktop_Version
             this.rtxComments = new System.Windows.Forms.RichTextBox();
             this.rtxDescription = new System.Windows.Forms.RichTextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpcEsc = new System.Windows.Forms.TabControl();
+            this.tpgDetails = new System.Windows.Forms.TabPage();
+            this.tpgAdditionalFields = new System.Windows.Forms.TabPage();
             this.btnClose2 = new System.Windows.Forms.Button();
             this.btnSave2 = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
@@ -122,9 +122,9 @@ namespace Schedule_Database_Desktop_Version
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
             this.tlpLeft.SuspendLayout();
             this.gbDateRange.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tpcEsc.SuspendLayout();
+            this.tpgDetails.SuspendLayout();
+            this.tpgAdditionalFields.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtRecordID
@@ -387,12 +387,12 @@ namespace Schedule_Database_Desktop_Version
             this.dtpContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clearDateToolStripMenuItem});
             this.dtpContextMenu.Name = "dtpContextMenu";
-            this.dtpContextMenu.Size = new System.Drawing.Size(129, 26);
+            this.dtpContextMenu.Size = new System.Drawing.Size(181, 48);
             // 
             // clearDateToolStripMenuItem
             // 
             this.clearDateToolStripMenuItem.Name = "clearDateToolStripMenuItem";
-            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clearDateToolStripMenuItem.Text = "Clear Date";
             this.clearDateToolStripMenuItem.Click += new System.EventHandler(this.clearDateToolStripMenuItem_Click);
             // 
@@ -1046,65 +1046,65 @@ namespace Schedule_Database_Desktop_Version
             this.label20.TabIndex = 212;
             this.label20.Text = "Comments / Resolution";
             // 
-            // tabControl1
+            // tpcEsc
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1264, 845);
-            this.tabControl1.TabIndex = 214;
+            this.tpcEsc.Controls.Add(this.tpgDetails);
+            this.tpcEsc.Controls.Add(this.tpgAdditionalFields);
+            this.tpcEsc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tpcEsc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tpcEsc.Location = new System.Drawing.Point(0, 0);
+            this.tpcEsc.Name = "tpcEsc";
+            this.tpcEsc.SelectedIndex = 0;
+            this.tpcEsc.Size = new System.Drawing.Size(1264, 845);
+            this.tpcEsc.TabIndex = 214;
             // 
-            // tabPage1
+            // tpgDetails
             // 
-            this.tabPage1.Controls.Add(this.tlpLeft);
-            this.tabPage1.Controls.Add(this.txtID);
-            this.tabPage1.Controls.Add(this.lstProducts);
-            this.tabPage1.Controls.Add(this.dgvAttachments);
-            this.tabPage1.Controls.Add(this.txtRecordID);
-            this.tabPage1.Controls.Add(this.btnClose);
-            this.tabPage1.Controls.Add(this.gbDateRange);
-            this.tabPage1.Controls.Add(this.btnNewProduct);
-            this.tabPage1.Controls.Add(this.cboResolution);
-            this.tabPage1.Controls.Add(this.btnSave);
-            this.tabPage1.Controls.Add(this.label17);
-            this.tabPage1.Controls.Add(this.btnRemoveAttach);
-            this.tabPage1.Controls.Add(this.label24);
-            this.tabPage1.Controls.Add(this.label22);
-            this.tabPage1.Controls.Add(this.btnAddAttach);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1256, 812);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Details";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tpgDetails.Controls.Add(this.tlpLeft);
+            this.tpgDetails.Controls.Add(this.txtID);
+            this.tpgDetails.Controls.Add(this.lstProducts);
+            this.tpgDetails.Controls.Add(this.dgvAttachments);
+            this.tpgDetails.Controls.Add(this.txtRecordID);
+            this.tpgDetails.Controls.Add(this.btnClose);
+            this.tpgDetails.Controls.Add(this.gbDateRange);
+            this.tpgDetails.Controls.Add(this.btnNewProduct);
+            this.tpgDetails.Controls.Add(this.cboResolution);
+            this.tpgDetails.Controls.Add(this.btnSave);
+            this.tpgDetails.Controls.Add(this.label17);
+            this.tpgDetails.Controls.Add(this.btnRemoveAttach);
+            this.tpgDetails.Controls.Add(this.label24);
+            this.tpgDetails.Controls.Add(this.label22);
+            this.tpgDetails.Controls.Add(this.btnAddAttach);
+            this.tpgDetails.Location = new System.Drawing.Point(4, 29);
+            this.tpgDetails.Name = "tpgDetails";
+            this.tpgDetails.Padding = new System.Windows.Forms.Padding(3);
+            this.tpgDetails.Size = new System.Drawing.Size(1256, 812);
+            this.tpgDetails.TabIndex = 0;
+            this.tpgDetails.Text = "Details";
+            this.tpgDetails.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tpgAdditionalFields
             // 
-            this.tabPage2.Controls.Add(this.btnClose2);
-            this.tabPage2.Controls.Add(this.btnSave2);
-            this.tabPage2.Controls.Add(this.label30);
-            this.tabPage2.Controls.Add(this.txtTrackOut);
-            this.tabPage2.Controls.Add(this.txtTrackInc);
-            this.tabPage2.Controls.Add(this.label29);
-            this.tabPage2.Controls.Add(this.btnTabSave);
-            this.tabPage2.Controls.Add(this.rtxSerialNumbers);
-            this.tabPage2.Controls.Add(this.label28);
-            this.tabPage2.Controls.Add(this.label21);
-            this.tabPage2.Controls.Add(this.rtxDescription);
-            this.tabPage2.Controls.Add(this.rtxComments);
-            this.tabPage2.Controls.Add(this.label20);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1256, 812);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Additional Fields";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tpgAdditionalFields.Controls.Add(this.btnClose2);
+            this.tpgAdditionalFields.Controls.Add(this.btnSave2);
+            this.tpgAdditionalFields.Controls.Add(this.label30);
+            this.tpgAdditionalFields.Controls.Add(this.txtTrackOut);
+            this.tpgAdditionalFields.Controls.Add(this.txtTrackInc);
+            this.tpgAdditionalFields.Controls.Add(this.label29);
+            this.tpgAdditionalFields.Controls.Add(this.btnTabSave);
+            this.tpgAdditionalFields.Controls.Add(this.rtxSerialNumbers);
+            this.tpgAdditionalFields.Controls.Add(this.label28);
+            this.tpgAdditionalFields.Controls.Add(this.label21);
+            this.tpgAdditionalFields.Controls.Add(this.rtxDescription);
+            this.tpgAdditionalFields.Controls.Add(this.rtxComments);
+            this.tpgAdditionalFields.Controls.Add(this.label20);
+            this.tpgAdditionalFields.Location = new System.Drawing.Point(4, 29);
+            this.tpgAdditionalFields.Name = "tpgAdditionalFields";
+            this.tpgAdditionalFields.Padding = new System.Windows.Forms.Padding(3);
+            this.tpgAdditionalFields.Size = new System.Drawing.Size(1256, 812);
+            this.tpgAdditionalFields.TabIndex = 1;
+            this.tpgAdditionalFields.Text = "Additional Fields";
+            this.tpgAdditionalFields.UseVisualStyleBackColor = true;
             // 
             // btnClose2
             // 
@@ -1212,7 +1212,7 @@ namespace Schedule_Database_Desktop_Version
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(1264, 845);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tpcEsc);
             this.Controls.Add(this.label4);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1228,11 +1228,11 @@ namespace Schedule_Database_Desktop_Version
             this.tlpLeft.PerformLayout();
             this.gbDateRange.ResumeLayout(false);
             this.gbDateRange.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tpcEsc.ResumeLayout(false);
+            this.tpgDetails.ResumeLayout(false);
+            this.tpgDetails.PerformLayout();
+            this.tpgAdditionalFields.ResumeLayout(false);
+            this.tpgAdditionalFields.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1310,9 +1310,9 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.RichTextBox rtxComments;
         private System.Windows.Forms.RichTextBox rtxDescription;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl tpcEsc;
+        private System.Windows.Forms.TabPage tpgDetails;
+        private System.Windows.Forms.TabPage tpgAdditionalFields;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox txtTimeSpent;

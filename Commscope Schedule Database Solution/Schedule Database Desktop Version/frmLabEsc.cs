@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Schedule_Database_Desktop_Version
@@ -134,11 +135,14 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
-        private void InputForm_InputDataReady(object sender, InputDataReadyEventArgs e)
+        private void clearDTP(DateTimePicker dtp)
         {
-            throw new NotImplementedException();
+            DateTime newDate = CommonOps.dtpForcedReset(dtp);
+            dtp.Value = newDate;
+            dtp.Format = DateTimePickerFormat.Custom;
         }
 
+        
         private void clearDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Try to cast the sender to a ToolStripItem
@@ -156,7 +160,7 @@ namespace Schedule_Database_Desktop_Version
                     dtp.Value = newDate;
                 }
                 //changes status back to open if date completed is cleared LMD 2-21-23
-                if (dtpClosedDate.Value == emptyDate)
+                if (dtpClosedDate.Value == emptyDate && cboMSO.Text != "")
                 {
                     cboStatus.SelectedIndex = 2;
                 }
@@ -990,7 +994,83 @@ namespace Schedule_Database_Desktop_Version
                 }
 
             }
-            //MessageBox.Show("Form Closing");
+            GV.EscForm = this;
+            e.Cancel = true;
+            clearForm();
+            this.Hide();
+        }
+
+        private void clearBoxes(Control[] controls)
+        {
+            foreach (var ctl in controls)
+            {
+                if (ctl is TextBox)
+                {
+                    TextBox textBox = (TextBox)ctl;
+                    textBox.Text = string.Empty;
+                }
+            
+                if (ctl is RichTextBox)
+                {
+                    RichTextBox rtb = (RichTextBox)ctl;
+                    rtb.Text = string.Empty;
+                }
+            
+                if (ctl is ComboBox)
+                {
+                    ComboBox cbo = (ComboBox)ctl;
+                    cbo.Text = string.Empty;
+                    cbo.SelectedIndex = -1;
+                }
+
+                if (ctl is DateTimePicker)
+                {
+                    DateTimePicker dtp = (DateTimePicker)ctl;
+                    clearDTP(dtp);
+                }
+
+            }
+
+        }
+
+        private void clearForm()
+        {
+            List<TabPage> tpList = new List<TabPage>{ tpgDetails, tpgAdditionalFields };
+            foreach (Control ctl in GV.EscForm.Controls)
+            {
+                if (ctl is TabControl)
+                {
+                    TabControl tabControl = (TabControl)ctl;
+                    List<Control> controlList = new List<Control>();
+                    foreach (var tControl in ctl.Controls)
+                    {
+                        TabPage tpg = (TabPage)tControl;
+                        if (tControl is TabPage)
+                        {
+                            foreach (Control tpgControl in tpg.Controls)
+                            {
+                                if (tpgControl is TableLayoutPanel)
+                                {
+                                    TableLayoutPanel tlp = (TableLayoutPanel)tpgControl;
+                                    Control[] controlArray = tlp.Controls.Cast<Control>().ToArray();
+                                    clearBoxes(controlArray);
+                                }
+                                else
+                                {
+                                    controlList.Add(tpgControl);
+                                }
+                            }
+                            Control[] ctlArray =controlList.Cast<Control>().ToArray();
+                            clearBoxes(ctlArray);
+                        }
+                    }                
+                }
+            }
+
+            dgvAttachments.DataSource = "";
+            cboMSO.Enabled = false;
+            cboRecType.Enabled = false;
+            lstProducts.ClearSelected();
         }
 
         private void calculateDateDue()

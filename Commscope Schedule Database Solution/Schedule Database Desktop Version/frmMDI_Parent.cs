@@ -152,7 +152,7 @@ namespace Schedule_Database_Desktop_Version
             setDBConfigProperty();
             this.Refresh();
         }
-
+        
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.Priviledge = 0;
@@ -176,18 +176,18 @@ namespace Schedule_Database_Desktop_Version
         private void addEscalationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscAdd;
-            showLabEscForm();
+            GV.EscForm.Show();
         }
 
         private frmLabEsc showLabEscForm()
         {
             Mode curMode = GV.MODE;
             frmLabEsc EscalationsForm = new frmLabEsc();
-            EscalationsForm.StartPosition = FormStartPosition.CenterScreen;
-            EscalationsForm.fillComboBoxes();
-            EscalationsForm.FillProductList();
-            EscalationsForm.DisplayForm = EscalationsForm;
-            EscalationsForm.Show();
+            GV.EscForm.StartPosition = FormStartPosition.CenterScreen;
+            //GV.EscForm.fillComboBoxes();
+            //GV.EscForm.FillProductList();
+            //GV.EscForm.DisplayForm = EscalationsForm;
+            GV.EscForm.Show();
             GV.MODE = curMode;
             return EscalationsForm;
         }
@@ -213,8 +213,8 @@ namespace Schedule_Database_Desktop_Version
                     MessageBox.Show("No matching escalations/requests");
                     break;
                 case 1:
-                    frmLabEsc escForm = showLabEscForm();
-                    escForm.LabEsc = models[0];
+                    showLabEscForm();
+                    GV.EscForm.LabEsc = models[0];
                     break;
                 default:
                     frmMultiSelect results = new frmMultiSelect();
@@ -253,15 +253,31 @@ namespace Schedule_Database_Desktop_Version
         private void frmAMDI_Parent_Load(object sender, EventArgs e)
         {
             checkHolidaySched();
-            //frmLabEsc escForm = new frmLabEsc();
+            frmLabEsc escForm = new frmLabEsc();
             frmInput inputForm = new frmInput();
             DashboardRefresh();
             //GV.inputForm = inputForm;
             //GV.inputForm.InputDataReady += InputID_InputDataReady;
-            //GV.LABESCFORM = escForm;
-            //GV.LABESCFORM.fillComboBoxes();
-            //GV.LABESCFORM.FillProductList();
+            GV.EscForm = escForm;
+            GV.EscForm.fillComboBoxes();
+            GV.EscForm.FillProductList();
+            GV.EscForm.Show();
+            //PrepLabEscForm(GV.EscForm);
+            GV.EscForm.Hide();
         }
+
+        //private async Task PrepLabEscForm(frmLabEsc eForm)
+        //{
+        //    await Task.Run(() => showForm(eForm));
+        //}
+
+        //private int showForm(frmLabEsc eForm)
+        //{
+        //    eForm.Show();
+        //    GV.EscForm.Hide();
+        //    return 1;
+        //}
+
 
         private void holidaysListToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -380,10 +396,10 @@ namespace Schedule_Database_Desktop_Version
                     MessageBox.Show("No matching records found");
                     break;
                 case 1:
-                    frmLabEsc escForm = new frmLabEsc();
-                    escForm.LabEsc = results[0];
-                    //escForm.DisplayForm = escForm;
-                    //escForm.ShowDialog();
+                    //frmLabEsc escForm = new frmLabEsc();
+                    GV.EscForm.LabEsc = results[0];
+                    GV.EscForm.DisplayForm = GV.EscForm;
+                    GV.EscForm.Show();
                     break;
                 default:
                     frmMultiSelect frmMultiSelect = new frmMultiSelect();
@@ -471,6 +487,7 @@ namespace Schedule_Database_Desktop_Version
             frmMultiSelect listForm = new frmMultiSelect();
             listForm.LabRequests = dashboardData.EscalationsClosedYTD;
             listForm.ShowDialog();
+            GV.EscForm.BringToFront();
         }
 
         private void btnEscCurrentlyOpen_Click(object sender, EventArgs e)
@@ -478,6 +495,7 @@ namespace Schedule_Database_Desktop_Version
             frmMultiSelect listForm = new frmMultiSelect();
             listForm.LabRequests = dashboardData.EscalationsCurrentlyOpen;
             listForm.ShowDialog();
+            GV.EscForm.BringToFront();
         }
 
         private void btnEscOpenedThisWeek_Click(object sender, EventArgs e)
