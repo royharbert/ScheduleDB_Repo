@@ -387,12 +387,12 @@ namespace Schedule_Database_Desktop_Version
             this.dtpContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clearDateToolStripMenuItem});
             this.dtpContextMenu.Name = "dtpContextMenu";
-            this.dtpContextMenu.Size = new System.Drawing.Size(181, 48);
+            this.dtpContextMenu.Size = new System.Drawing.Size(129, 26);
             // 
             // clearDateToolStripMenuItem
             // 
             this.clearDateToolStripMenuItem.Name = "clearDateToolStripMenuItem";
-            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearDateToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.clearDateToolStripMenuItem.Text = "Clear Date";
             this.clearDateToolStripMenuItem.Click += new System.EventHandler(this.clearDateToolStripMenuItem_Click);
             // 
@@ -928,11 +928,11 @@ namespace Schedule_Database_Desktop_Version
             this.label27.Dock = System.Windows.Forms.DockStyle.Right;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label27.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label27.Location = new System.Drawing.Point(12, 620);
+            this.label27.Location = new System.Drawing.Point(4, 620);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(83, 31);
+            this.label27.Size = new System.Drawing.Size(91, 31);
             this.label27.TabIndex = 209;
-            this.label27.Text = "Time Spent";
+            this.label27.Text = "Hours Spent";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtTimeSpent
