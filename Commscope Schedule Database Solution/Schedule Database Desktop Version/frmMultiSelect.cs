@@ -1,4 +1,5 @@
-﻿using ScheduleDatabaseClassLibrary.GeneralOps;
+﻿using ScheduleDatabaseClassLibrary;
+using ScheduleDatabaseClassLibrary.GeneralOps;
 using ScheduleDatabaseClassLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -166,7 +167,7 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.OpenEscByDate:
                     ListLooper.ExcelExporter<LabEscModel> exporter = new ListLooper.ExcelExporter<LabEscModel>();
                     exporter.List = (List<LabEscModel>)dgvResults.DataSource;
-                    ReportOps.FormatEscalationResultExport(exporter.Wksheet);
+                     ReportOps.FormatEscalationResultExport(exporter.Wksheet);
                     break;
                 default:
                     ListLooper.ExcelExporter<LabEscModel> excelExporter = new ListLooper.ExcelExporter<LabEscModel>();
@@ -192,9 +193,11 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.OpenEscByDate:
                 case Mode.LabEscReport:
                 case Mode.LabEscDelete:
-                    LabEscModel request = requests[selectedRow];
+                    List<LabEscModel> requests = (List<LabEscModel>)dgvResults.DataSource;
                     GV.EscForm.Show();
-                    GV.EscForm.LabEsc = request;
+                    LabEscModel request = requests[selectedRow];
+                    requests = GlobalConfig.Connection.LabEscGetByPID(request.EscID, false);
+                    GV.EscForm.LabEsc = requests[0];
                     break;
                 case Mode.Dashboard:
                     GV.MODE = Mode.LabEscEdit;
@@ -204,7 +207,7 @@ namespace Schedule_Database_Desktop_Version
                 default:
                     break;
             }
-            this.Close();
+            //this.Close();
             GV.EscForm.BringToFront();
         }
     }

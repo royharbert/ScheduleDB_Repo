@@ -143,7 +143,6 @@
     <Compile Include="GeneralOps\PID_Generator.cs" />
     <Compile Include="Operations\CommonOps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportOps.cs" />
     <Compile Include="TableOps\TableGenerator.cs" />
     <Compile Include="Utilities\FE_IDtoXML.cs" />
   </ItemGroup>
