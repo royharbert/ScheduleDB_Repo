@@ -198,6 +198,7 @@ namespace Schedule_Database_Desktop_Version
                     LabEscModel request = requests[selectedRow];
                     requests = GlobalConfig.Connection.LabEscGetByPID(request.EscID, false);
                     GV.EscForm.LabEsc = requests[0];
+                    GV.EscForm.PrepFormForDisplay(true);
                     break;
                 case Mode.Dashboard:
                     GV.MODE = Mode.LabEscEdit;

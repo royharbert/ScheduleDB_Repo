@@ -177,6 +177,7 @@ namespace Schedule_Database_Desktop_Version
         private void addEscalationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscAdd;
+            GV.EscForm.PrepFormForDisplay(false);
             GV.EscForm.Show();
         }
 
@@ -401,6 +402,7 @@ namespace Schedule_Database_Desktop_Version
                     GV.EscForm.LabEsc = results[0];
                     GV.EscForm.DisplayForm = GV.EscForm;
                     GV.EscForm.Show();
+                    GV.EscForm.PrepFormForDisplay(true);
                     break;
                 default:
                     frmMultiSelect frmMultiSelect = new frmMultiSelect();
