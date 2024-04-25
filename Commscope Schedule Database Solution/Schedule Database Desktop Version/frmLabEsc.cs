@@ -642,6 +642,10 @@ namespace Schedule_Database_Desktop_Version
             {
                 model.EntryAdmin = GV.USERMODEL.FullName; 
             }
+            else
+            {
+                model.EntryAdmin = txtEntryAdmin.Text;
+            }
             model.DateOpened = dtpStartDate.Value;
             model.DateDue = dtpDueDate.Value;
             model.DateCompleted = dtpClosedDate.Value;
