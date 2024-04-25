@@ -1258,11 +1258,13 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscAdd:
                     cboRecType.Enabled = true;
                     cboMSO.Enabled = true;
+                    lstProducts.Enabled = false;
                     btnSave.Text = "Save";
                     break;
                 case Mode.LabEscEdit:
                     cboRecType.Enabled = false;
                     cboMSO.Enabled = false;
+                    lstProducts.Enabled = true;
                     btnSave.Text = "Save";
                     break;
                 case Mode.LabEscDelete:
