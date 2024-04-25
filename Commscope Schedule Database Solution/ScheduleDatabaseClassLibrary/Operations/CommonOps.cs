@@ -17,30 +17,6 @@ namespace ScheduleDatabaseClassLibrary.Operations
 
     public static class CommonOps
     { 
-         /// <summary>
-         /// locks or unlocks all textboxes, comboboxes, richtext boxes and list boxes
-         /// unless they are in the comma separated skipList(no spaces)
-         /// </summary>
-         /// <param name="lockControl"> bool to indicate whether to lock or unlock</param>
-         /// <param name="skipList">Comma separated list of control names to skip over</param>
-        public static void lockControls(bool lockControl, Form frm, string skipList)
-        {
-            foreach (Control control in frm.Controls)
-            {
-                if (control is System.Windows.Forms.TextBox | control is System.Windows.Forms.ComboBox | control is RichTextBox | control is System.Windows.Forms.ListBox
-                     | control is DateTimePicker)
-                {
-                    int idx = skipList.IndexOf(control.Name);
-                    if (idx == -1)
-                    {
-                        control.Enabled = !lockControl;
-                    }
-                }
-            }
-        }
-
-        
-
         public static List<LabEscModel> GetReportData(string RecordType = "", string RecordStatus = "")
         {
             List<LabEscModel> models = new List<LabEscModel>();
@@ -83,24 +59,7 @@ namespace ScheduleDatabaseClassLibrary.Operations
             }
             return status;
         }
-
         
-
-        public static void lockControls(bool lockControl, TableLayoutPanel frm, string skipList)
-        {
-            foreach (Control control in frm.Controls)
-            {
-                if (control is System.Windows.Forms.TextBox | control is System.Windows.Forms.ComboBox | control is RichTextBox | control is System.Windows.Forms.ListBox
-                     | control is DateTimePicker)
-                {
-                    int idx = skipList.IndexOf(control.Name);
-                    if (idx == -1)
-                    {
-                        control.Enabled = !lockControl;
-                    }
-                }
-            }
-        }
         public static void MakeMSO_StatusList(List<MSO_Model> msoList, DataGridView dgv)
         {
             dgv.DataSource = msoList;

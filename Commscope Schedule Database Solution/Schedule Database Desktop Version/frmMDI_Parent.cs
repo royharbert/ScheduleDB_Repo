@@ -144,6 +144,7 @@ namespace Schedule_Database_Desktop_Version
                 setFormText();
             }
             Properties.Settings.Default.Save();
+            DashboardRefresh();
         }
 
         private void sandboxToolStripMenuItem_Click(object sender, EventArgs e)
@@ -176,6 +177,7 @@ namespace Schedule_Database_Desktop_Version
         private void addEscalationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscAdd;
+            GV.EscForm.PrepFormForDisplay(false);
             GV.EscForm.Show();
         }
 
@@ -400,6 +402,7 @@ namespace Schedule_Database_Desktop_Version
                     GV.EscForm.LabEsc = results[0];
                     GV.EscForm.DisplayForm = GV.EscForm;
                     GV.EscForm.Show();
+                    GV.EscForm.PrepFormForDisplay(true);
                     break;
                 default:
                     frmMultiSelect frmMultiSelect = new frmMultiSelect();
@@ -480,6 +483,7 @@ namespace Schedule_Database_Desktop_Version
             frmMultiSelect listForm = new frmMultiSelect();
             listForm.LabRequests = dashboardData.EscalationsOpenedYTD;
             listForm.ShowDialog();
+            GV.EscForm.BringToFront();
         }
 
         private void btnEscClosedYTD_Click(object sender, EventArgs e)
@@ -517,6 +521,7 @@ namespace Schedule_Database_Desktop_Version
             frmMultiSelect listForm = new frmMultiSelect();
             listForm.LabRequests = dashboardData.LabRequestsOpenedYTD;
             listForm.ShowDialog();
+            GV.EscForm.BringToFront();
         }
 
         private void btnReqClosedYTD_Click(object sender, EventArgs e)
@@ -524,13 +529,15 @@ namespace Schedule_Database_Desktop_Version
             frmMultiSelect listForm = new frmMultiSelect();
             listForm.LabRequests = dashboardData.LabRequestsClosedYTD;
             listForm.ShowDialog();
+            GV.EscForm.BringToFront();
         }
 
         private void btnReqCurrentlyOpen_Click(object sender, EventArgs e)
         {
             frmMultiSelect listForm = new frmMultiSelect();
             listForm.LabRequests = dashboardData.LabRequestsCurrentlyOpen;
-            listForm.ShowDialog();
+            listForm.ShowDialog(); 
+            GV.EscForm.BringToFront();
         }
 
         private void btnReqOpenedThisWeek_Click(object sender, EventArgs e)
@@ -538,6 +545,7 @@ namespace Schedule_Database_Desktop_Version
             frmMultiSelect listForm = new frmMultiSelect();
             listForm.LabRequests = dashboardData.LabRequestsOpenedThisWeek;
             listForm.ShowDialog();
+            GV.EscForm.BringToFront();
         }
 
         private void btnReqClosedThisWeek_Click(object sender, EventArgs e)
@@ -545,6 +553,7 @@ namespace Schedule_Database_Desktop_Version
             frmMultiSelect listForm = new frmMultiSelect();
             listForm.LabRequests = dashboardData.LabRequestsClosedThisWeek;
             listForm.ShowDialog();
+            GV.EscForm.BringToFront();
         }
     }
 }

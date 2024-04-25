@@ -16,7 +16,6 @@ namespace Schedule_Database_Desktop_Version
         bool formDirty = false;
         bool formLoading = false;
         LabEscModel labEsc;
-        //frmAMDI_Parent Parent = GV.MAINMENU;
         private frmLabEsc displayForm;
         DateTime emptyDate = new DateTime(1900, 1, 1);
         DateTime nullDate = new DateTime(0001, 1, 1);
@@ -89,10 +88,9 @@ namespace Schedule_Database_Desktop_Version
                 case Mode.LabEscAdd:
                     //dtpClosedDate.Value = new DateTime(1900, 1, 1);
                     txtRecordID.Clear();
-                    fillComboBoxes();
                     cboRecType.Enabled = true;
                     cboMSO.Enabled = true;
-                    CommonOps.lockControls(true, tlpLeft, "cboRecType");
+                    PrepFormForDisplay(false);
                     model = new LabEscModel();
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
                     txtEntryAdmin.Text = GV.USERMODEL.FullName;
@@ -109,16 +107,16 @@ namespace Schedule_Database_Desktop_Version
                     this.BringToFront();
                     break;
                 case Mode.LabEscDelete:
-                    CommonOps.lockControls(false, this, "");
+                    PrepFormForDisplay(true);
                     btnSave.Text = "Delete";
                     //TODO Undelete/restore 
                     break;
                 case Mode.LabEscRestore:
-                    CommonOps.lockControls(false, this, "");
+                    PrepFormForDisplay(true);
                     btnSave.Text = "Restore";
                     break;
                 case Mode.LabEscSearch:
-                    CommonOps.lockControls(false, this, "");
+                    PrepFormForDisplay(true);
                     dtpClosedDate.Format = DateTimePickerFormat.Custom;
                     dtpDueDate.Format = DateTimePickerFormat.Custom;
                     dtpStartDate.Format = DateTimePickerFormat.Custom;
@@ -698,8 +696,6 @@ namespace Schedule_Database_Desktop_Version
             }
             else
             {
-                //dtpClosedDate.Format = DateTimePickerFormat.Long;
-                //dtpClosedDate.Value = model.DateCompleted;
                 dtpDueDate.Format = DateTimePickerFormat.Long;
                 dtpDueDate.Value = model.DateDue;
             }
@@ -786,7 +782,7 @@ namespace Schedule_Database_Desktop_Version
                 formDirty = true;
                 string PID = PID_Generator.GeneratePID(model, cboRecType.Text);
                 txtRecordID.Text = PID;
-                CommonOps.lockControls(false, tlpLeft, "");
+                //PrepFormForDisplay();
                 //txtRecordID.Enabled = false;
                 cboRecType.Enabled = false;
                 cboMSO.Enabled = false;
@@ -1246,9 +1242,47 @@ namespace Schedule_Database_Desktop_Version
             System.Diagnostics.Process.Start(e.LinkText);
         }
 
+        public void PrepFormForDisplay(bool enable)
+        {               
+            foreach(Control ctl in tlpLeft.Controls)
+            {
+                ctl.Enabled = enable;
+            }
+
+            foreach (Control ctl in tpgAdditionalFields.Controls)
+            {
+                ctl.Enabled = enable;
+            }
+            switch (GV.MODE)
+            { 
+                case Mode.LabEscAdd:
+                    cboRecType.Enabled = true;
+                    cboMSO.Enabled = true;
+                    lstProducts.Enabled = false;
+                    btnSave.Text = "Save";
+                    break;
+                case Mode.LabEscEdit:
+                    cboRecType.Enabled = false;
+                    cboMSO.Enabled = false;
+                    lstProducts.Enabled = true;
+                    btnSave.Text = "Save";
+                    break;
+                case Mode.LabEscDelete:
+                    btnSave.Text = "Delete";
+                    break;
+                case Mode.LabEscRestore:
+                    btnSave.Text = "Restore";
+                    break;
+                default:
+                    break;
+            }
+        }
+
 
         private void frmLabEsc_Activated(object sender, EventArgs e)
         {
+            
+
             if (GV.MODE != Mode.LabEscAdd)
             {
                 getAttachments(txtRecordID.Text);
