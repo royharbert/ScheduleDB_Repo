@@ -638,7 +638,10 @@ namespace Schedule_Database_Desktop_Version
             model.Requestor = cboRequestor.Text;
             model.CTRNum = txtCTRNum.Text;
             model.EscNum = txtEscNum.Text;
-            model.EntryAdmin = GV.USERMODEL.FullName;
+            if (GV.MODE == Mode.LabEscAdd)
+            {
+                model.EntryAdmin = GV.USERMODEL.FullName; 
+            }
             model.DateOpened = dtpStartDate.Value;
             model.DateDue = dtpDueDate.Value;
             model.DateCompleted = dtpClosedDate.Value;
@@ -782,8 +785,8 @@ namespace Schedule_Database_Desktop_Version
                 formDirty = true;
                 string PID = PID_Generator.GeneratePID(model, cboRecType.Text);
                 txtRecordID.Text = PID;
-                //PrepFormForDisplay();
-                //txtRecordID.Enabled = false;
+                PrepFormForDisplay(true);
+                txtRecordID.Enabled = false;
                 cboRecType.Enabled = false;
                 cboMSO.Enabled = false;
                 GV.MODE = Mode.LabEscAdd;
@@ -1073,7 +1076,7 @@ namespace Schedule_Database_Desktop_Version
         {
             dtpDueDate.Format = DateTimePickerFormat.Custom;
             DateTime dueDate = emptyDate;
-            if (cboSeverity.Text != "" & dtpStartDate.Text != "" & !formLoading)
+            if (cboSeverity.Text != "" & dtpStartDate.Text != "" /*& !formLoading*/)
             {
                 dueDate = CommonOps.CalculateDateDue(dtpStartDate.Value, cboSeverity.Text);
                 dtpDueDate.Format = DateTimePickerFormat.Long;
@@ -1127,6 +1130,7 @@ namespace Schedule_Database_Desktop_Version
         private void cboRecType_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             cboMSO.Enabled = true;
+            cboStatus.SelectedIndex = 2;
         }
 
         private void rtxDescription_Enter(object sender, EventArgs e)
