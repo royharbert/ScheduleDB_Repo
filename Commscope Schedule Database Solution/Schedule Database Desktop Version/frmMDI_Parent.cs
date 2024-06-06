@@ -555,5 +555,31 @@ namespace Schedule_Database_Desktop_Version
             listForm.ShowDialog();
             GV.EscForm.BringToFront();
         }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void inProcessToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.OpenEscByDate;
+            List<LabEscModel> models = CommonOps.GetReportData("", "");
+            ListModels(models);
+        }
+
+        private void closedToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            GV.MODE= Mode.LabEscReport;
+            List<LabEscModel> models = CommonOps.GetReportData("", "X");
+            ListModels(models);
+        }
+
+        private void canceledToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscReport;
+            List<LabEscModel> models = CommonOps.GetReportData("", "C");
+            ListModels(models);
+        }
     }
 }
