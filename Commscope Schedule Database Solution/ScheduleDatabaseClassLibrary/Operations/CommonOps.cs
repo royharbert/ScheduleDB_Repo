@@ -33,6 +33,11 @@ namespace ScheduleDatabaseClassLibrary.Operations
                     status = GetStatusString(RecordStatus);
                     models = GlobalConfig.Connection.GetReportModel(status, RecordType);
                     break;
+                case "*":
+                    RecordType = "All";
+                    status = GetStatusString(RecordStatus);
+                    models = GlobalConfig.Connection.GetReportModel(status, RecordType);
+                    break;
                 case "":
                     models = GlobalConfig.Connection.GetOpenEscSortedByDateDue();
                     break;
