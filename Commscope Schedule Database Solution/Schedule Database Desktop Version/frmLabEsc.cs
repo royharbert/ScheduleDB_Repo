@@ -642,6 +642,10 @@ namespace Schedule_Database_Desktop_Version
             {
                 model.EntryAdmin = GV.USERMODEL.FullName; 
             }
+            else
+            {
+                model.EntryAdmin = txtEntryAdmin.Text;
+            }
             model.DateOpened = dtpStartDate.Value;
             model.DateDue = dtpDueDate.Value;
             model.DateCompleted = dtpClosedDate.Value;
@@ -786,9 +790,11 @@ namespace Schedule_Database_Desktop_Version
                 string PID = PID_Generator.GeneratePID(model, cboRecType.Text);
                 txtRecordID.Text = PID;
                 PrepFormForDisplay(true);
+                lstProducts.Enabled = true;
                 txtRecordID.Enabled = false;
                 cboRecType.Enabled = false;
                 cboMSO.Enabled = false;
+                dtpStart.Value = DateTime.Now;
                 GV.MODE = Mode.LabEscAdd;
             }
         }
