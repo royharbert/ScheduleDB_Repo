@@ -61,6 +61,9 @@ namespace ScheduleDatabaseClassLibrary.Operations
                 case "X":
                     status = "Canceled";
                     break;
+                case "*":
+                    status = "Get All";
+                    break;
             }
             return status;
         }
