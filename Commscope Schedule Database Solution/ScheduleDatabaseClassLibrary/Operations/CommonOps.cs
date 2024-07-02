@@ -34,12 +34,12 @@ namespace ScheduleDatabaseClassLibrary.Operations
                     models = GlobalConfig.Connection.GetReportModel(status, RecordType);
                     break;
                 case "*":
-                    RecordType = "All";
+                    RecordType = "Get All";
                     status = GetStatusString(RecordStatus);
                     models = GlobalConfig.Connection.GetReportModel(status, RecordType);
                     break;
                 case "":
-                    models = GlobalConfig.Connection.GetOpenEscSortedByDateDue();
+                    models = GlobalConfig.Connection.GetReportModel(status, RecordType);
                     break;
 
             }
@@ -61,9 +61,9 @@ namespace ScheduleDatabaseClassLibrary.Operations
                 case "X":
                     status = "Canceled";
                     break;
-                case "*":
-                    status = "Get All";
-                    break;
+                ////case "*":
+                ////    status = "Get All";
+                //    break;
             }
             return status;
         }
