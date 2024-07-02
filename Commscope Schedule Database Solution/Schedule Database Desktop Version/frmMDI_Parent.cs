@@ -563,26 +563,49 @@ namespace Schedule_Database_Desktop_Version
 
         private void inProcessToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.OpenEscByDate;
-            List<LabEscModel> models = CommonOps.GetReportData("", "");
+            //GV.MODE = Mode.OpenEscByDate;
+            //List<LabEscModel> models = CommonOps.GetReportData("", "");
+            GV.MODE = Mode.LabEscReport;
+            List<LabEscModel> models = CommonOps.GetReportData("*", "I");
             ListModels(models);
         }
 
         private void closedToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             GV.MODE= Mode.LabEscReport;
-            List<LabEscModel> models = CommonOps.GetReportData("", "C");
+            List<LabEscModel> models = CommonOps.GetReportData("*", "C");
             ListModels(models);
         }
 
         private void canceledToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
-            List<LabEscModel> models = CommonOps.GetReportData("", "X");
+            List<LabEscModel> models = CommonOps.GetReportData("E", "X");
             ListModels(models);
         }
 
         private void allItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscReport;
+            List<LabEscModel> models = CommonOps.GetReportData("*", "*");
+            ListModels(models);
+        }
+
+        private void canceledToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscReport;
+            List<LabEscModel> models = CommonOps.GetReportData("*", "X");
+            ListModels(models);
+        }
+
+        private void canceledToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            GV.MODE = Mode.LabEscReport;
+            List<LabEscModel> models = CommonOps.GetReportData("L", "X");
+            ListModels(models);
+        }
+
+        private void allStatusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GV.MODE = Mode.LabEscReport;
             List<LabEscModel> models = CommonOps.GetReportData("*", "*");
