@@ -100,6 +100,7 @@ namespace Schedule_Database_Desktop_Version
                     cboStatus.SelectedIndex = 2;
                     break;
                 case Mode.LabEscEdit:
+                case Mode.LabEscReport:
                     getAttachments(model.EscID);
                     gbDateRange.Visible = false;
                     dtpClosedDate.Enabled = true;

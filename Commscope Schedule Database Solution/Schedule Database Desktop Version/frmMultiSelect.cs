@@ -202,6 +202,7 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case Mode.Dashboard:
                     GV.MODE = Mode.LabEscEdit;
+                    GV.MODE = Mode.LabEscEdit;
                     break;
                 case Mode.None:
                     break;
