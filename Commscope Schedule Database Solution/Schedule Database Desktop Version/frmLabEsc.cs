@@ -58,8 +58,11 @@ namespace Schedule_Database_Desktop_Version
                 }
                 else
                 {
-                    GV.MODE = Mode.LabEscEdit;
-                    btnSave.Text = "Save";
+                    if (GV.MODE != Mode.LabEscReport)
+                    {
+                        GV.MODE = Mode.LabEscEdit;
+                        btnSave.Text = "Save"; 
+                    }
                 }
                 List<LabEscModel> escList = new List<LabEscModel>();
                 escList.Add(labEsc);
@@ -1136,8 +1139,11 @@ namespace Schedule_Database_Desktop_Version
 
         private void cboRecType_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            cboMSO.Enabled = true;
-            cboStatus.SelectedIndex = 2;
+            if (GV.MODE != Mode.LabEscReport)
+            {
+                cboMSO.Enabled = true;
+                cboStatus.SelectedIndex = 2; 
+            }
         }
 
         private void rtxDescription_Enter(object sender, EventArgs e)

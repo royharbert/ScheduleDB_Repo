@@ -201,9 +201,9 @@ namespace Schedule_Database_Desktop_Version
         }
         private void openItemsByDateDueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.OpenEscByDate;
-            List<LabEscModel> models = CommonOps.GetReportData("", "");
-            ListModels(models);
+            //GV.MODE = Mode.OpenEscByDate;
+            //List<LabEscModel> models = CommonOps.GetReportData("", "");
+            //ListModels(models);
         }
 
         private List<LabEscModel> ListModels(List<LabEscModel> models)
@@ -449,11 +449,6 @@ namespace Schedule_Database_Desktop_Version
         {
             frmSearchDateRange dateRange = new frmSearchDateRange();
             dateRange.ShowDialog();
-        }
-
-        private void openEscalationsByDueDateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void searchEscalationToolStripMenuItem_Click(object sender, EventArgs e)

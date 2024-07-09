@@ -385,7 +385,6 @@ namespace Schedule_Database_Desktop_Version
             this.openEscalationsByDueDateToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
             this.openEscalationsByDueDateToolStripMenuItem.Tag = "2";
             this.openEscalationsByDueDateToolStripMenuItem.Text = "Escalations by Due Date";
-            this.openEscalationsByDueDateToolStripMenuItem.Click += new System.EventHandler(this.openEscalationsByDueDateToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
