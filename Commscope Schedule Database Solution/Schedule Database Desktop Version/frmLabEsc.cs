@@ -1344,5 +1344,49 @@ namespace Schedule_Database_Desktop_Version
         {
             AttachmentProcs.AttachmentsRowHeaderClick(dgvAttachments);
         }
+
+        private void btnImageToDescription_Click(object sender, EventArgs e)
+        {
+            {
+                ofDialog.Filter = "Images |*.bmp;*.jpg;*.png;*.gif;*.ico";
+                ofDialog.Multiselect = false;
+                ofDialog.FileName = "";
+                DialogResult result = ofDialog.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    Image img = Image.FromFile(ofDialog.FileName);
+                    Clipboard.SetImage(img);
+                    rtxDescription.Paste();
+                    rtxDescription.Focus();
+                }
+                else
+                {
+                    rtxDescription.Focus();
+                }
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            {
+                ofDialog.Filter = "Images |*.bmp;*.jpg;*.png;*.gif;*.ico";
+                ofDialog.Multiselect = false;
+                ofDialog.FileName = "";
+                DialogResult result = ofDialog.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    Image img = Image.FromFile(ofDialog.FileName);
+                    Clipboard.SetImage(img);
+                    rtxComments.Paste();
+                    rtxComments.Focus();
+                }
+                else
+                {
+                    rtxComments.Focus();
+                }
+
+            }
+        }
     }
 }
