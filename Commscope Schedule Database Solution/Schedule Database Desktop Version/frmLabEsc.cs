@@ -1401,7 +1401,7 @@ namespace Schedule_Database_Desktop_Version
         public void ChangeMode(Mode mode)
         {
             GV.MODE = mode;
-            this.Text = this.Text + "     Mode: " + GV.MODE.ToString();
+            this.Text ="Request Emtry Form"+ "     Mode: " + GV.MODE.ToString();
         }
     }
 }
