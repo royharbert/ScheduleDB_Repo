@@ -107,6 +107,8 @@ namespace Schedule_Database_Desktop_Version
             this.tpcEsc = new System.Windows.Forms.TabControl();
             this.tpgDetails = new System.Windows.Forms.TabPage();
             this.tpgAdditionalFields = new System.Windows.Forms.TabPage();
+            this.btnImageToComments = new System.Windows.Forms.Button();
+            this.btnImageToDescription = new System.Windows.Forms.Button();
             this.btnClose2 = new System.Windows.Forms.Button();
             this.btnSave2 = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
@@ -117,9 +119,7 @@ namespace Schedule_Database_Desktop_Version
             this.rtxSerialNumbers = new System.Windows.Forms.RichTextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.btnImageToDescription = new System.Windows.Forms.Button();
             this.ofDialog = new System.Windows.Forms.OpenFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
             this.dtpContextMenu.SuspendLayout();
             this.rtbContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttachments)).BeginInit();
@@ -1088,7 +1088,7 @@ namespace Schedule_Database_Desktop_Version
             // 
             // tpgAdditionalFields
             // 
-            this.tpgAdditionalFields.Controls.Add(this.button1);
+            this.tpgAdditionalFields.Controls.Add(this.btnImageToComments);
             this.tpgAdditionalFields.Controls.Add(this.btnImageToDescription);
             this.tpgAdditionalFields.Controls.Add(this.btnClose2);
             this.tpgAdditionalFields.Controls.Add(this.btnSave2);
@@ -1110,6 +1110,26 @@ namespace Schedule_Database_Desktop_Version
             this.tpgAdditionalFields.TabIndex = 1;
             this.tpgAdditionalFields.Text = "Additional Fields";
             this.tpgAdditionalFields.UseVisualStyleBackColor = true;
+            // 
+            // btnImageToComments
+            // 
+            this.btnImageToComments.Location = new System.Drawing.Point(394, 391);
+            this.btnImageToComments.Name = "btnImageToComments";
+            this.btnImageToComments.Size = new System.Drawing.Size(150, 39);
+            this.btnImageToComments.TabIndex = 224;
+            this.btnImageToComments.Text = "Add Image Below";
+            this.btnImageToComments.UseVisualStyleBackColor = true;
+            this.btnImageToComments.Click += new System.EventHandler(this.btnImageToComments_Click);
+            // 
+            // btnImageToDescription
+            // 
+            this.btnImageToDescription.Location = new System.Drawing.Point(394, 4);
+            this.btnImageToDescription.Name = "btnImageToDescription";
+            this.btnImageToDescription.Size = new System.Drawing.Size(150, 39);
+            this.btnImageToDescription.TabIndex = 223;
+            this.btnImageToDescription.Text = "Add Image Below";
+            this.btnImageToDescription.UseVisualStyleBackColor = true;
+            this.btnImageToDescription.Click += new System.EventHandler(this.btnImageToDescription_Click);
             // 
             // btnClose2
             // 
@@ -1210,29 +1230,9 @@ namespace Schedule_Database_Desktop_Version
             this.label21.TabIndex = 213;
             this.label21.Text = "Description";
             // 
-            // btnImageToDescription
-            // 
-            this.btnImageToDescription.Location = new System.Drawing.Point(394, 4);
-            this.btnImageToDescription.Name = "btnImageToDescription";
-            this.btnImageToDescription.Size = new System.Drawing.Size(150, 39);
-            this.btnImageToDescription.TabIndex = 223;
-            this.btnImageToDescription.Text = "Add Image Below";
-            this.btnImageToDescription.UseVisualStyleBackColor = true;
-            this.btnImageToDescription.Click += new System.EventHandler(this.btnImageToDescription_Click);
-            // 
             // ofDialog
             // 
             this.ofDialog.FileName = "openFileDialog1";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(394, 391);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 39);
-            this.button1.TabIndex = 224;
-            this.button1.Text = "Add Image Below";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmLabEsc
             // 
@@ -1356,6 +1356,6 @@ namespace Schedule_Database_Desktop_Version
         private System.Windows.Forms.Button btnSave2;
         private System.Windows.Forms.Button btnImageToDescription;
         private System.Windows.Forms.OpenFileDialog ofDialog;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnImageToComments;
     }
 }

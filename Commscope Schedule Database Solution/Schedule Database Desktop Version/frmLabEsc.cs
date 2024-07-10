@@ -1259,9 +1259,9 @@ namespace Schedule_Database_Desktop_Version
             System.Diagnostics.Process.Start(e.LinkText);
         }
 
-        public void PrepFormForDisplay(bool enable)
-        {               
-            foreach(Control ctl in tlpLeft.Controls)
+        public void SetControlEnable(bool enable)
+        {
+            foreach (Control ctl in tlpLeft.Controls)
             {
                 ctl.Enabled = enable;
             }
@@ -1270,9 +1270,14 @@ namespace Schedule_Database_Desktop_Version
             {
                 ctl.Enabled = enable;
             }
+        }
+
+        public void PrepFormForDisplay(bool enable) 
+        { 
             switch (GV.MODE)
             { 
                 case Mode.LabEscAdd:
+                    SetControlEnable(false);
                     cboRecType.Enabled = true;
                     cboMSO.Enabled = true;
                     lstProducts.Enabled = false;
@@ -1289,6 +1294,10 @@ namespace Schedule_Database_Desktop_Version
                     break;
                 case Mode.LabEscRestore:
                     btnSave.Text = "Restore";
+                    break;
+                case Mode.LabEscSearch:
+                    SetControlEnable(enable);
+                    btnSave.Text = "Search";
                     break;
                 default:
                     break;
@@ -1367,7 +1376,7 @@ namespace Schedule_Database_Desktop_Version
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnImageToComments_Click(object sender, EventArgs e)
         {
             {
                 ofDialog.Filter = "Images |*.bmp;*.jpg;*.png;*.gif;*.ico";
@@ -1387,6 +1396,12 @@ namespace Schedule_Database_Desktop_Version
                 }
 
             }
+        }
+
+        public void ChangeMode(Mode mode)
+        {
+            GV.MODE = mode;
+            this.Text = this.Text + "     Mode: " + GV.MODE.ToString();
         }
     }
 }

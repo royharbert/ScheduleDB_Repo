@@ -65,8 +65,9 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnNewRecord_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabEscAdd;
-            showLabEscForm();
+            GV.EscForm.ChangeMode(Mode.LabEscAdd);
+            GV.EscForm.PrepFormForDisplay(false);
+            GV.EscForm.Show();
         }
 
         private void btnChangePW_Click(object sender, EventArgs e)
@@ -91,7 +92,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabEscSearch;
+            GV.EscForm.ChangeMode(Mode.LabEscSearch);
             showLabEscForm();
         }
         //private List<LabEscModel> ListModels(List<LabEscModel> models)
@@ -128,7 +129,7 @@ namespace Schedule_Database_Desktop_Version
         //}
         private void btnDateRange_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabEscSearch;
+            GV.EscForm.ChangeMode(Mode.LabEscSearch);
 
             frmSearchDateRange searchDateRange = new frmSearchDateRange();
             searchDateRange.Show();
@@ -136,7 +137,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnSearchByID_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabEscSearch;
+            GV.EscForm.ChangeMode(Mode.LabEscSearch);
             frmInput inputID = new frmInput();
             inputID.Show();
             GV.inputForm = inputID;
@@ -183,14 +184,14 @@ namespace Schedule_Database_Desktop_Version
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabEscDelete;
+            GV.EscForm.ChangeMode(Mode.LabEscDelete);
             Parent.prepareDeleteRestore();
         }
 
         private void btnRptAllOpen_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.OpenEscByDate; 
-            List<LabEscModel> models = CommonOps.GetReportData("", "");
+            GV.EscForm.ChangeMode(Mode.LabEscReport);
+            List<LabEscModel> models = CommonOps.GetReportData("*", "I");
             ListModels(models);
         }
 
@@ -218,31 +219,28 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnRptOpenEsc_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabEscReport; GV.MODE = Mode.LabEscReport;
+            GV.EscForm.ChangeMode(Mode.LabEscReport); 
             List<LabEscModel> models = CommonOps.GetReportData("E", "I");
             ListModels(models);
         }
 
         private void btnRptClosedEsc_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabEscReport;
-            GV.MODE = Mode.LabEscReport;
+            GV.EscForm.ChangeMode(Mode.LabEscReport);
             List<LabEscModel> models = CommonOps.GetReportData("E", "C");
             ListModels(models);
         }
 
         private void btnRptOpenReq_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabEscReport;
-            GV.MODE = Mode.LabEscReport;
+            GV.EscForm.ChangeMode(Mode.LabEscReport);
             List<LabEscModel> models = CommonOps.GetReportData("L", "I");
             ListModels(models);
         }
 
         private void btnRpeClosedReq_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabEscReport;
-            GV.MODE = Mode.LabEscReport;
+            GV.EscForm.ChangeMode(Mode.LabEscReport);
             List<LabEscModel> models = CommonOps.GetReportData("L", "C");
             ListModels(models);
         }
@@ -316,7 +314,7 @@ namespace Schedule_Database_Desktop_Version
 
         private void btnRestore_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabEscRestore;
+            GV.EscForm.ChangeMode(Mode.LabEscRestore);
             Parent.prepareDeleteRestore();
         }
         private List<LabEscModel> GetModels(string status, string recType)
@@ -354,16 +352,14 @@ namespace Schedule_Database_Desktop_Version
         }
         private void btnCanceledEscalations_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabEscReport;
-            GV.MODE = Mode.LabEscReport;
+            GV.EscForm.ChangeMode(Mode.LabEscReport);
             List<LabEscModel> models = CommonOps.GetReportData("E", "X");
             ListModels(models);
         }
 
         private void btnCanceledLabReq_Click(object sender, EventArgs e)
         {
-            GV.MODE = Mode.LabEscReport;
-            GV.MODE = Mode.LabEscReport;
+            GV.EscForm.ChangeMode(Mode.LabEscReport);
             List<LabEscModel> models = CommonOps.GetReportData("L", "X");
             ListModels(models);
         }

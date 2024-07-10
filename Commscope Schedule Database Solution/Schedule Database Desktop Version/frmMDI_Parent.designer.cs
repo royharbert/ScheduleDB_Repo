@@ -349,7 +349,6 @@ namespace Schedule_Database_Desktop_Version
             this.openItemsByDateDueToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
             this.openItemsByDateDueToolStripMenuItem.Tag = "2";
             this.openItemsByDateDueToolStripMenuItem.Text = "All Items by Due Date";
-            this.openItemsByDateDueToolStripMenuItem.Click += new System.EventHandler(this.openItemsByDateDueToolStripMenuItem_Click);
             // 
             // inProcessToolStripMenuItem
             // 
