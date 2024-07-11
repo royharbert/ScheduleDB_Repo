@@ -247,31 +247,12 @@ namespace Schedule_Database_Desktop_Version
         private void frmAMDI_Parent_Load(object sender, EventArgs e)
         {
             checkHolidaySched();
-            //frmLabEsc escForm = new frmLabEsc();
-            //frmInput inputForm = new frmInput();
             DashboardRefresh();
-            //GV.inputForm = inputForm;
-            //GV.inputForm.InputDataReady += InputID_InputDataReady;
-            //GV.EscForm = escForm;
             GV.EscForm.fillComboBoxes();
             GV.EscForm.FillProductList();
             GV.EscForm.Show();
-            //PrepLabEscForm(GV.EscForm);
             GV.EscForm.Hide();
         }
-
-        //private async Task PrepLabEscForm(frmLabEsc eForm)
-        //{
-        //    await Task.Run(() => showForm(eForm));
-        //}
-
-        //private int showForm(frmLabEsc eForm)
-        //{
-        //    eForm.Show();
-        //    GV.EscForm.Hide();
-        //    return 1;
-        //}
-
 
         private void holidaysListToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -30,8 +30,8 @@ namespace ScheduleDatabaseClassLibrary
             DateTime today = DateTime.Now.Date;
             TimeFrameModel timeFrame = new TimeFrameModel();
             List<LabEscModel> allItems = GlobalConfig.Connection.GenericGetAll<LabEscModel>("tblEscalations", "EscID");
-            List<LabEscModel> escalationsList = allItems.Where(x => x.RecordType == "AT Escalation").ToList();
-            List<LabEscModel> requestsList = allItems.Where(x => x.RecordType == "Lab Request").ToList();
+            List<LabEscModel> escalationsList = allItems.Where(x => x.RecordType == "AT Escalation" && x.DateOpened >= timeFrame.NewYearsDay).ToList();
+            List<LabEscModel> requestsList = allItems.Where(x => x.RecordType == "Lab Request" && x.DateOpened >= timeFrame.NewYearsDay).ToList();
             allItems = null;
 
             this.EscalationsOpenedYTD = escalationsList.Where(x => x.DateOpened >= timeFrame.NewYearsDay 
