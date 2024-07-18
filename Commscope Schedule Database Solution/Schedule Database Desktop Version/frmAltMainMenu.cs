@@ -374,5 +374,26 @@ namespace Schedule_Database_Desktop_Version
         {
             DashboardRefresh();
         }
+
+        private void btnAllStats_Click(object sender, EventArgs e)
+        {
+            GV.EscForm.ChangeMode(Mode.LabEscReport);
+            List<LabEscModel> models = CommonOps.GetReportData("*", "*");
+            ListModels(models);
+        }
+
+        private void btnAllClosed_Click(object sender, EventArgs e)
+        {
+            GV.EscForm.ChangeMode(Mode.LabEscReport);
+            List<LabEscModel> models = CommonOps.GetReportData("*", "C");
+            ListModels(models);
+        }
+
+        private void btnAllCanceled_Click(object sender, EventArgs e)
+        {
+            GV.EscForm.ChangeMode(Mode.LabEscReport);
+            List<LabEscModel> models = CommonOps.GetReportData("*", "X");
+            ListModels(models);
+        }
     }
 }
